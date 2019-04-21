@@ -1,0 +1,251 @@
+%\pdfoutput=1
+%% portamana161009-einstein_from_newton.tex --- 
+%% 
+%% Author: PGL  Porta Mana
+%% Created: 2016-10-07T23:51:28+0200
+%% Last-Updated: 2016-10-12T13:06:25+0200
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Report-no: ***
+\newcommand*{\memfontfamily}{zplx}
+\newcommand*{\memfontpack}{newpxtext}
+\documentclass[10pt,%extrafontsizes,%
+%dvips,% comment this for arXiv
+onecolumn,oneside,a5paper,article,frenchb,italian,german,swedish,latin,british%
+%,draft%***
+%,final%
+]{memoir}
+
+\newcommand*{\pdftitle}{Einstein's equations from a Newtonian perspective}
+\newcommand*{\headtitle}{\pdftitle}
+\newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
+\newcommand*{\headauthor}{\autanet\ Porta Mana}
+\newcommand*{\reporthead}{}
+
+%%% Call to the various packages, most of them in bringhurst3.sty %%%
+%\usepackage[25-31,files]{pagesel}
+\usepackage[%nomicrotype,%
+%nosum,%
+%nomathpazo% loads mathpazo - Palatino text & math
+%,noosf% no old-style figures
+%,fakesc,%,
+%noeugreek,% no greek letters in Euler font
+%,nooptima% no Zapf's Optima font as sans serif
+%,noitsans% no math sans serif in italic
+%,nolmodern% use Latin Modern instead of CM
+%,noeucal%
+%,commadec% print a comma as dec separator when . is used
+%,ttassf% sans serif instead of typewriter font
+%,bb% blackboard letters for naturals, integers, reals, etc.
+datetime]{bringhurst3}
+
+%%%% Paper's details %%%%
+\title{\pdftitle%***
+}
+\author{%
+%\hspace*{\stretch{1}}\protect\makebox[0pt][c]%
+%{\firstname{***}\ \surname{***}}%
+%\hspace*{\stretch{1}}\protect\makebox[0pt][c]%
+{\firstname{P.G.L.}\ \surname{Porta\,Mana}}%
+%\hspace*{\stretch{1}}%
+\\[2\jot]%
+\affiliation{INM-6, Forschungszentrum Jülich, Germany}
+%\\[2\jot]%
+\quad
+\epost{\email{piergianluca}{portamana.org}}%
+}
+
+\date{Draft of \mydate\today\ (first drafted 9 October 2016)}
+
+%@@@@@@@@@@@@@@@@@@@@@@@ new commands @@@@@@@@@@@@@@@@@@@@@
+\definecolor{notecolour}{RGB}{68,170,153}
+\newcommand*{\mynote}[1]{ {\color{notecolour}\maltese\ #1}}
+%\DeclareMathOperator{\artanh}{artanh}
+%\DeclareMathOperator{\nabnab}{\bm{\nabla\nabla}}
+%\newcommand*{\nabnab}{\mathord{\bm{\nabla}\otimes\bm{\nabla}}}
+\newcommand*{\yK}{\mathte{K}}
+\newcommand*{\yh}{\mathte{h}}
+\newcommand*{\yR}{\mathte{R}}
+\newcommand*{\yT}{\mathte{T}}
+\newcommand*{\yp}{\bm{p}}
+\newcommand*{\yr}{\rho} %volumic mass
+\newcommand*{\yv}{\bm{v}} %veloc
+\newcommand*{\yb}{\bm{b}} %body force
+\newcommand*{\yu}{u} %mass energy
+\newcommand*{\yq}{\bm{q}} % areic heat flow rate (q)
+\newcommand*{\yQ}{Q} %massic heat flow rate (Q) (phi)
+\newcommand*{\yte}{\varTheta} %temp T Theta
+\newcommand*{\ys}{s} % mass entropy
+\providecommand{\diad}{}\renewcommand*{\diad}{\otimes}
+
+%@@@@@@@@@@@@@@@@@@@@@@@ new commands end @@@@@@@@@@@@@@@@@
+
+\firmlists
+\begin{document}
+\captiondelim{\quad}\captionnamefont{\footnotesize}\captiontitlefont{\footnotesize}
+\selectlanguage{british}\frenchspacing
+
+%%% Title and abstract %%%
+\maketitle
+\myabstract
+\begin{abstract}\labelsep 0pt%
+\noindent ***
+\par%\\[\jot]
+\noindent\pacs{***}\qquad\msc{***}
+\end{abstract}
+
+\selectlanguage{british}\frenchspacing
+%\asudedication{to ***}
+%\setlength{\epigraphwidth}{.7\columnwidth}
+%\setlength{\epigraphrule}{0pt}
+%\epigraph{}
+
+\section{Introduction}
+\label{sec:introduction}
+
+\iffalse
+The 3+1 decomposition of G=T yields an evolution equation and two constraint equations. The latter should, in principle, be enforced on all 3-folia of the evolution. The question is whether they can be enforced on the initial folium only, and be automatically propagated in the evolution.
+
+One can prove that the constraints are automatically propagated if (and only if?) the Bianchi equations hold for G-T. Now, the Bianchi equations can be made to hold in two ways: either enforcing D.T=0 (since D.G=0 by construction), or enforcing G=T. But the latter requires the constraints to be enforced on all folia. Hence we must choose D.T=0.
+
+So, if I've understood correctly, we don't need to include the evolution equations D.T=0 if we're willing to enforce the constraints on each folium (which is computationally more expensive in a simulation).
+
+This seems to make sense from a discrete point of view: given the 3-metric, extrinsic curvature, and matter fields at time t, the evolution equation and the definition of extrinsic curvature yield the 3-metric and extrinsic curvature at t+dt. These can be used in the constraint equations at t+dt to obtain the matter fields at t+dt. And the iteration repeats. If we don't want to use the constraints at t+dt we must find another way of determining the matter fields at t+dt, i.e. by using D.T=0 (which can itself be obtained by combining the "time derivative" of the constraints with the evolution equation).
+\fi
+
+
+* If space metric and chronometry are influenced by matter, then all “rates
+of change” are determined by matter.
+
+* Rate of change of momentum reinterpreted as inertial force (Mach)
+
+* “Motion” is not clear any longer. Topologically we can consider a bulk of
+matter as static and the metric among its elements as changing, or vice
+versa.
+
+* The problem is that only the relations of the geometrical objects with
+respect to one another is observable; but such relations are not all
+arbitrary, there are constraints among them. In Newtonian mechanics we use
+a reference frame -- a \emph{rigid} body -- to find a compact description
+that gets rid of the constraints
+\cite{zanstra1922,zanstra1923,zanstra1924,zanstra1946,barbour2010}. In
+general relativity there is no “rigidity” and we have more choice.
+
+* Do the equations for the metric have constitutive parts?
+
+* If mass is twisted 3-form, then (analogously to displacement current)
+gravitational potential must be related to a twisted 2-form
+\cite[ch.~V, pp.~192--195]{kottler1922,whittaker1953}. Then is there an
+equivalent “magnetic field strength” that relates to momentum?
+\begin{gather}
+  \di m =0, \qquad \de_t\rho+\di j =0,
+  \\
+  \di F = \rho, \qquad \de_t F + \di H = j
+\end{gather}
+
+* Extrinsic curvature can be understood (kinematically) as the
+time-derivative of 3-metric (no Einstein eqns needed).
+
+Setting lapse $\alpha=1$ and shift $\beta=0$:
+\begin{gather}
+  \de_t \yh=-2 \yK \cdot \yh
+  \\
+  \de_t \yK = 
+  \yR + \yK\tr \yK  + 4\pu (\tr \yT - E -2 \yT)
+  \\
+  \tr\yR + (\tr \yK)^2 - \yK \con \yK = 16\pu E
+  \\
+  \nabl\cdot \yK - \nabl\tr \yK = 8\pu \yp
+\end{gather}
+the second should come from
+\begin{equation}
+  \de_t (\yK\cdot \yh) =
+  \yR\cdot \yh + \yh\cdot \yK\tr \yK -2 \yh\cdot \yK\cdot \yK + 4\pu [\yh(\tr \yT - E) -2
+  \yT\cdot \yh)
+\end{equation}
+
+\begin{gather}
+  \de_t \yp =\tfrac{1}{8\pu}
+  (\nabl\cdot\yR  -\de_t\nabl\tr\yK + \tr\yK\,\nabl\cdot\yK)
+  +\tfrac{1}{2}\nabl\tr\yT -\tfrac{1}{2}\nabl E -\nabl\cdot\yT
+  \\
+  \de_t \yp -\yp\tr\yK=\tfrac{1}{8\pu}
+  [\nabl\cdot\yR  -\de_t\nabl\tr\yK + \tfrac{1}{2}\nabl(\tr\yK)^2]
+  +\tfrac{1}{2}\nabl\tr\yT -\tfrac{1}{2}\nabl E -\nabl\cdot\yT  
+\end{gather}
+
+
+\begin{subequations}\label{eq:balances}
+  \begin{align}
+    \label{eq:mass_bal}
+    &\de_t \yr + \nabla\cdot(\yr\yv) =0 , \\\label{eq:mom_bal}
+    % \nabla\cdot\yT + \yb - \yr\de_t\yv -\yr \yv\nabla\cdot\yv =0,
+    & \de_t(\yr\yv) + \nabla\cdot(\yr\yv\diad\yv)
+- \nabla\cdot\yT - \yr\yb  =0,
+    \\\label{eq:spin_bal} 
+    &\yT\T - \yT =0, \\\label{eq:en_bal}
+     &\de_t(\yr\yu) +
+\nabla\cdot(\yr\yv\yu) -
+\yT:\nabla\yv 
+       +\nabla\cdot\yq +\yr\yQ =0,
+       \\
+&
+\begin{multlined}[b][.9\columnwidth]
+ \de_t\bigl(\yr\yu +\tfrac{1}{2}\yr\yv^2\bigr) +
+\nabla\cdot\bigl(\yr\yv\yu
+  +\tfrac{1}{2}\yr\yv\yv^2\bigr) -{}\\
+\nabla\cdot(\yT\cdot \yv) -\yr\yb\cdot\yv
+  -\nabla\cdot\yq -\yr\yQ =0,
+\end{multlined}
+\\\label{eq:ent_bal} 
+&\de_t(\yr \ys) + 
+    \nabla\cdot(\yr\yv\ys) - \nabla\cdot(\yq/\yte) - \yr\yQ/\yte \ge 0.
+  \end{align}
+\end{subequations}
+
+\iffalse
+\begin{figure}[!b]
+\centering
+\includegraphics[width=0.4\columnwidth]{***}%
+\caption{***}
+\label{***}
+\end{figure}
+\fi
+
+\clearpage
+
+\begin{acknowledgements}
+  Many thanks to Mari \amp\ Miri for continuous encouragement and affection,
+  to Buster for filling life with awe and inspiration, and to the
+  developers and maintainers of \LaTeX, Emacs, AUC\TeX, MiK\TeX, arXiv,
+  biorXiv, PhilSci, Hal archives, Python, Inkscape, Sci-Hub for making a
+  free and unfiltered scientific exchange possible.
+%\rotatebox{15}{P}\rotatebox{5}{I}\rotatebox{-10}{P}\rotatebox{10}{\reflectbox{P}}\rotatebox{-5}{O}.
+\sourceatright{\autanet}
+\end{acknowledgements}
+
+%\appendixpage
+%\appendix
+
+%%%%%%%%%%%%%%% BIB %%%%%%%%%%%%%%%
+
+\defbibnote{postnote}{\small\par\medskip\noindent{\footnotesize% Note:
+\arxivp \mparcp \philscip \biorxivp}%
+}
+
+\newcommand{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
+}
+\newcommand{\citebi}[2][]{ref.\ \citep[#1]{#2}%\addtocategory{extras}{#2}
+}
+
+\printbibliography[postnote=postnote]
+
+
+\end{document}
+---------- cut text ----------------
+
+
+%%% Local Variables: 
+%%% mode: LaTeX
+%%% TeX-PDF-mode: t
+%%% TeX-master: t
+%%% End: 

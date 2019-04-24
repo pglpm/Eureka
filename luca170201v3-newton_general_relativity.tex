@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2019-04-22T00:40:00+0200
+%% Last-Updated: 2019-04-24T17:28:56+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -640,7 +640,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\DeclareMathOperator{\Li}{L}
 \newcommand*{\Li}{\mathrm{L}}
 \newcommand*{\tw}{\mathord{\scalerel*{\circlearrowleft}{\star}}}
-\newcommand*{\ydd}{m}
+\newcommand*{\ydd}{\rho}
 \newcommand*{\yd}{\ydd}
 \newcommand*{\yrr}{M}
 \newcommand*{\yr}{\bm{\yrr}}
@@ -657,7 +657,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ytn}{t_{\textrm{a}}}
 \newcommand*{\ycc}{u}
 \newcommand*{\yc}{\bm{\ycc}}
-\newcommand*{\yjj}{p}
+\newcommand*{\yjj}{\pi}
 \newcommand*{\yj}{\bm{\yjj}}
 \newcommand*{\yQ}{h}
 \newcommand*{\yqq}{q}
@@ -708,7 +708,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yK}{\mathte{\yKK}}
 \newcommand*{\yRR}{R}
 \newcommand*{\yR}{\mathte{\yRR}}
-\newcommand*{\ypp}{j}
+\newcommand*{\ypp}{p}
 \newcommand*{\yp}{\bm{\ypp}}
 \newcommand*{\yeen}{e}
 \renewcommand*{\yen}{\bm{\yeen}}
@@ -1884,7 +1884,7 @@ equations
     \de_t \yg &= -2\yK\cdot\yg,
     \\
     \label{eq:dt_curvat}
-    \de_t \yK &=  \yK\tr\yK + \yR\cdot\yg^{-1} + 4\pu\,(\tr\yT-\ye) - 8\pu\yT,
+    \de_t \yK &=  \yK\tr\yK -2 \yK\cdot\yK +\yR\cdot\yg^{-1} + 4\pu\,(\tr\yT-\ye) - 8\pu\yT,
   \end{align}
 \end{subequations}
 and the constraint equations
@@ -1912,9 +1912,12 @@ To these equations we must add the mass balance, equivalent to
 \eqn~\eqref{eq:mass_balance_traditional}:
 \begin{equation}
   \label{eq:mass_balance_gen-rel}
-  \de_t\yd = - \di\yj.
+  \de_t\yd = - \di\yj
+  \qquad\text{or}\qquad
+  \de_t\yd -\tr\yK\yd = -\ynab\cdot\yj,
 \end{equation}
-In these expressions $\de_t \equiv \Li_{\yn}$.
+where in the second equation $\yd$ and $\yj$ are interpreted as a scalar
+and a vector. In these expressions $\de_t \equiv \Li_{\yn}$.
 
 This gives us a total of 6 + 6 + 1 + 3 + 1 real-component equations for a
 total of 6 + 6 + 6 + 1 + 3 + 1 + 3 + 1 real components of the fields $\yg$,
@@ -1961,9 +1964,12 @@ energy:
     \de_t \ye &= \ye\tr\yK - \yg^{-1}\con\ynab\yp + \yK\con\yT
     \\
     \label{eq:dt_momentum}
-    \de_t \yp &=  \yp\tr\yK - \ynab\cdot\yT\T,
+    \de_t \yp &=  \yp\tr\yK - \ynab\cdot\yT\T.
   \end{align}
 \end{subequations}
+In these equations the convection terms, usually kept separate in the
+Newtonian case, are included in $\yp$ and $\yT\T$. The terms proportional
+to $\tr\yK$ are absent in the Newtonian case.
 
 The reason for using the divergence equation $\ynaf\cdot\yTf = 0$ is
 clearly explained by Frittelli \citey{frittelli1997} (the only work I've

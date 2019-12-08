@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2019-04-24T17:28:56+0200
+%% Last-Updated: 2019-04-26T13:55:37+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -657,7 +657,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ytn}{t_{\textrm{a}}}
 \newcommand*{\ycc}{u}
 \newcommand*{\yc}{\bm{\ycc}}
-\newcommand*{\yjj}{\pi}
+\newcommand*{\yjj}{p}
 \newcommand*{\yj}{\bm{\yjj}}
 \newcommand*{\yQ}{h}
 \newcommand*{\yqq}{q}
@@ -708,7 +708,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yK}{\mathte{\yKK}}
 \newcommand*{\yRR}{R}
 \newcommand*{\yR}{\mathte{\yRR}}
-\newcommand*{\ypp}{p}
+\newcommand*{\ypp}{q}
 \newcommand*{\yp}{\bm{\ypp}}
 \newcommand*{\yeen}{e}
 \renewcommand*{\yen}{\bm{\yeen}}
@@ -963,16 +963,16 @@ representatives:
   \\
   \label{eq:contraction_projection}
   (\yvh, \yvw) \cdot (\yah, \yaw) =
-  (-\yvw \cdot \yah, \yvw \cdot \yaw + \yvh \cdot \yah)
+  (-\yvw \cdot \yah-\yvh \cdot \yaw, \yvw \cdot \yaw + \yvh \cdot \yah).
 \end{gather}
+In the last expression only one term in $-\yvw \cdot \yah-\yvh \cdot \yaw$
+is different from zero, depending on the relative orders of the form
+$\alpha$ and of the vector $v$. If they have the same order, the full
+term vanishes.
 
+\section{Matter}
+\label{sec:matter}
 
-\section{Mass}
-\label{sec:mass}
-
-Mass is the first piece of thread that we'll try to pull. 
-
-\medskip
 
 Newtonian continuum mechanics is based on the notions of \emph{body} and
 \emph{mass}, traditionally introduced as separate mathematical objects.
@@ -994,9 +994,24 @@ manifold, with its usual conservation property. In both Newtonian
 typically introduced intertwined with the metric \citep[being an
 exception]{carteretal1972}.
 
-But it turns out that mass and body can be introduced at a single stroke
-\citep[\cf][]{carteretal1972}, as two aspects of the same entity, and
-without a metric. The idea is analogous to that of charge
+Mass can be considered as a property of matter in relation to
+gravito-inertial forces, both in Newtonian and general relativistic
+mechanics. If we aim to establish a kinematic of matter independently of
+any kind of forces and metric, we must then adopt a more general measure of
+the \enquote{amount} of matter, relinquishing mass. This step is also
+strongly suggested by stoichiometry and by the study of how different forms
+of matter are converted into one another
+\citep[\eg][\sects~4.1--2]{samohyletal1987_r2014}[see
+also][]{samohyl1975b}. We are considering this step independently of
+particle theories, which call this \enquote{amount} the baryon number; in
+fact we consider a general, continuous \enquote{amount} of matter. We can
+call this amount the \enquote{moles}, following \textsc{iso} standards
+\citep{iso2009,iso2009d}.
+
+It turns out that the notions of body and amount of matter can be
+introduced at a single stroke \citep[\cf][]{carteretal1972}, as two aspects
+of the same entity, and without a metric. The idea is analogous to that of
+charge
 \cites{burke1983,bossavit1998b,hehletal2000}[\sect~B.1]{hehletal2003}.
 
 This beautiful representation is by a closed, outer-oriented 3-form $\yr$,
@@ -1027,10 +1042,10 @@ Note that by \enquote{matter} I mean something which possesses mass, and
 I'm thus excluding the electromagnetic field, for example, which is often
 considered as matter in general relativity.
 
-If we were to include a theory
-of mixtures \citep[\eg][app.~5B]{truesdell1969_r1984}, we would represent
-different substances by different matter 3-forms, which could also coexist
-in the same spacetime region.
+If we were to include a theory of mixtures
+\citep[\eg][app.~5B]{truesdell1969_r1984}, we would represent different
+substances by different matter 3-forms, which could coexist in the same
+spacetime region.
 
 
 The matter 3-form $\yr$ provides a frame $\yn$ wherever it doesn't vanish.
@@ -1049,8 +1064,8 @@ cannot be used to define time lapse or distance, owing to its purely
 differential-geometric nature.
 
 The matter 3-form of a body can also be used to define a volume element on
-each slice, by decreeing that each unit of mass of that body occupies a
-unit volume.
+each slice, by decreeing that each unit amount of matter of that body
+occupies a unit volume.
 
 Once we have a slicing $t$ and a frame $\yF$, we can project the matter
 3-form:
@@ -1087,16 +1102,17 @@ condition.
 
 The outer-oriented 3-form $\yd$ is a density when it's restricted to a
 slice. It corresponds to \enquote{$\rho\di\bm{\tau}$}, where
-\enquote{$\rho$} is mass density (mass/volume) and {$\di\bm{\tau}$} a
-volume element. Thus its unit of measure is mass. The outer-oriented 2-form
-$\yj$ is related -- but doesn't correspond -- to \enquote{$\rho\bm{v}$},
-where {$\bm{v}$} is the traditional velocity (length/time). This product is
-the traditional momentum, which is identical with mass flux in continuum
-mechanics. But, as we'll see, we have to  keep these two notions distinct.
-The 2-form $\yj$ is mass-flux, but not momentum.
+\enquote{$\rho$} is matter density (amount/volume) and {$\di\bm{\tau}$} a
+volume element. Thus its unit of measure is moles. The outer-oriented
+2-form $\yj$ is related -- but doesn't correspond -- to
+\enquote{$\rho\bm{v}$}, where {$\bm{v}$} is the traditional velocity
+(length/time). This product is the traditional momentum divided by mass,
+which is identical with mole flux in continuum mechanics. But, as we'll
+see, we have to keep these two notions distinct. The 2-form $\yj$ is
+matter-flux, but not momentum.
 
 With the projections~\eqref{eq:project_matter_form} and the expression for
-the differential~\eqref{eq:d_projection}, the mass
+the differential~\eqref{eq:d_projection}, the mole
 balance~\eqref{eq:mass_density_closed_three_form} can be expressed as
 \begin{equation}
   \label{eq:mass_balance_traditional}
@@ -1106,7 +1122,8 @@ since $\di\yd\equiv 0$ on a slice by construction. This simple, metric-free
 formula should be compared with the one involving the covariant derivative
 or several metric volume elements when matter flow is expressed by a
 1-vector or a 1-form instead \citep[\eg][\eqn~(7.205), \sect~7.3,
-p.~361]{rezzollaetal2013}.
+p.~361]{rezzollaetal2013}[\eqn~(6.47), \sect~6.3.2,
+p.~110]{gourgoulhon2007_r2012}.
 
 By specifying a slicing, a frame, and a matter 3-form, we are specifying a
 differential-geometric kinematics. We're only short of a time lapse and a
@@ -1117,7 +1134,7 @@ kinematic.
 \medskip
 
 We have here pulled the following piece of thread: mathematically defining
-mass as a three-form, with its
+matter as a three-form, with its
 conservation~\eqref{eq:mass_density_closed_three_form} or
 \eqref{eq:mass_balance_traditional}. This seems to be most natural and
 convenient: metric-free and valid in both Newtonian and general relativity.
@@ -1206,11 +1223,10 @@ of this vector along the trajectory of the point mass, we obtain the work
 made by the force on the mass. In continuum mechanics this picture becomes
 more complex. We deal with extended bodies, and the total force on a body
 or on part thereof is obtained by integrating two kinds of forces:
-\emph{bulk forces}, also called body forces, which act on a mass or volume
-element and must be integrated over a three-dimensional region, and
-\emph{surface forces}, also called contact forces, which act on an area
-element of the body's surface and must be integrated over a two-dimensional
-region.
+\emph{bulk forces}, also called body forces, which act on a volume element
+and must be integrated over a three-dimensional region, and \emph{surface
+  forces}, also called contact forces, which act on an area element of the
+body's surface and must be integrated over a two-dimensional region.
 
 Let's see what kind of geometric representation these operations suggest.
 
@@ -1218,12 +1234,10 @@ The fact that a force is to be integrated over a line to obtain work
 suggests that it's better viewed as a \emph{covector-valued} object, ready
 to be integrated over a line without the need of a scalar product
 \cites[\sect~12]{burke1995}[\sect~VII.2]{schouten1951}[\sect~2]{vandantzig1954}[\chaps~VI--VII]{burke1985_r1987}[\chap~7]{bambergetal1988_r1990}.
-Let's adopt this representation for the moment, although we'll see later
-that a different one may be more appropriate.
 
 If a bulk force is to be integrated over a volume, then it should be a
 covector-valued, outer-oriented 3-form. If we think of it as operating on a
-mass element (outer-oriented 3-form) instead, then it should be a
+matter element (outer-oriented 3-form) instead, then it should be a
 covector-valued, outer-oriented 3-vector. Here we see the core of one of
 the questions of \sect~\ref{sec:soup}: are we to interpret forces as
 \enquote{acting} on matter? or as entities that can exist where there's no
@@ -1315,12 +1329,12 @@ and has today a crystal-clear, yet far from finished, method and structure:
 \item For this description it uses five fundamental balance laws and a set
   of nine physical quantities:
   \begin{itemize}
-  \item balances: mass, force, torque, energy, entropy;
-  \item quantities: mass, displacement, temperature, stress,
+  \item balances: mole, force, torque, energy, entropy;
+  \item quantities: mole, displacement, temperature, stress,
     internal energy, heating flux, entropy, body force, body heating.
   \end{itemize}
   The quantities and balances above are postulated to apply to any kind of
-  matter or substance. Mass, displacement, temperature are independent
+  matter or substance. Mole, displacement, temperature are independent
   quantities. Body force and body heating must be given in any particular
   problem and express the effect of the surroundings The remaining are
   dependent quantities.
@@ -1331,7 +1345,7 @@ and has today a crystal-clear, yet far from finished, method and structure:
   initial and boundary conditions yield a well-posed system of
   integro-differential equations. Specifically, the constitutive equations
   give stress, internal energy, heating flux, and entropy as functionals of
-  mass, displacement, temperature. The difference between al kinds of
+  mole, displacement, temperature. The difference between al kinds of
   liquids, gases, solid, plasmas resides in the constitutive equations.
   
   Sometimes internal energy is taken and independent, and temperature as
@@ -1383,16 +1397,21 @@ characteristics:
 Owing to the first characteristic, many geometers
 \citep{vandantzig1954,burke1980b,burke1985_r1987,burke1995,bossavit1991,bossavit1998b,hehletal1999,hehletal2003}
 have advocated the representation of force as a covector. Their arguments
-are valid and geometrically beautiful, and therefore we assume for the
-moment that forces are covector-valued objects.
+are geometrically beautiful. Further consideration of geometry, however,
+leads to a still different representation. The reason is that velocity is a
+frame-dependent object. If we represent forces as covectors, we're then
+supposing that a frame-independent object should be applied to a
+frame-dependent one, which feels geometrically unsatisfying. There is a way
+out. Instead of the velocity of matter we can consider its flow,
+represented by the matter 3-form $\yr$. On a 3-surface its current is
+represented by the flux 2-form $\yj$. We can let a force operate on this
+flux, rather than on the velocity. Then a force has to be represented by a
+2-vector rather than a 1-covector. The 2-form flux still depends on a
+choice of frame, but this point of view can be generalized to four
+dimensions in a frame-independent way.
 
-Note, however, that the covector-valued conception of force is
-geometrically unsatisfying, because velocity is a frame-dependent object.
-Later on I will use a frame-indifferent notion more primitive than
-velocity.
-
-The second characteristic says that a body force must be a covector-valued
-outer-oriented 3-form, while a surface force a covector-valued
+The second characteristic says that a body force must be a 2-vector-valued
+outer-oriented 3-form, while a surface force a 2-vector-valued
 outer-oriented 2-form.
 
 The total force on a body is the integral of the body forces over its
@@ -1424,7 +1443,7 @@ of the surface forces by $\yT$, the \emph{balance of forces} states that
   \int_{\yvo} \yb + \oint_{\de\yvo} \yT = 0 \qquad\forall \yvo
 \end{equation}
 for each outer-oriented closed 3-volume $\yvo$ within a slice. Note that the
-result of the integration is a 1-form, not a scalar. The local version of
+result of the integration is a 2-vector, not a scalar. The local version of
 the balance is
 \begin{equation}
   \label{eq:force_balance_ecd_local}
@@ -1488,7 +1507,7 @@ direction along the elongation. This is a complete description of the
 force, and the notion of frame is completely irrelevant to it. Similarly
 for the gravitational force: it is given by $\yd\otimes\yfg$, where $\yfg$
 is a frame-indifferent covector field. This field is in turn determined by
-the mass distribution via $\di\yfg = - 4\pu G \yd$, again a
+the mole and mass distribution via $\di\yfg = - 4\pu G \yd$, again a
 frame-indifferent definition.
 
 The momentum density $\yd\yvt$ on left-hand side of
@@ -1862,11 +1881,11 @@ conceptual; we therefore use the simplest lapse and shift.
 
 The decomposed Einstein equations can be found compactly written in a
 number of texts
-\cites[\sect~1.3]{wilsonetal2003_r2007}[\sect~4.3.2]{gourgoulhon2007}[\chap~2]{alcubierre2008}[\sect~7.2.2]{rezzollaetal2013}.
+\cites[\sect~1.3]{wilsonetal2003_r2007}[\sect~4.3.2]{gourgoulhon2007_r2012}[\chap~2]{alcubierre2008}[\sect~7.2.2]{rezzollaetal2013}.
 The decomposition of the Einstein tensor $\yG$ yields the 3-metric
 $\yg=(\ygg_{ab})$ of the 3-surfaces, having inverse $\yg^{-1}=(\ygg^{ab})$,
 with its compatible connection $\ynab$ having Ricci curvature
-$\yR=(\yRR_{ab})$, and the extrinsic curvature $\yK=({\yKK_a}^b)$ of the
+$\yR=({\yRR_a}^b)$, and the extrinsic curvature $\yK=({\yKK_a}^b)$ of the
 3-surfaces. The decomposition of the energy-stress tensor $\yTf$ yields the
 internal energy $\ye$, energy flux $\yp$, and spatial stress
 $\yT=({\yTT_a}^b)$:
@@ -1876,7 +1895,7 @@ $\yT=({\yTT_a}^b)$:
   \otimes(\yp\cdot\yg^{-1}) + \yT.
 \end{equation}
 
-The Einstein equations $\yG = 8\pu\yTf$ are decomposed into the evolution
+The Einstein equations $\yG = \yTf$ are decomposed into the evolution
 equations
 \begin{subequations}\label{eq:evolution_eqns}
   \begin{align}
@@ -1884,17 +1903,30 @@ equations
     \de_t \yg &= -2\yK\cdot\yg,
     \\
     \label{eq:dt_curvat}
-    \de_t \yK &=  \yK\tr\yK -2 \yK\cdot\yK +\yR\cdot\yg^{-1} + 4\pu\,(\tr\yT-\ye) - 8\pu\yT,
+    \de_t \yK &=  \yK\tr\yK -2 \yK\cdot\yK +\yR + \tfrac{1}{2}(\tr\yT-\ye) - \yT
+  \end{align}
+\end{subequations}
+or
+\begin{subequations}\label{eq:evolution_eqns2}
+  \begin{align}
+    \label{eq:dt_metric2}
+    \de_t \yg &= -2\yK\cdot\yg
+    \\
+    \label{eq:dt_curvat2}
+    \de_t \yK &=  \yK\tr\yK-\tfrac{1}{4}(\tr\yK)^2
+                -2 \yK\cdot\yK + \tfrac{1}{4}\yK\con\yK
+                +\yR -\tfrac{1}{4}\tr\yR
+                -\yT+ \tfrac{1}{2}\tr\yT
   \end{align}
 \end{subequations}
 and the constraint equations
 \begin{subequations}\label{eq:constraint_eqns}
   \begin{align}
     \label{eq:energy_constraint}
-    16\pu\ye &= (\tr\yK)^2 - \yK\con\yK + \yR\con\yg^{-1},
+    \ye &=\tfrac{1}{2}\bigl[(\tr\yK)^2 - \yK\con\yK + \tr\yR\bigr]
     \\
     \label{eq:momentum_constraint}
-    8\pu\yp &= \ynab\cdot(\yK\T - \yI\tr\yK).
+    \yp &= \ynab\cdot(\yK\T - \yI\tr\yK)
   \end{align}
 \end{subequations}
 Note that
@@ -1959,13 +1991,13 @@ shows in fact the appearance of the time-derivative of $\yp$ and the
 divergence of the 3-stress. A similar combination yields the balance of
 energy:
 \begin{subequations}\label{eq:evolution_energy_momentum}
-  \begin{align}
+  \begin{gather}
     \label{eq:dt_energy}
-    \de_t \ye &= \ye\tr\yK - \yg^{-1}\con\ynab\yp + \yK\con\yT
+    \de_t \ye - \ye\tr\yK + \ynab\cdot\yp - \yK\con\yT =0
     \\
     \label{eq:dt_momentum}
-    \de_t \yp &=  \yp\tr\yK - \ynab\cdot\yT\T.
-  \end{align}
+    \de_t \yp -  \yp\tr\yK + \ynab\cdot\yT\T =0.
+  \end{gather}
 \end{subequations}
 In these equations the convection terms, usually kept separate in the
 Newtonian case, are included in $\yp$ and $\yT\T$. The terms proportional
@@ -2727,7 +2759,7 @@ of the relationships between geometry, matter, and gravitation:
   \citey{vandantzig1934,vandantzig1934b,vandantzig1934c,vandantzig1934d,vandantzig1934e,vandantzig1937,schoutenetal1940,vandantzig1954}.
 
   Mass density, mass flux, and the balance of mass are one example, as we
-  saw in \sect~\ref{sec:mass}. Most literature instead
+  saw in \sect~\ref{sec:matter}. Most literature instead
   \citep[\eg,][p.~171]{smarretal1980} writes the balance of mass introducing
   a metric volume element $\sqrt{\abs{g}}$ \citep[\cf][\sect~V.B.4,
   pp.~317--318]{choquetbruhatetal1977_r1996}, but the metric should play no

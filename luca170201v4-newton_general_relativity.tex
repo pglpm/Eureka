@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2019-12-09T12:47:54+0100
+%% Last-Updated: 2019-12-09T15:50:41+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -196,7 +196,7 @@ british%
 \renewcommand\sfdefault{uop}
 \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
 \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
-%\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
+\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
 % Upright sans-serif math alphabet
 % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
 % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
@@ -860,54 +860,101 @@ should place no constraints on any motion. Note that the law of
 conservation of matter doesn't place any constraints on the motion of
 matter. On the other hand, dynamics is what places such constraints. It
 should do so by introducing new geometrical objects (such as force) that
-satisfy general laws. These objects should be functionals of the kinematic
-objects; thus their laws indirectly place constraints on the kinematic
-objects.
+satisfy general laws. These objects should be functionals (constitutive
+relations) of the kinematic objects; thus their laws indirectly place
+constraints on the kinematic objects.
 
-I therefore see three alternatives for the metric:
+I therefore see four alternatives for the metric:
 \begin{enumerate}[(\roman*)]
-\item\label{item:metric_kyn_object} it's a kinematic object, like matter;
-\item\label{item:metric_kyn_structure} it isn't matter, but it's part of the
-  kinematic infrastructure, like spacetime;
-\item\label{item:metric_dyn_object} it's a dynamic object (like force);
+\item\label{item:metric_kyn_object} it's a kinematic object -- a form of
+  matter, a field (the Ether! \citep{dirac1951});
+\item\label{item:metric_kyn_structure} it isn't a form of matter, but it's
+  part of the kinematic infrastructure, like spacetime;
+\item\label{item:metric_dyn_object} it's a dynamic object, like force;
 \item\label{item:metric_dyn_structure} it isn't a dynamic object, but it's
   part of the dynamic infrastructure.
 \end{enumerate}
+Let's see what Newtonian and general relativity suggest about these alternatives.
 
-
-
+\medskip
 
 
 In Newtonian relativity, kinematics traditionally also includes
-chronometric and metric notions: it includes a distinguished time foliation
-and a distinguished flat 3-metric at each instant. This tradition is not
-unreasonable, because these foliation and 3-metrics are given and
-\enquote{inert}.
+chronometric and metric notions: a distinguished time foliation and a
+distinguished flat 3-metric at each instant. These foliation and 3-metrics
+are fixed. From this point of view they could be classified as
+\enquote{kinematic infrastructure},
+alternative~\ref{item:metric_kyn_structure} above.
 
-These foliation and 3-metrics do \emph{not} determine any natural
+Foliation and 3-metrics, however, do \emph{not} determine any natural
 isomorphism among instants -- \enquote{this place at this instant and that
-  place at that instant are the \emph{same}} -- though. Newtonian
-relativity traditionally includes also such an isomorphism, which can be
-represented by a linear connection, leading to Newton-Cartan theory
+  place at that instant are the \emph{same}}. Newtonian relativity
+traditionally includes also such an isomorphism, which can be represented
+by a linear connection, leading to Newton-Cartan theory
 \citep{cartan1923,cartan1924,cartan1925,trautman1964,trautman1966,ellis1971,kuenzle1972,earmanetal1973,ehlers1973}.
 Foliation, 3-metrics, and linear connection together represent the
 \enquote{absolute space} which \enquote{in its own nature, without relation
   to anything external, remains always similar and immovable}
 \citep[\emph{Definitions}, \emph{Scholium}]{newton1687_t1974}.
 
-But these objects -- especially the connection -- already introduce
-dynamical notions in the form of special motions: absolute rest, and
-straight lines traversed at constant speed.
+We see that these objects together do introduce dynamical notions in the
+form of special motions: absolute rest, straight lines, constant speed.
+From this point of view they seem to belong to dynamics rather than
+kinematics; the linear connection does, at the very least.
+
+In general relativity the 4-metric and its canonical linear connection are
+not fixed: there are several possible ones. In a $3+1$ formulation of the
+equations of motions, the 4-metric evolves, just like a kinematic quantity.
+Thus it could be classified as~\ref{item:metric_kyn_object} above.
+
+In both Newtonian and general relativity the metric also appear in peculiar
+places. For example, the stress of many materials, like elastic ones,
+depends on the strain, which in both relativity theories turns out to be
+the Lie derivative of the 3-metric with respect to the vector field induced
+by the matter field with respect to the time foliation
+\citep{rayner1963,carteretal1972,carter1973,barrabes1975,maugin1978}. Most
+important, the traditional dynamic equations can be made, in both theories,
+to take the form
+\begin{equation}
+  \label{eq:div_stress}
+  \nabla\cdot\textsf{\textit{T}} = 0,
+\end{equation}
+where $\textsf{\textit{T}}$ is the stress-energy-momentum tensor, which I
+call \enquote{4-stress}, and $\nabla$ is the covariant derivative with
+respect to the 4-metric. The metric thus directly enters the dynamic
+equations. The same is true if we start from the Einstein equation
+$\textsf{\textit{G}} = \textsf{\textit{T}}$ in general relativity. The
+metric's appearance in such places makes a choice between the four
+alternatives above very difficult.
 
 \medskip
 
-In general relativity the 4-metric and its canonical linear connection are
-not \emph{inert}
+The discussion above becomes even more complicated owing to two additional
+considerations and questions. First, some equations that seem to involve
+the metric can be reformulated in a metric-free way; matter conservation is
+an example. Second, the 4-metric in the standard formulation of general
+relativity allows us to speak of the \enquote{size of the universe} in an
+absolute way. This doesn't make sense if we view spacetime and distance in
+a relational way
+\citep{barbouretal1982,andersonetal2003,barbour2003,barbour2003b}. Is it
+possible that a more \enquote{relational} formulation should eliminate the
+motional degrees of freedom that the metric enjoys in general relativity?
+But we must also remember that this theory is not only meant to describe
+the universe as a whole: it can also be applied to parts of it. From this
+point of view it does makes sense that the metric should give us the
+absolute size of the region under study. Third, is it possible that metric
+could be \emph{the} dynamical object, all others being just defined in
+terms of it? Or vice versa that metric could be fully defined in terms of
+the 4-stress?
+
+I believe that much work has still to be done to disentangle the metric
+from other geometric objects, to arrive at an appealing and conceptually
+simple representation of physical ideas.
 
 
 
-Its specification, in the form of a
-linear connection
+
+
 
 
 %%%% examples use empheq

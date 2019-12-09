@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2019-12-09T01:18:57+0100
+%% Last-Updated: 2019-12-09T12:47:54+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -731,15 +731,15 @@ Our second primitive is the notion of matter, of bodies. How to represent
 it? Matter is characterized by our ability to mark a small part of it -- as
 when we draw a \enquote{$\mathord{\bigcirc}$} sign on an body, or throw
 some leaves in flowing water -- and then to follow it as it moves. It
-relates to the notions of identity and individuality. Two topological
-objects can represent these notions: an inner-oriented vector field or an
-outer-oriented 3-covector field \citep{schouten1951_r1989} (or
-\enquote{3-form}). The first can be depicted as a collection of 1D curves,
-the second as a collection of tubes with 3D cross-sections
-\citep{misneretal1970_r2003,schouten1951_r1989}. Either has the property
-that, given one event in spacetime, a unique 1D curve through it is
-selected. Either is in turn determined by such curves but only up to a
-multiplicative scalar function.
+relates to the notions of identity, individuality, permanence through time.
+Two topological objects can represent these notions: an inner-oriented
+vector field or an outer-oriented 3-covector field
+\citep{schouten1951_r1989} (or \enquote{3-form}). The first can be depicted
+as a collection of 1D curves, the second as a collection of tubes with 3D
+cross-sections \citep{misneretal1970_r1973,schouten1951_r1989}. Either has
+the property that, given one event in spacetime, a unique 1D curve through
+it is selected. Either is in turn determined by such curves but only up to
+a multiplicative scalar function.
 
 For the vector field, different functions determine different vectors
 tangent to the curves; they could represent a 4-velocity. But we know from
@@ -787,7 +787,19 @@ association with a geometric object to each point in spacetime) and yet it
 represents particles and their trajectories. This shows that there is no
 dualism between field and matter.
 
-\subsection{Simultaneity, rest, frames}
+\medskip
+
+The notions of identity, individuality, permanence through time can also be
+generalized to non-pointlike objects, such as 1D curves or 2D surfaces. The
+idea, for example, is that we can \emph{identify} and \emph{follow} a given
+curve (or tubular region) through time, although the points on it cannot be
+followed because they keep no identity through time. These kinds of objects
+can also be represented by $m$-covector fields. The most important example
+is the electromagnetic field, an inner-oriented 2-covector. These objects
+can also satisfy conservation laws (\enquote{the number of curves cannot
+  increase}), expressed as the closure of their covector fields.
+
+\subsection{Simultaneity and rest; frames}
 \label{sec:frames}
 
 The intuitive notion of simultaneity comes to us mainly from our sense of
@@ -837,10 +849,65 @@ are introduced, and we have \emph{Eulerian} frames, \emph{inertial} or
 \label{sec:metric}
 
 The kinematics just discussed is purely topological, even if we can
-introduce arbitrary notions of time-lapse and rest into it. In Newtonian
-relativity, kinematics traditionally includes actual chronometric and
-distance notions; that is, it includes a metric as part of its structure.
-This is possible because the metric is given and \enquote{inert}.
+introduce synthetic notions of time-lapse and rest into it. The question is
+whether metric and chronometric notions should be part of kinematics or
+dynamics. The answer depends on what we want \enquote{kinematics} and
+\enquote{dynamics} to mean, and has room for subjective preferences.
+
+My preference is that kinematics should allow us to describe \emph{all
+  imaginable} motions -- it therefore has a counterfactual character. It
+should place no constraints on any motion. Note that the law of
+conservation of matter doesn't place any constraints on the motion of
+matter. On the other hand, dynamics is what places such constraints. It
+should do so by introducing new geometrical objects (such as force) that
+satisfy general laws. These objects should be functionals of the kinematic
+objects; thus their laws indirectly place constraints on the kinematic
+objects.
+
+I therefore see three alternatives for the metric:
+\begin{enumerate}[(\roman*)]
+\item\label{item:metric_kyn_object} it's a kinematic object, like matter;
+\item\label{item:metric_kyn_structure} it isn't matter, but it's part of the
+  kinematic infrastructure, like spacetime;
+\item\label{item:metric_dyn_object} it's a dynamic object (like force);
+\item\label{item:metric_dyn_structure} it isn't a dynamic object, but it's
+  part of the dynamic infrastructure.
+\end{enumerate}
+
+
+
+
+
+In Newtonian relativity, kinematics traditionally also includes
+chronometric and metric notions: it includes a distinguished time foliation
+and a distinguished flat 3-metric at each instant. This tradition is not
+unreasonable, because these foliation and 3-metrics are given and
+\enquote{inert}.
+
+These foliation and 3-metrics do \emph{not} determine any natural
+isomorphism among instants -- \enquote{this place at this instant and that
+  place at that instant are the \emph{same}} -- though. Newtonian
+relativity traditionally includes also such an isomorphism, which can be
+represented by a linear connection, leading to Newton-Cartan theory
+\citep{cartan1923,cartan1924,cartan1925,trautman1964,trautman1966,ellis1971,kuenzle1972,earmanetal1973,ehlers1973}.
+Foliation, 3-metrics, and linear connection together represent the
+\enquote{absolute space} which \enquote{in its own nature, without relation
+  to anything external, remains always similar and immovable}
+\citep[\emph{Definitions}, \emph{Scholium}]{newton1687_t1974}.
+
+But these objects -- especially the connection -- already introduce
+dynamical notions in the form of special motions: absolute rest, and
+straight lines traversed at constant speed.
+
+\medskip
+
+In general relativity the 4-metric and its canonical linear connection are
+not \emph{inert}
+
+
+
+Its specification, in the form of a
+linear connection
 
 
 %%%% examples use empheq

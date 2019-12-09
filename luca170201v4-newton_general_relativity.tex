@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2019-12-08T20:21:26+0100
+%% Last-Updated: 2019-12-09T01:18:57+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -710,8 +710,14 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %%% BEGINNING OF MAIN TEXT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{From kinematics to dynamics}
-\label{sec:intro}
+This presentation is mainly discursive. For formulae see
+\textcite{portamana2016}.
+
+\section{Kinematics}
+\label{sec:kinematics}
+
+\subsection{Spacetime and matter}
+\label{sec:spacetime_matter}
 
 Our first primitive is the notion of spacetime, as the seats of all events.
 It's represented by a 4D differential manifold. In the following I misuse
@@ -727,49 +733,114 @@ when we draw a \enquote{$\mathord{\bigcirc}$} sign on an body, or throw
 some leaves in flowing water -- and then to follow it as it moves. It
 relates to the notions of identity and individuality. Two topological
 objects can represent these notions: an inner-oriented vector field or an
-outer-oriented, closed 3-covector field \citep{schouten1951_r1989}. The
-first can be depicted as a collection of 1D curves, the second as a
-collection of 3D tubes \citep{misneretal1970_r2003,schouten1951_r1989}.
-Either has the property that, given one event in spacetime, a unique 1D
-curve through it is selected.
+outer-oriented 3-covector field \citep{schouten1951_r1989} (or
+\enquote{3-form}). The first can be depicted as a collection of 1D curves,
+the second as a collection of tubes with 3D cross-sections
+\citep{misneretal1970_r2003,schouten1951_r1989}. Either has the property
+that, given one event in spacetime, a unique 1D curve through it is
+selected. Either is in turn determined by such curves but only up to a
+multiplicative scalar function.
 
-An outer-oriented, closed 3-covector field has an additional feature: it
+For the vector field, different functions determine different vectors
+tangent to the curves; they could represent a 4-velocity. But we know from
+Lorentzian relativity that such freedom is irrelevant: 4-velocities are by
+convention normalized to unity. For the 3-covector field, on the other
+hand, different scalar functions determine different cross-sections of the
+tubes.
+
+The latter fact is connected with an additional feature of such a field: it
 can be integrated over an outer-oriented 3D surface (count the 3D tubes
 which cross that surface). Later on, such a surface could be characterized
-as spacelike or timelike. This field would therefore allow us to speak of
+as spacelike or timelike. This 3-covector field thus allows us to speak of
 the \enquote{quantity} of matter within a 3D region at some time, or the
-quantity of matter that flows through a 2D surface during a given time. Its
-closedness would mean that the total quantity of matter flowing through a
-closed 2D surface in a given time must be equal to the increase of matter
-within that surface during the same time. The mathematics show that this
-conservation property is tightly connected with the notions of identity and
-individuality mentioned above.
+quantity of matter that has flowed through a 2D surface during a given
+time. It is not possible to decompose this flux into a \enquote{density}
+and a \enquote{velocity}, though.
 
-So the representation of matter as an outer-oriented, closed 3-covector
-field gives us its identity property and also its conservation. In
-general relativity it's the conservation of baryonic number
-\citep{eckart1940c,gourgoulhon2007_r2012,alcubierre2008}[\sect~22.2]{misneretal1970_r1973}.
-In Newtonian relativity traditionally it's the conservation of mass, but
-it's easy to show that this theory could be formulated with a baryon
-conservation instead; a similar reformulation in fact takes place within
-the subtheory of mixtures
-\citep{samohyl1975b,bowen1976,samohyletal1987_r2014,faria2003}. We call
-this outer-oriented, closed 3-covector \enquote{matter form}.
+If such a field is closed (its exterior derivative, which is a
+topological operation, vanishes), then the matter it represents satisfies a
+conservation law: the total quantity of matter flowing through a closed 2D
+surface in a given time must be equal to the increase of matter within that
+surface during the same time. This property is useful in the theory of
+mixtures \citep{samohyl1975b,bowen1976,samohyletal1987_r2014,faria2003},
+where we model different kinds of matter that can transform into each
+other, their total amount being conserved. This situation can be
+represented by several non-closed 3-covector fields, their sum being
+closed. In general relativity, conservation of matter is more precisely
+conservation of baryonic-number
+\citep{eckart1940c}[\sect~22.2]{misneretal1970_r1973}{gourgoulhon2007_r2012,alcubierre2008}.
+In Newtonian relativity traditionally it's conservation of mass, but it's
+easy to show that this theory could be formulated with baryon conservation
+instead; a similar reformulation in fact takes place within the theory of
+mixtures mentioned above.
 
-A spacetime and one or more matter forms give us a topological kinematics.
-Such kinematics doesn't allow us to say that some parts of matters are at
+So we represent matter as an outer-oriented 3-covector field, called the
+\enquote{matter field}.
+
+A spacetime and one or more matter fields give us a topological kinematics.
+Such kinematics doesn't allow us to say that some parts of matter are at
 rest or in motion, or approaching or diverging. But it allows us to follow
 their trajectories through spacetime. It is remarkable that the
 conservation of matter turns out to be a kinematic and topological
-property.
+property. It is also remarkable that this is a true \enquote{field} (an
+association with a geometric object to each point in spacetime) and yet it
+represents particles and their trajectories. This shows that there is no
+dualism between field and matter.
 
-\bigskip
+\subsection{Simultaneity, rest, frames}
+\label{sec:frames}
 
+The intuitive notion of simultaneity comes to us mainly from our sense of
+vision; our intuition would probably be different if it came from sound. I
+take the point of view, suggested by general relativity, that there is no
+natural spacetime-extended definition of simultaneity. We can make an
+arbitrary foliation of spacetime into 3D surfaces, which we can call
+\enquote{instants}, and even label each instant with a number, but this
+construction and labels need not have any physical meaning.
 
+Even when instants are introduced, spacetime doesn't offer any canonical
+isomorphism among them. That is, there's no way of saying \enquote{this
+  event at this instant and that event at that instant occur at the
+  \emph{same} place}. It is possible to establish an arbitrary isomorphism
+among instants through a vector field not tangent to any of them. This
+vector field can also be chosen to have unit product with the 1-covector
+associated with the foliation. This construction needs not have any
+physical meaning. This vector field allows us to compare field quantities
+at different instants via the Lie derivative, which therefore acts as a
+\enquote{time derivative at fixed position}.
 
+The combination of a foliation and a vector field as described above is
+called a \emph{frame} or an \emph{observer}
+\citep{taub1978,smarretal1978,york1979,smarretal1980}[\sect~B.1.4]{hehletal2003}.
+Once a frame is introduced we can speak of motion or rest of matter with
+respect to that frame, and even define a velocity and a space-density of
+matter \citep[\sect~3.2]{portamana2016}. But again, these are arbitrary
+constructions. ~A frame is a scaffolding that allows us to formulate
+kinematics in terms of \enquote{rest} and topological versions of
+\enquote{velocity} and \enquote{density}. But it is clear that it doesn't
+add any physical feature. The rest of the development of the theory can be
+done without it. Frames may be useful for our intuition and to set up
+initial-value problems in numerical relativity.
 
+It is possible to choose frames with particular physical meaning. For
+example we can choose the vector field of the frame to be tangent to the
+tubes of a matter field. That matter will then be at rest in that frame, by
+decree. This frame is called \emph{Lagrangean} or
+\emph{comoving} \citep{taub1978,smarretal1978,york1979,smarretal1980}. Other
+choices become possible when a metric or a connection or a 4-stress tensor
+are introduced, and we have \emph{Eulerian} frames, \emph{inertial} or
+\emph{free-fall} frames, and several others.
 \textcolor{white}{If you find this you can claim a postcard from me.}
 
+
+\section{Metric}
+\label{sec:metric}
+
+The kinematics just discussed is purely topological, even if we can
+introduce arbitrary notions of time-lapse and rest into it. In Newtonian
+relativity, kinematics traditionally includes actual chronometric and
+distance notions; that is, it includes a metric as part of its structure.
+This is possible because the metric is given and \enquote{inert}.
 
 
 %%%% examples use empheq

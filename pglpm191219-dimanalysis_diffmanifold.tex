@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2019-12-23T17:02:58+0100
+%% Last-Updated: 2019-12-23T21:10:40+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -544,7 +544,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
 %\newcommand*{\nabl}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
-%\DeclareMathOperator{\tr}{tr}%trace
+\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
 %\DeclareMathOperator{\im}{Im}%im part
 %\DeclareMathOperator{\re}{Re}%re part
@@ -625,7 +625,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\zerob}[1]{\makebox[0pt][l]{#1}}
 \newcommand*{\tprod}{\mathop{\textstyle\prod}\nolimits}
 \newcommand*{\tsum}{\mathop{\textstyle\sum}\nolimits}
-%\newcommand*{\tint}{\begingroup\textstyle\int\endgroup\nolimits}
+\newcommand*{\tint}{\begingroup\textstyle\int\endgroup\nolimits}
 %\newcommand*{\tland}{\mathop{\textstyle\bigwedge}\nolimits}
 %\newcommand*{\tlor}{\mathop{\textstyle\bigvee}\nolimits}
 %\newcommand*{\sprod}{\mathop{\textstyle\prod}}
@@ -675,7 +675,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yG}{\mathte{G}}
 \newcommand*{\yR}{\mathte{R}}
 \newcommand*{\yom}{\bm{\omega}}
+\newcommand*{\yta}{\bm{\tau}}
 \newcommand*{\yv}{\bm{v}}
+\newcommand*{\yu}{\bm{u}}
 \renewcommand*{\i}{\indices}
 \newcommand*{\dex}[1][i]{\frac{\de}{\de x^{#1}}}
 \newcommand*{\dix}[1][i]{\di x^{#1}}
@@ -797,8 +799,8 @@ where each
 is a component of the tensor in this coordinate system.
 
 To make sense dimensionally, every term the sum~\eqref{eq:expansion_tensor}
-must have the same dimension. This only happens if the generic component
-$A\i{^{i}_{j}}$ has dimension
+must have the same dimension. This is possible only if the generic
+component $A\i{^{i}_{j}}$ has dimension
 \begin{equation}
   \label{eq:dim_component}
   \dim A\i{^{i}_{j}} = \Aa\,{\Xx_{i}}\,{\Xx_{j}}^{-1},
@@ -832,33 +834,81 @@ tensor and tensor-field operations affect the absolute dimension of their
 arguments. I'll drop the adjective \enquote{absolute} when it's clear from
 the context.
 
-\begin{itemize}[wide]
-\item \emph{Tensor multiplication} $\otimes$ multiplies the dimensions:
-  $\dim(\yA\otimes\yB) = \dim(\yA)\dim(\yB)$.
+\begin{itemize}[wide=0pt]
+\item \emph{Tensor multiplication} multiplies dimensions:
+  \begin{equation}
+  \dim(\yA\otimes\yB) = \dim(\yA)\dim(\yB).\label{eq:tensor_mult}
+\end{equation}
 
-\item Same for the \emph{exterior product} $\land$ of differential forms.
+\item The \emph{contraction} of the $i$th and $j$th slots (one covariant
+  and one contravariant) of a tensor has the same dimension as the tensor
+  (but without raising or lowering indices; see below):
+  \begin{equation}
+    \dim(\tr_{ij}\yA) = \dim(\yA).
+    \label{eq:tensor_contr}
+\end{equation}
 
-\item Same for the \emph{contraction} of tensors (but without raising or
-  lowering indices! see below).
+\item The \emph{Lie bracket} of two vectors has the product of their dimensions:
+  \begin{equation}
+    \dim(\clcl{\yu,\yv}) =\dim(\yu)\dim(\yv).
+    \label{eq:lie_der}
+\end{equation}
 
-\item \emph{Pull-back} and \emph{push-forward} don't change the dimensions
-  of the tensors they map.
+% \item The \emph{pull-back} and \emph{push-forward} of a map $F$ between
+%   manifolds don't change the dimensions of the tensors they map.
+%   \begin{equation}
+%   \dim(\yA\otimes\yB) = \dim(\yA)\dim(\yB).\label{eq:tensor_mult}
+% \end{equation}
 
-\item The \emph{Lie derivative} of a tensor with respect to a vector field $\yv$
-  multiplies the dimensions of the tensor and of the vector:
-  $\dim(\Li_{\yv}\yA) =\dim(\yv)\dim(\yA)$.
+\item The \emph{Lie derivative} of a tensor with respect to a vector field
+  has the product of the dimensions of the tensor and of the vector:
+  \begin{equation}
+    \dim(\Li_{\yv}\yA) =\dim(\yv)\dim(\yA).
+    \label{eq:lie_der}
+\end{equation}
+\end{itemize}
 
-\item  same for the \emph{interior product} $\ii_{\yv}$;
+Regarding operations with differential forms:
 
-\item the \emph{exterior derivative} $\di$ doesn't alter the dimensions of the
-  form on which it operates: $\dim(\di\yom) = \dim(\yom)$ (we could use the
-  Cartan identity to check this).
+\begin{itemize}[wide=0pt]
+\item The \emph{exterior product} of two differential forms multiplies
+  their dimensions:
+  \begin{equation}
+  \dim(\yom\land\yta) = \dim(\yom)\dim(\yta).\label{eq:ext_prod}
+\end{equation}
+  
+\item The \emph{interior product} of a vector and a form multiplies their
+  dimensions:
+  \begin{equation}
+    \dim(\ii_{\yv}\yom) =\dim(\yv)\dim(\yom).
+    \label{eq:inter_prod}
+\end{equation}
 
-\item  same for the integration of a form over a submanifold;
+\item The \emph{exterior derivative} of a form has the same dimension of
+  the form:
+  \begin{equation}
+    \dim(\di\yom) =\dim(\yom).
+    \label{eq:ext_deriv}
+  \end{equation}
+This can be proven using Cartan's identity with \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
 
+\item The \emph{integral} of a form over a submanifold has the same dimension as
+  the form:
+  \begin{equation}
+    \dim\bigl(\tint_{c}\yom\bigr) =\dim(\yom).
+    \label{eq:integration}
+  \end{equation}
+\end{itemize}
 
-\item  the covariant derivative operator $\nabla$ doesn't alter the dimensions
-  either: $\dim(\nabla\yA) = \dim(\yA)$. But note that
+We discuss connections, their covariant derivative, and their curvature
+tensors in the next section.
+
+\section{Connection, covariant derivative, curvature tensors}
+\label{sec:connection}
+
+\begin{itemize}[wide=0pt]
+\item the covariant derivative operator $\nabla$ doesn't alter the
+  dimensions either: $\dim(\nabla\yA) = \dim(\yA)$. But note that
   $\dim(\nabla_{\yv}\yA) = \dim(\yv)\dim(\yA)$.
  
   The dimensional effect of the covariant derivative operator can be
@@ -873,9 +923,7 @@ From the same expression we also find that
 
 \item the Christoffel symbol $\varGamma{}^i{}_{jk}$ has dimensions
 $$\dim(\varGamma{}^i{}_{jk}) = [\mathrm{X}_i\,{\mathrm{X}_j}^{-1}\,{\mathrm{X}_k}^{-1}].$$
- 
 \end{itemize}
-
 ** Curves **
 
 Consider a curve to the manifold, $c\colon  s \mapsto P$, where the parameter $s$ has dimension $[\mathrm{S}]$. If we consider the manifold as "adimensional" (if this makes sense), then the dimensions of the tangent vector $\dot{c}$ to the curve are $\dim(\dot{c}) = [\mathrm{S}^{-1}]$. This follows either from $\dot{c} := \partial x^i[c(s)]/\partial s\; \partial_{x^i}$, or considering that $\dot{c}$ can be interpreted as the push-forward of $\partial_s$, that is, $c_*(\partial_s)$.

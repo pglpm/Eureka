@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2019-12-23T21:10:40+0100
+%% Last-Updated: 2019-12-24T01:29:03+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -665,6 +665,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\Xx}{\textrm{X}}
 \newcommand*{\Yy}{\textrm{Y}}
 \newcommand*{\Aa}{\textrm{A}}
+\newcommand*{\Bb}{\textrm{B}}
 \newcommand*{\Li}{\mathrm{L}}
 \newcommand*{\ii}{\mathrm{i}}
 %
@@ -674,13 +675,17 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yT}{\mathte{T}}
 \newcommand*{\yG}{\mathte{G}}
 \newcommand*{\yR}{\mathte{R}}
+\newcommand*{\yTa}{\bm{\varTau}}
 \newcommand*{\yom}{\bm{\omega}}
 \newcommand*{\yta}{\bm{\tau}}
 \newcommand*{\yv}{\bm{v}}
 \newcommand*{\yu}{\bm{u}}
+\newcommand*{\yw}{\bm{w}}
 \renewcommand*{\i}{\indices}
 \newcommand*{\dex}[1][i]{\frac{\de}{\de x^{#1}}}
 \newcommand*{\dix}[1][i]{\di x^{#1}}
+\newcommand*{\nab}{\nabla}
+\newcommand*{\yGa}{\varGamma}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -760,7 +765,7 @@ within that region. Any physical quantity will do: the distance from
 something, the time elapsed since something, an angle, an energy density,
 the strength of a magnetic flux, a temperature, and so on. A coordinate can
 thus have any dimensions: length $\Le$, time $\Ti$, angle $1$, energy
-density $\En = \Le^{-1}\Ma\Te^{-2}$, magnetic flux
+density $\En = \Le^{-1}\Ma\Ti^{-2}$, magnetic flux
 $\Fl = \Le^{2}\Ma\Ti^{-2}\Cu^{-1}$, temperature $\Te$, and so on.
 
 The dimensions of the coordinates don't matter, as we'll now see.
@@ -803,13 +808,43 @@ must have the same dimension. This is possible only if the generic
 component $A\i{^{i}_{j}}$ has dimension
 \begin{equation}
   \label{eq:dim_component}
-  \dim A\i{^{i}_{j}} = \Aa\,{\Xx_{i}}\,{\Xx_{j}}^{-1},
+  \dim(A\i{^{i}_{j}}) = \Aa\;{\Xx_{i}}\,{\Xx_{j}}^{-1},
 \end{equation}
 where $\Aa$ is common to all components and is also the dimension of the
-sum~\eqref{eq:expansion_tensor}: it's called the \emph{absolute dimension}
+sum~\eqref{eq:expansion_tensor}. For example, suppose we're using
+coordinates with dimensions
+\begin{equation}
+  \label{eq:example_coords}
+  \dim(x^{0})=\Te,\quad
+  \dim(x^{1})=\Le,\quad
+  \dim(x^{2})=\Le,\quad
+  \dim(x^{3})=\Le^{-1}\Ma\Ti^{-2};
+\end{equation}
+then the components of $\yA$ have dimensions
+\begin{equation}
+  \label{eq:example_components}
+  \Bigl(\dim(A\i{^{i}_{j}})\Bigr) =
+ \Aa\; \begin{pmatrix}
+   1 & \Le^{-1}\Te & \Le^{-1}\Te & \Le\Ma^{-1}\Ti^{2}\Te
+   \\
+   \Le\Te^{-1} & 1 & 1 & \Le^{2}\Ma^{-1}\Ti^{2}
+   \\
+   \Le\Te^{-1} & 1 & 1 & \Le^{2}\Ma^{-1}\Ti^{2}
+   \\
+   \Le^{-1}\Ma\Ti^{-2}\Te^{-1} & \Le^{-2}\Ma\Ti^{-2} & \Le^{-2}\Ma\Ti^{-2} & 1
+  \end{pmatrix}.
+\end{equation}
+
+The dimension $\Aa$ is called the \emph{absolute dimension}
 \citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} of the tensor $\yA$.
 This is the intrinsic dimension of the tensor, independently of any
-coordinate system.
+coordinate system, so we write
+\begin{equation}
+  \label{eq:abs_dim}
+  \dim(\yA) = \Aa.
+\end{equation}
+
+
 
 Different coordinate systems simply lead to different dimensions of the
 components of $\yA$. Formula~\eqref{eq:dim_component} for the dimensions of
@@ -818,12 +853,12 @@ in coordinates  $({x'}^{k})$ with dimensions $(\Xx'_{k})$, the components
 of $\yA$ are
 \begin{equation}
   \label{eq:coords_change}
-  A'\i{^{k}_{l}} = A\i{^{i}_{j}}
+  {A'}\i{^{k}_{l}} = A\i{^{i}_{j}}
   \,\frac{\de {x'}^{k}}{\de x^{i}}
   \,\frac{\de {x}^{j}}{\de {x'}^{l}}
 \end{equation}
 and a quick check shows that
-$\dim A'\i{^{k}_{l}} = \Aa\,{\Xx'_{k}}\,{\Xx'_{l}}^{-1}$, consistent
+$\dim({A'}\i{^{k}_{l}}) = \Aa\,{\Xx'_{k}}\,{\Xx'_{l}}^{-1}$, consistent
 with~\eqref{eq:dim_component}.
 
 \section{Tensor operations}
@@ -831,7 +866,26 @@ with~\eqref{eq:dim_component}.
 
 By the reasoning of the previous section it's easy to see how various
 tensor and tensor-field operations affect the absolute dimension of their
-arguments. I'll drop the adjective \enquote{absolute} when it's clear from
+arguments. For example, the tensor product of
+$\yA\i{^{\bullet}_{\bullet}}$ and $\yB\i{_{\bullet\bullet}^{\bullet}}$ can
+be written as the sum
+\begin{equation}
+  \label{eq:tensor_prod_example}
+  \yA \otimes \yB =
+  A\i{^{i}_{j}}\,B\i{_{kl}^{m}}\;
+  \dex[i]\otimes\dix[j]\otimes\dix[k]\otimes\dix[l]\otimes\dex[m]
+\end{equation}
+from which it follows that
+\begin{equation}
+  \label{eq:dim_comp_tensor_prod}
+  \dim(A\i{^{i}_{j}}\,B\i{_{kl}^{m}}) =
+  \Aa\,\Bb\;
+  \Xx_{i}\,{\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\,\Xx_{m}
+\end{equation}
+with $\Aa = \dim(\yA)$ and $\Bb = \dim(\yB)$. The absolute dimension of
+$\yA\otimes\yB$ is therefore $\Aa\Bb \equiv \dim(\yA)\,\dim(\yB)$.
+
+I'll drop the adjective \enquote{absolute} when it's clear from
 the context.
 
 \begin{itemize}[wide=0pt]
@@ -900,31 +954,81 @@ This can be proven using Cartan's identity with \eqns~\eqref{eq:lie_der} and~\eq
   \end{equation}
 \end{itemize}
 
-We discuss connections, their covariant derivative, and their curvature
-tensors in the next section.
-
 \section{Connection, covariant derivative, curvature tensors}
 \label{sec:connection}
 
-\begin{itemize}[wide=0pt]
-\item the covariant derivative operator $\nabla$ doesn't alter the
-  dimensions either: $\dim(\nabla\yA) = \dim(\yA)$. But note that
-  $\dim(\nabla_{\yv}\yA) = \dim(\yv)\dim(\yA)$.
- 
-  The dimensional effect of the covariant derivative operator can be
-  quickly checked by noting that the expression of $\nabla\yA$ contains the
-  following term:
-$$
-\nabla\yA = \dotsb + \partial_{x^l}A{}^{ij}{}_{k}\;
-\partial_{x^i}\otimes\partial_{x^j}\otimes\mathrm{d}x^k\otimes\mathrm{d}x^l
-+\dotsb.
-$$
-From the same expression we also find that
+Consider an arbitrary connection with covariant derivative $\nab$. For the
+moment we don't assume the presence of any metric structure.
 
-\item the Christoffel symbol $\varGamma{}^i{}_{jk}$ has dimensions
-$$\dim(\varGamma{}^i{}_{jk}) = [\mathrm{X}_i\,{\mathrm{X}_j}^{-1}\,{\mathrm{X}_k}^{-1}].$$
-\end{itemize}
-** Curves **
+The \emph{covariant derivative} of the product $f\yv$ of a function and a vector satisfies
+\citep[\sect~V.B.1 p.~300]{choquetbruhatetal1977_r1996}
+\begin{equation}
+  \label{eq:basic_property_covder}
+  \nab(f\yv) = \di f \otimes \yv + f\nab\yv.
+\end{equation}
+The first summand has dimension $\dim(f)\dim(\yv)$, which must also be
+the dimension of the second summand. Thus we see that
+\begin{equation}
+  \label{eq:dim_cov_der_vect}
+  \dim(\nab\yv) = \dim(\yv).
+\end{equation}
+It follows that the \emph{directional covariant derivative} has dimension
+\begin{equation}
+  \label{eq:dim_dircov_der_vect}
+  \dim(\nab_{\yu}\yv) = \dim(\yu)\dim(\yv),
+\end{equation}
+and by its derivation properties \citep[\sect~V.B.1
+p.~303]{choquetbruhatetal1977_r1996} we see that
+formula~\eqref{eq:dim_cov_der_vect} extends from vectors to 
+tensors of arbitrary type.
+
+In the coordinate system $(x^{i})$, the action of the covariant derivative
+is carried by the \emph{connection coefficients} or Christoffel symbols
+$(\yGa\i{^{i}_{jk}})$ defined by
+\begin{equation}
+  \label{eq:christoffel}
+  \nab\dex[k] = \yGa\i{^{i}_{jk}}\; \dix[j]\otimes\dex[i].
+\end{equation}
+From this equation and the previous ones it follows that the coefficients
+have dimensions
+\begin{equation}
+  \label{eq:dim_christoffel}
+  \dim(\yGa\i{^{i}_{jk}}) = \Xx_{i}\, {\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}.
+\end{equation}
+
+The \emph{torsion} $\yTa\i{^{\bullet}_{\bullet\bullet}}$, \emph{Riemann
+  curvature} $\yR\i{^{\bullet}_{\bullet\bullet\bullet}}$, and \emph{Ricci
+  curvature} $\yR\i{_{\bullet\bullet}}$ tensors are
+defined by
+\begin{gather}
+  \label{eq:torsion_eq}
+\yTa(\yu,\yv) \defd \nab_{\yu}\yv - \nab_{\yv}\yu - \clcl{\yu,\yv},
+\\
+\yR(\yu,\yv)\cdot\yw \defd
+\nab_{\yu}\nab_{\yv}\yw - \nab_{\yv}\nab_{\yu}\yw
+- \nab_{\clcl{\yu,\yv}}\yw,
+\\
+\yR\i{_{\bullet\bullet}} \defd \tr_{13} \yR\i{^{\bullet}_{\bullet\bullet\bullet}}.
+  \label{eq:riemann_eq}  
+\end{gather}
+From these definitions, formula~\eqref{eq:dim_cov_der_vect}, and the
+dimensional effects of tensor product~\eqref{eq:tensor_mult} and
+contraction~\eqref{eq:tensor_contr} we see that
+\begin{equation}
+  \label{eq:dim_torsion_riemann_ricci}
+  \dim(\yTa\i{^{\bullet}_{\bullet\bullet}}) =
+  % \label{eq:dim_riem}
+   \dim(\yR\i{^{\bullet}_{\bullet\bullet\bullet}}) =
+  % \label{eq:dim_ricci}
+   \dim(\yR\i{_{\bullet\bullet}}) =1.
+\end{equation}
+The exact contra- and co-variant type used above for these tensors is very
+important in these equations. If we raise any of their indices using a
+metric, their dimensions will generally change.
+
+\section{Curves and integral curves}
+\label{sec:curves}
+
 
 Consider a curve to the manifold, $c\colon  s \mapsto P$, where the parameter $s$ has dimension $[\mathrm{S}]$. If we consider the manifold as "adimensional" (if this makes sense), then the dimensions of the tangent vector $\dot{c}$ to the curve are $\dim(\dot{c}) = [\mathrm{S}^{-1}]$. This follows either from $\dot{c} := \partial x^i[c(s)]/\partial s\; \partial_{x^i}$, or considering that $\dot{c}$ can be interpreted as the push-forward of $\partial_s$, that is, $c_*(\partial_s)$.
 

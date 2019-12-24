@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2019-12-24T13:25:18+0100
+%% Last-Updated: 2019-12-24T15:42:38+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -666,6 +666,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\Yy}{\textrm{Y}}
 \newcommand*{\Aa}{\textrm{A}}
 \newcommand*{\Bb}{\textrm{B}}
+\newcommand*{\Ss}{\textrm{S}}
 \newcommand*{\Li}{\mathrm{L}}
 \newcommand*{\ii}{\mathrm{i}}
 %
@@ -1038,11 +1039,30 @@ The exact contra- and co-variant type used above for these tensors is very
 important in these equations. If we raise any of their indices using a
 metric, their dimensions will generally change.
 
+\medskip
+
+The formulae above are also valid if a metric is defined and the connection
+is compatible with it. The connection coefficients in this case are defined
+in terms of the metric tensor, but using the results of \sect*** it's easy
+to see that \eqns~\eqref{eq:dim_cov_der_vect},
+\eqref{eq:dim_dircov_der_vect}, \eqref{eq:dim_christoffel},
+\eqref{eq:dim_torsion_riemann_ricci} still hold.
+
 \section{Curves and integral curves}
 \label{sec:curves}
 
 
-Consider a curve to the manifold, $c\colon  s \mapsto P$, where the parameter $s$ has dimension $[\mathrm{S}]$. If we consider the manifold as "adimensional" (if this makes sense), then the dimensions of the tangent vector $\dot{c}$ to the curve are $\dim(\dot{c}) = [\mathrm{S}^{-1}]$. This follows either from $\dot{c} := \partial x^i[c(s)]/\partial s\; \partial_{x^i}$, or considering that $\dot{c}$ can be interpreted as the push-forward of $\partial_s$, that is, $c_*(\partial_s)$.
+Consider a curve into spacetime, $c\colon s \mapsto P(s)$, with the
+parameter $s$ having dimension $\dim(s)=\Ss$.***
+
+
+If we consider the manifold
+as "adimensional" (if this makes sense), then the dimensions of the tangent
+vector $\dot{c}$ to the curve are $\dim(\dot{c}) = [\mathrm{S}^{-1}]$. This
+follows either from
+$\dot{c} := \partial x^i[c(s)]/\partial s\; \partial_{x^i}$, or considering
+that $\dot{c}$ can be interpreted as the push-forward of $\partial_s$, that
+is, $c_*(\partial_s)$.
 
 This has an interesting, quirky implication. Given a vector field $P\mapsto\yv(P)$ we say that $c$ is an integral curve for it if
 $$

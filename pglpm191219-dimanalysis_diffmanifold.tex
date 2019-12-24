@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2019-12-24T01:29:03+0100
+%% Last-Updated: 2019-12-24T13:25:18+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -633,7 +633,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\sint}{\begingroup\textstyle\int\endgroup}
 %\newcommand*{\sland}{\mathop{\textstyle\bigwedge}}
 %\newcommand*{\slor}{\mathop{\textstyle\bigvee}}
-%\newcommand*{\T}{^\intercal}%transpose
+\newcommand*{\T}{^\intercal}%transpose
 %%\newcommand*{\QEM}%{\textnormal{$\Box$}}%{\ding{167}}
 %\newcommand*{\qem}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
 %\quad\hbox{\QEM}}
@@ -895,12 +895,19 @@ the context.
 \end{equation}
 
 \item The \emph{contraction} of the $i$th and $j$th slots (one covariant
-  and one contravariant) of a tensor has the same dimension as the tensor
-  (but without raising or lowering indices; see below):
+  and one contravariant) of a tensor has the same dimension as the tensor:
   \begin{equation}
     \dim(\tr_{ij}\yA) = \dim(\yA).
     \label{eq:tensor_contr}
-\end{equation}
+  \end{equation}
+  Note that this only holds \emph{without} raising or lowering indices.
+
+\item The \emph{transposition} of the $i$th and $j$th slots of a tensor has
+  the same dimension as the tensor:
+  \begin{equation}
+    \dim(\yA^{\intercal_{ij}}) = \dim(\yA).
+    \label{eq:tensor_transp}
+  \end{equation}
 
 \item The \emph{Lie bracket} of two vectors has the product of their dimensions:
   \begin{equation}
@@ -921,6 +928,8 @@ the context.
     \label{eq:lie_der}
 \end{equation}
 \end{itemize}
+
+\medskip
 
 Regarding operations with differential forms:
 
@@ -944,7 +953,10 @@ Regarding operations with differential forms:
     \dim(\di\yom) =\dim(\yom).
     \label{eq:ext_deriv}
   \end{equation}
-This can be proven using Cartan's identity with \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
+  This can be proven using the identity
+  $\di\,\ii_{\yv}+\ii_{\yv}\,\di = \Li_{\yv}$ or similar identities
+  \citep[\chap~9 p.~180 Theorem~9.78]{curtisetal1985} together with
+  \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
 
 \item The \emph{integral} of a form over a submanifold has the same dimension as
   the form:
@@ -1004,7 +1016,7 @@ defined by
   \label{eq:torsion_eq}
 \yTa(\yu,\yv) \defd \nab_{\yu}\yv - \nab_{\yv}\yu - \clcl{\yu,\yv},
 \\
-\yR(\yu,\yv)\cdot\yw \defd
+\yR(\yu,\yv)\yw \defd
 \nab_{\yu}\nab_{\yv}\yw - \nab_{\yv}\nab_{\yu}\yw
 - \nab_{\clcl{\yu,\yv}}\yw,
 \\

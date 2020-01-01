@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2019-12-27T11:17:58+0100
+%% Last-Updated: 2020-01-01T23:22:08+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -17,7 +17,7 @@ onecolumn,oneside,article,%french,italian,german,swedish,latin,
 british%
 ]{memoir}
 \newcommand*{\firstdraft}{13 December 2019}
-\newcommand*{\firstpublished}{\today}
+\newcommand*{\firstpublished}{13 December 2019}}
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
 \newcommand*{\propertitle}{Dimensional analysis on differential manifolds [draft]%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
@@ -661,7 +661,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\Te}{\Theta}
 \newcommand*{\Cu}{\textsf{I}}
 \newcommand*{\Fl}{\Phi}
-\newcommand*{\En}{\textsf{E}}
+\newcommand*{\En}{\Eta}%{\textsf{E}}
 \newcommand*{\Xx}{\textsf{X}}
 \newcommand*{\Yy}{\textsf{Y}}
 \newcommand*{\Aa}{\textsf{A}}
@@ -687,6 +687,31 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\dix}[1][i]{\di x^{#1}}
 \newcommand*{\nab}{\nabla}
 \newcommand*{\yGa}{\varGamma}
+
+\makeatletter
+\newcommand*{\bdot}{}% Check if undefined
+\DeclareRobustCommand*{\bdot}{%
+  \mathbin{\mathpalette\bigcdot@{}}%
+}
+\newcommand*{\bigcdot@scalefactor}{.6}
+\newcommand*{\bigcdot@widthfactor}{1.38}
+\newcommand*{\bigcdot@}[2]{%
+  % #1: math style
+  % #2: unused
+  \sbox0{$#1\vcenter{}$}% math axis
+  \sbox2{$#1\cdot\m@th$}%
+  \hbox to \bigcdot@widthfactor\wd2{%
+    \hfil
+    \raise\ht0\hbox{%
+      \scalebox{\bigcdot@scalefactor}{%
+        \lower\ht0\hbox{$#1\bullet\m@th$}%
+      }%
+    }%
+    \hfil
+  }%
+}
+\makeatother
+
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -748,11 +773,39 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
   subject. We do not attempt a complete presentation here.} \citep[Appendix
 \sect~7 footnote~4]{truesdelletal1960}
 
+There seem to be insecurity and wrong ideas among some students and even
+researchers in relativity, regarding the dimensions of tensors, of tensor
+components, and of dimensional constants in equations. I've met, for
+example, with the statement that the components of a tensor should all have
+the same dimension; and with calculations of the dimensions of curvature
+tensors starting from coordinates with dimensions of length. That statement
+is wrong, and that procedure is unnecessary.
+
+Several factors probably cause or contribute to such difficulties. Modern
+texts in Lorentzian and general relativity commonly use natural units. They
+say that to find the dimension of some constant in a tensorial equations
+it's sufficient to compare the dimensions of the tensors in the equation.
+But this is not so immediate, because some tensors don't have universally
+agreed dimensions -- prime example the 4-metric tensor. Older texts often
+use coordinates with dimension of length. They even multiply a timelike
+coordinate or some tensorial components by $c$, thus giving the impression
+that coordinates should always be lengths and that the components of a
+tensor would all have the same dimension.
+
+In this note I want to clarify some misconceptions about dimensional
+analysis in differential manifolds, and to illustrate a simple way of
+reasoning to solve dimensional-analysis doubts and problems. This way of
+reasoning relies on the modern, \emph{intrinsic} view of tensors \citep{choquetbruhatetal1977_r1996}
+
+
+-- thus applying to Lorentzian and
+general relativity but also Newtonian relativity --
+
 \textcolor{white}{If you find this you can claim a postcard from me.}
 
 Let's start from more general facts about dimensional analysis on differential manifolds.
 
-For dimensional analysis I use ISO conventions and notation. I sometimes use notation such as $\yT{}_{\bullet}{}^{\bullet}$ to indicate that the tensor $\yT$ is covariant in its first slot and contravariant in its second; I call this a "co-contra-variant tensor".
+For dimensional analysis I use ISO conventions and notation. I sometimes use notation such as $\yT{}_{\bdot}{}^{\bdot}$ to indicate that the tensor $\yT$ is covariant in its first slot and contravariant in its second; I call this a "co-contra-variant tensor".
 \citep{aldersley1977}
 
 \section{Coordinates}
@@ -787,7 +840,7 @@ inverse dimension: $\dim\dex = {\Xx_{i}}^{-1}$. We'll see later that
 these conventions are self-consistent.
 
 For our discussion let's now take a contra-co-tensor field
-$\yA \equiv \yA\i{^{\bullet}_{\bullet}}$; the discussion generalizes to
+$\yA \equiv \yA\i{^{\bdot}_{\bdot}}$; the discussion generalizes to
 tensors of other types in an obvious way.
 
 The tensor $\yA$ can be expanded in terms of the basis vectors and covectors:
@@ -868,7 +921,7 @@ with~\eqref{eq:dim_component}.
 By the reasoning of the previous section it's easy to see how various
 tensor and tensor-field operations affect the absolute dimension of their
 arguments. For example, the tensor product of
-$\yA\i{^{\bullet}_{\bullet}}$ and $\yB\i{_{\bullet\bullet}^{\bullet}}$ can
+$\yA\i{^{\bdot}_{\bdot}}$ and $\yB\i{_{\bdot\bdot}^{\bdot}}$ can
 be written as the sum
 \begin{equation}
   \label{eq:tensor_prod_example}
@@ -1009,9 +1062,9 @@ have dimensions
   \dim(\yGa\i{^{i}_{jk}}) = \Xx_{i}\, {\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}.
 \end{equation}
 
-The \emph{torsion} $\yTa\i{^{\bullet}_{\bullet\bullet}}$, \emph{Riemann
-  curvature} $\yR\i{^{\bullet}_{\bullet\bullet\bullet}}$, and \emph{Ricci
-  curvature} $\yR\i{_{\bullet\bullet}}$ tensors are
+The \emph{torsion} $\yTa\i{^{\bdot}_{\bdot\bdot}}$, \emph{Riemann
+  curvature} $\yR\i{^{\bdot}_{\bdot\bdot\bdot}}$, and \emph{Ricci
+  curvature} $\yR\i{_{\bdot\bdot}}$ tensors are
 defined by
 \begin{gather}
   \label{eq:torsion_eq}
@@ -1021,7 +1074,7 @@ defined by
 \nab_{\yu}\nab_{\yv}\yw - \nab_{\yv}\nab_{\yu}\yw
 - \nab_{\clcl{\yu,\yv}}\yw,
 \\
-\yR\i{_{\bullet\bullet}} \defd \tr_{13} \yR\i{^{\bullet}_{\bullet\bullet\bullet}}.
+\yR\i{_{\bdot\bdot}} \defd \tr_{13} \yR\i{^{\bdot}_{\bdot\bdot\bdot}}.
   \label{eq:riemann_eq}  
 \end{gather}
 From these definitions, formula~\eqref{eq:dim_cov_der_vect}, and the
@@ -1029,11 +1082,11 @@ dimensional effects of tensor product~\eqref{eq:tensor_mult} and
 contraction~\eqref{eq:tensor_contr} we see that
 \begin{equation}
   \label{eq:dim_torsion_riemann_ricci}
-  \dim(\yTa\i{^{\bullet}_{\bullet\bullet}}) =
+  \dim(\yTa\i{^{\bdot}_{\bdot\bdot}}) =
   % \label{eq:dim_riem}
-   \dim(\yR\i{^{\bullet}_{\bullet\bullet\bullet}}) =
+   \dim(\yR\i{^{\bdot}_{\bdot\bdot\bdot}}) =
   % \label{eq:dim_ricci}
-   \dim(\yR\i{_{\bullet\bullet}}) =1.
+   \dim(\yR\i{_{\bdot\bdot}}) =1.
 \end{equation}
 The exact contra- and co-variant type used above for these tensors is very
 important in these equations. If we raise any of their indices using a
@@ -1089,8 +1142,8 @@ $$\dim(\yg)=[\mathrm{T}^2].$$
 I believe that these dimensions also make sense for spacelike paths: in this case we would have to measure the "length" by dividing it in very small pieces and using radar coordinates on each piece. So we're measuring the "length" by checking clocks, to see how long it takes for the light to bounce back: time $[\mathrm{T}]$, again.
 
 By our usual argument it's possible to see that the Riemann curvature
-tensor $\yR{}^{\bullet}{}_{\bullet\bullet\bullet}$, the Ricci tensor
-$\yR_{\bullet\bullet}$, and the Einstein tensor $\yG_{\bullet\bullet}$ are
+tensor $\yR{}^{\bdot}{}_{\bdot\bdot\bdot}$, the Ricci tensor
+$\yR_{\bdot\bdot}$, and the Einstein tensor $\yG_{\bdot\bdot}$ are
 adimensional – $[1]$ – and the scalar curvature has dimensions
 $[\mathrm{T}^{-2}]$. Note that the Riemann and Ricci tensors (with the
 contra/co-variant type specified above) do not require a metric for their
@@ -1105,7 +1158,7 @@ An important operation done with the metric:
  
 ** Stress-energy-momentum tensor **
 
-What are the absolute dimensions of the co-contra-variant stress-energy-momentum tensor $\yT{}_{\bullet}{}^{\bullet}$? We must look for an operational meaning here too. I'll try to  sketch an informal argument that reflects my point of view. The argument can be made more rigorous but that would take too long to do here.
+What are the absolute dimensions of the co-contra-variant stress-energy-momentum tensor $\yT{}_{\bdot}{}^{\bdot}$? We must look for an operational meaning here too. I'll try to  sketch an informal argument that reflects my point of view. The argument can be made more rigorous but that would take too long to do here.
 
 The dynamics equation $\nabla\cdot\yT=0$ holds in general-relativistic (thermo)mechanics, and also in Newtonian (thermo)mechanics when no body forces and no body heating are present. In Newtonian mechanics it's the formal combination of the balances of momentum density and energy density – which incidentally have the same dimensions $[\mathrm{M}\,\mathrm{L}^{-1}\,\mathrm{T}^{-3}]$, energy/(volume × time). 
 
@@ -1113,10 +1166,10 @@ The divergence of the stress-energy-momentum gives us a 4-force density, just li
 
 Further, the 4-force is an object that, integrated over a path, gives us an energy density (cf Milne 1951 chap. IV, and Burke again). The integral of a force in Newtonian mechanics is the work done by the force. In general-relativistic mechanics, the timelike component of the 4-force additionally gives us the increase in energy owing to heating (Eckart 1940).
 
-So $\nabla\cdot\yT\equiv T{}_i{}^j{}_{;\,j}\;\mathrm{d}x^i$ has the dimensions of energy density, $[\mathrm{M}\,\mathrm{L}^{-1}\mathrm{T}^{-2}]$. The *co-contra-variant* stress-energy-momentum $\yT{}_{\bullet}{}^{\bullet}$ has therefore the same dimensions. But the *co-co-variant* tensor, obtained by contraction with the metric, $\yT_{\bullet\bullet} \equiv \yT\cdot \yg$, has dimensions of energy density times squared time: $[\mathrm{M}\,\mathrm{L}^{-1}]$, a mass over length.
+So $\nabla\cdot\yT\equiv T{}_i{}^j{}_{;\,j}\;\mathrm{d}x^i$ has the dimensions of energy density, $[\mathrm{M}\,\mathrm{L}^{-1}\mathrm{T}^{-2}]$. The *co-contra-variant* stress-energy-momentum $\yT{}_{\bdot}{}^{\bdot}$ has therefore the same dimensions. But the *co-co-variant* tensor, obtained by contraction with the metric, $\yT_{\bdot\bdot} \equiv \yT\cdot \yg$, has dimensions of energy density times squared time: $[\mathrm{M}\,\mathrm{L}^{-1}]$, a mass over length.
 
 Einstein's constant $\kappa$ therefore relates a dimensionless quantity and a mass over length:
-$$\yG_{\bullet\bullet} = \kappa \yT_{\bullet\bullet}\;.$$
+$$\yG_{\bdot\bdot} = \kappa \yT_{\bdot\bdot}\;.$$
 Its dimension must  be $[\mathrm{M}^{-1}\,\mathrm{L}]$, and it's easily seen that these are the dimensions of $G/c^2$. So I'm one of those people (like Fock 1964 p. 199) who define
 $$
 \kappa = 8\pi G/c^2.

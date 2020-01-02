@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-01T23:22:08+0100
+%% Last-Updated: 2020-01-03T00:31:11+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -17,7 +17,7 @@ onecolumn,oneside,article,%french,italian,german,swedish,latin,
 british%
 ]{memoir}
 \newcommand*{\firstdraft}{13 December 2019}
-\newcommand*{\firstpublished}{13 December 2019}}
+\newcommand*{\firstpublished}{13 December 2019}
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
 \newcommand*{\propertitle}{Dimensional analysis on differential manifolds [draft]%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
@@ -265,7 +265,7 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \defbibheading{bibliography}[\bibname]{\section*{#1}\addcontentsline{toc}{section}{#1}%\markboth{#1}{#1}
 }
 \newcommand*{\citep}{\footcites}
-\newcommand*{\citey}{\footcites}%{\parencites*}
+\newcommand*{\citey}{\parencites*}%{\footcites}%
 %\renewcommand*{\cite}{\parencite}
 %\renewcommand*{\cites}{\parencites}
 \providecommand{\href}[2]{#2}
@@ -606,7 +606,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\etc}{{etc.}}
 %\newcommand*{\ie}{{i.e.}}
 %\newcommand*{\ca}{{c.}}
-%\newcommand*{\eg}{{e.g.}}
+\newcommand*{\eg}{{e.g.}}
 \newcommand*{\foll}{{ff.}}
 %\newcommand*{\viz}{{viz}}
 \newcommand*{\cf}{{cf.}}
@@ -795,7 +795,44 @@ tensor would all have the same dimension.
 In this note I want to clarify some misconceptions about dimensional
 analysis in differential manifolds, and to illustrate a simple way of
 reasoning to solve dimensional-analysis doubts and problems. This way of
-reasoning relies on the modern, \emph{intrinsic} view of tensors \citep{choquetbruhatetal1977_r1996}
+reasoning relies on the coordinate-free, \emph{intrinsic} view of tensors
+and other differential-geometrical objects, as presented for example in the
+excellent texts by Choquet-Bruhat \etal\
+\citey{choquetbruhatetal1977_r1996}, Boothby \citey{boothby1975_r2003}, and
+on the physics and general-relativity side Burke
+\citey[\chap~2]{burke1980b}, Bossavit \citey{bossavit1991}, Misner \etal\
+\citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
+\citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \etal\
+\citey[\chap~4]{penroseetal1984_r2003}.
+
+
+
+\section{The intrinsic view of differential-geometric objects:\\ a brief
+  reminder}
+\label{sec:remined}
+
+
+From the intrinsic point of view, a tensor is defined by its geometric
+properties. For example, a vector field $\yv$ is an object that operates on
+functions defined on the manifold, yielding new functions, with the
+properties $\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for
+all functions $f$, $g$ and reals $a$, $b$. A covector field $\yom$ is an
+object that operates on vector fields, yielding functions, with the
+property $\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields
+$\yu$, $\yv$ and functions $f$, $g$. Tensors are constructed from these
+objects.
+
+A system of coordinates $(x^{i})$ is just a set of linearly
+independent functions. This set gives rise to a set of vectors fields
+$\Bigl(\dex\Bigr)$ and a set of covector fields $(\dix)$, which can be used
+as bases to express all other vectors, owing to linearity. The vector field
+$\yv$ can thus be written as
+\begin{equation}
+  \label{eq:vector_intrinsic}
+  \yv \equiv \sum_{i}v^{i}\dex \equiv v^{i}\dex ,
+\end{equation}
+where $v^{i}$ are its components -- they're just functions -- with respect
+to the basis $\Bigl(\dex\Bigr)$.
 
 
 -- thus applying to Lorentzian and
@@ -805,8 +842,13 @@ general relativity but also Newtonian relativity --
 
 Let's start from more general facts about dimensional analysis on differential manifolds.
 
-For dimensional analysis I use ISO conventions and notation. I sometimes use notation such as $\yT{}_{\bdot}{}^{\bdot}$ to indicate that the tensor $\yT$ is covariant in its first slot and contravariant in its second; I call this a "co-contra-variant tensor".
-\citep{aldersley1977}
+For dimensional analysis I use ISO conventions and notation. I sometimes
+use notation such as $\yT{}_{\bdot}{}^{\bdot}$ to indicate that the tensor
+$\yT$ is covariant in its first slot and contravariant in its second; I
+call this a "co-contra-variant tensor".
+
+
+[check \citep{aldersley1977}]
 
 \section{Coordinates}
 \label{sec:coords}

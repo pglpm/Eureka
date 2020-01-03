@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-01-03T20:56:20+0100
+%% Last-Updated: 2020-01-04T00:07:52+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -134,7 +134,7 @@ british%
 
 \usepackage[bigdelims,nosymbolsc%,smallerops % probably arXiv doesn't have it
 ]{newpxmath}
-\useosf\linespread{1.083}
+\linespread{1.083}%\useosf
 %% smaller operators for old version of newpxmath
 \makeatletter
 \def\re@DeclareMathSymbol#1#2#3#4{%
@@ -460,7 +460,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \captionnamefont{\footnotesize\sffamily%
 }
 \captiontitlefont{\footnotesize}
-\firmlists*
+%\firmlists*
 \midsloppy
 % handling orphan/widow lines, memman.pdf
 % \clubpenalty=10000
@@ -473,6 +473,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \predisplaypenalty=10000
 \postdisplaypenalty=1549
 \displaywidowpenalty=1602
+\raggedbottom
 
 \paragraphfootnotes\setlength{\footmarkwidth}{0em}
 % \threecolumnfootnotes
@@ -649,8 +650,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\DeclareMathOperator{\Li}{L}
 \newcommand*{\Li}{\mathrm{L}}
 \newcommand*{\tw}{\mathord{\scalerel*{\circlearrowleft}{\star}}}
-\newcommand*{\ydd}{\rho}
-\newcommand*{\yd}{\ydd}
+\newcommand*{\yd}{N}
 \newcommand*{\yrr}{M}
 \newcommand*{\yr}{\bm{\yrr}}
 \newcommand*{\yrfs}{\yd^{\mathord{\star}}}
@@ -666,7 +666,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ytn}{t_{\textrm{a}}}
 \newcommand*{\ycc}{u}
 \newcommand*{\yc}{\bm{\ycc}}
-\newcommand*{\yjj}{p}
+\newcommand*{\yjj}{J}
 \newcommand*{\yj}{\bm{\yjj}}
 \newcommand*{\yQ}{h}
 \newcommand*{\yqq}{q}
@@ -977,9 +977,6 @@ term vanishes.
 Newtonian continuum mechanics is based on the notions of \emph{body} and
 \emph{mass}, traditionally introduced as separate mathematical objects.
 
-First a word about \enquote{mass} and \enquote{quantity of matter} and
-their conservation.
-
 Bodies are represented as abstract three-dimensional manifolds, of which we
 can consider submanifolds, \ie\ sub-bodies. These bodies are immersed and
 move in space with time. This representation is typical in both Newtonian
@@ -990,30 +987,60 @@ we deal with in everyday life, for example a tree lulled by the wind and
 its individual branches, or a leaf dragged by a water stream, or pieces of
 differently coloured silly putty getting mixed together.
 
-Mass is a property of a body, represented as a measure on the respective
-manifold, with its usual conservation property. In both Newtonian
+In Newtonian continuum mechanics, mass is a property of a body, represented
+as a measure on the respective manifold, satisfying a conservation
+principle. Conservation of mass, however, can be restated as conservation
+of \enquote{amount of matter}, or more precisely of \enquote{amount of
+  substance} (one of the base quantities of the International System of
+Units \citep{iso2009,jcgm1997_r2012}). In Newtonian mechanics the two are
+equivalent, mass being proportional to amount of matter, the
+proportionality being a constant, different from substance to substance.
+Conservation of amount of matter is sometimes used instead of mass in the
+thermomechanics of reacting mixtures \citep[\eg][(see especially \eqn~(7),
+where $m$ can be dropped)]{eckart1940b}[Lect.~6 (in \eqn~(6.1) $\rho$ can
+be dropped)]{truesdell1969_r1984}[and refs therein]{samohyletal1987_r2014}
+for stoichiometric reasons. Conservation of amount of matter is a
+manifestation of the conservation of baryonic number
+\citep[\cf][\sect~22.2]{misneretal1970_r1973}.
+
+In general-relativistic continuum mechanics we have to speak of
+conservation of amount of matter, because mass is no longer a constant
+property of it; not even rest mass, when particles of different types
+transform into one another.
+
+It makes thus sense to speak directly of conservation of amount of matter,
+valid in Newtonian relativity and general relativity.
+
+
+In both Newtonian
 \citep[\sects~I.4]{truesdell1977_r1991}{noll1959,noll1973} and relativistic
 \citep{grotetal1966}[\chap~3]{rezzollaetal2013} continuum mechanics mass is
 typically introduced intertwined with the metric \citep[being an
 exception]{carteretal1972}.
 
 Mass can be considered as a property of matter in relation to
-gravito-inertial forces, both in Newtonian and general relativistic
+gravito-inertial forces, in both Newtonian and general-relativistic
 mechanics. If we aim to establish a kinematic of matter independently of
-any kind of forces and metric, we must then adopt a more general measure of
-the \enquote{amount} of matter, relinquishing mass. This step is also
-strongly suggested by stoichiometry and by the study of how different forms
-of matter are converted into one another
-\citep[\eg][\sects~4.1--2]{samohyletal1987_r2014}[see
-also][]{samohyl1975b}. We are considering this step independently of
-particle theories, which call this \enquote{amount} the baryon number; in
-fact we consider a general, continuous \enquote{amount} of matter. We can
-call this amount the \enquote{moles}, following \textsc{iso} standards
-\citep{iso2009,iso2009d}.
+any kind of forces and metric, we must then relinquish mass and adopt a
+more general measure of \enquote{amount of matter}, or more precisely of
+\enquote{amount of substance} (one of the base quantities of the
+International System of Units \citep{iso2009,iso2009d,jcgm1997_r2012}).
+Conservation of mass is sometimes indeed replaced by conservation of amount
+of matter in the Newtonian continuum mechanics of reacting mixtures
+\citep[\eg][(see especially \eqn~(7), where $m$ can be
+dropped)]{eckart1940b}[Lect.~6 (in \eqn~(6.1) $\rho$ can be
+dropped)]{truesdell1969_r1984}[\sects~4.1--4.2 and refs
+therein]{samohyletal1987_r2014} %[see also][]{samohyl1975b}
+owing to stoichiometry. We are considering this replacement independently
+of particle theories, where conservation of amount of matter is a
+manifestation of the conservation of baryon number
+\citep[\cf][\sect~22.2]{misneretal1970_r1973}. In the following I'll simply
+say \enquote{conservation of matter} rather than of \enquote{amount of
+  matter}.
 
 It turns out that the notions of body and amount of matter can be
-introduced at a single stroke \citep[\cf][]{carteretal1972}, as two aspects
-of the same entity, and without a metric. The idea is analogous to that of
+introduced at one stroke \citep[\cf][]{carteretal1972}, as two aspects of
+the same entity, and without a metric. The idea is analogous to that of
 charge
 \citep{burke1983,bossavit1998b,hehletal2000}[\sect~B.1]{hehletal2003}.
 
@@ -1041,9 +1068,9 @@ and deforms in space as time passes, with respect to some slicing and
 frame. A closed outer-oriented 3-form is the perfect mathematical
 representation of this.
 
-Note that by \enquote{matter} I mean something which possesses mass, and
-I'm thus excluding the electromagnetic field, for example, which is often
-considered as matter in general relativity.
+Note that in speaking of \enquote{matter} I am here excluding the
+electromagnetic field, which is often considered as matter in general
+relativity.
 
 If we were to include a theory of mixtures
 \citep[\eg][app.~5B]{truesdell1969_r1984}, we would represent different
@@ -1059,12 +1086,23 @@ It is called a Lagrangean or \emph{material} frame
   \yn \cdot \yr = 0, \qquad \yn \cdot \di t = 1.
 \end{equation}
 It represents the correspondence of places at different times defined by
-simply saying that each part of that body is at rest. Note that $\yn$ is
-not the 4-velocity of matter; the latter is given by the condition
-$\yn\cdot \di\ytn = 1$ in Newtonian relativity and
-$\abs{\yn\cdot\yfg\cdot\yn} = 1$ in general relativity. A matter 3-form
-cannot be used to define time lapse or distance, owing to its purely
-differential-geometric nature.
+simply saying that each part of that body is at rest.
+
+Note that $\yn$ is not the 4-velocity of matter; the latter is given by the
+condition $\yn\cdot \di\ytn = 1$ in Newtonian relativity and
+$\abs{\yn\cdot\yfg\cdot\yn} = 1$ in general relativity, where $\yfg$ is the
+4-metric. Equivalently in general relativity it can be defined as
+\begin{equation}
+  \label{eq:4velocity_explicit}
+  \yn = \frac{\abs{\yfg}^{-\frac{1}{2}}\vdots \yr}{\yr\vdots\abs{\yfg}^{-\frac{1}{2}}\cdot\yfg\cdot\abs{\yfg}^{-\frac{1}{2}}\vdots \yr},
+\end{equation}
+where $\abs{\yfg}^{-\frac{1}{2}}$ is the inverse volume element associated
+with the 4-metric, and $\vdots$ represent full contraction (remember that
+$\yr$ is a 3-form).
+
+
+A matter 3-form cannot be used to define time lapse or distance, owing to
+its purely differential-geometric nature.
 
 The matter 3-form of a body can also be used to define a volume element on
 each slice, by decreeing that each unit amount of matter of that body
@@ -1099,24 +1137,29 @@ at time $t$: it's the vector $\yvt$, tangent to the slice, satisfying
 \end{subequations}
 \ie\ it's the difference between the frame $\yF$ and the Eulerian frame
 $\yn$. This is a velocity in the sense of our convention of slicing \amp\
-frame, not in the metric sense. For the latter, we would have to replace
+frame, not in the metric sense.
+
+
+
+For the latter, we would have to replace
 the left \eqn~\eqref{eq:eulerian_frame_conditions} with a normalization
 condition.
 
 The outer-oriented 3-form $\yd$ is a density when it's restricted to a
-slice. It corresponds to \enquote{$\rho\di\bm{\tau}$}, where
-\enquote{$\rho$} is matter density (amount/volume) and {$\di\bm{\tau}$} a
-volume element. Thus its unit of measure is moles. The outer-oriented
+slice. It corresponds to \enquote{$c\di\bm{\tau}$}, where \enquote{$c$} is
+density of amount of matter (concentration, amount/volume) and
+{$\di\bm{\tau}$} a volume element. Thus it could be measured in
+\enquote{moles} \citep{iso2009,iso2009d,jcgm1997_r2012}. The outer-oriented
 2-form $\yj$ is related -- but doesn't correspond -- to
-\enquote{$\rho\bm{v}$}, where {$\bm{v}$} is the traditional velocity
+\enquote{$c\bm{v}$}, where {$\bm{v}$} is the traditional velocity
 (length/time). This product is the traditional momentum divided by mass,
-which is identical with mole flux in continuum mechanics. But, as we'll
-see, we have to keep these two notions distinct. The 2-form $\yj$ is
-matter-flux, but not momentum.
+which is identical with flux of amount of matter in continuum mechanics.
+But, as we'll see, we have to keep these two notions distinct. The 2-form
+$\yj$ is matter-flux, but not momentum.
 
 With the projections~\eqref{eq:project_matter_form} and the expression for
-the differential~\eqref{eq:d_projection}, the mole
-balance~\eqref{eq:mass_density_closed_three_form} can be expressed as
+the differential~\eqref{eq:d_projection}, the 
+matter balance ~\eqref{eq:mass_density_closed_three_form} can be expressed as
 \begin{equation}
   \label{eq:mass_balance_traditional}
   \Li_{\yF}\yd + \di\yj = 0,
@@ -1196,7 +1239,6 @@ transport. Exception: add spacelike surfaces from a 4D point of view
 ***that would suffice. But 1st law of thermodynamics, needed for
 thermomechanics, mixes force in energy equation as work.
 
-***can there be force where there's no mass? And where there's no EM field?
 
 ***when the constitutive equation for a force \enquote{visibly} depends on
 space or time variables, as is the case for elastic or inertial forces, the
@@ -1215,6 +1257,7 @@ and to the existence of potentials.
 \subsection{Constitutive equations}
 \label{sec:constit_eq}
 
+\mynote{to be written. See \sect~\ref{sec:constitutive equations}}
 
 
 \subsection{Geometric representation}
@@ -1332,12 +1375,12 @@ and has today a crystal-clear, yet far from finished, method and structure:
 \item For this description it uses five fundamental balance laws and a set
   of nine physical quantities:
   \begin{itemize}
-  \item balances: mole, force, torque, energy, entropy;
-  \item quantities: mole, displacement, temperature, stress,
+  \item balances: amount of matter, force, torque, energy, entropy;
+  \item quantities: amount of matter, displacement, temperature, stress,
     internal energy, heating flux, entropy, body force, body heating.
   \end{itemize}
   The quantities and balances above are postulated to apply to any kind of
-  matter or substance. Mole, displacement, temperature are independent
+  matter or substance. Amount of matter, displacement, temperature are independent
   quantities. Body force and body heating must be given in any particular
   problem and express the effect of the surroundings The remaining are
   dependent quantities.
@@ -1348,7 +1391,7 @@ and has today a crystal-clear, yet far from finished, method and structure:
   initial and boundary conditions yield a well-posed system of
   integro-differential equations. Specifically, the constitutive equations
   give stress, internal energy, heating flux, and entropy as functionals of
-  mole, displacement, temperature. The difference between al kinds of
+  amount of matter, displacement, temperature. The difference between al kinds of
   liquids, gases, solid, plasmas resides in the constitutive equations.
   
   Sometimes internal energy is taken and independent, and temperature as
@@ -1475,12 +1518,12 @@ exerted on it:
   \begin{gather}
     \label{eq:conservation_momentum_traditional_integral}
     \text{\textquotedblleft}\ 
-    \di_t\int_{\yvo}\yd\yvt = \int_{\yvo} \yb + \oint_{\de\yvo} \yT
+    \di_t\int_{\yvo}\rho\yvt = \int_{\yvo} \yb + \oint_{\de\yvo} \yT
     \ \text{\textquotedblright},
     \\\shortintertext{or}
     \label{eq:conservation_momentum_traditional_differential}
     \text{\textquotedblleft}\ 
-    \de_t(\yd\yvt) + \div(\yd\yvt\otimes\yvt) = \div\yT +\yb
+    \de_t(\rho\yvt) + \div(\rho\yvt\otimes\yvt) = \div\yT +\yb
     \ \text{\textquotedblright}.
   \end{gather}
 \end{subequations}
@@ -1491,7 +1534,7 @@ provided we add some \enquote{fictitious forces} looking like
 \begin{equation}
   \label{eq:fictitious_forces}
     \text{\textquotedblleft}\ 
-  \yd\, [-{\de_t}^2\yxto%(\yxt-\yxto)
+  \rho\, [-{\de_t}^2\yxto%(\yxt-\yxto)
   + 2\yom\cdot\de_t(\yxt-\yxto) + (\de_t\yom-{\yom}^2)\cdot(\yxt-\yxto)]
     \ \text{\textquotedblright},
 \end{equation}
@@ -1508,12 +1551,12 @@ example, the force exerted on a pointlike object attached to a Hookean
 spring with constant $k$ and elongation $l$ has intensity $kl$ and
 direction along the elongation. This is a complete description of the
 force, and the notion of frame is completely irrelevant to it. Similarly
-for the gravitational force: it is given by $\yd\otimes\yfg$, where $\yfg$
+for the gravitational force: it is given by $\rho\otimes\yfg$, where $\yfg$
 is a frame-indifferent covector field. This field is in turn determined by
-the mole and mass distribution via $\di\yfg = - 4\pu G \yd$, again a
-frame-indifferent definition.
+the amount of matter and mass distribution via $\di\yfg = - 4\pu G \rho$,
+again a frame-indifferent definition.
 
-The momentum density $\yd\yvt$ on left-hand side of
+The momentum density $\rho\yvt$ on left-hand side of
 \eqn~\eqref{eq:conservation_momentum_traditional} and the
 \enquote{fictitious forces}~\eqref{eq:fictitious_forces} require the
 specification of a frame instead.
@@ -1560,7 +1603,7 @@ force is the covector-valued 3-form
 % \end{equation}
 \begin{equation}
   \label{eq:inertial_force}
-  \ybi \defd  -\yd \otimes
+  \ybi \defd  -\rho \otimes
   \bigl(\yom\cdot\yg^{-1}\cdot\yom  - \de_t\yom - 2\yom\de_t  + \yg{\de_t}^2\bigr)
   \cdot(\yxt-\yxto).
 \end{equation}
@@ -1570,7 +1613,7 @@ transport on each slice. But it does not require a 4-dimensional connection
 on the whole spacetime. If we choose a rigid frame in which the total
 matter of the universe does not rotate on average, $\yom=0$, and moves with
 uniform velocity, $\de_t\yxto=\text{const}$, then we recover the familiar
-expression $\ybi = -\yd \yg\cdot{\de_t}^2\yxt$ -- the $\yg$ is necessary to
+expression $\ybi = -\rho \yg\cdot{\de_t}^2\yxt$ -- the $\yg$ is necessary to
 transform a vector into a covector. This kind of rigid frame is called
 inertial. The use of a \emph{rigid} frame is not necessary; a
 frame-independent expression of the inertial force is given below.
@@ -1613,7 +1656,7 @@ in terms of an absolute-time slicing can be geometrically improved upon.
 \label{sec:energy_balance}
 
 To each matter element on each slice is also associated an internal energy
-density $\ye\yd$, represented by an outer-oriented 3-form proportional to
+density $\ye$, represented by an outer-oriented 3-form proportional to
 the mass 3-form $\yd$. The balance of energy states that the change in the
 total energy in a 3-volume $\yvo$ on a slice must come from the energy
 transported thither or thence, from the work done by the forces, and from
@@ -1626,11 +1669,11 @@ body and surface heating, represented by outer-oriented 3-form and 2-form:
 %   \qquad\forall \yvo
 %  \\
 %  \shortintertext{or}
-  \de_t(\ye\yd) + \di(\yvt \cdot \ye\yd) =
+  \de_t\ye + \di(\yvt \cdot \ye) =
   \yvt\cdot\yb + \di(\yvt\cdot \yT)
   +\yQ + \di\yq,
 \end{equation}
-with $\de_t(\ye\yd) \equiv \Li_{\yF}(\ye\yd)$. The rate of change of
+with $\de_t\ye \equiv \Li_{\yF}\ye$. The rate of change of
 kinetic energy is simply the work done by the inertial force, and is
 therefore included in the term $\yvt \cdot \yb$. The traditional expression
 with \enquote{$\de_t + \yvt\cdot\ynab$} appears if we write the 3-form
@@ -1641,13 +1684,13 @@ If we assume that body forces and body heating vanish, then we can rewrite
 this equation as
 \begin{equation}
   \label{eq:balance_energy_suggests_3form}
-  \de_t(\ye\yd) + \di(\yvt \cdot \ye\yd -\yvt\cdot\yT - \yq) = 0,
+  \de_t\ye + \di(\yvt \cdot \ye -\yvt\cdot\yT - \yq) = 0,
 \end{equation}
 which suggests that energy can also be considered like an outer-oriented
 closed 3-form, with a flux 2-form
 \begin{equation}
   \label{eq:energy_4velocity}
-  \yp \equiv -\yvt \cdot\ye\yd + \yvt\cdot\yT +\yq.
+  \yp \equiv -\yvt \cdot\ye + \yvt\cdot\yT +\yq.
 \end{equation}
 
 
@@ -1804,83 +1847,13 @@ appear as a harmonization of a part of the Newtonian balance laws and of
 geometry. They -- especially the stress appearing in them -- still need
 constitutive equations.
 
-The Einstein equations don't include the balances of mass (or better:
-baryonic number) and entropy
+The Einstein equations don't include the balances of amount of matter (see
+\sect~\ref{sec:matter}) and entropy
 \citep{eckart1940c}[\chap~22]{misneretal1970_r1973}. This fact is very
 clear in numerical relativity
 \citep[p.~1918]{disconzi2014}[\sect~2.2]{wilsonetal2003_r2007}[\sect~6.3.2]{gourgoulhon2007_r2012}[\chap~5]{baumgarteetal2010}[\sect~2.3]{rezzollaetal2013}.
 
-In the following when I speak of \enquote{mass balance}
 
-\subsection{Constitutive equations}
-\label{sec:constitutive equations}
-
-\mynote{This section is a little disconnected from the rest. Must be better
-integrated}
-
-The balances of mass, force, energy give a system of 1+3+1 real-valued
-equations. They involve at least 4+3+6+5 real-valued components: mass
-density and flux, body force and stress, energy density and flux, and body
-supply of energy. The independent variables in these equations are usually
-assumed to be the four components of the mass 3-form -- that is, mass
-density and mass flux or velocity -- and the temperature. Sometimes the
-energy density is exchanged with the temperature in the role of independent
-variable.
-
-The balance laws alone are therefore not sufficient to determine the
-evolution of all fields. Moreover, although the balances are assumed to
-hold for all forms of matter, different kinds of matter behave in different
-ways.
-
-\emph{Constitutive equations} are equations that give the dependent fields
-as functions or functionals of the independent ones. They express the
-different behaviours of different kinds of matter, and together with the
-balance laws yield a closed system of differential or integro-differential
-equations.
-
-The most important constitutive equation in our discussion is that for the
-4-stress. All 4-components of the stress $\yT$ are in the simplest cases
-\emph{functionals} of the mass 3-form $\yr$, the internal energy $\ye$ or
-temperature $\yte$, and the 3-metric $\yg$:
-\begin{subequations}\label{eq:constitutive_4stress}
-  \begin{gather}
-    \label{eq:constit_T_with_mass_geometry}
-    \yTf=\yTf[\yr(\dotv),\yte(\dotv),\yg(\dotv)],
-    \\
-    \shortintertext{or, in a given slicing and frame,}
-    \label{eq:4stress_components}
-    \yTf =
-    \begin{pmatrix}
-      \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] & \yq[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] \\
-      \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] & \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)]
-    \end{pmatrix}
-  \end{gather}
-\end{subequations}
-(these functionals indirectly include a possible dependence on the
-extrinsic curvature $\yK$, because it's the \enquote{time derivative} of
-the 3-metric; see below).
-
-The dependence on the metric can be complicated: for example, the stress at
-a point can depend on the difference between the 3-metric there and the
-metric from previous 3-surfaces, transported by the velocity $\yc$
-associated with the mass flux \citep{grotetal1966,carteretal1972}. The
-difference can be non-vanishing even if the 3-metric is Euclidean on all
-3-surfaces. The only difference between Newtonian and general relativistic
-mechanics is that all 3-metrics are flat in the former but not in the
-latter.
-
-There are many studies of specific constitutive equations in general
-relativity, from perfect fluids to materials with elasticity dependent on
-electromagnetism, temperature, and heat conduction. There are also studies
-on general symmetry principles for the formulation of constitutive
-equations. Unfortunately many of these works don't know of one another's
-existence. See especially the extensive studies and results by Maugin
-\etal\
-\citep{maugin1971,maugin1971b,mauginetal1972,mauginetal1972b,maugin1973,maugin1974,maugin1974b,maugin1978,maugin1978b,maugin1978c,maugin1978d,maugin1978e},
-Carter \etal\ \citep{carteretal1972,carter1973,carteretal2006}, the early
-and very insightful study by Eckart \citep{eckart1940c}, and others
-articles and books
-\citep{bressan1964b,lianis1973,bertottietal1984,hiscocketal1985,anileetal1989,gerochetal1991,herrmannetal2000,bossavit2001b,geroch2001,gourgoulhon2007_r2012,alcubierre2008,choquetbruhat2009,baumgarteetal2010,rezzollaetal2013,disconzi2014,pimenteletal2016,disconzietal2017}.
 
  
 \subsection{3~+ 1 formulation}
@@ -1911,7 +1884,7 @@ The decomposition of the Einstein tensor $\yG$ yields the 3-metric
 $\yg=(\ygg_{ab})$ of the 3-surfaces, having inverse $\yg^{-1}=(\ygg^{ab})$,
 with its compatible connection $\ynab$ having Ricci curvature
 $\yR=({\yRR_a}^b)$, and the extrinsic curvature $\yK=({\yKK_a}^b)$ of the
-3-surfaces. The decomposition of the energy-stress tensor $\yTf$ yields the
+3-surfaces. The decomposition of the energy-momentum-stress tensor $\yTf$ yields the
 internal energy $\ye$, energy flux $\yp$, and spatial stress
 $\yT=({\yTT_a}^b)$:
 \begin{equation}
@@ -1920,15 +1893,15 @@ $\yT=({\yTT_a}^b)$:
   \otimes(\yp\cdot\yg^{-1}) + \yT.
 \end{equation}
 
-The Einstein equations $\yG = \yTf$ are decomposed into the evolution
-equations
+The Einstein equations $\yG = 8\pi\yTf$ are decomposed into the evolution
+equations \mynote{some $\pi$ factors may be missing!}
 \begin{subequations}\label{eq:evolution_eqns}
   \begin{align}
     \label{eq:dt_metric}
     \de_t \yg &= -2\yK\cdot\yg,
     \\
     \label{eq:dt_curvat}
-    \de_t \yK &=  \yK\tr\yK -2 \yK\cdot\yK +\yR + \tfrac{1}{2}(\tr\yT-\ye) - \yT
+    \de_t \yK &=  \yK\tr\yK -2 \yK\cdot\yK +\yR + 4\pi\,(\tr\yT-\ye) - 8\pi\yT
   \end{align}
 \end{subequations}
 or
@@ -1948,10 +1921,10 @@ and the constraint equations
 \begin{subequations}\label{eq:constraint_eqns}
   \begin{align}
     \label{eq:energy_constraint}
-    \ye &=\tfrac{1}{2}\bigl[(\tr\yK)^2 - \yK\con\yK + \tr\yR\bigr],
+    16\pi\ye &=(\tr\yK)^2 - \yK\con\yK + \tr\yR,
     \\
     \label{eq:momentum_constraint}
-    \yp &= \ynab\cdot(\yK\T - \yI\tr\yK).
+    8\pi\yp &= \ynab\cdot(\yK\T - \yI\tr\yK).
   \end{align}
 \end{subequations}
 Note that
@@ -1962,11 +1935,11 @@ Note that
   -\frac{1}{\sqrt{\yg}}\Li_{\yn}\sqrt{\yg} \equiv -\ynab\cdot ***
 \end{equation}
 
-It is interesting to note that \enquote{3-momentum} in relativity appears
-as the divergence of a 3-tensor -- just like the force from a stress.
+It's interesting that the \enquote{3-momentum} in relativity appears as the
+divergence of a 3-tensor -- just like the force from a stress.
 
-To these equations we must add the mass balance, equivalent to
-\eqn~\eqref{eq:mass_balance_traditional}:
+To these equations we must add the balance of amount of
+matter~\eqref{eq:mass_balance_traditional}:
 \begin{equation}
   \label{eq:mass_balance_gen-rel}
   \de_t\yd = - \di\yj
@@ -1974,14 +1947,19 @@ To these equations we must add the mass balance, equivalent to
   \de_t\yd -\tr\yK\yd = -\ynab\cdot\yj,
 \end{equation}
 where in the second equation $\yd$ and $\yj$ are interpreted as a scalar
-and a vector. In these expressions $\de_t \equiv \Li_{\yn}$.
+and a vector. In these expressions $\de_t \equiv \Li_{\yn}$. (Conservation
+of matter is not enforced by the Einstein equations
+\citep[\eg][]{eckart1940c}[\sect~6.3.2]{gourgoulhon2007_r2012}[\sect~5.2]{baumgarteetal2010}[\sect~7.3]{rezzollaetal2013}[\sect~22.2]{misneretal1970_r1973}.
+Curiously there was at first some misunderstanding about the independence
+of this equation: see for example von Laue's \citep[p.~503]{vonlaue1949}
+statement.)
 
 This gives us a total of 6 + 6 + 1 + 3 + 1 real-component equations for a
 total of 6 + 6 + 6 + 1 + 3 + 1 + 3 + 1 real components of the fields $\yg$,
 $\yK$, $\yT$, $\ye$, $\yp$, $\yd$, $\yj$, and temperature $\yte$. Then we
 need 6 + 1 + 3 equations, which turn out to be, as in the Newtonian case,
 the constitutive functional equations~\eqref{eq:constitutive_4stress} for
-the energy-stress:
+the energy-momentum-stress:
 \begin{subequations}\label{eq:constitutive_4stress_gen-rel}
   \begin{align}
     \label{eq:constit_energy_gen-rel}
@@ -1998,7 +1976,82 @@ the energy-stress:
 $\yg(\dotv)$, and these equations are already functionals of $\yg(\dotv)$;
 but I leave the explicit dependence for clarity).
 
-\subsection{Parentetical remark: divergence of energy-stress}
+(The 4-velocity is determined by the matter flux $\yj$ and the 4-metric by
+\eqn~\eqref{eq:4velocity_explicit}.)
+
+\subsection{Constitutive equations}
+\label{sec:constitutive equations}
+
+\mynote{This section is a little disconnected from the rest. Must be better
+integrated}
+
+The balances of amount of matter, force, energy give a system of 1+3+1
+real-valued equations. They involve at least 4+3+6+5 real-valued
+components: matter density and flux, body force and stress, energy density
+and flux, and body supply of energy. The independent variables in these
+equations are usually assumed to be the four components of the matter
+3-form -- that is, density of amount of matter and flux of amount of matter
+(velocity) -- and the temperature. Sometimes the energy density is
+exchanged with the temperature in the role of independent variable.
+
+The balance laws alone are therefore not sufficient to determine the
+evolution of all fields. Moreover, although the balances are assumed to
+hold for all forms of matter, different kinds of matter behave in different
+ways.
+
+\emph{Constitutive equations} are equations that give the dependent fields
+as functions or functionals of the independent ones. They express the
+different behaviours of different kinds of matter, and together with the
+balance laws yield a closed system of differential or integro-differential
+equations.
+
+The most important constitutive equation in our discussion is that for the
+4-stress. All 4-components of the stress $\yT$ are in the simplest cases
+\emph{functionals} of the matter 3-form $\yr$, the internal energy $\ye$ or
+temperature $\yte$, and the 3-metric $\yg$:
+\begin{subequations}\label{eq:constitutive_4stress}
+  \begin{gather}
+    \label{eq:constit_T_with_mass_geometry}
+    \yTf=\yTf[\yr(\dotv),\yte(\dotv),\yg(\dotv)],
+    \\
+    \shortintertext{or, in a given slicing and frame,}
+    \label{eq:4stress_components}
+    \yTf =
+    \begin{pmatrix}
+      \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] & \yq[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] \\
+      \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] & \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)]
+    \end{pmatrix}
+  \end{gather}
+\end{subequations}
+(these functionals indirectly include a possible dependence on the
+extrinsic curvature $\yK$, because it's the \enquote{time derivative} of
+the 3-metric; see previous section).
+
+The dependence on the metric can be complicated: for example, the stress at
+a point can depend on the difference between the 3-metric there and the
+metric from previous 3-surfaces, transported by the velocity $\yc$
+associated with the matter flux \citep{grotetal1966,carteretal1972}. The
+difference can be non-vanishing even if the 3-metric is Euclidean on all
+3-surfaces. The only difference between Newtonian and general relativistic
+mechanics is that all 3-metrics are flat in the former but not in the
+latter.
+
+There are many studies of specific constitutive equations in general
+relativity, from perfect fluids to materials with elasticity dependent on
+electromagnetism, temperature, and heat conduction. There are also studies
+on general symmetry principles for the formulation of constitutive
+equations. Unfortunately many of these works don't know of one another's
+existence. See especially the extensive studies and results by Maugin
+\etal\
+\citep{maugin1971,maugin1971b,mauginetal1972,mauginetal1972b,maugin1973,maugin1974,maugin1974b,maugin1978,maugin1978b,maugin1978c,maugin1978d,maugin1978e},
+Carter \etal\ \citep{carteretal1972,carter1973,carteretal2006}, the early
+and very insightful study by Eckart \citep{eckart1940c}, and others
+articles and books
+\citep{bressan1964b,lianis1973,bertottietal1984,hiscocketal1985,anileetal1989,gerochetal1991,herrmannetal2000,bossavit2001b,geroch2001,gourgoulhon2007_r2012,alcubierre2008,choquetbruhat2009,baumgarteetal2010,rezzollaetal2013,disconzi2014,pimenteletal2016,disconzietal2017}.
+
+
+
+\subsection{Parentetical remark: divergence of energy-momentum-stress}
 \label{sec:divergence_4stress}
 
 A strange point appears in most general-relativity texts I've seen,
@@ -2106,8 +2159,8 @@ can be solved this way:
   equations~\eqref{eq:constitutive_4stress_gen-rel} on an initial 3-surface
   at time $\yto$.
 \item\label{item:increase_step}Calculate metric $\yg$, extrinsic curvature
-  $\yK$, mass density $\yd$ at time $\yto + \incr t$ from the evolution
-  \eqns~\eqref{eq:evolution_eqns} and balance
+  $\yK$, density of amount of matter $\yd$ at time $\yto + \incr t$ from
+  the evolution \eqns~\eqref{eq:evolution_eqns} and balance
   \eqref{eq:mass_balance_gen-rel}:
   \begin{align*}
     \de_t \yg &= -2\yK\cdot\yg,
@@ -2116,9 +2169,9 @@ can be solved this way:
     \\
     \de_t\yd &= - \di\yj.
   \end{align*}
-  Note that these evolution equations require, in particular, the mass flux
-  $\yj$, energy $\ye$, stress $\yT$ at time $\yto$.
-\item\label{item:increase_step_energy}Calculate the mass flux $\yj$,
+  Note that these evolution equations require, in particular, the flux of
+  amount of matter $\yj$, energy $\ye$, stress $\yT$ at time $\yto$.
+\item\label{item:increase_step_energy}Calculate the  flux of amount of matter $\yj$,
   temperature $\yte$, energy $\ye$, energy flux $\yp$, stress $\yT$ at time
   $\yto + \incr t$ from the system of
   constraints~\eqref{eq:constraint_eqns} and constitutive
@@ -2136,17 +2189,17 @@ can be solved this way:
       \\
       \yT = \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)].
   \end{gather*}
-  Note that this system \emph{implicitly} yields, in particular, the mass
-  flux $\yj$, energy $\ye$, stress $\yT$ needed in the next timestep; see
-  step above.
+  Note that this system \emph{implicitly} yields, in particular, the flux
+  of amount of matter $\yj$, energy $\ye$, stress $\yT$ needed in the next
+  timestep; see step above.
 
   Now we have all fields at time $\yto + \incr t$.
 
 \item Set $\yto + \incr t \to \yto$, go to step~\ref{item:increase_step}.
 \end{enumerate}
 
-It's important to remark that the motion of matter, expressed by the mass
-flux $\yj$ in this particular reference frame and slicing, is determined
+It's important to remark that the motion of matter, expressed by the 
+matter flux $\yj$ in this particular reference frame and slicing, is determined
 in an \emph{implicit} way in the scheme above. It would be worth
 investigating how geodesic equations \citep{gerochetal1975,weatherall2011}
 peep out from the present scheme.
@@ -2160,12 +2213,12 @@ constitutive equations, like dependence on derivatives, memory, \etc.
 An interesting aspect of the equations above is that energy density and
 energy flux seem to have an intermediate role. We could think of solving
 the constraint and constitutive equations of
-step~\ref{item:increase_step_energy} for mass density $\yd$ and mass flux
-$\yj$ in terms of the 4-metric $(\yg, \yK)$ and the temperature $\yte$;
-this dependence could involve integro-differential operators. The
-mass-balance $\de_t\yd = -\di\yj$ would then become an evolution equation
-for the temperature. The constitutive equation for the stress would also be
-reduced.
+step~\ref{item:increase_step_energy} for matter density $\yd$ and matter
+flux $\yj$ in terms of the 4-metric $(\yg, \yK)$ and the temperature
+$\yte$; this dependence could involve integro-differential operators. The
+balance of amount of matter $\de_t\yd = -\di\yj$ would then become an
+evolution equation for the temperature. The constitutive equation for the
+stress would also be reduced.
 
 We would be left with the system
 \begin{subequations}\label{eq:evolution_eqns_new}
@@ -2192,10 +2245,12 @@ extrinsic curvature $\yK$, and the temperature $\yte$; or integro-differential f
 the 3-metric $\yg$ and the temperature $\yte$. This system seems to say
 that
 \begin{itemize}
-\item mass density, mass flux, energy density, and energy flux are
+\item density of amount of matter $\yd$, flux of amount of matter $\yj$,
+  energy density $\ye$, and energy flux $\yp$ are
   \emph{temperature-dependent} manifestations of the 4-metric;
 \item the 4-metric can interact with itself in different ways, expressed by
-  particular \emph{temperature-dependent} constitutive functional equations;
+  particular \emph{temperature-dependent} constitutive functional equations
+  for $\yd$, $\yj$, $\yT$.
 \end{itemize}
 Would this satisfy Einstein? How to interpret the \enquote{temperature of
   the metric}?
@@ -2366,7 +2421,7 @@ summary of its key points at the end of it.
 Then in \sect~\ref{sec:general_relativity} I give a summary of the
 \enquote{3~+ 1} (or \enquote{Arnowitt-Deser-Misner}, or
 \enquote{initial-value}) formulation of the Einstein equations, showing in
-particular how the energy-stress-momentum balance equations arise from
+particular how the energy-momentum-stress balance equations arise from
 them. I then merge the 3~+ 1 formulation with some of the
 continuum-mechanical concepts previously summarized, also discussing some
 points that aren't clear to me.

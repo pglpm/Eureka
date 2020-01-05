@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-05T19:27:30+0100
+%% Last-Updated: 2020-01-05T20:52:59+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -676,7 +676,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yT}{\mathte{T}}
 \newcommand*{\yG}{\mathte{G}}
 \newcommand*{\yR}{\mathte{R}}
-\newcommand*{\yTa}{\bm{\varTau}}
+\newcommand*{\yRi}{\mathte{Ri}}
+\newcommand*{\yTo}{\bm{\tau}}
 \newcommand*{\yom}{\bm{\omega}}
 \newcommand*{\yta}{\bm{\tau}}
 \newcommand*{\yv}{\bm{v}}
@@ -782,7 +783,7 @@ tensors starting from coordinates with dimensions of length. That statement
 is wrong, and that procedure is unnecessary.
 
 Several factors probably cause or contribute to such difficulties. Modern
-texts in Lorentzian and general relativity commonly use natural units. They
+texts in Lorentzian and general relativity commonly use geometrized units. They
 say that to find the dimension of some constant in a tensorial equations
 it's sufficient to compare the dimensions of the tensors in the equation.
 But this is not so immediate, because some tensors don't have universally
@@ -1129,32 +1130,44 @@ have dimensions
   \dim(\yGa\i{^{i}_{jk}}) = \Xx_{i}\, {\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}.
 \end{equation}
 
-The \emph{torsion} $\yTa\i{^{\bdot}_{\bdot\bdot}}$, \emph{Riemann
+The \emph{torsion} $\yTo\i{^{\bdot}_{\bdot\bdot}}$, \emph{Riemann
   curvature} $\yR\i{^{\bdot}_{\bdot\bdot\bdot}}$, and \emph{Ricci
-  curvature} $\yR\i{_{\bdot\bdot}}$ tensors are defined by
+  curvature} $\yRi\i{_{\bdot\bdot}}$ tensors are defined by
 \citep[\sect~V.B.1]{choquetbruhatetal1977_r1996}
 \begin{gather}
   \label{eq:torsion_eq}
-\yTa(\yu,\yv) \defd \nab_{\yu}\yv - \nab_{\yv}\yu - \clcl{\yu,\yv},
+\yTo(\yu,\yv) \defd \nab_{\yu}\yv - \nab_{\yv}\yu - \clcl{\yu,\yv},
 \\
 \yR(\yu,\yv)\yw \defd
 \nab_{\yu}\nab_{\yv}\yw - \nab_{\yv}\nab_{\yu}\yw
 - \nab_{\clcl{\yu,\yv}}\yw,
-\\
-\yR\i{_{\bdot\bdot}} \defd \tr_{13} \yR\i{^{\bdot}_{\bdot\bdot\bdot}}.
   \label{eq:riemann_eq}  
+\\
+\yRi\i{_{\bdot\bdot}} \defd \tr_{13} \yR\i{^{\bdot}_{\bdot\bdot\bdot}}.
+  \label{eq:ricci_eq}  
 \end{gather}
-From these definitions, formula~\eqref{eq:dim_cov_der_vect}, and the
-dimensional properties of tensor product~\eqref{eq:tensor_mult} and
-contraction~\eqref{eq:tensor_contr} we see that \emph{torsion, Riemann, and
-  Ricci curvature are dimensionless}:
+From these definitions and the results of \sect~\ref{sec:tensor_ops} we
+find the dimensional requirements
+\begin{gather}
+  \label{eq:torsion_eq_dim}
+\dim(\yTo\i{^{\bdot}_{\bdot\bdot}})\dim(\yu)\dim(\yv) = \dim(\yu) \dim(\yv),
+\\
+\dim(\yR\i{^{\bdot}_{\bdot\bdot\bdot}})\dim(\yu)\dim(\yv)\dim(\yw) =
+\dim(\yu)\dim(\yv)\dim(\yw),
+\label{eq:riemann_eq_dim}
+\\
+\dim(\yRi\i{_{\bdot\bdot}}) = \dim(\yR\i{^{\bdot}_{\bdot\bdot\bdot}}),
+  \label{eq:ricci_eq_dim}  
+\end{gather}
+which imply that \emph{torsion, Riemann curvature, and Ricci curvature are
+  dimensionless}:
 \begin{equation}
   \label{eq:dim_torsion_riemann_ricci}
-  \dim(\yTa\i{^{\bdot}_{\bdot\bdot}}) =
+  \dim(\yTo\i{^{\bdot}_{\bdot\bdot}}) =
   % \label{eq:dim_riem}
    \dim(\yR\i{^{\bdot}_{\bdot\bdot\bdot}}) =
   % \label{eq:dim_ricci}
-   \dim(\yR\i{_{\bdot\bdot}}) =1.
+   \dim(\yRi\i{_{\bdot\bdot}}) =1.
 \end{equation}
 The exact contra- and co-variant type used above for these tensors is very
 important in these equations. If we raise any of their indices using a
@@ -1165,7 +1178,8 @@ at variance with Misner \etal\ \citey[ pp.~34--35 and
 p.~407]{misneretal1970_r1973}, who seem to say that
 $\yR\i{^{\bdot}_{\bdot\bdot\bdot}}$ has dimension $\Le^{-2}$. I may be
 misunderstanding them; but in any case I stand by the
-results~\eqref{eq:dim_torsion_riemann_ricci}.
+results~\eqref{eq:dim_torsion_riemann_ricci}, determined by simple
+dimensional consistency.
 % misner p 407
 \medskip
 
@@ -1220,8 +1234,11 @@ absolute dimension $\dim(\yg)$?
 The answer depends on the operational meaning of the metric, and there
 doesn't seem to be a standard choice***
 
-\citep[\sect~V.62, \eqn~(62.02)]{fock1955_t1964} %L^2
- \citep[\chap~11 \eqn~(11.21)]{curtisetal1985} %L^2
+\citep[\sect~V.62, \eqn~(62.02)]{fock1955_t1964} %L^2 1/c
+\citep[\chap~11 \eqn~(11.21)]{curtisetal1985} %L^2 1/c
+\citep[\eqns~(1) or (9)]{cook2004} % L^2 1/c
+ \citep[\chap~6 \eqn~(6.24)]{hartle2003} % L^2 1/c
+ \citep[\chap~II p.~25]{kilmister1973} %but see excpt 4
 
 
 Here I offer my personal point of view. We can use the metric to measure

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-03T00:31:11+0100
+%% Last-Updated: 2020-01-05T17:32:18+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -564,7 +564,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\with}{\colon}%with (list of indices)
 %\newcommand*{\mul}{\times}%multiplication
 %\newcommand*{\inn}{\cdot}%inner product
-%\newcommand*{\dotv}{\mathord{\,\cdot\,}}%variable place
+\newcommand*{\dotv}{\mathord{\,\cdot\,}}%variable place
 %\newcommand*{\comp}{\circ}%composition of functions
 %\newcommand*{\con}{\mathbin{:}}%scal prod of tensors
 %\newcommand*{\equi}{\sim}%equivalent to 
@@ -661,7 +661,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\Te}{\Theta}
 \newcommand*{\Cu}{\textsf{I}}
 \newcommand*{\Fl}{\Phi}
-\newcommand*{\En}{\Eta}%{\textsf{E}}
+\newcommand*{\En}{\Epsilon}%{\textsf{E}}
 \newcommand*{\Xx}{\textsf{X}}
 \newcommand*{\Yy}{\textsf{Y}}
 \newcommand*{\Aa}{\textsf{A}}
@@ -796,49 +796,7 @@ In this note I want to clarify some misconceptions about dimensional
 analysis in differential manifolds, and to illustrate a simple way of
 reasoning to solve dimensional-analysis doubts and problems. This way of
 reasoning relies on the coordinate-free, \emph{intrinsic} view of tensors
-and other differential-geometrical objects, as presented for example in the
-excellent texts by Choquet-Bruhat \etal\
-\citey{choquetbruhatetal1977_r1996}, Boothby \citey{boothby1975_r2003}, and
-on the physics and general-relativity side Burke
-\citey[\chap~2]{burke1980b}, Bossavit \citey{bossavit1991}, Misner \etal\
-\citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
-\citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \etal\
-\citey[\chap~4]{penroseetal1984_r2003}.
-
-
-
-\section{The intrinsic view of differential-geometric objects:\\ a brief
-  reminder}
-\label{sec:remined}
-
-
-From the intrinsic point of view, a tensor is defined by its geometric
-properties. For example, a vector field $\yv$ is an object that operates on
-functions defined on the manifold, yielding new functions, with the
-properties $\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for
-all functions $f$, $g$ and reals $a$, $b$. A covector field $\yom$ is an
-object that operates on vector fields, yielding functions, with the
-property $\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields
-$\yu$, $\yv$ and functions $f$, $g$. Tensors are constructed from these
-objects.
-
-A system of coordinates $(x^{i})$ is just a set of linearly
-independent functions. This set gives rise to a set of vectors fields
-$\Bigl(\dex\Bigr)$ and a set of covector fields $(\dix)$, which can be used
-as bases to express all other vectors, owing to linearity. The vector field
-$\yv$ can thus be written as
-\begin{equation}
-  \label{eq:vector_intrinsic}
-  \yv \equiv \sum_{i}v^{i}\dex \equiv v^{i}\dex ,
-\end{equation}
-where $v^{i}$ are its components -- they're just functions -- with respect
-to the basis $\Bigl(\dex\Bigr)$.
-
-
--- thus applying to Lorentzian and
-general relativity but also Newtonian relativity --
-
-\textcolor{white}{If you find this you can claim a postcard from me.}
+and other differential-geometrical objects.
 
 Let's start from more general facts about dimensional analysis on differential manifolds.
 
@@ -849,6 +807,50 @@ call this a "co-contra-variant tensor".
 
 
 [check \citep{aldersley1977}]
+
+
+
+\section{Intrinsic view of differential-geometric objects:  brief
+  reminder}
+\label{sec:remined}
+
+
+From the intrinsic point of view, a tensor is defined by its geometric
+properties. For example, a vector field $\yv \equiv \yv(\dotv)$ is an object that operates on
+functions defined on the manifold, yielding new functions, with the
+properties $\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for
+all functions $f$, $g$ and reals $a$, $b$. A covector field (1-form) $\yom$
+is an object that operates on vector fields, yielding functions
+(\enquote{duality}), with the property
+$\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields $\yu$, $\yv$
+and functions $f$, $g$. The sum of vector or covector fields, and their
+products by functions -- let's call this \enquote{linearity} -- are defined
+in an obvious way. Tensors are constructed from these objects.
+
+A system of coordinates $(x^{i})$ is just a set of linearly independent
+functions. This set gives rise to a set of vectors fields
+$\Bigl(\dex\Bigr)$ and to a set of covector fields $(\dix)$ by the obvious
+requirements that $\dex(x^{j})=\delt\i{_{i}^{j}}$ and
+$\dix\Bigl(\dex[j])=\delt\i{^{i}_{j}}$. These two sets can be used as bases
+to express all other vectors and covectors as linear combinations. A
+vector field $\yv$ can thus be written as
+\begin{equation}
+  \label{eq:vector_intrinsic}
+  \yv \equiv \sum_{i}v^{i}\dex \equiv v^{i}\dex ,
+\end{equation}
+where the \emph{functions} $v^{i}\defd \yv(x^{i})$ are its components with
+respect to the basis $\Bigl(\dex\Bigr)$. Analogously for a covector field.
+
+For the full presentation of the intrinsic view I recommend the excellent
+texts by Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}, Boothby
+\citey{boothby1975_r2003}, and on the physics and general-relativity side
+Burke \citey[\chap~2]{burke1980b}, Bossavit \citey{bossavit1991}, Misner
+\etal\ \citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
+\citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \etal\
+\citey[\chap~4]{penroseetal1984_r2003}.
+
+
+\textcolor{white}{If you find this you can claim a postcard from me.}
 
 \section{Coordinates}
 \label{sec:coords}
@@ -861,54 +863,52 @@ within that region. Any physical quantity will do: the distance from
 something, the time elapsed since something, an angle, an energy density,
 the strength of a magnetic flux, a temperature, and so on. A coordinate can
 thus have any dimensions: length $\Le$, time $\Ti$, angle $1$, energy
-density $\En = \Le^{-1}\Ma\Ti^{-2}$, magnetic flux
-$\Fl = \Le^{2}\Ma\Ti^{-2}\Cu^{-1}$, temperature $\Te$, and so on.
+density $\En \defd \Le^{-1}\Ma\Ti^{-2}$, magnetic flux
+$\Fl \defd \Le^{2}\Ma\Ti^{-2}\Cu^{-1}$, temperature $\Te$, and so on.
 
 The dimensions of the coordinates don't matter, as we'll now see.
 
 \section{Tensors}
 \label{sec:tensors}
 
-Consider a system of coordinates $(x^i)$ with dimensions $(\Xx_i)$. Each
-coordinate $x^{i}$ begets a covector field (1-form) $\dix$, and the
-coordinates together beget a set of dual vector fields
-$\Bigl(\dex\Bigr)$. These covectors and vectors can be
-used as bases for the cotangent and tangent spaces, and their tensor
-products as bases for tensor tangent spaces of higher type.
+Consider a system of coordinates $(x^i)$ with dimensions $(\Xx_i)$, and the
+ensuing sets of covector fields (1-form) $\dix$ and of vector fields
+$\Bigl(\dex\Bigr)$, bases for the cotangent and tangent spaces. Their
+tensor products are bases for the tangent spaces of higher tensor types.
 
 The differential $\dix$ traditionally has the same dimension as $x^{i}$:
 $\dim(\dix) = \Xx_{i}$, and the operator $\dex$ traditionally has the
 inverse dimension: $\dim\dex = {\Xx_{i}}^{-1}$. We'll see later that
 these conventions are self-consistent.
 
-For our discussion let's now take a contra-co-tensor field
-$\yA \equiv \yA\i{^{\bdot}_{\bdot}}$; the discussion generalizes to
-tensors of other types in an obvious way.
+For our discussion let's take a concrete example: a contra-co-tensor field
+$\yA \equiv \yA\i{^{\bdot}_{\bdot}}$. The discussion generalizes to tensors
+of other types in an obvious way.
 
-The tensor $\yA$ can be expanded in terms of the basis vectors and covectors:
+The tensor $\yA$ can be expanded in terms of the basis vectors and
+covectors, as mentioned in \sect~\ref{sec:remined}:
 \begin{equation}
   \label{eq:expansion_tensor}
   \yA = A\i{^{i}_{j}}\, \dex\otimes\dix[j]
   \equiv A\i{^{0}_{0}}\,\dex[0]\otimes\dix[0] + 
-  A\i{^{0}_{1}}\,\dex[0]\otimes\dix[1] + \dotsb {},
+  A\i{^{0}_{1}}\,\dex[0]\otimes\dix[1] + \dotsb {}.
 \end{equation}
-where each
+Each function
 \begin{equation}
   A\i{^{i}_{j}} \defd  \yA\Bigl(\dix, \dex[j]\Bigr)
   \label{eq:components_def}
 \end{equation}
 is a component of the tensor in this coordinate system.
 
-To make sense dimensionally, every term the sum~\eqref{eq:expansion_tensor}
+To make dimensional sense, all terms in the sum~\eqref{eq:expansion_tensor}
 must have the same dimension. This is possible only if the generic
 component $A\i{^{i}_{j}}$ has dimension
 \begin{equation}
   \label{eq:dim_component}
   \dim(A\i{^{i}_{j}}) = \Aa\;{\Xx_{i}}\,{\Xx_{j}}^{-1},
 \end{equation}
-where $\Aa$ is common to all components and is also the dimension of the
-sum~\eqref{eq:expansion_tensor}. For example, suppose we're using
-coordinates with dimensions
+where $\Aa$ is common to all components. Suppose for example that we're
+using coordinates with dimensions
 \begin{equation}
   \label{eq:example_coords}
   \dim(x^{0})=\Te,\quad
@@ -931,22 +931,29 @@ then the components of $\yA$ have dimensions
   \end{pmatrix}.
 \end{equation}
 
-The dimension $\Aa$ is called the \emph{absolute dimension}
-\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} of the tensor $\yA$.
-This is the intrinsic dimension of the tensor, independently of any
-coordinate system, so we write
+The dimension $\Aa$, which is also the dimension of the
+sum~\eqref{eq:expansion_tensor}, is called the \emph{absolute dimension}
+\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} of the tensor $\yA$,
+and we write
 \begin{equation}
   \label{eq:abs_dim}
   \dim(\yA) = \Aa.
 \end{equation}
+This is the intrinsic dimension of the tensor, independent of any
+coordinate system. It reflects the physical or operational
+\citep{bridgman1927_r1958}[see
+also][\sect~A.2]{synge1960}[\sects~A.3--4]{truesdelletal1960} meaning of
+the tensor. We'll see an example of what this mean in
+\sect~\ref{sec:metric}. 
 
 
 
-Different coordinate systems simply lead to different dimensions of the
-components of $\yA$. Formula~\eqref{eq:dim_component} for the dimensions of
-the components is consistent under changes of coordinates. For example,
-in coordinates  $({x'}^{k})$ with dimensions $(\Xx'_{k})$, the components
-of $\yA$ are
+Different coordinate systems lead to different dimensions of the
+\emph{components} of $\yA$, but its absolute dimension remains the same.
+Formula~\eqref{eq:dim_component} for the dimensions of the components is
+consistent under changes of coordinates. For example, in new coordinates
+$({x'}^{k})$ with dimensions $({\Xx'}_{k})$, the new components of $\yA$
+are
 \begin{equation}
   \label{eq:coords_change}
   {A'}\i{^{k}_{l}} = A\i{^{i}_{j}}
@@ -954,17 +961,24 @@ of $\yA$ are
   \,\frac{\de {x}^{j}}{\de {x'}^{l}}
 \end{equation}
 and a quick check shows that
-$\dim({A'}\i{^{k}_{l}}) = \Aa\,{\Xx'_{k}}\,{\Xx'_{l}}^{-1}$, consistent
-with~\eqref{eq:dim_component}.
+$\dim({A'}\i{^{k}_{l}}) = \Aa\,{\Xx'}_{k}\,{{\Xx'}_{l}}^{-1}$, consistent
+with the general formula~\eqref{eq:dim_component}.
+
+\smallskip
+
+In the following I'll drop the adjective
+\enquote{absolute} when it's clear from the context.
 
 \section{Tensor operations}
 \label{sec:tensor_ops}
 
-By the reasoning of the previous section it's easy to see how various
-tensor and tensor-field operations affect the absolute dimension of their
-arguments. For example, the tensor product of
-$\yA\i{^{\bdot}_{\bdot}}$ and $\yB\i{_{\bdot\bdot}^{\bdot}}$ can
-be written as the sum
+By the reasoning of the previous section, which simply applies standard
+dimensional considerations to the basis
+expansion~\eqref{eq:expansion_tensor}, it's easy to find out the resultant
+absolute dimension of various operations on tensors and tensor fields.
+
+The tensor product of $\yA\i{^{\bdot}_{\bdot}}$ and
+$\yB\i{_{\bdot\bdot}^{\bdot}}$, for example, can be written as the sum
 \begin{equation}
   \label{eq:tensor_prod_example}
   \yA \otimes \yB =
@@ -981,16 +995,22 @@ from which it follows that
 with $\Aa = \dim(\yA)$ and $\Bb = \dim(\yB)$. The absolute dimension of
 $\yA\otimes\yB$ is therefore $\Aa\Bb \equiv \dim(\yA)\,\dim(\yB)$.
 
-I'll drop the adjective \enquote{absolute} when it's clear from
-the context.
+
+\smallskip
+
+Here is then a summary of the dimensional results of the main
+differential-geometric operators. In brackets I give the section of
+Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996} where they are
+defined.
+
 
 \begin{itemize}[wide=0pt]
-\item \emph{Tensor multiplication} multiplies dimensions:
+\item \emph{Tensor multiplication} [III.B.5] multiplies dimensions:
   \begin{equation}
   \dim(\yA\otimes\yB) = \dim(\yA)\dim(\yB).\label{eq:tensor_mult}
 \end{equation}
 
-\item The \emph{contraction} of the $i$th and $j$th slots (one covariant
+\item The \emph{contraction} [III.B.5] of the $i$th and $j$th slots (one covariant
   and one contravariant) of a tensor has the same dimension as the tensor:
   \begin{equation}
     \dim(\tr_{ij}\yA) = \dim(\yA).
@@ -998,14 +1018,14 @@ the context.
   \end{equation}
   Note that this only holds \emph{without} raising or lowering indices.
 
-\item The \emph{transposition} of the $i$th and $j$th slots of a tensor has
-  the same dimension as the tensor:
+\item The \emph{transposition} (swapping) of the $i$th and $j$th slots of a
+  tensor has the same dimension as the tensor:
   \begin{equation}
     \dim(\yA^{\intercal_{ij}}) = \dim(\yA).
     \label{eq:tensor_transp}
   \end{equation}
 
-\item The \emph{Lie bracket} of two vectors has the product of their dimensions:
+\item The \emph{Lie bracket} [III.B.3] of two vectors has the product of their dimensions:
   \begin{equation}
     \dim(\clcl{\yu,\yv}) =\dim(\yu)\dim(\yv).
     \label{eq:lie_der}
@@ -1017,8 +1037,9 @@ the context.
 %   \dim(\yA\otimes\yB) = \dim(\yA)\dim(\yB).\label{eq:tensor_mult}
 % \end{equation}
 
-\item The \emph{Lie derivative} of a tensor with respect to a vector field
-  has the product of the dimensions of the tensor and of the vector:
+\item The \emph{Lie derivative} [III.C.2] of a tensor with respect to a
+  vector field has the product of the dimensions of the tensor and of the
+  vector:
   \begin{equation}
     \dim(\Li_{\yv}\yA) =\dim(\yv)\dim(\yA).
     \label{eq:lie_der}
@@ -1027,24 +1048,24 @@ the context.
 
 \medskip
 
-Regarding operations with differential forms:
+Regarding operations on differential forms:
 
 \begin{itemize}[wide=0pt]
-\item The \emph{exterior product} of two differential forms multiplies
-  their dimensions:
+\item The \emph{exterior product} [IV.A.1] of two differential forms
+  multiplies their dimensions:
   \begin{equation}
   \dim(\yom\land\yta) = \dim(\yom)\dim(\yta).\label{eq:ext_prod}
 \end{equation}
   
-\item The \emph{interior product} of a vector and a form multiplies their
-  dimensions:
+\item The \emph{interior product} [IV.A.4] of a vector and a form
+  multiplies their dimensions:
   \begin{equation}
     \dim(\ii_{\yv}\yom) =\dim(\yv)\dim(\yom).
     \label{eq:inter_prod}
 \end{equation}
 
-\item The \emph{exterior derivative} of a form has the same dimension of
-  the form:
+\item The \emph{exterior derivative} [IV.A.2] of a form has the same
+  dimension of the form:
   \begin{equation}
     \dim(\di\yom) =\dim(\yom).
     \label{eq:ext_deriv}
@@ -1054,8 +1075,8 @@ Regarding operations with differential forms:
   \citep[\chap~9 p.~180 Theorem~9.78]{curtisetal1985} together with
   \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
 
-\item The \emph{integral} of a form over a submanifold has the same dimension as
-  the form:
+\item The \emph{integral} [IV.B.1] of a form over a submanifold has the
+  same dimension as the form:
   \begin{equation}
     \dim\bigl(\tint_{c}\yom\bigr) =\dim(\yom).
     \label{eq:integration}
@@ -1065,17 +1086,21 @@ Regarding operations with differential forms:
 \section{Connection, covariant derivative, curvature tensors}
 \label{sec:connection}
 
-Consider an arbitrary connection with covariant derivative $\nab$. For the
-moment we don't assume the presence of any metric structure.
+Consider an arbitrary connection
+\citep[\sect~V.B]{choquetbruhatetal1977_r1996} with covariant derivative
+$\nab$. For the moment we don't assume the presence of any metric
+structure.
 
-The \emph{covariant derivative} of the product $f\yv$ of a function and a vector satisfies
-\citep[\sect~V.B.1 p.~300]{choquetbruhatetal1977_r1996}
+The \emph{covariant derivative} of the product $f\yv$ of a function and a
+vector satisfies \citep[\sect~V.B.1]{choquetbruhatetal1977_r1996}
 \begin{equation}
   \label{eq:basic_property_covder}
   \nab(f\yv) = \di f \otimes \yv + f\nab\yv.
 \end{equation}
-The first summand has dimension $\dim(f)\dim(\yv)$, which must also be
-the dimension of the second summand. Thus we see that
+The first summand, from formulae~\eqref{eq:ext_deriv}
+and~\eqref{eq:tensor_mult}, has dimension $\dim(f)\dim(\yv)$; for
+dimensional consistency this must also be the dimension of the second
+summand. Thus
 \begin{equation}
   \label{eq:dim_cov_der_vect}
   \dim(\nab\yv) = \dim(\yv).
@@ -1097,7 +1122,7 @@ $(\yGa\i{^{i}_{jk}})$ defined by
   \label{eq:christoffel}
   \nab\dex[k] = \yGa\i{^{i}_{jk}}\; \dix[j]\otimes\dex[i].
 \end{equation}
-From this equation and the previous ones it follows that the coefficients
+From this equation and the previous ones it follows that these coefficients
 have dimensions
 \begin{equation}
   \label{eq:dim_christoffel}
@@ -1106,8 +1131,8 @@ have dimensions
 
 The \emph{torsion} $\yTa\i{^{\bdot}_{\bdot\bdot}}$, \emph{Riemann
   curvature} $\yR\i{^{\bdot}_{\bdot\bdot\bdot}}$, and \emph{Ricci
-  curvature} $\yR\i{_{\bdot\bdot}}$ tensors are
-defined by
+  curvature} $\yR\i{_{\bdot\bdot}}$ tensors are defined by
+\citep[\sect~V.B.1]{choquetbruhatetal1977_r1996}
 \begin{gather}
   \label{eq:torsion_eq}
 \yTa(\yu,\yv) \defd \nab_{\yu}\yv - \nab_{\yv}\yu - \clcl{\yu,\yv},
@@ -1120,7 +1145,7 @@ defined by
   \label{eq:riemann_eq}  
 \end{gather}
 From these definitions, formula~\eqref{eq:dim_cov_der_vect}, and the
-dimensional effects of tensor product~\eqref{eq:tensor_mult} and
+dimensional properties of tensor product~\eqref{eq:tensor_mult} and
 contraction~\eqref{eq:tensor_contr} we see that
 \begin{equation}
   \label{eq:dim_torsion_riemann_ricci}

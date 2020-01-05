@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-05T17:32:18+0100
+%% Last-Updated: 2020-01-05T19:27:30+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1146,7 +1146,8 @@ The \emph{torsion} $\yTa\i{^{\bdot}_{\bdot\bdot}}$, \emph{Riemann
 \end{gather}
 From these definitions, formula~\eqref{eq:dim_cov_der_vect}, and the
 dimensional properties of tensor product~\eqref{eq:tensor_mult} and
-contraction~\eqref{eq:tensor_contr} we see that
+contraction~\eqref{eq:tensor_contr} we see that \emph{torsion, Riemann, and
+  Ricci curvature are dimensionless}:
 \begin{equation}
   \label{eq:dim_torsion_riemann_ricci}
   \dim(\yTa\i{^{\bdot}_{\bdot\bdot}}) =
@@ -1159,6 +1160,13 @@ The exact contra- and co-variant type used above for these tensors is very
 important in these equations. If we raise any of their indices using a
 metric, their dimensions will generally change.
 
+The dimensionless results~\eqref{eq:dim_torsion_riemann_ricci} seem to be
+at variance with Misner \etal\ \citey[ pp.~34--35 and
+p.~407]{misneretal1970_r1973}, who seem to say that
+$\yR\i{^{\bdot}_{\bdot\bdot\bdot}}$ has dimension $\Le^{-2}$. I may be
+misunderstanding them; but in any case I stand by the
+results~\eqref{eq:dim_torsion_riemann_ricci}.
+% misner p 407
 \medskip
 
 The formulae above are also valid if a metric is defined and the connection
@@ -1176,27 +1184,49 @@ Consider a curve into spacetime, $c\colon s \mapsto P(s)$, with the
 parameter $s$ having dimension $\dim(s)=\Ss$.
 
 
-If we consider the manifold
-as "adimensional" (if this makes sense), then the dimensions of the tangent
-vector $\dot{c}$ to the curve are $\dim(\dot{c}) = [\mathrm{S}^{-1}]$. This
-follows either from
-$\dot{c} := \partial x^i[c(s)]/\partial s\; \partial_{x^i}$, or considering
-that $\dot{c}$ can be interpreted as the push-forward of $\partial_s$, that
-is, $c_*(\partial_s)$.
+If we consider the manifold as a dimensionless quantity (see \sect*** for
+what I mean by this), then the dimension of the tangent or velocity vector
+$\dot{C}$ to the curve is
+\begin{equation}
+  \label{eq:dim_velocity}
+  \dim(\dot{C}) = \Ss^{-1},
+\end{equation}
+owing to the definition
+\citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}[\sect~IV.(1.9)]{boothby1975_r2003}
+\begin{equation}
+  \label{eq:def_tangent_curve}
+\dot{C} \defd \frac{\de x^{i}[C(s)]}{\de s}\;\dex .
+\end{equation}
+% or considering that $\dot{C}$ can be interpreted as the push-forward of
+% $\partial_s$, that is, $C_*(\partial_s)$.
 
-This has an interesting, quirky implication. Given a vector field $P\mapsto\yv(P)$ we say that $c$ is an integral curve for it if
-$$
-\yv[c(s)] = \dot{c}(s).
-$$
-But this equation is only valid if $\yv$ has dimensions $[\mathrm{S}^{-1}]$. For the general case a constant dimensional factor needs to be introduced in the equation above.
+This has a quirky but interesting consequence. Given a vector field $\yv$
+we say that $C$ is an integral curve for it if
+\begin{equation}
+  \yv = \dot{C}
+  \label{eq:integral_curve}
+\end{equation}
+at all events $C(s)$ in the image of the curve. But from the point of view
+of dimensional analysis this definition can only be valid if $\yv$ has
+dimension $\Ss^{-1}$. For the general case a constant dimensional factor
+needs to be introduced in \eqn~\eqref{eq:integral_curve}.
 
 \section{Metric tensor}
 \label{sec:metric}
 
+Let's now consider a metric tensor $\yg\i{_{\bdot\bdot}}$. What is its
+absolute dimension $\dim(\yg)$?
 
-From the above discussion we see that the component $g_{ij}$ of the metric $\yg$ has dimensions $[\mathrm{Z}\,\mathrm{X}_i\,{\mathrm{X}_j}^{-1}\,{\mathrm{X}_k}^{-1}]$, where $[\mathrm{Z}]$ are the absolute dimensions of the metric. What are these absolute dimensions?
+The answer depends on the operational meaning of the metric, and there
+doesn't seem to be a standard choice***
 
-The answer probably depends on how you see the operational meaning of the metric. Here I offer my personal point of view. We can use the metric to measure the "length" of (timelike or spacelike) paths in spacetime. The "length" of a path $c(s)$ with $s\in [a,b]$ is
+\citep[\sect~V.62, \eqn~(62.02)]{fock1955_t1964} %L^2
+ \citep[\chap~11 \eqn~(11.21)]{curtisetal1985} %L^2
+
+
+Here I offer my personal point of view. We can use the metric to measure
+the "length" of (timelike or spacelike) paths in spacetime. The "length" of
+a path $c(s)$ with $s\in [a,b]$ is
 $$
 \int_a^b\!\!\!\mathrm{d}s\;
 \sqrt{\Bigl\lvert g_{ij}[c(s)]\;\dot{c}^i(s)\,\dot{c}^j(s) \Bigr\rvert}.

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-05T20:52:59+0100
+%% Last-Updated: 2020-01-06T11:25:16+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -655,6 +655,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\dob}{degree of belief}
 \newcommand*{\dobs}{degrees of belief}
 \newcommand*{\dime}{\clcl}
+\newcommand*{\Un}{\textsf{1}}
 \newcommand*{\Le}{\textsf{L}}
 \newcommand*{\Ti}{\textsf{T}}
 \newcommand*{\Ma}{\textsf{M}}
@@ -863,7 +864,7 @@ coordinates, such function allows us to uniquely identify every event
 within that region. Any physical quantity will do: the distance from
 something, the time elapsed since something, an angle, an energy density,
 the strength of a magnetic flux, a temperature, and so on. A coordinate can
-thus have any dimensions: length $\Le$, time $\Ti$, angle $1$, energy
+thus have any dimensions: length $\Le$, time $\Ti$, angle $\Un$, energy
 density $\En \defd \Le^{-1}\Ma\Ti^{-2}$, magnetic flux
 $\Fl \defd \Le^{2}\Ma\Ti^{-2}\Cu^{-1}$, temperature $\Te$, and so on.
 
@@ -922,13 +923,13 @@ then the components of $\yA$ have dimensions
   \label{eq:example_components}
   \Bigl(\dim(A\i{^{i}_{j}})\Bigr) =
  \Aa\; \begin{pmatrix}
-   1 & \Le^{-1}\Te & \Le^{-1}\Te & \Le\Ma^{-1}\Ti^{2}\Te
+   \Un & \Le^{-1}\Te & \Le^{-1}\Te & \Le\Ma^{-1}\Ti^{2}\Te
    \\
-   \Le\Te^{-1} & 1 & 1 & \Le^{2}\Ma^{-1}\Ti^{2}
+   \Le\Te^{-1} & \Un & \Un & \Le^{2}\Ma^{-1}\Ti^{2}
    \\
-   \Le\Te^{-1} & 1 & 1 & \Le^{2}\Ma^{-1}\Ti^{2}
+   \Le\Te^{-1} & \Un & \Un & \Le^{2}\Ma^{-1}\Ti^{2}
    \\
-   \Le^{-1}\Ma\Ti^{-2}\Te^{-1} & \Le^{-2}\Ma\Ti^{-2} & \Le^{-2}\Ma\Ti^{-2} & 1
+   \Le^{-1}\Ma\Ti^{-2}\Te^{-1} & \Le^{-2}\Ma\Ti^{-2} & \Le^{-2}\Ma\Ti^{-2} & \Un
   \end{pmatrix}.
 \end{equation}
 
@@ -1138,7 +1139,7 @@ The \emph{torsion} $\yTo\i{^{\bdot}_{\bdot\bdot}}$, \emph{Riemann
   \label{eq:torsion_eq}
 \yTo(\yu,\yv) \defd \nab_{\yu}\yv - \nab_{\yv}\yu - \clcl{\yu,\yv},
 \\
-\yR(\yu,\yv)\yw \defd
+\yR(\yu,\yv;\yw) \defd
 \nab_{\yu}\nab_{\yv}\yw - \nab_{\yv}\nab_{\yu}\yw
 - \nab_{\clcl{\yu,\yv}}\yw,
   \label{eq:riemann_eq}  
@@ -1167,20 +1168,28 @@ which imply that \emph{torsion, Riemann curvature, and Ricci curvature are
   % \label{eq:dim_riem}
    \dim(\yR\i{^{\bdot}_{\bdot\bdot\bdot}}) =
   % \label{eq:dim_ricci}
-   \dim(\yRi\i{_{\bdot\bdot}}) =1.
+   \dim(\yRi\i{_{\bdot\bdot}}) =\Un.
 \end{equation}
 The exact contra- and co-variant type used above for these tensors is very
 important in these equations. If we raise any of their indices using a
 metric, their dimensions will generally change.
 
-The dimensionless results~\eqref{eq:dim_torsion_riemann_ricci} seem to be
-at variance with Misner \etal\ \citey[ pp.~34--35 and
-p.~407]{misneretal1970_r1973}, who seem to say that
-$\yR\i{^{\bdot}_{\bdot\bdot\bdot}}$ has dimension $\Le^{-2}$. I may be
-misunderstanding them; but in any case I stand by the
-results~\eqref{eq:dim_torsion_riemann_ricci}, determined by simple
-dimensional consistency.
-% misner p 407
+Misner \etal\ \citey[pp.~35, 407]{misneretal1970_r1973} say that
+\enquote{curvature}, the Riemann or Einstein tensors (for which see
+\sect~\ref{sec:metric} below), has dimension $\Le^{-2}$, a statement
+seemingly at variance with the dimensionless
+results~\eqref{eq:dim_torsion_riemann_ricci}. But I believe that they refer
+to the \emph{components} of those tensors, in specific coordinates of
+dimension $\Le$, and using geometrized units. In such specific coordinates
+every \emph{component} $R\i{^{i}_{jkl}}$ does indeed have dimension
+$\Le^{-2}$, according to the general formula~\eqref{eq:dim_component}, if
+and only if the \emph{absolute dimension} of $\yR$ is unity,
+$\dim(\yR)=\Un$. So I believe that there's no real contradiction with that
+statement and the results~\eqref{eq:dim_torsion_riemann_ricci}. This
+possible misunderstanding shows that it's important to distinguish between
+absolute dimensions, which don't depend on any specific coordinate choice,
+and component dimensions, which do.
+
 \medskip
 
 The formulae above are also valid if a metric is defined and the connection
@@ -1220,10 +1229,15 @@ we say that $C$ is an integral curve for it if
   \yv = \dot{C}
   \label{eq:integral_curve}
 \end{equation}
-at all events $C(s)$ in the image of the curve. But from the point of view
-of dimensional analysis this definition can only be valid if $\yv$ has
-dimension $\Ss^{-1}$. For the general case a constant dimensional factor
-needs to be introduced in \eqn~\eqref{eq:integral_curve}.
+(or more precisely $\yv_{C(s)} = \dot{C}_{C(s)}$ in usual
+differential-geometric notation
+\citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}) at all events $C(s)$ in
+the image of the curve. But from the point of view of dimensional analysis
+this definition can only be valid if $\yv$ has dimension $\Ss^{-1}$. For
+the general case a constant dimensional factor needs to be introduced in
+\eqn~\eqref{eq:integral_curve}. I would therefore modify the usual
+definition of integral curve to \enquote{$C$ is an integral curve of $\yv$
+  if $\yv = k\dot{C}$, where $k$ is a possibly dimensionful constant}.
 
 \section{Metric tensor}
 \label{sec:metric}
@@ -1258,7 +1272,7 @@ I believe that these dimensions also make sense for spacelike paths: in this cas
 By our usual argument it's possible to see that the Riemann curvature
 tensor $\yR{}^{\bdot}{}_{\bdot\bdot\bdot}$, the Ricci tensor
 $\yR_{\bdot\bdot}$, and the Einstein tensor $\yG_{\bdot\bdot}$ are
-adimensional – $[1]$ – and the scalar curvature has dimensions
+adimensional – $[\Un]$ – and the scalar curvature has dimensions
 $[\mathrm{T}^{-2}]$. Note that the Riemann and Ricci tensors (with the
 contra/co-variant type specified above) do not require a metric for their
 definition, but an affine connection. They are adimensional no matter what

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-06T11:25:16+0100
+%% Last-Updated: 2020-01-06T12:05:29+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -533,7 +533,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\micro}{\textmu}% degree Celsius
 \newcommand*{\I}{\mathrm{i}}%imaginary unit
 \newcommand*{\e}{\mathrm{e}}%Neper
-\newcommand*{\di}{\mathrm{d}}%differential
+\newcommand*{\di}{\mathbf{d}}%differential
 %\newcommand*{\Di}{\mathrm{D}}%capital differential
 %\newcommand*{\planckc}{\hslash}
 %\newcommand*{\avogn}{N_{\textrm{A}}}
@@ -677,7 +677,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yT}{\mathte{T}}
 \newcommand*{\yG}{\mathte{G}}
 \newcommand*{\yR}{\mathte{R}}
-\newcommand*{\yRi}{\mathte{Ri}}
+\newcommand*{\yRi}{\mathte{Ric}}
 \newcommand*{\yTo}{\bm{\tau}}
 \newcommand*{\yom}{\bm{\omega}}
 \newcommand*{\yta}{\bm{\tau}}
@@ -687,7 +687,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \renewcommand*{\i}{\indices}
 \newcommand*{\dex}[1][i]{\frac{\de}{\de x^{#1}}}
 \newcommand*{\dix}[1][i]{\di x^{#1}}
-\newcommand*{\nab}{\nabla}
+\newcommand*{\nab}{\bm{\nabla}}
 \newcommand*{\yGa}{\varGamma}
 
 \makeatletter
@@ -805,7 +805,7 @@ Let's start from more general facts about dimensional analysis on differential m
 For dimensional analysis I use ISO conventions and notation. I sometimes
 use notation such as $\yT{}_{\bdot}{}^{\bdot}$ to indicate that the tensor
 $\yT$ is covariant in its first slot and contravariant in its second; I
-call this a "co-contra-variant tensor".
+call this a \enquote{co-contra-variant tensor}.
 
 
 [check \citep{aldersley1977}]
@@ -818,12 +818,12 @@ call this a "co-contra-variant tensor".
 
 
 From the intrinsic point of view, a tensor is defined by its geometric
-properties. For example, a vector field $\yv \equiv \yv(\dotv)$ is an object that operates on
-functions defined on the manifold, yielding new functions, with the
-properties $\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for
-all functions $f$, $g$ and reals $a$, $b$. A covector field (1-form) $\yom$
-is an object that operates on vector fields, yielding functions
-(\enquote{duality}), with the property
+properties. For example, a vector field $\yv \equiv \yv(\dotv)$ is an
+object that operates on functions defined on the manifold, yielding new
+functions, with the properties $\yv(af+bg)=a\yv(f)+b\yv(g)$ and
+$\yv(fg)=\yv(f)g+f\yv(g)$ for all functions $f$, $g$ and reals $a$, $b$. A
+covector field (1-form) $\yom$ is an object that operates on vector fields,
+yielding functions (\enquote{duality}), with the property
 $\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields $\yu$, $\yv$
 and functions $f$, $g$. The sum of vector or covector fields, and their
 products by functions -- let's call this \enquote{linearity} -- are defined
@@ -845,13 +845,15 @@ respect to the basis $\Bigl(\dex\Bigr)$. Analogously for a covector field.
 
 For the full presentation of the intrinsic view I recommend the excellent
 texts by Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}, Boothby
-\citey{boothby1975_r2003}, and on the physics and general-relativity side
-Burke \citey[\chap~2]{burke1980b}, Bossavit \citey{bossavit1991}, Misner
-\etal\ \citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
+\citey{boothby1975_r2003}, Marsden \etal\ \citep{marsdenetal1983_r2007},
+Bossavit \citey{bossavit1991}, and more on the general-relativity side
+Burke \citey[\chap~2]{burke1980b}, Misner \etal\
+\citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
 \citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \etal\
 \citey[\chap~4]{penroseetal1984_r2003}.
 
-
+ \mynote{check \citep{fischeretal1972}}
+ 
 \textcolor{white}{If you find this you can claim a postcard from me.}
 
 \section{Coordinates}
@@ -879,9 +881,9 @@ $\Bigl(\dex\Bigr)$, bases for the cotangent and tangent spaces. Their
 tensor products are bases for the tangent spaces of higher tensor types.
 
 The differential $\dix$ traditionally has the same dimension as $x^{i}$:
-$\dim(\dix) = \Xx_{i}$, and the operator $\dex$ traditionally has the
-inverse dimension: $\dim\dex = {\Xx_{i}}^{-1}$. We'll see later that
-these conventions are self-consistent.
+$\dim(\dix) = \Xx_{i}$, and the operator (a vector) $\dex$ traditionally
+has the inverse dimension: $\dim\dex = {\Xx_{i}}^{-1}$. We'll see later
+that these conventions are self-consistent.
 
 For our discussion let's take a concrete example: a contra-co-tensor field
 $\yA \equiv \yA\i{^{\bdot}_{\bdot}}$. The discussion generalizes to tensors
@@ -922,7 +924,7 @@ then the components of $\yA$ have dimensions
 \begin{equation}
   \label{eq:example_components}
   \Bigl(\dim(A\i{^{i}_{j}})\Bigr) =
- \Aa\; \begin{pmatrix}
+ \Aa\times \begin{pmatrix}
    \Un & \Le^{-1}\Te & \Le^{-1}\Te & \Le\Ma^{-1}\Ti^{2}\Te
    \\
    \Le\Te^{-1} & \Un & \Un & \Le^{2}\Ma^{-1}\Ti^{2}
@@ -977,7 +979,8 @@ In the following I'll drop the adjective
 By the reasoning of the previous section, which simply applies standard
 dimensional considerations to the basis
 expansion~\eqref{eq:expansion_tensor}, it's easy to find out the resultant
-absolute dimension of various operations on tensors and tensor fields.
+absolute dimension of various operations and operators on tensors and
+tensor fields.
 
 The tensor product of $\yA\i{^{\bdot}_{\bdot}}$ and
 $\yB\i{_{\bdot\bdot}^{\bdot}}$, for example, can be written as the sum
@@ -1001,7 +1004,9 @@ $\yA\otimes\yB$ is therefore $\Aa\Bb \equiv \dim(\yA)\,\dim(\yB)$.
 \smallskip
 
 Here is then a summary of the dimensional results of the main
-differential-geometric operators. In brackets I give the section of
+differential-geometric operations and operators, except for the covariant
+derivative and related tensors, discussed more in depth in
+\sect~\ref{sec:connection} below. In brackets I give the section of
 Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996} where they are
 defined.
 
@@ -1050,7 +1055,7 @@ defined.
 
 \medskip
 
-Regarding operations on differential forms:
+Regarding operations and operators on differential forms:
 
 \begin{itemize}[wide=0pt]
 \item The \emph{exterior product} [IV.A.1] of two differential forms
@@ -1074,7 +1079,8 @@ Regarding operations on differential forms:
   \end{equation}
   This can be proven using the identity
   $\di\,\ii_{\yv}+\ii_{\yv}\,\di = \Li_{\yv}$ or similar identities
-  \citep[\chap~9 p.~180 Theorem~9.78]{curtisetal1985} together with
+  \citep[\chap~9 p.~180 Theorem~9.78]{curtisetal1985}[\sect~7.4
+  Theorem~7.4.8]{marsdenetal1983_r2007} together with
   \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
 
 \item The \emph{integral} [IV.B.1] of a form over a submanifold has the
@@ -1085,6 +1091,54 @@ Regarding operations on differential forms:
   \end{equation}
 \end{itemize}
 
+\medskip
+
+The resultant absolute dimensions of other operators, for example the
+determinant \citep[\sect~7.2]{marsdenetal1983_r2007}, can be obtained by
+similar reasoning.
+
+\section{Curves and integral curves}
+\label{sec:curves}
+
+
+Consider a curve into spacetime, $c\colon s \mapsto P(s)$, with the
+parameter $s$ having dimension $\dim(s)=\Ss$.
+
+
+If we consider the manifold as a dimensionless quantity (see \sect*** for
+what I mean by this), then the dimension of the tangent or velocity vector
+$\dot{C}$ to the curve is
+\begin{equation}
+  \label{eq:dim_velocity}
+  \dim(\dot{C}) = \Ss^{-1},
+\end{equation}
+owing to the definition
+\citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}[\sect~IV.(1.9)]{boothby1975_r2003}
+\begin{equation}
+  \label{eq:def_tangent_curve}
+\dot{C} \defd \frac{\de x^{i}[C(s)]}{\de s}\;\dex .
+\end{equation}
+% or considering that $\dot{C}$ can be interpreted as the push-forward of
+% $\partial_s$, that is, $C_*(\partial_s)$.
+
+This has a quirky but interesting consequence. Given a vector field $\yv$
+we say that $C$ is an integral curve for it if
+\begin{equation}
+  \yv = \dot{C}
+  \label{eq:integral_curve}
+\end{equation}
+(or more precisely $\yv_{C(s)} = \dot{C}_{C(s)}$ in usual
+differential-geometric notation
+\citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}) at all events $C(s)$ in
+the image of the curve. From the point of view of dimensional analysis this
+definition can only be valid if $\yv$ has dimension $\Ss^{-1}$. If $\yv$
+and $s^{-1}$ have different dimensions -- a case which can happen for
+physical reasons -- the condition~\eqref{eq:def_tangent_curve} must be
+modified into $\yv = k\dot{C}$, where $k$ is a possibly dimensionful
+constant. This is equivalent to considering an affine and dimensional
+reparameterization of $C$.
+
+
 \section{Connection, covariant derivative, curvature tensors}
 \label{sec:connection}
 
@@ -1093,8 +1147,8 @@ Consider an arbitrary connection
 $\nab$. For the moment we don't assume the presence of any metric
 structure.
 
-The \emph{covariant derivative} of the product $f\yv$ of a function and a
-vector satisfies \citep[\sect~V.B.1]{choquetbruhatetal1977_r1996}
+The covariant derivative of the product $f\yv$ of a function and a vector
+satisfies \citep[\sect~V.B.1]{choquetbruhatetal1977_r1996}
 \begin{equation}
   \label{eq:basic_property_covder}
   \nab(f\yv) = \di f \otimes \yv + f\nab\yv.
@@ -1107,7 +1161,7 @@ summand. Thus
   \label{eq:dim_cov_der_vect}
   \dim(\nab\yv) = \dim(\yv).
 \end{equation}
-It follows that the \emph{directional covariant derivative} has dimension
+It follows that the \emph{directional} covariant derivative has dimension
 \begin{equation}
   \label{eq:dim_dircov_der_vect}
   \dim(\nab_{\yu}\yv) = \dim(\yu)\dim(\yv),
@@ -1199,45 +1253,6 @@ to see that \eqns~\eqref{eq:dim_cov_der_vect},
 \eqref{eq:dim_dircov_der_vect}, \eqref{eq:dim_christoffel},
 \eqref{eq:dim_torsion_riemann_ricci} still hold.
 
-\section{Curves and integral curves}
-\label{sec:curves}
-
-
-Consider a curve into spacetime, $c\colon s \mapsto P(s)$, with the
-parameter $s$ having dimension $\dim(s)=\Ss$.
-
-
-If we consider the manifold as a dimensionless quantity (see \sect*** for
-what I mean by this), then the dimension of the tangent or velocity vector
-$\dot{C}$ to the curve is
-\begin{equation}
-  \label{eq:dim_velocity}
-  \dim(\dot{C}) = \Ss^{-1},
-\end{equation}
-owing to the definition
-\citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}[\sect~IV.(1.9)]{boothby1975_r2003}
-\begin{equation}
-  \label{eq:def_tangent_curve}
-\dot{C} \defd \frac{\de x^{i}[C(s)]}{\de s}\;\dex .
-\end{equation}
-% or considering that $\dot{C}$ can be interpreted as the push-forward of
-% $\partial_s$, that is, $C_*(\partial_s)$.
-
-This has a quirky but interesting consequence. Given a vector field $\yv$
-we say that $C$ is an integral curve for it if
-\begin{equation}
-  \yv = \dot{C}
-  \label{eq:integral_curve}
-\end{equation}
-(or more precisely $\yv_{C(s)} = \dot{C}_{C(s)}$ in usual
-differential-geometric notation
-\citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}) at all events $C(s)$ in
-the image of the curve. But from the point of view of dimensional analysis
-this definition can only be valid if $\yv$ has dimension $\Ss^{-1}$. For
-the general case a constant dimensional factor needs to be introduced in
-\eqn~\eqref{eq:integral_curve}. I would therefore modify the usual
-definition of integral curve to \enquote{$C$ is an integral curve of $\yv$
-  if $\yv = k\dot{C}$, where $k$ is a possibly dimensionful constant}.
 
 \section{Metric tensor}
 \label{sec:metric}

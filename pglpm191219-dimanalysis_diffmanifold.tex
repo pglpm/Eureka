@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-06T12:05:29+0100
+%% Last-Updated: 2020-01-06T12:39:38+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -533,7 +533,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\micro}{\textmu}% degree Celsius
 \newcommand*{\I}{\mathrm{i}}%imaginary unit
 \newcommand*{\e}{\mathrm{e}}%Neper
-\newcommand*{\di}{\mathbf{d}}%differential
+\newcommand*{\di}{\mathrm{d}}%differential
 %\newcommand*{\Di}{\mathrm{D}}%capital differential
 %\newcommand*{\planckc}{\hslash}
 %\newcommand*{\avogn}{N_{\textrm{A}}}
@@ -687,9 +687,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \renewcommand*{\i}{\indices}
 \newcommand*{\dex}[1][i]{\frac{\de}{\de x^{#1}}}
 \newcommand*{\dix}[1][i]{\di x^{#1}}
-\newcommand*{\nab}{\bm{\nabla}}
+\newcommand*{\nab}{\nabla}
 \newcommand*{\yGa}{\varGamma}
-
+\newcommand*{\ds}{\mathit{ds}}
 \makeatletter
 \newcommand*{\bdot}{}% Check if undefined
 \DeclareRobustCommand*{\bdot}{%
@@ -966,7 +966,10 @@ are
 \end{equation}
 and a quick check shows that
 $\dim({A'}\i{^{k}_{l}}) = \Aa\,{\Xx'}_{k}\,{{\Xx'}_{l}}^{-1}$, consistent
-with the general formula~\eqref{eq:dim_component}.
+with the general formula~\eqref{eq:dim_component}. % (You may have noticed
+% that the partial-derivative symbol $\de$ is not in boldface in the last
+% expression; that's on purpose but I won't dwell on the reason here, because
+% it doesn't affect our discussion.)
 
 \smallskip
 
@@ -1237,7 +1240,7 @@ to the \emph{components} of those tensors, in specific coordinates of
 dimension $\Le$, and using geometrized units. In such specific coordinates
 every \emph{component} $R\i{^{i}_{jkl}}$ does indeed have dimension
 $\Le^{-2}$, according to the general formula~\eqref{eq:dim_component}, if
-and only if the \emph{absolute dimension} of $\yR$ is unity,
+and only if the \emph{absolute} dimension of $\yR$ is unity,
 $\dim(\yR)=\Un$. So I believe that there's no real contradiction with that
 statement and the results~\eqref{eq:dim_torsion_riemann_ricci}. This
 possible misunderstanding shows that it's important to distinguish between
@@ -1258,16 +1261,13 @@ to see that \eqns~\eqref{eq:dim_cov_der_vect},
 \label{sec:metric}
 
 Let's now consider a metric tensor $\yg\i{_{\bdot\bdot}}$. What is its
-absolute dimension $\dim(\yg)$?
+absolute dimension $\dim(\yg)$? The answer depends on the operational
+meaning of the metric, for which there seem to be two standard choices. I
+first present my favourite choice and then the other, which seems to be the
+most common. I also discuss a possible misinterpretation of the traditional
+expressions for the \enquote{length element $\ds^{2}$}, with consequences
+for the dimension of the metric tensor.
 
-The answer depends on the operational meaning of the metric, and there
-doesn't seem to be a standard choice***
-
-\citep[\sect~V.62, \eqn~(62.02)]{fock1955_t1964} %L^2 1/c
-\citep[\chap~11 \eqn~(11.21)]{curtisetal1985} %L^2 1/c
-\citep[\eqns~(1) or (9)]{cook2004} % L^2 1/c
- \citep[\chap~6 \eqn~(6.24)]{hartle2003} % L^2 1/c
- \citep[\chap~II p.~25]{kilmister1973} %but see excpt 4
 
 
 Here I offer my personal point of view. We can use the metric to measure
@@ -1297,9 +1297,16 @@ Einstein tensor is always adimensional, too.
 An important operation done with the metric:
 
  - "lowering an index" of a tensor multiplies its dimensions by $[\mathrm{T}^2]$, and "rising an index" multiplies them by $[\mathrm{T}^{-2}]$ (if you agree with my discussion above).
- 
- 
-** Stress-energy-momentum tensor **
+
+ \citep[\sect~V.62, \eqn~(62.02)]{fock1955_t1964} %L^2 1/c
+\citep[\chap~11 \eqn~(11.21)]{curtisetal1985} %L^2 1/c
+\citep[\eqns~(1) or (9)]{cook2004} % L^2 1/c
+ \citep[\chap~6 \eqn~(6.24)]{hartle2003} % L^2 1/c
+ \citep[\chap~II p.~25]{kilmister1973} %but see excpt 4
+
+\section{Stress-energy-momentum tensor}
+\label{sec:stressenergy}
+
 
 What are the absolute dimensions of the co-contra-variant stress-energy-momentum tensor $\yT{}_{\bdot}{}^{\bdot}$? We must look for an operational meaning here too. I'll try to  sketch an informal argument that reflects my point of view. The argument can be made more rigorous but that would take too long to do here.
 

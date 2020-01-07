@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-06T15:20:26+0100
+%% Last-Updated: 2020-01-07T00:14:53+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -552,7 +552,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\DeclareMathOperator{\ent}{ent}%integer less or equal to
 %\DeclareMathOperator{\Ord}{O}%same order as
 %\DeclareMathOperator{\ord}{o}%lower order than
-%\newcommand*{\incr}{\triangle}%finite increment
+\newcommand*{\incr}{\triangle}%finite increment
 \newcommand*{\defd}{\coloneqq}
 \newcommand*{\defs}{\eqqcolon}
 %\newcommand*{\Land}{\bigwedge}
@@ -690,6 +690,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\nab}{\nabla}
 \newcommand*{\yGa}{\varGamma}
 \newcommand*{\ds}{\mathit{ds}}
+\newcommand*{\inct}{\incr t}
 \makeatletter
 \newcommand*{\bdot}{}% Check if undefined
 \DeclareRobustCommand*{\bdot}{%
@@ -1270,12 +1271,31 @@ discuss a possible misinterpretation of traditional expressions for the
 \enquote{length element $\ds^{2}$}, with consequences for the dimension of
 the metric tensor.
 
-Quoting Synge: ``We are now launched on the task of giving physical meaning
-to the Riemannian geometry \textelp{}. It is indeed a Riemannian
-\emph{chronometry} rather than \emph{geometry}, and the word
-\emph{geometry}, with its dangerous suggestion that we should go about
-measuring \emph{lengths} with \emph{yardsticks}, might well be abandoned
-altogether in the present connection''.
+Quoting Synge \citep[\sect~III.3 pp.~108--109]{synge1960b}: \enquote{We are
+  now launched on the task of giving physical meaning to the Riemannian
+  geometry \textelp{}. It is indeed a Riemannian \emph{chronometry} rather
+  than \emph{geometry}, and the word \emph{geometry}, with its dangerous
+  suggestion that we should go about measuring \emph{lengths} with
+  \emph{yardsticks}, might well be abandoned altogether in the present
+  connection}. In fact the metric tells us the \emph{proper time} $\inct$
+elapsed along any (timelike) worldline $s \mapsto C(s)$, $s\in \clcl{a,b}$,
+between events $C(a)$ and $C(b)$, by the formula
+\begin{equation}
+  \label{eq:proper_time}
+\inct =  \int_a^b\!\!\!\di s\;
+\sqrt{\abs*{\yg[\dot{C}(s),\dot{C}(s)]}}.
+\end{equation}
+From the results of \sect~\ref{sec:tensor_ops} this formula implies that
+\begin{equation}
+  \label{eq:dim_dt}
+ \Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\bdot\bdot}})},
+\end{equation}
+(independently of the dimension of $s$) and therefore
+\begin{equation}
+  \label{eq:dim_g}
+  \dim(\yg\i{_{\bdot\bdot}}) = \Ti^{2}.
+\end{equation}
+
 
 
 We can use the metric to measure the "length" of (timelike or spacelike)

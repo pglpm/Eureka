@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-07T00:14:53+0100
+%% Last-Updated: 2020-01-07T19:59:25+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -674,6 +674,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yA}{\mathte{A}}
 \newcommand*{\yB}{\mathte{B}}
 \newcommand*{\yg}{\mathte{g}}
+\newcommand*{\ygc}{\Bar{\mathte{g}}}
 \newcommand*{\yT}{\mathte{T}}
 \newcommand*{\yG}{\mathte{G}}
 \newcommand*{\yR}{\mathte{R}}
@@ -1263,21 +1264,72 @@ to see that \eqns~\eqref{eq:dim_cov_der_vect},
 
 Let's now consider a metric tensor $\yg\i{_{\bdot\bdot}}$. What is its
 absolute dimension $\dim(\yg)$? The answer depends on the operational
-meaning of the metric, for which there seem to be two standard choices. I
-first present my favourite choice, which is very close to the points of
-view of Synge and Bressan \citep[\sects~III.2--4]{synge1960b}[\sects~15,
-18]{bressan1978}, and then the other, probably the most common. I also
-discuss a possible misinterpretation of traditional expressions for the
-\enquote{length element $\ds^{2}$}, with consequences for the dimension of
-the metric tensor.
+meaning of the metric. Here is my favourite point of view, which follows
+Synge and Bressan \citep[\sects~III.2--4]{synge1960b}[\sects~15,
+18]{bressan1978}. Consider a (timelike) worldline $s \mapsto C(s)$,
+$s\in \clcl{a,b}$, between events $C(a)$ and $C(b)$. The metric tells us
+the \emph{proper time} elapsed for an observer having that worldline,
+according to the formula
+\begin{equation}
+  \label{eq:proper_time}
+\inct =  \int_a^b\!\!\!\di s\;
+\sqrt{\abs*{\yg[\dot{C}(s),\dot{C}(s)]}}.
+\end{equation}
+From the results of \sect~\ref{sec:tensor_ops} this formula implies that
+\begin{equation}
+  \label{eq:dim_dt}
+ \Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\bdot\bdot}})},
+\end{equation}
+(independently of the dimension of $s$) and therefore
+\begin{equation}
+  \label{eq:dim_g}
+  \dim(\yg\i{_{\bdot\bdot}}) = \Ti^{2}.
+\end{equation}
 
-Quoting Synge \citep[\sect~III.3 pp.~108--109]{synge1960b}: \enquote{We are
-  now launched on the task of giving physical meaning to the Riemannian
-  geometry \textelp{}. It is indeed a Riemannian \emph{chronometry} rather
-  than \emph{geometry}, and the word \emph{geometry}, with its dangerous
-  suggestion that we should go about measuring \emph{lengths} with
-  \emph{yardsticks}, might well be abandoned altogether in the present
-  connection}. In fact the metric tells us the \emph{proper time} $\inct$
+Many authors \citep[\eg][\sect~V.62, \eqn~(62.02)]{fock1955_t1964}[\chap~11
+\eqn~(11.21)]{curtisetal1985}[\chap~6 \eqn~(6.24)]{hartle2003} prefer to
+include a dimensional factor $1/c$ in front of the
+integral~\eqref{eq:proper_time}:
+\begin{equation}
+  \label{eq:proper_time_c}
+\inct = \frac{1}{c} \int_a^b\!\!\!\di s\;
+\sqrt{\abs*{\ygc[\dot{C}(s),\dot{C}(s)]}},
+\end{equation}
+thus obtaining 
+\begin{equation}
+  \label{eq:dim_g_c}
+  \dim(\ygc\i{_{\bdot\bdot}}) = \Le^{2}.
+\end{equation}
+To avoid confusion I'm using $\ygc$ for the metric with such dimension.
+
+The choice~\eqref{eq:dim_g_c} seems also supported by the traditional
+expression for the \enquote{line element $\ds^{2}$} as it appears in many
+works,
+\begin{equation}
+  \label{eq:line_elem}
+  \ds^{2} = c^2\mathit{dt}^2 - \mathit{dx}^2 -\mathit{dy}^2 - \mathit{dz}^2,
+\end{equation}
+possibly with opposite signature \citep[for an exception, with dimension
+$\Ti^{2}$, see][\chap~II p.~25]{kilmister1973}{kilmister1973}. If the
+coordinates $(t,x,y,z)$ have the dimensions suggested by their symbols,
+this formula has dimension $\Le^{2}$, so that if we interpret
+\enquote{$\ds^{2}$} as $\ygc$ we find $\dim(\ygc) = \Le^{2}$. The
+line-element expression above often has an ambiguous differential-geometric
+meaning, however, because it may represent \emph{the metric applied to some
+  unspecified vector}, that is, $\yg(\yv,\yv)$, where $\yv$ is left
+unspecified \citep[\cf][Box~3.2~D, p.~77]{misneretal1970_r1973}. In this
+case we have
+\begin{equation}
+  \label{eq:line_elem_dim_ambiguous}
+  \Le^{2} = \dim(\yg)\dim(\yv)^{2}
+\end{equation}
+and the dimension of $\yg$ is ambiguous -- probably dimensionless if $\yv$
+has dimension of length.
+
+
+***
+
+In fact the metric tells us the \emph{proper time} $\inct$
 elapsed along any (timelike) worldline $s \mapsto C(s)$, $s\in \clcl{a,b}$,
 between events $C(a)$ and $C(b)$, by the formula
 \begin{equation}
@@ -1364,6 +1416,28 @@ $$
  - Misner, Thorne, Wheeler (1973): *Gravitation* (Freeman)
  - Schouten (1989): *Tensor Analysis for Physicists* (Dover, 2nd ed.)
 
+
+%\citep[\eqns~(1) or (9)]{cook2004} % L^2 1/c
+
+
+I
+first present my favourite choice, which is very close to the points of
+view of Synge and Bressan \citep[\sects~III.2--4]{synge1960b}[\sects~15,
+18]{bressan1978}, and then the other, probably the most common. I also
+discuss a possible misinterpretation of traditional expressions for the
+\enquote{length element $\ds^{2}$}, with consequences for the dimension of
+the metric tensor.
+
+Quoting Synge \citep[\sect~III.3 pp.~108--109]{synge1960b}: \enquote{We are
+  now launched on the task of giving physical meaning to the Riemannian
+  geometry \textelp{}. It is indeed a Riemannian \emph{chronometry} rather
+  than \emph{geometry}, and the word \emph{geometry}, with its dangerous
+  suggestion that we should go about measuring \emph{lengths} with
+  \emph{yardsticks}, might well be abandoned altogether in the present
+  connection}. 
+
+
+ 
 
 %%%% examples use empheq
 %   \begin{empheq}[left={\mathllap{\begin{aligned}    \de\yF_{\yc}/\de\yp&=0\text{:} \\

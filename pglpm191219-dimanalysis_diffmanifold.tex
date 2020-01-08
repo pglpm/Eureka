@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-07T19:59:25+0100
+%% Last-Updated: 2020-01-08T15:58:03+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -620,7 +620,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\nbd}{\nobreakdash}%
 %\newcommand*{\bd}{\hspace{0pt}}%
 %\def\hy{-\penalty0\hskip0pt\relax}
-%\newcommand*{\labelbis}[1]{\tag*{(\ref{#1})$_\text{r}$}}
+\newcommand*{\labelbis}[1]{\tag*{(\ref{#1})$_\text{r}$}}
 %\newcommand*{\mathbox}[2][.8]{\parbox[t]{#1\columnwidth}{#2}}
 %\newcommand*{\zerob}[1]{\makebox[0pt][l]{#1}}
 \newcommand*{\tprod}{\mathop{\textstyle\prod}\nolimits}
@@ -652,46 +652,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % \begin{tabular}[#1]{c}#2\\[0.5\jot]\rule{1pt}{#3}\\#4\end{tabular}}%}
 % \newcommand*{\ptext}[1]{\text{\small #1}}
 %\DeclareMathOperator*{\argsup}{arg\,sup}
-\newcommand*{\dob}{degree of belief}
-\newcommand*{\dobs}{degrees of belief}
-\newcommand*{\dime}{\clcl}
-\newcommand*{\Un}{\textsf{1}}
-\newcommand*{\Le}{\textsf{L}}
-\newcommand*{\Ti}{\textsf{T}}
-\newcommand*{\Ma}{\textsf{M}}
-\newcommand*{\Te}{\Theta}
-\newcommand*{\Cu}{\textsf{I}}
-\newcommand*{\Fl}{\Phi}
-\newcommand*{\En}{\Epsilon}%{\textsf{E}}
-\newcommand*{\Xx}{\textsf{X}}
-\newcommand*{\Yy}{\textsf{Y}}
-\newcommand*{\Aa}{\textsf{A}}
-\newcommand*{\Bb}{\textsf{B}}
-\newcommand*{\Ss}{\textsf{S}}
-\newcommand*{\Li}{\mathrm{L}}
-\newcommand*{\ii}{\mathrm{i}}
-%
-\newcommand*{\yA}{\mathte{A}}
-\newcommand*{\yB}{\mathte{B}}
-\newcommand*{\yg}{\mathte{g}}
-\newcommand*{\ygc}{\Bar{\mathte{g}}}
-\newcommand*{\yT}{\mathte{T}}
-\newcommand*{\yG}{\mathte{G}}
-\newcommand*{\yR}{\mathte{R}}
-\newcommand*{\yRi}{\mathte{Ric}}
-\newcommand*{\yTo}{\bm{\tau}}
-\newcommand*{\yom}{\bm{\omega}}
-\newcommand*{\yta}{\bm{\tau}}
-\newcommand*{\yv}{\bm{v}}
-\newcommand*{\yu}{\bm{u}}
-\newcommand*{\yw}{\bm{w}}
-\renewcommand*{\i}{\indices}
-\newcommand*{\dex}[1][i]{\frac{\de}{\de x^{#1}}}
-\newcommand*{\dix}[1][i]{\di x^{#1}}
-\newcommand*{\nab}{\nabla}
-\newcommand*{\yGa}{\varGamma}
-\newcommand*{\ds}{\mathit{ds}}
-\newcommand*{\inct}{\incr t}
+% \newcommand*{\dob}{degree of belief}
+% \newcommand*{\dobs}{degrees of belief}
+
 \makeatletter
 \newcommand*{\bdot}{}% Check if undefined
 \DeclareRobustCommand*{\bdot}{%
@@ -715,6 +678,47 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
   }%
 }
 \makeatother
+
+
+\newcommand*{\dime}{\clcl}
+\newcommand*{\Un}{\textsf{1}}
+\newcommand*{\Le}{\textsf{L}}
+\newcommand*{\Ti}{\textsf{T}}
+\newcommand*{\Ma}{\textsf{M}}
+\newcommand*{\Te}{\Theta}
+\newcommand*{\Cu}{\textsf{I}}
+\newcommand*{\Fl}{\Phi}
+\newcommand*{\En}{\Epsilon}%{\textsf{E}}
+\newcommand*{\Xx}{\textsf{X}}
+\newcommand*{\Yy}{\textsf{Y}}
+\newcommand*{\Aa}{\textsf{A}}
+\newcommand*{\Bb}{\textsf{B}}
+\newcommand*{\Ss}{\textsf{S}}
+\newcommand*{\Li}{\mathrm{L}}
+\newcommand*{\ii}{\mathrm{i}}
+%
+\newcommand*{\yA}{\mathte{A}}
+\newcommand*{\yB}{\mathte{B}}
+\newcommand*{\yg}{\mathte{g}}
+\newcommand*{\ygc}{\mathte{g}}
+\newcommand*{\yT}{\mathte{T}}
+\newcommand*{\yG}{\mathte{G}}
+\newcommand*{\yR}{\mathte{R}}
+\newcommand*{\yRi}{\mathte{Ric}}
+\newcommand*{\yTo}{\bm{\tau}}
+\newcommand*{\yom}{\bm{\omega}}
+\newcommand*{\yta}{\bm{\tau}}
+\newcommand*{\yv}{\bm{v}}
+\newcommand*{\yu}{\bm{u}}
+\newcommand*{\yw}{\bm{w}}
+\renewcommand*{\i}{\indices}
+\newcommand*{\dex}[1][i]{\frac{\de}{\de x^{#1}}}
+\newcommand*{\dix}[1][i]{\di x^{#1}}
+\newcommand*{\nab}{\nabla}
+\newcommand*{\yGa}{\varGamma}
+\newcommand*{\ds}{\mathit{ds}}
+\newcommand*{\inct}{\incr t}
+\newcommand*{\yCs}{\Bar{C}}
 
 %%% Custom macros end @@@
 
@@ -1263,44 +1267,48 @@ to see that \eqns~\eqref{eq:dim_cov_der_vect},
 \label{sec:metric}
 
 Let's now consider a metric tensor $\yg\i{_{\bdot\bdot}}$. What is its
-absolute dimension $\dim(\yg)$? The answer depends on the operational
-meaning of the metric. Here is my favourite point of view, which follows
-Synge and Bressan \citep[\sects~III.2--4]{synge1960b}[\sects~15,
-18]{bressan1978}. Consider a (timelike) worldline $s \mapsto C(s)$,
-$s\in \clcl{a,b}$, between events $C(a)$ and $C(b)$. The metric tells us
-the \emph{proper time} elapsed for an observer having that worldline,
-according to the formula
-\begin{equation}
+absolute dimension $\dim(\yg)$? There seem to be two or three choices in
+the literature; all three can be derived from an operational meaning of the
+metric.
+
+
+Consider a (timelike) worldline $s \mapsto C(s)$, $s\in \clcl{a,b}$,
+between events $C(a)$ and $C(b)$. The metric tells us the \emph{proper
+  time} elapsed for an observer having that worldline, according to the
+formula
+%\begin{subequations}\label{eq:dimg_t}\tag{(\ref{eq:dimg_t})}
+\begin{equation}\addtocounter{equation}{1}\tag{\theequation a}
   \label{eq:proper_time}
 \inct =  \int_a^b\!\!\!\di s\;
 \sqrt{\abs*{\yg[\dot{C}(s),\dot{C}(s)]}}.
 \end{equation}
 From the results of \sect~\ref{sec:tensor_ops} this formula implies that
-\begin{equation}
-  \label{eq:dim_dt}
- \Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\bdot\bdot}})},
-\end{equation}
+%\begin{equation}
+%  \label{eq:dim_dt}
+ $\Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\bdot\bdot}})}$,
+%\end{equation}
 (independently of the dimension of $s$) and therefore
-\begin{equation}
-  \label{eq:dim_g}
-  \dim(\yg\i{_{\bdot\bdot}}) = \Ti^{2}.
-\end{equation}
+\begin{equation}\addtocounter{equation}{1}\tag{\theequation a}
+    \label{eq:dim_g}
+    \dim(\yg\i{_{\bdot\bdot}}) = \Ti^{2}.
+  \end{equation}
+%\end{subequations}
 
 Many authors \citep[\eg][\sect~V.62, \eqn~(62.02)]{fock1955_t1964}[\chap~11
 \eqn~(11.21)]{curtisetal1985}[\chap~6 \eqn~(6.24)]{hartle2003} prefer to
 include a dimensional factor $1/c$ in front of the
 integral~\eqref{eq:proper_time}:
-\begin{equation}
+\begin{equation}\addtocounter{equation}{-1}\tag{\theequation b}
   \label{eq:proper_time_c}
-\inct = \frac{1}{c} \int_a^b\!\!\!\di s\;
-\sqrt{\abs*{\ygc[\dot{C}(s),\dot{C}(s)]}},
+  \inct = \frac{1}{c} \int_a^b\!\!\!\di s\;
+  \sqrt{\abs*{\ygc[\dot{C}(s),\dot{C}(s)]}},
 \end{equation}
-thus obtaining 
-\begin{equation}
+thus obtaining
+\begin{equation}\addtocounter{equation}{1}\tag{\theequation b}
   \label{eq:dim_g_c}
   \dim(\ygc\i{_{\bdot\bdot}}) = \Le^{2}.
 \end{equation}
-To avoid confusion I'm using $\ygc$ for the metric with such dimension.
+%To avoid confusion I'm using $\ygc$ for the metric with such dimension.
 
 The choice~\eqref{eq:dim_g_c} seems also supported by the traditional
 expression for the \enquote{line element $\ds^{2}$} as it appears in many
@@ -1326,27 +1334,57 @@ case we have
 and the dimension of $\yg$ is ambiguous -- probably dimensionless if $\yv$
 has dimension of length.
 
+\medskip
+
+Thus we see there that the standard choices for $\dim{\yg}$ are $\Ti^{2}$,
+$\Le^{2}$, or possibly $\Un$. My favourite choice is the first,
+\eqref{eq:dim_g}, for reasons discussed by Synge and Bressan
+\citep[\sects~III.2--4]{synge1960b}[\sects~15, 18]{bressan1978} and vividly
+summed up by the former \citep[\sect~III.3 pp.~108--109]{synge1960b}:
+\begin{quote}\footnotesize We are now launched on the task of giving physical meaning to the
+  Riemannian geometry \textelp{}. It is indeed a Riemannian
+  \emph{chronometry} rather than \emph{geometry}, and the word
+  \emph{geometry}, with its dangerous suggestion that we should go about
+  measuring \emph{lengths} with \emph{yardsticks}, might well be abandoned
+  altogether in the present connection\end{quote} In fact, to measure the
+proper time $\inct$ defined above we only need to ensure that a clock has
+the worldline $C$, and then take the difference between its final and
+initial times. On the other hand, consider the case when the curve $C$ is
+\emph{spacelike}. Its proper length is still defined by the
+integral~\eqref{eq:proper_time}. Its measurement, however, involves
+dividing the curve into very short pieces, and having a specially-chosen
+observer measure each piece. The measurement of each piece, moreover,
+relies on the measurement of the \emph{time} taken by a lightlike signal to
+cover it -- its \enquote{radar distance}***ref***. This procedure is
+explained in appendix***. Even if rigid rods are used, their calibration
+still relies on a measurement of time -- as clear from the \textsc{iso}
+definition of the standard metre \citep[item~3-1.a]{iso2009c}.
+
+
+
+\citep[\sect~84]{landauetal1939_t1994}
+ \citep[\sect~2, p.~10]{fock1955_t1964}
 
 ***
 
 In fact the metric tells us the \emph{proper time} $\inct$
 elapsed along any (timelike) worldline $s \mapsto C(s)$, $s\in \clcl{a,b}$,
 between events $C(a)$ and $C(b)$, by the formula
-\begin{equation}
-  \label{eq:proper_time}
-\inct =  \int_a^b\!\!\!\di s\;
-\sqrt{\abs*{\yg[\dot{C}(s),\dot{C}(s)]}}.
-\end{equation}
-From the results of \sect~\ref{sec:tensor_ops} this formula implies that
-\begin{equation}
-  \label{eq:dim_dt}
- \Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\bdot\bdot}})},
-\end{equation}
-(independently of the dimension of $s$) and therefore
-\begin{equation}
-  \label{eq:dim_g}
-  \dim(\yg\i{_{\bdot\bdot}}) = \Ti^{2}.
-\end{equation}
+% \begin{equation}
+%   \label{eq:proper_time}
+% \inct =  \int_a^b\!\!\!\di s\;
+% \sqrt{\abs*{\yg[\dot{C}(s),\dot{C}(s)]}}.
+% \end{equation}
+% From the results of \sect~\ref{sec:tensor_ops} this formula implies that
+% \begin{equation}
+%   \label{eq:dim_dt}
+%  \Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\bdot\bdot}})},
+% \end{equation}
+% (independently of the dimension of $s$) and therefore
+% \begin{equation}
+%   \label{eq:dim_g}
+%   \dim(\yg\i{_{\bdot\bdot}}) = \Ti^{2}.
+% \end{equation}
 
 
 

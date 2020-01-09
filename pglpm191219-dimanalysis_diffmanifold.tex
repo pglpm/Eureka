@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-09T23:07:24+0100
+%% Last-Updated: 2020-01-10T00:30:40+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -620,7 +620,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\etsim}{{et sim.}}
 %\newcommand*{\ibid}{{ibid.}}
 %\newcommand*{\sic}{{sic}}
-%\newcommand*{\id}{\mathte{I}}%id matrix
+%\newcommand*{\id}{\mathte{id}}%id matrix
 %\newcommand*{\nbd}{\nobreakdash}%
 %\newcommand*{\bd}{\hspace{0pt}}%
 %\def\hy{-\penalty0\hskip0pt\relax}
@@ -709,6 +709,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yG}{\mathte{G}}
 \newcommand*{\yR}{\mathte{R}}
 \newcommand*{\yRi}{\mathte{Ric}}
+\newcommand*{\ysc}{\rho}
 \newcommand*{\yTo}{\bm{\tau}}
 \newcommand*{\yom}{\bm{\omega}}
 \newcommand*{\yta}{\bm{\tau}}
@@ -723,6 +724,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ds}{\mathit{ds}}
 \newcommand*{\inct}{\incr t}
 \newcommand*{\yCs}{\Bar{C}}
+\newcommand*{\id}{\mathrm{id}}%id matrix
 
 %%% Custom macros end @@@
 
@@ -1367,9 +1369,38 @@ rigid rods are used, their calibration still relies on a measurement of
 time -- this is also reflected in the current definition of the standard
 metre \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}.
 
+
 \medskip
 
-The operation of raising or lowering an index of a tensor represents a
+The metric $\yg$ can be considered as an operator mapping vectors to
+covectors, which we can compactly write as $\yom=\yg\yv$, rather than
+$\yom = \tr_{23}(\yg\otimes\yv)$. The \emph{inverse metric tensor}
+$\yg\i{^{-1}^{\bdot\bdot}}$ is then defined by the formula
+\begin{equation}
+  \label{eq:inverse_g}
+  \yg^{-1}\yg = \id\i{^{\bdot}_{\bdot}},\qquad
+  \yg\yg^{-1} = \id\i{_{\bdot}^{\bdot}},
+\end{equation}
+and obviously
+\begin{equation}
+  \label{eq:dim_ig}
+  \dim(\yg^{-1}) = \dim(\yg)^{-1}.
+  % \begin{cases}
+  %   \Ti^{-2} \\
+  %   \Le^{-2} \\
+  %   \Un 
+  % \end{cases}
+  % \text{if }\dim(\yg)\defd
+  % \begin{cases}
+  %    \Ti^2 \\
+  %   \Le^2 \\
+  %    \Un 
+  % \end{cases}
+\end{equation}
+
+\medskip
+
+The operation of \emph{raising or lowering an index} of a tensor represents a
 contraction of the tensor product of that tensor with the metric or the
 metric inverse, for example
 $\yA\i{_{\bdot\bdot}} \equiv
@@ -1378,9 +1409,72 @@ for tensors of other types. Therefore
 \begin{equation}
   \label{eq:raising_lowering}
   \dim(\yA\i{_{\dotso}_{\bdot}_{\dotso}}) =
-  \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}})\dim(\yg) =
-  \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}})\;\Ti^{2}
+  \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}})\dim(\yg),
+\qquad
+  \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}}) =
+  \dim(\yA\i{_{\dotso}_{\bdot}_{\dotso}})\dim(\yg)^{-1}.
 \end{equation}
+
+\medskip
+
+The formulae for the covariant derivative~\eqref{eq:dim_cov_der_vect},
+connection coefficients~\eqref{eq:dim_christoffel}, and curvature
+tensors~\eqref{eq:dim_torsion_riemann_ricci} remain valid for a connection
+compatible with the metric. In this case the connection coefficients can be
+obtained from the metric by the formulae
+\citep[\sect~V.B.2]{choquetbruhatetal1977_r1996}
+\begin{equation}
+  \label{eq:christoffel_g}
+  \yGa\i{^{i}_{jk}} = \frac{1}{2}
+  \biggl(\dex[k]g_{jl} + \dex[j]g_{kl} - \dex[l]g_{jk}\biggr)g^{li},
+\end{equation}
+and it's easily verified that formula~\eqref{eq:dim_christoffel} still
+holds, and the other two owing to the same expression of the curvature
+tensors from the connection coefficients.
+
+The \emph{scalar curvature} $\ysc$ and the \emph{Einstein tensor}
+$\yG\i{_{\bdot}^{\bdot}}$,
+\begin{equation}
+  \label{eq:curv_einst}
+  \ysc=\tr\yRi\i{_{\bdot}^{\bdot}}\equiv\tr_{23}(\yRi\otimes\yg^{-1}),
+  \qquad
+  \yG\i{_{\bdot}^{\bdot}} \defd \yRi\i{^{\bdot}_{\bdot}} -
+  \tfrac{1}{2} \ysc\;\id\i{^{\bdot}_{\bdot}} 
+\end{equation}
+have therefore dimension
+\begin{equation}
+  \label{eq:dim_curv_einst}
+  \dim(\ysc) = \dim(\yG\i{_{\bdot}^{\bdot}}) =
+  \begin{cases}
+    \Ti^{-2} \\
+    \Le^{-2} \\
+    \Un
+  \end{cases}
+  \text{if }\dim(\yg)\defd
+  \begin{cases}
+     \Ti^2 \\
+    \Le^2 \\
+     \Un 
+  \end{cases}
+\end{equation}
+
+\section{Stress-energy-momentum tensor}
+\label{sec:stressenergy}
+
+
+What are the absolute dimensions of the co-contra-variant stress-energy-momentum tensor $\yT{}_{\bdot}{}^{\bdot}$? We must look for an operational meaning here too. I'll try to  sketch an informal argument that reflects my point of view. The argument can be made more rigorous but that would take too long to do here.
+
+The dynamics equation $\nabla\cdot\yT=0$ holds in general-relativistic (thermo)mechanics, and also in Newtonian (thermo)mechanics when no body forces and no body heating are present. In Newtonian mechanics it's the formal combination of the balances of momentum density and energy density – which incidentally have the same dimensions $[\mathrm{M}\,\mathrm{L}^{-1}\,\mathrm{T}^{-3}]$, energy/(volume × time). 
+
+The divergence of the stress-energy-momentum gives us a 4-force density, just like the 3-divergence of the stress gives us a force density. Please check Misner \amp al (1973), chap. 14, for a very interesting discussion of these matters, and also Eckart (1940) and Burke (1980, 1987).
+
+Further, the 4-force is an object that, integrated over a path, gives us an energy density (cf Milne 1951 chap. IV, and Burke again). The integral of a force in Newtonian mechanics is the work done by the force. In general-relativistic mechanics, the timelike component of the 4-force additionally gives us the increase in energy owing to heating (Eckart 1940).
+
+So $\nabla\cdot\yT\equiv T{}_i{}^j{}_{;\,j}\;\mathrm{d}x^i$ has the dimensions of energy density, $[\mathrm{M}\,\mathrm{L}^{-1}\mathrm{T}^{-2}]$. The *co-contra-variant* stress-energy-momentum $\yT{}_{\bdot}{}^{\bdot}$ has therefore the same dimensions. But the *co-co-variant* tensor, obtained by contraction with the metric, $\yT_{\bdot\bdot} \equiv \yT\cdot \yg$, has dimensions of energy density times squared time: $[\mathrm{M}\,\mathrm{L}^{-1}]$, a mass over length.
+
+\section{Einstein equation}
+\label{sec:einstein_eq}
+
 
 
 
@@ -1443,19 +1537,6 @@ An important operation done with the metric:
  \citep[\chap~6 \eqn~(6.24)]{hartle2003} % L^2 1/c
  \citep[\chap~II p.~25]{kilmister1973} %but see excpt 4
 
-\section{Stress-energy-momentum tensor}
-\label{sec:stressenergy}
-
-
-What are the absolute dimensions of the co-contra-variant stress-energy-momentum tensor $\yT{}_{\bdot}{}^{\bdot}$? We must look for an operational meaning here too. I'll try to  sketch an informal argument that reflects my point of view. The argument can be made more rigorous but that would take too long to do here.
-
-The dynamics equation $\nabla\cdot\yT=0$ holds in general-relativistic (thermo)mechanics, and also in Newtonian (thermo)mechanics when no body forces and no body heating are present. In Newtonian mechanics it's the formal combination of the balances of momentum density and energy density – which incidentally have the same dimensions $[\mathrm{M}\,\mathrm{L}^{-1}\,\mathrm{T}^{-3}]$, energy/(volume × time). 
-
-The divergence of the stress-energy-momentum gives us a 4-force density, just like the 3-divergence of the stress gives us a force density. Please check Misner \amp al (1973), chap. 14, for a very interesting discussion of these matters, and also Eckart (1940) and Burke (1980, 1987).
-
-Further, the 4-force is an object that, integrated over a path, gives us an energy density (cf Milne 1951 chap. IV, and Burke again). The integral of a force in Newtonian mechanics is the work done by the force. In general-relativistic mechanics, the timelike component of the 4-force additionally gives us the increase in energy owing to heating (Eckart 1940).
-
-So $\nabla\cdot\yT\equiv T{}_i{}^j{}_{;\,j}\;\mathrm{d}x^i$ has the dimensions of energy density, $[\mathrm{M}\,\mathrm{L}^{-1}\mathrm{T}^{-2}]$. The *co-contra-variant* stress-energy-momentum $\yT{}_{\bdot}{}^{\bdot}$ has therefore the same dimensions. But the *co-co-variant* tensor, obtained by contraction with the metric, $\yT_{\bdot\bdot} \equiv \yT\cdot \yg$, has dimensions of energy density times squared time: $[\mathrm{M}\,\mathrm{L}^{-1}]$, a mass over length.
 
 Einstein's constant $\kappa$ therefore relates a dimensionless quantity and a mass over length:
 $$\yG_{\bdot\bdot} = \kappa \yT_{\bdot\bdot}\;.$$

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-08T15:58:03+0100
+%% Last-Updated: 2020-01-09T23:07:24+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -483,11 +483,15 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \displaywidowpenalty=1602
 \raggedbottom
 
-\paragraphfootnotes\setlength{\footmarkwidth}{0em}
+\paragraphfootnotes%
+%\setlength{\footmarkwidth}{1.3em}
 % \threecolumnfootnotes
-%\setlength{\footmarksep}{0em}
+%\setlength{\footmarksep}{-\footmarkwidth}
+%\setlength{\footparindent}{10em}
 \footmarkstyle{\textsuperscript{%\color{myred}
-\scriptsize\bfseries#1}~}
+\scriptsize\bfseries%\underline{
+#1%}
+}~}
 %\footmarkstyle{\textsuperscript{\color{myred}\scriptsize\bfseries#1}~}
 %\footmarkstyle{\textsuperscript{[#1]}~}
 
@@ -1295,7 +1299,7 @@ From the results of \sect~\ref{sec:tensor_ops} this formula implies that
 %\end{subequations}
 
 Many authors \citep[\eg][\sect~V.62, \eqn~(62.02)]{fock1955_t1964}[\chap~11
-\eqn~(11.21)]{curtisetal1985}[\chap~6 \eqn~(6.24)]{hartle2003} prefer to
+\eqn~(11.21)]{curtisetal1985}[\sect~5.3 \eqn~(5.6)]{rindler1969_r1986}[\chap~6 \eqn~(6.24)]{hartle2003} prefer to
 include a dimensional factor $1/c$ in front of the
 integral~\eqref{eq:proper_time}:
 \begin{equation}\addtocounter{equation}{-1}\tag{\theequation b}
@@ -1336,12 +1340,13 @@ has dimension of length.
 
 \medskip
 
-Thus we see there that the standard choices for $\dim{\yg}$ are $\Ti^{2}$,
-$\Le^{2}$, or possibly $\Un$. My favourite choice is the first,
-\eqref{eq:dim_g}, for reasons discussed by Synge and Bressan
-\citep[\sects~III.2--4]{synge1960b}[\sects~15, 18]{bressan1978} and vividly
-summed up by the former \citep[\sect~III.3 pp.~108--109]{synge1960b}:
-\begin{quote}\footnotesize We are now launched on the task of giving physical meaning to the
+The standard choices for $\dim{\yg}$ are thus $\Ti^{2}$, $\Le^{2}$, or
+possibly $\Un$. My favourite choice is the first, \eqref{eq:dim_g}, for
+reasons discussed by Synge and Bressan
+\citep[\sects~III.2--4]{synge1960b}[\sects~15, 18]{bressan1978}. Synge
+gives a vivid summary: \citep[\sect~III.3 pp.~108--109]{synge1960b}
+\begin{quote}\footnotesize
+  We are now launched on the task of giving physical meaning to the
   Riemannian geometry \textelp{}. It is indeed a Riemannian
   \emph{chronometry} rather than \emph{geometry}, and the word
   \emph{geometry}, with its dangerous suggestion that we should go about
@@ -1351,18 +1356,35 @@ proper time $\inct$ defined above we only need to ensure that a clock has
 the worldline $C$, and then take the difference between its final and
 initial times. On the other hand, consider the case when the curve $C$ is
 \emph{spacelike}. Its proper length is still defined by the
-integral~\eqref{eq:proper_time}. Its measurement, however, involves
-dividing the curve into very short pieces, and having a specially-chosen
-observer measure each piece. The measurement of each piece, moreover,
-relies on the measurement of the \emph{time} taken by a lightlike signal to
-cover it -- its \enquote{radar distance}***ref***. This procedure is
-explained in appendix***. Even if rigid rods are used, their calibration
-still relies on a measurement of time -- as clear from the \textsc{iso}
-definition of the standard metre \citep[item~3-1.a]{iso2009c}.
+integral~\eqref{eq:proper_time} (apart from a dimensional constant). Its
+measurement, however, is more involved than the timelike case. It requires
+dividing the curve into very short pieces, and having specially-chosen
+observers (they must be orthogonal to the piece) measure each piece. But
+the measurement of each piece actually relies on the measurement of
+\emph{proper time}: each observer uses \enquote{radar distance}
+\citep[\sect~84]{landauetal1939_t1994}, explained in appendix***. Even if
+rigid rods are used, their calibration still relies on a measurement of
+time -- this is also reflected in the current definition of the standard
+metre \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}.
+
+\medskip
+
+The operation of raising or lowering an index of a tensor represents a
+contraction of the tensor product of that tensor with the metric or the
+metric inverse, for example
+$\yA\i{_{\bdot\bdot}} \equiv
+\tr_{13}\yA\i{^{\bdot}_{\bdot}}\otimes\yg\i{_{\bdot\bdot}}$ and similarly
+for tensors of other types. Therefore
+\begin{equation}
+  \label{eq:raising_lowering}
+  \dim(\yA\i{_{\dotso}_{\bdot}_{\dotso}}) =
+  \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}})\dim(\yg) =
+  \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}})\;\Ti^{2}
+\end{equation}
 
 
 
-\citep[\sect~84]{landauetal1939_t1994}
+\citep[\sect~3.5 p.~65]{rindler1969_r1986}
  \citep[\sect~2, p.~10]{fock1955_t1964}
 
 ***

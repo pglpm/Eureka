@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-10T00:30:40+0100
+%% Last-Updated: 2020-01-10T11:10:05+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -796,15 +796,16 @@ tensors starting from coordinates with dimensions of length. That statement
 is wrong, and that procedure is unnecessary.
 
 Several factors probably cause or contribute to such difficulties. Modern
-texts in Lorentzian and general relativity commonly use geometrized units. They
-say that to find the dimension of some constant in a tensorial equations
-it's sufficient to compare the dimensions of the tensors in the equation.
-But this is not so immediate, because some tensors don't have universally
-agreed dimensions -- prime example the 4-metric tensor. Older texts often
-use coordinates with dimension of length. They even multiply a timelike
-coordinate or some tensorial components by $c$, thus giving the impression
-that coordinates should always be lengths and that the components of a
-tensor would all have the same dimension.
+texts in Lorentzian and general relativity commonly use geometrized units.
+They say that to find the dimension of some constant in a tensorial
+equations it's sufficient to compare the dimensions of the tensors in the
+equation. But this is not so immediate, because some tensors don't have
+universally agreed dimensions -- prime example the 4-metric tensor. Older
+texts often use coordinates with dimension of length. They even multiply a
+timelike coordinate or some tensorial components by $c$, thus giving the
+impression that coordinates should always be lengths and that the
+components of a tensor would all have the same dimension.
+\citep[\eg][\sect~32 \eqn~(32.15)]{landauetal1939_t1996}.
 
 In this note I want to clarify some misconceptions about dimensional
 analysis in differential manifolds, and to illustrate a simple way of
@@ -1364,7 +1365,7 @@ dividing the curve into very short pieces, and having specially-chosen
 observers (they must be orthogonal to the piece) measure each piece. But
 the measurement of each piece actually relies on the measurement of
 \emph{proper time}: each observer uses \enquote{radar distance}
-\citep[\sect~84]{landauetal1939_t1994}, explained in appendix***. Even if
+\citep[\sect~84]{landauetal1939_t1996}, explained in appendix***. Even if
 rigid rods are used, their calibration still relies on a measurement of
 time -- this is also reflected in the current definition of the standard
 metre \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}.
@@ -1444,7 +1445,7 @@ $\yG\i{_{\bdot}^{\bdot}}$,
 have therefore dimension
 \begin{equation}
   \label{eq:dim_curv_einst}
-  \dim(\ysc) = \dim(\yG\i{_{\bdot}^{\bdot}}) =
+  \dim(\ysc) = \dim(\yG\i{_{\bdot}^{\bdot}}) =\dim(\yg)^{-1} \equiv
   \begin{cases}
     \Ti^{-2} \\
     \Le^{-2} \\
@@ -1455,7 +1456,7 @@ have therefore dimension
      \Ti^2 \\
     \Le^2 \\
      \Un 
-  \end{cases}
+  \end{cases}.
 \end{equation}
 
 \section{Stress-energy-momentum tensor}

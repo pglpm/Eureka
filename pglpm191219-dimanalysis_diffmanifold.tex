@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-10T21:19:13+0100
+%% Last-Updated: 2020-01-10T23:02:21+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -819,8 +819,8 @@ and other differential-geometrical objects.
 Let's start from more general facts about dimensional analysis on differential manifolds.
 
 For dimensional analysis I use ISO conventions and notation. I sometimes
-use notation such as $\yT{}_{\bdot}{}^{\bdot}$ to indicate that the tensor
-$\yT$ is covariant in its first slot and contravariant in its second; I
+use notation such as $\yA{}_{\bdot}{}^{\bdot}$ to indicate that the tensor
+$\yA$ is covariant in its first slot and contravariant in its second; I
 call this a \enquote{co-contra-variant tensor}.
 
 
@@ -1470,8 +1470,9 @@ obtained from the metric by the formulae
   \biggl(\dex[k]g_{jl} + \dex[j]g_{kl} - \dex[l]g_{jk}\biggr)g^{li},
 \end{equation}
 and it's easily verified that formula~\eqref{eq:dim_christoffel} still
-holds, and the other two owing to the same expression of the curvature
-tensors from the connection coefficients.
+holds, and also~\eqref{eq:dim_torsion_riemann_ricci} since the expression
+of the curvature tensors in terms of the connection coefficients is the
+same with or without a metric.
 
 The \emph{scalar curvature} $\ysc$ and the \emph{Einstein tensor}
 $\yG\i{_{\bdot}^{\bdot}}$,
@@ -1485,7 +1486,7 @@ $\yG\i{_{\bdot}^{\bdot}}$,
 have therefore dimension
 \begin{equation}
   \label{eq:dim_curv_einst}
-  \dim(\ysc) = \dim(\yG\i{_{\bdot}^{\bdot}}) =\dim(\yg)^{-1} \equiv
+  \dim(\ysc) \defd \dim(\yG\i{_{\bdot}^{\bdot}}) =\dim(\yg)^{-1} \equiv
   \begin{cases}
     \Ti^{-2} \\
     \Le^{-2}
@@ -1499,6 +1500,20 @@ have therefore dimension
 
 \section{Stress-energy-momentum tensor}
 \label{sec:stressenergy}
+
+The most fitting geometrical nature of the stress-energy-momentum, from a
+kinematic and dynamical point of view, is still shrouded by mystery. In
+most relativity texts it is represented by a tensor of order 2, but there
+are indications that it could be more properly represented by a
+covector-valued 3-form (equivalent to a tensor
+$\yT\i{_{\bdot\;\bdot\bdot\bdot}}$ antisymmetric in the last three slots),
+or by a 3-vector-valued 3-form (equivalent to a tensor
+$\yT\i{^{\bdot\bdot\bdot}_{\bdot\bdot\bdot}}$ antisymmetric in the first
+three and last three slots). See for example the discussion about
+\enquote{$^{\displaystyle *}\mathte{T}$} by Misner \etal\
+\citey[\chap~15]{misneretal1970_r1973}, the works by Segev
+\citey{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
+discussion by Burke \citey[\sect~41]{burke1985_r1987}.
 
 
 What are the absolute dimensions of the co-contra-variant stress-energy-momentum tensor $\yT{}_{\bdot}{}^{\bdot}$? We must look for an operational meaning here too. I'll try to  sketch an informal argument that reflects my point of view. The argument can be made more rigorous but that would take too long to do here.

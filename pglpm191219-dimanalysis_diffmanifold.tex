@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-10T11:10:05+0100
+%% Last-Updated: 2020-01-10T21:19:13+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -725,6 +725,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\inct}{\incr t}
 \newcommand*{\yCs}{\Bar{C}}
 \newcommand*{\id}{\mathrm{id}}%id matrix
+\newcommand*{\ye}{\bm{e}}
+\newcommand*{\ygv}{\bm{\gamma}}
 
 %%% Custom macros end @@@
 
@@ -805,7 +807,8 @@ texts often use coordinates with dimension of length. They even multiply a
 timelike coordinate or some tensorial components by $c$, thus giving the
 impression that coordinates should always be lengths and that the
 components of a tensor would all have the same dimension.
-\citep[\eg][\sect~32 \eqn~(32.15)]{landauetal1939_t1996}.
+\citep[\eg][\sect~37 \eqn~(37.8)]{tolman1934_t1949}[\sect~32
+\eqn~(32.15)]{landauetal1939_t1996}.
 
 In this note I want to clarify some misconceptions about dimensional
 analysis in differential manifolds, and to illustrate a simple way of
@@ -858,9 +861,10 @@ respect to the basis $\Bigl(\dex\Bigr)$. Analogously for a covector field.
 
 For the full presentation of the intrinsic view I recommend the excellent
 texts by Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}, Boothby
-\citey{boothby1975_r2003}, Marsden \etal\ \citep{marsdenetal1983_r2007},
-Bossavit \citey{bossavit1991}, and more on the general-relativity side
-Burke \citey[\chap~2]{burke1980b}, Misner \etal\
+\citey{boothby1975_r2003}, Abraham \etal\ \citep{abrahametal1983_r1988},
+Bossavit \citey{bossavit1991}, Burke
+\citey{burke1985_r1987}[\chap~2]{burke1980b}, and more on the
+general-relativity side Misner \etal\
 \citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
 \citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \etal\
 \citey[\chap~4]{penroseetal1984_r2003}.
@@ -1095,8 +1099,8 @@ Regarding operations and operators on differential forms:
   \end{equation}
   This can be proven using the identity
   $\di\,\ii_{\yv}+\ii_{\yv}\,\di = \Li_{\yv}$ or similar identities
-  \citep[\chap~9 p.~180 Theorem~9.78]{curtisetal1985}[\sect~7.4
-  Theorem~7.4.8]{marsdenetal1983_r2007} together with
+  \citep[\chap~9 p.~180 Theorem~9.78]{curtisetal1985}[\sect~6.4
+  Theorem~6.4.8]{abrahametal1983_r1988} together with
   \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
 
 \item The \emph{integral} [IV.B.1] of a form over a submanifold has the
@@ -1110,7 +1114,7 @@ Regarding operations and operators on differential forms:
 \medskip
 
 The resultant absolute dimensions of other operators, for example the
-determinant \citep[\sect~7.2]{marsdenetal1983_r2007}, can be obtained by
+determinant \citep[\sect~6.2]{abrahametal1983_r1988}, can be obtained by
 similar reasoning.
 
 \section{Curves and integral curves}
@@ -1338,16 +1342,17 @@ case we have
   \label{eq:line_elem_dim_ambiguous}
   \Le^{2} = \dim(\yg)\dim(\yv)^{2}
 \end{equation}
-and the dimension of $\yg$ is ambiguous -- probably dimensionless if $\yv$
-has dimension of length.
+and the dimension of $\yg$ is ambiguous -- possibly dimensionless if $\yv$
+has dimension of length, but we'll see in \sect~\ref{sec:einstein_eq} that
+a dimensionless $\yg$ isn't quite compatible with the Einstein equation.
 
 \medskip
 
-The standard choices for $\dim{\yg}$ are thus $\Ti^{2}$, $\Le^{2}$, or
-possibly $\Un$. My favourite choice is the first, \eqref{eq:dim_g}, for
-reasons discussed by Synge and Bressan
-\citep[\sects~III.2--4]{synge1960b}[\sects~15, 18]{bressan1978}. Synge
-gives a vivid summary: \citep[\sect~III.3 pp.~108--109]{synge1960b}
+The standard choices for $\dim{\yg}$ are thus $\Ti^{2}$ or $\Le^{2}$. My
+favourite choice is the first, \eqref{eq:dim_g}, for reasons discussed by
+Synge and Bressan \citep[\sects~III.2--4]{synge1960b}[\sects~15,
+18]{bressan1978}. Synge gives a vivid summary: \citep[\sect~III.3
+pp.~108--109]{synge1960b}
 \begin{quote}\footnotesize
   We are now launched on the task of giving physical meaning to the
   Riemannian geometry \textelp{}. It is indeed a Riemannian
@@ -1401,6 +1406,41 @@ and obviously
 
 \medskip
 
+The \emph{metric volume element} \citep[\sect~6.2]{abrahametal1983_r1988}
+in spacetime is a 4-form $\ygv$, equivalent to a completely antisymmetric
+tensor $\ygv\i{_{\bdot\bdot\bdot\bdot}}$, such that
+$\ygv(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for every set of
+positively-oriented orthonormal vector fields $(\ye_{k})$, that is, such
+that $\yg(\ye_{k},\ye_{l})=\pm\delt_{kl}$ (remember that the orientation is
+not determined by the metric). It has only one non-zero coordinate
+component, given by the square root of the determinant of the (positively
+ordered) components $(g\i{_{ij}})$ of the metric:
+\begin{equation}
+  \label{eq:volume_elem}
+  \ygv = \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\;\dix[0]\land\dix[1]\land\dix[2]\land\dix[3].
+\end{equation}
+From this expression and the results of \sect~\ref{sec:tensor_ops} it can
+be shown that, in spacetime,
+\begin{equation}
+  \label{eq:dim_volume_elem}
+  \dim(\ygv) = \dim(\yg)^{2} \equiv
+    \begin{cases}
+    \Ti^{4} \\
+    \Le^{4}
+  \end{cases}
+  \text{if }\dim(\yg)\defd
+  \begin{cases}
+     \Ti^2 \\
+    \Le^2
+  \end{cases}.
+\end{equation}
+(This is also the dimension of the \emph{density} $\abs{\ygv}$, which, as
+opposed to the volume element, has the property that
+$\abs{\ygv}(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for all sets of orthonormal
+vector fields, not only positively-oriented ones.)
+
+\medskip
+
 The operation of \emph{raising or lowering an index} of a tensor represents a
 contraction of the tensor product of that tensor with the metric or the
 metric inverse, for example
@@ -1411,7 +1451,7 @@ for tensors of other types. Therefore
   \label{eq:raising_lowering}
   \dim(\yA\i{_{\dotso}_{\bdot}_{\dotso}}) =
   \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}})\dim(\yg),
-\qquad
+\quad
   \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}}) =
   \dim(\yA\i{_{\dotso}_{\bdot}_{\dotso}})\dim(\yg)^{-1}.
 \end{equation}
@@ -1439,8 +1479,8 @@ $\yG\i{_{\bdot}^{\bdot}}$,
   \label{eq:curv_einst}
   \ysc=\tr\yRi\i{_{\bdot}^{\bdot}}\equiv\tr_{23}(\yRi\otimes\yg^{-1}),
   \qquad
-  \yG\i{_{\bdot}^{\bdot}} \defd \yRi\i{^{\bdot}_{\bdot}} -
-  \tfrac{1}{2} \ysc\;\id\i{^{\bdot}_{\bdot}} 
+  \yG\i{_{\bdot}^{\bdot}} \defd \yRi\i{_{\bdot}^{\bdot}} -
+  \tfrac{1}{2} \ysc\;\id\i{_{\bdot}^{\bdot}} 
 \end{equation}
 have therefore dimension
 \begin{equation}
@@ -1448,14 +1488,12 @@ have therefore dimension
   \dim(\ysc) = \dim(\yG\i{_{\bdot}^{\bdot}}) =\dim(\yg)^{-1} \equiv
   \begin{cases}
     \Ti^{-2} \\
-    \Le^{-2} \\
-    \Un
+    \Le^{-2}
   \end{cases}
   \text{if }\dim(\yg)\defd
   \begin{cases}
      \Ti^2 \\
-    \Le^2 \\
-     \Un 
+    \Le^2
   \end{cases}.
 \end{equation}
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-10T23:02:21+0100
+%% Last-Updated: 2020-01-11T01:16:34+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -660,8 +660,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % \newcommand*{\dobs}{degrees of belief}
 
 \makeatletter
-\newcommand*{\bdot}{}% Check if undefined
-\DeclareRobustCommand*{\bdot}{%
+\newcommand*{\q}{}% Check if undefined
+\DeclareRobustCommand*{\q}{%
   \mathbin{\mathpalette\bigcdot@{}}%
 }
 \newcommand*{\bigcdot@scalefactor}{.6}
@@ -727,6 +727,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\id}{\mathrm{id}}%id matrix
 \newcommand*{\ye}{\bm{e}}
 \newcommand*{\ygv}{\bm{\gamma}}
+\newcommand*{\yt}{\bm{\sigma}}
 
 %%% Custom macros end @@@
 
@@ -819,7 +820,7 @@ and other differential-geometrical objects.
 Let's start from more general facts about dimensional analysis on differential manifolds.
 
 For dimensional analysis I use ISO conventions and notation. I sometimes
-use notation such as $\yA{}_{\bdot}{}^{\bdot}$ to indicate that the tensor
+use notation such as $\yA{}_{\q}{}^{\q}$ to indicate that the tensor
 $\yA$ is covariant in its first slot and contravariant in its second; I
 call this a \enquote{co-contra-variant tensor}.
 
@@ -884,8 +885,8 @@ within that region. Any physical quantity will do: the distance from
 something, the time elapsed since something, an angle, an energy density,
 the strength of a magnetic flux, a temperature, and so on. A coordinate can
 thus have any dimensions: length $\Le$, time $\Ti$, angle $\Un$, energy
-density $\En \defd \Le^{-1}\Ma\Ti^{-2}$, magnetic flux
-$\Fl \defd \Le^{2}\Ma\Ti^{-2}\Cu^{-1}$, temperature $\Te$, and so on.
+density $\En \defd \Ma\Le^{-1}\Ti^{-2}$, magnetic flux
+$\Fl \defd \Ma\Le^{2}\Ti^{-2}\Cu^{-1}$, temperature $\Te$, and so on.
 
 The dimensions of the coordinates don't matter, as we'll now see.
 
@@ -903,7 +904,7 @@ has the inverse dimension: $\dim\dex = {\Xx_{i}}^{-1}$. We'll see later
 that these conventions are self-consistent.
 
 For our discussion let's take a concrete example: a contra-co-tensor field
-$\yA \equiv \yA\i{^{\bdot}_{\bdot}}$. The discussion generalizes to tensors
+$\yA \equiv \yA\i{^{\q}_{\q}}$. The discussion generalizes to tensors
 of other types in an obvious way.
 
 The tensor $\yA$ can be expanded in terms of the basis vectors and
@@ -935,20 +936,20 @@ using coordinates with dimensions
   \dim(x^{0})=\Te,\quad
   \dim(x^{1})=\Le,\quad
   \dim(x^{2})=\Le,\quad
-  \dim(x^{3})=\Le^{-1}\Ma\Ti^{-2};
+  \dim(x^{3})=\Ma\Le^{-1}\Ma\Ti^{-2};
 \end{equation}
 then the components of $\yA$ have dimensions
 \begin{equation}
   \label{eq:example_components}
   \Bigl(\dim(A\i{^{i}_{j}})\Bigr) =
  \Aa\times \begin{pmatrix}
-   \Un & \Le^{-1}\Te & \Le^{-1}\Te & \Le\Ma^{-1}\Ti^{2}\Te
+   \Un & \Le^{-1}\Te & \Le^{-1}\Te & \Ma^{-1}\Le\Ti^{2}\Te
    \\
-   \Le\Te^{-1} & \Un & \Un & \Le^{2}\Ma^{-1}\Ti^{2}
+   \Le\Te^{-1} & \Un & \Un & \Ma^{-1}\Le^{2}\Ti^{2}
    \\
-   \Le\Te^{-1} & \Un & \Un & \Le^{2}\Ma^{-1}\Ti^{2}
+   \Le\Te^{-1} & \Un & \Un & \Ma^{-1}\Le^{2}\Ti^{2}
    \\
-   \Le^{-1}\Ma\Ti^{-2}\Te^{-1} & \Le^{-2}\Ma\Ti^{-2} & \Le^{-2}\Ma\Ti^{-2} & \Un
+   \Ma\Le^{-1}\Ti^{-2}\Te^{-1} & \Ma\Le^{-2}\Ti^{-2} & \Ma\Le^{-2}\Ti^{-2} & \Un
   \end{pmatrix}.
 \end{equation}
 
@@ -1002,8 +1003,8 @@ expansion~\eqref{eq:expansion_tensor}, it's easy to find out the resultant
 absolute dimension of various operations and operators on tensors and
 tensor fields.
 
-The tensor product of $\yA\i{^{\bdot}_{\bdot}}$ and
-$\yB\i{_{\bdot\bdot}^{\bdot}}$, for example, can be written as the sum
+The tensor product of $\yA\i{^{\q}_{\q}}$ and
+$\yB\i{_{\q\q}^{\q}}$, for example, can be written as the sum
 \begin{equation}
   \label{eq:tensor_prod_example}
   \yA \otimes \yB =
@@ -1205,9 +1206,9 @@ have dimensions
   \dim(\yGa\i{^{i}_{jk}}) = \Xx_{i}\, {\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}.
 \end{equation}
 
-The \emph{torsion} $\yTo\i{^{\bdot}_{\bdot\bdot}}$, \emph{Riemann
-  curvature} $\yR\i{^{\bdot}_{\bdot\bdot\bdot}}$, and \emph{Ricci
-  curvature} $\yRi\i{_{\bdot\bdot}}$ tensors are defined by
+The \emph{torsion} $\yTo\i{^{\q}_{\q\q}}$, \emph{Riemann
+  curvature} $\yR\i{^{\q}_{\q\q\q}}$, and \emph{Ricci
+  curvature} $\yRi\i{_{\q\q}}$ tensors are defined by
 \citep[\sect~V.B.1]{choquetbruhatetal1977_r1996}
 \begin{gather}
   \label{eq:torsion_eq}
@@ -1218,31 +1219,31 @@ The \emph{torsion} $\yTo\i{^{\bdot}_{\bdot\bdot}}$, \emph{Riemann
 - \nab_{\clcl{\yu,\yv}}\yw,
   \label{eq:riemann_eq}  
 \\
-\yRi\i{_{\bdot\bdot}} \defd \tr_{13} \yR\i{^{\bdot}_{\bdot\bdot\bdot}}.
+\yRi\i{_{\q\q}} \defd \tr_{13} \yR\i{^{\q}_{\q\q\q}}.
   \label{eq:ricci_eq}  
 \end{gather}
 From these definitions and the results of \sect~\ref{sec:tensor_ops} we
 find the dimensional requirements
 \begin{gather}
   \label{eq:torsion_eq_dim}
-\dim(\yTo\i{^{\bdot}_{\bdot\bdot}})\dim(\yu)\dim(\yv) = \dim(\yu) \dim(\yv),
+\dim(\yTo\i{^{\q}_{\q\q}})\dim(\yu)\dim(\yv) = \dim(\yu) \dim(\yv),
 \\
-\dim(\yR\i{^{\bdot}_{\bdot\bdot\bdot}})\dim(\yu)\dim(\yv)\dim(\yw) =
+\dim(\yR\i{^{\q}_{\q\q\q}})\dim(\yu)\dim(\yv)\dim(\yw) =
 \dim(\yu)\dim(\yv)\dim(\yw),
 \label{eq:riemann_eq_dim}
 \\
-\dim(\yRi\i{_{\bdot\bdot}}) = \dim(\yR\i{^{\bdot}_{\bdot\bdot\bdot}}),
+\dim(\yRi\i{_{\q\q}}) = \dim(\yR\i{^{\q}_{\q\q\q}}),
   \label{eq:ricci_eq_dim}  
 \end{gather}
 which imply that \emph{torsion, Riemann curvature, and Ricci curvature are
   dimensionless}:
 \begin{equation}
   \label{eq:dim_torsion_riemann_ricci}
-  \dim(\yTo\i{^{\bdot}_{\bdot\bdot}}) =
+  \dim(\yTo\i{^{\q}_{\q\q}}) =
   % \label{eq:dim_riem}
-   \dim(\yR\i{^{\bdot}_{\bdot\bdot\bdot}}) =
+   \dim(\yR\i{^{\q}_{\q\q\q}}) =
   % \label{eq:dim_ricci}
-   \dim(\yRi\i{_{\bdot\bdot}}) =\Un.
+   \dim(\yRi\i{_{\q\q}}) =\Un.
 \end{equation}
 The exact contra- and co-variant type used above for these tensors is very
 important in these equations. If we raise any of their indices using a
@@ -1277,7 +1278,7 @@ to see that \eqns~\eqref{eq:dim_cov_der_vect},
 \section{Metric tensor}
 \label{sec:metric}
 
-Let's now consider a metric tensor $\yg\i{_{\bdot\bdot}}$. What is its
+Let's now consider a metric tensor $\yg\i{_{\q\q}}$. What is its
 absolute dimension $\dim(\yg)$? There seem to be two or three choices in
 the literature; all three can be derived from an operational meaning of the
 metric.
@@ -1296,12 +1297,12 @@ formula
 From the results of \sect~\ref{sec:tensor_ops} this formula implies that
 %\begin{equation}
 %  \label{eq:dim_dt}
- $\Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\bdot\bdot}})}$,
+ $\Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\q\q}})}$,
 %\end{equation}
 (independently of the dimension of $s$) and therefore
 \begin{equation}\addtocounter{equation}{1}\tag{\theequation a}
     \label{eq:dim_g}
-    \dim(\yg\i{_{\bdot\bdot}}) = \Ti^{2}.
+    \dim(\yg\i{_{\q\q}}) = \Ti^{2}.
   \end{equation}
 %\end{subequations}
 
@@ -1317,7 +1318,7 @@ integral~\eqref{eq:proper_time}:
 thus obtaining
 \begin{equation}\addtocounter{equation}{1}\tag{\theequation b}
   \label{eq:dim_g_c}
-  \dim(\ygc\i{_{\bdot\bdot}}) = \Le^{2}.
+  \dim(\ygc\i{_{\q\q}}) = \Le^{2}.
 \end{equation}
 %To avoid confusion I'm using $\ygc$ for the metric with such dimension.
 
@@ -1381,11 +1382,11 @@ metre \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}.
 The metric $\yg$ can be considered as an operator mapping vectors to
 covectors, which we can compactly write as $\yom=\yg\yv$, rather than
 $\yom = \tr_{23}(\yg\otimes\yv)$. The \emph{inverse metric tensor}
-$\yg\i{^{-1}^{\bdot\bdot}}$ is then defined by the formula
+$\yg\i{^{-1}^{\q\q}}$ is then defined by the formula
 \begin{equation}
   \label{eq:inverse_g}
-  \yg^{-1}\yg = \id\i{^{\bdot}_{\bdot}},\qquad
-  \yg\yg^{-1} = \id\i{_{\bdot}^{\bdot}},
+  \yg^{-1}\yg = \id\i{^{\q}_{\q}},\qquad
+  \yg\yg^{-1} = \id\i{_{\q}^{\q}},
 \end{equation}
 and obviously
 \begin{equation}
@@ -1408,7 +1409,7 @@ and obviously
 
 The \emph{metric volume element} \citep[\sect~6.2]{abrahametal1983_r1988}
 in spacetime is a 4-form $\ygv$, equivalent to a completely antisymmetric
-tensor $\ygv\i{_{\bdot\bdot\bdot\bdot}}$, such that
+tensor $\ygv\i{_{\q\q\q\q}}$, such that
 $\ygv(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for every set of
 positively-oriented orthonormal vector fields $(\ye_{k})$, that is, such
 that $\yg(\ye_{k},\ye_{l})=\pm\delt_{kl}$ (remember that the orientation is
@@ -1444,16 +1445,16 @@ vector fields, not only positively-oriented ones.)
 The operation of \emph{raising or lowering an index} of a tensor represents a
 contraction of the tensor product of that tensor with the metric or the
 metric inverse, for example
-$\yA\i{_{\bdot\bdot}} \equiv
-\tr_{13}\yA\i{^{\bdot}_{\bdot}}\otimes\yg\i{_{\bdot\bdot}}$ and similarly
+$\yA\i{_{\q\q}} \equiv
+\tr_{13}\yA\i{^{\q}_{\q}}\otimes\yg\i{_{\q\q}}$ and similarly
 for tensors of other types. Therefore
 \begin{equation}
   \label{eq:raising_lowering}
-  \dim(\yA\i{_{\dotso}_{\bdot}_{\dotso}}) =
-  \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}})\dim(\yg),
+  \dim(\yA\i{_{\dotso}_{\q}_{\dotso}}) =
+  \dim(\yA\i{_{\dotso}^{\q}_{\dotso}})\dim(\yg),
 \quad
-  \dim(\yA\i{_{\dotso}^{\bdot}_{\dotso}}) =
-  \dim(\yA\i{_{\dotso}_{\bdot}_{\dotso}})\dim(\yg)^{-1}.
+  \dim(\yA\i{_{\dotso}^{\q}_{\dotso}}) =
+  \dim(\yA\i{_{\dotso}_{\q}_{\dotso}})\dim(\yg)^{-1}.
 \end{equation}
 
 \medskip
@@ -1475,18 +1476,18 @@ of the curvature tensors in terms of the connection coefficients is the
 same with or without a metric.
 
 The \emph{scalar curvature} $\ysc$ and the \emph{Einstein tensor}
-$\yG\i{_{\bdot}^{\bdot}}$,
+$\yG\i{_{\q}^{\q}}$,
 \begin{equation}
   \label{eq:curv_einst}
-  \ysc=\tr\yRi\i{_{\bdot}^{\bdot}}\equiv\tr_{23}(\yRi\otimes\yg^{-1}),
+  \ysc=\tr\yRi\i{_{\q}^{\q}}\equiv\tr_{23}(\yRi\otimes\yg^{-1}),
   \qquad
-  \yG\i{_{\bdot}^{\bdot}} \defd \yRi\i{_{\bdot}^{\bdot}} -
-  \tfrac{1}{2} \ysc\;\id\i{_{\bdot}^{\bdot}} 
+  \yG\i{_{\q}^{\q}} \defd \yRi\i{_{\q}^{\q}} -
+  \tfrac{1}{2} \ysc\;\id\i{_{\q}^{\q}} 
 \end{equation}
 have therefore dimension
 \begin{equation}
   \label{eq:dim_curv_einst}
-  \dim(\ysc) \defd \dim(\yG\i{_{\bdot}^{\bdot}}) =\dim(\yg)^{-1} \equiv
+  \dim(\ysc) \defd \dim(\yG\i{_{\q}^{\q}}) =\dim(\yg)^{-1} \equiv
   \begin{cases}
     \Ti^{-2} \\
     \Le^{-2}
@@ -1501,14 +1502,49 @@ have therefore dimension
 \section{Stress-energy-momentum tensor}
 \label{sec:stressenergy}
 
+To find the dimension of the stress-energy-momentum, which I'll call
+\enquote{4-stress}, let's start with the analysis of the (3-)stress 
+in Newtonian mechanics. The stress is the projection of the 4-stress on a
+spacelike tangent plane with respect to some observer. If we choose a
+coordinate system compatible with such observer and the spatial projection,
+then the components of the stress are also the spacelike components of the
+4-stress, apart from dimensionless relativistic-correction factors.
+
+In Newtonian mechanics the stress $\yt$ is an object that, integrated over
+the boundary of a body, gives the total surface force acting on the body
+(such integration requires a flat connection). This means that it must be
+represented by a \enquote{force-valued} 2-form. Force, in turn, can be
+interpreted as an object that, integrated over a (spacelike) trajectory,
+gives an energy -- the work done by the force along the trajectory. It's
+therefore a 1-form. Putting these two requirements together we obtain a
+covector-valued 2-form, equivalent to a tensor $\yt\i{_{\q\;\q\q}}$
+antisymmetric in its last two indices. Integrated over a surface, and then
+over a trajectory, it yields an energy. From \sect~\ref{sec:tensor_ops},
+integration of a form does not change the dimension of the form.
+Therefore
+\begin{equation}
+  \label{eq:dim_3stress}
+  \dim(\yt\i{_{\q\;\q\q}}) = \En \equiv \Ma\Le^{2}\Ti^{-2}.
+\end{equation}
+
+
+
+In most texts the stress-energy-momentum, which I'll call
+\enquote{4-stress}, is represented by a tensor of order 2,
+\begin{equation}
+  \label{eq:4stress}
+  \yT\i{_{\q}^{\q\q}} =  T\i{_{i}^{j}}\; \dix\otimes\dex[j].
+\end{equation}
+To find its dimension let's examine its spatial part only
+
 The most fitting geometrical nature of the stress-energy-momentum, from a
 kinematic and dynamical point of view, is still shrouded by mystery. In
 most relativity texts it is represented by a tensor of order 2, but there
 are indications that it could be more properly represented by a
 covector-valued 3-form (equivalent to a tensor
-$\yT\i{_{\bdot\;\bdot\bdot\bdot}}$ antisymmetric in the last three slots),
+$\yT\i{_{\q\;\q\q\q}}$ antisymmetric in the last three slots),
 or by a 3-vector-valued 3-form (equivalent to a tensor
-$\yT\i{^{\bdot\bdot\bdot}_{\bdot\bdot\bdot}}$ antisymmetric in the first
+$\yT\i{^{\q\q\q}_{\q\q\q}}$ antisymmetric in the first
 three and last three slots). See for example the discussion about
 \enquote{$^{\displaystyle *}\mathte{T}$} by Misner \etal\
 \citey[\chap~15]{misneretal1970_r1973}, the works by Segev
@@ -1516,7 +1552,7 @@ three and last three slots). See for example the discussion about
 discussion by Burke \citey[\sect~41]{burke1985_r1987}.
 
 
-What are the absolute dimensions of the co-contra-variant stress-energy-momentum tensor $\yT{}_{\bdot}{}^{\bdot}$? We must look for an operational meaning here too. I'll try to  sketch an informal argument that reflects my point of view. The argument can be made more rigorous but that would take too long to do here.
+What are the absolute dimensions of the co-contra-variant stress-energy-momentum tensor $\yT{}_{\q}{}^{\q}$? We must look for an operational meaning here too. I'll try to  sketch an informal argument that reflects my point of view. The argument can be made more rigorous but that would take too long to do here.
 
 The dynamics equation $\nabla\cdot\yT=0$ holds in general-relativistic (thermo)mechanics, and also in Newtonian (thermo)mechanics when no body forces and no body heating are present. In Newtonian mechanics it's the formal combination of the balances of momentum density and energy density – which incidentally have the same dimensions $[\mathrm{M}\,\mathrm{L}^{-1}\,\mathrm{T}^{-3}]$, energy/(volume × time). 
 
@@ -1524,7 +1560,7 @@ The divergence of the stress-energy-momentum gives us a 4-force density, just li
 
 Further, the 4-force is an object that, integrated over a path, gives us an energy density (cf Milne 1951 chap. IV, and Burke again). The integral of a force in Newtonian mechanics is the work done by the force. In general-relativistic mechanics, the timelike component of the 4-force additionally gives us the increase in energy owing to heating (Eckart 1940).
 
-So $\nabla\cdot\yT\equiv T{}_i{}^j{}_{;\,j}\;\mathrm{d}x^i$ has the dimensions of energy density, $[\mathrm{M}\,\mathrm{L}^{-1}\mathrm{T}^{-2}]$. The *co-contra-variant* stress-energy-momentum $\yT{}_{\bdot}{}^{\bdot}$ has therefore the same dimensions. But the *co-co-variant* tensor, obtained by contraction with the metric, $\yT_{\bdot\bdot} \equiv \yT\cdot \yg$, has dimensions of energy density times squared time: $[\mathrm{M}\,\mathrm{L}^{-1}]$, a mass over length.
+So $\nabla\cdot\yT\equiv T{}_i{}^j{}_{;\,j}\;\mathrm{d}x^i$ has the dimensions of energy density, $[\mathrm{M}\,\mathrm{L}^{-1}\mathrm{T}^{-2}]$. The *co-contra-variant* stress-energy-momentum $\yT{}_{\q}{}^{\q}$ has therefore the same dimensions. But the *co-co-variant* tensor, obtained by contraction with the metric, $\yT_{\q\q} \equiv \yT\cdot \yg$, has dimensions of energy density times squared time: $[\mathrm{M}\,\mathrm{L}^{-1}]$, a mass over length.
 
 \section{Einstein equation}
 \label{sec:einstein_eq}
@@ -1548,12 +1584,12 @@ between events $C(a)$ and $C(b)$, by the formula
 % From the results of \sect~\ref{sec:tensor_ops} this formula implies that
 % \begin{equation}
 %   \label{eq:dim_dt}
-%  \Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\bdot\bdot}})},
+%  \Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\q\q}})},
 % \end{equation}
 % (independently of the dimension of $s$) and therefore
 % \begin{equation}
 %   \label{eq:dim_g}
-%   \dim(\yg\i{_{\bdot\bdot}}) = \Ti^{2}.
+%   \dim(\yg\i{_{\q\q}}) = \Ti^{2}.
 % \end{equation}
 
 
@@ -1572,8 +1608,8 @@ $$\dim(\yg)=[\mathrm{T}^2].$$
 I believe that these dimensions also make sense for spacelike paths: in this case we would have to measure the "length" by dividing it in very small pieces and using radar coordinates on each piece. So we're measuring the "length" by checking clocks, to see how long it takes for the light to bounce back: time $[\mathrm{T}]$, again.
 
 By our usual argument it's possible to see that the Riemann curvature
-tensor $\yR{}^{\bdot}{}_{\bdot\bdot\bdot}$, the Ricci tensor
-$\yR_{\bdot\bdot}$, and the Einstein tensor $\yG_{\bdot\bdot}$ are
+tensor $\yR{}^{\q}{}_{\q\q\q}$, the Ricci tensor
+$\yR_{\q\q}$, and the Einstein tensor $\yG_{\q\q}$ are
 adimensional – $[\Un]$ – and the scalar curvature has dimensions
 $[\mathrm{T}^{-2}]$. Note that the Riemann and Ricci tensors (with the
 contra/co-variant type specified above) do not require a metric for their
@@ -1593,7 +1629,7 @@ An important operation done with the metric:
 
 
 Einstein's constant $\kappa$ therefore relates a dimensionless quantity and a mass over length:
-$$\yG_{\bdot\bdot} = \kappa \yT_{\bdot\bdot}\;.$$
+$$\yG_{\q\q} = \kappa \yT_{\q\q}\;.$$
 Its dimension must  be $[\mathrm{M}^{-1}\,\mathrm{L}]$, and it's easily seen that these are the dimensions of $G/c^2$. So I'm one of those people (like Fock 1964 p. 199) who define
 $$
 \kappa = 8\pi G/c^2.

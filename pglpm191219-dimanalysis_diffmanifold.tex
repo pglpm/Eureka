@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-11T11:13:21+0100
+%% Last-Updated: 2020-01-11T14:32:01+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -19,7 +19,7 @@ british%
 \newcommand*{\firstdraft}{13 December 2019}
 \newcommand*{\firstpublished}{13 December 2019}
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
-\newcommand*{\propertitle}{Dimensional analysis on differential manifolds [draft]%\\{\large ***}%
+\newcommand*{\propertitle}{Dimensional analysis on differential manifolds\\ and in general relativity%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{\propertitle}
 \newcommand*{\headtitle}{Dimensional analysis on differential manifolds}
@@ -728,6 +728,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ye}{\bm{e}}
 \newcommand*{\ygv}{\bm{\gamma}}
 \newcommand*{\yt}{\bm{\sigma}}
+\newcommand*{\yk}{\kappa}
 
 %%% Custom macros end @@@
 
@@ -783,49 +784,117 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %%% BEGINNING OF MAIN TEXT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{***}
-\label{sec:***}
+\section{Introduction}
+\label{sec:intro}
 
-\enquote{Dimensional analysis remains a controversial and somewhat obscure
-  subject. We do not attempt a complete presentation here.} \citep[Appendix
-\sect~7 footnote~4]{truesdelletal1960}
+
+From the point of view of dimensional analysis, do all components of a
+tensor need to have the same dimension? What is the dimension of the metric
+and the curvature? And what is the dimension of the constant in the
+Einstein equations?
 
 There seem to be insecurity and wrong ideas among some students and even
-researchers in relativity, regarding the dimensions of tensors, of tensor
-components, and of dimensional constants in equations. I've met, for
-example, with the statement that the components of a tensor should all have
-the same dimension; and with calculations of the dimensions of curvature
-tensors starting from coordinates with dimensions of length. That statement
-is wrong, and that procedure is unnecessary.
+some researchers in relativity, regarding the dimensions of tensors and of
+tensor components, the effect of tensor operators on their dimension, and
+the dimension of constants in field equations. I've met, for example, with
+the statement that the components of a tensor should all have the same
+dimension; and with calculations of the dimensions of curvature tensors
+starting from coordinates with dimensions of length. That statement is
+wrong, and that procedure is unnecessary.
 
 Several factors probably cause or contribute to such difficulties. Modern
 texts in Lorentzian and general relativity commonly use geometrized units.
 They say that to find the dimension of some constant in a tensorial
 equations it's sufficient to compare the dimensions of the tensors in the
 equation. But this is not so immediate, because some tensors don't have
-universally agreed dimensions -- prime example the 4-metric tensor. Older
-texts often use coordinates with dimension of length. They even multiply a
-timelike coordinate or some tensorial components by $c$, thus giving the
-impression that coordinates should always be lengths and that the
-components of a tensor would all have the same dimension.
+universally agreed dimensions -- prime example the metric tensor. Older
+texts often use coordinates with dimension of length. Often they even
+multiply a timelike coordinate or some tensorial components by powers of
+$c$, thus giving the impression that coordinates ought to always be lengths
+and that all components of a tensor ought to have the same dimension
 \citep[\eg][\sect~37 \eqn~(37.8)]{tolman1934_t1949}[\sect~32
-\eqn~(32.15)]{landauetal1939_t1996}.
+\eqn~(32.15)]{landauetal1939_t1996}[\sect~10.1
+\eqn~(10.15)]{adleretal1965_r1975}.
 
-In this note I want to clarify some misconceptions about dimensional
-analysis in differential manifolds, and to illustrate a simple way of
-reasoning to solve dimensional-analysis doubts and problems. This way of
-reasoning relies on the coordinate-free, \emph{intrinsic} view of tensors
-and other differential-geometrical objects.
+\medskip
 
-Let's start from more general facts about dimensional analysis on differential manifolds.
+In this Note I want to clarify such misconceptions about dimensional
+analysis in general relativity and differential geometry, and to illustrate
+a simple way of reasoning for solving dimensional-analysis doubts and
+problems.
 
-For dimensional analysis I use ISO conventions and notation. I sometimes
-use notation such as $\yA{}_{\q}{}^{\q}$ to indicate that the tensor
-$\yA$ is covariant in its first slot and contravariant in its second; I
-call this a \enquote{co-contra-variant tensor}.
+The most important step is the distinction between the \emph{absolute
+  dimension} of a tensor and the dimensions of that tensor's \emph{components} in
+some coordinate system; this distinction is explained in
+\sect~\ref{sec:tensors}. We'll see in particular that \emph{the
+  components of a tensor need not have the same dimensions}.
+
+The absolute dimension, introduced by Schouten and Dorgelo
+\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} and used in Truesdell
+\etal\ \citep[Appendix II]{truesdelletal1960}, is invariant with respect to
+the dimensions of the coordinates; it's an intrinsic property of the
+tensor. The dimensions of the components depend instead on the dimensions
+of the coordinate functions -- which can be completely arbitrary, as
+discussed in \sect~\ref{sec:coords}. The absolute dimension should thus be
+the primary focus in dimensional analysis in general relativity and in
+differential geometry.
+
+The relation between absolute and component dimensions, and the dimensional
+result of tensor operations such as contraction, derivation, raising or
+lowering of indices, and so on, are straightforward to understand and
+compute using the usual intuitive rules of dimensional analysis: if two
+quantities are summed, then they must have the same dimension; the
+dimension of the product is the product of the dimensions; and so on. This
+intuitive way of reasoning relies on the coordinate-free, \emph{intrinsic}
+view of tensors and other differential-geometrical objects. A brief
+reminder of it is given in \sect~\ref{sec:remined}, with further
+references.
+
+The results for the main tensor operations and operators are summarized in
+\sect~\ref{sec:tensor_ops}. The results for the curvature tensors and other
+objects depending on a connection are presented in
+\sect~\ref{sec:connection}. It is shown, in particular, that the absolute
+dimension of the Riemann and Ricci tensors is $\Un$, that is, they are
+dimensionless. Some geometric objects or operators may be unfamiliar to
+researchers working in general relativity only; their discussion may simply
+be skipped by these readers.
+
+The absolute dimension of the metric tensor is discussed in
+\sect~\ref{sec:metric}. The literature on general relativity presents two
+standard choices for it. The absolute dimension of the
+stress-energy-momentum tensor is discussed in \sect~\ref{sec:stressenergy},
+and the dimension of the constant in the Einstein equations is derived in
+\sect~\ref{sec:einstein_eq}, where the two standard results from the
+literature are recovered.
+
+The final \sect~\ref{sec:summary} gives a summary of the main points and
+results of the present Note.
+
+\medskip
+
+Since the type of a tensor -- that is, the amount and ordering of its
+covariant and contravariant \enquote{slots}
+\citep[\sect~3.2]{misneretal1970_r1973} -- is important in dimensional
+analysis, I often denote it explicitly with the notation
+$\yA\i{_{\q}^{\q\q}}$, for example, to indicate that $\yA$ is covariant in
+its first slot and contravariant in its second and third slots. Its
+components would thus be $(A\i{_{i}^{jk}})$. For brevity I call this a
+\enquote{co-contra-contravariant} tensor, with an obvious naming
+generalization for other types.
+
+For the notation in dimensional analysis I use \textsc{iso} conventions:
+$\dim(\yA)$ is the dimension of the quantity $\yA$, and among the base
+quantities are mass $\Ma$, length $\Le$, time $\Ti$, temperature $\Te$.
+Note that I don't discuss \emph{units} -- here it doesn't matter if the
+unit for length is the metre or the centimetre, for example.
+
+Finally, quoting Truesdell and Toupin \citep[Appendix \sect~7
+footnote~4]{truesdelletal1960}, \enquote{dimensional analysis remains a
+  controversial and somewhat obscure subject. We do not attempt a complete
+  presentation here.}
 
 
-[check \citep{aldersley1977}]
+% \citep{aldersley1977} also confuses component- and absolute dimensions
 
 
 
@@ -868,11 +937,11 @@ Bossavit \citey{bossavit1991}, Burke
 general-relativity side Misner \etal\
 \citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
 \citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \etal\
-\citey[\chap~4]{penroseetal1984_r2003}.
+\citey[\chap~4]{penroseetal1984_r2003}. \textcolor{white}{If you find this you can claim a postcard from me.}
 
- \mynote{check \citep{fischeretal1972}}
+
+% \mynote{check \citep{fischeretal1972}}
  
-\textcolor{white}{If you find this you can claim a postcard from me.}
 
 \section{Coordinates}
 \label{sec:coords}
@@ -936,7 +1005,7 @@ using coordinates with dimensions
   \dim(x^{0})=\Te,\quad
   \dim(x^{1})=\Le,\quad
   \dim(x^{2})=\Le,\quad
-  \dim(x^{3})=\Ma\Le^{-1}\Ma\Ti^{-2};
+  \dim(x^{3})=\Ma\Le^{-1}\Ti^{-2};
 \end{equation}
 then the components of $\yA$ have dimensions
 \begin{equation}
@@ -1571,7 +1640,15 @@ $\dim(\yg)\defd \Ti^{2}$.
 
 \medskip
 
-Let me close this section with two remarks.
+
+% The contracted covariant derivative, or \enquote{divergence} of the
+% 4-stress, $\tr_{13}\nab\yT\i{_{\q}^{\q}}$ yields the 4-force, which always
+% vanishes in general relativity because of the Einstein equation. Note that
+% we can consider the total 4-stress as coming from the additive contribution
+% of several 4-stresses, and the latter don't need individually to have a
+% vanishing divergence; their 4-forces can thus be different from zero.
+
+%Let me close this section with a couple of remarks.
 
 Even though in most texts the 4-stress is represented by a tensor of order
 2, as above, its most fitting geometrical nature is still shrouded by
@@ -1587,76 +1664,83 @@ about \enquote{$^{\displaystyle *}\mathte{T}$} by Misner \etal\
 \citey{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
 discussion by Burke \citey[\sect~41]{burke1985_r1987}.
 
+% Some texts state that the timelike component of the 4-force equals the work
+% done by the force, apart from relativistic factors.
+
+
 
 % The divergence of the stress-energy-momentum gives us a 4-force density, just like the 3-divergence of the stress gives us a force density. Please check Misner \amp al (1973), chap. 14, for a very interesting discussion of these matters, and also Eckart (1940) and Burke (1980, 1987).
 
 % Further, the 4-force is an object that, integrated over a path, gives us an energy density (cf Milne 1951 chap. IV, and Burke again). The integral of a force in Newtonian mechanics is the work done by the force. In general-relativistic mechanics, the timelike component of the 4-force additionally gives us the increase in energy owing to heating (Eckart 1940).
 
 
-\section{Einstein equation}
+\section{Einstein equation and Einstein's constant}
 \label{sec:einstein_eq}
 
+We finally arrive at the Einstein equation,
+\begin{equation}
+  \label{eq:einstein}
+  \yG%\i{_{\q}^{\q}}
+  = \yk \yT%\i{_{\q}^{\q}}
+\end{equation}
+where $\yk$ (sometimes seen with a minus \citep[\eg][\sect~78
+\eqn~(78.3)]{tolman1934_t1949}[\sect~52
+\eqn~(52.06)]{fock1955_t1964}[\sect~14.2 \eqn~(14.8)]{rindler2001_r2006}
+depending on the signature of the metric or on how the orientation of the
+stress is chosen) is Einstein's constant. For the dimension of $\yk$ we
+thus find
+\begin{equation}
+  \label{eq:dim_k_1}
+  \dim(\yk) = \dim(\yG\i{_{\q}^{\q}})\dim(\yT\i{_{\q}^{\q}})^{-1} \equiv
+    \begin{cases}
+    \Ma^{-1}\Le \\
+    \Ma^{-1}\Le^{-1}\Ti^{2}
+  \end{cases}
+  \text{if }\dim(\yg)\defd
+  \begin{cases}
+     \Ti^2 \\
+    \Le^2
+  \end{cases}.
+\end{equation}
+This constant can be obtained from the dimensions of Newton's gravitational
+constant $\dim(G)=\Ma^{-1}\Le^{3}\Ti^{-2}$ and of the speed of light
+$\dim(c)=\Le\Ti^{-1}$ only in this way, with an $8\pi$ factor coming from
+the Newtonian limit:
+\begin{equation}
+  \label{eq:k_Gc}
+  \yk =     \begin{cases}
+   8\pi G/c^{2} \\
+   8\pi G/c^{4}
+  \end{cases}
+  \text{if }\dim(\yg)\defd
+  \begin{cases}
+     \Ti^2 \\
+    \Le^2
+  \end{cases}.
+\end{equation}
+
+The second choice is by far the most common, consistently with the most
+common choice of $\dim(\yg)=\Le^{2}$ discussed before. The first choice
+appears for example in Fock \citey[\sect~55 \eqns~(55.15)
+and~(52.06)]{fock1955_t1964} and Adler \etal\ \citep[\sect~10.5
+\eqn~(10.98)]{adleretal1965_r1975}.
+
+\section{Summary and conclusions}
+\label{sec:summary}
 
 
 
-\citep[\sect~3.5 p.~65]{rindler1969_r1986}
- \citep[\sect~2, p.~10]{fock1955_t1964}
 
-***
-
-In fact the metric tells us the \emph{proper time} $\inct$
-elapsed along any (timelike) worldline $s \mapsto C(s)$, $s\in \clcl{a,b}$,
-between events $C(a)$ and $C(b)$, by the formula
-% \begin{equation}
-%   \label{eq:proper_time}
-% \inct =  \int_a^b\!\!\!\di s\;
-% \sqrt{\abs*{\yg[\dot{C}(s),\dot{C}(s)]}}.
-% \end{equation}
-% From the results of \sect~\ref{sec:tensor_ops} this formula implies that
-% \begin{equation}
-%   \label{eq:dim_dt}
-%  \Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\q\q}})},
-% \end{equation}
-% (independently of the dimension of $s$) and therefore
-% \begin{equation}
-%   \label{eq:dim_g}
-%   \dim(\yg\i{_{\q\q}}) = \Ti^{2}.
-% \end{equation}
+% \citep[\sect~3.5 p.~65]{rindler1969_r1986}
+%  \citep[\sect~2, p.~10]{fock1955_t1964}
 
 
 
-We can use the metric to measure the "length" of (timelike or spacelike)
-paths in spacetime. The "length" of a path $c(s)$ with $s\in [a,b]$ is
-$$
-\int_a^b\!\!\!\mathrm{d}s\;
-\sqrt{\Bigl\lvert g_{ij}[c(s)]\;\dot{c}^i(s)\,\dot{c}^j(s) \Bigr\rvert}.
-$$
-We see that this "length" has dimensions $[\mathrm{Z}^{1/2}]$ and not unexpectedly it doesn't depend on the dimensions of the curve parameter $s$.
-
-If the path is timelike, this "length" can be measured by a clock having that path as worldline – it's its proper time. Thus, for me $[\mathrm{Z}^{1/2}] = [\mathrm{T}]$, a time, and therefore the absolute dimensions of the metric tensor are time squared:
-$$\dim(\yg)=[\mathrm{T}^2].$$
-
-I believe that these dimensions also make sense for spacelike paths: in this case we would have to measure the "length" by dividing it in very small pieces and using radar coordinates on each piece. So we're measuring the "length" by checking clocks, to see how long it takes for the light to bounce back: time $[\mathrm{T}]$, again.
-
-By our usual argument it's possible to see that the Riemann curvature
-tensor $\yR{}^{\q}{}_{\q\q\q}$, the Ricci tensor
-$\yR_{\q\q}$, and the Einstein tensor $\yG_{\q\q}$ are
-adimensional – $[\Un]$ – and the scalar curvature has dimensions
-$[\mathrm{T}^{-2}]$. Note that the Riemann and Ricci tensors (with the
-contra/co-variant type specified above) do not require a metric for their
-definition, but an affine connection. They are adimensional no matter what
-dimensions we give the metric. By construction the (fully co-variant)
-Einstein tensor is always adimensional, too.
-
-An important operation done with the metric:
-
- - "lowering an index" of a tensor multiplies its dimensions by $[\mathrm{T}^2]$, and "rising an index" multiplies them by $[\mathrm{T}^{-2}]$ (if you agree with my discussion above).
-
- \citep[\sect~V.62, \eqn~(62.02)]{fock1955_t1964} %L^2 1/c
-\citep[\chap~11 \eqn~(11.21)]{curtisetal1985} %L^2 1/c
-\citep[\eqns~(1) or (9)]{cook2004} % L^2 1/c
- \citep[\chap~6 \eqn~(6.24)]{hartle2003} % L^2 1/c
- \citep[\chap~II p.~25]{kilmister1973} %but see excpt 4
+%  \citep[\sect~V.62, \eqn~(62.02)]{fock1955_t1964} %L^2 1/c
+% \citep[\chap~11 \eqn~(11.21)]{curtisetal1985} %L^2 1/c
+% \citep[\eqns~(1) or (9)]{cook2004} % L^2 1/c
+%  \citep[\chap~6 \eqn~(6.24)]{hartle2003} % L^2 1/c
+%  \citep[\chap~II p.~25]{kilmister1973} %but see excpt 4
 
 
 Einstein's constant $\kappa$ therefore relates a dimensionless quantity and a mass over length:

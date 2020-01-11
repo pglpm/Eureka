@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-11T20:16:02+0100
+%% Last-Updated: 2020-01-12T00:29:36+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -16,7 +16,7 @@
 onecolumn,oneside,article,%french,italian,german,swedish,latin,
 british%
 ]{memoir}
-\newcommand*{\firstdraft}{13 December 2019}
+\newcommand*{\firstdraft}{13 December 2019}%not used
 \newcommand*{\firstpublished}{13 December 2019}
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
 \newcommand*{\propertitle}{Dimensional analysis in general relativity\\ and differential geometry%\\{\large ***}%
@@ -25,7 +25,7 @@ british%
 \newcommand*{\headtitle}{Dimensional analysis for relativity and manifolds}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
-\newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
+\newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/jmqnu}{\textsc{doi}:10.31219/osf.io/jmqnu}\fi}% Report number
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Calls to packages (uncomment as needed)
@@ -751,10 +751,19 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \setlength{\absrightindent}{0pt}
 \setlength{\abstitleskip}{-\absparindent}
 \begin{abstract}\labelsep 0pt%
-  \noindent Some notes on dimensional analysis on differential manifolds,
-  with an eye on general relativity and the Einstein equation.
-\\\noindent\emph{\footnotesize Note: Dear Reader
-    \amp\ Peer, this manuscript is being peer-reviewed by you. Thank you.}
+  \noindent This note illustrates how to perform dimensional analysis in
+  general relativity and differential geometry, and tries to revive Dorgelo
+  \amp\ Schouten's notion of \emph{absolute dimension} of a tensorial
+  quantity. The absolute dimension is independent of the dimensions of the
+  coordinate functions. The dimensional analysis of several important
+  tensors and tensor operations is summarized. In particular it is shown
+  that the components of a tensor need not have all the same dimension, and
+  that the Riemann (once contravariant and trice covariant) and Ricci
+  (fully covariant) tensors are dimensionless. The relation between
+  dimension and operational meaning for the metric and
+  stress-energy-momentum tensors is also
+  discussed.\\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer,
+    this manuscript is being peer-reviewed by you. Thank you.}
 % \par%\\[\jot]
 % \noindent
 % {\footnotesize PACS: ***}\qquad%
@@ -796,7 +805,7 @@ Einstein equations?
 There seem to be insecurity and incorrect notions, among some students and
 even some researchers in relativity, regarding the dimensions of tensors
 and of tensor components, the effect of tensor operators on dimensions, and
-the dimension of constants in field and differential-geometric equations.
+the dimension of constants in differential-geometric and field equations.
 I've met, for example, with the statement that the components of a tensor
 should all have the same dimension; and with calculations of the dimensions
 of curvature tensors assuming that coordinates have dimensions of length.
@@ -808,10 +817,10 @@ They say that, for finding the dimension of some constant in a tensorial
 equation, it's sufficient to compare the dimensions of the tensors in the
 equation. But this is not so immediate, because some tensors don't have
 universally agreed dimensions -- prime example the metric tensor. Older
-texts often use coordinates with dimension of length, and base their
-dimensional analysis on that specific choice. They even multiply
+texts often use coordinates with dimension of length and time, and base
+their dimensional analysis on that specific choice. They even multiply
 coordinates with dimension of time, as well as some tensorial components,
-by powers of $c$; thus giving the impression that coordinates ought to
+by powers of $c$. They thus give the impression that coordinates ought to
 always be lengths, and that all components of a tensor ought to have the
 same dimension \citep[\eg][\sect~37 \eqn~(37.8)]{tolman1934_t1949}[\sect~32
 \eqn~(32.15)]{landauetal1939_t1996}[\sect~10.1
@@ -823,15 +832,15 @@ The main purpose of this Note is to illustrate an extremely simple and
 intuitive way of reasoning with which one can quickly and consistently
 settle any dimensional-analysis questions in general relativity and
 differential geometry; for example the dimension of the Riemann tensor, or
-the dimensional result of contraction, covariant derivative, raising an
-index. This way of reasoning is presented and illustrated in
+the dimensional results of contraction, of covariant derivative, of raising
+an index. This way of reasoning is presented and illustrated in
 \sects~\ref{sec:tensors}--\ref{sec:tensor_ops}. It's just an application of
 the usual rules of dimensional analysis: if two quantities are summed, then
 they must have the same dimension; the dimension of a product is the
-product of the dimensions; and so on.
-This way of reasoning relies on the coordinate-free, \emph{intrinsic} view
-of tensors and other differential-geometrical objects, a brief reminder of
-which is given in \sect~\ref{sec:remined}, with references.
+product of the dimensions; and so on. This way of reasoning relies on the
+coordinate-free, \emph{intrinsic} view of tensors and other
+differential-geometrical objects, a brief reminder of which is given in
+\sect~\ref{sec:remined}, with references.
 
 
 Another important purpose of this Note is to revive the forgotten notion of
@@ -877,6 +886,13 @@ The final \sect~\ref{sec:summary} gives a summary of the main results, with
 some additional comments.
 
 \medskip
+
+This Note assumes some familiarity with basic tensor calculus and related
+notions, for example of co- and contravariance, symmetry and antisymmetry,
+contraction. Some passages assume familiarity with the exterior calculus of
+differential forms. Above all, familiarity with the intrinsic presentation
+of differential geometry is assumed; but the general ideas should be
+understandable even without such familiarity.
 
 Since the type of a tensor -- that is, the number and ordering of its
 covariant and contravariant \enquote{slots}
@@ -1071,6 +1087,9 @@ then the components of $\yA$ have dimensions
    \Ma\Le^{-1}\Ti^{-2}\Te^{-1} & \Ma\Le^{-2}\Ti^{-2} & \Ma\Le^{-2}\Ti^{-2} & \Un
   \end{pmatrix}.
 \end{equation}
+Clearly most components have different dimensions. But this doesn't matter.
+What matters is that the sum~\eqref{eq:expansion_tensor} be dimensionally
+consistent.
 
 \medskip
 
@@ -1120,38 +1139,17 @@ In the following I'll drop the adjective
 
 By the reasoning of the previous section, which simply applies standard
 dimensional considerations to the basis
-expansion~\eqref{eq:expansion_tensor}, it's easy to find out the resultant
+expansion~\eqref{eq:expansion_tensor}, it's easy to find out the resulting
 absolute dimension of various operations and operators on tensors and
 tensor fields.
 
-The tensor product of $\yA\i{^{\q}_{\q}}$ and
-$\yB\i{_{\q\q}^{\q}}$, for example, can be written as the sum
-\begin{equation}
-  \label{eq:tensor_prod_example}
-  \yA \otimes \yB =
-  A\i{^{i}_{j}}\,B\i{_{kl}^{m}}\;
-  \dex[i]\otimes\dix[j]\otimes\dix[k]\otimes\dix[l]\otimes\dex[m]
-\end{equation}
-from which it follows that
-\begin{equation}
-  \label{eq:dim_comp_tensor_prod}
-  \dim(A\i{^{i}_{j}}\,B\i{_{kl}^{m}}) =
-  \Aa\,\Bb\;
-  \Xx_{i}\,{\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\,\Xx_{m}
-\end{equation}
-with $\Aa = \dim(\yA)$ and $\Bb = \dim(\yB)$. The absolute dimension of
-$\yA\otimes\yB$ is therefore $\Aa\Bb \equiv \dim(\yA)\,\dim(\yB)$.
-
-
-\medskip
-
-Here is a summary of the dimensional results for the main
-differential-geometric operations and operators, except for the covariant
-derivative, the metric, and related tensors, discussed more in depth in
-\sects~\ref{sec:connection}--\ref{sec:metric} below. I invite you to prove
-them for yourself. For reference, in brackets I give the section of
-Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996} where the
-operations are defined.
+Here is a summary of such results for the main differential-geometric
+operations and operators, except for the covariant derivative, the metric,
+and related tensors, discussed more in depth in
+\sects~\ref{sec:connection}--\ref{sec:metric} below. Proofs are given only
+for a couple of them, the other proofs are left as an exercise for you. For
+reference, in brackets I give the section of Choquet-Bruhat \etal\
+\citey{choquetbruhatetal1977_r1996} where the operations are defined.
 
 
 \begin{itemize}[wide=0pt]
@@ -1159,6 +1157,41 @@ operations are defined.
   \begin{equation}
   \dim(\yA\otimes\yB) = \dim(\yA)\dim(\yB).\label{eq:tensor_mult}
 \end{equation}
+
+Consider for example the tensor product of $\yA\i{^{\q}_{\q}}$ and
+$\yB\i{_{\q\q}^{\q}}$. It introducing coordinates $(x^{i})$ and their
+related basis vectors and covectors, it can be written as the sum
+\begin{equation}
+  \label{eq:tensor_prod_example}
+  \yA \otimes \yB =
+  A\i{^{i}_{j}}\,B\i{_{kl}^{m}}\;
+  \dex[i]\otimes\dix[j]\otimes\dix[k]\otimes\dix[l]\otimes\dex[m].
+\end{equation}
+Equating the dimensions of the left and right sides, and considering that
+\begin{equation}\label{eq:dim_A_and_B}
+  \dim(A\i{^{i}_{j}})= \dim(\yA)\,\Xx_{i}\,{\Xx_{j}}^{-1},
+  \quad
+  \dim(B\i{_{kl}^{m}})= \dim(\yB)\,{\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\,\Xx_{m},
+\end{equation}
+owing to the generalization of the formula for the
+components~\eqref{eq:dim_component}, we find that all $\Xx$ terms cancel
+out, leaving the result~\eqref{eq:tensor_mult}.
+
+\smallskip
+
+% from which it follows that
+% \begin{equation}
+%   \label{eq:dim_comp_tensor_prod}
+%   \dim(A\i{^{i}_{j}}\,B\i{_{kl}^{m}}) =
+%   \Aa\,\Bb\;
+%   \Xx_{i}\,{\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\,\Xx_{m}
+% \end{equation}
+% with $\Aa = \dim(\yA)$ and $\Bb = \dim(\yB)$. Comparing with the
+% generalization of the formula for the components~\eqref{eq:dim_component},
+% we see that the absolute dimension of $\yA\otimes\yB$ is therefore
+% $\Aa\Bb \equiv \dim(\yA)\,\dim(\yB)$.
+
+
 
 \item The \emph{contraction} [III.B.5] of the $\alpha$th and $\beta$th
   slots of a tensor has the same dimension as the tensor:
@@ -1181,8 +1214,27 @@ operations are defined.
 \item The \emph{Lie bracket} [III.B.3] of two vectors has the product of their dimensions:
   \begin{equation}
     \dim(\clcl{\yu,\yv}) =\dim(\yu)\dim(\yv).
-    \label{eq:lie_der}
+    \label{eq:lie_bracket}
 \end{equation}
+
+In fact, in coordinates $(x^{i})$ the bracket can be expressed as
+\begin{equation}
+  \label{eq:bracket_coords}
+  \clcl{\yu,\yv} =
+  \biggl( u\i{^{j}}\frac{\de v\i{^{i}}}{\de x\i{^{j}}}
+  - v\i{^{j}}\frac{\de u\i{^{i}}}{\de x\i{^{j}}} \biggr)\;\dex,
+\end{equation}
+and equating the dimensions of the left and right side, considering that
+\begin{equation}
+  \label{eq:dim_u_and_v}
+  \dim(u\i{^{i}}) = \dim(\yu)\,\Xx_{i},\quad
+  \dim(v\i{^{i}}) = \dim(\yv)\,\Xx_{i},
+\end{equation}
+we find again that all $\Xx$ terms cancel out leaving the
+result~\eqref{eq:lie_bracket}.
+
+\smallskip
+
 
 % \item The \emph{pull-back} and \emph{push-forward} of a map $F$ between
 %   manifolds don't change the dimensions of the tensors they map.
@@ -1824,8 +1876,8 @@ statements such as \enquote{the tensor $A\i{_{i}^{jk}}$ has dimension
 meant to represent the tensor in general, or to represent its set of
 components, or to represent just a specific component.
 
-Finally, the above discussion specific to general relativity could of
-course be made along the same lines also for Newtonian mechanics.
+Finally, the above analysis specific to general relativity can be made,
+along the same lines, also for Newtonian mechanics.
 
 
 

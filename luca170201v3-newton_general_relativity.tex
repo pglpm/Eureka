@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-01-04T00:07:52+0100
+%% Last-Updated: 2020-01-12T16:34:27+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -801,73 +801,121 @@ mccauley2000_r2001
 % IMPORTANT: the question is if the G in G=T can be considered as a
 % 4-stress, similarly to F=ma
 
-\section{A bundle}
+\section{An exploration}
 \label{sec:soup}
 
-Tangled bundles are fun and stressful to untangle. The most tangled
-ones I know of are: the bundle of quantum theory and its physical meaning,
-the bundle of the brain's workings, and the bundle of general relativity
-and Newtonian mechanics.
+% Tangled bundles are fun and stressful to untangle. The most tangled
+% ones I know of are: the bundle of quantum theory and its physical meaning,
+% the bundle of the brain's workings, and the bundle of general relativity
+% and Newtonian mechanics.
 
-The last \enquote{tangled bundle} is the most deserving of this
-metaphorical name, because it unswervingly has that characteristic: you
-pick and pull a piece of thread that sticks out, as it seems that'll loosen
-the bundle; and instead you notice that a piece of thread at the other end
-is tightening up. Its thread, moreover, has several different colours; and
-you cannot hope to untangle the bundle by focusing on one colour only.
+% The last \enquote{tangled bundle} is the most deserving of this
+% metaphorical name, because it unswervingly has that characteristic: you
+% pick and pull a piece of thread that sticks out, as it seems that'll loosen
+% the bundle; and instead you notice that a piece of thread at the other end
+% is tightening up. Its thread, moreover, has several different colours; and
+% you cannot hope to untangle the bundle by focusing on one colour only.
 
-In this note I present some of the pieces of thread that sticks out in the
-bundle of general relativity and Newtonian mechanics, explaining why it
-seems that pulling some of them should loosen it, and showing how other
-threads get tightened in doing so instead. The thread is coloured by
-different disciplines, including continuum thermomechanics and the theory
-of inner- and outer-oriented differential forms. Some readers may be
-unfamiliar with one or another of these disciplines, but I hope they'll
-bear with me and when needed consult the reference I give. For reasons that
-will become clear in the exposition, I will speak of \enquote{Newtonian
-  relativity} rather than \enquote{mechanics}.
+% In this note I present some of the pieces of thread that sticks out in the
+% bundle of general relativity and Newtonian mechanics, explaining why it
+% seems that pulling some of them should loosen it, and showing how other
+% threads get tightened in doing so instead. The thread is coloured by
+% different disciplines, including continuum thermomechanics and the theory
+% of inner- and outer-oriented differential forms. Some readers may be
+% unfamiliar with one or another of these disciplines, but I hope they'll
+% bear with me and when needed consult the reference I give. For reasons that
+% will become clear in the exposition, I will speak of \enquote{Newtonian
+%   relativity} rather than \enquote{mechanics}.
 
-My presentation won't be linear, owing to the nature of the problem: we'll
-need to pull the thread in some part of the bundle, then look at some other
-part, sometimes diametrically opposite, to see what happened there.
+% My presentation won't be linear, owing to the nature of the problem: we'll
+% need to pull the thread in some part of the bundle, then look at some other
+% part, sometimes diametrically opposite, to see what happened there.
 
-The main notions that we'll deal with are: quantity of matter (baryonic
-number), mass, body, force, inertia, stress, momentum, inner- and
-outer-oriented differential forms, metric, spacetime, slicings, frames,
-energy, and also temperature. The main pieces of thread that we'll pull are
-these:
+% The main notions that we'll deal with are: quantity of matter (baryonic
+% number), mass, body, force, inertia, stress, momentum, inner- and
+% outer-oriented differential forms, metric, spacetime, slicings, frames,
+% energy, and also temperature. The main pieces of thread that we'll pull are
+% these:
+% \begin{itemize}
+% \item The idea of a principle: \emph{neither in Newtonian relativity or in
+%     general relativity should there be any distinction between inertial and
+%     non-inertial motion, or between forced and unforced motion}.
+% \item The possibility of rephrasing general relativity in terms of
+%   \emph{force} rather than momentum.
+% \item To consider inertia as a force, in Newtonian and in general
+%   relativity.
+% \item Newton's second law mixes frame-dependent and frame independent
+%   quantities.
+% \item Newtonian thermomechanics can be restated as a theory of
+%   \emph{statics} in some reference frame, provided inertia is included
+%   among the forces. This static point of view is even more natural in
+%   general relativity, from a four-dimensional point of view.
+% \item In general relativity, the notion of geodesic is overestimated.
+%   Almost no objects of our everyday experience follow geodesics.
+% \item \enquote{quantity of matter} and its conservation are purely
+%   differential-geometric notions; they don't need a metric.
+% \item Many other electro-thermo-mechanical notions seem to be metric-free.
+%   It should be useful to keep their purely differential-geometric nature
+%   well in sight, without mixing the metric in them. \enquote{Indeed, the
+%     notion of metric is a very complicated one: it requires measurements
+%     with clocks and scales. generally with \emph{rigid} bodies, which are
+%     themselves things of extreme complexity. Hence it seems undesirable to
+%     take the notion of ametrie as a fundament, also of phenomena which are
+%     much simpler and independent of it} \citep[\sect~1,
+%   pp.~521--522]{vandantzig1934b}.
+% \item There is a difference between momentum and \enquote{$m\yv$}.
+% \item Can forces exist where there is no matter? Force and
+% \item The idea that an electromagnetic field can also sustain a force
+%   \citep[\sect~158, pp.~534--535]{page1928_r1958}{ericksen2007}.
+% \end{itemize}
+
+This note is an exploration of some notions around kinematics, dynamics,
+matter, inertia, and force in Newtonian- and general-relativistic continuum
+mechanics. In part, I would like to understand in which possible ways the
+geometrical objects of each theory belong to the kinematics, and which to
+the dynamics. The conceptual pivot of this exploration is this:
+\begin{quote}
+  \emph{Neither in Newtonian relativity or in general relativity should
+    there be any distinction between inertial and non-inertial motion, or
+    between forced and unforced motion.}
+\end{quote}
+
+Other related points driving this exploration are, in no particular order:
 \begin{itemize}
-\item The idea of a principle: \emph{neither in Newtonian relativity or in
-    general relativity should there be any distinction between inertial and
-    non-inertial motion, or between forced and unforced motion}.
-\item The possibility of rephrasing general relativity in terms of
-  \emph{force} rather than momentum.
+\item The desire to bring to light the concept of \emph{force} hidden in
+  general relativity. This would be pedagogically useful to understand the
+  Newtonian limit. The balance of forces has advantages over the
+  conservation of momentum in Newtonian mechanics, since the latter is
+  frame-dependent.
 \item To consider inertia as a force, in Newtonian and in general
   relativity.
-\item Newton's second law mixes frame-dependent and frame independent
-  quantities.
 \item Newtonian thermomechanics can be restated as a theory of
   \emph{statics} in some reference frame, provided inertia is included
-  among the forces. This static point of view is even more natural in
-  general relativity, from a four-dimensional point of view.
+  among the forces \cites{noll1963}[\sect~I.13]{truesdell1977_r1991}. This
+  static point of view is even more natural in general relativity, from a
+  four-dimensional point of view.
 \item In general relativity, the notion of geodesic is overestimated.
-  Almost no objects of our everyday experience follow geodesics.
-\item \enquote{quantity of matter} and its conservation are purely
-  differential-geometric notions; they don't need a metric.
-\item Many other electro-thermo-mechanical notions seem to be metric-free.
-  It should be useful to keep their purely differential-geometric nature
-  well in sight, without mixing the metric in them. \enquote{Indeed, the
-    notion of metric is a very complicated one: it requires measurements
-    with clocks and scales. generally with \emph{rigid} bodies, which are
-    themselves things of extreme complexity. Hence it seems undesirable to
-    take the notion of ametrie as a fundament, also of phenomena which are
-    much simpler and independent of it} \citep[\sect~1,
-  pp.~521--522]{vandantzig1934b}.
-\item There is a difference between momentum and \enquote{$m\yv$}.
-\item Can forces exist where there is no matter? Force and
-\item The idea that an electromagnetic field can also sustain a force
-  \citep[\sect~158, pp.~534--535]{page1928_r1958}{ericksen2007}.
+  Almost no objects of our everyday experience follow geodesics. 
+\item The desire to keep the differential-geometrical, metric-free nature
+  of many electro-thermo-mechanical notions well in sight, without mixing
+  the metric in them. In Newtonian relativity, for example, the notion of
+  mass density \amp\ flux does not require metric structures of any kind.
+  In general relativity this is also true of energy density \amp\ flux.
+\item The question: can forces exist where there is no mass? Force and
+  momentum in Newtonian mechanics were traditionally associated with
+  bodies. In general relativity momentum is unhinged from mass, and so
+  probably should force. This goes together with the idea that an
+  electromagnetic field can also sustain a force \cites[\sect~158,
+  pp.~534--535]{page1928_r1958}{ericksen2007}.
 \end{itemize}
+
+I believe that to appreciate the points above is also useful to compare the
+particular and precise aims of Newtonian relativity with those, somewhat
+vaguer, of general relativity. 
+
+Being an exploration, so far I've been unable to present this note as a
+linear logical development. So I plead with you to follow me in my ruffled
+sequence of observations, questions, and possible answers.
 
 
 
@@ -1051,22 +1099,25 @@ the \emph{matter 3-form}, satisfying
   \di\yr=0.
 \end{equation}
 This object has a simple and beautiful geometrical meaning: it can be
+visualized in spacetime as a set of uninterrupted tubes possessing a
+definite orientation along them. The tubes are chosen by us: if we select a
+closed two-dimensional surface on a spacetime slice, where $\yr \ne 0$, the
+matter 3-form selects a unique tube with 3-dimensional section containing
+that 2-surface. This represents our ability to mark a small
+body of matter -- say, by drawing a \enquote{$\mathord{\bigcirc}$} sign on
+an body, or throwing some %
 \setlength{\intextsep}{0.0ex}%
 \begin{wrapfigure}{r}{0.5\linewidth}
   \includegraphics[width=\linewidth]{mass_tubes2.png}\\
   \centering\footnotesize Two-dimensional representation of tubes of a
   closed outer-oriented 3-form $\yr$
 \end{wrapfigure}
-visualized in spacetime as a set of uninterrupted tubes possessing a
-definite orientation along them. The tubes are chosen by us: if we select a
-closed two-dimensional surface on a spacetime slice, where $\yr \ne 0$, the
-matter 3-form selects a unique tube with 3-dimensional section containing
-that 2-surface. This represents our ability to mark a small body of matter
--- say, by drawing a \enquote{$\mathord{\bigcirc}$} sign on an body, or
-throwing some leaves in flowing water -- and then to follow it as it moves
-and deforms in space as time passes, with respect to some slicing and
-frame. A closed outer-oriented 3-form is the perfect mathematical
-representation of this.
+leaves in flowing water -- and then to follow it
+as it moves and deforms %
+in space as time passes, with respect to some
+slicing and frame. A closed %
+outer-oriented 3-form is the perfect
+mathematical representation of this.
 
 Note that in speaking of \enquote{matter} I am here excluding the
 electromagnetic field, which is often considered as matter in general
@@ -1746,7 +1797,7 @@ decoupled also in Newtonian relativity.
 \subsection{An interesting development?}
 \label{sec:interesting_development}
 
-\mynote{The ideas in this section is probably seriously wrong}
+\mynote{The idea in this section is probably seriously wrong}
 
 This leads to some interesting developments. Interpret a 4-stress $\yTf$ as
 an object which contracted with a matter 3-form $\yr$ yields its
@@ -2840,7 +2891,8 @@ of the relationships between geometry, matter, and gravitation:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Appendices
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\clearpage
+%\clearpage
+\bigskip
 % %\renewcommand*{\appendixpagename}{Appendix}
 % %\renewcommand*{\appendixname}{Appendix}
 % %\appendixpage

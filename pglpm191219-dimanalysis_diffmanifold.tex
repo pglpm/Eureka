@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-13T09:52:38+0100
+%% Last-Updated: 2020-01-16T10:11:04+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -508,9 +508,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % {\protect\centering ***\\%
 % \footnotesize\epost{\email{***}{***}}}%
 % \hspace*{\stretch{1}}%
-\parbox{0.5\linewidth}%\makebox[0pt][c]%
+\parbox{0.75\linewidth}%\makebox[0pt][c]%
 {\protect\centering P.G.L.  Porta Mana\\%
-\footnotesize\epost{\email{pgl}{portamana.org}}}%
+\footnotesize Kavli Institute, Trondheim, Norway\quad\epost{\email{pgl}{portamana.org}}}%
 \hspace*{\stretch{1}}%
 %\quad\href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}\textsc{orcid}:0000-0002-6070-0784}%
 }
@@ -1098,7 +1098,8 @@ then the components of $\yA$ have dimensions
 \end{equation}
 Clearly most components have different dimensions. But this doesn't matter.
 What matters is that the sum~\eqref{eq:expansion_tensor} be dimensionally
-consistent.
+consistent. (Fokker \citep[\sect~VII.1 p.~88]{fokker1960_t1965}, for
+example, uses a metric tensor with components having different dimensions.)
 
 \medskip
 
@@ -1124,16 +1125,16 @@ Different coordinate systems lead to different dimensions of the
 \emph{components} of a tensor $\yA$, but the absolute dimension of the
 tensor remains the same. Formula~\eqref{eq:dim_component_generic} for the
 dimensions of the components is consistent under changes of coordinates.
-For example, in new coordinates $({x'}^{k})$ with dimensions
-$({\Xx'}_{k})$, the new components of $\yA$ are
+For example, in new coordinates $({x}^{i'})$ with dimensions
+$({\Xx}_{i'})$, the new components of $\yA$ are
 \begin{equation}
   \label{eq:coords_change}
-  {A'}\i{^{k}_{l}} = A\i{^{i}_{j}}
-  \,\frac{\de {x'}^{k}}{\de x^{i}}
-  \,\frac{\de {x}^{j}}{\de {x'}^{l}}
+  {A}\i{^{i'}_{j'}} = A\i{^{i}_{j}}
+  \,\frac{\de {x}^{i'}}{\de x^{i}}
+  \,\frac{\de {x}^{j}}{\de {x}^{i'}}
 \end{equation}
 and a quick check shows that
-$\dim({A'}\i{^{k}_{l}}) = \Aa\,{\Xx'}_{k}\,{{\Xx'}_{l}}^{-1}$, consistent
+$\dim({A}\i{^{i'}_{j'}}) = \Aa\,{\Xx}_{i'}\,{{\Xx}_{j'}}^{-1}$, consistent
 with the general formula~\eqref{eq:dim_component_generic}. % (You may have noticed
 % that the partial-derivative symbol $\de$ is not in boldface in the last
 % expression; that's on purpose but I won't dwell on the reason here, because
@@ -1149,7 +1150,7 @@ In the following I'll drop the adjective
 
 By the reasoning of the previous section, which simply applies standard
 dimensional considerations to the basis
-expansion~\eqref{eq:expansion_tensor}, it's easy to find out the resulting
+expansion~\eqref{eq:expansion_tensor}, it's easy to find the resulting
 absolute dimension of various operations and operators on tensors and
 tensor fields.
 
@@ -1165,7 +1166,7 @@ where these operations are defined.
 
 
 \begin{itemize}[wide=0pt]
-\item \emph{Tensor multiplication} [III.B.5] multiplies dimensions:
+\item The \emph{tensor product} [III.B.5] multiplies dimensions:
   \begin{equation}
   \dim(\yA\otimes\yB) = \dim(\yA)\dim(\yB).\label{eq:tensor_mult}
 \end{equation}
@@ -1235,7 +1236,9 @@ inconsistencies.
 
   
 
-\item The \emph{transposition} of the $\alpha$th and $\beta$th slots of a
+\item The \emph{transposition} (called \enquote{building an isomer} by
+  Schouten \citep[\sect~I.3 p.~13]{schouten1924_r1954}[\sect~II.4
+  p.~20]{schouten1951_r1989}) of the $\alpha$th and $\beta$th slots of a
   tensor has the same dimension as the tensor:
   \begin{equation}
     \dim(\yA^{\intercal_{\alpha\beta}}) = \dim(\yA).
@@ -1331,7 +1334,7 @@ Regarding operations and operators on differential forms:
 \label{sec:curves}
 
 
-Consider a curve into spacetime, $c\colon s \mapsto P(s)$, with the
+Consider a curve into spacetime, $C\colon s \mapsto P(s)$, with the
 parameter $s$ having dimension $\dim(s)=\Ss$.
 
 
@@ -2001,14 +2004,17 @@ along the same lines, also for Newtonian mechanics.
 %%% Acknowledgements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \begin{acknowledgements}
-  \ldots to Mari, Miri, Emma for continuous encouragement and affection,
-  and to Buster Keaton and Saitama for filling life with awe and
-  inspiration. To the developers and maintainers of \LaTeX, Emacs, AUC\TeX,
-  Open Science Framework, R, Python, Inkscape, Sci-Hub for making a free
-  and impartial scientific exchange possible.
+  \ldots to the staff of the NTNU library for their always prompt support.
+  To Mari, Miri, Emma for continuous encouragement and affection, and to
+  Buster Keaton and Saitama for filling life with awe and inspiration. To
+  the developers and maintainers of \LaTeX, Emacs, AUC\TeX, Open Science
+  Framework, R, Python, Inkscape, Sci-Hub for making a free and impartial
+  scientific exchange possible. \mbox{}\hfill\autanet
+  
+  This work is financially supported by the Kavli Foundation and the Centre
+  of Excellence scheme of the  Research Council of Norway (Yasser Roudi group).  
 %\rotatebox{15}{P}\rotatebox{5}{I}\rotatebox{-10}{P}\rotatebox{10}{\reflectbox{P}}\rotatebox{-5}{O}.
 %\sourceatright{\autanet}
-\mbox{}\hfill\autanet
 \end{acknowledgements}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

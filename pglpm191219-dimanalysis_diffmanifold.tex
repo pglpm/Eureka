@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-16T10:11:04+0100
+%% Last-Updated: 2020-01-17T14:16:14+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -775,7 +775,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Epigraph
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \asudedication{\small Dedicated to Emma}
+ \asudedication{\small For Emma}
 % \vspace{\bigskipamount}
 % \setlength{\epigraphwidth}{.7\columnwidth}
 % %\epigraphposition{flushright}
@@ -1691,8 +1691,8 @@ obtained from the metric by the formulae
   \yGa\i{^{i}_{jk}} = \frac{1}{2}
   \biggl(\dex[k]g_{jl} + \dex[j]g_{kl} - \dex[l]g_{jk}\biggr)g^{li},
 \end{equation}
-and it's easily verified that the dimensions of these
-coefficients~\eqref{eq:dim_christoffel} still holds. Also the result for
+and it's easily verified that the dimensions~\eqref{eq:dim_christoffel} of these
+coefficients still hold. Also the result for
 the curvature tensors~\eqref{eq:dim_torsion_riemann_ricci} still holds,
 since their expressions in terms of the connection coefficients is the same
 with or without a metric.
@@ -1895,11 +1895,16 @@ We have seen that dimensional analysis in general relativity and
 differential geometry can be seamlessly done, following its usual standard
 rules, if we adopt a coordinate-free or coordinate-invariant view, typical
 of more modern texts. In this view, each tensor has an absolute dimension
-that doesn't depend on the dimensions of the coordinates. It would
-therefore more profitable to focus on the absolute dimension of a tensor
-rather than the dimensions of its components.
+that doesn't depend on the dimensions of the coordinates; it's the
+intrinsic dimension of the tensor. It would therefore be more profitable to
+focus on the absolute dimension of a tensor rather than on the dimensions
+of its components. The dimension of a specific component is easily found by
+formula~\eqref{eq:dim_component_generic}: it's the product of the absolute
+dimension, times the dimension of the $i$th coordinate function for each
+contravariant index $i$, times the inverse of the dimension of the $j$th
+coordinate function for each covariant index $j$.
 
-This generalized dimensional analysis rests on mainly two conventions: the
+This generalized dimensional analysis rests mainly on two conventions: the
 tensor product and the action of covectors on vectors behave analogously
 to the usual multiplication for the purposes of dimensional analysis.
 
@@ -2035,7 +2040,7 @@ along the same lines, also for Newtonian mechanics.
 % \defbibnote{postnote}{\par\medskip\noindent{\footnotesize% Note:
 %     \arxivp \mparcp \philscip \biorxivp}}
 
-\printbibliography[prenote=prenote%,postnote=postnote
+\printbibliography[%prenote=prenote%,postnote=postnote
 ]
 
 \end{document}

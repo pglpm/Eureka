@@ -6,7 +6,7 @@
 %% Home page: http://magnaspesmeretrix.org/
 %% Email (remove ZZ): pglpm0ZZ[at]gmail.com
 %% Created: 2000-08-23T16:53:30+0200
-%% Last-Updated: 2020-01-17T10:46:41+0100
+%% Last-Updated: 2020-01-29T13:11:04+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % NB: This database contains also items whose content's validity I
@@ -87,6 +87,7 @@
 @String{acha = {Appl.\ Comput.\ Harmon.\ Anal.}}
 @String{achimp = {\langfrench{Ann.\ Chim.\ Phys.}}}
 @String{acm = {Adv.\ Comput.\ Math.}}
+@String{acmtap = {ACM Trans.\ Appl.\ Percept.}}
 @String{acmtcl = {ACM Trans.\ Comput.\ Logic}}
 @String{acmtg = {ACM Trans.\ Graph.}}
 @String{acp = {Adv.\ Chem.\ Phys.}}
@@ -482,6 +483,7 @@
 @String{ijnme = {Int.\ J. Numer.\ Meth.\ Eng.}}
 @String{ijnmod = {Int.\ J. Numer.\ Model.}}
 @String{ijp = {Int.\ J. Plast.}}
+@String{ijpam = {Indian J. Pure Appl.\ Math.}}
 @String{ijqc = {Int.\ J. Quant.\ Chem.}}
 @String{ijqi = {Int.\ J. Quant.\ Inform.}}
 @String{ijss = {Int.\ J. Solids Struct.}}
@@ -535,6 +537,7 @@
 @String{jcompp = {J. Comput.\ Phys.}}
 @String{jcp = {J. Chem.\ Phys.}}
 @String{jcr = {J. Consumer Res.}}
+@String{jcst = {J. Comput.\ Sci.\ Technol.}}
 @String{jct = {J. Chem.\ Thermodynamics}}
 @String{jcta = {J. Combin.\ Theory A}}
 @String{jctc = {J. Chem.\ Theor.\ Comput.}}
@@ -654,6 +657,7 @@
 @String{jsl = {J. Symbolic Logic}}
 @String{jsm = {J. Stat.\ Mech.}}
 @String{jsmeijb = {JSME Int.\ J. B}}
+@String{jsovm = {J. Sov.\ Math.}}
 @String{jsp = {J. Stat.\ Phys.}}
 @String{jspi = {J. Stat.\ Plann.\ Infer.}}
 @String{jss = {J. Stat.\ Soft.}}
@@ -889,6 +893,7 @@
 @String{prims = {Publ.\ RIMS}}
 @String{prl = {Phys.\ Rev.\ Lett.}}
 @String{prse = {Proc.\ Roy.\ Soc.\ Edinb.}}
+@String{prsea = {Proc.\ Roy.\ Soc.\ Edinb.\ A}}
 @String{prsl = {Proc.\ R.\ Soc.\ London}}
 @String{prsla = {Proc.\ R.\ Soc.\ Lond.\ A}}
 @String{prslb = {Proc.\ R.\ Soc.\ Lond.\ B}}
@@ -2687,6 +2692,27 @@ series =       {Fundamental theories of physics},
 address =      {Dordrecht},
 note =	       {Previously preprinted as \url{http://www.ift.unesp.br/users/jpereira/tele.pdf}},
 keywords =     {general relativity, parallel transport, inertia, differential geometry, torsion}
+}
+
+@Article{alecuetal2006,
+author =       {Teodor Iulian Alecu and Sviatoslav Voloshynovskiy and Thierry Pun},
+title =	       {The {Gaussian} Transform of Distributions: Definition, Computation and Application},
+journal =      ieeetsp,
+year =	       {2006},
+volume =       {54},
+number =       {8},
+pages =	       {2976--2985},
+keywords =     {generalized function, Dirac delta}
+}
+
+@Book{alexandroff1932_t1960,
+author =       {Paul Alexandroff},
+title =	       {Elementary Concepts of Topology},
+publisher =    {Dover},
+year =	       {1960},
+address =      {New York},
+note =	       {Transl.\ by Alan E. Parley, first publ.\ in Russian 1932; with a preface by David Hilbert},
+origdate =     {1932}
 }
 
 @Book{alfsen1971,
@@ -8488,16 +8514,14 @@ year =	       {1987},
 address =      {New York}
 }
 
-@Book{barwiseetal1990_r1993,
+@Book{barwiseetal1990_r2003,
 author =       {Jon Barwise and John Etchemendy},
-title =	       {The Language of First-Order Logic},
+title =	       {Language, Proof and Logic},
 publisher =    {CSLI},
-year =	       {1993},
-number =       {23},
-series =       {CSLI lecture notes},
+year =	       {2003},
 address =      {Stanford},
-edition =      {3rd, rev.\ and expanded ed.},
-note =	       {First publ.\ 1990},
+note =	       {Written in collaboration with Gerard Allwein, Dave Barker-Plummer, Albert Liu. First publ.\ 1990},
+mynote =       {First publ.\ 1990 as \emph{The Language of First-Order Logic}. \enquote{The difference between an informal proof and a formal proof is not one of rigor, but of style. An informal proof of the sort used by mathematicians is informal proofs every bit as rigorous as a formal proof. But it is stated in English and is usually more free-wheeling, leaving out the more obvious steps.} \sect~2.2 p.~48. \enquote{Logic focuses, for the most part, on the validity of arguments, rather than their soundness. There is a simple reason for this. The truth of an argument's premises is generally an issue that is none of the logician's business: the truth of ``Socrates is a man'' is something historians had to ascertain; the falsity of ``All rich actors are good actors'' is something a movie critic might weigh in about. What logicians can tell you is how to reason correctly, given what you know or believe to be true. Making sure that the premises of your arguments are true is something that, by and large, we leave up to you.} \sect~2.1 p.~43},
 origdate =     {1990}
 }
 
@@ -8510,16 +8534,6 @@ number =       {60},
 series =       {CSLI lecture notes},
 address =      {Stanford},
 keywords =     {set theory, logic}
-}
-
-@Book{barwiseetal1999_r2003,
-author =       {Jon Barwise and John Etchemendy},
-title =	       {Language, Proof and Logic},
-publisher =    {CSLI},
-year =	       {2003},
-address =      {Stanford},
-note =	       {Written in collaboration with Gerard Allwein, Dave Barker-Plummer, Albert Liu. First publ.\ 1999},
-origdate =     {1999}
 }
 
 @Article{baryshevetal1988,
@@ -10475,7 +10489,7 @@ note =	       {\url{http://www.buzsakilab.com/content/PDFs/Berenyi2013.pdf}}
 }
 
 @Book{beresteckijetal1982,
-author =       {Berestetskii {[Beresteckij]}, Vladimir Borisovi{\v{c}} and Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}} and L. P. Pitaevskij},
+author =       {Berestetskii, {[Beresteckij]}, Vladimir Borisovi{\v{c}} and Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}} and L. P. Pitaevskij},
 title =	       {Quantum Electrodynamics},
 publisher =    {Pergamon},
 year =	       {1982},
@@ -12203,6 +12217,17 @@ edition =      {3},
 note =	       {First publ.\ 1976},
 keywords =     {Bayesian probability theory},
 origdate =     {1976}
+}
+
+@Article{bilodeau1962,
+author =       {G. G. Bilodeau},
+title =	       {The {Weierstrass} transform and {Hermite} polynomials},
+journal =      dmj,
+year =	       {1962},
+volume =       {29},
+number =       {2},
+pages =	       {293--308},
+keywords =     {generalized function, Dirac delta}
 }
 
 @Book{binder1979_r1986,
@@ -15717,6 +15742,17 @@ number =       {3},
 pages =	       {212--219}
 }
 
+@Article{brenneretal2000,
+author =       {Naama Brenner and Steven P. Strong and Roland Koberle and William Bialek and de Ruyter van Steveninck, Rob R.},
+title =	       {Synergy in a Neural Code},
+journal =      ncomp,
+year =	       {2000},
+volume =       {12},
+number =       {7},
+pages =	       {1531--1552},
+keywords =     {mutual information, rate, spike trains, probability theory}
+}
+
 @Article{breschetal2015,
 author =       {D. Bresch and M. Hillairet},
 title =	       {Note on the derivation of multi-component flow systems},
@@ -17906,6 +17942,19 @@ number =       {15},
 pages =	       {4728--4731}
 }
 
+@Article{brychkovetal1982_r1986,
+author =       {Yu. A. Brychkov and A. P. Prudnikov},
+title =	       {Integral transforms of generalized functions},
+journal =      jsovm,
+year =	       {1986},
+volume =       {34},
+number =       {3},
+pages =	       {1630--1655},
+note =	       {First publ.\ in Russian 1982},
+keywords =     {Weierstrass transform, generalized function, Dirac delta},
+origdate =     {1982}
+}
+
 @Article{brydenetal2008,
 author =       {John Bryden and Netta Cohen},
 title =	       {Neural control of \emp{{Caenorhabditis} elegans} forward locomotion: the role of sensory feedback},
@@ -19528,6 +19577,14 @@ year =	       {1993},
 address =      {New York},
 note =	       {Two vols bound as one. First publ.\ 1928--29},
 origdate =     {1928}
+}
+
+@Misc{calcaterraetal2008,
+author =       {Craig Calcaterra and Axel Boldt},
+title =	       {Approximating with {Gaussians}},
+year =	       {2008},
+note =	       {\arxiveprint{0805.3795}},
+keywords =     {Weierstrass transform, generalized function, Dirac delta}
 }
 
 @Article{calderetal2004_r2005,
@@ -22519,7 +22576,7 @@ keywords =     {thermodynamics, second law, statistical mechanics}
 }
 
 @Book{chencov1972_t1982,
-author =       {{\'{C}}encov {[Chentsov]}, Nikolaj Nikolaevi{\'{c}}},
+author =       {{\'{C}}encov, {[Chentsov]}, Nikolaj Nikolaevi{\'{c}}},
 title =	       {Statistical Decision Rules and Optimal Inference},
 publisher =    {American Mathematical Society},
 year =	       {1982},
@@ -28528,6 +28585,20 @@ number =       {5},
 pages =	       {596--599}
 }
 
+@Book{davies1978b_r2002,
+author =       {Brian Davies},
+title =	       {Integral Transforms and Their Applications},
+publisher =    {Springer},
+year =	       {2002},
+volume =       {41},
+series =       {Texts in applied mathematics},
+address =      {New York},
+edition =      {3},
+note =	       {First publ.\ 1978},
+keywords =     {distribution theory},
+origdate =     {1978}
+}
+
 @Article{davies1979,
 author =       {E. B. Davies},
 title =	       {Symmetry breaking for a non-linear {Schr{\"o}dinger} equation},
@@ -30314,6 +30385,17 @@ year =	       {1997},
 volume =       {138},
 number =       {1},
 pages =	       {1--35}
+}
+
+@Article{delpozzoetal2018,
+author =       {Del Pozzo, W. and C. P. L. Berry and A. Ghosh and T. S. F. Haines and L. P. Singer and A. Vecchio},
+title =	       {Dirichlet process {Gaussian}-mixture model: An application to localizing coalescing binary neutron stars with gravitational-wave observations},
+journal =      mnras,
+year =	       {2018},
+volume =       {479},
+number =       {1},
+pages =	       {601--614},
+keywords =     {probability theory}
 }
 
 @Article{delriocorreaetal1991,
@@ -41610,7 +41692,7 @@ pages =	       {1177--1183}
 }
 
 @Article{fock1929,
-author =       {Fock {[Fok]}, V. A.},
+author =       {Fock, {[Fok]}, V. A.},
 title =	       {\langgerman{{Geometrisierung der Diracschen Theorie des Elektrons}}},
 journal =      zp,
 year =	       {1929},
@@ -41620,7 +41702,7 @@ shortauthor =  {Fock}
 }
 
 @Article{fock1932,
-author =       {Fock {[Fok]}, V. A.},
+author =       {Fock, {[Fok]}, V. A.},
 title =	       {\langgerman{{Konfigurationsraum und zweite Quantelung}}},
 journal =      zp,
 year =	       {1932},
@@ -41632,7 +41714,7 @@ shortauthor =  {Fock}
 }
 
 @Book{fock1955_t1959,
-author =       {Fock {[Fok]}, V. A.},
+author =       {Fock, {[Fok]}, V. A.},
 title =	       {The Theory of Space, Time and Gravitation},
 publisher =    {Pergamon},
 year =	       {1959},
@@ -41645,7 +41727,7 @@ shortauthor =  {Fock}
 }
 
 @Book{fock1955_t1964,
-author =       {Fock {[Fok]}, V. A.},
+author =       {Fock, {[Fok]}, V. A.},
 title =	       {The Theory of Space, Time and Gravitation},
 publisher =    {Pergamon},
 year =	       {1964},
@@ -41658,7 +41740,7 @@ shortauthor =  {Fock}
 }
 
 @Article{fock1957,
-author =       {Fock {[Fok]}, V. A.},
+author =       {Fock, {[Fok]}, V. A.},
 title =	       {Three Lectures on Relativity Theory},
 journal =      rmp,
 year =	       {1957},
@@ -41670,7 +41752,7 @@ shortauthor =  {Fock}
 }
 
 @Book{fock1976_t1982,
-author =       {Fock {[Fok]}, V. A.},
+author =       {Fock, {[Fok]}, V. A.},
 title =	       {Fundamentals of Quantum Mechanics},
 publisher =    {Mir},
 year =	       {1982},
@@ -41682,7 +41764,7 @@ shortauthor =  {Fock}
 }
 
 @Book{fock2004,
-author =       {Fock {[Fok]}, V. A.},
+author =       {Fock, {[Fok]}, V. A.},
 title =	       {V. A. Fock -- Selected Works: Quantum Mechanics and Quantum Field Theory},
 publisher =    {Chapman \amp\ Hall/CRC},
 year =	       {2004},
@@ -45051,7 +45133,7 @@ pages =	       {1476--1490}
 }
 
 @Article{gauss1827,
-author =       {Gauss {[Gau{\ss}]}, Carl Friedrich},
+author =       {Gauss, {[Gau{\ss}]}, Carl Friedrich},
 title =	       {\langlatin{{Disquisitiones} generales circa superficies curvas}},
 journal =      csrsgr,
 year =	       {1828},
@@ -45063,7 +45145,7 @@ origdate =     {1827}
 }
 
 @Book{gauss1827_t1902,
-author =       {Gauss {[Gau{\ss}]}, Carl Friedrich},
+author =       {Gauss, {[Gau{\ss}]}, Carl Friedrich},
 title =	       {General Investigations of Curved Surfaces of 1827 and 1825},
 publisher =    {Princeton University Press},
 year =	       {1902},
@@ -45074,7 +45156,7 @@ origdate =     {1827}
 }
 
 @Book{gauss1828,
-author =       {Gauss {[Gau{\ss}]}, Carl Friedrich},
+author =       {Gauss, {[Gau{\ss}]}, Carl Friedrich},
 title =	       {\langlatin{{Disquisitiones} generales circa superficies curvas}},
 publisher =    {Dieterich},
 year =	       {1828},
@@ -45269,7 +45351,7 @@ origdate =     {1958}
 }
 
 @Article{gelfandetal1994,
-author =       {A. E. Gelfand and D. K. Dey},
+author =       {Alan E. Gelfand and D. K. Dey},
 title =	       {Bayesian Model Choice: Asymptotics and Exact Calculations},
 journal =      jrssb,
 year =	       {1994},
@@ -45277,6 +45359,15 @@ volume =       {56},
 number =       {3},
 pages =	       {501--514},
 keywords =     {log-score, cross-validation}
+}
+
+@InCollection{gelfandetal2000,
+author =       {Alan E. Gelfand and Malay Ghosh},
+title =	       {Generalized Linear Models: A {Bayesian} View},
+booktitle =    {\citein{deyetal2000}},
+year =	       {2000},
+chapter =      {1},
+pages =	       {3--21}
 }
 
 @Article{gellmannetal1996,
@@ -47182,6 +47273,16 @@ year =	       {2004},
 volume =       {7},
 pages =	       {2},
 keywords =     {general relativity, affine connection, parallelism, electromagnetism}
+}
+
+@Article{goerueretal2010,
+author =       {Dilan G{\"o}r{\"u}r and Carl Edward Rasmussen},
+title =	       {Dirichlet Process {Gaussian} Mixture Models: Choice of the Base Distribution},
+journal =      jcst,
+year =	       {2010},
+volume =       {25},
+pages =	       {653--664},
+keywords =     {probability theory}
 }
 
 @Article{goffe1996,
@@ -54336,6 +54437,16 @@ title =	       {Reduction and Emergence in {Bose-Einstein} Condensates},
 year =	       {2009},
 note =	       {\arxiveprint{0910.2499}, \philscieprint{00004914}},
 keywords =     {quantum theory}
+}
+
+@Article{healeyetal2012,
+author =       {Christopher Graham Healey and Amit Prakash Sawant},
+title =	       {On the limits of resolution and visual angle in visualization},
+journal =      acmtap,
+year =	       {2012},
+volume =       {9},
+number =       {4},
+pages =	       {20}
 }
 
 @Article{healy1984,
@@ -65190,6 +65301,17 @@ address =      {Berlin},
 keywords =     {probability theory, logic}
 }
 
+@Article{kernsetal2006,
+author =       {G. Jay Kerns and G{\'a}bor J. Sz{\'e}kely},
+title =	       {{De~Finetti's} Theorem for Abstract Finite Exchangeable Sequences},
+journal =      jtp,
+year =	       {2006},
+volume =       {19},
+number =       {3},
+pages =	       {589--608},
+keywords =     {de Finetti's theorem, finite exchangeability, hypergeometric distribution, Bayesian probability theory}
+}
+
 @Article{kerr1963,
 author =       {Roy P. Kerr},
 title =	       {Gravitational Field of a Spinning Mass as an Example of Algebraically Special Metrics},
@@ -65381,7 +65503,7 @@ keywords =     {relativity theory, differential forms}
 }
 
 @Article{khinchin1933,
-author =       {Khinchin {[Hin{\v{c}}in]}, Aleksandr {\^A}kovlevi{\v{c}}},
+author =       {Khinchin, {[Hin{\v{c}}in]}, Aleksandr {\^A}kovlevi{\v{c}}},
 title =	       {The Method of Spectral Reduction in Classical Dynamics},
 journal =      tams,
 year =	       {1933},
@@ -65392,7 +65514,7 @@ keywords =     {stochastic processes}
 }
 
 @Book{khinchin1949,
-author =       {Khinchin {[Hin{\v{c}}in]}, Aleksandr {\^A}kovlevi{\v{c}}},
+author =       {Khinchin, {[Hin{\v{c}}in]}, Aleksandr {\^A}kovlevi{\v{c}}},
 title =	       {Mathematical Foundations of Statistical Mechanics},
 publisher =    {Dover},
 year =	       {1949},
@@ -67364,7 +67486,7 @@ keywords =     {quantum theory, marginalisation}
 }
 
 @Book{klyshko1980_t1988,
-author =       {Klyshko {[Kly{\v{s}}ko]}, David N.},
+author =       {Klyshko, {[Kly{\v{s}}ko]}, David N.},
 title =	       {Photons and Nonlinear Optics},
 publisher =    {Gordon and Breach},
 year =	       {1988},
@@ -67374,7 +67496,7 @@ origdate =     {1980}
 }
 
 @Article{klyshko1995,
-author =       {Klyshko {[Kly{\v{s}}ko]}, David N.},
+author =       {Klyshko, {[Kly{\v{s}}ko]}, David N.},
 title =	       {Quantum Optics: Quantum, Classical, and Metaphysical Aspects},
 journal =      anyas,
 year =	       {1995},
@@ -68146,7 +68268,7 @@ pages =	       {365}
 }
 
 @Book{kondratievetal1981,
-author =       {Kondratiev {[Kondrat'ev]}, Viktor Nikolaevich and Evgeni{\u{i}} Evgen'evich, Nikitin},
+author =       {Kondratiev, {[Kondrat'ev]}, Viktor Nikolaevich and Evgeni{\u{i}} Evgen'evich, Nikitin},
 title =	       {Gas-Phase Reactions: Kinetics and Mechanisms},
 publisher =    {Springer},
 year =	       {1981},
@@ -69762,7 +69884,7 @@ keywords =     {stress, divergence, Einstein equations, general integrals, conti
 }
 
 @Book{kurosh1940_t1960,
-author =       {Kurosh {[Kuro{\v{s}}]}, A. G.},
+author =       {Kurosh, {[Kuro{\v{s}}]}, A. G.},
 title =	       {The Theory of Groups. Vol.~1},
 publisher =    {Chelsea},
 year =	       {1960},
@@ -70520,7 +70642,7 @@ note =	       {Transl.\ of \citebi{landauetal1931}}
 }
 
 @Book{landauetal1937_t1994,
-author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}} and Lev Petrovi{v{c}} Pitaevskij},
+author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz, {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}} and Lev Petrovi{v{c}} Pitaevskij},
 title =	       {Statistical Physics. Part~1},
 publisher =    {Pergamon},
 year =	       {1994},
@@ -70533,7 +70655,7 @@ origdate =     {1937}
 }
 
 @Book{landauetal1939_t1996,
-author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
+author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz, {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
 title =	       {The Classical Theory of Fields},
 publisher =    {Butterworth-Heinemann},
 year =	       {1996},
@@ -70547,7 +70669,7 @@ origdate =     {1939}
 }
 
 @Book{landauetal1940_t2000,
-author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
+author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz, {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
 title =	       {Mechanics},
 publisher =    {Butterworth-Heinemann},
 year =	       {2000},
@@ -70560,7 +70682,7 @@ origdate =     {1940}
 }
 
 @Book{landauetal1944_t1987,
-author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
+author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz, {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
 title =	       {Fluid mechanics},
 publisher =    {Pergamon},
 year =	       {1987},
@@ -70573,7 +70695,7 @@ origdate =     {1944}
 }
 
 @Book{landauetal1947_t1991,
-author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
+author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz, {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
 title =	       {Quantum Mechanics: Non-relativistic Theory},
 publisher =    {Pergamon},
 year =	       {1991},
@@ -70586,7 +70708,7 @@ origdate =     {1947}
 }
 
 @Book{landauetal1956_t1984,
-author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
+author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz, {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
 title =	       {Electrodynamics of Continuous Media},
 publisher =    {Pergamon},
 year =	       {1984},
@@ -70609,7 +70731,7 @@ origdate =     {1974}
 }
 
 @Book{landauetal1979_t1981,
-author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
+author =       {Landau, Lev Davidovi{\v{c}} and Lifshitz, {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}}},
 title =	       {Physical Kinetics},
 publisher =    {Pergamon},
 year =	       {1981},
@@ -74324,7 +74446,7 @@ year =	       {see Lifshitz}
 }
 
 @Book{lifshitzetal1951_t1981,
-author =       {Lifshitz {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}} and Lev Petrovi{v{c}} Pitaevskij},
+author =       {Lifshitz, {[Lif{\v{s}}ic]}, Evgenij Mihajlovi{\v{c}} and Lev Petrovi{v{c}} Pitaevskij},
 title =	       {Statistical Physics. Part~2: Theory of the Condensed State},
 publisher =    {Pergamon},
 year =	       {1981},
@@ -86349,6 +86471,17 @@ pages =	       {341--369},
 keywords =     {flat metric on simplex of probability distributions, Fisher-information metric, arithmetic mean, geometric mean}
 }
 
+@Article{nelderetal1972,
+author =       {J. A. Nelder and R. W. M. Wedderburn},
+title =	       {Generalized Linear Models},
+journal =      jrssa,
+year =	       {1972},
+volume =       {135},
+number =       {3},
+pages =	       {370--384},
+keywords =     {exponential family, regression, sufficient statistics}
+}
+
 @Article{nelson1966,
 author =       {Edward Nelson},
 title =	       {Derivation of the {Schr{\"o}dinger} Equation from {Newtonian} Mechanics},
@@ -89866,7 +89999,7 @@ author =       {Alexander Panchenko and Lyudmyla L. Barannyk and Kevin Cooper},
 title =	       {Deconvolution closure for mesoscopic continuum models of particle systems},
 year =	       {2011},
 note =	       {\arxiveprint{1109.5984}},
-keywords =     {coarsening, turbulence}
+keywords =     {coarsening, turbulence, Weierstrass transform}
 }
 
 @Book{panofskyetal1955_r1962,
@@ -97016,6 +97149,16 @@ number =       {1},
 pages =	       {011903}
 }
 
+@Article{rajkowski2019,
+author =       {{\L}ukasz Rajkowski},
+title =	       {Analysis of the Maximal a Posteriori Partition in the {Gaussian} {Dirichlet} Process Mixture Model},
+journal =      ba,
+year =	       {2019},
+volume =       {14},
+number =       {2},
+pages =	       {477--494}
+}
+
 @Article{raju2004,
 author =       {C. K. Raju},
 title =	       {The Electrodynamic 2-Body Problem and the Origin of Quantum Mechanics},
@@ -102146,6 +102289,17 @@ note =	       {First publ.\ 2008},
 origdate =     {2008}
 }
 
+@Article{salunkhe1977,
+author =       {V. S. Salunkhe},
+title =	       {Weierstrass transform of generalized functions},
+journal =      ijpam,
+year =	       {1977},
+volume =       {8},
+number =       {11},
+pages =	       {1352--1353},
+keywords =     {Weierstrass transform, generalized function, Dirac delta}
+}
+
 @Book{salvi2002,
 editor =       {Rodolfo Salvi},
 title =	       {The Navier-Stokes equations: theory and numerical methods},
@@ -106205,7 +106359,7 @@ keywords =     {probability theory, quantum mechanics, Bloch-vector representati
 }
 
 @Book{shiryaev1980_r1996,
-author =       {Shiryaev {[Shir{\^a}ev]}, Al'bert Nikolaevi{\v{c}}},
+author =       {Shiryaev, {[Shir{\^a}ev]}, Al'bert Nikolaevi{\v{c}}},
 title =	       {Probability},
 publisher =    {Springer},
 year =	       {1996},
@@ -109059,6 +109213,15 @@ pages =	       {483--492},
 keywords =     {Newton, force, pressure, classical mechanics}
 }
 
+@Book{speiser2008,
+author =       {David Speiser},
+title =	       {Discovering the Principles of Mechanics 1600--1800: Essays by David Speiser},
+publisher =    {Birkh{\"a}user},
+year =	       {2008},
+address =      {Basel},
+note =	       {Ed.\ by Kim Williams and Sandro Caparrini}
+}
+
 @Book{speiser2011,
 author =       {David Speiser},
 title =	       {Crossroads: History of Science, History of Art: Essays by David Speiser, Volume II},
@@ -110645,7 +110808,7 @@ pages =	       {143902}
 }
 
 @Article{stratonovich1957_t1958,
-author =       {Stratonovich {[Stratonovi\v{c}]}, Rouslan L.},
+author =       {Stratonovich, {[Stratonovi\v{c}]}, Rouslan L.},
 title =	       {On a method of calculating quantum distribution functions},
 journal =      spd,
 year =	       {1958},
@@ -110656,7 +110819,7 @@ origdate =     {1957}
 }
 
 @Book{stratonovich1992,
-author =       {Stratonovich {[Stratonovi\v{c}]}, Rouslan L.},
+author =       {Stratonovich, {[Stratonovi\v{c}]}, Rouslan L.},
 title =	       {Nonlinear Nonequilibrium Thermodynamics I: Linear and Nonlinear Fluctuation-Dissipation Theorems},
 publisher =    {Springer},
 year =	       {1992},
@@ -110668,7 +110831,7 @@ keywords =     {statistical mechanics}
 }
 
 @Book{stratonovich1994,
-author =       {Stratonovich {[Stratonovi\v{c}]}, Rouslan L.},
+author =       {Stratonovich, {[Stratonovi\v{c}]}, Rouslan L.},
 title =	       {Nonlinear Nonequilibrium Thermodynamics II: Advanced Theory},
 publisher =    {Springer},
 year =	       {1994},
@@ -125276,6 +125439,28 @@ year =	       {2005},
 note =	       {\arxiveprint{quant-ph/0503173}}
 }
 
+@Article{zayed1988,
+author =       {Ahmed I. Zayed},
+title =	       {On integral transforms whose kernels are solutions of singular {Sturm-Liouville} problems},
+journal =      prsea,
+year =	       {1988},
+volume =       {108},
+number =       {3--4},
+pages =	       {201--228},
+keywords =     {Weierstrass transform, generalized function, Dirac delta}
+}
+
+@Article{zayedetal1992,
+author =       {Ahmed I. Zayed and Deborah Tepper Haimo},
+title =	       {Inversion of integral transforms associated with a class of perturbed heat equations},
+journal =      jmaa,
+year =	       {1992},
+volume =       {163},
+number =       {1},
+pages =	       {113--135},
+keywords =     {Weierstrass transform, generalized function, Dirac delta}
+}
+
 @Book{zee2003,
 author =       {A. Zee},
 title =	       {Quantum Field Theory in a Nutshell},
@@ -125493,6 +125678,17 @@ year =	       {1988},
 volume =       {37},
 number =       {2},
 pages =	       {195--209}
+}
+
+@Book{zemanian1968,
+author =       {A. H. Zemanian},
+title =	       {Generalized Integral Transformations},
+publisher =    {Interscience},
+year =	       {1968},
+volume =       {XVIII},
+series =       {Pure and applied mathematics},
+address =      {New York},
+keywords =     {Weierstrass transform, generalized function, Dirac delta}
 }
 
 @Article{zemansky1970,
@@ -125737,7 +125933,7 @@ keywords =     {imputation, shrinkage, genome-wide association studies}
 }
 
 @Book{zhuangzi300bce_t2013,
-author =       {Zhuangzi {[Chuang Tzu]}},
+author =       {Zhuangzi, {[Chuang Tzu]}},
 title =	       {The Complete works of Zhuangzi},
 publisher =    {Columbia University Press},
 year =	       {2013},
@@ -125747,7 +125943,7 @@ note =	       {Transl.\ by Burton Watson. First publ.\ 1968. First written in Ch
 }
 
 @Book{zhuangzi300bceb_t2016,
-author =       {Zhuangzi {[Chuang Tzu]} and Yu-lan, Fung},
+author =       {Zhuangzi, {[Chuang Tzu]} and Yu-lan, Fung},
 title =	       {Chuang-Tzu: A New Selected Translation with an Exposition of the Philosophy of Kuo Hsiang},
 publisher =    {Springer},
 year =	       {2016},

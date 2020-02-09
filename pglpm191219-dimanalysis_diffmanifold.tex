@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-01-29T13:21:55+0100
+%% Last-Updated: 2020-02-09T16:02:50+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -252,7 +252,7 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
   \let\bibcloseparen=\bibclosebracket}
 \makeatother\fi
 \DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}}
-\renewcommand*{\finalnamedelim}{\addcomma\space}
+\renewcommand*{\finalnamedelim}{\addspace\amp\space}
 \setcounter{biburlnumpenalty}{1}
 \setcounter{biburlucpenalty}{0}
 \setcounter{biburllcpenalty}{1}
@@ -509,8 +509,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % \footnotesize\epost{\email{***}{***}}}%
 % \hspace*{\stretch{1}}%
 \parbox{0.75\linewidth}%\makebox[0pt][c]%
-{\protect\centering P.G.L.  Porta Mana\\%
-\footnotesize Kavli Institute, Trondheim, Norway\quad\epost{\email{pgl}{portamana.org}}}%
+{\protect\centering P.G.L.  Porta Mana \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}\\%
+\footnotesize Kavli Institute, Trondheim\quad\epost{\email{piero.mana}{ntnu.no}}}%
 \hspace*{\stretch{1}}%
 %\quad\href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}\textsc{orcid}:0000-0002-6070-0784}%
 }
@@ -893,7 +893,26 @@ notions, for example of co- and contravariance, symmetry and antisymmetry,
 contraction. Some passages assume familiarity with the exterior calculus of
 differential forms. Above all, familiarity with the intrinsic presentation
 of differential geometry is assumed; but the general ideas should be
-understandable even without such familiarity.
+understandable even without such familiarity. The notation used here is
+briefly presented in \sect~\ref{sec:notation}.
+
+Finally, quoting Truesdell \amp\ Toupin \citep[Appendix \sect~7
+footnote~4]{truesdelletal1960}, \enquote{dimensional analysis remains a
+  controversial and somewhat obscure subject. We do not attempt a complete
+  presentation here.}
+
+
+% \citep{aldersley1977} also confuses component- and absolute dimensions
+
+\section{Notation}
+\label{sec:notation}
+
+For the notation in dimensional analysis I use \textsc{iso} conventions:
+$\dim(\yA)$ is the dimension of the quantity $\yA$, and among the base
+quantities are mass $\Ma$, length $\Le$, time $\Ti$, temperature $\Te$,
+electric current $\Cu$. Note that I don't discuss \emph{units} -- it
+doesn't matter here whether the unit for length is the metre or the
+centimetre, for example.
 
 Since the type of a tensor -- that is, the number and ordering of its
 covariant and contravariant \enquote{slots}
@@ -903,7 +922,12 @@ $\yA\i{_{\q}^{\q\q}}$ to indicate that $\yA$ is covariant in its first slot
 and contravariant in its second and third slots. Its components would thus
 be $(A\i{_{i}^{jk}})$. For brevity I'll call this a
 \enquote{co-contra-contravariant} tensor, with an obvious naming
-generalization for other types.
+generalization for other types. In spirit this notation is similar to the
+abstract-index one of Penrose \amp\ Rindler
+\citey[\sect~2.2]{penroseetal1984_r2003}. I prefer to avoid using letters
+for the indices because the notation difference between a tensor and its
+components, which is very important for our discussion, would otherwise
+disappear.
 
 I denote the contraction of the $\alpha$th and $\beta$th slots (which must
 have opposite variant types) of a tensor $\yA$ by $\tr_{\alpha\beta}\yA$,
@@ -931,21 +955,6 @@ $\yA^{\intercal_{\alpha\beta}}$. In index notation these operations are
   (There doesn't seem to be an invariant notation for these two operations, so
   I propose this notation here.)
 %$\yA\i{^{\q \mathrm{c}}_{\q \mathrm{c}\q}}$
-
-For the notation in dimensional analysis I use \textsc{iso} conventions:
-$\dim(\yA)$ is the dimension of the quantity $\yA$, and among the base
-quantities are mass $\Ma$, length $\Le$, time $\Ti$, temperature $\Te$,
-electric current $\Cu$. Note that I don't discuss \emph{units} -- it
-doesn't matter here whether the unit for length is the metre or the
-centimetre, for example.
-
-Finally, quoting Truesdell \amp\ Toupin \citep[Appendix \sect~7
-footnote~4]{truesdelletal1960}, \enquote{dimensional analysis remains a
-  controversial and somewhat obscure subject. We do not attempt a complete
-  presentation here.}
-
-
-% \citep{aldersley1977} also confuses component- and absolute dimensions
 
 
 
@@ -2010,7 +2019,8 @@ along the same lines, also for Newtonian mechanics.
 %%% Acknowledgements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \begin{acknowledgements}
-  \ldots to the staff of the NTNU library for their always prompt support.
+  \ldots to prof. Ingemar Bengtsson for valuable comments on a previous
+  draft. To the staff of the NTNU library for their always prompt support.
   To Mari, Miri, Emma for continuous encouragement and affection, and to
   Buster Keaton and Saitama for filling life with awe and inspiration. To
   the developers and maintainers of \LaTeX, Emacs, AUC\TeX, Open Science
@@ -2035,6 +2045,7 @@ along the same lines, also for Newtonian mechanics.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\renewcommand*{\finalnamedelim}{\addcomma\space}
 \defbibnote{prenote}{{\footnotesize (\enquote{de $X$} is listed under D,
     \enquote{van $X$} under V, and so on, regardless of national
     conventions.)\par}}

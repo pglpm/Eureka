@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-02-09T16:02:50+0100
+%% Last-Updated: 2020-02-18T14:11:20+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -25,7 +25,7 @@ british%
 \newcommand*{\headtitle}{Dimensional analysis for relativity and manifolds}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
-\newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/jmqnu}{\textsc{doi}:10.31219/osf.io/jmqnu}\fi}% Report number
+\newcommand*{\reporthead}{\iftrue\else Open Science Framework \href{https://doi.org/10.31219/osf.io/jmqnu}{\textsc{doi}:10.31219/osf.io/jmqnu}\fi}% Report number
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Calls to packages (uncomment as needed)
@@ -512,7 +512,6 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 {\protect\centering P.G.L.  Porta Mana \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}\\%
 \footnotesize Kavli Institute, Trondheim\quad\epost{\email{piero.mana}{ntnu.no}}}%
 \hspace*{\stretch{1}}%
-%\quad\href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}\textsc{orcid}:0000-0002-6070-0784}%
 }
 
 %\date{Draft of \today\ (first drafted \firstdraft)}
@@ -924,10 +923,9 @@ be $(A\i{_{i}^{jk}})$. For brevity I'll call this a
 \enquote{co-contra-contravariant} tensor, with an obvious naming
 generalization for other types. In spirit this notation is similar to the
 abstract-index one of Penrose \amp\ Rindler
-\citey[\sect~2.2]{penroseetal1984_r2003}. I prefer to avoid using letters
-for the indices because the notation difference between a tensor and its
-components, which is very important for our discussion, would otherwise
-disappear.
+\citep[\sect~2.2]{penroseetal1984_r2003}; but I avoid using letters for the
+indices, so that the notational difference between a tensor and its
+components, which is very important for our discussion, doesn't disappear.
 
 I denote the contraction of the $\alpha$th and $\beta$th slots (which must
 have opposite variant types) of a tensor $\yA$ by $\tr_{\alpha\beta}\yA$,
@@ -952,9 +950,8 @@ $\yA^{\intercal_{\alpha\beta}}$. In index notation these operations are
       \overset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{i}
       }_{\;\dotsm}}.
   \end{equation*}
-  (There doesn't seem to be an invariant notation for these two operations, so
-  I propose this notation here.)
-%$\yA\i{^{\q \mathrm{c}}_{\q \mathrm{c}\q}}$
+
+  % $\yA\i{^{\q \mathrm{c}}_{\q \mathrm{c}\q}}$
 
 
 
@@ -1904,11 +1901,12 @@ and~(52.06)]{fock1955_t1964} and Adler \etal\ \citep[\sect~10.5
 We have seen that dimensional analysis in general relativity and
 differential geometry can be seamlessly done, following its usual standard
 rules, if we adopt a coordinate-free or coordinate-invariant view, typical
-of more modern texts. In this view, each tensor has an absolute dimension
-that doesn't depend on the dimensions of the coordinates; it's the
-intrinsic dimension of the tensor. It would therefore be more profitable to
-focus on the absolute dimension of a tensor rather than on the dimensions
-of its components. The dimension of a specific component is easily found by
+of more modern texts. In this view, each tensor has an \enquote{absolute}
+dimension (Schouten \amp\ Dorgelo's terminology) that doesn't depend on the
+dimensions of the coordinates. It's the intrinsic dimension of the tensor.
+It would therefore be more profitable to focus on the absolute dimension of
+a tensor rather than on the dimensions of its components. The dimension of
+a specific component is easily found by
 formula~\eqref{eq:dim_component_generic}: it's the product of the absolute
 dimension, times the dimension of the $i$th coordinate function for each
 contravariant index $i$, times the inverse of the dimension of the $j$th
@@ -1918,20 +1916,23 @@ This generalized dimensional analysis rests mainly on two conventions: the
 tensor product and the action of covectors on vectors behave analogously
 to the usual multiplication for the purposes of dimensional analysis.
 
-We found some important results for general relativity, in particular that
-the Riemann $\yR\i{^{\q}_{\q\q\q}}$ and Ricci $\yRi\i{_{\q\q}}$ tensors are
-dimensionless, and that the Einstein tensor $\yG\i{_{\q}^{\q}}$ has the
-inverse dimension of the metric.
+We found or re-derived some essential results for general relativity, in
+particular that the Riemann $\yR\i{^{\q}_{\q\q\q}}$ and Ricci
+$\yRi\i{_{\q\q}}$ tensors are dimensionless, and that the Einstein tensor
+$\yG\i{_{\q}^{\q}}$ has the inverse dimension of the metric. Maybe these
+can be of importance for some current research involving scales and
+conformal factors \citep[\eg][]{roehretal2005,cadonietal2019}.
 
 Since the dimensions of the components are usually different from the
 absolute dimension and depend on the coordinates, I recommend to avoid
 statements such as \enquote{the tensor $A\i{_{i}^{jk}}$ has dimension
   $\Xx$}, because it leaves unclear whether \enquote{$A\i{_{i}^{jk}}$} is
-meant to represent the tensor in general, or to represent its set of
-components, or to represent just a specific component.
+meant to represent the tensor in general (as in Penrose \amp\ Rindler's
+notation), or to represent its set of components, or to represent just a
+specific component.
 
-Finally, the above analysis specific to general relativity can be made,
-along the same lines, also for Newtonian mechanics.
+Finally, the above analysis, specific to general relativity, can be made
+along the same lines also for Newtonian mechanics.
 
 
 
@@ -2028,7 +2029,7 @@ along the same lines, also for Newtonian mechanics.
   scientific exchange possible. \mbox{}\hfill\autanet
   
   This work is financially supported by the Kavli Foundation and the Centre
-  of Excellence scheme of the  Research Council of Norway (Yasser Roudi group).  
+  of Excellence scheme of the  Research Council of Norway (Roudi group).  
 %\rotatebox{15}{P}\rotatebox{5}{I}\rotatebox{-10}{P}\rotatebox{10}{\reflectbox{P}}\rotatebox{-5}{O}.
 %\sourceatright{\autanet}
 \end{acknowledgements}

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-02-18T20:44:09+0100
+%% Last-Updated: 2020-02-19T11:33:52+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -196,7 +196,7 @@ british%
 \renewcommand\sfdefault{uop}
 \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
 \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
-%\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
+\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
 % Upright sans-serif math alphabet
 % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
 % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
@@ -548,7 +548,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
 %\newcommand*{\nabl}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
-%\DeclareMathOperator{\tr}{tr}%trace
+\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
 %\DeclareMathOperator{\im}{Im}%im part
 %\DeclareMathOperator{\re}{Re}%re part
@@ -610,7 +610,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\etc}{{etc.}}
 %\newcommand*{\ie}{{i.e.}}
 %\newcommand*{\ca}{{c.}}
-%\newcommand*{\eg}{{e.g.}}
+\newcommand*{\eg}{{e.g.}}
 \newcommand*{\foll}{{ff.}}
 %\newcommand*{\viz}{{viz}}
 \newcommand*{\cf}{{cf.}}
@@ -637,7 +637,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\sint}{\begingroup\textstyle\int\endgroup}
 %\newcommand*{\sland}{\mathop{\textstyle\bigwedge}}
 %\newcommand*{\slor}{\mathop{\textstyle\bigvee}}
-%\newcommand*{\T}{^\intercal}%transpose
+\newcommand*{\T}{^\intercal}%transpose
 %%\newcommand*{\QEM}%{\textnormal{$\Box$}}%{\ding{167}}
 %\newcommand*{\qem}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
 %\quad\hbox{\QEM}}
@@ -731,7 +731,25 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \item $u$: internal energy density
 \item $\yq$: heat flow
 \end{itemize}
-For an ideal gas, the fields $(n,\yv,\yte)$ constitute the state.
+For an ideal gas, the fields $\bigl(n(t,\yr),\yv(t,\yr),\yte(t,\yr)\bigr)$
+constitute the state.
+
+We also define
+\begin{equation}
+  \label{eq:def_shear}
+  \nab\yv^{+}\defd \tfrac{1}{2}(\nab\yv+\nab\yv\T),
+  \quad
+  \nab\yv^{\perp}\defd \nab\yv^{+}-1/3\nab\cdot\yv\, \id
+\end{equation}
+and note that from the balance of mass below
+\begin{equation}
+  \label{eq:div_shear_volume}
+  \nab\cdot\yv \equiv \tr(\nab\yv^{+}) = -\frac{\de_{t}n + \yv\cdot\nab n}{n}
+\end{equation}
+
+The equations below are derived for example in  Samoh\'yl \amp\ Peka\v{r}
+\citey[\sects~3.5--3.7]{samohyletal1987_r2014}; compare also Truesdell \amp\  Muncaster \citey[\chap~I]{truesdelletal1980}.
+
 
 \section{Balance laws}
 \label{sec:balances}
@@ -742,23 +760,27 @@ Quantity of matter, force (in an inertial frame), energy:
   \de_{t}n +\nab\cdot(n\yv) = 0
 \\
   \label{eq:force_bal}
-  M\de_{t}(n\yv) + M\nab(n\yv\otimes\yv) - \nab\cdot\yT = 0
+  M\de_{t}(n\yv) + M\nab\cdot(n\yv\otimes\yv) - \nab\cdot\yT = 0
 \\
   \label{eq:energy_bal}
-  \de_{t} u + \di(u \yv)  + \di\yq - \yT\con\nab\yv = 0
+  \de_{t} u + \nab\cdot(u \yv)  + \nab\cdot\yq - \yT\con\nab\yv^{+} = 0
 \end{gather}
 
-Constitutive equations:
+Constitutive equations for heat flow, stress, internal energy:
 \begin{gather}
   \label{eq:const}
   \yq = -k(n,\yte)\,\nab\yte %- \kappa(n,\yte)\,\nab n
   \\
-  \yT = -R n \yte\id + \lambda(n,\yte)\,\nab\cdot\yv \id + \mu(n,\yte)\,\nab\yv^{+}
+  \yT = -[R n \yte - \zeta(n,\yte)\,\nab\cdot\yv] \id + \eta(n,\yte)\,\nab\yv^{\perp}
   \\
-  u = f(n,\yte)+\yte\de_{\yte}f % c \yte 
+  u = c\yte%f(n,\yte)+\yte\de_{\yte}f % c \yte 
   \\
-  k,\lambda,\mu\ge 0
+  k,\eta,\zeta\ge 0
 \end{gather}
+$k$ is the thermal conductivity, $\eta$ the shear viscosity, $\zeta$ the
+bulk or volume viscosity. Equations for these are given \eg\ in Kannuluik
+\amp\ Carman \citey{kannuluiketal1951}, Sutherland \citey{sutherland1893},
+Cramer or Sharma \amp\ Kumar \citey{cramer2012,sharmaetal2019}.
 
 \textcolor{white}{If you find this you can claim a postcard from me.}
 
@@ -837,7 +859,7 @@ Constitutive equations:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Appendices
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\clearpage
+\bigskip
 % %\renewcommand*{\appendixpagename}{Appendix}
 % %\renewcommand*{\appendixname}{Appendix}
 % %\appendixpage

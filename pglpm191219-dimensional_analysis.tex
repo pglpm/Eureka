@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-12T13:31:21+0200
+%% Last-Updated: 2020-06-12T18:06:59+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1021,9 +1021,115 @@ general-relativity side Misner \etal\
 
 % \mynote{check \citep{fischeretal1972}}
  
-\section{A two-dimensional example}
+\section{An introductory two-dimensional example}
 \label{sec:2d_example}
 
+Let me first present a simple example of dimensional analysis in a
+two-dimensional spacetime. I provide very little explanation, letting the
+analysis speaks for itself. The next sections will give a longer discussion
+of the general point of view, of the assumptions, and of cases with more
+complex geometrical objects.
+
+In a region of a two-dimensional spacetime we use coordinates $(x,y)$.
+These coordinates allow us to uniquely identify every event in the region
+(otherwise they wouldn't be coordinates). The coordinate $x$ has dimension
+of temperature, and $y$ of energy density:
+\begin{equation}
+  \label{eq:example_coords2d}
+  \dim(x)=\Te \;,\quad
+  \dim(y)= \En \defd \Ma\Le^{-2}\Ti^{-2} \;.
+\end{equation}
+This may happen, for example, if the region is occupied by an
+electromagnetic material; its temperature is uniform over the slices of a
+specific spacelike foliation, but increasing across the slices; its
+internal energy is instead increasing across the 1-dimensional slice.
+
+From these coordinates we construct two covector fields $(\di x, \di y)$,
+and two vector fields $\bigl(\frac{\de}{\de x}, \frac{\de}{\de y}\bigr)$
+that serve as bases for the spaces of tangent covectors, vectors, and
+tensors. Their dimensions are
+\begin{equation}
+  \label{eq:example_basisvects2d}
+  \begin{aligned}
+  \dim(\di x)&=\Te &\quad
+                        \dim(\di y)&= \En \;,
+                                     \\
+  \dim\Bigl(\frac{\de}{\de x}\Bigr)&=\Te^{-1} &\quad
+                        \dim\Bigl(\frac{\de}{\de y}\Bigr)&= \En^{-1} \;.
+  \end{aligned}
+\end{equation}
+
+
+Consider a contra-co-variant tensor field $\yA \equiv \yA\i{^{\q}_{\q}}$ in
+this region. Using the basis fields above it can be written as
+\begin{equation}
+  \label{eq:expansion_tensor_2d}
+  \yA = %A\i{^{i}_{j}}\, \dex\otimes\dix[j] \equiv
+  A\i{^{x}_{x}}\,\frac{\de}{\de x} \otimes\di x + 
+  A\i{^{x}_{y}}\,\frac{\de}{\de x} \otimes\di y + 
+  A\i{^{y}_{x}}\,\frac{\de}{\de y} \otimes\di x + 
+  A\i{^{y}_{y}}\,\frac{\de}{\de y} \otimes\di y \;,
+\end{equation}
+where $A\i{^{x}_{x}} \defd \yA\bigl(\di x, \frac{\de}{\de x}\bigr)$, \ldots
+are the components of the tensor in the coordinate system $(x, y)$.
+
+The two sides of the expansion above must have the same dimension. The four
+summands of the right side must also have the same dimension. Denoting
+$\Aa \defd \dim(\yA)$, we have the four equations
+\begin{equation*}
+  \label{eq:four_dims_2d_pre}
+  \begin{aligned}
+    \Aa &= \dim(A\i{^{x}_{x}}) &\quad \Aa &=
+ \dim(A\i{^{x}_{y}})\,\Te\,\En^{-1}
+ \\
+    \Aa &= \dim(A\i{^{y}_{x}})\,\Te^{-1}\,\En &\quad \Aa &=
+ \dim(A\i{^{y}_{y}}) \;,
+  \end{aligned}
+\end{equation*}
+or
+\begin{equation}
+  \label{eq:four_dims_2d}
+  \begin{aligned}
+    \dim(A\i{^{x}_{x}}) &= \Aa\, &\quad 
+ \dim(A\i{^{x}_{y}}) &=\Aa\,\Te^{-1}\,\En
+ \\
+    \dim(A\i{^{y}_{x}}) &= \Aa\,\Te\,\En^{-1} &\quad
+ \dim(A\i{^{y}_{y}}) &= \Aa \;.
+  \end{aligned}
+\end{equation}
+
+The intrinsic dimension of the tensor $\yA$ is $\Aa$. The
+expansion~\eqref{eq:expansion_tensor_2d} shows that this dimension is
+independent of the coordinate system, because the expansion could be done
+for any other coordinates but the left side would always be the same. The
+intrinsic dimension is determined by the physical or operational meaning of
+the tensor. Together with the dimensions of the coordinates it determines
+the dimensions of the components, \eqn~\eqref{eq:four_dims_2d}, which need
+not be all equal.
+
+This simple example should have disclosed the main points of dimensional
+analysis on manifolds, which will now be discussed in more generality.
+
+Note that in the example we silently adopted a couple of conventions; for
+example, that the tensor product behaves similarly to multiplication with
+regard to dimensions. Such conventions are briefly discussed in
+\sect~\ref{sec:summary}.
+
+
+% then the components of $\yA$ have dimensions
+% \begin{equation}
+%   \label{eq:example_components}
+%   \Bigl(\dim\bigl(A\i{^{i}_{j}}\bigr)\Bigr) =
+%  \Aa\times \begin{pmatrix}
+%    \Un & \Le^{-1}\Te & \Le^{-1}\Te & \Ma^{-1}\Le\Ti^{2}\Te
+%    \\
+%    \Le\Te^{-1} & \Un & \Un & \Ma^{-1}\Le^{2}\Ti^{2}
+%    \\
+%    \Le\Te^{-1} & \Un & \Un & \Ma^{-1}\Le^{2}\Ti^{2}
+%    \\
+%    \Ma\Le^{-1}\Ti^{-2}\Te^{-1} & \Ma\Le^{-2}\Ti^{-2} & \Ma\Le^{-2}\Ti^{-2} & \Un
+%   \end{pmatrix}.
+% \end{equation}
 
 
 
@@ -1031,15 +1137,14 @@ general-relativity side Misner \etal\
 \label{sec:coords}
 
 From a physical point of view, a coordinate is just a function that
-associates a value of a physical quantity with every event in a region (the
-domain of the coordinate chart) of spacetime. Together with the other
+associates one value of a physical quantity with every event in a region
+(the domain of the coordinate chart) of spacetime. Together with the other
 coordinates, such function allows us to uniquely identify every event
 within that region. Any physical quantity will do: the distance from
 something, the time elapsed since something, an angle, an energy density,
 the strength of a magnetic flux, a temperature, and so on. A coordinate can
-thus have any dimension: length $\Le$, time $\Ti$, angle $\Un$, energy
-density $\En \defd \Ma\Le^{-1}\Ti^{-2}$, magnetic flux
-$\Fl \defd \Ma\Le^{2}\Ti^{-2}\Cu^{-1}$, temperature $\Te$, and so on.
+thus have any dimension: length $\Le$, time $\Ti$, angle $\Un$, temperature
+$\Te$, magnetic flux $\Fl \defd \Ma\Le^{2}\Ti^{-2}\Cu^{-1}$, and so on.
 
 The functional relation between two sets of coordinates must of course be
 dimensionally consistent. For example, if $\dim(x^{0})=\Ti$ and
@@ -1049,12 +1154,12 @@ $\xi = a x^{0} + bx^{1}$ with $\dim(a)=\Ti^{-1}$ and $\dim(b)=\Le^{-1}$.
 
 %The dimensions of the coordinates don't matter, as we'll now see.
 
-\section{Tensors: absolute dimension and components' dimensions}
+\section{Tensors: intrinsic dimension and components' dimensions}
 \label{sec:tensors}
 
 Consider a system of coordinates $(x^i)$ with dimensions $(\Xx_i)$, and the
 ensuing sets of covector fields (1-forms) $\dix$ and of vector fields
-$\Bigl(\dex\Bigr)$, bases for the cotangent and tangent spaces. Their
+$\bigl(\dex\bigr)$, bases for the cotangent and tangent spaces. Their
 tensor products are bases for the tangent spaces of higher tensor types.
 
 The differential $\dix$ traditionally has the same dimension as $x^{i}$:
@@ -1067,7 +1172,8 @@ field $\yA \equiv \yA\i{^{\q}_{\q}}$. The discussion generalizes to tensors
 of other types in an obvious way.
 
 The tensor $\yA$ can be expanded in terms of the basis vectors and
-covectors, as mentioned in \sect~\ref{sec:remined}:
+covectors, as in \sect~\ref{sec:remined} and in the example of
+\sect~\ref{sec:2d_example}:
 \begin{equation}
   \label{eq:expansion_tensor}
   \yA = A\i{^{i}_{j}}\, \dex\otimes\dix[j]
@@ -1079,7 +1185,7 @@ Each function
   A\i{^{i}_{j}} \defd  \yA\Bigl(\dix, \dex[j]\Bigr)
   \label{eq:components_def}
 \end{equation}
-is a \emph{component} of the tensor in this coordinate system.
+is a component of the tensor in this coordinate system.
 
 \medskip
 
@@ -1090,7 +1196,7 @@ component $A\i{^{i}_{j}}$ has dimension
   \label{eq:dim_component}
   \dim\bigl(A\i{^{i}_{j}}\bigr) = \Aa\;{\Xx_{i}}\,{\Xx_{j}}^{-1},
 \end{equation}
-where $\Aa$ is \emph{common} to all components. In fact, the
+where $\Aa$ is common to all components. In fact, the
 ${\Xx_{i}}\,{\Xx_{j}}^{-1}$ term cancels the ${\Xx_{i}}^{-1}\,{\Xx_{j}}$
 term coming from $\dex\otimes\dix[j]$ in the
 sum~\eqref{eq:expansion_tensor}, and each summand therefore has dimension
@@ -1104,50 +1210,55 @@ The generalization of the formula above to tensors of other types is obvious:
   \\
   \text{where the ordering of the indices doesn't matter.}
 \end{multline}
-
-For example, if  we're using coordinates with dimensions
-\begin{equation}
-  \label{eq:example_coords}
-  \dim(x^{0})=\Te,\quad
-  \dim(x^{1})=\Le,\quad
-  \dim(x^{2})=\Le,\quad
-  \dim(x^{3})=\Ma\Le^{-1}\Ti^{-2},
-\end{equation}
-then the components of $\yA$ have dimensions
-\begin{equation}
-  \label{eq:example_components}
-  \Bigl(\dim\bigl(A\i{^{i}_{j}}\bigr)\Bigr) =
- \Aa\times \begin{pmatrix}
-   \Un & \Le^{-1}\Te & \Le^{-1}\Te & \Ma^{-1}\Le\Ti^{2}\Te
-   \\
-   \Le\Te^{-1} & \Un & \Un & \Ma^{-1}\Le^{2}\Ti^{2}
-   \\
-   \Le\Te^{-1} & \Un & \Un & \Ma^{-1}\Le^{2}\Ti^{2}
-   \\
-   \Ma\Le^{-1}\Ti^{-2}\Te^{-1} & \Ma\Le^{-2}\Ti^{-2} & \Ma\Le^{-2}\Ti^{-2} & \Un
-  \end{pmatrix}.
-\end{equation}
-Clearly most components have different dimensions. But this doesn't matter.
+% For example, if  we're using coordinates with dimensions
+% \begin{equation}
+%   \label{eq:example_coords}
+%   \dim(x^{0})=\Te,\quad
+%   \dim(x^{1})=\Le,\quad
+%   \dim(x^{2})=\Le,\quad
+%   \dim(x^{3})=\Ma\Le^{-1}\Ti^{-2},
+% \end{equation}
+% then the components of $\yA$ have dimensions
+% \begin{equation}
+%   \label{eq:example_components}
+%   \Bigl(\dim\bigl(A\i{^{i}_{j}}\bigr)\Bigr) =
+%  \Aa\times \begin{pmatrix}
+%    \Un & \Le^{-1}\Te & \Le^{-1}\Te & \Ma^{-1}\Le\Ti^{2}\Te
+%    \\
+%    \Le\Te^{-1} & \Un & \Un & \Ma^{-1}\Le^{2}\Ti^{2}
+%    \\
+%    \Le\Te^{-1} & \Un & \Un & \Ma^{-1}\Le^{2}\Ti^{2}
+%    \\
+%    \Ma\Le^{-1}\Ti^{-2}\Te^{-1} & \Ma\Le^{-2}\Ti^{-2} & \Ma\Le^{-2}\Ti^{-2} & \Un
+%   \end{pmatrix}.
+% \end{equation}
+Clearly the components can have different dimensions. But this doesn't matter.
 What matters is that the sum~\eqref{eq:expansion_tensor} be dimensionally
 consistent. (Fokker \citep[\sect~VII.1 p.~88]{fokker1960_t1965}, for
 example, uses a metric tensor with components having different dimensions.)
 
 \medskip
 
-The dimension $\Aa$, which is also the final dimension of the
-sum~\eqref{eq:expansion_tensor}, is called the \emph{absolute dimension}
-\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} of the tensor $\yA$,
-and we write
+The dimension $\Aa$, which is also the dimension of the
+sum~\eqref{eq:expansion_tensor}, I'll call the \emph{intrinsic dimension}
+of the tensor $\yA$, and we write
 \begin{equation}
   \label{eq:abs_dim}
   \dim(\yA) = \Aa.
 \end{equation}
-This is the intrinsic dimension of the tensor, independent of any
-coordinate system. It reflects the physical or operational
+This dimension is independent of any coordinate system.
+It reflects the physical or operational
 \citep{bridgman1927_r1958}[see
 also][\sect~A.2]{synge1960}[\sects~A.3--4]{truesdelletal1960} meaning of
 the tensor. We'll see an example of what this mean in
 \sect~\ref{sec:metric} with the metric tensor.
+
+This notion was introduced by Dorgelo and
+Schouten~\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} under the
+name \defquote{absolute dimension}. I find the adjective
+\defquote{intrinsic} more congruous to modern terminology (and less prone
+to suggest spurious connections with absolute values).
+
 
 
 \medskip
@@ -1156,16 +1267,16 @@ Different coordinate systems lead to different dimensions of the
 \emph{components} of a tensor $\yA$, but the absolute dimension of the
 tensor remains the same. Formula~\eqref{eq:dim_component_generic} for the
 dimensions of the components is consistent under changes of coordinates.
-For example, in new coordinates $({x}^{i'})$ with dimensions
-$({\Xx}_{i'})$, the new components of $\yA$ are
+For example, in new coordinates $({\bar{x}}^{k})$ with dimensions
+$({\bar{\Xx}}_{k})$, the new components of $\yA$ are
 \begin{equation}
   \label{eq:coords_change}
-  {A}\i{^{i'}_{j'}} = A\i{^{i}_{j}}
-  \,\frac{\de {x}^{i'}}{\de x^{i}}
-  \,\frac{\de {x}^{j}}{\de {x}^{i'}}
+  \bar{A}\i{^{k}_{l}} = A\i{^{i}_{j}}
+  \,\frac{\de \bar{x}^{k}}{\de x^{i}}
+  \,\frac{\de {x}^{j}}{\de \bar{x}^{l}}
 \end{equation}
 and a quick check shows that
-$\dim({A}\i{^{i'}_{j'}}) = \Aa\,{\Xx}_{i'}\,{{\Xx}_{j'}}^{-1}$, consistent
+$\dim(\bar{A}\i{^{k}_{l}}) = \Aa\,\bar{\Xx}_{k}\,{\bar{\Xx}_{l}}^{-1}$, consistently
 with the general formula~\eqref{eq:dim_component_generic}. % (You may have noticed
 % that the partial-derivative symbol $\de$ is not in boldface in the last
 % expression; that's on purpose but I won't dwell on the reason here, because
@@ -1173,8 +1284,8 @@ with the general formula~\eqref{eq:dim_component_generic}. % (You may have notic
 
 \smallskip
 
-In the following I'll drop the adjective
-\defquote{absolute} when it's clear from the context.
+In the following I'll drop the adjective \defquote{intrinsic} when it's
+clear from the context.
 
 \section{Tensor operations}
 \label{sec:tensor_ops}
@@ -1182,14 +1293,14 @@ In the following I'll drop the adjective
 By the reasoning of the previous section, which simply applies standard
 dimensional considerations to the basis
 expansion~\eqref{eq:expansion_tensor}, it's easy to find the resulting
-absolute dimension of various operations and operators on tensors and
+intrinsic dimension of various operations and operators on tensors and
 tensor fields.
 
 Here is a summary of the dimensional rules for the main
 differential-geometric operations and operators, except for the covariant
 derivative, the metric, and related tensors, discussed more in depth in
 \sects~\ref{sec:connection}--\ref{sec:metric} below. Some of these rules
-are really definition or conventions, as briefly discussed in their
+are actually definition or conventions, as briefly discussed in their
 description. The others can be proved; I only give a proof for one of them,
 leaving the other proofs as an exercise. For reference, in brackets I give
 the section of Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}
@@ -1202,14 +1313,13 @@ where these operations are defined.
   \dim(\yA\otimes\yB) = \dim(\yA)\dim(\yB).\label{eq:tensor_mult}
 \end{equation}
 
-This is actually a definition or convention. In fact we tacitly used this
-rule already in \sect~\ref{sec:tensors} for the tensors
-$\dex\otimes\dix[j]$ in the coordinate
+This is actually a definition or convention. We tacitly used this rule
+already in the example of \sect~\ref{sec:2d_example} and in
+\sect~\ref{sec:tensors} for the coordinate
 expansion~\eqref{eq:expansion_tensor}. It is a natural definition, because
-for tensors of order 0 -- that is, functions -- the tensor product is just
-ordinary multiplication, and the dimension of a product is the product of
-the dimensions. And it is a definition that doesn't lead to
-inconsistencies.
+for tensors of order 0 (functions) the tensor product is just the ordinary
+product, and the dimension of a product is the product of the dimensions.
+This definition doesn't lead to inconsistencies.
 
 % Consider for example the tensor product of $\yA\i{^{\q}_{\q}}$ and
 % $\yB\i{_{\q\q}^{\q}}$. It introducing coordinates $(x^{i})$ and their
@@ -1241,7 +1351,7 @@ inconsistencies.
 % \end{equation}
 % with $\Aa = \dim(\yA)$ and $\Bb = \dim(\yB)$. Comparing with the
 % generalization of the formula for the components~\eqref{eq:dim_component_generic},
-% we see that the absolute dimension of $\yA\otimes\yB$ is therefore
+% we see that the intrinsic dimension of $\yA\otimes\yB$ is therefore
 % $\Aa\Bb \equiv \dim(\yA)\,\dim(\yB)$.
 
 
@@ -1252,9 +1362,8 @@ inconsistencies.
     \dim(\tr_{\alpha\beta}\yA) = \dim(\yA).
     \label{eq:tensor_contr}
   \end{equation}
-  Note that the formula above only holds \emph{without}
-  raising or lowering indices; see \sect~\ref{sec:metric} for those
-  operations.
+  Note that the formula above only holds \emph{without raising or lowering
+    indices}; see \sect~\ref{sec:metric} for those operations.
 
   This operation can be traced back to the duality of vectors and covectors
   mentioned in \sect~\ref{sec:remined}: a covector field $\yom$ operates
@@ -1267,9 +1376,9 @@ inconsistencies.
 
   
 
-\item The \emph{transposition} (called \enquote{building an isomer} by
-  Schouten \citep[\sect~I.3 p.~13]{schouten1924_r1954}[\sect~II.4
-  p.~20]{schouten1951_r1989}) of the $\alpha$th and $\beta$th slots of a
+\item The \emph{transposition} \citep[called \enquote{building an isomer}
+  by][\sect~I.3 p.~13]{schouten1924_r1954}[\sect~II.4
+  p.~20]{schouten1951_r1989} of the $\alpha$th and $\beta$th slots of a
   tensor has the same dimension as the tensor:
   \begin{equation}
     \dim(\yA^{\intercal_{\alpha\beta}}) = \dim(\yA).
@@ -1290,13 +1399,13 @@ In fact, in coordinates $(x^{i})$ the bracket can be expressed as
   \biggl( u\i{^{j}}\frac{\de v\i{^{i}}}{\de x\i{^{j}}}
   - v\i{^{j}}\frac{\de u\i{^{i}}}{\de x\i{^{j}}} \biggr)\;\dex,
 \end{equation}
-and equating the dimensions of the left and right side, considering that
+and equating the dimensions of the left and right sides, considering that
 \begin{equation}
   \label{eq:dim_u_and_v}
   \dim(u\i{^{i}}) = \dim(\yu)\,\Xx_{i},\quad
   \dim(v\i{^{i}}) = \dim(\yv)\,\Xx_{i},
 \end{equation}
-we find again that all $\Xx$ terms cancel out leaving the
+we find again that all $\Xx$ terms cancel out, leaving the
 result~\eqref{eq:lie_bracket}.
 
 \smallskip
@@ -1347,20 +1456,22 @@ Regarding operations and operators on differential forms:
   Theorem~6.4.8]{abrahametal1983_r1988} together with
   \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
 
-\item The \emph{integral} [IV.B.1] of a form over a submanifold has the
-  same dimension as the form:
+\item The \emph{integral} [IV.B.1] of a form over a submanifold (or chain)
+  $S$ has the same dimension as the form:
   \begin{equation}
-    \dim\bigl(\tint_{c}\yom\bigr) =\dim(\yom).
+    \dim\bigl(\tint_{S}\yom\bigr) =\dim(\yom).
     \label{eq:integration}
   \end{equation}
 \end{itemize}
-
-\mynote{add note about the usual assumption that the integral does not
-  change dimensions.}
+The reason is that the integral of a form over a submanifold or chain is
+ultimately based on the standard definition of integration on the real line
+\citep[\eg][\sects~IV.B.1--2]{choquetbruhatetal1977_r1996}[\sect~5 p.~21,
+\sect~6 p.~24]{derham1955_t1984}, and the latter satisfies the dimensional
+rule above (possibly by convention).
 
 % \medskip
 
-% The resultant absolute dimensions of other operators, for example the
+% The resultant intrinsic dimensions of other operators, for example the
 % determinant \citep[\sect~6.2]{abrahametal1983_r1988}, can be obtained by
 % similar reasoning.
 
@@ -1510,11 +1621,11 @@ to the \emph{components} of those tensors, in specific coordinates of
 dimension $\Le$, and using geometrized units. In such specific coordinates
 every \emph{component} $R\i{^{i}_{jkl}}$ does indeed have dimension
 $\Le^{-2}$, according to the general formula~\eqref{eq:dim_component_generic}, if
-and only if the \emph{absolute} dimension of $\yR$ is unity,
+and only if the \emph{intrinsic} dimension of $\yR$ is unity,
 $\dim(\yR)=\Un$. So I believe that there's no real contradiction with
 Mister \etal's statement and the
 results~\eqref{eq:dim_torsion_riemann_ricci}. This possible
-misunderstanding shows that it's important to distinguish between absolute
+misunderstanding shows that it's important to distinguish between intrinsic
 dimensions, which don't depend on any specific coordinate choice, and
 component dimensions, which do.
 
@@ -1532,7 +1643,7 @@ hold.
 \section{Metric and related tensors and operations}
 \label{sec:metric}
 
-Let's now consider a metric tensor $\yg\i{_{\q\q}}$. What is its absolute
+Let's now consider a metric tensor $\yg\i{_{\q\q}}$. What is its intrinsic
 dimension $\dim(\yg)$? There seem to be two choices in the literature; both
 can be derived from the operational meaning of the metric.
 
@@ -1768,8 +1879,8 @@ of the 4-stress $\yT$ onto a spacelike tangent plane with respect to some
 observer\citep[\sect~3.4.1]{gourgoulhon2007_r2012}{smarretal1978,york1979,smarretal1980}[\sect~1.3]{wilsonetal2003_r2007}[the
 projection doesn't need to be
 orthogonal:][\sect~2.4]{marsdenetal1994}[\sect~B.1.4]{hehletal2003}. If we
-assume that such spatial projection preserves the absolute dimension, then
-the 4-stress and the stress have the same absolute dimension.
+assume that such spatial projection preserves the intrinsic dimension, then
+the 4-stress and the stress have the same intrinsic dimension.
 
 In Newtonian mechanics the stress $\yt$ is an object that, integrated over
 the boundary of a body, gives the total surface force acting on the body
@@ -1806,7 +1917,7 @@ an energy density (or \defquote{volumic energy} according to \textsc{iso}
 \citep[item~A.6.2]{iso2009}).
 
 Since the stress $\yt\i{_{\q}^{\q}}$ is the projection of
-$\yT\i{_{\q}^{\q}}$ and the projection preserves the absolute dimension, we
+$\yT\i{_{\q}^{\q}}$ and the projection preserves the intrinsic dimension, we
 finally find that $\yT\i{_{\q}^{\q}}$ also has the dimension of an energy density:
 \begin{equation}
   \label{eq:dim_4stress}
@@ -1814,7 +1925,7 @@ finally find that $\yT\i{_{\q}^{\q}}$ also has the dimension of an energy densit
 \end{equation}
 
 Note that other co- or contravariant versions of the 4-stress will have
-different absolute dimension, because they're obtained by lowering or
+different intrinsic dimension, because they're obtained by lowering or
 raising indices. For example,
 $\dim(\yT\i{_{\q\q}})=\dim(\yT\i{_{\q}^{\q}})\dim(\yg)=\Ma\Le^{-1}$ if
 $\dim(\yg)\defd \Ti^{2}$.
@@ -1929,13 +2040,13 @@ and~(52.06)]{fock1955_t1964} and Adler \etal\ \citep[\sect~10.5
 We have seen that dimensional analysis in general relativity and
 differential geometry can be seamlessly done, following its usual standard
 rules, if we adopt a coordinate-free or coordinate-invariant view, typical
-of more modern texts. In this view, each tensor has an \enquote{absolute}
+of more modern texts. In this view, each tensor has an \enquote{intrinsic}
 dimension (Schouten \amp\ Dorgelo's terminology) that doesn't depend on the
 dimensions of the coordinates. It's the intrinsic dimension of the tensor.
-It would therefore be more profitable to focus on the absolute dimension of
+It would therefore be more profitable to focus on the intrinsic dimension of
 a tensor rather than on the dimensions of its components. The dimension of
 a specific component is easily found by
-formula~\eqref{eq:dim_component_generic}: it's the product of the absolute
+formula~\eqref{eq:dim_component_generic}: it's the product of the intrinsic
 dimension, times the dimension of the $i$th coordinate function for each
 contravariant index $i$, times the inverse of the dimension of the $j$th
 coordinate function for each covariant index $j$.
@@ -1953,7 +2064,7 @@ can be of importance for some current research involving scales and
 conformal factors \citep[\eg][]{roehretal2005,cadonietal2019}.
 
 Since the dimensions of the components are usually different from the
-absolute dimension and depend on the coordinates, I recommend to avoid
+intrinsic dimension and depend on the coordinates, I recommend to avoid
 statements such as \enquote{the tensor $A\i{_{i}^{jk}}$ has dimension
   $\Xx$}, because it leaves unclear whether \enquote{$A\i{_{i}^{jk}}$} is
 meant to represent the tensor in general (as in Penrose \amp\ Rindler's

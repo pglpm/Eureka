@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-12T09:57:07+0200
+%% Last-Updated: 2020-06-12T11:12:33+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -372,7 +372,7 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \fixpdflayout
 %%% End layout
 %% this fixes missing white spaces
-\pdfmapline{+dummy-space <dummy-space.pfb}\pdfinterwordspaceon%
+%\pdfmapline{+dummy-space <dummy-space.pfb}\pdfinterwordspaceon%
 
 %%% Sectioning
 \newcommand*{\asudedication}[1]{%
@@ -809,7 +809,8 @@ dimensions of constants in differential-geometric and field equations. Some
 incorrect or unfounded notions about these topics are in circulation. For
 example, the notion that the components of a tensor should all have the
 same dimension. This is not true. Or the assumption that all coordinates
-have dimension of length. This is unnecessary.
+have dimension of length. This is unnecessary. These points will be
+clarified in the next sections.
 
 Several factors contribute to these insecurities and misconceptions. Modern
 texts in Lorentzian and general relativity commonly use geometrized units.
@@ -837,8 +838,11 @@ general relativity can thus be quickly and consistently settled; for
 example the dimension of the Riemann curvature tensor, or the dimensional
 results of contraction, of covariant derivative, of raising an index. A
 simple two-dimensional example is given in \sect~\ref{sec:2d_example}.
-Sections~\ref{sec:tensors}--\ref{sec:tensor_ops} give a more general and
-systematic discussion and a synopsis of the main tensorial operations.
+Sections~\ref{sec:tensors}--\ref{sec:curves} give a more general and
+systematic discussion and a synopsis of the main tensorial operations. It
+is shown, in particular, that \emph{the components of a tensor need not
+  have the same dimensions}. The dimension of the constant in the Einstein
+equations is derived in \sect~\ref{sec:einstein_eq}. 
 
 The application of dimensional analysis in differential geometry pivots on
 the somewhat forgotten notion of \emph{intrinsic dimension} of a tensor.
@@ -852,71 +856,41 @@ the dimensions of the tensor's \emph{components}, which instead depend on
 the dimensions of the coordinate functions. The intrinsic dimension should
 thus be the primary focus of dimensional analysis in general relativity and
 in differential geometry. This notion is explained in
-\sect~\ref{sec:tensors}.
+\sect~\ref{sec:tensors}. The intrinsic dimensions of the various curvature
+tensors, of the metric tensor, and of the stress-energy-momentum tensor are
+discussed in \sects~\ref{sec:connection}--\ref{sec:stressenergy}, owing to
+their importance in general relativity. The (contravariant and thrice
+covariant) Riemann and (fully covariant) Ricci tensors are found to have
+intrinsic dimension $\Un$, that is, to be dimensionless. Two standard
+choices for the intrinsic dimension of the metric tensor are discussed.
+
+Dimensional reasoning in differential geometry is clearest when we rely on
+the coordinate-free, intrinsic view of tensors and other
+differential-geometrical objects. % The insecurities mentioned above possibly
+% stem from the exclusive use of the index-based presentation typical of
+% older texts.
+A brief reminder of this view is given in \sect~\ref{sec:remined}, with
+references. Special notation related to it is first explained in
+\sect~\ref{sec:notation}.
 
 
-Dimensional analysis in differential geometry is crucially dependent This
-way of reasoning relies on the coordinate-free, \emph{intrinsic} view of
-tensors and other differential-geometrical objects, a brief reminder of
-which is given in \sect~\ref{sec:remined}, with references.
-
-
-Another important purpose of this Note is to revive the forgotten notion of
-\emph{absolute dimension} of a tensor, and the distinction between it and
-the dimensions of that tensor's \emph{components} in some coordinate
-system. This notion is explained in \sect~\ref{sec:tensors}. The
-absolute dimension, introduced by Schouten and Dorgelo
-\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} and used in Truesdell
-\amp\ Toupin \citep[Appendix II]{truesdelletal1960}, is invariant with respect to
-the dimensions of the coordinates; it's an intrinsic property of a
-tensor. The dimensions of the components depend instead on the dimensions
-of the coordinate functions -- which can be completely arbitrary, as
-discussed in \sect~\ref{sec:coords}. The absolute dimension should thus be
-the primary focus in dimensional analysis in general relativity and in
-differential geometry.
-
-
-
-
-The rest of this Note is mainly an application of the intuitive way of
-reasoning mentioned above and of the notion of absolute dimension. We'll
-reveal and rectify a couple of misconceptions; for example, \emph{the
-  components of a tensor need not have the same dimensions}. The results
-for the main tensor operations and operators are summarized in
-\sect~\ref{sec:tensor_ops}. The results for the curvature tensors and other
-objects depending on a connection are presented in
-\sect~\ref{sec:connection}. It is shown, in particular, that the absolute
-dimension of the (contravariant and thrice covariant) Riemann and (fully
-covariant) Ricci tensors is $\Un$, that is, they are dimensionless. Some
-geometric objects or operators may be unfamiliar to researchers working in
-general relativity only; their discussion may simply be skipped by these
-readers.
-
-The absolute dimension of the metric tensor is discussed in
-\sect~\ref{sec:metric}. The literature on general relativity presents two
-standard choices for it. The absolute dimension of the
-stress-energy-momentum tensor is discussed in \sect~\ref{sec:stressenergy}.
-The dimension of the constant in the Einstein equation is derived in
-\sect~\ref{sec:einstein_eq}, and the two standard results from the
-literature are recovered.
-
-The final \sect~\ref{sec:summary} gives a summary of the main results, with
-some additional comments.
+% The final \sect~\ref{sec:summary} gives a summary of the main results, with
+% some additional comments.
 
 \medskip
 
-This Note assumes some familiarity with basic tensor calculus and related
-notions, for example of co- and contravariance, symmetry and antisymmetry,
+This note assumes familiarity with basic tensor calculus and related
+notions, for example of co- and contra-variance, tensor product,
 contraction. Some passages assume familiarity with the exterior calculus of
 differential forms. Above all, familiarity with the intrinsic presentation
-of differential geometry is assumed; but the general ideas should be
-understandable even without such familiarity. The notation used here is
-briefly presented in \sect~\ref{sec:notation}.
+of differential geometry mentioned above is assumed; but the general ideas
+should be understandable even without such familiarity.
 
 Finally, quoting Truesdell \amp\ Toupin \citep[Appendix \sect~7
 footnote~4]{truesdelletal1960}, \enquote{dimensional analysis remains a
   controversial and somewhat obscure subject. We do not attempt a complete
-  presentation here.}
+  presentation here.} Some references about recent developments in this
+subject are given in the final \sect~\ref{sec:summary}.
 
 
 % \citep{aldersley1977} also confuses component- and absolute dimensions
@@ -1499,6 +1473,7 @@ The exact contra- and covariant type used above for these tensors is very
 important in these equations. If we raise any of their indices using a
 metric, their dimensions will generally change.
 
+\mynote{recheck this statement}
 Misner \etal\ \citey[pp.~35, 407]{misneretal1970_r1973} say that
 \enquote{curvature}, the Riemann or Einstein tensors (for which see
 \sect~\ref{sec:metric} below), has dimension $\Le^{-2}$, a statement

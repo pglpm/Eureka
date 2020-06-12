@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-12T11:12:33+0200
+%% Last-Updated: 2020-06-12T13:31:21+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -106,7 +106,8 @@ british%
 \newcommand*{\langnohyph}{\foreignlanguage{nohyphenation}}
 
 \usepackage[autostyle=false,autopunct=false,english=british]{csquotes}
-\setquotestyle{british}
+\setquotestyle{american}
+\newcommand*{\defquote}[1]{`\,#1\,'}
 
 \usepackage{amsthm}
 \newcommand*{\QED}{\textsc{q.e.d.}}
@@ -847,7 +848,7 @@ equations is derived in \sect~\ref{sec:einstein_eq}.
 The application of dimensional analysis in differential geometry pivots on
 the somewhat forgotten notion of \emph{intrinsic dimension} of a tensor.
 The present note tries to revive this notion, introduced under the name of
-\enquote{absolute dimension} by Schouten and Dorgelo
+\defquote{absolute dimension} by Schouten and Dorgelo
 \citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} and used in Truesdell
 \amp\ Toupin \citep[Appendix II]{truesdelletal1960}. The intrinsic or
 absolute dimension is an intrinsic property of a tensor, invariant with
@@ -905,32 +906,54 @@ electric current $\Cu$. Note that I don't discuss \emph{units} -- it
 doesn't matter here whether the unit for length is the metre or the
 centimetre, for example.
 
-Since the type of a tensor -- that is, the number and ordering of its
-covariant and contravariant \enquote{slots}
-\citep[\sect~3.2]{misneretal1970_r1973} -- is important in dimensional
-analysis, I often denote it explicitly with a notation like
-$\yA\i{_{\q}^{\q\q}}$ to indicate that $\yA$ is covariant in its first slot
-and contravariant in its second and third slots. Its components would thus
-be $(A\i{_{i}^{jk}})$. For brevity I'll call this a
-\enquote{co-contra-contravariant} tensor, with an obvious naming
-generalization for other types. In spirit this notation is similar to the
-abstract-index one of Penrose \amp\ Rindler
-\citep[\sect~2.2]{penroseetal1984_r2003}; but I avoid using letters for the
-indices, so that the notational difference between a tensor and its
-components, which is very important for our discussion, doesn't disappear.
+The number and ordering of a tensor's covariant and contravariant
+\enquote{slots} \citep[\sect~3.2]{misneretal1970_r1973} will often be very
+important in our discussion. The traditional coordinate-free notation
+\defquote{$\yA$} unfortunately omits this information. We thus need a
+coordinate-free notation that makes them explicit. Penrose \amp\ Rindler
+\citep[\sect~2.2]{penroseetal1984_r2003} propose an abstract-index
+notation, where \defquote{$A\i{_{i}^{jk}}$}, for example, denotes a tensor
+covariant in its first slot and contravariant in its second and third
+slots. Every index in this notation is \enquote{simply as a label whose
+  sole purpose is to keep track of the type of tensor under
+  discussion}~\citep[p.~75]{penroseetal1984_r2003}, so this notation
+doesn't stand for the set of \emph{components} of the tensor. For the
+latter set, \textbf{bold} indices are used instead:
+\defquote{$A\i{_{\bm{i}}^{\bm{jk}}}$}. The difference between a tensor and
+its set of components is crucial to our discussion, however, and the
+abstract-index notation lends itself to conceptual and typographic
+misunderstanding.
 
-I denote the contraction of the $\alpha$th and $\beta$th slots (which must
-have opposite variant types) of a tensor $\yA$ by $\tr_{\alpha\beta}\yA$,
-and the transposition (swapping) of the $\alpha$th and $\beta$th slots with
-$\yA^{\intercal_{\alpha\beta}}$. In index notation these operations are
-  \begin{equation*}
-    A\i{_{\dotsm\;}^{%
+I'll therefore use a notation such as \defquote{$\yA\i{_{\q}^{\q\q}}$} to
+indicate that $\yA$ is covariant in its first slot and contravariant in its
+second and third slots. Its components would thus be $(A\i{_{i}^{jk}})$.
+For brevity I'll call this a \defquote{co-contra-contravariant} tensor,
+with an obvious naming generalization for other
+types. % In spirit this notation is similar to the
+% abstract-index one of Penrose \amp\ Rindler
+% \citep[\sect~2.2]{penroseetal1984_r2003}; but I avoid using letters for the
+% indices, so that the notational difference between a tensor and its
+% components, which is very important for our discussion, doesn't disappear.
+
+The only weak points of this notation are the operations of contraction and
+transposition, which literal indices depict so well. Considering that
+contraction is a generalization of trace, and transposition a
+generalization of matrix transposition, I'll use the following notation:
+\begin{itemize}[wide]%,label=\textemdash]
+\item \defquote{$\tr_{\alpha\beta}\yA$} is the contraction of the
+  $\alpha$th and $\beta$th slots (which must have opposite variant types)
+\item \defquote{$\yA^{\intercal_{\alpha\beta}}$} is the transposition
+  (swapping) of the $\alpha$th and $\beta$th slots.
+\end{itemize}
+In index notation these operations are the familiar
+\begin{equation*}
+  A\i{_{\dotsm\;}^{%
       \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{i}
     }_{\dotsm\;%
       \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{i}
       \;\dotsm}}
   \qquad\text{and}\qquad
-      A\i{_{\dotsm\;}^{%
+  A\i{_{\dotsm\;}^{%
       \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{i}
     }_{\dotsm\;%
       \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{j}
@@ -938,45 +961,49 @@ $\yA^{\intercal_{\alpha\beta}}$. In index notation these operations are
   \mapsto
   A\i{_{\dotsm\;%
       \underset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{j}
-    \;\dotsm\;}^{%
+      \;\dotsm\;}^{%
       \overset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{i}
-      }_{\;\dotsm}}.
-  \end{equation*}
+    }_{\;\dotsm}} \;.
+\end{equation*}
 
-  % $\yA\i{^{\q \mathrm{c}}_{\q \mathrm{c}\q}}$
+We'll consider contraction and transposition only sparsely, so I hope this
+notation won't be too uncomfortable.
+
+% $\yA\i{^{\q \mathrm{c}}_{\q \mathrm{c}\q}}$
 
 
 
-\section{Intrinsic view of differential-geometric objects:  brief
+\section{Intrinsic view of differential-geometric objects:\\ brief
   reminder}
 \label{sec:remined}
 
 
 From the intrinsic point of view, a tensor is defined by its geometric
-properties. For example, a vector field $\yv \equiv \yv(\dotv)$ is an
-object that operates on functions defined on the (spacetime) manifold,
-yielding new functions, with the properties $\yv(af+bg)=a\yv(f)+b\yv(g)$
-and $\yv(fg)=\yv(f)g+f\yv(g)$ for all functions $f$, $g$ and reals $a$,
-$b$. A covector field (1-form) $\yom$ is an object that operates on vector
-fields, yielding functions (\enquote{duality}), with the property
+properties. For example, a vector field $\yv$ % \equiv \yv(\dotv)
+is an object that operates on functions defined on the (spacetime)
+manifold, yielding new functions, with the properties
+$\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for all
+functions $f$, $g$ and reals $a$, $b$. A covector field (1-form) $\yom$ is
+an object that operates on vector fields, yielding functions
+(\defquote{duality}), with the property
 $\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields $\yu$, $\yv$
 and functions $f$, $g$. The sum of vector or covector fields, and their
-products by functions -- let's call this \enquote{linearity} -- are defined
-in an obvious way. Tensors are constructed from these objects.
+products by functions -- let's call this \defquote{linearity} -- are
+defined in an obvious way. Tensors are constructed from these objects.
 
 A system of coordinates $(x^{i})$ is just a set of linearly independent
 functions. This set gives rise to a set of vectors fields
-$\Bigl(\dex\Bigr)$ and to a set of covector fields $(\dix)$ by the obvious
+$\bigl(\dex\bigr)$ and to a set of covector fields $(\dix)$ by the obvious
 requirements that $\dex(x^{j})=\delt\i{_{i}^{j}}$ and
-$\dix\Bigl(\dex[j]\Bigr)=\delt\i{^{i}_{j}}$. These two sets can be used as bases
+$\dix\bigl(\dex[j]\bigr)=\delt\i{^{i}_{j}}$. These two sets can be used as bases
 to express all other vectors and covectors as linear combinations. A
 vector field $\yv$ can thus be written as
 \begin{equation}
   \label{eq:vector_intrinsic}
-  \yv \equiv \sum_{i}v^{i}\dex \equiv v^{i}\dex ,
+  \yv \equiv \sum_{i}v^{i}\dex \equiv v^{i}\dex \;,
 \end{equation}
 where the \emph{functions} $v^{i}\defd \yv(x^{i})$ are its components with
-respect to the basis $\Bigl(\dex\Bigr)$. Analogously for a covector field.
+respect to the basis $\bigl(\dex\bigr)$. Analogously for a covector field.
 
 \medskip
 
@@ -1147,7 +1174,7 @@ with the general formula~\eqref{eq:dim_component_generic}. % (You may have notic
 \smallskip
 
 In the following I'll drop the adjective
-\enquote{absolute} when it's clear from the context.
+\defquote{absolute} when it's clear from the context.
 
 \section{Tensor operations}
 \label{sec:tensor_ops}
@@ -1598,7 +1625,7 @@ measurement, however, is more involved than the timelike case. It requires
 dividing the curve into very short pieces, and having specially-chosen
 observers (orthogonal to the pieces) measure each piece. But the
 measurement of each piece actually relies on the measurement of
-\emph{proper time}: each observer uses \enquote{radar distance}
+\emph{proper time}: each observer uses \defquote{radar distance}
 \citep[\sect~84]{landauetal1939_t1996}, sending a lightlike signal which
 bounces back at the end of the piece and measuring the time it takes to
 come back. Even if rigid rods are used, their calibration still relies on a
@@ -1735,7 +1762,7 @@ have therefore dimension
 \label{sec:stressenergy}
 
 To find the dimension of the stress-energy-momentum $\yT$, or
-\enquote{4-stress} for short, let's start with the analysis of the
+\defquote{4-stress} for short, let's start with the analysis of the
 (3-)stress $\yt$ in Newtonian mechanics. The stress $\yt$ is the projection
 of the 4-stress $\yT$ onto a spacelike tangent plane with respect to some
 observer\citep[\sect~3.4.1]{gourgoulhon2007_r2012}{smarretal1978,york1979,smarretal1980}[\sect~1.3]{wilsonetal2003_r2007}[the
@@ -1775,7 +1802,7 @@ obtain
   \label{eq:dim_3stress}
   \dim(\yt\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2},
 \end{equation}
-an energy density (or \enquote{volumic energy} according to \textsc{iso}
+an energy density (or \defquote{volumic energy} according to \textsc{iso}
 \citep[item~A.6.2]{iso2009}).
 
 Since the stress $\yt\i{_{\q}^{\q}}$ is the projection of
@@ -1795,7 +1822,7 @@ $\dim(\yg)\defd \Ti^{2}$.
 
 
 % In most texts the stress-energy-momentum, which I'll call
-% \enquote{4-stress}, is represented by a tensor of order 2,
+% \defquote{4-stress}, is represented by a tensor of order 2,
 % \begin{equation}
 %   \label{eq:4stress}
 %   \yT\i{_{\q}^{\q\q}} =  T\i{_{i}^{j}}\; \dix\otimes\dex[j].
@@ -1805,7 +1832,7 @@ $\dim(\yg)\defd \Ti^{2}$.
 \medskip
 
 
-% The contracted covariant derivative, or \enquote{divergence} of the
+% The contracted covariant derivative, or \defquote{divergence} of the
 % 4-stress, $\tr_{13}\nab\yT\i{_{\q}^{\q}}$ yields the 4-force, which always
 % vanishes in general relativity because of the Einstein equation. Note that
 % we can consider the total 4-stress as coming from the additive contribution
@@ -2049,8 +2076,8 @@ along the same lines also for Newtonian mechanics.
 %%% Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \renewcommand*{\finalnamedelim}{\addcomma\space}
-\defbibnote{prenote}{{\footnotesize (\enquote{de $X$} is listed under D,
-    \enquote{van $X$} under V, and so on, regardless of national
+\defbibnote{prenote}{{\footnotesize (\defquote{de $X$} is listed under D,
+    \defquote{van $X$} under V, and so on, regardless of national
     conventions.)\par}}
 % \defbibnote{postnote}{\par\medskip\noindent{\footnotesize% Note:
 %     \arxivp \mparcp \philscip \biorxivp}}

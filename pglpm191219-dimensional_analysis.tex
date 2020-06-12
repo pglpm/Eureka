@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-12T18:06:59+0200
+%% Last-Updated: 2020-06-12T18:46:03+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1033,7 +1033,8 @@ complex geometrical objects.
 In a region of a two-dimensional spacetime we use coordinates $(x,y)$.
 These coordinates allow us to uniquely identify every event in the region
 (otherwise they wouldn't be coordinates). The coordinate $x$ has dimension
-of temperature, and $y$ of energy density:
+of temperature, and $y$ of energy density: \mynote{use entropy instead and
+  cite Maugin, Eckart, and co.}
 \begin{equation}
   \label{eq:example_coords2d}
   \dim(x)=\Te \;,\quad
@@ -1457,9 +1458,9 @@ Regarding operations and operators on differential forms:
   \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
 
 \item The \emph{integral} [IV.B.1] of a form over a submanifold (or chain)
-  $S$ has the same dimension as the form:
+  $M$ has the same dimension as the form:
   \begin{equation}
-    \dim\bigl(\tint_{S}\yom\bigr) =\dim(\yom).
+    \dim\bigl(\tint_{M}\yom\bigr) =\dim(\yom).
     \label{eq:integration}
   \end{equation}
 \end{itemize}
@@ -1474,6 +1475,10 @@ rule above (possibly by convention).
 % The resultant intrinsic dimensions of other operators, for example the
 % determinant \citep[\sect~6.2]{abrahametal1983_r1988}, can be obtained by
 % similar reasoning.
+
+\mynote{note on inner-oriented forms}
+
+
 
 \section{Curves and integral curves}
 \label{sec:curves}
@@ -1494,7 +1499,7 @@ owing to the definition
 \citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}[\sect~IV.(1.9)]{boothby1975_r2003}
 \begin{equation}
   \label{eq:def_tangent_curve}
-\dot{C} \defd \frac{\de x^{i}[C(s)]}{\de s}\;\dex .
+\dot{C} \defd \frac{\de (x^{i} \circ C)}{\de s}\;\dex .
 \end{equation}
 % or considering that $\dot{C}$ can be interpreted as the push-forward of
 % $\partial_s$, that is, $C_*(\partial_s)$.
@@ -1505,16 +1510,22 @@ we say that $C$ is an integral curve for it if
   \yv = \dot{C}
   \label{eq:integral_curve}
 \end{equation}
-(or more precisely $\yv_{C(s)} = \dot{C}_{C(s)}$ in usual
-differential-geometric notation
-\citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}) at all events $C(s)$ in
-the image of the curve. From the point of view of dimensional analysis this
-definition can only be valid if $\yv$ has dimension $\Ss^{-1}$. If $\yv$
-and $s^{-1}$ have different dimensions -- a case which can happen for
-physical reasons -- the condition~\eqref{eq:def_tangent_curve} must be
-modified into $\yv = k\dot{C}$, where $k$ is a possibly dimensionful
-constant. This is equivalent to considering an affine and dimensional
-reparameterization of $C$.
+at all events $C(s)$ in the image of the curve (or more precisely
+$\yv_{C(s)} = \dot{C}_{C(s)}$ in usual differential-geometric notation
+\citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}). From the point of view
+of dimensional analysis this definition can only be valid if $\yv$ has
+dimension $\Ss^{-1}$. If $\yv$ and $s^{-1}$ have different dimensions -- a
+case which could happen for physical reasons -- the
+condition~\eqref{eq:def_tangent_curve} must be modified into
+$\yv = k\dot{C}$, where $k$ is a possibly dimensionful constant. This is
+equivalent to considering an affine and dimensional reparameterization of
+$C$.
+
+%% the dimension of the parameter of a curve doesn't influence an integral
+%% over the curve, just like a reparameterization of the curve doesn't.
+
+
+
 
 
 \section{Connection, covariant derivative, curvature tensors}
@@ -1611,19 +1622,18 @@ The exact contra- and covariant type used above for these tensors is very
 important in these equations. If we raise any of their indices using a
 metric, their dimensions will generally change.
 
-\mynote{recheck this statement}
-Misner \etal\ \citey[pp.~35, 407]{misneretal1970_r1973} say that
-\enquote{curvature}, the Riemann or Einstein tensors (for which see
-\sect~\ref{sec:metric} below), has dimension $\Le^{-2}$, a statement
+Misner \etal\ \citey[p.~35%, 407
+]{misneretal1970_r1973} say that \enquote{curvature}, by which they seem to
+mean the Riemann tensor, has dimension $\Le^{-2}$. This statement is
 seemingly at variance with the dimensionless
-results~\eqref{eq:dim_torsion_riemann_ricci}. But I believe that they refer
-to the \emph{components} of those tensors, in specific coordinates of
-dimension $\Le$, and using geometrized units. In such specific coordinates
-every \emph{component} $R\i{^{i}_{jkl}}$ does indeed have dimension
-$\Le^{-2}$, according to the general formula~\eqref{eq:dim_component_generic}, if
-and only if the \emph{intrinsic} dimension of $\yR$ is unity,
-$\dim(\yR)=\Un$. So I believe that there's no real contradiction with
-Mister \etal's statement and the
+results~\eqref{eq:dim_torsion_riemann_ricci}. But I believe that Misner
+\etal\ refer to the \emph{components} of the Riemann tensor, in specific
+coordinates of dimension $\Le$, and using geometrized units. In such
+specific coordinates every \emph{component} $R\i{^{i}_{jkl}}$ does indeed
+have dimension $\Le^{-2}$, according to the general
+formula~\eqref{eq:dim_component_generic}, if and only if the intrinsic
+dimension of $\yR$ is unity, $\dim(\yR)=\Un$. So I believe that Mister
+\etal's statement actually agrees with the
 results~\eqref{eq:dim_torsion_riemann_ricci}. This possible
 misunderstanding shows that it's important to distinguish between intrinsic
 dimensions, which don't depend on any specific coordinate choice, and
@@ -1690,7 +1700,7 @@ thus obtaining
 
 The choice~\eqref{eq:dim_g_c} seems also supported by the traditional
 expression for the \enquote{line element $\ds^{2}$} as it appears in many
-works (for an exception, with dimension $\Ti^{2}$, see Kilmister
+works (for an exception with dimension $\Ti^{2}$ see Kilmister
 \citep[\chap~II p.~25]{kilmister1973}{kilmister1973}),
 \begin{equation}
   \label{eq:line_elem}
@@ -1962,9 +1972,8 @@ antisymmetric in the last three slots), or by a 3-vector-valued 3-form
 first three and last three slots), for reasons connected with integration,
 similar to those mentioned above for the stress $\yt\i{_{\q\;\q\q}}$ See
 for example the discussion about \enquote{$^{\displaystyle *}\mathte{T}$}
-by Misner \etal\ \citey[\chap~15]{misneretal1970_r1973}, the works by Segev
-\citey{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
-discussion by Burke \citey[\sect~41]{burke1985_r1987}.
+by Misner \etal~\citep[\chap~15]{misneretal1970_r1973}, the works by Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
+discussion by Burke~\citep[\sect~41]{burke1985_r1987}.
 
 % Some texts state that the timelike component of the 4-force equals the work
 % done by the force, apart from relativistic factors.
@@ -1979,7 +1988,7 @@ discussion by Burke \citey[\sect~41]{burke1985_r1987}.
 \section{Einstein equation and Einstein's constant}
 \label{sec:einstein_eq}
 
-We finally arrive at the Einstein equation,
+We finally arrive at the Einstein equations,
 \begin{equation}
   \label{eq:einstein}
   \yG%\i{_{\q}^{\q}}

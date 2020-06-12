@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-11T14:58:02+0200
+%% Last-Updated: 2020-06-12T09:57:07+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -12,11 +12,14 @@
 \typodisclaimfalse
 %\newcommand*{\memfontfamily}{zplx}
 %\newcommand*{\memfontpack}{newpxtext}
-\documentclass[a4paper,10pt,final]{iopart}
+\documentclass[\ifafour a4paper,12pt,\else a5paper,10pt,\fi%extrafontsizes,%
+onecolumn,oneside,article,%french,italian,german,swedish,latin,
+british%
+]{memoir}
 \newcommand*{\firstdraft}{13 December 2019}%not used
 \newcommand*{\firstpublished}{13 December 2019}
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
-\newcommand*{\propertitle}{Dimensional analysis in general relativity\\ and differential geometry%\\{\large ***}%
+\newcommand*{\propertitle}{Dimensional analysis in general relativity\\ and in differential geometry%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{\propertitle}
 \newcommand*{\headtitle}{Dimensional analysis for relativity and manifolds}
@@ -130,12 +133,12 @@
 % \setlist[itemize]{leftmargin=\parindent}
 % \setlist[description]{leftmargin=\parindent}
 
-%\usepackage[babel,theoremfont,largesc]{newpxtext}
+% \usepackage[babel,theoremfont,largesc]{newpxtext}
 
-%\usepackage[bigdelims,nosymbolsc%,smallerops % probably arXiv doesn't have it
-]{newpxmath}
-%\linespread{1.083}%\useosf
-%% smaller operators for old version of newpxmath
+% \usepackage[bigdelims,nosymbolsc%,smallerops % probably arXiv doesn't have it
+% ]{newpxmath}
+% \linespread{1.083}%\useosf
+% %% smaller operators for old version of newpxmath
 % \makeatletter
 % \def\re@DeclareMathSymbol#1#2#3#4{%
 %     \let#1=\undefined
@@ -188,11 +191,11 @@
 \def\prod{\DOTSI\prodop\slimits@}
 \def\coprod{\DOTSI\coprodop\slimits@}
 \makeatother
-\input{../definegreek.tex}% Greek letters not usually given in LaTeX.
+\input{definegreek.tex}% Greek letters not usually given in LaTeX.
 
 %\usepackage%[scaled=0.9]%
 %{classico}%  Optima as sans-serif font
-%\renewcommand\sfdefault{uop}
+% \renewcommand\sfdefault{uop}
 \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
 \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
 \newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
@@ -201,7 +204,7 @@
 % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
 
 % DejaVu Mono as typewriter text
-%\usepackage[scaled=0.84]{DejaVuSansMono}
+% \usepackage[scaled=0.84]{DejaVuSansMono}
 
 \usepackage{mathdots}
 
@@ -261,7 +264,7 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 %\appto{\citesetup}{\footnotesize}% smaller font for citations
 \defbibheading{bibliography}[\bibname]{\section*{#1}\addcontentsline{toc}{section}{#1}%\markboth{#1}{#1}
 }
-\newcommand*{\citep}{\footcites}
+\newcommand*{\citep}{\footcites*}
 \newcommand*{\citey}{\parencites*}%{\footcites}%
 %\renewcommand*{\cite}{\parencite}
 %\renewcommand*{\cites}{\parencites}
@@ -343,63 +346,63 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 %%% two pages per sheet. Average length line is 66 characters and page
 %%% numbers are centred.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \ifafour\setstocksize{297mm}{210mm}%{*}% A4
-% \else\setstocksize{210mm}{5.5in}%{*}% 210x139.7
-% \fi
-% \settrimmedsize{\stockheight}{\stockwidth}{*}
-% \setlxvchars[\normalfont] %313.3632pt for a 66-characters line
-% \setxlvchars[\normalfont]
-% \setlength{\trimtop}{0pt}
-% \setlength{\trimedge}{\stockwidth}
-% \addtolength{\trimedge}{-\paperwidth}
-% % The length of the normalsize alphabet is 133.05988pt - 10 pt = 26.1408pc
-% % The length of the normalsize alphabet is 159.6719pt - 12pt = 30.3586pc
-% % Bringhurst gives 32pc as boundary optimal with 69 ch per line
-% % The length of the normalsize alphabet is 191.60612pt - 14pt = 35.8634pc
-% \ifafour\settypeblocksize{*}{32pc}{1.618} % A4
-% %\setulmargins{*}{*}{1.667}%gives 5/3 margins % 2 or 1.667
-% \else\settypeblocksize{*}{26pc}{1.618}% nearer to a 66-line newpx and preserves GR
-% \fi
-% \setulmargins{*}{*}{1}%gives equal margins
-% \setlrmargins{*}{*}{*}
-% \setheadfoot{\onelineskip}{2.5\onelineskip}
-% \setheaderspaces{*}{2\onelineskip}{*}
-% \setmarginnotes{2ex}{10mm}{0pt}
-% \checkandfixthelayout[nearest]
-% \fixpdflayout
-% %%% End layout
-% %% this fixes missing white spaces
-% \pdfmapline{+dummy-space <dummy-space.pfb}\pdfinterwordspaceon%
+\ifafour\setstocksize{297mm}{210mm}%{*}% A4
+\else\setstocksize{210mm}{5.5in}%{*}% 210x139.7
+\fi
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\setlxvchars[\normalfont] %313.3632pt for a 66-characters line
+\setxlvchars[\normalfont]
+\setlength{\trimtop}{0pt}
+\setlength{\trimedge}{\stockwidth}
+\addtolength{\trimedge}{-\paperwidth}
+% The length of the normalsize alphabet is 133.05988pt - 10 pt = 26.1408pc
+% The length of the normalsize alphabet is 159.6719pt - 12pt = 30.3586pc
+% Bringhurst gives 32pc as boundary optimal with 69 ch per line
+% The length of the normalsize alphabet is 191.60612pt - 14pt = 35.8634pc
+\ifafour\settypeblocksize{*}{32pc}{1.618} % A4
+%\setulmargins{*}{*}{1.667}%gives 5/3 margins % 2 or 1.667
+\else\settypeblocksize{*}{26pc}{1.618}% nearer to a 66-line newpx and preserves GR
+\fi
+\setulmargins{*}{*}{1}%gives equal margins
+\setlrmargins{*}{*}{*}
+\setheadfoot{\onelineskip}{2.5\onelineskip}
+\setheaderspaces{*}{2\onelineskip}{*}
+\setmarginnotes{2ex}{10mm}{0pt}
+\checkandfixthelayout[nearest]
+\fixpdflayout
+%%% End layout
+%% this fixes missing white spaces
+\pdfmapline{+dummy-space <dummy-space.pfb}\pdfinterwordspaceon%
 
 %%% Sectioning
 \newcommand*{\asudedication}[1]{%
 {\par\centering\textit{#1}\par}}
-% \newenvironment{acknowledgements}{\section*{Thanks}\addcontentsline{toc}{section}{Thanks}}{\par}
-% \makeatletter\renewcommand{\appendix}{\par
-%   \bigskip{\centering
-%    \interlinepenalty \@M
-%    \normalfont
-%    \printchaptertitle{\sffamily\appendixpagename}\par}
-%   \setcounter{section}{0}%
-%   \gdef\@chapapp{\appendixname}%
-%   \gdef\thesection{\@Alph\c@section}%
-%   \anappendixtrue}\makeatother
-% \counterwithout{section}{chapter}
-% \setsecnumformat{\upshape\csname the#1\endcsname\quad}
-% \setsecheadstyle{\large\bfseries\sffamily%
-% \centering}
-% \setsubsecheadstyle{\bfseries\sffamily%
-% \raggedright}
-% %\setbeforesecskip{-1.5ex plus 1ex minus .2ex}% plus 1ex minus .2ex}
-% %\setaftersecskip{1.3ex plus .2ex }% plus 1ex minus .2ex}
-% %\setsubsubsecheadstyle{\bfseries\sffamily\slshape\raggedright}
-% %\setbeforesubsecskip{1.25ex plus 1ex minus .2ex }% plus 1ex minus .2ex}
-% %\setaftersubsecskip{-1em}%{-0.5ex plus .2ex}% plus 1ex minus .2ex}
-% \setsubsecindent{0pt}%0ex plus 1ex minus .2ex}
-% \setparaheadstyle{\bfseries\sffamily%
-% \raggedright}
-% \setcounter{secnumdepth}{2}
-% \setlength{\headwidth}{\textwidth}
+\newenvironment{acknowledgements}{\section*{Thanks}\addcontentsline{toc}{section}{Thanks}}{\par}
+\makeatletter\renewcommand{\appendix}{\par
+  \bigskip{\centering
+   \interlinepenalty \@M
+   \normalfont
+   \printchaptertitle{\sffamily\appendixpagename}\par}
+  \setcounter{section}{0}%
+  \gdef\@chapapp{\appendixname}%
+  \gdef\thesection{\@Alph\c@section}%
+  \anappendixtrue}\makeatother
+\counterwithout{section}{chapter}
+\setsecnumformat{\upshape\csname the#1\endcsname\quad}
+\setsecheadstyle{\large\bfseries\sffamily%
+\centering}
+\setsubsecheadstyle{\bfseries\sffamily%
+\raggedright}
+%\setbeforesecskip{-1.5ex plus 1ex minus .2ex}% plus 1ex minus .2ex}
+%\setaftersecskip{1.3ex plus .2ex }% plus 1ex minus .2ex}
+%\setsubsubsecheadstyle{\bfseries\sffamily\slshape\raggedright}
+%\setbeforesubsecskip{1.25ex plus 1ex minus .2ex }% plus 1ex minus .2ex}
+%\setaftersubsecskip{-1em}%{-0.5ex plus .2ex}% plus 1ex minus .2ex}
+\setsubsecindent{0pt}%0ex plus 1ex minus .2ex}
+\setparaheadstyle{\bfseries\sffamily%
+\raggedright}
+\setcounter{secnumdepth}{2}
+\setlength{\headwidth}{\textwidth}
 \newcommand{\addchap}[1]{\chapter*[#1]{#1}\addcontentsline{toc}{chapter}{#1}}
 \newcommand{\addsec}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
 \newcommand{\addsubsec}[1]{\subsection*{#1}\addcontentsline{toc}{subsection}{#1}}
@@ -407,66 +410,66 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \newcommand{\addparap}[1]{\paragraph*{#1}\addcontentsline{toc}{subsubsection}{#1}}
 
 %%% Headers, footers, pagestyle
-% \copypagestyle{manaart}{plain}
-% \makeheadrule{manaart}{\headwidth}{0.5\normalrulethickness}
-% \makeoddhead{manaart}{%
-% {\footnotesize%\sffamily%
-% \scshape\headauthor}}{}{{\footnotesize\sffamily%
-% \headtitle}}
+\copypagestyle{manaart}{plain}
+\makeheadrule{manaart}{\headwidth}{0.5\normalrulethickness}
+\makeoddhead{manaart}{%
+{\footnotesize%\sffamily%
+\scshape\headauthor}}{}{{\footnotesize\sffamily%
+\headtitle}}
+\makeoddfoot{manaart}{}{\thepage}{}
+\newcommand*\autanet{\includegraphics[height=\heightof{M}]{autanet.pdf}}
+\definecolor{mygray}{gray}{0.333}
+\iftypodisclaim%
+\ifafour\newcommand\addprintnote{\begin{picture}(0,0)%
+\put(245,149){\makebox(0,0){\rotatebox{90}{\tiny\color{mygray}\textsf{This
+            document is designed for screen reading and
+            two-up printing on A4 or Letter paper}}}}%
+\end{picture}}% A4
+\else\newcommand\addprintnote{\begin{picture}(0,0)%
+\put(176,112){\makebox(0,0){\rotatebox{90}{\tiny\color{mygray}\textsf{This
+            document is designed for screen reading and
+            two-up printing on A4 or Letter paper}}}}%
+\end{picture}}\fi%afourtrue
+\makeoddfoot{plain}{}{\makebox[0pt]{\thepage}\addprintnote}{}
+\else
+\makeoddfoot{plain}{}{\makebox[0pt]{\thepage}}{}
+\fi%typodisclaimtrue
+\makeoddhead{plain}{\scriptsize\reporthead}{}{}
+% \copypagestyle{manainitial}{plain}
+% \makeheadrule{manainitial}{\headwidth}{0.5\normalrulethickness}
+% \makeoddhead{manainitial}{%
+% \footnotesize\sffamily%
+% \scshape\headauthor}{}{\footnotesize\sffamily%
+% \headtitle}
 % \makeoddfoot{manaart}{}{\thepage}{}
-% \newcommand*\autanet{\includegraphics[height=\heightof{M}]{autanet.pdf}}
-% \definecolor{mygray}{gray}{0.333}
-% \iftypodisclaim%
-% \ifafour\newcommand\addprintnote{\begin{picture}(0,0)%
-% \put(245,149){\makebox(0,0){\rotatebox{90}{\tiny\color{mygray}\textsf{This
-%             document is designed for screen reading and
-%             two-up printing on A4 or Letter paper}}}}%
-% \end{picture}}% A4
-% \else\newcommand\addprintnote{\begin{picture}(0,0)%
-% \put(176,112){\makebox(0,0){\rotatebox{90}{\tiny\color{mygray}\textsf{This
-%             document is designed for screen reading and
-%             two-up printing on A4 or Letter paper}}}}%
-% \end{picture}}\fi%afourtrue
-% \makeoddfoot{plain}{}{\makebox[0pt]{\thepage}\addprintnote}{}
-% \else
-% \makeoddfoot{plain}{}{\makebox[0pt]{\thepage}}{}
-% \fi%typodisclaimtrue
-% \makeoddhead{plain}{\scriptsize\reporthead}{}{}
-% % \copypagestyle{manainitial}{plain}
-% % \makeheadrule{manainitial}{\headwidth}{0.5\normalrulethickness}
-% % \makeoddhead{manainitial}{%
-% % \footnotesize\sffamily%
-% % \scshape\headauthor}{}{\footnotesize\sffamily%
-% % \headtitle}
-% % \makeoddfoot{manaart}{}{\thepage}{}
 
-% \pagestyle{manaart}
+\pagestyle{manaart}
 
-% \setlength{\droptitle}{-3.9\onelineskip}
-% \pretitle{\begin{center}\LARGE\sffamily%
-% \bfseries}
-% \posttitle{\bigskip\end{center}}
+\setlength{\droptitle}{-3.9\onelineskip}
+\pretitle{\begin{center}\LARGE\sffamily%
+\bfseries}
+\posttitle{\bigskip\end{center}}
 
-% \makeatletter\newcommand*{\atf}{\includegraphics[%trim=1pt 1pt 0pt 0pt,
-% totalheight=\heightof{@}]{atblack.png}}\makeatother
-% \providecommand{\affiliation}[1]{\textsl{\textsf{\footnotesize #1}}}
-% \providecommand{\epost}[1]{\texttt{\footnotesize\textless#1\textgreater}}
-% \providecommand{\email}[2]{\href{mailto:#1ZZ@#2 ((remove ZZ))}{#1\protect\atf#2}}
+\makeatletter\newcommand*{\atf}{\includegraphics[%trim=1pt 1pt 0pt 0pt,
+totalheight=\heightof{@}]{atblack.png}}\makeatother
+\providecommand{\affiliation}[1]{\textsl{\textsf{\footnotesize #1}}}
+\providecommand{\epost}[1]{\texttt{\footnotesize\textless#1\textgreater}}
+\providecommand{\email}[2]{\href{mailto:#1ZZ@#2 ((remove ZZ))}{#1\protect\atf#2}}
 
-% \preauthor{\vspace{-0.5\baselineskip}\begin{center}
-% \normalsize\sffamily%
-% \lineskip  0.5em}
-% \postauthor{\par\end{center}}
-% \predate{\DTMsetdatestyle{mydate}\begin{center}\footnotesize}
-% \postdate{\end{center}\vspace{-\medskipamount}}
+\preauthor{\vspace{-0.5\baselineskip}\begin{center}
+\normalsize\sffamily%
+\lineskip  0.5em}
+\postauthor{\par\end{center}}
+\predate{\DTMsetdatestyle{mydate}\begin{center}\footnotesize}
+\postdate{\end{center}\vspace{-\medskipamount}}
 
-% \setfloatadjustment{figure}{\footnotesize}
-% \captiondelim{\quad}
-% \captionnamefont{\footnotesize\sffamily%
-% }
-% \captiontitlefont{\footnotesize}
-% %\firmlists*
-% \midsloppy
+\setfloatadjustment{figure}{\footnotesize}
+\captiondelim{\quad}
+\captionnamefont{\footnotesize\sffamily%
+}
+\captiontitlefont{\footnotesize}
+%\firmlists*
+\midsloppy
 % handling orphan/widow lines, memman.pdf
 % \clubpenalty=10000
 % \widowpenalty=10000
@@ -480,46 +483,39 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \displaywidowpenalty=1602
 \raggedbottom
 
-% \paragraphfootnotes%
-% %\setlength{\footmarkwidth}{1.3em}
-% % \threecolumnfootnotes
-% %\setlength{\footmarksep}{-\footmarkwidth}
-% %\setlength{\footparindent}{10em}
-% \footmarkstyle{\textsuperscript{%\color{myred}
-% \scriptsize\bfseries%\underline{
-% #1%}
-% }~}
-% %\footmarkstyle{\textsuperscript{\color{myred}\scriptsize\bfseries#1}~}
-% %\footmarkstyle{\textsuperscript{[#1]}~}
+\paragraphfootnotes%
+%\setlength{\footmarkwidth}{1.3em}
+% \threecolumnfootnotes
+%\setlength{\footmarksep}{-\footmarkwidth}
+%\setlength{\footparindent}{10em}
+\footmarkstyle{\textsuperscript{%\color{myred}
+\scriptsize\bfseries%\underline{
+#1%}
+}~}
+%\footmarkstyle{\textsuperscript{\color{myred}\scriptsize\bfseries#1}~}
+%\footmarkstyle{\textsuperscript{[#1]}~}
 
 \selectlanguage{british}\frenchspacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Paper's details
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title[\headtitle]{\propertitle}
-\author{P.G.L.  Porta Mana$^1$}
-\address{$^1$ Kavli Institute, Trondheim, Norway}
-\ead{pgl@portamana.org}
-\begin{abstract}
-    This note illustrates how to perform dimensional analysis in
-  general relativity and differential geometry, and tries to revive Dorgelo
-  \amp\ Schouten's notion of \emph{absolute dimension} of a tensorial
-  quantity. The absolute dimension is independent of the dimensions of the
-  coordinate functions. The dimensional analysis of several important
-  tensors and tensor operations is summarized. In particular it is shown
-  that the components of a tensor need not have all the same dimension, and
-  that the Riemann (once contravariant and trice covariant) and Ricci
-  (fully covariant) tensors are dimensionless. The relation between
-  dimension and operational meaning for the metric and
-  stress-energy-momentum tensors is also
-  discussed.
+\title{\propertitle}
+\author{%
+\hspace*{\stretch{1}}%
+%% uncomment if additional authors present
+% \parbox{0.5\linewidth}%\makebox[0pt][c]%
+% {\protect\centering ***\\%
+% \footnotesize\epost{\email{***}{***}}}%
+% \hspace*{\stretch{1}}%
+\parbox{0.75\linewidth}%\makebox[0pt][c]%
+{\protect\centering P.G.L.  Porta Mana \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}\\%
+\footnotesize Kavli Institute, Trondheim\quad\epost{\email{pgl}{portamana.org}}}%
+\hspace*{\stretch{1}}%
+}
 
-\end{abstract}
-\keywords{keywords}
-\submitto{\ejp}
 %\date{Draft of \today\ (first drafted \firstdraft)}
-% \date{\firstpublished; updated \updated}
+\date{\firstpublished; updated \updated}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Macros @@@
@@ -740,46 +736,46 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\firmlists
 \begin{document}
-% \captiondelim{\quad}\captionnamefont{\footnotesize}\captiontitlefont{\footnotesize}
+\captiondelim{\quad}\captionnamefont{\footnotesize}\captiontitlefont{\footnotesize}
 \selectlanguage{british}\frenchspacing
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Abstract
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \abstractrunin
-% \abslabeldelim{}
-% \renewcommand*{\abstractname}{}
-% \setlength{\absleftindent}{0pt}
-% \setlength{\absrightindent}{0pt}
-% \setlength{\abstitleskip}{-\absparindent}
-% \begin{abstract}\labelsep 0pt%
-%   \noindent This note illustrates how to perform dimensional analysis in
-%   general relativity and differential geometry, and tries to revive Dorgelo
-%   \amp\ Schouten's notion of \emph{absolute dimension} of a tensorial
-%   quantity. The absolute dimension is independent of the dimensions of the
-%   coordinate functions. The dimensional analysis of several important
-%   tensors and tensor operations is summarized. In particular it is shown
-%   that the components of a tensor need not have all the same dimension, and
-%   that the Riemann (once contravariant and trice covariant) and Ricci
-%   (fully covariant) tensors are dimensionless. The relation between
-%   dimension and operational meaning for the metric and
-%   stress-energy-momentum tensors is also
-%   discussed.
-%   % \\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer,
-%   %   this manuscript is being peer-reviewed by you. Thank you.}
-% % \par%\\[\jot]
-% % \noindent
-% % {\footnotesize PACS: ***}\qquad%
-% % {\footnotesize MSC: ***}%
-% %\qquad{\footnotesize Keywords: ***}
-% \end{abstract}
+\abstractrunin
+\abslabeldelim{}
+\renewcommand*{\abstractname}{}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+\setlength{\abstitleskip}{-\absparindent}
+\begin{abstract}\labelsep 0pt%
+  \noindent This note illustrates how to perform dimensional analysis in
+  general relativity and differential geometry, and tries to revive Dorgelo
+  \amp\ Schouten's notion of \emph{absolute dimension} of a tensorial
+  quantity. The absolute dimension is independent of the dimensions of the
+  coordinate functions. The dimensional analysis of several important
+  tensors and tensor operations is summarized. In particular it is shown
+  that the components of a tensor need not have all the same dimension, and
+  that the Riemann (once contravariant and trice covariant) and Ricci
+  (fully covariant) tensors are dimensionless. The relation between
+  dimension and operational meaning for the metric and
+  stress-energy-momentum tensors is also
+  discussed.
+  % \\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer,
+  %   this manuscript is being peer-reviewed by you. Thank you.}
+% \par%\\[\jot]
+% \noindent
+% {\footnotesize PACS: ***}\qquad%
+% {\footnotesize MSC: ***}%
+%\qquad{\footnotesize Keywords: ***}
+\end{abstract}
 \selectlanguage{british}\frenchspacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Epigraph
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \asudedication{\small For Emma}
+ \asudedication{\small for Emma}
 % \vspace{\bigskipamount}
 % \setlength{\epigraphwidth}{.7\columnwidth}
 % %\epigraphposition{flushright}
@@ -802,49 +798,67 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 
 
 From the point of view of dimensional analysis, do all components of a
-tensor need to have the same dimension? What is the dimension of the metric
-and the curvature? And what is the dimension of the constant in the
-Einstein equations?
+tensor need to have the same dimension? What are the dimensions of the
+metric and of the curvature tensor? And what is the dimension of the
+constant in the Einstein equations?
 
-There seem to be insecurity and incorrect notions, among some students and
-even some researchers in relativity, regarding the dimensions of tensors
-and of tensor components, the effect of tensor operators on dimensions, and
-the dimension of constants in differential-geometric and field equations.
-I've met, for example, with the statement that the components of a tensor
-should all have the same dimension; and with calculations of the dimensions
-of curvature tensors assuming that coordinates have dimensions of length.
-That statement is wrong; and that assumption is unnecessary.
+Many students in relativity, but also some researchers, seem to be insecure
+when they have to discuss the dimensions of tensors and of tensor
+components, the effect of tensor operators on dimensions, and the
+dimensions of constants in differential-geometric and field equations. Some
+incorrect or unfounded notions about these topics are in circulation. For
+example, the notion that the components of a tensor should all have the
+same dimension. This is not true. Or the assumption that all coordinates
+have dimension of length. This is unnecessary.
 
-Several factors probably cause or contribute to such difficulties. Modern
+Several factors contribute to these insecurities and misconceptions. Modern
 texts in Lorentzian and general relativity commonly use geometrized units.
 They say that, for finding the dimension of some constant in a tensorial
 equation, it's sufficient to compare the dimensions of the tensors in the
 equation. But this is not so immediate, because some tensors don't have
 universally agreed dimensions -- prime example the metric tensor. Older
-texts often use coordinates with dimension of length and time, and base
-their dimensional analysis on that specific choice. They even multiply
-coordinates with dimension of time, as well as some tensorial components,
-by powers of $c$. They thus give the impression that coordinates ought to
-always be lengths, and that all components of a tensor ought to have the
-same dimension \citep[\eg][\sect~37 \eqn~(37.8)]{tolman1934_t1949}[\sect~32
-\eqn~(32.15)]{landauetal1939_t1996}[\sect~10.1
-\eqn~(10.15)]{adleretal1965_r1975}.
+texts often use four coordinates with dimension of length, and base their
+dimensional analysis on that specific choice. They even
+multiply\citep[\eg][p.~72 \eqn~(37.8)]{tolman1934_t1949}[p.~80
+\eqn~(32.15)]{landauetal1939_t1996}[p.~332
+\eqn~(10.15)]{adleretal1965_r1975} coordinates or tensorial components
+having dimension of time by powers of $c$. A student thus gets the
+impression that coordinates ought to always be lengths, and that all
+components of a tensor ought to have the same dimension.
 
 \medskip
 
-The main purpose of this Note is to illustrate an extremely simple and
-intuitive way of reasoning with which one can quickly and consistently
-settle any dimensional-analysis questions in general relativity and
-differential geometry; for example the dimension of the Riemann tensor, or
-the dimensional results of contraction, of covariant derivative, of raising
-an index. This way of reasoning is presented and illustrated in
-\sects~\ref{sec:tensors}--\ref{sec:tensor_ops}. It's just an application of
-the usual rules of dimensional analysis: if two quantities are summed, then
-they must have the same dimension; the dimension of a product is the
-product of the dimensions; and so on. This way of reasoning relies on the
-coordinate-free, \emph{intrinsic} view of tensors and other
-differential-geometrical objects, a brief reminder of which is given in
-\sect~\ref{sec:remined}, with references.
+One purpose of the present note is to provide a short guide to the
+application of the usual rules of dimensional analysis in differential
+geometry. The usual rules are that if two quantities are summed, then they
+must have the same dimension; that the dimension of a product is the
+product of the dimensions; and so on. Any dimensional-analysis question in
+general relativity can thus be quickly and consistently settled; for
+example the dimension of the Riemann curvature tensor, or the dimensional
+results of contraction, of covariant derivative, of raising an index. A
+simple two-dimensional example is given in \sect~\ref{sec:2d_example}.
+Sections~\ref{sec:tensors}--\ref{sec:tensor_ops} give a more general and
+systematic discussion and a synopsis of the main tensorial operations.
+
+The application of dimensional analysis in differential geometry pivots on
+the somewhat forgotten notion of \emph{intrinsic dimension} of a tensor.
+The present note tries to revive this notion, introduced under the name of
+\enquote{absolute dimension} by Schouten and Dorgelo
+\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} and used in Truesdell
+\amp\ Toupin \citep[Appendix II]{truesdelletal1960}. The intrinsic or
+absolute dimension is an intrinsic property of a tensor, invariant with
+respect to the choice and dimensions of coordinates. It is distinct from
+the dimensions of the tensor's \emph{components}, which instead depend on
+the dimensions of the coordinate functions. The intrinsic dimension should
+thus be the primary focus of dimensional analysis in general relativity and
+in differential geometry. This notion is explained in
+\sect~\ref{sec:tensors}.
+
+
+Dimensional analysis in differential geometry is crucially dependent This
+way of reasoning relies on the coordinate-free, \emph{intrinsic} view of
+tensors and other differential-geometrical objects, a brief reminder of
+which is given in \sect~\ref{sec:remined}, with references.
 
 
 Another important purpose of this Note is to revive the forgotten notion of
@@ -1006,6 +1020,11 @@ general-relativity side Misner \etal\
 
 % \mynote{check \citep{fischeretal1972}}
  
+\section{A two-dimensional example}
+\label{sec:2d_example}
+
+
+
 
 \section{Coordinates}
 \label{sec:coords}
@@ -1334,6 +1353,9 @@ Regarding operations and operators on differential forms:
     \label{eq:integration}
   \end{equation}
 \end{itemize}
+
+\mynote{add note about the usual assumption that the integral does not
+  change dimensions.}
 
 % \medskip
 
@@ -1919,6 +1941,7 @@ coordinate function for each covariant index $j$.
 This generalized dimensional analysis rests mainly on two conventions: the
 tensor product and the action of covectors on vectors behave analogously
 to the usual multiplication for the purposes of dimensional analysis.
+\mynote{add convention about integration}
 
 We found or re-derived some essential results for general relativity, in
 particular that the Riemann $\yR\i{^{\q}_{\q\q\q}}$ and Ricci

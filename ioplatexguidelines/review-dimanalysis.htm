@@ -1,0 +1,1445 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-539K5VN');</script> <!-- End Google Tag Manager --><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date; ga('create', 'UA-142871052-5', 'auto');</script><script async src='https://www.google-analytics.com/analytics.js'></script><script src='common/S1_GA.js?version=4.26.2.97'></script><title>ScholarOne Manuscripts</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=UTF-8">
+
+<!--[if IE 8]><meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1"><![endif]-->
+<!--[if IE 9]><meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1"><![endif]-->
+<!--[if IE 10]><meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+<!-- CSS ============================================================================== -->
+<link rel="stylesheet" type="text/css" href="/common/bento.ui/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="/common/bento.ui/css/bootstrap-responsive.css">
+<!--[if !IE]><!-->
+<LINK REL=STYLESHEET TYPE="text/css" HREF="/css/header.css">
+<link rel="stylesheet" type="text/css" href="/css/footer.css">
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="/css/header_ie8.css">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="/css/footer_ie8.css">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="/common/bento.ui/css/font-awesome-ie7.min.css">
+<LINK REL=STYLESHEET TYPE="text/css" HREF="/common/bento.ui/css/font-awesome-min.css">
+<![endif]-->
+<!--[if gte IE 9]>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="/css/header.css">
+<link rel="stylesheet" type="text/css" href="/css/footer.css">
+<![endif]-->
+<LINK REL=STYLESHEET TYPE="text/css" HREF="/css/en_US/scholarone.css">
+ <!--[if IE]>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="/css/scholarone_ie_specific.css">
+<![endif]-->
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="/common/bento.ui/js/jquery.min.js"></script>
+<script src="/common/bento.ui/js/bootstrap.min.js"></script>
+<link rel="shortcut icon" type="image/x-icon" href="/common/bento.ui/ico/favicon.ico?">
+
+<script language='JavaScript' type='text/javascript'>
+var ALERT_WAIT_FOR_SUBMIT = 'The form has been submitted, please wait until it has completed before pressing any more buttons.';
+var ALERT_TEXT_LIMIT = 'The text limit for this field has been reached. No more text may be added.';
+var ALERT_NO_SEARCH = 'Starting over will mean that the system will not perform this search. Are you sure?';
+var ALERT_TEXT_OVERFLOW = 'Text overflow';
+var PREFER_24HOUR = '0';
+var GMT_STR = 'GMT';
+var AM_STR = 'AM';
+var PM_STR = 'PM';
+</script>
+<script language='JavaScript' type='text/javascript'>
+var ALERT_WAIT_FOR_SUBMIT = 'The form has been submitted, please wait until it has completed before pressing any more buttons.';
+var ALERT_TEXT_LIMIT = 'The text limit for this field has been reached. No more text may be added.';
+var ALERT_NO_SEARCH = 'Starting over will mean that the system will not perform this search. Are you sure?';
+var ALERT_TEXT_OVERFLOW = 'Text overflow';
+var PREFER_24HOUR = '0';
+var GMT_STR = 'GMT';
+var AM_STR = 'AM';
+var PM_STR = 'PM';
+</script>
+<SCRIPT LANGUAGE='JavaScript' src='/common/scholarone.js?version=4.26.2.97'></SCRIPT>
+<link type='text/css' rel='StyleSheet' href='/css/en_US/helptip.css'/>
+<script language='JavaScript' src='/common/helptip.js?version=4.26.2.97'></script>
+<script language='JavaScript' type='text/javascript'>
+var LOGIN_PAGE='LOGIN';
+$( document ).ready(function() {
+checkCookieValues();
+ });;
+function isPageCompletelyLoaded()
+{
+  if (document.forms[0].PAGE_LOADED_FLAG.value != 'Y') {alert('The form has been submitted, please wait until it has completed before pressing any more buttons.'); return false;}
+       return true;
+}
+function getSiteURL()
+{
+   return 'ejp-eps';
+}
+function getLongRequestSiteURL()
+{
+   return 'ejp-eps';
+}
+function getPostParams(){}
+
+function popWindow(url,winname,width,height)
+{
+  winX=Math.round(screen.width/2)-(width/2);
+  winY=Math.round(screen.height/2)-(height/2);
+  winStats='toolbar=no,location=no,directories=no,menubar=no,resizable=yes,'
+  winStats+='scrollbars=yes,width='+width+',height='+height
+  if (navigator.appName.indexOf('Microsoft')>=0) {
+    winStats+=',left='+winX+',top='+winY+''
+  }else{ 
+    winStats+=',screenX='+winX+',screenY='+winY+''
+  }
+  restartTimer();
+  handle = window.open(encodeURI(url),winname,winStats) 
+  if(handle != null)
+  {
+   if (winname != 'add_person_to_pick_pop' && winname != 'mssearch_issue_popup' && winname != 'progress_pop_report' && winname != 'progress_pop_large' && winname != 'progress_pop_large2' && winname != 'transfer_pop' && winname != 'email_popup_stay' && winname != 'forms_instructions_popup') 
+   {
+     addHandleToArray(handle);  
+   }
+   handle.focus();  
+   handle.opener=self;  
+  }
+  if (winname == 'progress_pop_delayed' || winname == 'author_affil_details' || winname == 'sp_char_palette') 
+    return handle;  
+}
+function popWindowSecure(url,winname,width,height)
+{
+  winX=Math.round(screen.width/2)-(width/2);
+  winY=Math.round(screen.height/2)-(height/2);
+  winStats='toolbar=no,location=no,directories=no,menubar=no,status=yes,resizable=yes,'
+  winStats+='scrollbars=yes,width='+width+',height='+height
+  if (navigator.appName.indexOf('Microsoft')>=0) {
+    winStats+=',left='+winX+',top='+winY+''
+  }else{ 
+    winStats+=',screenX='+winX+',screenY='+winY+''
+  }
+  restartTimer();
+  handle = window.open(url,winname,winStats) 
+  if (winname != 'add_person_to_pick_pop' && winname != 'mssearch_issue_popup' && winname != 'progress_pop_report' && winname != 'progress_pop_large' && winname != 'progress_pop_large2' && winname != 'transfer_pop' && winname != 'email_popup_stay') 
+    addHandleToArray(handle);  
+  handle.focus();  
+}
+function popWindowSecureForPortal(url,winname,width,height)
+{
+  winX=Math.round(screen.width/2)-(width/2);
+  winY=Math.round(screen.height/2)-(height/2);
+  winStats='toolbar=yes,location=yes,directories=yes,menubar=yes,status=yes,resizable=yes,'
+  winStats+='scrollbars=yes,width='+width+',height='+height
+  if (navigator.appName.indexOf('Microsoft')>=0) {
+    winStats+=',left='+winX+',top='+winY+''
+  }else{ 
+    winStats+=',screenX='+winX+',screenY='+winY+''
+  }
+  restartTimer();
+  handle = window.open(url,winname,winStats) 
+  if (winname != 'add_person_to_pick_pop' && winname != 'mssearch_issue_popup' && winname != 'progress_pop_report' && winname != 'progress_pop_large' && winname != 'progress_pop_large2' && winname != 'transfer_pop' && winname != 'email_popup_stay') 
+    addHandleToArray(handle);  
+  handle.focus();  
+}
+function showProgressWindow() { 
+  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_2SS3RRDsgrJ4tTHCDA4aLK2zn72fQ3FojXXdk4fvH3KyLkGyGjAbxdxzM1PBLidEpNSEBcD3KoApDbdEcLrJqgpjWTbNfmBPPqT3nM41XT3tDfYGG7s4HYpgGJrZxbrP2mKMrShPaHLqbJ6tzLeh17KyuBumACQr6gsqKYyGnQkX5ufTJpeWtZ9i3JnwjKjqerE9iv8uY4xt7rjXpSEpeZS9bukXYTwsSgaU6huwitbfUDAxU','progress_pop', 400, 300); 
+}function showProgressWindowLarge(vPageName) { 
+ showProgressWindowLarge(vPageName, 'progress_pop_large'); 
+} 
+function showProgressWindowLarge(vPageName, vPopupWindowName) { 
+ if (vPopupWindowName == null) { vPopupWindowName = 'progress_pop_large'; } 
+  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_2oe5unqoHMtJ4us1NscdVTY56h3YE2kkhSYdCCVmjgdUbGQhoNfvr8qzttoGFMdgEmjTCYJVoLfUtEWrRjKs9x4PXtGewfiV4ZdmGCMDfv1qPpZpnDTFwN72rVqaR4nHLRmgx6oKTfQ6aSoHsEJNFETqv2copDR4QthTzxmmgk6HRAWLDKzmTkxqik2hJ9Mb95LcKEWzn611XNgptPdktJCvz1x6MHKsrmfDZUaq6F6N68iLwLQpuFWfVg1jDrpQbhxnWK4&PAGE_NAME=' + vPageName + '', vPopupWindowName, 800, 600); 
+}function showGenericProgressWindowLarge() { 
+  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_2SS3RRDsgrJ4tTHCDA4aLK2zn72fQ3FojXXdk4fvH3KyLkGyGjAbxdxzM1PBLidEpNSEBcD3KoApDbdEcLrJqgpjaRMv2tCgCkehtiYGfD9qzLVBAUbBaKsdVmHxVHqowHmatfKhpTX7AVUxkmvTCCERKP4VjaEpFXKJ19vskeGagLVbH3qEFiLTe9gbc75ksMCZRFE5Abus6qxyvntgDuyeJ1yq11fJE2k8AwPW78FCpgppy','progress_pop_large_generic', 800, 600); 
+}function showProgressWindowForReport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_39urVQyDep5gA9gf6oUEryyqK7zWrihyTT1FVebzS9dEiG9nCKRUZTwdK1HjuXDY9Zd8fSBh4REBEHuBrtZQ62PGREtPgCUL5T81tYgnqg56TAap4dx3TbkeQBP2qyidpphR4E2uuHNLteNxiaWpecPReLorxspm8nd2iWqb6PfNtskCQDy3cjhsULoj7XtYErHshQKtzFbhoFpev3uU7JMWnuNMUE2FqsrcMTogFbQpNGDUpECZbMEHqnckzd7eeXi5aJa','progress_pop_report', 600, 500); 
+} 
+function showProgressWindowForReportSwitchConfig(configId) {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_euYPQPbLT65bfrMrykJ5jLFbjvicYmFkeSAHQvbHjdL1ke1bKmCCcjCqUWdRFdUUWdxYQAhfg1c7x5VXVix2XoKwyjhXm6jRbGUoyNQPM4NQjvo9C5PSFfd6a1LaVQyKtbp2o76AKfx5cx5jaCmSWohXurc3PFDxoDFU1vboi7BuwniKETG6huNas9BTiFLr83NBLNwe1By3ovaPtsG6eXKk7Sen3PTX9E8BnkavFNPfEzJZ6wUDEW9jyir8NTvmtqfMXmQDLHYCgn3watypQz49WeYTEPuycwp9AxpWhB8WDYnfnJ','progress_pop_report', 600, 500); 
+} 
+function showProgressWindowRoleChange() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_2X6zV2TEcCjveULe8RAhGP9MLYziae3ojKZBNqeJ8Y5cVfCXYnwXoNcemy4YFSXjKsPKdkoK7BT996N4VdwnYaYDvDb68HXNJJZFgnwueuD3vjje9K2YmUoyR4JTLg5MY81xqCQY4rTcJDCewSvx2TjRyQN9SLsVhLykLwnHVzoGZ3818iA3aP5ge12qJhRBN4H1Nrd5Ea8dzXGYpsFVXPgAm8cEmn5SbTxdcR4oauDxzX9n8fanX6oswfFAH6ZsHtmdC3e','progress_pop_report', 800, 600); 
+} 
+function showProgressWindowMSListExport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_cWYCT1MXCrQE76ySJDsXa4mXpZmMyHyYGuphVpYqZCAL9rWGUpmzM2GrXk2trxcJQDCNWpHEGMsq9pZDnsWTLBz2esA9pWdK9c6yaa5oDW9iEbkgFt3EGsv21pyAhRKdpbm7wdCWwzWPGxqtvZ1e3dzb5zGWUBhsvuYw7L8RoiRpkQbxSts9bzz85Mnqoxs8Wy2vUiondzkkUw3B5BrSHQb3pSYjEPGcn67Gky8dH8yqfGknenGX6Xm1GqD3AoC5gxuYdq','progress_pop_report', 400, 300); 
+} 
+function showProgressWindowStubsListExport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_21juziQVCsN6zLN4cZBvQoX6qTAH9QX4Ki5fKNwP8APmgeyEEsmTt5JU2SJgDewthoGRzTcnJGL3UieH28tbFCYs5xmkdZQALrgMPhXMQir9dwy6utS2esf8kLQPcTtrQRsJVyiUJCz2pGiYVAhCd8yvahpZ4SWMdJw8k36GuBdai1g4hNB2W9Jy7AL35L5k5j8RmQ3pbynBBZ8Zw8YBxzRS8frxVrr7CnEzoPX5jX87PN56XkNXCZcfBS8PffAP6FNcXPN','progress_pop_report', 400, 300); 
+} 
+function showProgressWindowMSListExportHistoryExport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_SiZCZwN4uXxVt8PXtCmu3ncqhxKDNHUs1GQ6C7csTM8JQsWG5LNaXZv6UVP2Z3mSvyKBBgFsrvW9KamcKaWCYFyo2eb96zzPeAyvmDM75ph9sXan8aPFBxcYLLtF3nxH72oFkikmXSdzheLbWGrUhiLFf8a3UpXeozqxsMn4n5JNB5vLVdu3i4qsbnWLGZDmHG19ZELpE9aVqPyJurvCARAHwGhvGGisMfj1zayGaK33z7y9KYYr5qHM9oex8VPeJq7gK59cvGHEcu1CiBf8GUPHhzQ9','progress_pop_report', 400, 300); 
+} 
+function showProgressWindowSimpleExportHistory() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_3GgL5b1nfs19feSccbcLjr4GWGbJPujp2rkqn3aBbWn2oi5y7zku1S65KhWJunjHr9Ao2yDcUyV1QuV1qWMJWdYdoPAgXpWCEL6r8CQPYoBbwYdMyHhA1epur3w6yw6P5XNbg7VNMSVcvmoFx2HiAAUwdj5gaLjSd6BSP23dbq5WgCjbPob5jr8jPoSLjFmQYCRS4dgnZU5WzdCa8KYUEK5gRvpGndZL3auFXCcq7RK2q3DAdcGJw9KiHUUDibVsEK93xiY','progress_pop_report', 400, 300); 
+} 
+function showProgressAsyncSearchResultsExport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_Pijuw75hbmJheFtDZ7t255AnFPkuSDcW5BGvuJExocxMjp3iQcFvdASnVBfgqBv55GwzEj8bMUBm14jNH1kY19wRSXpk3EoPxGdtLL3aEPcTqcSkJQxzepWbMUHejJBk1e2mEELiuUinNYzCo45efhZ7mZsZtsaKYxK2gws1x7qQ9TjuQgVSXaFkSzC2DzewL6AaMXZBPduF9n6JkLwpqHscBE3jQSLGL4jkWuCninpCzuruwKKj1rnetXGYrYRburQ5FfMi2iCxaHb3ifnPhxt1n9kQ','progress_pop_report', 600, 500); 
+} 
+function showProgressWindowMSAddTasks() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_ecm5axRjdW1WokDxgpWuCH6iDNSRnbZQZghq368SgKio4z5vcwakYh9wyCPuQW9W6CscMnBuD5BFoDYNzvSsjq8CXyqQqWdJDWpNC1AaqecDFbM4YgbngJVzgKdijQvckgDq3V5q4nc1n1uXhUbxH7db1FzxArHb7raL5mCiRxkpWswP5csMhCUgCaYCBUdttDUQSyBDgFCcoKBuvPpCNiLyjc2DFBftaZsqgihXh4K6HVxd','progress_pop_report', 400, 300); 
+} 
+function showProgressWindowForIssueLineup(vRadioGroupName, vIssueId) {selVal = GetRadioValue(vRadioGroupName);if(selVal == '3') {javascript:setField('XIK_TAGACT', 'xik_FAdZKANKch5aLNCcovNBbAEgJtVPMZhQD1TGtRVWHprs');  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_3ag3WTg1oNmRLQarmPkvG8SEtiNQmwDPZ18Q2dXCBCG1A6EZD761vA2uYBW1x14SZ4B2HF4LGy8iKY5YmWFYQ51bhtivxBLHsWsD2D37iw4AoiTQMEBQ4UuQuShHc69WTvQEpQLBnjuZ7BdDEbXyBJ7m1RL2RUj7u75GUmpsemVBm5iy7a997crNkJanPVnFMmdVjYig2Y6tFgwmPegEeizonb7JfqRqjxVv31y4GHJ9w2udmrdki36E54S9vHX9pQQSqsyXwC32U1iVaC3kovgyEvw7','progress_pop_report', 400, 300); 
+} else {  javascript: showProgressWindowForReport();}} 
+function showProgressWindowGeneric(vProgressTypeId) {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_aEKcVyQkcz8kdUT91LdBKE7EPHy44MsPXrk4Xmn7JdpAM8zFhTiiufWvnbPPpQ2Fjj6rkxExEwTB75fxpmVLSUEXqPfxdZoDwecciSqhVeQi2BGkJhdkgszWyazGSNCajfczXxRrY3Hw8Mnh81UxuVouSxfMPaZQ24oTr4Ne7kcET9RHe6MR8iSmoY5pwwRqxw1bEHCn3ShsqVdZsNTnHaPkrZyKwaCuegdQ1fQu9FAVYnUq1vzACWK69qrz5GBXuckEtNwikkemVX4VPGifUUCbBx4a','progress_pop_report', 400, 300); 
+} 
+function showProgressWindowForTransfer() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_GkvnVkopDpGCn8JU8r5pRcYV4ptt6Bh9A7gMiWKXnEG5bWZBTCvv7R5CdnLBfqwHx5sgkQr2zECn8uPhmy3gvzGUXQHau1yLrVAJKfxUidqo4kWNdbrwZ4MbN8eumBv1aD9YAsLvhDzvNKrTmPBun2gmVjcD2zUF8xwvjxQQFJnbDYy3ADzBG1XatQyq5iMAT3yWoj8NiwhLtjD6hYuk5Rnke8Rr8P5BAdWxTpHv9YoTX3y1eGnPJNuovYZkUSeVUomBYH','transfer_pop', 400, 300); 
+} 
+function showProgressWindowForIssueTransfer() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_fGmr97tuhPUPEAYxXcr3dRVg3PRsonRsV6rxwewevUbmyptozKK6Rs3JzXMnkkyGD52Tb8KPnAjSygprifQQ4GT7b7Re68a6JnStuVz2tXdnS1BByogzFxHRXLpx1ug5vqad3f2kCb8QxHCXGqJ5G9bYGRpcoXuqE3Z94uFQS5BFnx3zR6NpZaWNZs8zA5GyhGNBBEJjcpAJ18rxS5Gxj7JgC17oPJAK1pzjDrzFtWWDvLBquzLw4ELAquY2AmxXKJ8bhMomrkKrEBu9up881LMMD1ZbhNhyAjfQLVV82MYgcBWnYW','transfer_pop', 400, 300); 
+} 
+function showProgressWindowForImport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_2CRkdJMLjk883oczVN6TsHPU5ffCZP2ycEM52DAwTVA7XChPYRhZxkkg1jRSaPnh7Zkut2RiheARGR5kiCe1QQvS6Mc8Lvqg24DjqGyfKLzwafk58EhHdfXxs9DeXpdt34J3RApb44iTiCsUUYFBbHGyiCkVd7g9nuSo7cKhL7z7yay6V5NZNewcG8s8jD2hqwEuNGXiygg3Y3HM29bdZi2sTN4xKwRS3pRK8gPLgEBeAbk3TFmJki2Kmb4awiUeua6i4sD','progress_pop_report', 600, 500); 
+} 
+function showProgressWindowArXiv() { 
+  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_QvfsJJsdRpJLbGVwpiEoWCQESyqfmhT649fsgbyxLt54DeSH31w5VEUULuMUGMKJYP96c7tB6edRc7k6a45Prf9x4iyKjxGuThMEKYcUNcM7xcGmdMKv56AySrM4K384NZdpV1fPpa52YDkeiuBxM5GTGetxtE2XzZ69jC4SzXPFzSnV3Z5QTHcMbhwZoqahPisRfwQMFJm4m4q9V8iHBeqhPmBHWeJskha7J91mu87ZjERTU7yrpFnBRYd3uXwzoK4v8C','progress_pop_large', 800, 600); 
+}function checkForSomethingToUpload()
+{ 
+  var i=0; 
+  var existsFl = 0; 
+  for (i=0;i<20;i++) { 
+    var metaArray = document.getElementsByName('FILE_TO_UPLOAD'+i); 
+    if (metaArray.length == 1) { 
+     var filename = document.forms[0]['FILE_TO_UPLOAD'+i].value; 
+     if (filename.length > 0) 
+       existsFl = 1; 
+   } 
+  } 
+  for (i=0;i<20;i++) { 
+    var metaArray = document.getElementsByName('ZIP_FILE_TO_UPLOAD'+i); 
+    if (metaArray.length == 1) { 
+     var filename = document.forms[0]['ZIP_FILE_TO_UPLOAD'+i].value; 
+     if (filename.length > 0) 
+       existsFl = 1; 
+   } 
+  } 
+  if (existsFl == 1) { return true; }  
+  return false; 
+}
+function checkForDuplicateFiles()
+{ 
+  var i=0; 
+  var j=0; 
+  var existsFileFl = 0; 
+  var filename1 = '';
+  var filename2 = '';
+  var noOfFiles = 0;
+  noOfFiles =  document.getElementById('HIDDEN_VALUE_FOR_FILENO').value; 
+  for (i=0;i<noOfFiles && existsFileFl != 1;i++){
+     filename1 = document.forms[0]['FILE_TO_UPLOAD'+i].value; 
+     filename1 = trimAll(filename1.substring(filename1.lastIndexOf('\\')+1));     for(j=i+1; j<noOfFiles && existsFileFl != 1;j++){ 
+       filename2 = document.forms[0]['FILE_TO_UPLOAD'+j].value; 
+       filename2 = trimAll(filename2.substring(filename2.lastIndexOf('\\')+1));       if(filename1!='' && filename1==filename2) existsFileFl = 1; } } 
+  if (existsFileFl == 1) { alert ('A file named \'' + filename1 + '\' is already present for uploading for this manuscript. If you want to upload this file (e.g. this is a replacement for an existing file) you must rename the new file and then upload it.'); resetIsOk(); return false; }  
+  return true; 
+}
+function checkUploadFields()
+{ 
+   if(window.parent != null && window.parent.frames != null && window.parent.frames.length > 0) { 
+		return checkUploadFieldsLocal(); 
+   }   
+  return true; 
+}
+function checkUploadFieldsLocal()
+{ 
+  return true; 
+}
+function showProgressWindowUserListExport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_9hVfTsvKHBmrYt3wxKiy1d5K44nypDkKrGa1tNxb7cbQALrSU1frKe5NTZEXhjG3PFPNxPEg9Ft6ogt2usLLkyEXnG6AexSR7mJFdjcSrKJ5HrHV7B8zobNb5exnKk3nn62nwTbQPW8pqqKEywa6KMufEP4Lc4R4WzHbedGHDTnUXaD4qrSyjNrKwNdysdAzr1ZrBEbshzixBV2B6VPS5YKjr1SGGKeG7j6cXhqCDCvp8uvc9i87G9nSzbSc4HwJd41gA9','progress_pop_report', 400, 300); 
+} 
+function showProgressWindowUPlagiarismDocExport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_tBZbTCwKZ84TTJjtTxZLM9WxdHtyNcH5GjLpmxz9q1VQ4oC2C8iEeTEfogoJ2qnvjzVGGW3ui1eLiiGWq1j5ppgxsxoAUNnTEjwdUXRoYoCVtGQUH9A7TFaeBFATZ88zFvrK8HsG6hWfAn1pwUuKMeqcHZrthpypD6GyF3GMr5BgvQfhCoAQoU3DEGhk7vUVeprYYMtbHVbLnZL4hfwTZwV6XjP7svgL9XHazLecQ2br5DwZBcbrQZPtAiWvoSwv1KzfVV','progress_pop_report', 400, 300); 
+} 
+function showProgressWindowRevExport() {  var assigneeRoleId = document.forms[0].XIK_ASSIGNEE_ROLE_ID.value;  var docTaskId = document.forms[0].XIK_DOCUMENT_TASK_ID.value;  popWindow("ejp-eps?PARAMS=xik_39LyxoLtvYsr47kQwUCcQLn9vdVesw8zmHc4iDBep7NQiK7REpVUtqe255NSyXrJrbkWUQ7DezdAmhQiYETFS39jGv4KCKiLLTAq7tszkdompJox9NGb3Eqazc3LVpim5PbxxF4j7fTdqzS5VQKTr26H5AsZnggtpGbcrzmc1fqgiRMCd5xVZz825AVbp2Y7qgt6ze2jqW4v8bdgfWZeAdbhoMWfahNWydw9Dbx2jtjTfvtjzNs9VPxHFxq5DX1YpVKE1VS&XIK_ASSIGNEE_ROLE_ID=" + assigneeRoleId + "&XIK_DOCUMENT_TASK_ID=" + docTaskId,"progress_pop_report", 480, 400); 
+} 
+function showProgressWindowEmailTagsListExport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_2miFhHuB156MF1E7uZUrFDfwBp3qq98VWgd5uVQvRPWdm5RV3pT7zbwmndPBcejP2fPJrzPTNNaZmDtHtnre69f4cywVtMYioBY41Pnpc2xZJUqcTXN7Jcw7CAHy4GKQG4sU4oBL8AyfDCN5BGrEsTw4PRJWw5RwSKmRg91yMLk6XHR42LFssX4iaFFzLqoGixYbh1aPaiTx7EdvNzh6V6q6oCjX9Yd1cHdxRjM8VQ5bzuAttHvSj5nhsfsCmp3kTGEY4YU','progress_pop_report', 400, 300); 
+} 
+
+var emailWindows = new Array();
+var emailWindowNames = new Array();
+var checkEmailWindowsCalled = false;
+function registerEmailWindow(emailWindow)
+{ 
+   emailWindows[emailWindows.length] = emailWindow;
+   if(emailWindowNames.toString().indexOf(emailWindow.name)==-1)
+   { 
+       emailWindowNames[emailWindowNames.length] = emailWindow.name;
+   }
+   if(document.forms[0].OPEN_EMAIL_WINDOWS!=null)
+   { 
+       document.forms[0].OPEN_EMAIL_WINDOWS.value = emailWindowNames.toString();
+   }
+} 
+
+function checkEmailWindows()
+{
+if(!checkEmailWindowsCalled)
+{
+   var blPopupsOpen=false;
+   if(false)
+   { 
+     if(document.forms[0].NEXT_PAGE.value.indexOf("MANUSCRIPT_DETAILS")==-1 || (document.forms[0].NEXT_PAGE.value.indexOf("MANUSCRIPT_DETAILS")!=-1 && document.forms[0].XIK_NEXT_PREV_DOCUMENT_ID!=null && document.forms[0].XIK_NEXT_PREV_DOCUMENT_ID.value!="" && document.forms[0].XIK_DOCU_ID.value != document.forms[0].XIK_NEXT_PREV_DOCUMENT_ID.value) || (document.forms[0].NEXT_PAGE.value.indexOf("MANUSCRIPT_DETAILS")!=-1 && document.forms[0].XIK_PREACT != null && document.forms[0].XIK_PREACT.value=="PERFORM_HEADER_QUICK_SEARCH" )|| (document.forms[0].NEXT_PAGE.value.indexOf("MANUSCRIPT_DETAILS")!=-1 && document.forms[0].XIK_PROXY_TO_ROLE_ID != null && document.forms[0].XIK_PROXY_TO_ROLE_ID.value != '' ))
+     { 
+       emailWindows.length=0;
+       for(var i = 0; i<emailWindowNames.length; i++)
+       {
+           emailWindowName = emailWindowNames[i];
+           if (typeof emailWindowName != 'undefined' && emailWindowName != '')
+           { 
+               var winHandle=window.open('',emailWindowName);
+               if(typeof winHandle.frames['mainemailwindow'] != 'undefined' && winHandle.frames['mainemailwindow'] != null)
+               {
+                   registerEmailWindow(winHandle);
+               }
+               else
+               {
+                   winHandle.close();
+               }
+           }
+       }
+       if(emailWindows.length > 0)
+       { 
+           for(var i = 0; i<emailWindows.length; i++)
+           {
+               if(!emailWindows[i].closed)
+               {
+                   blPopupsOpen=true;
+                   break;
+               }
+           }
+           if(!blPopupsOpen)
+           { 
+               checkEmailWindowsCalled=true;
+               return true;
+           }
+           winHandle.focus();
+           if(winHandle.window.confirm ('We have detected that there is at least one e-mail window open - these windows will be closed when you move from the details of one manuscript to another. If you would like to retain this text for use later, please click the "Cancel" button and complete or save the e-mails for future reference. \nContinue?'))
+           { 
+               for(var i = 0; i<emailWindows.length; i++)
+               {
+                   if(!emailWindows[i].closed)
+                   {
+                       unRegisterWindow(emailWindows[i].name);
+                       emailWindows[i].close();
+                   }
+               }
+               checkEmailWindowsCalled=true;
+               return true;
+           }
+           else
+           { 
+               if(document.forms[0].XIK_NEXT_PREV_DOCUMENT_ID!=null){document.forms[0].XIK_NEXT_PREV_DOCUMENT_ID.value='';}
+               if(document.forms[0].XIK_PREACT!=null){document.forms[0].XIK_PREACT.value='';}
+               if(document.forms[0].XIK_PROXY_TO_ROLE_ID!=null){document.forms[0].XIK_PROXY_TO_ROLE_ID.value='';}
+               if(document.forms[0].CLEAR_SEARCH!=null){document.forms[0].CLEAR_SEARCH.value='';}
+               return false;
+           }
+       }
+       else
+       { 
+           checkEmailWindowsCalled=true;
+           return true;
+       }
+     }
+     else
+     { 
+       checkEmailWindowsCalled=true;
+       return true;
+     }
+   }
+   else
+   {
+       checkEmailWindowsCalled=true;
+       return true;
+   }
+}
+else
+{ 
+   checkEmailWindowsCalled=true;
+   return true;
+}
+}
+
+function getOpenEmailWindows()
+{ 
+   if(document.forms[0].OPEN_EMAIL_WINDOWS!=null)
+   { 
+       return document.forms[0].OPEN_EMAIL_WINDOWS.value;
+   }
+   else
+   { 
+       return '';
+   }
+} 
+
+function registerEmailWindowByName(emailWindowName)
+{ 
+ if (typeof emailWindowName != 'undefined')
+ { 
+   if(emailWindowNames.toString().indexOf(emailWindowName)==-1)
+   { 
+       emailWindowNames[emailWindowNames.length] = emailWindowName;
+   }
+   if(document.forms[0].OPEN_EMAIL_WINDOWS!=null)
+   { 
+       document.forms[0].OPEN_EMAIL_WINDOWS.value = emailWindowNames.toString(); 
+   }
+ } 
+} 
+
+function unRegisterWindow(emailWindowName)
+{ 
+  var newEmailWinNames = new Array(); 
+  for(var i = 0, j=0; i<emailWindowNames.length; i++)
+  {
+   if(emailWindowNames[i]!=emailWindowName)
+   { 
+      if(typeof emailWindowNames[i] != 'undefined' && emailWindowNames[i]!='')
+      { 
+         newEmailWinNames[j] = emailWindowNames[i];
+         j++;
+      }
+   }
+  }
+  emailWindowNames.length=0;
+  emailWindowNames=newEmailWinNames;
+  if(document.forms[0].OPEN_EMAIL_WINDOWS!=null)
+  { 
+      document.forms[0].OPEN_EMAIL_WINDOWS.value = emailWindowNames.toString();
+  }
+} 
+
+function showProgressWindowPermissionAuditTrailExport() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_yencamhDQZfaa7wbJj25un4dJHHAdUJm4SRxR7Nin463Feyk8cc3ucnE46GZqrRydwPqKR6NBNRsE4dAyevkqMaGd6bPipYVH21XmAy4rqAZoNrpBBuQHibGdRC9LKAMcAjb5vUcWwPkjLFib4mA3eyt34pKVD41CcXwwqpjgZRnPHqYFrSuCEAEJUnu7tswssPQKoUAACarC6H7p475smDuzKLo5mHvPzufZtU7b3Li7wFqW1MmVp8Sz9xo7KmkQ6RBpZJX8AX6u6GW8e7Nkyb1Gter','progress_pop_report', 400, 300); 
+} 
+function showProgressWindowSubmissionStatisticsExportCSV() {  javascript: popWindow('ejp\x2Deps\x3FPARAMS\x3Dxik_B1q7JGgAn2nND2a43Z83EvxTxyKxAnzf6FvSRjdZFE4tcxDPdWBxvebz3jtXRHwSnpk9C85QMSNDL4FwTuGcWnHQJ1azoNpbkLqbQVWdNEHeErB9CNUwUZ9Jn8KHBJoj1aUu2BmcuDVGqvrJAcacJLAFQazdYcR3dzQSo1VLR4vDQo3W8E8jP9AcwcBrR11Jt8w1rSty7R4EUs5ob5b5VXr6jEJeoiHrLcTeubDb37yojbRvFcXepehENTvZjVMqLTCBZ4','progress_pop_report', 400, 300); 
+} 
+</script>
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+var pageNameForGoogle = 'ejp-eps/VIEW_DECISION_LETTER_POPUP';
+
+
+</script>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body bgcolor="#D1D5D7"> 
+<!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-539K5VN"height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) --><div class="content_wrapper"><form style="margin:0px;" id="default_form" name="default_form" method="post" TARGET=""  action='https://mc04.manuscriptcentral.com/ejp-eps'>
+<input type = "hidden" name ="PORTAL" value = "null">
+<input type = "hidden" name ="S1LOGIN" value = "null">
+<input type = "hidden" name ="NEXT_PAGE" value = "">
+<input type = "hidden" name ="NEXT_PAGE_FOR_REDIRECT" value = "">
+<input type = "hidden" name ="CURRENT_PAGE" value="VIEW_DECISION_LETTER_POPUP">
+<input type = "hidden" name ="XIK_PREACT" value="">
+<input type = "hidden" name ="XIK_POSTACT" value="">
+<input type = "hidden" name ="XIK_CUR_ROLE_ID" value="xik_A3KzW92VZKw7JahE4B2PWLsxFznjYUqowHGccF5YD4i5">
+<input type = "hidden" name ="XIK_SWITCH_CONFIG_ID" value="">
+<input type = "hidden" name ="CHANGE_PORTAL_CONFIG_ID_FOR_LOGIN_PAGE" value="">
+<input type = "hidden" name ="SWITCH_CONFIG_ID_PREV" value="">
+<input type = "hidden" name ="XIK_NEW_USER_CONFIG_ID" value="">
+<input type = "hidden" name ="PROXY_TO_PAGE_NAME" value="">
+<input type = "hidden" name ="XIK_PROXY_TO_ROLE_ID" value="">
+<input type = "hidden" name ="XIK_PROXY_TO_DOCUMENT_ID" value="">
+<input type = "hidden" name ="XIK_PROXY_TO_DOCUMENT_TASK_ID" value="">
+<input type = "hidden" name ="PAGE_DIRTY_FL" value="">
+<input type = "hidden" name ="MS_EDIT_ADMIN_MODE_FOR_CUST_QUESTION_ANSWER_FROM_HEADER" value="null">
+<input type = "hidden" name ="ORIGINAL_JSESSIONID" value="">
+<input type = "hidden" name ="NEW_JSESSIONID" value="">
+<input type = "hidden" name ="PAGE_LOADED_FLAG" value="">
+<input type = "hidden" name ="DISPLAY" value="">
+<input type = "hidden" name ="DOCUMENT_HASHCODE" value="1309597216">
+<input type = "hidden" name ="XIK_CNFID" value="xik_994v6jJVkVVa4xFSdEkZPqHGSK4Wzq2aocB22ZbhjJRt">
+<input type="hidden" name="SAVE_MS_DETAILS_FL" value=""><input type="hidden" name="SAVE_MS_DETAILS_VALIDATE_FL" value=""><input type = "hidden" name="XIK_CUR_USER_ID" value="xik_BC8kqRzTJ6HBAbzSHMSgZMGeALsgQqk4JRjvxrJS3UAv">
+<input type = "hidden" name ="NATURAL_TIMEOUT" value="false">
+<input type = "hidden" name="XIK_CUR_USER_ID" value="xik_BC8kqRzTJ6HBAbzSHMSgZMGeALsgQqk4JRjvxrJS3UAv">
+<input type = "hidden" name="LOGIN_SITE_SHORT_NAME" value="null">
+<input type = "hidden" name="EXTERNAL_HTTP_REFERRER" value="https://mc04.manuscriptcentral.com/ejp-eps">
+
+<div id="header">
+  <div class="popupheader">
+    <div class="container">
+      <h2>European Journal of Physics</h2>
+    </div>
+  </div>
+</div>
+
+
+
+  <script language="javascript">
+    document._snowplow = {};
+    document._snowplow._appid = "s1m";
+    document._snowplow._platform = "srv";
+    document._snowplow._domain = ".manuscriptcentral.com";
+    document._snowplow._cookiename = "s1sp";
+    document._snowplow._js_loc = "/common/snowplow/sp_min.js";
+    document._snowplow._endpoint = "snowplow.apps.clarivate.com";
+  </script>
+  <script language="javascript" src="/common/sp_init.js"> </script>
+
+<script language="javascript">
+  var snowplowEnabled = true;
+</script>
+<script src="/common/snowplow.js"></script>
+
+<script language="javascript">
+  snowplowSetUserId('4116976');
+</script>
+<table align=center cellpadding=0 cellspacing=0 border=0 width=100%>
+	<tr>
+		<td colspan=2>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+  if (!IParameterName) { var IParameterName = {}; }
+  IParameterName.EMAIL_POPUP_CLOSE_WIN_FL = 'EMAIL_POPUP_CLOSE_WIN_FL';
+  IParameterName.CLOSE_WINDOW_FL = 'CLOSE_WINDOW_FL';
+  IParameterName.NATURAL_TIMEOUT = 'NATURAL_TIMEOUT';
+  
+  if (!IResourceName) { var IResourceName = {}; }
+  IResourceName.FOR_SECURITY_REASONS_PART1 = 'FOR_SECURITY_REASONS_PART1';
+  IResourceName.FOR_SECURITY_REASONS_PART2 = 'FOR_SECURITY_REASONS_PART2';
+  
+  if (!Resources ) { var Resources = {}; }
+  Resources.FOR_SECURITY_REASONS_PART1 = "For security reasons, your session will time out in 10 minutes (at";
+  Resources.FOR_SECURITY_REASONS_PART2 = ").  Please save your work to avoid potential loss.  To refresh your session, close this message and save your work or return to your main menu.  You may then continue working as normal.";
+  Resources.WARNING = "Warning";
+  
+  var stCurrentPageName = 'VIEW_DECISION_LETTER_POPUP';
+  var stSessionTimeOut = '10620000';
+  var stWarning = '168';
+  var isStTimeOutEnabled = 'true';
+  var isStPopup = 'true';
+  var stErrorUrl = '';
+  var stLoginPage = 'LOGIN';
+  var isStFromSSOFl = 'false';
+  var isStAuthorPage = 'false';
+
+  var aMinute = 60000;
+ </script>
+ <script type="text/javascript" src="/common/session_timeout.js"></script>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<DIV ID="warning" NAME="warning" STYLE="position:absolute;visibility:hidden" WIDTH="20%">    
+
+<table border=0 cellpadding=0 cellspacing=0 width=350>
+   <tr>
+       <td><p class="footer">&nbsp;</p></td>
+   </tr>
+   <tr>    
+       <td class="secondarymenubg">
+           <table cellpadding=5 cellspacing=10 border=0 width=100%>
+               <tr>
+                   <td class="dataentry">
+                       <table border=0 cellpadding=0 cellspacing=0>
+                           <tr>
+                               <td><p class="pagecontents"><br>For security reasons, your session will time out in 10 minutes (at <span id="tP"><script language='javascript'>showTime()</script></span>).  Please save your work to avoid potential loss.  To refresh your session, close this message and save your work or return to your main menu.  You may then continue working as normal.<br>&nbsp;</p></td>
+                           </tr>
+                           <tr>
+                               <td align=center><a href="#" onClick="showSessionWarning(false)"><img src="/images/en_US/buttons/close_message.gif" border=0></a></td>
+                           </tr>
+                       </table>
+                   </td>
+               </tr>
+           </table>
+       </td>
+   </tr>
+</table>   
+</DIV>
+	
+		</td>
+	</tr>
+	<tr>
+		<td colspan=2>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div id="ajaxEmailPopupAlert"></div>
+    <div class="error" id="MAIN_ERROR_DISPLAY_DIV" style="display: none;">
+    </div>
+
+	
+		</td>
+	</tr>
+	<tr>
+    <td>
+      <table align=center cellpadding=5 cellspacing=5 border=0 width=100%>
+      <tr>    
+		    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+var pageNameForGoogle = 'ejp-eps/VIEW_DECISION_LETTER_POPUP';
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  						
+        
+          
+
+
+          
+          
+          
+          
+          
+          
+
+      </tr>
+      </table>
+    </td>            
+	</tr>
+</table>
+<br clear=all>
+
+<table align=center cellpadding=0 cellspacing=0 border=0 width=100%>
+	<tr>
+		<td colspan=2>
+			<table border=0 cellpadding=0 cellspacing=0 width=100%>
+				<tr>
+					<td><img src='/images/common/layout/details_header_left.gif' border=0></td>
+					<td class="detailsheaderbg" width=100%>&nbsp;</td>
+					<td><img src='/images/common/layout/details_header_right.gif' border=0></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td class="tablelines" colspan=2>
+			<table cellpadding=5 cellspacing=1 border=0 width=100%>
+				<tr>	
+					<td colspan=2 class="dataentry">
+					
+	        			
+
+<!-- Tag: com.scholarone.tags.authorViewDecisionLetterPopupTag -->
+
+<input type="hidden" name="XIK_TAGACT" value="">
+<TABLE ALIGN=LEFT CELLPADDING=0 CELLSPACING=5 BORDER=0 WIDTH=100%> 
+<TR>    
+<TD CLASS="dataentry" WIDTH=1% colspan=2> 
+	<TABLE ALIGN=LEFT CELLPADDING=0 CELLSPACING=5 BORDER=0 WIDTH=100%> 
+	<TR> 
+		<TD CLASS="tablelines" COLSPAN=2> 
+			<TABLE CELLPADDING=5 CELLSPACING=1 BORDER=0 WIDTH=100%> 
+				<TR>	 
+					<TD CLASS="headercells"><P CLASS="pagecontents"><b>Decision Letter (EJP-105403)</b></P></TD> 
+				</TR> 
+				<TR>	 
+					<TD CLASS="tablelightcolor"> 
+						<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=0> 
+							<TR> 
+								<TD nowrap ALIGN=RIGHT WIDTH=1%> 
+									<P CLASS="pagecontents"><b>From:</b></P> 
+								</TD> 
+								<TD> 
+									<P CLASS="pagecontents">ejp@ioppublishing.org</P> 
+								</TD> 
+							</TR> 
+							<TR> 
+								<TD nowrap ALIGN=RIGHT WIDTH=1%> 
+									<P CLASS="pagecontents"><b>To:</b></P> 
+								</TD> 
+								<TD> 
+									<P CLASS="pagecontents">pglpm0@gmail.com, pgl@portamana.org</P> 
+								</TD> 
+							</TR> 
+							<TR> 
+								<TD nowrap ALIGN=RIGHT WIDTH=1%> 
+									<P CLASS="pagecontents"><b>CC:</b></P> 
+								</TD> 
+								<TD> 
+									<P CLASS="pagecontents">pglpm0@gmail.com, pgl@portamana.org</P> 
+								</TD> 
+							</TR> 
+							<TR> 
+								<TD nowrap ALIGN=RIGHT WIDTH=1%> 
+									<P CLASS="pagecontents"><b>Subject:</b></P> 
+								</TD> 
+								<TD> 
+									<P CLASS="pagecontents">Our initial decision on your article: EJP-105403</P> 
+								</TD> 
+							</TR> 
+							<TR> 
+								<TD nowrap ALIGN=RIGHT WIDTH=1% VALIGN=TOP> 
+									<P CLASS="pagecontents"><b>Body:</b></P> 
+								</TD> 
+								<TD COLSPAN=2> 
+									<P CLASS="pagecontents"> 
+									Dear Dr Porta Mana,<br/><br/>Re: &quot;Dimensional analysis in general relativity and differential geometry&quot; by Porta Mana, PierGianLuca<br/>Article reference: EJP-105403<br/><br/>We have now received the referee report(s) on your Paper, which is being considered by European Journal of Physics.<br/><br/>The referee(s) have recommended that you make some amendments to your article. The referee report(s) can be found below and/or attached to this message. You can also access the reports at your Author Centre, at https://mc04.manuscriptcentral.com/ejp-eps<br/><br/>Please consider the referee comments and amend your article according to the recommendations. You should then send us a clean final version of your manuscript. Please also send (as separate files) point-by-point replies to the referee comments and either a list of changes you have made or an additional copy of your manuscript with the changes highlighted (for further information visit https://publishingsupport.iopscience.iop.org/questions/how-to-prepare-your-revised-article/). This will aid our referees in reviewing your revised article. Please upload the final version and electronic source files to your Author Centre by 24-Jun-2020.<br/><br/>If we do not receive your article by this date, it may be treated as a new submission, so please let us know if you will need more time.<br/><br/>Should your Paper be accepted for publication we would also like to invite you to create a video abstract to accompany your article, in order to further increase its visibility and impact.<br/><br/>Video abstracts are short, filmed overviews of the main outcomes of your paper and should enable you to go beyond the constraints of your written article to allow you to personally explain the importance of your work to the journal&#39;s global audience. Papers with video abstracts often receive more downloads than those papers without.<br/><br/>Full guidelines, including technical specifications, submission details and examples, are available here: https://publishingsupport.iopscience.iop.org/video-abstracts/<br/><br/>We look forward to hearing from you soon.<br/><br/>Yours sincerely<br/><br/>Lucy Joy<br/><br/>On behalf of the IOP peer-review team:<br/>Jessica Thorn - Editor <br/>Lucy Joy &#8211; Associate Editor <br/>Joanna Bewley &#8211; Editorial Assistant<br/>ejp@ioppublishing.org<br/><br/>and Ian Forbes &#8211; Publisher<br/><br/>IOP Publishing<br/>Temple Circus, Temple Way, Bristol<br/>BS1 6HG, UK<br/><br/>www.iopscience.org/ejp <br/><br/>2018 Impact Factor: 0.861<br/><br/>REFEREE REPORT(S):<br/>Referee: Preliminary reviewer<br/><br/>COMMENTS TO THE AUTHOR(S)<br/>This paper discusses the role of dimensional analysis in general relativity. Many text (textbooks, research papers) use abstract differential geometry to describe physical effects related to general relativity theory. In this approach one does not pay too much attention to physical interpretation of formulas. In particular, the dimensions of the considered quantities are not discussed, the argument being that all &nbsp;coordinates are equally good. Thus, e.g. some spatial coordinate can have dimension of length, some other - different dimension. It is not very clear what are dimensions of more complicated quantities, like e.g. the Einstein tensor, and therefore what is their physical meaning. The present paper elucidates this problem.<br/>In my opinion the paper should be refereed.<br/><br/>Referee: 2<br/><br/>COMMENTS TO THE AUTHOR(S)<br/>A delightful and very useful paper. &nbsp;While the material is &nbsp;not novel, it addresses &nbsp;an area of &nbsp;great and heated confusion &nbsp;in the literature. One only has to read the talk pages on Wikipedia&#39;s GR articles to see how people get worked up over the question of whether all components of the tensor have to have the same dimensions or not to see this. &nbsp;<br/><br/>The paper reads as a bit of a polemic, perhaps not surprisingly given that a key reference is by Clifford Truesdell, himself an entertaining and usually correct polemicist, but this style adds to the appeal of the text. &nbsp; <br/><br/>I rated the the level of the text as &quot;graduate,&quot; but this paper should, and probably will, be widely read and cited by specialists as well as by students.<br/><br/>I strongly recommend that we accept in its &nbsp;present form.<br/><br/>Referee: 3<br/><br/>COMMENTS TO THE AUTHOR(S)<br/>Please find attached<br/><br/>Letter reference: DSMo01 
+									</P> 
+								</TD> 
+							</TR> 
+							<TR> 
+								<TD nowrap ALIGN=RIGHT WIDTH=1%> 
+									<P CLASS="pagecontents"><b>Date Sent:</b></P> 
+								</TD> 
+								<TD> 
+									<P CLASS="pagecontents">10-Jun-2020</P> 
+								</TD> 
+							</TR> 
+             <TR> 
+               <TD ALIGN=RIGHT WIDTH=1%> 
+                 <P CLASS="pagecontents"><b>File 1:</b></P> 
+               </TD> 
+               <TD> 
+                   <P CLASS="pagecontents">
+<A HREF="https://mc04.manuscriptcentral.com/ejp-eps?DOWNLOAD=TRUE&PARAMS=xik_3ZJAPMZpauPAGco2cHeJBVDE8LG5Zkmtxe9k6BnqTuBCMF8AG4aS4ud6t5kSjGnqXs4xDS8FBEqyXgnpY8wThhvNuz5sGKbVpna8fvvMny19rdYChfz1pKiMvD7fgnRHbsT1cd64PqQKg5bVVT5twdSeQqt7hntKnMLMTsfS9R6JgAuMntAka4L4efCm3aVPDXZ9oqJYdsqfUK7XHDFxxCJ9XxA" target=_new>- ref-report-EJP2020-1.pdf</A></P>
+               </TD> 
+             </TR> 
+						</TABLE> 
+					</TD> 
+				</TR> 
+<TR> 
+<TD CLASS="secondaryheader"> 
+<P CLASS="pagecontents">Files attached</P> 
+</TD> 
+</TR> 
+<TR>  
+<TD CLASS="tablelightcolor"> 
+<P CLASS="pagecontents"> 
+<a href="https://mc04.manuscriptcentral.com/ejp-eps?DOWNLOAD=TRUE&PARAMS=xik_2s7CXfuiMh282pz3z5HGpcA9GH2dtBT5DmxqLYPcBQKyvJgjx2JeJVvtBhMU7U6q7pQWC4Pjr2tUUvtuvA4czh99g5FLVGHqCEvm5nskdsGDAmUPYZ7dNphFfY7XUfL4oiiMHKaLeTZqNkuJmmtSoW9LbKriViSqVLPDfzwhtrFhKXkvc9JmXdVBVKxVbPdnPi84dgyFG7mmKxo5keiqC86KkdZzYKk7ovU8oT13TJ4moLnXr" target=_new>ref-report-EJP2020-1.pdf</a><br>
+</P> 
+</TD> 
+</TR> 
+			</TABLE> 
+		</TD> 
+	</TR>   
+	</TABLE>   
+</TD> 
+</TR> 
+<TR> 
+<TD COLSPAN=2>&nbsp;</TD> 
+</TR> 
+<TR> 
+<TD CLASS="tablelines" COLSPAN=2> 
+<TABLE CELLPADDING=5 CELLSPACING=1 BORDER=0 WIDTH=100%> 
+<TR>	 
+<TD CLASS="tablelightcolor" COLSPAN=2> 
+<TABLE CELLPADDING=5 CELLSPACING=1 BORDER=0 WIDTH=100%> 
+<TR> 
+<TD  ALIGN=RIGHT><A HREF="javascript:window.close();"><IMG SRC="/images/en_US/buttons/close_window.gif" BORDER=0></A></TD> 
+</TR> 
+</TABLE> 
+</TD> 
+</TD> 
+</TR> 
+</TABLE> 
+</TD> 
+</TR> 
+</TABLE> 
+
+	        		
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<script language='JavaScript' type='text/javascript'>  setField('DOCUMENT_HASHCODE','1309597216');   setField('XIK_CNFID','xik_994v6jJVkVVa4xFSdEkZPqHGSK4Wzq2aocB22ZbhjJRt');   setField('PAGE_LOADED_FLAG','Y'); </script></form></div><script language='JavaScript' type='text/javascript'></script>
+
+
+
+
+
+
+
+<!-- FOOTER ==================================================== -->
+
+<br style="clear:both" />
+<div class="footer_wrapper_light">
+<footer class="TRfooter" >
+  <div class="container">
+    <div class="row">
+      <div class="span11">
+        <p>
+        
+          <span>&nbsp;<b></b></span> 
+          <br>
+        
+            <a class="footerlink" href="https://clarivate.com/legal/copyright/" target="new">
+            &copy;&nbsp;Clarivate Analytics</a>&nbsp;&#124;&nbsp;
+            <span class="ca_copyright">
+	            
+	            &copy;&nbsp;ScholarOne, Inc., 2020.
+            </span> 
+            All Rights Reserved.
+        </p>      
+      </div>
+      <!-- Span11 --> 
+    </div>
+    <!-- row -->
+    
+    
+    <div class="clearfix"></div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+          
+  </div>
+  <!--Container --> 
+</footer>
+</div>
+
+<script language="javascript">
+  snowplowPageViewJSessionId('VIEW_DECISION_LETTER_POPUP', 'UZK2ubITUoHqGYEFcqmfSJ6RZmseci6ADDvOrNr9');
+</script>
+<!-- END FOOTER -->
+
+
+      
+
+</body>
+</html>
+
+
+
+

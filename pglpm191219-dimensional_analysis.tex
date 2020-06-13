@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-13T13:41:16+0200
+%% Last-Updated: 2020-06-13T17:53:38+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -692,7 +692,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\Te}{\Theta}
 \newcommand*{\Cu}{\textsf{I}}
 \newcommand*{\Fl}{\Phi}
-\newcommand*{\En}{\Epsilon}%{\textsf{E}}
+\newcommand*{\Ent}{\textsf{s}}
+\newcommand*{\En}{\textsf{E}}
 \newcommand*{\Xx}{\textsf{X}}
 \newcommand*{\Yy}{\textsf{Y}}
 \newcommand*{\Aa}{\textsf{A}}
@@ -919,9 +920,9 @@ slots. Every index in this notation is \enquote{simply as a label whose
   discussion}~\citep[p.~75]{penroseetal1984_r2003}, so this notation
 doesn't stand for the set of \emph{components} of the tensor. For the
 latter set, \textbf{bold} indices are used instead:
-\defquote{$A\i{_{\bm{i}}^{\bm{jk}}}$}. The difference between a tensor and
-its set of components is crucial to our discussion, however, and the
-abstract-index notation lends itself to conceptual and typographic
+\defquote{$A\i{_{\bm{i}}^{\bm{jk}}}$}. In our discussion, however, where
+the difference between a tensor and its set of components will be crucial
+the abstract-index notation lends itself to conceptual and typographic
 misunderstanding.
 
 I'll therefore use a notation such as \defquote{$\yA\i{_{\q}^{\q\q}}$} to
@@ -1033,17 +1034,17 @@ complex geometrical objects.
 In a region of a two-dimensional spacetime we use coordinates $(x,y)$.
 These coordinates allow us to uniquely identify every event in the region
 (otherwise they wouldn't be coordinates). The coordinate $x$ has dimension
-of temperature, and $y$ of energy density: \mynote{use entropy instead and
-  cite Maugin, Eckart, and co.}
+of temperature, and $y$ of entropy density
+\citep{eckart1940c,maugin1974b,maugin1978b}: 
 \begin{equation}
   \label{eq:example_coords2d}
   \dim(x)=\Te \;,\quad
-  \dim(y)= \En \defd \Ma\Le^{-2}\Ti^{-2} \;.
+  \dim(y)= \Ent \defd \Le^{2}\Ti^{-2}\Te^{-1} \;.
 \end{equation}
-This may happen, for example, if the region is occupied by an
-electromagnetic material; its temperature is uniform over the slices of a
-specific spacelike foliation, but increasing across the slices; its
-internal energy is instead increasing across the 1-dimensional slice.
+This may happen, for example, if the region is occupied by a
+heat-conducting material; its temperature is uniform over the slices of a
+specific spacelike foliation, but increases across the slices; its entropy
+density instead increases along each 1-dimensional slice.
 
 From these coordinates we construct two covector fields $(\di x, \di y)$,
 and two vector fields $\bigl(\frac{\de}{\de x}, \frac{\de}{\de y}\bigr)$
@@ -1053,10 +1054,10 @@ tensors. Their dimensions are
   \label{eq:example_basisvects2d}
   \begin{aligned}
   \dim(\di x)&=\Te &\quad
-                        \dim(\di y)&= \En \;,
+                        \dim(\di y)&= \Ent \;,
                                      \\
   \dim\Bigl(\frac{\de}{\de x}\Bigr)&=\Te^{-1} &\quad
-                        \dim\Bigl(\frac{\de}{\de y}\Bigr)&= \En^{-1} \;.
+                        \dim\Bigl(\frac{\de}{\de y}\Bigr)&= \Ent^{-1} \;.
   \end{aligned}
 \end{equation}
 
@@ -1081,9 +1082,9 @@ $\Aa \defd \dim(\yA)$, we have the four equations
   \label{eq:four_dims_2d_pre}
   \begin{aligned}
     \Aa &= \dim(A\i{^{x}_{x}}) &\quad \Aa &=
- \dim(A\i{^{x}_{y}})\,\Te\,\En^{-1}
+ \dim(A\i{^{x}_{y}})\,\Te^{-1}\,\Ent 
  \\
-    \Aa &= \dim(A\i{^{y}_{x}})\,\Te^{-1}\,\En &\quad \Aa &=
+    \Aa &= \dim(A\i{^{y}_{x}})\,\Te\,\Ent^{-1} &\quad \Aa &=
  \dim(A\i{^{y}_{y}}) \;,
   \end{aligned}
 \end{equation*}
@@ -1092,9 +1093,10 @@ or
   \label{eq:four_dims_2d}
   \begin{aligned}
     \dim(A\i{^{x}_{x}}) &= \Aa\, &\quad 
- \dim(A\i{^{x}_{y}}) &=\Aa\,\Te^{-1}\,\En
- \\
-    \dim(A\i{^{y}_{x}}) &= \Aa\,\Te\,\En^{-1} &\quad
+ \dim(A\i{^{x}_{y}}) &=\Aa\,\Te\,\Ent^{-1} \equiv
+\Aa\,\Le^{-2}\Ti^{2}\Te^{2}
+    \\
+    \dim(A\i{^{y}_{x}}) &= \Aa\,\Te^{-1}\,\Ent &\quad
  \dim(A\i{^{y}_{y}}) &= \Aa \;.
   \end{aligned}
 \end{equation}
@@ -1151,7 +1153,8 @@ The functional relation between two sets of coordinates must of course be
 dimensionally consistent. For example, if $\dim(x^{0})=\Ti$ and
 $\dim(x^{1})=\Le$, and we introduce a coordinate $\xi(x^{0},x^{1})$ with
 dimension $\Un$, additive in the previous two, then we must have
-$\xi = a x^{0} + bx^{1}$ with $\dim(a)=\Ti^{-1}$ and $\dim(b)=\Le^{-1}$.
+$\xi = a x^{0} + b x^{1}$ with $\dim(a) = \Ti^{-1}$ and
+$\dim(b) = \Le^{-1}$.
 
 %The dimensions of the coordinates don't matter, as we'll now see.
 
@@ -2094,13 +2097,16 @@ specific component.
 % Finally, the above analysis, specific to general relativity, can be made
 % along the same lines also for Newtonian mechanics.
 
-Finally,
+\medskip
 
-
-
- \citep{raposo2018,domotor2017,domotoretal2016,krystek2015,jonsson2014,kitano2013,marietal2012,domotor2012,frigerioetal2010,dybkaer2004_r2010,deboer1995,kock1989}
-
-
+Dimensional analysis remains a controversial, obscure, but fascinating
+subject still today, 60 years from Truesdell \amp\ Toupin's remark quoted
+in the Introduction. For an overview of some recent and creative approaches
+to it I recommend for example the works by Mari \etal\
+\citep{marietal2012,frigerioetal2010}, Domotor and Batitsky
+\citep{domotor2017,domotoretal2016,domotor2012}, Kitano \citep{kitano2013},
+the extensive analysis by Dybkaer \citep{dybkaer2004_r2010}, the historical
+review by de~Boer \citep{deboer1995}, and references therein.
 
 
 % \citep[\sect~3.5 p.~65]{rindler1969_r1986}

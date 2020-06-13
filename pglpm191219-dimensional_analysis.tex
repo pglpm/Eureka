@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-13T12:23:30+0200
+%% Last-Updated: 2020-06-13T13:41:16+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1467,19 +1467,24 @@ Regarding operations and operators on differential forms:
 The reason is that the integral of a form over a chain ultimately rests on
 the standard definition of integration on the real line
 \citep[\eg][\sects~IV.B.1--2]{choquetbruhatetal1977_r1996}[\sect~5 p.~21,
-\sect~6 p.~24]{derham1955_t1984}[\sect~7.1]{abrahametal1983_r1988}, and the latter satisfies the dimensional
-rule above. In fact, the integral is invariant with respect to
-reparameterizations of the chain; it depends only on its image (some texts \citep{marsdenetal1983_r2007}
-define chains as such equivalence classes.)
+\sect~6
+p.~24]{derham1955_t1984}[\sect~7.1]{abrahametal1983_r1988}[\sect~VI.2]{boothby1975_r2003},
+which satisfies the dimensional rule above. In fact, the integral is
+invariant with respect to reparameterizations of the chain; it depends only
+on its image (some texts~\citep[\eg][\sect~10.4
+p.~297]{martin1991_r2004}[\sect~7.3]{fecko2006} even define chains as
+equivalence classes determined by their image.)
 
-% \medskip
+\medskip
 
 % The resultant intrinsic dimensions of other operators, for example the
 % determinant \citep[\sect~6.2]{abrahametal1983_r1988}, can be obtained by
 % similar reasoning.
 
-\mynote{note on inner-oriented forms}
-
+All rules above extend in obvious ways to inner-oriented
+\citep[\chap~II]{schouten1951_r1989} (also called \defquote{odd}
+\citep[\chap~II]{derham1955_t1984} or \defquote{twisted}
+\citep{burke1983}[\chap~3]{bossavit1991}) forms and to tensor densities.
 
 
 \section{Curves and integral curves}
@@ -1637,7 +1642,7 @@ formula~\eqref{eq:dim_component_generic}, if and only if the intrinsic
 dimension of $\yR$ is unity, $\dim(\yR)=\Un$. So I believe that Mister
 \etal's statement actually agrees with the
 results~\eqref{eq:dim_torsion_riemann_ricci}. This possible
-misunderstanding shows that it's important to distinguish between intrinsic
+misunderstanding shows the importance of distinguishing between intrinsic
 dimensions, which don't depend on any specific coordinate choice, and
 component dimensions, which do.
 
@@ -2048,31 +2053,35 @@ and~(52.06)]{fock1955_t1964} and Adler \etal\ \citep[\sect~10.5
 \section{Summary and conclusions}
 \label{sec:summary}
 
-We have seen that dimensional analysis in general relativity and
-differential geometry can be seamlessly done, following its usual standard
-rules, if we adopt a coordinate-free or coordinate-invariant view, typical
-of more modern texts. In this view, each tensor has an \enquote{intrinsic}
-dimension (Schouten \amp\ Dorgelo's terminology) that doesn't depend on the
-dimensions of the coordinates. It's the intrinsic dimension of the tensor.
-It would therefore be more profitable to focus on the intrinsic dimension of
-a tensor rather than on the dimensions of its components. The dimension of
-a specific component is easily found by
-formula~\eqref{eq:dim_component_generic}: it's the product of the intrinsic
-dimension, times the dimension of the $i$th coordinate function for each
-contravariant index $i$, times the inverse of the dimension of the $j$th
-coordinate function for each covariant index $j$.
+We have seen that dimensional analysis can be seamlessly made in general
+relativity and in differential geometry, following its usual standard
+rules, if we adopt the coordinate-free approach typical of modern texts. In
+this approach each tensor has an \emph{intrinsic} dimension (Schouten \amp\
+Dorgelo's \defquote{absolute} dimension). This dimension doesn't depend on
+the dimensions of the coordinates, and is determined by the physical or
+operational meaning of the tensor. It is therefore generally more
+profitable to focus on the intrinsic dimension of a tensor rather than on
+the dimensions of its components. The dimension of a specific component is
+easily found by formula~\eqref{eq:dim_component_generic}: it's the product
+of the intrinsic dimension, times the dimension of the $i$th coordinate
+function for each contravariant index $i$, times the inverse of the
+dimension of the $j$th coordinate function for each covariant index $j$.
 
-This generalized dimensional analysis rests mainly on two conventions: the
-tensor product and the action of covectors on vectors behave analogously
-to the usual multiplication for the purposes of dimensional analysis.
-\mynote{add convention about integration}
+Dimensional analysis in differential geometry seems to rest on two main
+conventions: the tensor product and the action of covectors on vectors
+behave analogously to usual multiplication for the purposes of dimensional
+analysis. Alternative, equivalent sets of conventions can also be
+considered, for example involving the exterior derivative.
 
 We found or re-derived some essential results for general relativity, in
 particular that the Riemann $\yR\i{^{\q}_{\q\q\q}}$ and Ricci
-$\yRi\i{_{\q\q}}$ tensors are dimensionless, and that the Einstein tensor
-$\yG\i{_{\q}^{\q}}$ has the inverse dimension of the metric. Maybe these
-can be of importance for some current research involving scales and
-conformal factors \citep[\eg][]{roehretal2005,cadonietal2019}.
+$\yRi\i{_{\q\q}}$ curvature tensors are dimensionless, and that the
+Einstein tensor $\yG\i{_{\q}^{\q}}$ has the inverse dimension of the metric
+tensor. Maybe these results can be of importance for some current research
+involving scales and conformal factors
+\citep[\eg][]{roehretal2005,cadonietal2019}. We also discussed the
+operational reasons behind two common choices of dimension for the metric
+tensor.
 
 Since the dimensions of the components are usually different from the
 intrinsic dimension and depend on the coordinates, I recommend to avoid
@@ -2082,8 +2091,14 @@ meant to represent the tensor in general (as in Penrose \amp\ Rindler's
 notation), or to represent its set of components, or to represent just a
 specific component.
 
-Finally, the above analysis, specific to general relativity, can be made
-along the same lines also for Newtonian mechanics.
+% Finally, the above analysis, specific to general relativity, can be made
+% along the same lines also for Newtonian mechanics.
+
+Finally,
+
+
+
+ \citep{raposo2018,domotor2017,domotoretal2016,krystek2015,jonsson2014,kitano2013,marietal2012,domotor2012,frigerioetal2010,dybkaer2004_r2010,deboer1995,kock1989}
 
 
 
@@ -2171,13 +2186,13 @@ along the same lines also for Newtonian mechanics.
 %%% Acknowledgements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \begin{acknowledgements}
-  \ldots to prof. Ingemar Bengtsson for valuable comments on a previous
-  draft. To the staff of the NTNU library for their always prompt support.
-  To Mari, Miri, Emma for continuous encouragement and affection, and to
-  Buster Keaton and Saitama for filling life with awe and inspiration. To
-  the developers and maintainers of \LaTeX, Emacs, AUC\TeX, Open Science
-  Framework, R, Python, Inkscape, Sci-Hub for making a free and impartial
-  scientific exchange possible. \mbox{}\hfill\autanet
+  \ldots to Ingemar Bengtsson and Iv\'an Davidovich for valuable
+  comments on previous drafts. To the staff of the NTNU library for their
+  always prompt support. To Mari, Miri, Emma for continuous encouragement
+  and affection, and to Buster Keaton and Saitama for filling life with awe
+  and inspiration. To the developers and maintainers of \LaTeX, Emacs,
+  AUC\TeX, Open Science Framework, R, Python, Inkscape, Sci-Hub for making
+  a free and impartial scientific exchange possible. \mbox{}\hfill\autanet
   
   This work is financially supported by the Kavli Foundation and the Centre
   of Excellence scheme of the  Research Council of Norway (Roudi group).  

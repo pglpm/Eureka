@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-13T18:38:59+0200
+%% Last-Updated: 2020-06-13T18:58:21+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -940,8 +940,8 @@ types. % In spirit this notation is similar to the
 % components, which is very important for our discussion, doesn't disappear.
 
 The only weak points of this notation are the operations of contraction and
-transposition, which literal indices depict so well. Considering that
-contraction is a generalization of trace, and transposition a
+transposition, which literal indices depict so well instead. Considering
+that contraction is a generalization of trace, and transposition a
 generalization of matrix transposition, I'll use the following notation:
 \begin{itemize}[wide]%,label=\textemdash]
 \item $\tr_{\alpha\beta}\yA$ is the contraction of the
@@ -1208,13 +1208,12 @@ sum~\eqref{eq:expansion_tensor}, and each summand therefore has dimension
 $\Aa$.
 
 The generalization of the formula above to tensors of other types is obvious:
-\begin{multline}
+\begin{equation}
   \label{eq:dim_component_generic}
-  \dim\bigl(A\i{^{ij\dotso}_{kl\dotso}}\bigr) = \Aa\;{\Xx_{i}}\,{\Xx_{j}}\dotsm\,
-  {\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\dotsm,
-  \\
-  \text{where the ordering of the indices doesn't matter.}
-\end{multline}
+\dim\bigl(A\i{^{ij\dotso}_{kl\dotso}}\bigr) = \Aa\;{\Xx_{i}}\,{\Xx_{j}}\dotsm\,
+  {\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\dotsm \;.
+  %\text{where the ordering of the indices doesn't matter.}
+\end{equation}
 % For example, if  we're using coordinates with dimensions
 % \begin{equation}
 %   \label{eq:example_coords}
@@ -1975,15 +1974,17 @@ $\dim(\yg)\defd \Ti^{2}$.
 
 Let me add a passing remark. Even though in most texts the 4-stress is
 represented by a tensor of order 2, as above, its most fitting geometrical
-nature is still shrouded by mystery from a kinematic and dynamical point of
-view. There are indications that it could be more properly represented by a
-covector-valued 3-form (equivalent to a tensor $\yT\i{_{\q\;\q\q\q}}$
-antisymmetric in the last three slots), or by a 3-vector-valued 3-form
-(equivalent to a tensor $\yT\i{^{\q\q\q}_{\q\q\q}}$ antisymmetric in the
-first three and last three slots), for reasons connected with integration,
-similar to those mentioned above for the stress $\yt\i{_{\q\;\q\q}}$ See
-for example the discussion about \enquote{$^{\displaystyle *}\mathte{T}$}
-by Misner \etal~\citep[\chap~15]{misneretal1970_r1973}, the works by Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
+nature is still shrouded by mystery from the kinematic and the dynamical
+points of view. There are indications that it could be more properly
+represented by a covector-valued 3-form (equivalent to a tensor
+$\yT\i{_{\q\;\q\q\q}}$ antisymmetric in the last three slots), or by a
+3-vector-valued 3-form (equivalent to a tensor $\yT\i{^{\q\q\q}_{\q\q\q}}$
+antisymmetric in the first three and last three slots), for reasons
+connected with integration, similar to those mentioned above for the stress
+$\yt\i{_{\q\;\q\q}}$. See for example the discussion about
+\enquote{$^{\displaystyle *}\mathte{T}$} by Misner
+\etal~\citep[\chap~15]{misneretal1970_r1973}, the works by
+Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
 discussion by Burke~\citep[\sect~41]{burke1985_r1987}.
 
 % Some texts state that the timelike component of the 4-force equals the work
@@ -1996,7 +1997,7 @@ discussion by Burke~\citep[\sect~41]{burke1985_r1987}.
 % Further, the 4-force is an object that, integrated over a path, gives us an energy density (cf Milne 1951 chap. IV, and Burke again). The integral of a force in Newtonian mechanics is the work done by the force. In general-relativistic mechanics, the timelike component of the 4-force additionally gives us the increase in energy owing to heating (Eckart 1940).
 
 
-\section{Einstein equation and Einstein's constant}
+\section{Einstein's equations and Einstein's constant}
 \label{sec:einstein_eq}
 
 We finally arrive at the Einstein equations,
@@ -2018,11 +2019,11 @@ thus find
     \Ma^{-1}\Le \\
     \Ma^{-1}\Le^{-1}\Ti^{2}
   \end{cases}
-  \text{if }\dim(\yg)\defd
+  \text{ if }\dim(\yg)\defd
   \begin{cases}
      \Ti^2 \\
     \Le^2
-  \end{cases}.
+  \end{cases}
 \end{equation}
 This constant can be obtained from the dimensions of Newton's gravitational
 constant $\dim(G)=\Ma^{-1}\Le^{3}\Ti^{-2}$ (this is not the Einstein tensor
@@ -2034,7 +2035,7 @@ following ways, with an $8\pi$ factor coming from the Newtonian limit:
    8\pi G/c^{2} \\
    8\pi G/c^{4}
   \end{cases}
-  \text{if }\dim(\yg)\defd
+  \quad\text{if }\dim(\yg)\defd
   \begin{cases}
      \Ti^2 \\
     \Le^2
@@ -2057,15 +2058,15 @@ and~(52.06)]{fock1955_t1964} and Adler \etal\ \citep[\sect~10.5
 \section{Summary and conclusions}
 \label{sec:summary}
 
-We have seen that dimensional analysis can be seamlessly made in general
-relativity and in differential geometry, following its usual standard
-rules, if we adopt the coordinate-free approach typical of modern texts. In
-this approach each tensor has an \emph{intrinsic} dimension (Schouten \amp\
-Dorgelo's \defquote{absolute} dimension). This dimension doesn't depend on
-the dimensions of the coordinates, and is determined by the physical or
+We have seen that dimensional analysis, with its familiar rules, can be
+seamlessly performed in general relativity and in differential geometry if
+we adopt the coordinate-free approach typical of modern texts. In this
+approach each tensor has an \emph{intrinsic} dimension (a notion introduced
+by Schouten and Dorgelo). This dimension doesn't depend on the
+dimensions of the coordinates, and is determined by the physical or
 operational meaning of the tensor. It is therefore generally more
 profitable to focus on the intrinsic dimension of a tensor rather than on
-the dimensions of its components. The dimension of a specific component is
+the dimensions of its components. The dimension of each specific component is
 easily found by formula~\eqref{eq:dim_component_generic}: it's the product
 of the intrinsic dimension, times the dimension of the $i$th coordinate
 function for each contravariant index $i$, times the inverse of the

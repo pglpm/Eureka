@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-12T18:51:55+0200
+%% Last-Updated: 2020-06-13T12:23:30+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1457,18 +1457,20 @@ Regarding operations and operators on differential forms:
   Theorem~6.4.8]{abrahametal1983_r1988} together with
   \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
 
-\item The \emph{integral} [IV.B.1] of a form over a submanifold (or chain)
-  $M$ has the same dimension as the form:
+\item The \emph{integral} [IV.B.1] of a form over a submanifold, or more
+  generally a chain, $M$ has the same dimension as the form:
   \begin{equation}
     \dim\bigl(\tint_{M}\yom\bigr) =\dim(\yom).
     \label{eq:integration}
   \end{equation}
 \end{itemize}
-The reason is that the integral of a form over a submanifold or chain is
-ultimately based on the standard definition of integration on the real line
+The reason is that the integral of a form over a chain ultimately rests on
+the standard definition of integration on the real line
 \citep[\eg][\sects~IV.B.1--2]{choquetbruhatetal1977_r1996}[\sect~5 p.~21,
-\sect~6 p.~24]{derham1955_t1984}, and the latter satisfies the dimensional
-rule above (possibly by convention).
+\sect~6 p.~24]{derham1955_t1984}[\sect~7.1]{abrahametal1983_r1988}, and the latter satisfies the dimensional
+rule above. In fact, the integral is invariant with respect to
+reparameterizations of the chain; it depends only on its image (some texts \citep{marsdenetal1983_r2007}
+define chains as such equivalence classes.)
 
 % \medskip
 

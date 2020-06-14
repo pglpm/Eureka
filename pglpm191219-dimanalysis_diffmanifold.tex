@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-14T07:56:37+0200
+%% Last-Updated: 2020-06-14T08:55:04+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -957,28 +957,28 @@ doesn't matter here whether the unit for length is the metre or the
 centimetre, for example.
 
 The number and ordering of a tensor's covariant and contravariant
-\enquote{slots} \citep[\sect~3.2]{misneretal1970_r1973} will often be very
+\enquote{slots} \citep[\sect~3.2]{misneretal1970_r1973} will often be
 important in our discussion. The traditional coordinate-free notation
 \defquote{$\yA$} unfortunately omits this information. We thus need a
-coordinate-free notation that makes them explicit. Penrose \amp\ Rindler
-\citep[\sect~2.2]{penroseetal1984_r2003} propose an abstract-index
-notation, where \defquote{$A\i{_{i}^{jk}}$}, for example, denotes a tensor
-covariant in its first slot and contravariant in its second and third
-slots. Every index in this notation is \enquote{simply as a label whose
-  sole purpose is to keep track of the type of tensor under
-  discussion}~\citep[p.~75]{penroseetal1984_r2003}, so this notation
+coordinate-free notation that makes it explicit. Penrose \amp\ Rindler
+\citep[\sect~2.2]{penroseetal1984_r2003} propose an abstract-index notation
+where \defquote{$A\i{_{i}^{jk}}$}, for example, denotes a tensor covariant
+in its first slot and contravariant in its second and third slots. Every
+index in this notation is \enquote{a \emph{label} whose sole purpose is to
+  keep track of the type of tensor under
+  discussion}~\citep[p.~75]{penroseetal1984_r2003}. So this notation
 doesn't stand for the set of \emph{components} of the tensor. For the
 latter set, \textbf{bold} indices are used instead:
-\defquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. In our discussion, however, where
-the difference between a tensor and its set of components will be crucial,
-the abstract-index notation unfortunately lends itself to conceptual and
-typographic misunderstanding.
+\defquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. In our discussion, however,
+where the difference between a tensor and its set of components will be
+crucial, this abstract-index notation unfortunately lends itself to
+conceptual and typographic misunderstanding.
 
-I'll therefore use a notation such as $\yA\i{_{\q}^{\q\q}}$ to
-indicate that $\yA$ is covariant in its first slot and contravariant in its
-second and third slots. Its components would thus be $(A\i{_{i}^{jk}})$.
-For brevity I'll call this a \defquote{co-contra-contra-variant} tensor,
-with an obvious naming generalization for other
+I shall therefore use a notation such as $\yA\i{_{\q}^{\q\q}}$ to indicate
+that $\yA$ is covariant in its first slot and contravariant in its second
+and third slots. Its components would thus be $(A\i{_{i}^{jk}})$. For
+brevity I'll call this a \defquote{co-contra-contra-variant} tensor, with
+an obvious naming generalization for other tensor
 types. % In spirit this notation is similar to the
 % abstract-index one of Penrose \amp\ Rindler
 % \citep[\sect~2.2]{penroseetal1984_r2003}; but I avoid using letters for the
@@ -1016,8 +1016,8 @@ In index notation these operations are the familiar
     }_{\;\dotsm}} \;.
 \end{equation*}
 
-We'll consider contraction and transposition only sparsely, so I hope you
-won't find this notation too uncomfortable.
+Contraction and transposition will be discussed only sparsely, so I hope
+you won't find the notation above too uncomfortable.
 
 % $\yA\i{^{\q \mathrm{c}}_{\q \mathrm{c}\q}}$
 
@@ -1029,25 +1029,26 @@ won't find this notation too uncomfortable.
 
 Let me first present a simple example of dimensional analysis in a
 two-dimensional spacetime. I provide very little explanation, letting the
-analysis speaks for itself. The next sections will give a longer discussion
+analysis speak for itself. The next sections will give a longer discussion
 of the general point of view, of the assumptions, and of cases with more
 elaborate geometric objects.
 
 In a region of a two-dimensional spacetime we use coordinates $(x,y)$.
 These coordinates allow us to uniquely identify every event in the region
 (otherwise they wouldn't be coordinates). The coordinate $x$ has dimension
-of temperature, and $y$ of entropy density \citep[for general-relativintic
-thermomechanics see
-\eg][]{eckart1940c,maugin1974b,maugin1978b,maugin1978c,maugin1978d,maugin1978e,muschiketal2014}:
+of temperature, and $y$ of specific entropy:
 \begin{equation}
   \label{eq:example_coords2d}
   \dim(x)=\Te \;,\quad
   \dim(y)= \Ent \defd \Le^{2}\Ti^{-2}\Te^{-1} \;.
 \end{equation}
 This may happen, for example, if the region is occupied by a
-heat-conducting material; its temperature is uniform over the slices of a
-specific spacelike foliation, but increases across the slices; its entropy
-density instead increases along each 1-dimensional slice.
+heat-conducting material \citep[for general-relativintic thermomechanics
+see
+\eg][]{eckart1940c,maugin1974b,maugin1978b,maugin1978c,maugin1978d,maugin1978e,muschiketal2014};
+its temperature is uniform over the slices of a specific spacelike
+foliation, but increases across the slices; its entropy density instead
+increases along each 1-dimensional slice.
 
 From these coordinates we construct two covector fields $(\di x, \di y)$,
 and two vector fields $\bigl(\frac{\de}{\de x}, \frac{\de}{\de y}\bigr)$
@@ -1078,16 +1079,17 @@ this region. Using the basis fields above it can be written as
 where $A\i{^{x}_{x}} \defd \yA\bigl(\di x, \frac{\de}{\de x}\bigr)$, \ldots
 are the components of the tensor in the coordinate system $(x, y)$.
 
-The two sides of the expansion above must have the same dimension. The four
-summands of the right side must also have the same dimension. Denoting
-$\Aa \defd \dim(\yA)$, we have the four equations
+By the rules of dimensional analyses, the two sides of the expansion above
+must have the same dimension. The four summands of the right side must also
+have the same dimension. Denoting $\Aa \defd \dim(\yA)$, we thus have the four
+equations
 \begin{equation*}
   \label{eq:four_dims_2d_pre}
   \begin{aligned}
-    \Aa &= \dim(A\i{^{x}_{x}}) &\quad \Aa &=
+    \Aa &= \dim(A\i{^{x}_{x}}) &\qquad \Aa &=
  \dim(A\i{^{x}_{y}})\,\Te^{-1}\,\Ent 
  \\
-    \Aa &= \dim(A\i{^{y}_{x}})\,\Te\,\Ent^{-1} &\quad \Aa &=
+    \Aa &= \dim(A\i{^{y}_{x}})\,\Te\,\Ent^{-1} &\qquad \Aa &=
  \dim(A\i{^{y}_{y}}) \;,
   \end{aligned}
 \end{equation*}
@@ -1095,11 +1097,11 @@ or
 \begin{equation}
   \label{eq:four_dims_2d}
   \begin{aligned}
-    \dim(A\i{^{x}_{x}}) &= \Aa\, &\quad 
+    \dim(A\i{^{x}_{x}}) &= \Aa\, &\qquad 
  \dim(A\i{^{x}_{y}}) &=\Aa\,\Te\,\Ent^{-1} \equiv
 \Aa\,\Le^{-2}\Ti^{2}\Te^{2}
     \\
-    \dim(A\i{^{y}_{x}}) &= \Aa\,\Te^{-1}\,\Ent &\quad
+    \dim(A\i{^{y}_{x}}) &= \Aa\,\Te^{-1}\,\Ent &\qquad
  \dim(A\i{^{y}_{y}}) &= \Aa \;.
   \end{aligned}
 \end{equation}
@@ -1117,10 +1119,10 @@ components, \eqn~\eqref{eq:four_dims_2d}, which need not be all equal.
 This simple example should have disclosed the main points of dimensional
 analysis on manifolds, which will now be discussed in more generality.
 
-Note that in the example we silently adopted a couple of conventions; for
-example, that the tensor product behaves similarly to multiplication with
-regard to dimensions. Such conventions are briefly discussed in
-\sect~\ref{sec:summary}.
+In the derivation above we silently adopted a couple of natural
+conventions; for example, that the tensor product behaves similarly to
+multiplication with regard to dimensions. Such conventions are briefly
+discussed in \sect~\ref{sec:summary}.
 
 
 % then the components of $\yA$ have dimensions
@@ -1144,7 +1146,7 @@ regard to dimensions. Such conventions are briefly discussed in
 \label{sec:coords}
 
 From a physical point of view, a coordinate is just a function that
-associates one value of a physical quantity with every event in a region
+associates values of some physical quantity with the events in a region
 (the domain of the coordinate chart) of spacetime. Together with the other
 coordinates, such function allows us to uniquely identify every event
 within that region. Any physical quantity will do: the distance from
@@ -1213,9 +1215,11 @@ $\Aa$.
 The generalization of the formula above to tensors of other types is obvious:
 \begin{equation}
   \label{eq:dim_component_generic}
-\dim\bigl(A\i{^{ij\dotso}_{kl\dotso}}\bigr) = \Aa\;{\Xx_{i}}\,{\Xx_{j}}\dotsm\,
-  {\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\dotsm \;.
-  %\text{where the ordering of the indices doesn't matter.}
+  \begin{aligned}
+&\dim\bigl(A\i{^{ij\dotso}_{kl\dotso}}\bigr) = \Aa\;{\Xx_{i}}\,{\Xx_{j}}\dotsm\,
+  {\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\dotsm \\
+  &\text{\small where the ordering of the indices doesn't matter.}
+  \end{aligned}
 \end{equation}
 % For example, if  we're using coordinates with dimensions
 % \begin{equation}
@@ -1253,14 +1257,14 @@ of the tensor $\yA$, and we write
   \label{eq:abs_dim}
   \dim(\yA) = \Aa.
 \end{equation}
-This dimension is independent of any coordinate system.
-It reflects the physical or operational
-\citep{bridgman1927_r1958}[see
+This dimension is independent of any coordinate system. It reflects the
+physical or operational \citep{bridgman1927_r1958}[see
 also][\sect~A.2]{synge1960}[\sects~A.3--4]{truesdelletal1960} meaning of
-the tensor. We'll see an example of what this mean in
-\sect~\ref{sec:metric} with the metric tensor.
+the tensor. We shall see an example of such an operational analysis in
+\sects~\ref{sec:metric} and~\ref{sec:stressenergy} for the metric and
+stress-energy-momentum tensors.
 
-This notion was introduced by Dorgelo and
+The notion of intrinsic dimension was introduced by Dorgelo and
 Schouten~\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} under the
 name \defquote{absolute dimension}. I find the adjective
 \defquote{intrinsic} more congruous to modern terminology (and less prone
@@ -1291,7 +1295,7 @@ with the general formula~\eqref{eq:dim_component_generic}. % (You may have notic
 
 \smallskip
 
-In the following I'll drop the adjective \defquote{intrinsic} when it's
+In the following I'll drop the adjective \defquote{intrinsic} when it is
 clear from the context.
 
 \section{Tensor operations}
@@ -1666,7 +1670,7 @@ hold.
 \section{Metric and related tensors and operations}
 \label{sec:metric}
 
-Let's now consider a metric tensor $\yg\i{_{\q\q}}$. What is its intrinsic
+Let us now consider a metric tensor $\yg\i{_{\q\q}}$. What is its intrinsic
 dimension $\dim(\yg)$? There seem to be two choices in the literature; both
 can be derived from the operational meaning of the metric.
 
@@ -1678,8 +1682,8 @@ the formula
 %\begin{subequations}\label{eq:dimg_t}\tag{(\ref{eq:dimg_t})}
 \begin{equation}%\addtocounter{equation}{1}\tag{\theequation a}
   \label{eq:proper_time}
-\inct =  \int_a^b\!\!\!\di s\;
-\sqrt{\abs*{\yg[\dot{C}(s),\dot{C}(s)]}}.
+\inct =  \int_a^b
+\sqrt{\abs*{\yg[\dot{C}(s),\dot{C}(s)]}} \; \di s\;.
 \end{equation}
 From the results of \sect~\ref{sec:tensor_ops} this formula implies that
 %\begin{equation}
@@ -1701,8 +1705,8 @@ From the results of \sect~\ref{sec:tensor_ops} this formula implies that
   integral~\eqref{eq:proper_time}:
 \begin{equation}%\addtocounter{equation}{-1}\tag{\theequation b}
   \label{eq:proper_time_c}
-  \inct = \frac{1}{c} \int_a^b\!\!\!\di s\;
-  \sqrt{\abs*{\ygc[\dot{C}(s),\dot{C}(s)]}},
+  \inct = \frac{1}{c} \int_a^b
+  \sqrt{\abs*{\ygc[\dot{C}(s),\dot{C}(s)]}} \;\di s\;,
 \end{equation}
 thus obtaining
 \begin{equation}%\addtocounter{equation}{1}\tag{\theequation b}
@@ -1713,55 +1717,56 @@ thus obtaining
 
 The choice~\eqref{eq:dim_g_c} seems also supported by the traditional
 expression for the \enquote{line element $\ds^{2}$} as it appears in many
-works (for an exception with dimension $\Ti^{2}$ see Kilmister
-\citep[\chap~II p.~25]{kilmister1973}{kilmister1973}),
+works:
 \begin{equation}
   \label{eq:line_elem}
   \ds^{2} = c^2\mathit{dt}^2 - \mathit{dx}^2 -\mathit{dy}^2 - \mathit{dz}^2,
 \end{equation}
-possibly with opposite signature. If the
+possibly with opposite signature (for an exception with dimension $\Ti^{2}$
+see Kilmister \citep[\chap~II p.~25]{kilmister1973}{kilmister1973}). If the
 coordinates $(t,x,y,z)$ have the dimensions suggested by their symbols,
 this formula has dimension $\Le^{2}$, so that if we interpret
 \enquote{$\ds^{2}$} as $\ygc$ we find $\dim(\ygc) = \Le^{2}$. The
 line-element expression above often has an ambiguous differential-geometric
-meaning, however, because it may represent \emph{the metric applied to some
-  unspecified vector}, that is, $\yg(\yv,\yv)$, where $\yv$ is left
+meaning, however, because it may also represent the metric applied to some
+\emph{unspecified} vector, that is, $\yg(\yv,\yv)$, where $\yv$ is left
 unspecified \citep[\cf][Box~3.2~D p.~77]{misneretal1970_r1973}. In this
 case we have
 \begin{equation}
   \label{eq:line_elem_dim_ambiguous}
   \Le^{2} = \dim(\yg)\dim(\yv)^{2}
 \end{equation}
-and the dimension of $\yg$ is ambiguous.%  -- possibly dimensionless if $\yv$
+and the dimension of $\yg$ is ambiguous or undefined, because the vector
+$\yv$ could have any dimension.% -- possibly dimensionless if $\yv$
 % has dimension of length, but we'll see in \sect~\ref{sec:einstein_eq} that
 % a dimensionless $\yg$ isn't quite compatible with the Einstein equation.
 
 \medskip
 
 The standard choices for $\dim{\yg}$ are thus $\Ti^{2}$ or $\Le^{2}$. My
-favourite choice is the first, \eqref{eq:dim_g}, for reasons discussed by
-Synge and Bressan \citep[\sects~III.2--4]{synge1960b}[\sects~15,
-18]{bressan1978}. Synge gives a vivid summary: \citep[\sect~III.3
-pp.~108--109]{synge1960b}
+favourite choice is the first, for reasons discussed by Synge and Bressan
+\citep[\sects~III.2--4]{synge1960b}[\sects~15, 18]{bressan1978}. Synge
+gives a vivid summary: \citep[\sect~III.3 pp.~108--109]{synge1960b}
 \begin{quote}\footnotesize
   We are now launched on the task of giving physical meaning to the
   Riemannian geometry \textelp{}. It is indeed a Riemannian
   \emph{chronometry} rather than \emph{geometry}, and the word
   \emph{geometry}, with its dangerous suggestion that we should go about
   measuring \emph{lengths} with \emph{yardsticks}, might well be abandoned
-  altogether in the present connection\end{quote} In fact, to measure the
-proper time $\inct$ defined above we only need to ensure that a clock has
-the worldline $C$, and then take the difference between the clock's final
-and initial times. On the other hand, consider the case when the curve $C$
-is \emph{spacelike}. Its proper length is still defined by the
-integral~\eqref{eq:proper_time} (apart from a dimensional constant). Its
-measurement, however, is more involved than the timelike case. It requires
-dividing the curve into very short pieces, and having specially-chosen
-observers (orthogonal to the pieces) measure each piece. But the
-measurement of each piece actually relies on the measurement of
-\emph{proper time}: each observer uses \defquote{radar distance}
+  altogether in the present connection
+\end{quote}
+In fact, to measure the proper time $\inct$ defined above we only need to
+ensure that a clock has the worldline $C$, and then take the difference
+between the clock's final and initial times. On the other hand, consider
+the case when the curve $C$ is \emph{spacelike}. Its proper length is still
+defined by the integral~\eqref{eq:proper_time} apart from a dimensional
+constant. Its measurement, however, is more involved than in the timelike
+case. It requires dividing the curve into very short pieces, and having
+specially-chosen observers (orthogonal to the pieces) measure each piece.
+But the measurement of each piece actually relies on the measurement of
+\emph{proper time}: each observer uses radar distance
 \citep[\sect~84]{landauetal1939_t1996}, sending a lightlike signal which
-bounces back at the end of the piece and measuring the time it takes to
+bounces back at the end of the piece, and measuring the time it takes to
 come back. Even if rigid rods are used, their calibration still relies on a
 measurement of time -- this is also reflected in the current definition of
 the standard metre \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}.
@@ -1778,7 +1783,7 @@ $\yg\i{^{-1}^{\q\q}}$ is then defined by the formula
   \yg^{-1}\yg = \id\i{^{\q}_{\q}},\qquad
   \yg\yg^{-1} = \id\i{_{\q}^{\q}}\quad,
 \end{equation}
-so that, obviously,
+so that
 \begin{equation}
   \label{eq:dim_ig}
   \dim(\yg^{-1}) = \dim(\yg)^{-1}.
@@ -1825,10 +1830,11 @@ be shown that, in spacetime,
     \Le^2
   \end{cases}.
 \end{equation}
-(This is also the dimension of the \emph{density} $\abs{\ygv}$, which, as
+This is also the dimension of the \emph{density} $\abs{\ygv}$, which, as
 opposed to the volume element, has the property that
 $\abs{\ygv}(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for all sets of orthonormal
-vector fields, not only positively-oriented ones.)
+vector fields, not only positively-oriented ones (it is an inner-oriented
+4-form).
 
 \medskip
 
@@ -1885,7 +1891,7 @@ have therefore dimension
     \Ti^{-2} \\
     \Le^{-2}
   \end{cases}
-  \text{if }\dim(\yg)\defd
+  \quad\text{if }\dim(\yg)\defd
   \begin{cases}
      \Ti^2 \\
     \Le^2
@@ -1907,25 +1913,25 @@ the 4-stress and the stress have the same intrinsic dimension.
 
 In Newtonian mechanics the stress $\yt$ is an object that, integrated over
 the boundary of a body, gives the total surface force acting on the body
-(such integration requires a flat connection). This means that it must be
-represented by a \enquote{force-valued} 2-form. Force, in turn, can be
-interpreted as an object that, integrated over a (spacelike) trajectory,
-gives an energy -- the work done by the force along the trajectory. It's
-therefore a 1-form. Putting these two requirements together, the stress
-turns out to be a covector-valued 2-form, equivalent to a tensor
-$\yt\i{_{\q\;\q\q}}$ antisymmetric in its last two indices. Integrated over
-a surface, and then over a trajectory, it yields an energy. From
-\sect~\ref{sec:tensor_ops}, integration of a form does not change the
-dimension of the form. Therefore
+\citep[\chap~III]{truesdell1977_r1991} (such integration requires a flat
+connection). This means that it must be represented by a
+\enquote{force-valued} 2-form. Force, in turn, can be interpreted as an
+object that, integrated over a (spacelike) trajectory, gives an energy --
+the work done by the force along the trajectory. It's therefore a 1-form.
+Putting these two requirements together, the stress turns out to be a
+covector-valued 2-form, equivalent to a tensor $\yt\i{_{\q\;\q\q}}$
+antisymmetric in its last two indices. Integrated over a surface, and then
+over a trajectory, it yields an energy. From \sect~\ref{sec:tensor_ops},
+integration of a form does not change the dimension of the form. Therefore
 \begin{equation}
   \label{eq:dim_3stress_form}
-  \dim(\yt\i{_{\q\;\q\q}}) = \En \equiv \Ma\Le^{2}\Ti^{-2}.
+  \dim(\yt\i{_{\q\;\q\q}}) = \En \equiv \Ma\Le^{2}\Ti^{-2} \;.
 \end{equation}
 
 But usually the stress is represented by a co-contra-variant tensor
-$\yt\i{_{\q}^{\q}}$. This is obtained by contracting the last two slots of
-$\yt\i{_{\q\;\q\q}}$ with the inverse of the volume element of the 3-metric
--- this is the duality \citep[\sect~4.1.2]{bossavit1991} between
+$\yt\i{_{\q}^{\q}}$\,. The latter is obtained by contracting the last two
+slots of $\yt\i{_{\q\;\q\q}}$ with the inverse of the volume element of the
+3-metric -- this is the duality \citep[\sect~4.1.2]{bossavit1991} between
 $k$-vectors and $(n-k)$-covectors induced by the metric (and an orientation
 choice), where $n$ is the geometric dimension of the manifold. If we assume
 the Newtonian 3-metric to have dimension $\Le^{2}$, it can be shown
@@ -1934,7 +1940,7 @@ $\Le^{3}$, and the inverse volume element has dimension $\Le^{-3}$. Thus we
 obtain
 \begin{equation}
   \label{eq:dim_3stress}
-  \dim(\yt\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2},
+  \dim(\yt\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \;,
 \end{equation}
 an energy density (or \defquote{volumic energy} according to \textsc{iso}
 \citep[item~A.6.2]{iso2009}).
@@ -1944,10 +1950,10 @@ $\yT\i{_{\q}^{\q}}$ and the projection preserves the intrinsic dimension, we
 finally find that $\yT\i{_{\q}^{\q}}$ also has the dimension of an energy density:
 \begin{equation}
   \label{eq:dim_4stress}
-  \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2}.
+  \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \;.
 \end{equation}
 
-Note that other co- or contravariant versions of the 4-stress will have
+Note that other co- or contra-variant versions of the 4-stress  have
 different intrinsic dimension, because they're obtained by lowering or
 raising indices. For example,
 $\dim(\yT\i{_{\q\q}})=\dim(\yT\i{_{\q}^{\q}})\dim(\yg)=\Ma\Le^{-1}$ if
@@ -1977,7 +1983,7 @@ $\dim(\yg)\defd \Ti^{2}$.
 
 Let me add a passing remark. Even though in most texts the 4-stress is
 represented by a tensor of order 2, as above, its most fitting geometrical
-nature is still shrouded by mystery from the kinematic and the dynamical
+nature is still shrouded in mystery from the kinematic and the dynamical
 points of view. There are indications that it could be more properly
 represented by a covector-valued 3-form (equivalent to a tensor
 $\yT\i{_{\q\;\q\q\q}}$ antisymmetric in the last three slots), or by a
@@ -2000,7 +2006,7 @@ discussion by Burke~\citep[\sect~41]{burke1985_r1987}.
 % Further, the 4-force is an object that, integrated over a path, gives us an energy density (cf Milne 1951 chap. IV, and Burke again). The integral of a force in Newtonian mechanics is the work done by the force. In general-relativistic mechanics, the timelike component of the 4-force additionally gives us the increase in energy owing to heating (Eckart 1940).
 
 
-\section{Einstein's equations and Einstein's constant}
+\section{The constant in the Einstein equations}
 \label{sec:einstein_eq}
 
 We finally arrive at the Einstein equations,
@@ -2012,9 +2018,8 @@ We finally arrive at the Einstein equations,
 where $\yk$ (sometimes seen with a minus \citep[\eg][\sect~78
 \eqn~(78.3)]{tolman1934_t1949}[\sect~52
 \eqn~(52.06)]{fock1955_t1964}[\sect~14.2 \eqn~(14.8)]{rindler2001_r2006}
-depending on the signature of the metric or on how the orientation of the
-stress is chosen) is Einstein's constant. For the dimension of $\yk$ we
-thus find
+depending on the signature of the metric or on the orientation of the
+stress) is Einstein's constant. For the dimension of $\yk$ we thus find
 \begin{equation}
   \label{eq:dim_k_1}
   \dim(\yk) = \dim(\yG\i{_{\q}^{\q}})\dim(\yT\i{_{\q}^{\q}})^{-1} \equiv
@@ -2022,7 +2027,7 @@ thus find
     \Ma^{-1}\Le \\
     \Ma^{-1}\Le^{-1}\Ti^{2}
   \end{cases}
-  \text{ if }\dim(\yg)\defd
+  \quad\text{if }\dim(\yg)\defd
   \begin{cases}
      \Ti^2 \\
     \Le^2

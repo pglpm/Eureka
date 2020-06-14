@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-14T07:48:22+0200
+%% Last-Updated: 2020-06-14T07:56:37+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -664,7 +664,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \DeclareRobustCommand*{\q}{%
   \mathbin{\mathpalette\bigcdot@{}}%
 }
-\newcommand*{\bigcdot@scalefactor}{0.75}
+\newcommand*{\bigcdot@scalefactor}{0.7}
 \newcommand*{\bigcdot@widthfactor}{1.5}
 \newcommand*{\bigcdot@}[2]{%
   % #1: math style
@@ -894,7 +894,8 @@ should be understandable even without such familiarity.
 Finally, quoting Truesdell \amp\ Toupin \citep[Appendix \sect~7
 footnote~4]{truesdelletal1960}, \enquote{dimensional analysis remains a
   controversial and somewhat obscure subject. We do not attempt a complete
-  presentation here}.  References about recent developments in this
+  presentation here}.  References
+about recent developments in this
 subject are given in the final summary, \sect~\ref{sec:summary}.
 
 
@@ -976,7 +977,7 @@ typographic misunderstanding.
 I'll therefore use a notation such as $\yA\i{_{\q}^{\q\q}}$ to
 indicate that $\yA$ is covariant in its first slot and contravariant in its
 second and third slots. Its components would thus be $(A\i{_{i}^{jk}})$.
-For brevity I'll call this a \defquote{co-contra-contravariant} tensor,
+For brevity I'll call this a \defquote{co-contra-contra-variant} tensor,
 with an obvious naming generalization for other
 types. % In spirit this notation is similar to the
 % abstract-index one of Penrose \amp\ Rindler
@@ -1030,7 +1031,7 @@ Let me first present a simple example of dimensional analysis in a
 two-dimensional spacetime. I provide very little explanation, letting the
 analysis speaks for itself. The next sections will give a longer discussion
 of the general point of view, of the assumptions, and of cases with more
-complex geometrical objects.
+elaborate geometric objects.
 
 In a region of a two-dimensional spacetime we use coordinates $(x,y)$.
 These coordinates allow us to uniquely identify every event in the region
@@ -1105,12 +1106,13 @@ or
 
 The intrinsic dimension of the tensor $\yA$ is $\Aa$. The
 expansion~\eqref{eq:expansion_tensor_2d} shows that this dimension is
-independent of the coordinate system, because the expansion could be done
-for any other coordinates but the left side would always be the same. The
-intrinsic dimension is determined by the physical or operational meaning of
-the tensor. Together with the dimensions of the coordinates it determines
-the dimensions of the components, \eqn~\eqref{eq:four_dims_2d}, which need
-not be all equal.
+independent of the coordinate system, by construction -- that expansion
+could be done in any other coordinate system, and the left side would be
+the same. The effect of coordinate transformations is examined more in
+detail in \sect~\ref{sec:tensors}. The intrinsic dimension is determined by
+the physical or operational meaning of the tensor. Together with the
+dimensions of the coordinates it determines the dimensions of the
+components, \eqn~\eqref{eq:four_dims_2d}, which need not be all equal.
 
 This simple example should have disclosed the main points of dimensional
 analysis on manifolds, which will now be discussed in more generality.
@@ -1173,8 +1175,8 @@ $\dim(\dix) = \Xx_{i}$, and the vector $\dex$ traditionally has the
 inverse dimension: $\dim\dex = {\Xx_{i}}^{-1}$. % We'll see later that these
 % conventions are self-consistent.
 
-For our discussion let's take a concrete example: a contra-covariant tensor
-field $\yA \equiv \yA\i{^{\q}_{\q}}$. The discussion generalizes to tensors
+For our discussion let's take a concrete example: a contra-co-variant tensor
+field $\yA \equiv \yA\i{^{\q}_{\q}}$\,. The discussion generalizes to tensors
 of other types in an obvious way.
 
 The tensor $\yA$ can be expanded in terms of the basis vectors and
@@ -1920,7 +1922,7 @@ dimension of the form. Therefore
   \dim(\yt\i{_{\q\;\q\q}}) = \En \equiv \Ma\Le^{2}\Ti^{-2}.
 \end{equation}
 
-But usually the stress is represented by a co-contravariant tensor
+But usually the stress is represented by a co-contra-variant tensor
 $\yt\i{_{\q}^{\q}}$. This is obtained by contracting the last two slots of
 $\yt\i{_{\q\;\q\q}}$ with the inverse of the volume element of the 3-metric
 -- this is the duality \citep[\sect~4.1.2]{bossavit1991} between

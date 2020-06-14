@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-13T18:58:21+0200
+%% Last-Updated: 2020-06-14T07:48:22+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -752,17 +752,17 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \setlength{\absrightindent}{0pt}
 \setlength{\abstitleskip}{-\absparindent}
 \begin{abstract}\labelsep 0pt%
-  \noindent This note illustrates how to perform dimensional analysis in
-  general relativity and differential geometry, and tries to revive Dorgelo
-  \amp\ Schouten's notion of \emph{absolute dimension} of a tensorial
-  quantity. The absolute dimension is independent of the dimensions of the
-  coordinate functions. The dimensional analysis of several important
-  tensors and tensor operations is summarized. In particular it is shown
-  that the components of a tensor need not have all the same dimension, and
-  that the Riemann (once contravariant and trice covariant) and Ricci
-  (fully covariant) tensors are dimensionless. The relation between
-  dimension and operational meaning for the metric and
-  stress-energy-momentum tensors is also
+  \noindent This note provides a short guide to performing dimensional
+  analysis in general relativity and in differential geometry. It tries to
+  revive Dorgelo and Schouten's notion of \defquote{intrinsic} or
+  \defquote{absolute} dimension of a tensorial quantity. The intrinsic
+  dimension is independent of the dimensions of the coordinates. The
+  dimensional analysis of several important tensors and tensor operations
+  is summarized. In particular it is shown that the components of a tensor
+  need not have all the same dimension, and that the Riemann (once
+  contravariant and trice covariant) and Ricci (fully covariant) curvature
+  tensors are dimensionless. The relation between dimension and operational
+  meaning for the metric and stress-energy-momentum tensors is also
   discussed.
   % \\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer,
   %   this manuscript is being peer-reviewed by you. Thank you.}
@@ -804,24 +804,23 @@ tensor need to have the same dimension? What are the dimensions of the
 metric and of the curvature tensor? And what is the dimension of the
 constant in the Einstein equations?
 
-Many students in relativity, but also some researchers, seem to be insecure
-when they have to discuss the dimensions of tensors and of tensor
-components, the effect of tensor operators on dimensions, and the
-dimensions of constants in differential-geometric and field equations. Some
-incorrect or unfounded notions about these topics are in circulation. For
-example, the notion that the components of a tensor should all have the
-same dimension. This is not true. Or the assumption that all coordinates
-have dimension of length. This is unnecessary. These points will be
-clarified in the next sections.
+A sense of insecurity often gets hold of many students in relativity, and
+of some researchers, when they have to discuss the dimensions of tensors
+and of tensor components, the effect of tensor operators on dimensions, and
+the dimensions of constants in differential-geometric and field equations.
+Some incorrect or unfounded statements about these topics are in
+circulation. For example, the notion that the components of a tensor or the
+coordinate functions should all have the same dimension. As we'll see
+shortly, both statements are false.
 
-Several factors contribute to these insecurities and misconceptions. Modern
+Several factors contribute to these misconceptions and insecurity. Modern
 texts in Lorentzian and general relativity commonly use geometrized units.
 They say that, for finding the dimension of some constant in a tensorial
 equation, it's sufficient to compare the dimensions of the tensors in the
-equation. But this is not so immediate, because some tensors don't have
-universally agreed dimensions -- prime example the metric tensor. Older
-texts often use four coordinates with dimension of length, and base their
-dimensional analysis on that specific choice. They even
+equation. But this procedure is not so immediate, because some tensors
+don't have universally agreed dimensions -- prime example the metric
+tensor. Older texts often use four coordinates with dimension of length,
+and base their dimensional analyses on that specific choice. They even
 multiply\citep[\eg][p.~72 \eqn~(37.8)]{tolman1934_t1949}[p.~80
 \eqn~(32.15)]{landauetal1939_t1996}[p.~332
 \eqn~(10.15)]{adleretal1965_r1975} coordinates or tensorial components
@@ -829,24 +828,25 @@ having dimension of time by powers of $c$. A student thus gets the
 impression that coordinates ought to always be lengths, and that all
 components of a tensor ought to have the same dimension \citep[A recent
 work explicitly stating, if only in passing, that this needs not be the
-case is][]{kitano2013}.
+case is][\sect~X]{kitano2013}.
 
 \medskip
 
-The present wants to provide a short but exhaustive guide to the
-application of the usual rules of dimensional analysis in differential
-geometry. The usual rules are that if two quantities are summed, then they
-must have the same dimension; that the dimension of a product is the
-product of the dimensions; and so on. Some important dimensional-analysis
-questions in general relativity will also be consistently settled in this
-note; for example the dimension of the Riemann curvature tensor, or the
-effect of the covariant derivative on dimensions. An introductory
-two-dimensional example of the basic way of reasoning about dimensional
-analysis in differential geometry is given in \sect~\ref{sec:2d_example}.
-Sections~\ref{sec:tensors}--\ref{sec:curves} give a more general and
-systematic discussion and a synopsis of the main tensorial operations. It
-is shown, in particular, that \emph{the components of a tensor need not
-  have the same dimensions}. The dimension of the constant in the Einstein
+The present note wants to provide a short but exhaustive guide to the
+application of the usual rules of dimensional analysis to differential
+geometry. The usual rules are that if two quantities are summed they must
+have the same dimension; that the dimension of a product is the product of
+the dimensions; and so on. Some important dimensional-analysis questions in
+general relativity will also be consistently settled in this note; for
+example the dimension of the Riemann curvature tensor, or the effect of the
+covariant derivative on dimensions. An introductory example of the basic
+way of reasoning about dimensional analysis in differential geometry is
+given in \sect~\ref{sec:2d_example}.
+Sections~\ref{sec:tensors}--\ref{sec:curves} offer a more general and
+systematic discussion and a synopsis of the main tensorial operations. % It
+% is shown, in particular, that \emph{the components of a tensor need not
+% have the same dimensions}.
+The dimension of the constant in the Einstein
 equations is derived in \sect~\ref{sec:einstein_eq}.
 
 The application of dimensional analysis in differential geometry pivots on
@@ -874,9 +874,9 @@ the coordinate-free, intrinsic view of tensors and other
 differential-geometrical objects. % The insecurities mentioned above possibly
 % stem from the exclusive use of the index-based presentation typical of
 % older texts.
-A brief reminder of this view is given in \sect~\ref{sec:remined}, with
-references. Special notation related to it is first explained in
-\sect~\ref{sec:notation}.
+A brief reminder of this view, with references, is given in
+\sect~\ref{sec:remined}, together with some special notation necessary to
+our discussion.
 
 
 % The final \sect~\ref{sec:summary} gives a summary of the main results, with
@@ -894,19 +894,64 @@ should be understandable even without such familiarity.
 Finally, quoting Truesdell \amp\ Toupin \citep[Appendix \sect~7
 footnote~4]{truesdelletal1960}, \enquote{dimensional analysis remains a
   controversial and somewhat obscure subject. We do not attempt a complete
-  presentation here.} Some references about recent developments in this
-subject are given in the final \sect~\ref{sec:summary}.
+  presentation here}.  References about recent developments in this
+subject are given in the final summary, \sect~\ref{sec:summary}.
 
 
 % \citep{aldersley1977} also confuses component- and absolute dimensions
 
-\section{Notation}
-\label{sec:notation}
+
+\section{Intrinsic view of differential-geometric objects:\\ brief
+  reminder and notation}
+\label{sec:remined}
+
+
+From the intrinsic point of view, a tensor is defined by its geometric
+properties. For example, a vector field $\yv$ % \equiv \yv(\dotv)
+is an object that operates on functions defined on the (spacetime)
+manifold, yielding new functions, with the properties
+$\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for all
+functions $f$, $g$ and reals $a$, $b$. A covector field (1-form) $\yom$ is
+an object that operates on vector fields, yielding functions
+(\defquote{duality}), with the property
+$\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields $\yu$, $\yv$
+and functions $f$, $g$. The sum of vector or covector fields, and their
+products by functions -- let's call this \defquote{linearity} -- are
+defined in an obvious way. Tensors are constructed from these objects.
+
+A system of coordinates $(x^{i})$ is just a set of linearly independent
+functions. This set gives rise to a set of vectors fields
+$\bigl(\dex\bigr)$ and to a set of covector fields $(\dix)$ by the obvious
+requirements that $\dex(x^{j})=\delt\i{_{i}^{j}}$ and
+$\dix\bigl(\dex[j]\bigr)=\delt\i{^{i}_{j}}$. These two sets can be used as bases
+to express all other vectors and covectors as linear combinations. A
+vector field $\yv$ can thus be written as
+\begin{equation}
+  \label{eq:vector_intrinsic}
+  \yv \equiv \sum_{i}v^{i}\dex \equiv v^{i}\dex \;,
+\end{equation}
+where the \emph{functions} $v^{i}\defd \yv(x^{i})$ are its components with
+respect to the basis $\bigl(\dex\bigr)$. Analogously for a covector field.
+
+\medskip
+
+For the presentation of the intrinsic view I recommend the excellent texts
+by Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}, Boothby
+\citey{boothby1975_r2003}, Abraham \etal\ \citey{abrahametal1983_r1988},
+Bossavit \citey{bossavit1991}, Burke
+\citey{burke1985_r1987}[\chap~2]{burke1980b}, and more on the
+general-relativity side Misner \etal\
+\citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
+\citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \amp\ Rindler
+\citey[\chap~4]{penroseetal1984_r2003}. \textcolor{white}{If you find this
+  you can claim a postcard from me.}
+
+\bigskip
 
 For the notation in dimensional analysis I use \textsc{iso} conventions:
 $\dim(\yA)$ is the dimension of the quantity $\yA$, and among the base
 quantities are mass $\Ma$, length $\Le$, time $\Ti$, temperature $\Te$,
-electric current $\Cu$. Note that I don't discuss \emph{units} -- it
+electric current $\Cu$. Note that I don't discuss units -- it
 doesn't matter here whether the unit for length is the metre or the
 centimetre, for example.
 
@@ -977,51 +1022,6 @@ won't find this notation too uncomfortable.
 
 
 
-\section{Intrinsic view of differential-geometric objects:\\ brief
-  reminder}
-\label{sec:remined}
-
-
-From the intrinsic point of view, a tensor is defined by its geometric
-properties. For example, a vector field $\yv$ % \equiv \yv(\dotv)
-is an object that operates on functions defined on the (spacetime)
-manifold, yielding new functions, with the properties
-$\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for all
-functions $f$, $g$ and reals $a$, $b$. A covector field (1-form) $\yom$ is
-an object that operates on vector fields, yielding functions
-(\defquote{duality}), with the property
-$\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields $\yu$, $\yv$
-and functions $f$, $g$. The sum of vector or covector fields, and their
-products by functions -- let's call this \defquote{linearity} -- are
-defined in an obvious way. Tensors are constructed from these objects.
-
-A system of coordinates $(x^{i})$ is just a set of linearly independent
-functions. This set gives rise to a set of vectors fields
-$\bigl(\dex\bigr)$ and to a set of covector fields $(\dix)$ by the obvious
-requirements that $\dex(x^{j})=\delt\i{_{i}^{j}}$ and
-$\dix\bigl(\dex[j]\bigr)=\delt\i{^{i}_{j}}$. These two sets can be used as bases
-to express all other vectors and covectors as linear combinations. A
-vector field $\yv$ can thus be written as
-\begin{equation}
-  \label{eq:vector_intrinsic}
-  \yv \equiv \sum_{i}v^{i}\dex \equiv v^{i}\dex \;,
-\end{equation}
-where the \emph{functions} $v^{i}\defd \yv(x^{i})$ are its components with
-respect to the basis $\bigl(\dex\bigr)$. Analogously for a covector field.
-
-\medskip
-
-For the presentation of the intrinsic view I recommend the excellent texts
-by Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}, Boothby
-\citey{boothby1975_r2003}, Abraham \etal\ \citey{abrahametal1983_r1988},
-Bossavit \citey{bossavit1991}, Burke
-\citey{burke1985_r1987}[\chap~2]{burke1980b}, and more on the
-general-relativity side Misner \etal\
-\citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
-\citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \amp\ Rindler
-\citey[\chap~4]{penroseetal1984_r2003}. \textcolor{white}{If you find this
-  you can claim a postcard from me.}
-
 
 \section{An introductory two-dimensional example}
 \label{sec:2d_example}
@@ -1035,8 +1035,9 @@ complex geometrical objects.
 In a region of a two-dimensional spacetime we use coordinates $(x,y)$.
 These coordinates allow us to uniquely identify every event in the region
 (otherwise they wouldn't be coordinates). The coordinate $x$ has dimension
-of temperature, and $y$ of entropy density
-\citep{eckart1940c,maugin1974b,maugin1978b}: 
+of temperature, and $y$ of entropy density \citep[for general-relativintic
+thermomechanics see
+\eg][]{eckart1940c,maugin1974b,maugin1978b,maugin1978c,maugin1978d,maugin1978e,muschiketal2014}:
 \begin{equation}
   \label{eq:example_coords2d}
   \dim(x)=\Te \;,\quad
@@ -2227,7 +2228,7 @@ review by de~Boer \citep{deboer1995}, and references therein.
 % \defbibnote{postnote}{\par\medskip\noindent{\footnotesize% Note:
 %     \arxivp \mparcp \philscip \biorxivp}}
 
-\printbibliography[%prenote=prenote%,postnote=postnote
+\printbibliography[prenote=prenote%,postnote=postnote
 ]
 
 \end{document}

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-06-15T12:25:17+0200
+%% Last-Updated: 2020-06-15T17:20:01+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -961,18 +961,49 @@ may be unfamiliar to some readers and are summarized in \sects***.
 
 \paragraph{Forced and unforced motion}
 
-Both Newtonian and general relativity traditionally make a distinction
-between unforced, or inertial, or geodesic motion versus forced motion.
-Loosely speaking, force is conceived as something that alters a sort of
-preferred motion. I find this distinction artificial and unappealing. Its
-lack of appeal is, I believe, generally felt in general relativity,
-especially among its students. You probably remember how fascinating the
-idea was that a pointlike body, even one subject to gravitational forces,
-is actually following a \enquote{straight} line in just a more complicated
-geometry. Unfortunately other forces intruded to ruin this natural motion.
-So the natural question was whether all these other annoying forces could not be
-made part of the geometric structure, so as to make geodesic motion a
-universal rule.
+Both Newtonian and general relativity traditionally draw a distinction
+between unforced or inertial or geodesic motion versus forced motion.
+Loosely speaking, force is conceived as something that alters a preferred
+motion. I find this distinction artificial and unappealing. Its lack of
+appeal is, I believe, generally felt in general relativity, especially by
+students. You probably remember how fascinating the idea was that a
+point-like body, even if subject to gravitational forces, is actually
+following a \enquote{straight} line in a more complicated geometry.
+Unfortunately other forces intrude to ruin this \enquote{straight} motion.
+The natural question that came to mind was whether all these annoying
+forces could not be included in the geometric structure, so as to make
+geodesic motion a universal rule (compare with Kaluza-Klein theories
+\citep{kaluza1921,goenner2004,goenner2012,verbinetal2005}).
+
+But this distinction can possibly be eliminated by taking a point of view
+opposite to geometrization: instead of trying to reduce force to geometry,
+we try to reduce geometry to force. This point of view is suggested by
+Newtonian mechanics; in is the reinterpretation of
+\enquote{\,$\tsum\bm{F} = m\bm{a}$\,} mentioned above. In this possible to
+reformulate Newtonian dynamics as the requirement that the sum of all
+forces on a body be always zero, just like in the science of statics:
+$\tsum \bm{F} = 0$. Among these forces, however, we must include the
+\emph{inertial} force:
+\[\tsum \bm{F} = \bm{F}_{\text{inertia}} + \bm{F}_{\text{gravity}}
+  + \bm{F}_{\dotso} + \dotsb = 0\;.\] The inertial force, in an inertial
+frame, is given by $\bm{F}_{\text{inertia}} \defd -m \bm{a}$\,; note the
+minus sign. The familiar Newton equations are thus recovered. The inertial
+force, moreover, can be defined in a way independent of any choice of frame
+(see \eqn~\eqref{eq:inertial_force}). So the distinctions between inertial
+and non-inertial frames and between unforced and forced motions disappear.
+This reinterpretation is discussed in \sect***.
+
+Trying to carry this point of view over to general relativity, one wonders
+whether the dynamics can be reformulated as the requirement that the sum of
+some tensors, representing forces of various kinds, be zero. Among these
+tensors there would be one related to \enquote{metric forces}, that is,
+inertia and gravitation. On a second look, the Einstein equations
+$\yG = 8\pi\yTf$ -- imagine them rewritten as $\frac{1}{8\pi}\yG - \yTf=0$
+-- could seem to represent exactly such a requirement. But there are
+difficulties with this interpretation. The main difficulty is that the
+definition of the stress-energy-momentum tensor $\yT$ (more precisely the
+constitutive equations for this tensor) often requires metric notions; the
+effects of the metric are therefore not confined to the tensor $\yG$.
 
 
 

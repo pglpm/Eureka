@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-06-15T18:32:57+0200
+%% Last-Updated: 2020-06-15T20:43:07+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -661,7 +661,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\puzzle}{\maltese}
 \newcommand{\mynote}[1]{ {\color{notecolour}#1}}
 \newcommand*{\widebar}[1]{{\mkern1.5mu\skew{2}\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}}
-
+\newcommand*{\puz}{\puzzle}% Sect.~
+\newcommand*{\puzs}{\puzzle}% Sect.~
 % \newcommand{\explanation}[4][t]{%\setlength{\tabcolsep}{-1ex}
 % %\smash{
 % \begin{tabular}[#1]{c}#2\\[0.5\jot]\rule{1pt}{#3}\\#4\end{tabular}}%}
@@ -940,7 +941,7 @@ fields actually occurs.
 I think it would be appealing to build a kinematics common to Newtonian
 mechanics and general relativity, so that their difference lie solely in
 the dynamics. Such a construction would also be pedagogically useful.
-Several authors (\cf\ \sect~\ref{sec:metric-free}) seem to find this point
+Several authors (\cf\ \puz~\ref{sec:metric-free}) seem to find this point
 of view appealing.
 
 This construction requires that we reformulate Newtonian kinematics without
@@ -958,7 +959,7 @@ kind. %In general relativity this is also true of energy density \amp\ flux.
 Two studies will be especially important for our exploration. The first is
 a reinterpretation of the familiar \enquote{\,$\tsum\bm{F} = m\bm{a}$\,};
 the second is a metric-free reformulation of electromagnetism. These
-studies may be unfamiliar to some readers and are summarized in \sects***.
+studies may be unfamiliar to some readers and are summarized in \puzs***.
 
 
 \paragraph{Forced and unforced motion}
@@ -996,7 +997,7 @@ minus sign. The familiar Newton equations are thus recovered. The inertial
 force, moreover, can be defined in a way independent of any choice of frame
 (see \eqn~\eqref{eq:inertial_force}). So the distinctions between inertial
 and non-inertial frames and between unforced and forced motions disappear.
-This reinterpretation is discussed in \sect***.
+This reinterpretation is discussed in \puz***.
 
 Can we carry this point of view over to general relativity? One possibility
 would be to reformulate its dynamics as the requirement that the sum of
@@ -1047,9 +1048,10 @@ sequence of observations, questions, and possible answers.
 %   such a way as to leave the local rotation fixed but vary the extensions
 %   is dubious.}  \citep[\sect~54 p.~303]{truesdelletal1960}
 
+\setsecnumformat{\puzzle\ \upshape\csname the#1\endcsname\quad}
 
-\renewcommand*{\thesection}{\puzzle\,\arabic{section}}
-\renewcommand*{\thesubsection}{\arabic{section}.\arabic{subsection}}
+%\renewcommand*{\thesection}{\puzzle\,\arabic{section}}
+%\renewcommand*{\thesubsection}{\arabic{section}.\arabic{subsection}}
 
 \section{The frame-invariant formulation of Newton's equations}
 \label{sec:noll_inertia}
@@ -1430,7 +1432,7 @@ traditionally it would be considered as \enquote{momentum}. As momentum it
 would be part of the energy-momentum-stress tensor $\yTf$, which has order
 2. This only works if we represent it as a 1-form or a vector. Should we
 change our representation of the energy-momentum-stress tensor $\yTf$ then,
-to something of a different order? We'll see in \sect*** that there are
+to something of a different order? We'll see in \puz*** that there are
 other reasons to do so indeed. But in Einstein's equations $\yG = 8\pu\yTf$
 this tensor is equated to the Einstein tensor $\yG$; thus we would need to
 find a different representation of the latter, too.
@@ -1494,7 +1496,7 @@ and to the existence of potentials.
 \subsection{Constitutive equations}
 \label{sec:constit_eq}
 
-\mynote{to be written. See \sect~\ref{sec:constitutive equations}}
+\mynote{to be written. See \puz~\ref{sec:constitutive equations}}
 
 
 \subsection{Geometric representation}
@@ -1522,7 +1524,7 @@ If a bulk force is to be integrated over a volume, then it should be a
 covector-valued, outer-oriented 3-form. If we think of it as operating on a
 matter element (outer-oriented 3-form) instead, then it should be a
 covector-valued, outer-oriented 3-vector. Here we see the core of one of
-the questions of \sect~\ref{sec:soup}: are we to interpret forces as
+the questions of \puz~\ref{sec:soup}: are we to interpret forces as
 \enquote{acting} on matter? or as entities that can exist where there's no
 matter? General relativity suggests the latter interpretation. But we'll
 see that we can bypass the question of this representation in general
@@ -1830,7 +1832,7 @@ arbitrary rigid frame $\yF$; remember that what we call \enquote{time
 let the position of the body region be $\yxt(t)$, and let the total
 distribution of matter in the universe have centre of mass at $\yxto(t)$
 and average instantaneous rotation given by the 2-form $\yom(t)$; in
-\sect~\ref{sec:inertial_force} I explain how they are determined by the
+\puz~\ref{sec:inertial_force} I explain how they are determined by the
 mass distribution through a sort of Mach's principle. Then the inertial
 force is the covector-valued 3-form
 % \begin{equation}
@@ -1845,7 +1847,7 @@ force is the covector-valued 3-form
   \cdot(\yxt-\yxto).
 \end{equation}
 The definition of this force requires a metric on each slice. The definition
-of its source, see \sect~\ref{sec:inertial_force}, also requires a parallel
+of its source, see \puz~\ref{sec:inertial_force}, also requires a parallel
 transport on each slice. But it does not require a 4-dimensional connection
 on the whole spacetime. If we choose a rigid frame in which the total
 matter of the universe does not rotate on average, $\yom=0$, and moves with
@@ -1882,7 +1884,7 @@ Newtonian-relativistic mechanics.
 
 The inertial force on the mass $\yr$ can be written in a frame-free way as
 $-\yg^{-1}\cdot \Li_{\yFi}(\yFi\cdot\yr)$, where $\yFi$ is a vector field
-transverse to the slices, defined in \sect~\ref{sec:inertial_force}. Some
+transverse to the slices, defined in \puz~\ref{sec:inertial_force}. Some
 forces, like inertial, viscous, and electromagnetic ones, require objects
 transverse to the slicing for their definition, whereas others, like
 elastic or gravitational ones, don't. This suggests that the presentation
@@ -1937,7 +1939,7 @@ closed 3-form, with a flux 2-form
 \label{sec:newton_dynamics_without_absolute_time}
 
 The formulation of dynamics of
-\sect~\ref{sec:newton_dynamics_absolute_time} has the advantage of being
+\puz~\ref{sec:newton_dynamics_absolute_time} has the advantage of being
 frame-indifferent: inertial frames don't have a special status, and inertia
 is just one force among many others. But that formulation still has several
 interrelated unpleasant features:
@@ -2085,7 +2087,7 @@ geometry. They -- especially the stress appearing in them -- still need
 constitutive equations.
 
 The Einstein equations don't include the balances of amount of matter (see
-\sect~\ref{sec:matter}) and entropy
+\puz~\ref{sec:matter}) and entropy
 \citep{eckart1940c}[\chap~22]{misneretal1970_r1973}. This fact is very
 clear in numerical relativity
 \citep[p.~1918]{disconzi2014}[\sect~2.2]{wilsonetal2003_r2007}[\sect~6.3.2]{gourgoulhon2007_r2012}[\chap~5]{baumgarteetal2010}[\sect~2.3]{rezzollaetal2013}.
@@ -2097,7 +2099,7 @@ clear in numerical relativity
 \label{sec:3-1_formulation}
 
 Spacetime can be sliced and a frame introduced just like in the Newtonian
-case of \sect~\ref{sec:slicing_frames}.
+case of \puz~\ref{sec:slicing_frames}.
 
 The Einstein equations can be decomposed by projection along the slices $t$
 and the frame $\yn$, giving rise to a part parallel to the surfaces with
@@ -2639,7 +2641,7 @@ are expressed in the stress. This idea appears when we try to combine
 Newtonian continuum thermomechanics and general relativity.
 
 To explore this idea I first give in
-\sect~\ref{sec:newtonian_continuum_thermomechanics} a summary of the aim of
+\puz~\ref{sec:newtonian_continuum_thermomechanics} a summary of the aim of
 Newtonian continuum thermomechanics and of its basic equations, stressing
 the importance of constitutive equations. It is necessary to discuss the
 \enquote{aim} because, independently of the different invariance groups and
@@ -2650,12 +2652,12 @@ crystal conceptual and methodological clarity, thanks to its 300 years of
 history. Some of its concepts and methods may be brought into general
 relativity and offer new interpretations of the latter.
 
-I apologize for \sect~\ref{sec:newtonian_continuum_thermomechanics}, which
+I apologize for \puz~\ref{sec:newtonian_continuum_thermomechanics}, which
 is actually very confusing, because I tried to keep it short and to give
 the broadest possible view at the same time. To correct this I give a
 summary of its key points at the end of it.
 
-Then in \sect~\ref{sec:general_relativity} I give a summary of the
+Then in \puz~\ref{sec:general_relativity} I give a summary of the
 \enquote{3~+ 1} (or \enquote{Arnowitt-Deser-Misner}, or
 \enquote{initial-value}) formulation of the Einstein equations, showing in
 particular how the energy-momentum-stress balance equations arise from
@@ -2790,7 +2792,7 @@ latter determined mostly by the fixed stars. As in the case of the
 gravitational force, this can be written by introducing an inertial field
 $\yFi$ transversal to the slicing; the inertial force is then given by
 $-\yFi \cdot \Li_{\yFi}\yr \cdot \yg^{-1}$. In
-\sect~\ref{sec:inertial_force} I explain how the inertial field is
+\puz~\ref{sec:inertial_force} I explain how the inertial field is
 determined by the mass distribution; it is a form of Mach's principle.
 Albeit operationally difficult because it involves the distribution of all
 mass in the universe, this description does not involve any frame.
@@ -2874,7 +2876,7 @@ $\yFi\cdot\yr$. The gravitational force $\yfg$ is in turn determined
 locally by the mass 3-form $\yr$ via $\di\yfg = - 4\pu G \yd$ -- no metric
 or connection required. The fixed-stars frame $\yFi$ can also be thought as
 determined, non-locally, by the mass form $\yr$ and the 3-metric $\yg$, or
-possibly just the 3-connection. I discuss this in \sect**; it is a form of
+possibly just the 3-connection. I discuss this in \puz**; it is a form of
 Mach's principle.
 
 The difference between Newtonian and general-relativistic mechanics is only
@@ -3032,7 +3034,7 @@ of the relationships between geometry, matter, and gravitation:
   \citey{vandantzig1934,vandantzig1934b,vandantzig1934c,vandantzig1934d,vandantzig1934e,vandantzig1937,schoutenetal1940,vandantzig1954}.
 
   Mass density, mass flux, and the balance of mass are one example, as we
-  saw in \sect~\ref{sec:matter}. Most literature instead
+  saw in \puz~\ref{sec:matter}. Most literature instead
   \citep[\eg,][p.~171]{smarretal1980} writes the balance of mass introducing
   a metric volume element $\sqrt{\abs{g}}$ \citep[\cf][\sect~V.B.4,
   pp.~317--318]{choquetbruhatetal1977_r1996}, but the metric should play no

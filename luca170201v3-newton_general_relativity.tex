@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-06-15T17:20:01+0200
+%% Last-Updated: 2020-06-15T18:13:38+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -905,13 +905,12 @@ mccauley2000_r2001
 
 This note explores some notions around kinematics, dynamics, matter,
 inertia, and force in Newtonian- and general-relativistic continuum
-mechanics. My desire for this exploration has two main motivations. The
-first is to understand the boundary between kinematics and dynamics in
-general relativity, and whether a single boundary common to Newtonian and
-general relativity can be drawn. The second is a dissatisfaction with the
-division between forced and unforced (geodesic) motion common to both
-theories as usually presented. Let me explain these two points in more
-detail.
+mechanics. This exploration comes out of two desires. The first is to
+understand the boundary between kinematics and dynamics in general
+relativity, and whether a single boundary common to Newtonian and general
+relativity can be drawn. The second is a dissatisfaction with the division
+between forced and unforced (geodesic) motion common to both theories as
+usually presented. Let me explain these two points in more detail.
 
 \paragraph{Kinematics and dynamics}
 
@@ -940,9 +939,8 @@ fields actually occurs.
 I think it would be appealing to build a kinematics common to Newtonian
 mechanics and general relativity, so that their difference lie solely in
 the dynamics. Such a construction would also be pedagogically useful.
-Several authors
-\citep{vandantzig1934,vandantzig1934b,vandantzig1934c,vandantzig1934d,vandantzig1934e,vandantzig1936,vandantzig1937,vandantzig1954}
-seem to find this point of view appealing.
+Several authors (\cf\ \sect~\ref{sec:metric-free}) seem to find this point
+of view appealing.
 
 This construction requires that we reformulate Newtonian kinematics without
 metric notions, and that we redefine its quantities and operations in a
@@ -952,11 +950,14 @@ stress and metric are both dynamic quantities, is it possible to keep them
 separate?
 
 There are old and recent studies that show that this construction is
-possible, even if some seem apparently unrelated with it. Two studies will
-be especially important for our exploration. The first is a
-reinterpretation of the familiar \enquote{\,$\tsum\bm{F} = m\bm{a}$\,}; the
-second is a metric-free reformulation of electromagnetism. These studies
-may be unfamiliar to some readers and are summarized in \sects***.
+possible, even if some seem apparently unrelated with it. In both Newtonian
+and general relativity, for example, the notion of matter density \amp\
+flux and charge density \amp\ flux do not require metric structures of any
+kind. %In general relativity this is also true of energy density \amp\ flux.
+Two studies will be especially important for our exploration. The first is
+a reinterpretation of the familiar \enquote{\,$\tsum\bm{F} = m\bm{a}$\,};
+the second is a metric-free reformulation of electromagnetism. These
+studies may be unfamiliar to some readers and are summarized in \sects***.
 
 
 \paragraph{Forced and unforced motion}
@@ -973,17 +974,20 @@ Unfortunately other forces intrude to ruin this \enquote{straight} motion.
 The natural question that came to mind was whether all these annoying
 forces could not be included in the geometric structure, so as to make
 geodesic motion a universal rule (compare with Kaluza-Klein theories
-\citep{kaluza1921,goenner2004,goenner2012,verbinetal2005}).
+\citep{kaluza1921,goenner2004,goenner2012,verbinetal2005}). Another reason
+why I find this distinction unappealing is that geodesic motion becomes
+almost completely unimportant in the mechanics of continua. And general
+relativity is clearly a continuum theory.
 
-But this distinction can possibly be eliminated by taking a point of view
-opposite to geometrization: instead of trying to reduce force to geometry,
-we try to reduce geometry to force. This point of view is suggested by
-Newtonian mechanics; in is the reinterpretation of
-\enquote{\,$\tsum\bm{F} = m\bm{a}$\,} mentioned above. In this possible to
-reformulate Newtonian dynamics as the requirement that the sum of all
-forces on a body be always zero, just like in the science of statics:
-$\tsum \bm{F} = 0$. Among these forces, however, we must include the
-\emph{inertial} force:
+The distinction between forced and unforced motion can possibly be
+eliminated by taking a point of view opposite to geometrization: instead of
+trying to reduce force to geometry, we try to reduce geometry to force.
+This point of view is suggested by Newtonian mechanics; it is the
+reinterpretation of \enquote{\,$\tsum\bm{F} = m\bm{a}$\,} mentioned above.
+It is possible to reformulate Newtonian dynamics as the requirement that
+the sum of all forces on a body be always zero, just like in the science of
+statics: $\tsum \bm{F} = 0$. Among these forces, however, we must include
+the \emph{inertial} force:
 \[\tsum \bm{F} = \bm{F}_{\text{inertia}} + \bm{F}_{\text{gravity}}
   + \bm{F}_{\dotso} + \dotsb = 0\;.\] The inertial force, in an inertial
 frame, is given by $\bm{F}_{\text{inertia}} \defd -m \bm{a}$\,; note the
@@ -993,17 +997,40 @@ force, moreover, can be defined in a way independent of any choice of frame
 and non-inertial frames and between unforced and forced motions disappear.
 This reinterpretation is discussed in \sect***.
 
-Trying to carry this point of view over to general relativity, one wonders
-whether the dynamics can be reformulated as the requirement that the sum of
+Can we carry this point of view over to general relativity? One possibility
+would be to reformulate its dynamics as the requirement that the sum of
 some tensors, representing forces of various kinds, be zero. Among these
 tensors there would be one related to \enquote{metric forces}, that is,
 inertia and gravitation. On a second look, the Einstein equations
 $\yG = 8\pi\yTf$ -- imagine them rewritten as $\frac{1}{8\pi}\yG - \yTf=0$
--- could seem to represent exactly such a requirement. But there are
-difficulties with this interpretation. The main difficulty is that the
-definition of the stress-energy-momentum tensor $\yT$ (more precisely the
-constitutive equations for this tensor) often requires metric notions; the
+-- could seem to represent exactly such a requirement. This reading would
+be reinforced by the fact that the derived equation $\ynab\cdot\yT = 0$ is
+the four-dimensional analogue of the equilibrium equation in statics. But
+there are difficulties with this interpretation. The main difficulty is
+that the definition of the stress-energy-momentum tensor $\yT$ (more
+precisely its constitutive equations) often requires metric notions; the
 effects of the metric are therefore not confined to the tensor $\yG$.
+
+\bigskip
+
+\mynote{Something about the question: can forces exist where there is no
+  mass? Force and momentum in Newtonian mechanics were traditionally
+  associated with bodies. In general relativity momentum is unhinged from
+  mass, and so probably should force. This goes together with the idea that
+  an electromagnetic field can also sustain a force \cites[\sect~158,
+  pp.~534--535]{page1928_r1958}{ericksen2007}.}
+
+The explorations to follow will revolve around the two themes above. I
+believe that to understand them it is also useful to compare the particular
+and precise aims of Newtonian relativity with those, somewhat vaguer, of
+general relativity.
+
+Being an exploration, so far I've been unable to present this note as a
+linear logical development. So I plead with you to follow me in my ruffled
+sequence of observations, questions, and possible answers.
+
+
+
 
 
 
@@ -1020,56 +1047,57 @@ effects of the metric are therefore not confined to the tensor $\yG$.
 %   is dubious.}  \citep[\sect~54 p.~303]{truesdelletal1960}
 
 
+\section{The frame-invariant formulation of Newton's equations}
+\label{sec:noll_inertia}
 
+\mynote{Summary of \cites{noll1963}[\sect~I.13]{truesdell1977_r1991}}
 
+\section{The metric-free representation of matter and charge}
+\label{sec:metric-free}
 
+\mynote{Summary of the studies by
+  \textcites{burke1995}[\chap~IV]{burke1985_r1987}{burke1983},
+  \textcites[\chaps~2, 3]{bossavit1991}{bossavit1998b},
+  \textcite[\chap~A]{hehletal2003},
+  \textcite{vandantzig1934,vandantzig1934b,vandantzig1934c,vandantzig1934d,vandantzig1934e,vandantzig1936,vandantzig1937,vandantzig1954},
+  going back to \textcite{schoutenetal1940}.}
 
+% In part, I would like to understand in which possible ways the
+% geometrical objects of each theory belong to the kinematics, and which to
+% the dynamics. The conceptual pivot of this exploration is this:
+% \begin{quote}
+%   \emph{Neither in Newtonian relativity or in general relativity should
+%     there be any distinction between forced and unforced motion.}
+% \end{quote}
 
-
-In part, I would like to understand in which possible ways the
-geometrical objects of each theory belong to the kinematics, and which to
-the dynamics. The conceptual pivot of this exploration is this:
-\begin{quote}
-  \emph{Neither in Newtonian relativity or in general relativity should
-    there be any distinction between forced and unforced motion.}
-\end{quote}
-
-Other related points driving this exploration are, in no particular order:
-\begin{itemize}
-\item The desire to bring to light the concept of \emph{force} hidden in
-  general relativity. This would be pedagogically useful to understand the
-  Newtonian limit. The balance of forces has advantages over the
-  conservation of momentum in Newtonian mechanics, since the latter is
-  frame-dependent.
-\item To consider inertia as a force, in Newtonian and in general
-  relativity.
-\item Newtonian thermomechanics can be restated as a theory of
-  \emph{statics} in some reference frame, provided inertia is included
-  among the forces \citep{noll1963}[\sect~I.13]{truesdell1977_r1991}. This
-  static point of view is even more natural in general relativity, from a
-  four-dimensional point of view.
-\item In general relativity, the notion of geodesic is overestimated.
-  Almost no objects of our everyday experience follow geodesics. 
-\item The desire to keep the differential-geometrical, metric-free nature
-  of many electro-thermo-mechanical notions well in sight, without mixing
-  the metric in them. In Newtonian relativity, for example, the notion of
-  mass density \amp\ flux does not require metric structures of any kind.
-  In general relativity this is also true of energy density \amp\ flux.
-\item The question: can forces exist where there is no mass? Force and
-  momentum in Newtonian mechanics were traditionally associated with
-  bodies. In general relativity momentum is unhinged from mass, and so
-  probably should force. This goes together with the idea that an
-  electromagnetic field can also sustain a force \cites[\sect~158,
-  pp.~534--535]{page1928_r1958}{ericksen2007}.
-\end{itemize}
-
-I believe that to appreciate the points above is also useful to compare the
-particular and precise aims of Newtonian relativity with those, somewhat
-vaguer, of general relativity. 
-
-Being an exploration, so far I've been unable to present this note as a
-linear logical development. So I plead with you to follow me in my ruffled
-sequence of observations, questions, and possible answers.
+% Other related points driving this exploration are, in no particular order:
+% \begin{itemize}
+% \item The desire to bring to light the concept of \emph{force} hidden in
+%   general relativity. This would be pedagogically useful to understand the
+%   Newtonian limit. The balance of forces has advantages over the
+%   conservation of momentum in Newtonian mechanics, since the latter is
+%   frame-dependent.
+% \item To consider inertia as a force, in Newtonian and in general
+%   relativity.
+% \item Newtonian thermomechanics can be restated as a theory of
+%   \emph{statics} in some reference frame, provided inertia is included
+%   among the forces \citep{noll1963}[\sect~I.13]{truesdell1977_r1991}. This
+%   static point of view is even more natural in general relativity, from a
+%   four-dimensional point of view.
+% \item In general relativity, the notion of geodesic is overestimated.
+%   Almost no objects of our everyday experience follow geodesics. 
+% \item The desire to keep the differential-geometrical, metric-free nature
+%   of many electro-thermo-mechanical notions well in sight, without mixing
+%   the metric in them. In Newtonian relativity, for example, the notion of
+%   mass density \amp\ flux does not require metric structures of any kind.
+%   In general relativity this is also true of energy density \amp\ flux.
+% \item The question: can forces exist where there is no mass? Force and
+%   momentum in Newtonian mechanics were traditionally associated with
+%   bodies. In general relativity momentum is unhinged from mass, and so
+%   probably should force. This goes together with the idea that an
+%   electromagnetic field can also sustain a force \cites[\sect~158,
+%   pp.~534--535]{page1928_r1958}{ericksen2007}.
+% \end{itemize}
 
 
 
@@ -1090,7 +1118,8 @@ Einstein's equations \citep{smarretal1978,york1979,smarretal1980} and with
 the basic principles of Newtonian continuum thermomechanics
 \citep{truesdell1977_r1991,samohyletal1987_r2014,truesdelletal1960}.
 
-\section{Slicings and frames}
+\section{A kinematics common to Newtonian and general relativity:\\
+  Slicings and frames}
 \label{sec:slicing_frames}
 
 We consider the four-dimensional manifold formed by all physical events --
@@ -1172,7 +1201,8 @@ is different from zero, depending on the relative orders of the form
 $\alpha$ and of the vector $v$. If they have the same order, the full
 term vanishes.
 
-\section{Matter}
+\section{A kinematics common to Newtonian and general relativity:\\
+  Matter}
 \label{sec:matter}
 
 

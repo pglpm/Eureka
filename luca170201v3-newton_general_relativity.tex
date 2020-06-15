@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-06-14T23:41:33+0200
+%% Last-Updated: 2020-06-15T12:25:17+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -25,7 +25,7 @@ british%
 \newcommand*{\headtitle}{Force, inertia, metric in Newtonian and general relativity}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
-\newcommand*{\reporthead}{}% Report number
+\newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Calls to packages (uncomment as needed)
@@ -104,7 +104,8 @@ british%
 \newcommand*{\langnohyph}{\foreignlanguage{nohyphenation}}
 
 \usepackage[autostyle=false,autopunct=false,english=british]{csquotes}
-\setquotestyle{british}
+\setquotestyle{american}
+\newcommand*{\defquote}[1]{`\,#1\,'}
 
 \usepackage{amsthm}
 \newcommand*{\QED}{\textsc{q.e.d.}}
@@ -487,7 +488,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \raggedbottom
 
 \paragraphfootnotes
-%\setlength{\footmarkwidth}{0em}
+\setlength{\footmarkwidth}{2ex}
 % \threecolumnfootnotes
 %\setlength{\footmarksep}{0em}
 \footmarkstyle{\textsuperscript{%\color{myred}
@@ -517,7 +518,6 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % {\protect\centering ***\\%
 % \footnotesize\epost{\email{***}{***}}}%
 \hspace*{\stretch{1}}%
-%\quad\href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}\textsc{orcid}:0000-0002-6070-0784}%
 }
 
 %\date{Draft of \today\ (first drafted \firstdraft)}
@@ -618,10 +618,10 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\fig}{fig.}%
 \newcommand*{\figs}{figs}%
 \newcommand*{\vs}{{vs}}
+\newcommand*{\eg}{{e.g.}}
 \newcommand*{\etc}{{etc.}}
 \newcommand*{\ie}{{i.e.}}
 %\newcommand*{\ca}{{c.}}
-\newcommand*{\eg}{{e.g.}}
 \newcommand*{\foll}{{ff.}}
 %\newcommand*{\viz}{{viz}}
 \newcommand*{\cf}{{cf.}}
@@ -913,22 +913,80 @@ division between forced and unforced (geodesic) motion common to both
 theories as usually presented. Let me explain these two points in more
 detail.
 
+\paragraph{Kinematics and dynamics}
+
+Kinematics is the science of the description of motion. Dynamics is the
+science of the determination of which motion actually occurs. This division
+is fundamental in our way of doing physics. No matter how we express the
+laws of dynamics, whether as balance equations or the extremization of some
+Lagrangian, these laws select one motion out of a space of possible ones.
+The latter space is provided by kinematics, which has thus an exquisite
+counterfactual character. There is no clear division line between these two
+sciences, of course. One might imagine depleting the space of possible
+motions more and more, until there is no motion left but that which
+actually occurs, making dynamics superfluous. To be honest I cannot depict
+this extreme case or understand what it would mean.
+
+Both sciences use primitive notions, objects, operations. In Newtonian
+mechanics, kinematics usually includes the notions of spacetime, position,
+time derivative, velocity, mass, charge, and so on. It also includes
+\emph{metric} notions and objects. The primary notions in dynamics are
+force and stress. In general relativity there is a similar division, but
+the metric becomes a dynamical object; we can in fact conceive several
+possible metric tensor fields, and the Einstein equations (with suitable
+initial and boundary conditions) then determine which of these metric
+fields actually occurs.
+
+I think it would be appealing to build a kinematics common to Newtonian
+mechanics and general relativity, so that their difference lie solely in
+the dynamics. Such a construction would also be pedagogically useful.
+Several authors
+\citep{vandantzig1934,vandantzig1934b,vandantzig1934c,vandantzig1934d,vandantzig1934e,vandantzig1936,vandantzig1937,vandantzig1954}
+seem to find this point of view appealing.
+
+This construction requires that we reformulate Newtonian kinematics without
+metric notions, and that we redefine its quantities and operations in a
+metric-free way. Some questions ensue in this process. Should momentum be
+considered as a kinematic or as a dynamic quantity? and mass? Even if
+stress and metric are both dynamic quantities, is it possible to keep them
+separate?
+
+There are old and recent studies that show that this construction is
+possible, even if some seem apparently unrelated with it. Two studies will
+be especially important for our exploration. The first is a
+reinterpretation of the familiar \enquote{\,$\tsum\bm{F} = m\bm{a}$\,}; the
+second is a metric-free reformulation of electromagnetism. These studies
+may be unfamiliar to some readers and are summarized in \sects***.
+
+
+\paragraph{Forced and unforced motion}
+
+Both Newtonian and general relativity traditionally make a distinction
+between unforced, or inertial, or geodesic motion versus forced motion.
+Loosely speaking, force is conceived as something that alters a sort of
+preferred motion. I find this distinction artificial and unappealing. Its
+lack of appeal is, I believe, generally felt in general relativity,
+especially among its students. You probably remember how fascinating the
+idea was that a pointlike body, even one subject to gravitational forces,
+is actually following a \enquote{straight} line in just a more complicated
+geometry. Unfortunately other forces intruded to ruin this natural motion.
+So the natural question was whether all these other annoying forces could not be
+made part of the geometric structure, so as to make geodesic motion a
+universal rule.
+
+
+
 \medskip
 
-\enquote{We must warn the reader however, that it is unjustified to assume that the sequences
-of deformations standing behind the limit processes used in the following purely kinematical
-statements are compatible with any particular theory of continuous bodies. For example,
-we sometimes consider extension and rotation as independently variable, but in any particular
-theory of bodies a sequence of deformations is produced by a sequence of loads, and whether
-it is possible to choose the latter in such a way as to leave the local rotation fixed but vary
-the extensions is dubious.} \sect~54 p.~303
-
-
-***kinematic is necessary: no matter how we express the laws of actual
-motion or state, eg as the extremization of a lagrangian, they
-\emph{presuppose} a space of \emph{possibilities} from which the actual
-motion is chosen. Kinematics defines that space of possibilities.
-
+% \enquote{We must warn the reader however, that it is unjustified to assume
+%   that the sequences of deformations standing behind the limit processes
+%   used in the following purely kinematical statements are compatible with
+%   any particular theory of continuous bodies. For example, we sometimes
+%   consider extension and rotation as independently variable, but in any
+%   particular theory of bodies a sequence of deformations is produced by a
+%   sequence of loads, and whether it is possible to choose the latter in
+%   such a way as to leave the local rotation fixed but vary the extensions
+%   is dubious.}  \citep[\sect~54 p.~303]{truesdelletal1960}
 
 
 

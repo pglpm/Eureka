@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-06-16T14:21:28+0200
+%% Last-Updated: 2020-06-16T21:43:19+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -327,7 +327,7 @@ Open Science Framework \texttt{doi:\urlalt{https://doi.org/10.17605/osf.io/#1}{1
 
 %\usepackage{tikz-cd}
 
-\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false,pdfencoding=unicode,psdextra]{hyperref}
 
 \usepackage[depth=4]{bookmark}
 \hypersetup{colorlinks=true,bookmarksnumbered,pdfborder={0 0 0.25},citebordercolor={0.2667 0.4667 0.6667},citecolor=mypurpleblue,linkbordercolor={0.6667 0.2 0.4667},linkcolor=myredpurple,urlbordercolor={0.1333 0.5333 0.2},urlcolor=mygreen,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
@@ -753,7 +753,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yte}{\theta}
 \newcommand*{\ynab}{\nabla}
 \newcommand*{\ynaf}{\Bar{\nabla}}
-\newcommand*{\yDi}{\bm{\nabla}}
+%\newcommand*{\yDi}{{\fontencoding{U}\fontfamily{bbold}\selectfont{A}}}
+\newcommand*{\yDi}{\pmb{\bm{\nabla}}}
 \newcommand*{\yto}{t}
 \newcommand*{\yI}{\textsf{\textbf{I}}}
 %\newcommand*{\yI}{1}
@@ -1007,14 +1008,15 @@ would be to reformulate its dynamics as the requirement that the sum of
 some tensors, representing forces of various kinds, be zero. Among these
 tensors there would be one related to \enquote{metric forces}, that is,
 inertia and gravitation. On a second look, the Einstein equations
-$\yG = 8\pi\yTf$ -- imagine them rewritten as $\frac{1}{8\pi}\yG - \yTf=0$
--- could seem to represent exactly such a requirement. This reading would
-be reinforced by the fact that the derived equation $\ynab\cdot\yT = 0$ is
-the four-dimensional analogue of the equilibrium equation in statics. But
-there are difficulties with this interpretation. The main difficulty is
-that the definition of the stress-energy-momentum tensor $\yT$ (more
-precisely its constitutive equations) often requires metric notions; the
-effects of the metric are therefore not confined to the tensor $\yG$.
+$\yG = 8\pu\kappa\yTf$ -- imagine them rewritten as
+$\frac{1}{8\pu\kappa}\yG - \yTf=0$ -- could seem to represent exactly such
+a requirement. This reading would be reinforced by the fact that the
+derived equation $\ynab\cdot\yT = 0$ is the four-dimensional analogue of
+the equilibrium equation in statics. But there are difficulties with this
+interpretation. The main difficulty is that the definition of the
+stress-energy-momentum tensor $\yT$ (more precisely its constitutive
+equations) often requires metric notions; the effects of the metric are
+therefore not confined to the tensor $\yG$.
 
 \bigskip
 
@@ -1557,7 +1559,7 @@ equations.
 \subsection{General relativity}
 \label{sec:aims_general_rel}
 
-General relativity gives us the equation $\yG=\kappa\yTf$; for some time
+General relativity gives us the equation $\yG= 8\pu\kappa\yTf$; for some time
 after its proposal it was not clear which were independent, dependent, and
 boundary-condition quantities; a distinction that is necessary to set up a
 well-posed boundary-value problem. Misner \etal\
@@ -1665,7 +1667,11 @@ Let us drop the bulk terms, assuming that we consider only \enquote{contact
   \end{pmatrix} 
   \end{gather}
 \end{subequations}
-which are also part of the dynamical equations of general relativity.
+which are also part of the dynamical equations of general relativity. Here
+$\yDi$ is the exterior covariant derivative
+\citep[\sect~Vbis.A.4]{choquetbruhatetal1977_r1996}[\sect~14.5]{misneretal1970_r1973}[\sect~9.3]{frankel1997_r2012}[see
+also][]{segev2000,segev2000b,segevetal2000,segev2002,segevetal2012,kansoetal2007}.
+
 
 The heat flux $\yq$ and the momentum $\yq$ are separate entities in
 Newtonian mechanics. In general relativity, the symmetry of the stress
@@ -1714,14 +1720,9 @@ discussion by Burke~\citep[\sect~41]{burke1985_r1987}.
 I separately consider other unclear points about the 4-stress in the
 sections below.
 
-\mynote{Some words needed on work and force}
-
 
 \subsection{Constitutive equations}
 \label{sec:constitutive equations}
-
-\mynote{This section is a little disconnected from the rest. Must be better
-integrated}
 
 In Newtonian mechanics the balances of matter, force, energy give a system
 of 1+3+1 real-valued equations; see
@@ -1788,10 +1789,11 @@ In Newtonian mechanics we do not speak of a \enquote{constitutive equation}
 relating momentum and matter (there are some exceptions when
 electromagnetism is involved). Momentum coincides with mass flow, and mass
 is taken almost as synonymous with matter. In \psect~\ref{sec:matter} we
-separated mass and matter to build a common kinematics. Flow of matter and
-momentum are thus not synonymous. In an inertial frame there is a linear,
-constant relation between the two flows: in such a frame we can write $\yp
-= m\yj$, where $m$ is molar mass. This is a kind of constitutive relation.
+separated mass and matter to build a common kinematics. Flow of matter
+$\yj$ and momentum $\yp$ are thus not synonymous. In an inertial frame
+there is a linear, constant relation between the two flows: in such a frame
+we can write $\yp = m\yj$, where $m$ is molar mass. This is a kind of
+constitutive relation.
 
 In Lorentzian and general relativity the relation between matter flux and
 momentum is not linear or so simple. Energy flux, such as heat, contributes
@@ -1818,6 +1820,339 @@ Carter \etal\ \citep{carteretal1972,carter1973,carteretal2006}, the early
 and very insightful study by Eckart \citep{eckart1940c}, and others
 articles and books
 \citep{bressan1964b,lianis1973,bertottietal1984,hiscocketal1985,anileetal1989,gerochetal1991,herrmannetal2000,bossavit2001b,geroch2001,gourgoulhon2007_r2012,alcubierre2008,choquetbruhat2009,baumgarteetal2010,rezzollaetal2013,disconzi2014,pimenteletal2016,disconzietal2017}.
+
+\mynote{Some words needed on work and force}
+
+\section{$3+1$ formulation and constitutive equations\\ in general relativity}
+\label{sec:3-1_formulation}
+
+Suppose we have introduced a slicing and a frame in spacetime as described
+in \psect~\ref{sec:slicing_frames}.
+
+The Einstein equations can be decomposed by projection along the slices $t$
+and the frame $\yn$, giving rise to a part parallel to the surfaces with
+3\;\texttimes\;3 real components, a part parallel to the vector field with
+1 component, and a mixed part with 3 components. Our freedom in choosing
+the slicing $t$ and the frame $\yn$ appears in the decomposed equations as
+the presence of and undetermined \defquote{lapse} function and an
+undetermined \defquote{shift} vector field. When a metric is present we can
+choose the frame $\yn$ to be the unit normal to the 3-surfaces. This choice
+corresponds to a constant unit lapse function and a vanishing shift vector
+\citep{smarretal1978,smarretal1980}, and represents a free-falling
+reference system. Other choices of lapse and shift are more convenient for
+initial-value problems, for example because they can correspond to a
+slicing that covers most of spacetime while avoiding singularities
+\citep{smarretal1978}. But our present discussion is mainly conceptual; we
+therefore use the simplest lapse and shift.
+
+The decomposed Einstein equations can be found compactly written in a
+number of texts
+\citep[\sect~1.3]{wilsonetal2003_r2007}[\sect~4.3.2]{gourgoulhon2007_r2012}[\chap~2]{alcubierre2008}[\sect~7.2.2]{rezzollaetal2013}.
+The decomposition of the Einstein tensor $\yG$ yields the 3-metric
+$\yg=(\ygg_{ab})$ of the 3-surfaces, having inverse $\yg^{-1}=(\ygg^{ab})$,
+with its compatible connection $\ynab$ having Ricci curvature
+$\yR=({\yRR_a}^b)$, and the extrinsic curvature $\yK=({\yKK_a}^b)$ of the
+3-surfaces. The decomposition of the energy-momentum-stress tensor $\yTf$ yields the
+internal energy $\ye$, energy flux $\yp$, and spatial stress
+$\yT=({\yTT_a}^b)$:
+\begin{equation}
+  \label{eq:decomp_4stress}
+  \yTf = \ye \di t \otimes\yn + \yp\otimes\yn + \di t
+  \otimes(\yp\cdot\yg^{-1}) + \yT.
+\end{equation}
+
+The Einstein equations $\yG = 8\pu\yTf$ are decomposed into the evolution
+equations \mynote{some $\pu$ factors may be missing}
+\begin{subequations}\label{eq:evolution_eqns}
+  \begin{align}
+    \label{eq:dt_metric}
+    \de_t \yg &= -2\yK\cdot\yg,
+    \\
+    \label{eq:dt_curvat}
+    \de_t \yK &=  \yK\tr\yK -2 \yK\cdot\yK +\yR + 4\pu\,(\tr\yT-\ye) - 8\pu\yT
+  \end{align}
+\end{subequations}
+or
+\begin{subequations}\label{eq:evolution_eqns2}
+  \begin{align}
+    \label{eq:dt_metric2}
+    \de_t \yg &= -2\yK\cdot\yg
+    \\
+    \label{eq:dt_curvat2}
+    \de_t \yK &=  \yK\tr\yK-\tfrac{1}{4}(\tr\yK)^2
+                -2 \yK\cdot\yK + \tfrac{1}{4}\yK\con\yK
+                +\yR -\tfrac{1}{4}\tr\yR
+                -\yT+ \tfrac{1}{2}\tr\yT
+  \end{align}
+\end{subequations}
+and the constraint equations
+\begin{subequations}\label{eq:constraint_eqns}
+  \begin{align}
+    \label{eq:energy_constraint}
+    16\pu\ye &=(\tr\yK)^2 - \yK\con\yK + \tr\yR,
+    \\
+    \label{eq:momentum_constraint}
+    8\pu\yp &= \ynab\cdot(\yK\T - \yI\tr\yK).
+  \end{align}
+\end{subequations}
+where \defquote{$\ynab$} is the 3D covariant derivative compatible with the
+3-metric $\yg$ tangent to each slice. Note that
+\begin{equation}
+  \label{eq:curvature_stretching}
+  \yK\cdot\yg = -\frac{1}{2}\de_t\yg \equiv
+  -\frac{1}{2}  \Li_{\yn}\yg \equiv
+  -\frac{1}{\sqrt{\yg}}\Li_{\yn}\sqrt{\yg} \equiv -\ynab\cdot \textelp{}
+\end{equation}
+
+(It is interesting that the \enquote{3-momentum} in relativity appears as
+the divergence of a 3-tensor -- just like a force from a stress.)
+
+To these equations we must add the balance of amount of
+matter~\eqref{eq:mass_balance_traditional}:
+\begin{equation}
+  \label{eq:mass_balance_gen-rel}
+  \de_t\yd = - \di\yj
+  \qquad\text{or}\qquad
+  \de_t\yd -\tr\yK\yd = -\ynab\cdot\yj,
+\end{equation}
+where in the second equation $\yd$ and $\yj$ are interpreted as a scalar
+and a vector. In these expressions $\de_t \equiv \Li_{\yn}$. (Conservation
+of matter is not enforced by the Einstein equations
+\citep[\eg][]{eckart1940c}[\sect~6.3.2]{gourgoulhon2007_r2012}[\sect~5.2]{baumgarteetal2010}[\sect~7.3]{rezzollaetal2013}[\sect~22.2]{misneretal1970_r1973}.
+Curiously there was at first some misunderstanding about the independence
+of this equation: see for example von Laue's \citep[p.~503]{vonlaue1949}
+statement.)
+
+This gives us a total of 6 + 6 + 1 + 3 + 1 (real-valued) equations for a
+total of 6 + 6 + 6 + 1 + 3 + 1 + 3 + 1 components of the fields $\yg$,
+$\yK$, $\yT$, $\ye$, $\yp$, $\yd$, $\yj$, and temperature $\yte$. Then we
+need 6 + 1 + 3 equations, which turn out to be, as in the Newtonian case,
+the constitutive functional equations~\eqref{eq:4stress_components} for
+the energy-momentum-stress:
+\begin{subequations}\label{eq:constitutive_4stress_gen-rel}
+  \begin{align}
+    \label{eq:constit_energy_gen-rel}
+    \ye &= \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)]
+    \\
+    \label{eq:constit_energy-flux_gen-rel}
+    \yp &= \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)]
+    \\
+    \label{eq:constit_3stress_gen-rel}
+    \yT &= \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)]
+  \end{align}
+\end{subequations}
+The dependence on $\yK(\dotv)$ is redundant, since it is a functional of
+$\yg(\dotv)$, and these equations are already functionals of $\yg(\dotv)$;
+but I leave the explicit dependence for clarity.
+
+% The 4-velocity is determined by the matter flux $\yj$ and the 4-metric by
+% \eqn~\eqref{eq:4velocity_explicit}.
+
+
+\subsection{A remark on the role of
+  \,$\nabla\cdot\textsf{\textit{T}} = 0$\, in general relativity}
+% on the divergence of the energy-momentum-stress
+\label{sec:divergence_4stress}
+
+A subtle point appears in most general-relativity texts I have read,
+especially for numerical relativity. They remark that the balance equations
+$\yDi\cdot\yTf = 0$ are a consequence of the Einstein equations
+$\yG = 8\pu \kappa \yTf$, and therefore solving the latter automatically
+yields the former. But to find the numerical solutions they actually use
+the former!
+
+The balance $\yDi\cdot\yTf = 0$ is indeed contained in
+\eqns~\eqref{eq:evolution_eqns}--\eqref{eq:constraint_eqns}. Its spatial
+part, for example, -- the balance of momentum -- can be obtained combining
+the time derivative of the constraint
+equation~\eqref{eq:momentum_constraint} and the 3-divergence of the
+evolution equation~\eqref{eq:dt_curvat}. A quick check of the combination
+of \eqref{eq:momentum_constraint} and \eqref{eq:dt_curvat} shows in fact
+the appearance of the time-derivative of $\yp$ and the divergence of the
+3-stress. A similar combination yields the balance of energy. These
+balances are
+\begin{subequations}\label{eq:evolution_energy_momentum}
+  \begin{gather}
+    \label{eq:dt_energy}
+    \de_t \ye - \ye\tr\yK + \ynab\cdot\yp - \yK\con\yT =0
+    \\
+    \label{eq:dt_momentum}
+    \de_t \yp -  \yp\tr\yK + \ynab\cdot\yT\T =0.
+  \end{gather}
+\end{subequations}
+In these equations the matter-convection terms, usually kept separate in the
+Newtonian case, are included in $\yp$ and $\yT\T$. The terms proportional
+to $\tr\yK$ are absent in the Newtonian case.
+
+The reason for using the divergence equation $\yDi\cdot\yTf = 0$ is clearly
+explained by Frittelli \citey{frittelli1997}. The constraint
+equations~\eqref{eq:constraint_eqns} should be enforced on \emph{every}
+3-surface, \ie\ for all times $t$, while the metric and extrinsic curvature
+are evolved by \eqns~\eqref{eq:evolution_eqns}. If we did so there would be
+no need to use $\yDi\cdot\yTf = 0$ in the solution.
+
+But it would be more convenient if the
+constraints~\eqref{eq:constraint_eqns} could be enforced on one 3-surface
+only, for example the initial one, and be automatically satisfied on all
+other 3-surfaces, \ie\ at all subsequent times. It turns out that the
+divergence equation $\yDi\cdot\yTf = 0$ does exactly this: it makes the
+constraints automatically satisfied at all times if they are satisfied at
+the initial time.
+
+Loosely speaking, the system
+\begin{align*}
+  &\left\{\begin{aligned}
+  &\text{evolution equations~\eqref{eq:evolution_eqns}} \\
+  &\text{constraint equations~\eqref{eq:constraint_eqns} for all $t$}
+  \end{aligned}\right.
+  \\
+  \shortintertext{is equivalent to the system}
+  &\left\{\begin{aligned}
+  &\text{evolution equations~\eqref{eq:evolution_eqns}} \\
+  &\text{divergence equation $\yDi\cdot\yTf = 0$} \\
+  &\text{constraint equations~\eqref{eq:constraint_eqns} for initial $t$ only}
+  \end{aligned}\right.
+\end{align*}
+and the latter is more convenient to solve.
+
+
+\subsection{How to solve the decomposed equations}
+\label{sec:how_to_solve_3-1}
+
+Let us consider how
+equations~\eqref{eq:evolution_eqns}--\eqref{eq:constitutive_4stress_gen-rel}
+could be solved.
+
+% Only the evolution equations~\eqref{eq:evolution_eqns} and
+% mass-balance~\eqref{eq:mass_balance_gen-rel} contain temporal derivatives:
+% they give us 6 + 6 + 1 real-components of the $\yg$, $\yK$, $\yd$ fields on
+% the 3-surface at time $t+\incr t$ given all fields on the 3-surface at time $t$.
+% The constraint equations \eqref{eq:constraint_eqns} and constitutive
+% equations~\eqref{eq:constitutive_4stress_gen-rel} fix definite relations
+% between metric, extrinsic curvature, energy and energy flux, on each
+% 3-surface. The question is which field should be considered independent and
+% which dependent.
+
+% In continuum mechanics the stress $\yT$ is in the simplest case a
+% functional of mass density, momentum or velocity, and internal energy. For
+% the moment let's assume a constitutive equation
+% \begin{equation}
+%   \yT=\yT(\ye,\yp,\yg,\yK),
+%   \label{eq:constit_T_with_energy}
+% \end{equation}
+% omitting mass density. Then,
+
+Imagining a rough numerical timestepping scheme, in which for example
+\eqn~\eqref{eq:dt_metric} becomes
+\begin{equation}
+  \label{eq:approx_timestepping_dt_metric}
+  \yg(t + \incr t) \approx \yg(t) -2\yK(t)\cdot\yg(t)\,\incr t,
+\end{equation}
+it seems that the
+equations~\eqref{eq:evolution_eqns}--\eqref{eq:constitutive_4stress_gen-rel}
+can be solved this way:
+\begin{enumerate}[leftmargin=1.5\parindent]
+\item Choose all fields such as to satisfy the
+  constraints~\eqref{eq:constraint_eqns} and constitutive
+  equations~\eqref{eq:constitutive_4stress_gen-rel} on an initial 3-surface
+  at time $\yto$.
+\item\label{item:increase_step}Calculate metric $\yg$, extrinsic curvature
+  $\yK$, density of amount of matter $\yd$ at time $\yto + \incr t$ from
+  the evolution \eqns~\eqref{eq:evolution_eqns} and balance
+  \eqref{eq:mass_balance_gen-rel}:
+  \begin{align*}
+    \de_t \yg &= -2\yK\cdot\yg,
+    \\
+    \de_t \yK &=  \yK\tr\yK + \yR\cdot\yg^{-1} + 4\pu\,(\tr\yT-\ye) - 8\pu\yT,
+    \\
+    \de_t\yd &= - \di\yj.
+  \end{align*}
+  Note that these evolution equations require, in particular, the flux of
+  amount of matter $\yj$, energy $\ye$, stress $\yT$ at time $\yto$.
+\item\label{item:increase_step_energy}Calculate the  flux of amount of matter $\yj$,
+  temperature $\yte$, energy $\ye$, energy flux $\yp$, stress $\yT$ at time
+  $\yto + \incr t$ from the system of
+  constraints~\eqref{eq:constraint_eqns} and constitutive
+  \eqns~\eqref{eq:constitutive_4stress_gen-rel}, given the newly found
+  $\yg$, $\yK$, $\yd$:
+  \begin{gather*}
+    \begin{aligned}
+    16\pu\ye &= (\tr\yK)^2 - \yK\con\yK + \yR\con\yg^{-1},
+    &\quad
+      8\pu\yp &= \ynab\cdot(\yK\T - \yI\tr\yK),
+    \end{aligned}\\
+    \ye = \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
+    \\
+      \yp = \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
+      \\
+      \yT = \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)].
+  \end{gather*}
+  Note that this system \emph{implicitly} yields, in particular, the flux
+  of amount of matter $\yj$, energy $\ye$, stress $\yT$ needed in the next
+  timestep; see step above.
+
+  Now we have all fields at time $\yto + \incr t$.
+
+\item Set $\yto + \incr t \to \yto$, go to step~\ref{item:increase_step}.
+\end{enumerate}
+
+It is important to remark that the motion of matter, expressed by the matter
+flux $\yj$ in this particular reference frame and slicing, is determined in
+an implicit way in the scheme above. It would be worth investigating how
+geodesic equations \citep{gerochetal1975,weatherall2011} peep out from the
+present scheme.
+
+Such a scheme may not work for more complex temporal dependences in the
+constitutive equations, such as dependence on derivatives, memory, \etc.
+
+\subsection{A possible reduction and reinterpretation: \enquote{hot metric}}
+\label{sec:reinterpretation_metric_temp}
+
+An interesting aspect of the equations above is that energy density and
+energy flux seem to have an intermediate role. We could think of solving
+the constraint and constitutive equations of
+step~\ref{item:increase_step_energy} for matter density $\yd$ and matter
+flux $\yj$ in terms of the 4-metric $(\yg, \yK)$ and the temperature
+$\yte$; this dependence could involve integro-differential operators. The
+balance of amount of matter $\de_t\yd = -\di\yj$ would then become an
+evolution equation for the temperature. The constitutive equation for the
+stress would also be reduced.
+
+We would be left with the system
+\begin{subequations}\label{eq:evolution_eqns_new}
+  \begin{gather}
+    \label{eq:dt_metric_new}
+    \yK \defd -\tfrac{1}{2}\de_t \yg \cdot \yg^{-1},
+    \\
+    \label{eq:dt_curvat_new}
+    \de_t \yK =  \yK\tr\yK
+                - \tfrac{1}{4} (\tr\yK)^2
+                +\tfrac{1}{4}\yK\con\yK
+                + \tfrac{3}{4}\yR\cdot\yg^{-1} 
+                + 4\pu\tr\yT - 8\pu\yT,
+    \\
+    \label{eq:constit_mass_new}
+    \de_t \yd[\yg(\dotv),\yK(\dotv),\yte(\dotv)] = -\di\yj[\yg(\dotv),\yK(\dotv),\yte(\dotv)],
+    \\
+    \label{eq:constit_T_new}
+    \yT = \yT[\yg(\dotv),\yK(\dotv),\yte(\dotv)],
+  \end{gather}
+\end{subequations}
+a set of integro-differential equations for the 3-metric $\yg$,
+extrinsic curvature $\yK$, and the temperature $\yte$; or integro-differential for
+the 3-metric $\yg$ and the temperature $\yte$. This system seems to say
+that
+\begin{itemize}
+\item density of amount of matter $\yd$, flux of amount of matter $\yj$,
+  energy density $\ye$, and energy flux $\yp$ are
+  \emph{temperature-dependent} manifestations of the 4-metric;
+\item the 4-metric can interact with itself in different ways, expressed by
+  particular \emph{temperature-dependent} constitutive functional equations
+  for $\yd$, $\yj$, $\yT$.
+\end{itemize}
+Would this satisfy Einstein? How to interpret the \enquote{temperature of
+  the metric}?
+
 
 
 \section{What kind of geometric object is \defquote{force}?}
@@ -1899,7 +2234,149 @@ $-\eta\Dot{x}^2$ does not have a closed form. This fact is obviously
 related to the difference between conservative and non-conservative forces
 and to the existence of potentials.
 
-\section{Dynamics with absolute time}
+
+
+
+\subsection{Dynamics without absolute time}
+\label{sec:newton_dynamics_without_absolute_time}
+
+The formulation of dynamics of
+\psect~\ref{sec:newton_dynamics_absolute_time} has the advantage of being
+frame-indifferent: inertial frames don't have a special status, and inertia
+is just one force among many others. But that formulation still has several
+interrelated unpleasant features:
+\begin{itemize}
+\item a special absolute-time slicing is used,
+\item forces, energy, energy fluxes are only defined on the slices of that
+  slicing,
+\item forces are meant to act on velocities, which are frame-dependent,
+\item a flat parallel transport is needed to integrate the forces.
+\end{itemize}
+
+A first step in lifting forces from their plain existence on slices to a
+fourfilling existence in spacetime, and in unchaining them from
+frame-dependent velocities, is to assume that they act directly on the
+four-dimensional mass flux expressed by the matter 3-form. This requires
+that they have \emph{outer-oriented 3-vector} values. It also means that
+their physical dimension acquires a $[\text{mass}^{-1}]$ factor.
+
+A 3-vector has four components. The additional component of a force is
+interpreted, both in Newtonian \citep[\sects~152--154,
+288--289]{truesdelletal1960}[\sect~2.3]{grotetal1966} and Lorentzian
+\citep{eckart1940c}[\sect~2.3]{grotetal1966}{maugin1978b} relativity, as
+the combination of power and heating. Thus we arrive at the notion of
+\emph{heating-force} tensor, which corresponds to the \enquote{four-force}
+of Lorentzian relativity.
+
+In this new point of view a surface force -- 4-stress -- is a
+outer-oriented-3-vector-valued outer-oriented 3-form. Contracted with a
+matter 3-form it yields another outer-oriented 3-form, which could be
+interpreted as the spacetime flux of some quantity. From general relativity
+we foresee that this quantity is the energy flux.
+
+\mynote{To be added: formulation with 2-point energy-momentum-stress tensor \citep[\sect~288]{truesdelletal1960}}
+
+\subsection{Decoupling force from body}
+\label{sec:decoupling_force_body}
+
+In Newtonian relativity, force is something experienced by a body, rather
+than something in spacetime. But there are signs that forces need to be
+decoupled also in Newtonian relativity.
+
+
+\subsection{An interesting development?}
+\label{sec:interesting_development}
+
+\mynote{The idea in this section is probably seriously wrong}
+
+This leads to some interesting developments. Interpret a 4-stress $\yTf$ as
+an object which contracted with a matter 3-form $\yr$ yields its
+corresponding energy-flux outer-oriented 3-form $\yE$:
+\begin{equation}
+  \label{eq:stress-matter-momentum}
+  \yE = \yTf \cdot \yr.
+\end{equation}
+This is similar to the \enquote{$^{\displaystyle *}\yTf$} of Misner \etal\
+\citep[\chap~15]{misneretal1970_r1973}, with the difference that $\yTf$ is
+3-covector valued.
+
+Now postulate that energy flux must always be conserved,
+\begin{equation}
+  \label{eq:conserv_energy-momentum_try}
+  \di\yE = 0.
+\end{equation}
+We obtain a set of two balances and a relation between them:
+\begin{equation}
+  \label{eq:massb_energyb_relation}
+  \di\yr = 0, \qquad \di\yE = 0, \qquad \yE = \yTf \cdot \yr.
+\end{equation}
+Question: does this system \emph{imply} Einstein's equations? The point
+is that we can now introduce a four-dimensional exterior covariant
+derivative $\yDi$ and combine the  equations above as follows:
+\begin{equation}
+  \label{eq:why_4stress_zero}
+     \di\yE
+    = \di(\yTf \cdot \yr) 
+    = \yDi\yTf \cdot \yr - \yTf \cdot \di\yr
+   = \yDi\yTf \cdot \yr
+    = 0
+\end{equation}
+and \emph{asking this to hold for every $\yr$}, we have
+\begin{equation}
+  \label{eq:div_T_vanishes}
+  \yDi\yTf = 0,
+\end{equation}
+which corresponds to Misner \etal's
+\enquote{$\bm{\mathsf{d}}{}^{\displaystyle *}\yTf=0$}
+\citep[\chap~15]{misneretal1970_r1973}.
+
+This point of view seems to say that \emph{any exterior covariant
+  derivative $\yDi$ will do} -- possibly with additional restrictions
+coming from restrictions on positivity of mass and energy fluxes. Such a
+possibility is not so strange when we consider that Einstein's equations
+can be rewritten, in a completely equivalent way, in terms of a flat
+connection with non-vanishing torsion, or a mixture of the two
+\citep{deandradeetal2000,arcosetal2004,aldrovandietal2013,pereira2014,caietal2016}.
+It seems that what's fundamental here is the use of a derivation operator
+with the properties of an \emph{exterior} covariant derivative, rather than
+the use of a covariant derivative or parallel transport per se.
+
+Finally, Einstein's equations $\yEi = \yTf$ could simply be interpreted as
+\emph{the most general integral of the equation $\yDi\yTf = 0$}. This
+possibility is related to an interesting remark by Truesdell:
+\begin{quote}
+  When the field theories were discovered in the eighteenth century, solutions
+in arbitrary functions such as those presented in this subchapter were sought
+earnestly, but, for the most part, sought in vain. In the nineteenth century,
+researches on partial differential equations turned away from such general
+solutions so as to concentrate upon boundary-value problems. When, in the
+twentieth century, the general solutions were at last obtained, scarce attention
+was paid to them, and to this day they remain virtually unknown. Though
+so far they have been used but rarely, they might turn out to be illuminating
+in studies of underdetermined systems, where the conventional viewpoint of
+partial differential equations has gained little.  \citep[p.~594]{truesdelletal1960}
+\end{quote}
+
+\mynote{To be added: refs to Finzi, Beltrami}
+
+\mynote{To be added: discussion about pp.~18--19 of \citep{weatherall2017}:
+  use differential forms for Gauss-Green theorem, instead of covariant
+  derivative}
+
+
+
+% \section{General relativity}
+% \label{sec:general_relativity}
+
+
+ 
+
+\appendix
+
+\section{Alternative points of view in Newtonian mechanics}
+\label{sec:altern_newton}
+
+\subsection{What kind of geometric object represents Newtonian force?}
 \label{sec:newton_dynamics_absolute_time}
 
 Traditional presentations of Newtonian-relativistic dynamics and of
@@ -1979,15 +2456,9 @@ the balance is
   \label{eq:force_balance_ecd_local}
   \yb + \yDi \yT = 0, 
 \end{equation}
-where $\yDi$ is the \emph{exterior covariant derivative}
-\citep[\sect~Vbis.A.4]{choquetbruhatetal1977_r1996}[\sect~14.5]{misneretal1970_r1973}[\sect~9.3]{frankel1997_r2012}[see
-also][]{segev2000,segev2000b,segevetal2000,segev2002,segevetal2012,kansoetal2007}.
 
-The fact that we have to use the \emph{exterior} covariant derivative, rather than
-the covariant derivative, may have important consequences later.
-
-\subsection{Interlude: forces and motion -- is there a balance of
-  momentum?}
+\subsection{From forces to motion (is there a balance of
+  momentum?)}
 \label{sec:really_balance_momentum}
 
 How does the balance of forces relate to motion?
@@ -2135,528 +2606,15 @@ transverse to the slicing for their definition, whereas others, like
 elastic or gravitational ones, don't. This suggests that the presentation
 in terms of an absolute-time slicing can be geometrically improved upon.
 
-
-\subsection{Balance of energy}
-\label{sec:energy_balance}
-
-To each matter element on each slice is also associated an internal energy
-density $\ye$, represented by an outer-oriented 3-form proportional to
-the mass 3-form $\yd$. The balance of energy states that the change in the
-total energy in a 3-volume $\yvo$ on a slice must come from the energy
-transported thither or thence, from the work done by the forces, and from
-body and surface heating, represented by outer-oriented 3-form and 2-form:
-\begin{equation}
-  \label{eq:balance_energy_traditional}
-%   \de_t \int_{\yvo}\ye =
-%   \int_{\yvo} \yvt\cdot\yb + \oint_{\de\yvo} \yvt\cdot\yT
-% +  \int_{\yvo} \yQ + \oint_{\de\yvo} \yq
-%   \qquad\forall \yvo
-%  \\
-%  \shortintertext{or}
-  \de_t\ye + \di(\yvt \cdot \ye) =
-  \yvt\cdot\yb + \di(\yvt\cdot \yT)
-  +\yQ + \di\yq,
-\end{equation}
-with $\de_t\ye \equiv \Li_{\yF}\ye$. The rate of change of
-kinetic energy is simply the work done by the inertial force, and is
-therefore included in the term $\yvt \cdot \yb$. The traditional expression
-with \enquote{$\de_t + \yvt\cdot\ynab$} appears if we write the 3-form
-$\ye\yd$ as a multiple of the volume element $\ygv$ -- one more example of
-a unnecessary use of metric.
-
-If we assume that body forces and body heating vanish, then we can rewrite
-this equation as
-\begin{equation}
-  \label{eq:balance_energy_suggests_3form}
-  \de_t\ye + \di(\yvt \cdot \ye -\yvt\cdot\yT - \yq) = 0,
-\end{equation}
-which suggests that energy can also be considered like an outer-oriented
-closed 3-form, with a flux 2-form
-\begin{equation}
-  \label{eq:energy_4velocity}
-  \yp \equiv -\yvt \cdot\ye + \yvt\cdot\yT +\yq.
-\end{equation}
-
-
-
-
-\subsection{Dynamics without absolute time}
-\label{sec:newton_dynamics_without_absolute_time}
-
-The formulation of dynamics of
-\psect~\ref{sec:newton_dynamics_absolute_time} has the advantage of being
-frame-indifferent: inertial frames don't have a special status, and inertia
-is just one force among many others. But that formulation still has several
-interrelated unpleasant features:
-\begin{itemize}
-\item a special absolute-time slicing is used,
-\item forces, energy, energy fluxes are only defined on the slices of that
-  slicing,
-\item forces are meant to act on velocities, which are frame-dependent,
-\item a flat parallel transport is needed to integrate the forces.
-\end{itemize}
-
-A first step in lifting forces from their plain existence on slices to a
-fourfilling existence in spacetime, and in unchaining them from
-frame-dependent velocities, is to assume that they act directly on the
-four-dimensional mass flux expressed by the matter 3-form. This requires
-that they have \emph{outer-oriented 3-vector} values. It also means that
-their physical dimension acquires a $[\text{mass}^{-1}]$ factor.
-
-A 3-vector has four components. The additional component of a force is
-interpreted, both in Newtonian \citep[\sects~152--154,
-288--289]{truesdelletal1960}[\sect~2.3]{grotetal1966} and Lorentzian
-\citep{eckart1940c}[\sect~2.3]{grotetal1966}{maugin1978b} relativity, as
-the combination of power and heating. Thus we arrive at the notion of
-\emph{heating-force} tensor, which corresponds to the \enquote{four-force}
-of Lorentzian relativity.
-
-In this new point of view a surface force -- 4-stress -- is a
-outer-oriented-3-vector-valued outer-oriented 3-form. Contracted with a
-matter 3-form it yields another outer-oriented 3-form, which could be
-interpreted as the spacetime flux of some quantity. From general relativity
-we foresee that this quantity is the energy flux.
-
-\mynote{To be added: formulation with 2-point energy-momentum-stress tensor \citep[\sect~288]{truesdelletal1960}}
-
-\subsection{Decoupling force from body}
-\label{sec:decoupling_force_body}
-
-In Newtonian relativity, force is something experienced by a body, rather
-than something in spacetime. But there are signs that forces need to be
-decoupled also in Newtonian relativity.
-
-
-\subsection{An interesting development?}
-\label{sec:interesting_development}
-
-\mynote{The idea in this section is probably seriously wrong}
-
-This leads to some interesting developments. Interpret a 4-stress $\yTf$ as
-an object which contracted with a matter 3-form $\yr$ yields its
-corresponding energy-flux outer-oriented 3-form $\yE$:
-\begin{equation}
-  \label{eq:stress-matter-momentum}
-  \yE = \yTf \cdot \yr.
-\end{equation}
-This is similar to the \enquote{$^{\displaystyle *}\yTf$} of Misner \etal\
-\citep[\chap~15]{misneretal1970_r1973}, with the difference that $\yTf$ is
-3-covector valued.
-
-Now postulate that energy flux must always be conserved,
-\begin{equation}
-  \label{eq:conserv_energy-momentum_try}
-  \di\yE = 0.
-\end{equation}
-We obtain a set of two balances and a relation between them:
-\begin{equation}
-  \label{eq:massb_energyb_relation}
-  \di\yr = 0, \qquad \di\yE = 0, \qquad \yE = \yTf \cdot \yr.
-\end{equation}
-Question: does this system \emph{imply} Einstein's equations? The point
-is that we can now introduce a four-dimensional exterior covariant
-derivative $\yDi$ and combine the  equations above as follows:
-\begin{equation}
-  \label{eq:why_4stress_zero}
-     \di\yE
-    = \di(\yTf \cdot \yr) 
-    = \yDi\yTf \cdot \yr - \yTf \cdot \di\yr
-   = \yDi\yTf \cdot \yr
-    = 0
-\end{equation}
-and \emph{asking this to hold for every $\yr$}, we have
-\begin{equation}
-  \label{eq:div_T_vanishes}
-  \yDi\yTf = 0,
-\end{equation}
-which corresponds to Misner \etal's
-\enquote{$\bm{\mathsf{d}}{}^{\displaystyle *}\yTf=0$}
-\citep[\chap~15]{misneretal1970_r1973}.
-
-This point of view seems to say that \emph{any exterior covariant
-  derivative $\yDi$ will do} -- possibly with additional restrictions
-coming from restrictions on positivity of mass and energy fluxes. Such a
-possibility is not so strange when we consider that Einstein's equations
-can be rewritten, in a completely equivalent way, in terms of a flat
-connection with non-vanishing torsion, or a mixture of the two
-\citep{deandradeetal2000,arcosetal2004,aldrovandietal2013,pereira2014,caietal2016}.
-It seems that what's fundamental here is the use of a derivation operator
-with the properties of an \emph{exterior} covariant derivative, rather than
-the use of a covariant derivative or parallel transport per se.
-
-Finally, Einstein's equations $\yEi = \yTf$ could simply be interpreted as
-\emph{the most general integral of the equation $\yDi\yTf = 0$}. This
-possibility is related to an interesting remark by Truesdell:
-\begin{quote}
-  When the field theories were discovered in the eighteenth century, solutions
-in arbitrary functions such as those presented in this subchapter were sought
-earnestly, but, for the most part, sought in vain. In the nineteenth century,
-researches on partial differential equations turned away from such general
-solutions so as to concentrate upon boundary-value problems. When, in the
-twentieth century, the general solutions were at last obtained, scarce attention
-was paid to them, and to this day they remain virtually unknown. Though
-so far they have been used but rarely, they might turn out to be illuminating
-in studies of underdetermined systems, where the conventional viewpoint of
-partial differential equations has gained little.  \citep[p.~594]{truesdelletal1960}
-\end{quote}
-
-\mynote{To be added: refs to Finzi, Beltrami}
-
-\mynote{To be added: discussion about pp.~18--19 of \citep{weatherall2017}:
-  use differential forms for Gauss-Green theorem, instead of covariant
-  derivative}
-
-
-
-\section{General relativity}
-\label{sec:general_relativity}
-
-
- 
-\subsection{3~+ 1 formulation}
-\label{sec:3-1_formulation}
-
-Spacetime can be sliced and a frame introduced just like in the Newtonian
-case of \psect~\ref{sec:slicing_frames}.
-
-The Einstein equations can be decomposed by projection along the slices $t$
-and the frame $\yn$, giving rise to a part parallel to the surfaces with
-3\;\texttimes\;3 real components, a part parallel to the vector field with
-1 component, and a mixed part with 3 components. Our freedom in choosing
-the slicing $t$ and the frame $\yn$ appears in the decomposed equations
-as the presence of and undetermined \enquote{lapse} function and an
-undetermined \enquote{shift} vector field. When a metric is present we can
-choose the frame $\yn$ to be the unit normal to the 3-surfaces. This choice
-corresponds to a constant unit lapse function and a vanishing shift vector
-\citep{smarretal1978,smarretal1980}. Other choices of lapse and shift are
-more convenient for the initial-value problem, for example because they can
-correspond to a slicing that covers most of spacetime while avoiding
-singularities \citep{smarretal1978}. But our present discussion is mainly
-conceptual; we therefore use the simplest lapse and shift.
-
-The decomposed Einstein equations can be found compactly written in a
-number of texts
-\citep[\sect~1.3]{wilsonetal2003_r2007}[\sect~4.3.2]{gourgoulhon2007_r2012}[\chap~2]{alcubierre2008}[\sect~7.2.2]{rezzollaetal2013}.
-The decomposition of the Einstein tensor $\yG$ yields the 3-metric
-$\yg=(\ygg_{ab})$ of the 3-surfaces, having inverse $\yg^{-1}=(\ygg^{ab})$,
-with its compatible connection $\ynab$ having Ricci curvature
-$\yR=({\yRR_a}^b)$, and the extrinsic curvature $\yK=({\yKK_a}^b)$ of the
-3-surfaces. The decomposition of the energy-momentum-stress tensor $\yTf$ yields the
-internal energy $\ye$, energy flux $\yp$, and spatial stress
-$\yT=({\yTT_a}^b)$:
-\begin{equation}
-  \label{eq:decomp_4stress}
-  \yTf = \ye \di t \otimes\yn + \yp\otimes\yn + \di t
-  \otimes(\yp\cdot\yg^{-1}) + \yT.
-\end{equation}
-
-The Einstein equations $\yG = 8\pi\yTf$ are decomposed into the evolution
-equations \mynote{some $\pi$ factors may be missing!}
-\begin{subequations}\label{eq:evolution_eqns}
-  \begin{align}
-    \label{eq:dt_metric}
-    \de_t \yg &= -2\yK\cdot\yg,
-    \\
-    \label{eq:dt_curvat}
-    \de_t \yK &=  \yK\tr\yK -2 \yK\cdot\yK +\yR + 4\pi\,(\tr\yT-\ye) - 8\pi\yT
-  \end{align}
-\end{subequations}
-or
-\begin{subequations}\label{eq:evolution_eqns2}
-  \begin{align}
-    \label{eq:dt_metric2}
-    \de_t \yg &= -2\yK\cdot\yg
-    \\
-    \label{eq:dt_curvat2}
-    \de_t \yK &=  \yK\tr\yK-\tfrac{1}{4}(\tr\yK)^2
-                -2 \yK\cdot\yK + \tfrac{1}{4}\yK\con\yK
-                +\yR -\tfrac{1}{4}\tr\yR
-                -\yT+ \tfrac{1}{2}\tr\yT
-  \end{align}
-\end{subequations}
-and the constraint equations
-\begin{subequations}\label{eq:constraint_eqns}
-  \begin{align}
-    \label{eq:energy_constraint}
-    16\pi\ye &=(\tr\yK)^2 - \yK\con\yK + \tr\yR,
-    \\
-    \label{eq:momentum_constraint}
-    8\pi\yp &= \ynab\cdot(\yK\T - \yI\tr\yK).
-  \end{align}
-\end{subequations}
-Note that
-\begin{equation}
-  \label{eq:curvature_stretching}
-  \yK\cdot\yg = -\frac{1}{2}\de_t\yg \equiv
-  -\frac{1}{2}  \Li_{\yn}\yg \equiv
-  -\frac{1}{\sqrt{\yg}}\Li_{\yn}\sqrt{\yg} \equiv -\ynab\cdot ***
-\end{equation}
-
-It's interesting that the \enquote{3-momentum} in relativity appears as the
-divergence of a 3-tensor -- just like the force from a stress.
-
-To these equations we must add the balance of amount of
-matter~\eqref{eq:mass_balance_traditional}:
-\begin{equation}
-  \label{eq:mass_balance_gen-rel}
-  \de_t\yd = - \di\yj
-  \qquad\text{or}\qquad
-  \de_t\yd -\tr\yK\yd = -\ynab\cdot\yj,
-\end{equation}
-where in the second equation $\yd$ and $\yj$ are interpreted as a scalar
-and a vector. In these expressions $\de_t \equiv \Li_{\yn}$. (Conservation
-of matter is not enforced by the Einstein equations
-\citep[\eg][]{eckart1940c}[\sect~6.3.2]{gourgoulhon2007_r2012}[\sect~5.2]{baumgarteetal2010}[\sect~7.3]{rezzollaetal2013}[\sect~22.2]{misneretal1970_r1973}.
-Curiously there was at first some misunderstanding about the independence
-of this equation: see for example von Laue's \citep[p.~503]{vonlaue1949}
-statement.)
-
-This gives us a total of 6 + 6 + 1 + 3 + 1 real-component equations for a
-total of 6 + 6 + 6 + 1 + 3 + 1 + 3 + 1 real components of the fields $\yg$,
-$\yK$, $\yT$, $\ye$, $\yp$, $\yd$, $\yj$, and temperature $\yte$. Then we
-need 6 + 1 + 3 equations, which turn out to be, as in the Newtonian case,
-the constitutive functional equations~\eqref{eq:constitutive_4stress} for
-the energy-momentum-stress:
-\begin{subequations}\label{eq:constitutive_4stress_gen-rel}
-  \begin{align}
-    \label{eq:constit_energy_gen-rel}
-    \ye &= \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
-    \\
-    \label{eq:constit_energy-flux_gen-rel}
-    \yp &= \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
-    \\
-    \label{eq:constit_3stress_gen-rel}
-    \yT &= \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)]
-  \end{align}
-\end{subequations}
-(the dependence on $\yK(\dotv)$ is redundant, since it's a functional of
-$\yg(\dotv)$, and these equations are already functionals of $\yg(\dotv)$;
-but I leave the explicit dependence for clarity).
-
-(The 4-velocity is determined by the matter flux $\yj$ and the 4-metric by
-\eqn~\eqref{eq:4velocity_explicit}.)
-
-
-
-\subsection{Parentetical remark: divergence of energy-momentum-stress}
-\label{sec:divergence_4stress}
-
-A strange point appears in most general-relativity texts I've seen,
-especially for numerical relativity. They remark that the balance equations
-$\ynaf\cdot\yTf = 0$ are a consequence of the Einstein equations
-$\yG = 8\pu \yTf$, and therefore solving the latter automatically yields
-the former. But to find the numerical solutions they actually use the
-former!
-
-The balance $\ynaf\cdot\yTf = 0$ is indeed contained in
-\eqns~\eqref{eq:evolution_eqns}--\eqref{eq:constraint_eqns}. For example,
-combining the time derivative of the constraint
-equation~\eqref{eq:momentum_constraint} and the 3-divergence of the
-evolution equation~\eqref{eq:dt_curvat} we obtain the spatial part of
-$\ynaf\cdot\yTf = 0$: the balance of momentum. A quick check of such
-combination of \eqref{eq:momentum_constraint} and \eqref{eq:dt_curvat}
-shows in fact the appearance of the time-derivative of $\yp$ and the
-divergence of the 3-stress. A similar combination yields the balance of
-energy:
-\begin{subequations}\label{eq:evolution_energy_momentum}
-  \begin{gather}
-    \label{eq:dt_energy}
-    \de_t \ye - \ye\tr\yK + \ynab\cdot\yp - \yK\con\yT =0
-    \\
-    \label{eq:dt_momentum}
-    \de_t \yp -  \yp\tr\yK + \ynab\cdot\yT\T =0.
-  \end{gather}
-\end{subequations}
-In these equations the convection terms, usually kept separate in the
-Newtonian case, are included in $\yp$ and $\yT\T$. The terms proportional
-to $\tr\yK$ are absent in the Newtonian case.
-
-The reason for using the divergence equation $\ynaf\cdot\yTf = 0$ is
-clearly explained by Frittelli \citey{frittelli1997} (the only work I've
-found that explains this). The constraint
-equations~\eqref{eq:constraint_eqns} should be enforced on \emph{every}
-3-surface, \ie\ for all times $t$, while the metric and extrinsic curvature
-are evolved by \eqns~\eqref{eq:evolution_eqns}. If we did so there would be
-no need to use $\ynaf\cdot\yTf = 0$ in the solution.
-
-But it would be more convenient if the
-constraints~\eqref{eq:constraint_eqns} could be enforced on one 3-surface
-only, for example the initial one, and be automatically satisfied on all
-other 3-surfaces, \ie\ at all subsequent times. It turns out that the
-divergence equation $\ynaf\cdot\yTf = 0$ does exactly this: it makes the
-constraints automatically satisfied at all times if they are satisfied at
-the initial time.
-
-Loosely speaking, the system
-\begin{equation*}
-  \left\{\begin{aligned}
-  &\text{evolution equations~\eqref{eq:evolution_eqns}} \\
-  &\text{constraint equations~\eqref{eq:constraint_eqns} for all $t$}
-  \end{aligned}\right.
-\end{equation*}
-is equivalent to the system
-\begin{equation*}
-  \left\{\begin{aligned}
-  &\text{evolution equations~\eqref{eq:evolution_eqns}} \\
-  &\text{divergence equation $\ynaf\cdot\yTf = 0$} \\
-  &\text{constraint equations~\eqref{eq:constraint_eqns} for initial $t$ only}
-  \end{aligned}\right.
-\end{equation*}
-and the latter is more convenient to solve.
-
-
-\subsection{How to solve the decomposed equations}
-\label{sec:how_to_solve_3-1}
-
-Let us consider how
-equations~\eqref{eq:evolution_eqns}--\eqref{eq:constitutive_4stress_gen-rel}
-could be solved.
-
-% Only the evolution equations~\eqref{eq:evolution_eqns} and
-% mass-balance~\eqref{eq:mass_balance_gen-rel} contain temporal derivatives:
-% they give us 6 + 6 + 1 real-components of the $\yg$, $\yK$, $\yd$ fields on
-% the 3-surface at time $t+\incr t$ given all fields on the 3-surface at time $t$.
-% The constraint equations \eqref{eq:constraint_eqns} and constitutive
-% equations~\eqref{eq:constitutive_4stress_gen-rel} fix definite relations
-% between metric, extrinsic curvature, energy and energy flux, on each
-% 3-surface. The question is which field should be considered independent and
-% which dependent.
-
-% In continuum mechanics the stress $\yT$ is in the simplest case a
-% functional of mass density, momentum or velocity, and internal energy. For
-% the moment let's assume a constitutive equation
-% \begin{equation}
-%   \yT=\yT(\ye,\yp,\yg,\yK),
-%   \label{eq:constit_T_with_energy}
-% \end{equation}
-% omitting mass density. Then,
-
-Imagining a rough numerical timestepping scheme, in which for example
-\eqn~\eqref{eq:dt_metric} becomes
-\begin{equation}
-  \label{eq:approx_timestepping_dt_metric}
-  \yg(t + \incr t) \approx \yg(t) -2\yK(t)\cdot\yg(t)\,\incr t,
-\end{equation}
-it seems that the
-equations~\eqref{eq:evolution_eqns}--\eqref{eq:constitutive_4stress_gen-rel}
-can be solved this way:
-\begin{enumerate}[leftmargin=1.5\parindent]
-\item Choose all fields such as to satisfy the
-  constraints~\eqref{eq:constraint_eqns} and constitutive
-  equations~\eqref{eq:constitutive_4stress_gen-rel} on an initial 3-surface
-  at time $\yto$.
-\item\label{item:increase_step}Calculate metric $\yg$, extrinsic curvature
-  $\yK$, density of amount of matter $\yd$ at time $\yto + \incr t$ from
-  the evolution \eqns~\eqref{eq:evolution_eqns} and balance
-  \eqref{eq:mass_balance_gen-rel}:
-  \begin{align*}
-    \de_t \yg &= -2\yK\cdot\yg,
-    \\
-    \de_t \yK &=  \yK\tr\yK + \yR\cdot\yg^{-1} + 4\pu\,(\tr\yT-\ye) - 8\pu\yT,
-    \\
-    \de_t\yd &= - \di\yj.
-  \end{align*}
-  Note that these evolution equations require, in particular, the flux of
-  amount of matter $\yj$, energy $\ye$, stress $\yT$ at time $\yto$.
-\item\label{item:increase_step_energy}Calculate the  flux of amount of matter $\yj$,
-  temperature $\yte$, energy $\ye$, energy flux $\yp$, stress $\yT$ at time
-  $\yto + \incr t$ from the system of
-  constraints~\eqref{eq:constraint_eqns} and constitutive
-  \eqns~\eqref{eq:constitutive_4stress_gen-rel}, given the newly found
-  $\yg$, $\yK$, $\yd$:
-  \begin{gather*}
-    \begin{aligned}
-    16\pu\ye &= (\tr\yK)^2 - \yK\con\yK + \yR\con\yg^{-1},
-    &\quad
-      8\pu\yp &= \ynab\cdot(\yK\T - \yI\tr\yK),
-    \end{aligned}\\
-    \ye = \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
-    \\
-      \yp = \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
-      \\
-      \yT = \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)].
-  \end{gather*}
-  Note that this system \emph{implicitly} yields, in particular, the flux
-  of amount of matter $\yj$, energy $\ye$, stress $\yT$ needed in the next
-  timestep; see step above.
-
-  Now we have all fields at time $\yto + \incr t$.
-
-\item Set $\yto + \incr t \to \yto$, go to step~\ref{item:increase_step}.
-\end{enumerate}
-
-It's important to remark that the motion of matter, expressed by the 
-matter flux $\yj$ in this particular reference frame and slicing, is determined
-in an \emph{implicit} way in the scheme above. It would be worth
-investigating how geodesic equations \citep{gerochetal1975,weatherall2011}
-peep out from the present scheme.
-
-This scheme can be generalized to more complex temporal dependences in the
-constitutive equations, like dependence on derivatives, memory, \etc.
-
-\subsection{A possible reduction and reinterpretation: \enquote{hot metric}}
-\label{sec:reinterpretation_metric_temp}
-
-An interesting aspect of the equations above is that energy density and
-energy flux seem to have an intermediate role. We could think of solving
-the constraint and constitutive equations of
-step~\ref{item:increase_step_energy} for matter density $\yd$ and matter
-flux $\yj$ in terms of the 4-metric $(\yg, \yK)$ and the temperature
-$\yte$; this dependence could involve integro-differential operators. The
-balance of amount of matter $\de_t\yd = -\di\yj$ would then become an
-evolution equation for the temperature. The constitutive equation for the
-stress would also be reduced.
-
-We would be left with the system
-\begin{subequations}\label{eq:evolution_eqns_new}
-  \begin{gather}
-    \label{eq:dt_metric_new}
-    \yK \defd -\tfrac{1}{2}\de_t \yg \cdot \yg^{-1},
-    \\
-    \label{eq:dt_curvat_new}
-    \de_t \yK =  \yK\tr\yK
-                - \tfrac{1}{4} (\tr\yK)^2
-                +\tfrac{1}{4}\yK\con\yK
-                + \tfrac{3}{4}\yR\cdot\yg^{-1} 
-                + 4\pu\tr\yT - 8\pu\yT,
-    \\
-    \label{eq:constit_mass_new}
-    \de_t \yd[\yg(\dotv),\yK(\dotv),\yte(\dotv)] = -\di\yj[\yg(\dotv),\yK(\dotv),\yte(\dotv)],
-    \\
-    \label{eq:constit_T_new}
-    \yT = \yT[\yg(\dotv),\yK(\dotv),\yte(\dotv)],
-  \end{gather}
-\end{subequations}
-a set of integro-differential equations for the 3-metric $\yg$,
-extrinsic curvature $\yK$, and the temperature $\yte$; or integro-differential for
-the 3-metric $\yg$ and the temperature $\yte$. This system seems to say
-that
-\begin{itemize}
-\item density of amount of matter $\yd$, flux of amount of matter $\yj$,
-  energy density $\ye$, and energy flux $\yp$ are
-  \emph{temperature-dependent} manifestations of the 4-metric;
-\item the 4-metric can interact with itself in different ways, expressed by
-  particular \emph{temperature-dependent} constitutive functional equations
-  for $\yd$, $\yj$, $\yT$.
-\end{itemize}
-Would this satisfy Einstein? How to interpret the \enquote{temperature of
-  the metric}?
-
-
-\appendix
-
-
-
-\section{Addendum: inertial force from mass}
+\subsection{Inertial force from the matter density of the universe}
 \label{sec:inertial_force}
 
-\mynote{Refer to Weatherall \citey{weatherall2017}.}
-
-Inertial force is presented here as the force exerted from the total matter
-in the universe. It is proportional to the change, per unit time, in the
-momentum seen from a frame representing a sort of average position of the
-total matter: the frame of a rigid body with the same mass centre and
-second moment, expressed by the Euler tensor.
+Inertial force can be conceived and presented as the force exerted by the
+total matter in the universe \citep[\cf][]{sciama1953}. It is proportional
+to the change, per unit time, in the momentum seen from a frame
+representing a sort of average position of the total matter: the frame of a
+rigid body with the same mass centre and second moment, expressed by the
+Euler tensor.
 
 
 Suppose that the  3-form $\yrfs$ representing the total matter density in the
@@ -2707,6 +2665,55 @@ opposite of the change in momentum as seen from the fixed-star frame:
   -\yg^{-1} \cdot \Li_{\yFi}(\yr\cdot\yFi) \equiv
   -\yg^{-1} \cdot \bigl(\Li_{\yFi}\yr\bigr)\cdot\yFi.
 \end{equation}
+
+\mynote{Some words on \textcite{weatherall2017}.}
+
+
+
+\subsection{Balance of energy}
+\label{sec:energy_balance}
+
+To each matter element on each slice is also associated an internal energy
+density $\ye$, represented by an outer-oriented 3-form proportional to
+the mass 3-form $\yd$. The balance of energy states that the change in the
+total energy in a 3-volume $\yvo$ on a slice must come from the energy
+transported thither or thence, from the work done by the forces, and from
+body and surface heating, represented by outer-oriented 3-form and 2-form:
+\begin{equation}
+  \label{eq:balance_energy_traditional}
+%   \de_t \int_{\yvo}\ye =
+%   \int_{\yvo} \yvt\cdot\yb + \oint_{\de\yvo} \yvt\cdot\yT
+% +  \int_{\yvo} \yQ + \oint_{\de\yvo} \yq
+%   \qquad\forall \yvo
+%  \\
+%  \shortintertext{or}
+  \de_t\ye + \di(\yvt \cdot \ye) =
+  \yvt\cdot\yb + \di(\yvt\cdot \yT)
+  +\yQ + \di\yq,
+\end{equation}
+with $\de_t\ye \equiv \Li_{\yF}\ye$. The rate of change of
+kinetic energy is simply the work done by the inertial force, and is
+therefore included in the term $\yvt \cdot \yb$. The traditional expression
+with \enquote{$\de_t + \yvt\cdot\ynab$} appears if we write the 3-form
+$\ye\yd$ as a multiple of the volume element $\ygv$ -- one more example of
+a unnecessary use of metric.
+
+If we assume that body forces and body heating vanish, then we can rewrite
+this equation as
+\begin{equation}
+  \label{eq:balance_energy_suggests_3form}
+  \de_t\ye + \di(\yvt \cdot \ye -\yvt\cdot\yT - \yq) = 0,
+\end{equation}
+which suggests that energy can also be considered like an outer-oriented
+closed 3-form, with a flux 2-form
+\begin{equation}
+  \label{eq:energy_4velocity}
+  \yp \equiv -\yvt \cdot\ye + \yvt\cdot\yT +\yq.
+\end{equation}
+
+
+
+
 
 \section{Bits and pieces}
 \label{sec:bits}
@@ -2805,7 +2812,7 @@ is actually very confusing, because I tried to keep it short and to give
 the broadest possible view at the same time. To correct this I give a
 summary of its key points at the end of it.
 
-Then in \psect~\ref{sec:general_relativity} I give a summary of the
+Then in \psect~\ref{sec:3-1_formulation} I give a summary of the
 \enquote{3~+ 1} (or \enquote{Arnowitt-Deser-Misner}, or
 \enquote{initial-value}) formulation of the Einstein equations, showing in
 particular how the energy-momentum-stress balance equations arise from
@@ -2890,7 +2897,7 @@ so as to make the gravito-inertial force assume the simplest possible form.
 
 There is still much discussion in general relativity on how to define
 gravitational energy-momentum. This discussion is related to the fact that
-the divergence equation $\ynaf\cdot\yTf=0$ does not express a conservation
+the divergence equation $\yDi\cdot\yTf=0$ does not express a conservation
 law \citep[\sect~96]{landauetal1939_t1996}{arminjon2016}.
 
 But is there really a law of \enquote{conservation of momentum} in

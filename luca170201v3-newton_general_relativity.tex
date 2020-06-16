@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-06-16T11:09:00+0200
+%% Last-Updated: 2020-06-16T14:19:35+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -745,7 +745,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yK}{\mathte{\yKK}}
 \newcommand*{\yRR}{R}
 \newcommand*{\yR}{\mathte{\yRR}}
-\newcommand*{\ypp}{q}
+\newcommand*{\ypp}{p}
 \newcommand*{\yp}{\bm{\ypp}}
 \newcommand*{\yeen}{e}
 \renewcommand*{\yen}{\bm{\yeen}}
@@ -1674,47 +1674,45 @@ extended to the whole 4-stress $\yTf$. An additional law is thus present:
 energy flux carries momentum density, and momentum density carries energy
 flux. This is the famous \enquote{inertia of energy}, which appears in
 general relativity as an extension of the balance of rotational momentum.
-See the brilliant discussion by \textcite{eckart1940c}.
+See the brilliant discussion by \textcite[pp.~920--921, 923]{eckart1940c}.
+
+Such equality could also be imposed in Newtonian mechanics, with important
+consequences discussed in \psect~\ref{sec:constitutive equations}.
 
 \medskip
 
 The stress-energy-momentum tensor or \defquote{4-stress} $\yTf$ thus seems
 to be the object in common to Newtonian- and general-relativistic dynamics.
-The dynamical equation~\eqref{eq:div4stress} seems a four-dimensional
-analogue of the fundamental equation of statics.
+The dynamical equation~\eqref{eq:div4stress} appears as a four-dimensional
+analogue of the fundamental equation of statics. But there still remain
+several unclear points.
 
-The concepts of Newtonian mechanics are thus strongly present in general
-relativity. This presence carries several problems. The Newtonian stress is
-eminently a vectorial object meant to be \emph{integrated}: its integral
-over a surface enclosing a body yields the total surface force acting on
-that body.
-
-The integration of a vectorial object, however, is possible in Newtonian
-mechanics thanks to the affine structure of its three-dimensional space.
-This kind of integration is impossible or at best ambiguous with the
-path-dependent parallel transport of general relativity. Some authors
-relate this impossibility to the supposed absence of a
-\enquote{conservation law} for 4-momentum
+One point is that the Newtonian stress is a vectorial object eminently
+meant to be \emph{integrated}: its integral over a surface enclosing a body
+yields the total surface force acting on that body. The integration of a
+vectorial object, however, is possible in Newtonian mechanics thanks to the
+affine structure of its three-dimensional space. This kind of integration
+is impossible or at best ambiguous with the path-dependent parallel
+transport of general relativity. Some authors relate this impossibility to
+the supposed absence of a \enquote{conservation law} for 4-momentum
 \citep[\sect~21]{pauli1921_t1958}[\sect~59]{eddington1923_r1930}[\sect~96]{landauetal1939_t1996}[also][]{aldermanetal1970}.
 Misner \etal\ \citep[see their \chap~15, especially
 \sect~15.3]{misneretal1970_r1973} instead consider integration over very
 small three-dimensional regions of spacetime.
 
-\medskip
-
-Even if we take the 4-stress $\yTf$ as a dynamical object common to the two
-theories, some problems remain regarding its most appropriate geometric
-nature.
-
-In most texts the 4-stress is represented by a tensor of order 2. There are
-indications that it could be more properly represented by a covector-valued
-3-form, or by a 3-vector-valued 3-form (equivalent to a tensor
-antisymmetric in the first three and last three slots), for reasons
-connected with integration. See for example the discussion about
-\enquote{$^{\displaystyle *}\mathte{T}$} by Misner
-\etal~\citep[\chap~15]{misneretal1970_r1973}, the works by
+The point above is connected with the mystery regarding the most
+appropriate geometric nature of the 4-stress. In most texts it is
+represented by a tensor of order 2. There are indications that it could be
+more properly represented by a covector-valued 3-form, or by a
+3-vector-valued 3-form (equivalent to a tensor antisymmetric in the first
+three and last three slots), for reasons connected with integration. See
+for example the discussion about \enquote{$^{\displaystyle *}\mathte{T}$}
+by Misner \etal~\citep[\chap~15]{misneretal1970_r1973}, the works by
 Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
 discussion by Burke~\citep[\sect~41]{burke1985_r1987}.
+
+I separately consider other unclear points about the 4-stress in the
+sections below.
 
 \mynote{Some words needed on work and force}
 
@@ -1725,14 +1723,16 @@ discussion by Burke~\citep[\sect~41]{burke1985_r1987}.
 \mynote{This section is a little disconnected from the rest. Must be better
 integrated}
 
-The balances of amount of matter, force, energy give a system of 1+3+1
-real-valued equations. They involve at least 4+3+6+5 real-valued
-components: matter density and flux, body force and stress, energy density
-and flux, and body supply of energy. The independent variables in these
-equations are usually assumed to be the four components of the matter
-3-form -- that is, density of amount of matter and flux of amount of matter
-(velocity) -- and the temperature. Sometimes the energy density is
-exchanged with the temperature in the role of independent variable.
+In Newtonian mechanics the balances of matter, force, energy give a system
+of 1+3+1 real-valued equations; see
+\psect~\ref{sec:newtonian_mechanics_aim}. They involve at least 4+3+6+4+1
+real-valued quantities: matter density and flux (four), body force (three),
+stress (six), energy density and flux (four), and body supply of energy
+(one). The independent variables in these equations are usually assumed to
+be the four components of the matter 3-form -- that is, density and flux of
+matter (velocity) -- and the temperature or another thermodynamic quantity,
+such as the energy density. More quantities and equations are needed for
+more complex kinds of continua such as continua with spin.
 
 The balance laws alone are therefore not sufficient to determine the
 evolution of all fields. Moreover, although the balances are assumed to
@@ -1741,14 +1741,17 @@ ways.
 
 \emph{Constitutive equations} are equations that give the dependent fields
 as functions or functionals of the independent ones. They express the
-different behaviours of different kinds of matter, and together with the
+different behaviour of different kinds of matter, and together with the
 balance laws yield a closed system of differential or integro-differential
 equations.
 
-The most important constitutive equation in our discussion is that for the
-4-stress. All 4-components of the stress $\yT$ are in the simplest cases
-\emph{functionals} of the matter 3-form $\yr$, the internal energy $\ye$ or
-temperature $\yte$, and the 3-metric $\yg$:
+The most important constitutive equations in our discussion are those that
+enter the 4-stress. All components of the 3-stress $\yT$ are in the
+simplest cases \emph{functionals} of the matter 3-form $\yr$ -- that is,
+matter density and matter flux -- and of the internal energy $\ye$ or
+temperature $\yte$. But the 3-metric $\yg$ also enters these equations,
+even if in a passive role, in the guise of gradients, divergences, and
+other metric-dependent operators:
 \begin{subequations}\label{eq:constitutive_4stress}
   \begin{gather}
     \label{eq:constit_T_with_mass_geometry}
@@ -1763,18 +1766,45 @@ temperature $\yte$, and the 3-metric $\yg$:
     \end{pmatrix}
   \end{gather}
 \end{subequations}
-(these functionals indirectly include a possible dependence on the
-extrinsic curvature $\yK$, because it's the \enquote{time derivative} of
-the 3-metric; see previous section).
+these functionals indirectly also include a possible dependence on the
+extrinsic curvature $\yK$, which is the \enquote{time derivative} of the
+3-metric; see \psect~\ref{sec:3-1_formulation}.
 
-The dependence on the metric can be complicated: for example, the stress at
-a point can depend on the difference between the 3-metric there and the
-metric from previous 3-surfaces, transported by the velocity $\yc$
+The dependence on the metric can be quite complicated: for example, the
+stress at a point can depend on the difference between the 3-metric there
+and the metric from previous 3-surfaces, transported by the velocity $\yc$
 associated with the matter flux \citep{grotetal1966,carteretal1972}. The
 difference can be non-vanishing even if the 3-metric is Euclidean on all
 3-surfaces. The only difference between Newtonian and general relativistic
 mechanics is that all 3-metrics are flat in the former but not in the
 latter.
+
+\medskip
+
+The constitutive equation for the momentum density $\yp$ is extremely
+interesting.
+
+In Newtonian mechanics we do not speak of a \enquote{constitutive equation}
+relating momentum and matter (there are some exceptions when
+electromagnetism is involved). Momentum coincides with mass flow, and mass
+is taken almost as synonymous with matter. In \psect~\ref{sec:matter} we
+separated mass and matter to build a common kinematics. Flow of matter and
+momentum are thus not synonymous. In an inertial frame there is a linear,
+constant relation between the two flows: in such a frame we can write $\yp
+= m\yj$, where $m$ is molar mass. This is a kind of constitutive relation.
+
+In Lorentzian and general relativity the relation between matter flux and
+momentum is not linear or so simple. Energy flux, such as heat, contributes
+momentum to a body of matter, even in the latter's rest frame
+\citep[p.~923]{eckart1940c}. In Newtonian mechanics such a contribution is
+negligible, but we must formally take it into account if we want to impose
+the equivalence of momentum density and energy flux, as mentioned in
+\psect~\ref{sec:force_momentum} after \eqn~\eqref{eq:def4stress_newton}.
+This is why I wrote an explicit dependence on temperature in the
+constitutive equation for the momentum $\yp$ of
+\eqn~\eqref{eq:4stress_components}.
+
+\medskip
 
 There are many studies of specific constitutive equations in general
 relativity, from perfect fluids to materials with elasticity dependent on
@@ -1790,7 +1820,9 @@ articles and books
 \citep{bressan1964b,lianis1973,bertottietal1984,hiscocketal1985,anileetal1989,gerochetal1991,herrmannetal2000,bossavit2001b,geroch2001,gourgoulhon2007_r2012,alcubierre2008,choquetbruhat2009,baumgarteetal2010,rezzollaetal2013,disconzi2014,pimenteletal2016,disconzietal2017}.
 
 
-
+\mynote{Some words on the connection between momentum and flux of matter
+  and identification of matter with mass, which affect the constitutive
+  equations}
 
 \section{What kind of geometric object is \defquote{force}?}
 \label{sec:geometry_force}

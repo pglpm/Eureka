@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-16T15:02:42+0200
+%% Last-Updated: 2020-06-18T11:27:14+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -725,7 +725,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ds}{\mathit{ds}}
 \newcommand*{\inct}{\incr t}
 \newcommand*{\yCs}{\Bar{C}}
-\newcommand*{\id}{\mathrm{id}}%id matrix
+\newcommand*{\id}{\mathbf{id}}%id matrix
 \newcommand*{\ye}{\bm{e}}
 \newcommand*{\ygv}{\bm{\gamma}}
 \newcommand*{\yt}{\bm{\sigma}}
@@ -985,15 +985,54 @@ types. % In spirit this notation is similar to the
 % indices, so that the notational difference between a tensor and its
 % components, which is very important for our discussion, doesn't disappear.
 
-The only weak points of this notation are the operations of contraction and
-transposition, which literal indices depict so well instead. Considering
-that contraction is a generalization of trace, and transposition a
-generalization of matrix transposition, I'll use the following notation:
+The only weak points of this notation are the operations of transposition
+and contraction, which literal indices depict so well instead. Considering
+that transposition a generalization of matrix transposition, and
+contraction is a generalization of trace, I'll use the following notation:
 \begin{itemize}[wide]%,label=\textemdash]
-\item $\tr_{\alpha\beta}\yA$ is the contraction of the
-  $\alpha$th and $\beta$th slots (which must have opposite variant types)
 \item $\yA^{\intercal_{\alpha\beta}}$ is the transposition
-  (swapping) of the $\alpha$th and $\beta$th slots.
+  (swapping) of the $\alpha$th and $\beta$th slots. Its coordinate-free
+  definition is
+  \begin{equation}
+    \label{eq:def_transp}
+    (\yA^{\intercal_{\alpha\beta}})(\dotso,
+    \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{\bm{\zeta}}
+    ,\dotso,
+    \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\bm{\eta}}
+    ,\dotso)
+    \defd
+    \yA(\dotso,
+    \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{\bm{\eta}}
+    ,\dotso,
+    \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\bm{\zeta}}
+    ,\dotso)
+  \end{equation}
+  for each $\bm{\zeta},\bm{\eta}$ of appropriate variance type.
+\item $\tr_{\alpha\beta}\yA$ is the contraction of the $\alpha$th and
+  $\beta$th slots (which must have opposite variant types). Its
+  coordinate-free definition is
+  \begin{equation}
+    \label{eq:def_contr}
+    \begin{gathered}
+      (\tr_{\alpha\beta}\yA)(\dotso
+        ,\dotso
+        ,\dotso)
+        \defd
+        \sum_{i} \yA(\dotso,
+        \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{\bm{u}_{i}}
+        ,\dotso,
+        \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\bm{\omega}^{i}}
+        ,\dotso)
+      \\
+      \parbox{0.9\columnwidth}{for any arbitrary representation\; $\tsum_{i}
+        \bm{u}_{i}\otimes\bm{\omega}^{i} \equiv \id$\; of\\ the identity
+        operator (tensor)
+      on the tangent space, \;$\id\colon
+        \bm{v} \mapsto \bm{v}$ \;.}
+    \end{gathered}
+  \end{equation}
+  An analogous definition holds if the $\alpha$th slot is covariant and the
+  $\beta$th contravariant.
 \end{itemize}
 In index notation these operations are the familiar
 \begin{equation*}

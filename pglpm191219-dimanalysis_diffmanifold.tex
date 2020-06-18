@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-18T11:27:14+0200
+%% Last-Updated: 2020-06-18T11:33:45+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1024,11 +1024,14 @@ contraction is a generalization of trace, I'll use the following notation:
         \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\bm{\omega}^{i}}
         ,\dotso)
       \\
-      \parbox{0.9\columnwidth}{for any arbitrary representation\; $\tsum_{i}
-        \bm{u}_{i}\otimes\bm{\omega}^{i} \equiv \id$\; of\\ the identity
-        operator (tensor)
-      on the tangent space, \;$\id\colon
-        \bm{v} \mapsto \bm{v}$ \;.}
+      \parbox{0.9\columnwidth}{\small for any arbitrary complete and
+        linearly independent \;$\set{\bm{u}_{i}}$,
+        $\set{\bm{\omega}^{j}}$\\
+        such that \;$\bm{\omega}^{j}(\bm{u}_{i}) = \delt\i{^{j}_{i}}$ \;.}
+        % representation\; $\tsum_{i}
+        % \bm{u}_{i}\otimes\bm{\omega}^{i} \equiv \id$\; of\\ the identity
+        % operator (tensor) on the tangent space, \;$\id\colon
+        % \bm{v} \mapsto \bm{v}$ 
     \end{gathered}
   \end{equation}
   An analogous definition holds if the $\alpha$th slot is covariant and the
@@ -1039,12 +1042,6 @@ In index notation these operations are the familiar
   A\i{_{\dotsm\;}^{%
       \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{i}
     }_{\dotsm\;%
-      \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{i}
-      \;\dotsm}}
-  \qquad\text{and}\qquad
-  A\i{_{\dotsm\;}^{%
-      \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{i}
-    }_{\dotsm\;%
       \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{j}
       \;\dotsm}}
   \mapsto
@@ -1052,7 +1049,13 @@ In index notation these operations are the familiar
       \underset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{j}
       \;\dotsm\;}^{%
       \overset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{i}
-    }_{\;\dotsm}} \;.
+    }_{\;\dotsm}} 
+  \qquad\text{and}\qquad
+  A\i{_{\dotsm\;}^{%
+      \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{i}
+    }_{\dotsm\;%
+      \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{i}
+      \;\dotsm}} \;.
 \end{equation*}
 
 Contraction and transposition will be discussed only sparsely, so I hope

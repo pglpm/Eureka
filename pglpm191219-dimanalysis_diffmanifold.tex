@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-19T15:53:12+0200
+%% Last-Updated: 2020-06-19T18:00:05+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -19,7 +19,7 @@ british%
 \newcommand*{\firstdraft}{13 December 2019}%not used
 \newcommand*{\firstpublished}{13 December 2019}
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
-\newcommand*{\propertitle}{Dimensional analysis in general relativity\\ and in differential geometry%\\{\large ***}%
+\newcommand*{\propertitle}{Dimensional analysis in relativity\\ and in differential geometry%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{\propertitle}
 \newcommand*{\headtitle}{Dimensional analysis, relativity, manifolds}
@@ -752,19 +752,18 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \setlength{\absrightindent}{0pt}
 \setlength{\abstitleskip}{-\absparindent}
 \begin{abstract}\labelsep 0pt%
-  \noindent This note provides a short guide to performing dimensional
-  analysis in general relativity and in differential geometry. It tries to
-  revive Dorgelo and Schouten's notion of \defquote{intrinsic} or
+  \noindent This note provides a short guide to dimensional analysis in
+  Lorentzian and general relativity and in differential geometry. It tries
+  to revive Dorgelo and Schouten's notion of \defquote{intrinsic} or
   \defquote{absolute} dimension of a tensorial quantity. The intrinsic
   dimension is independent of the dimensions of the coordinates and
-  expresses the physical or operational meaning of a tensor. The
+  expresses the physical and operational meaning of a tensor. The
   dimensional analysis of several important tensors and tensor operations
   is summarized. In particular it is shown that the components of a tensor
   need not have all the same dimension, and that the Riemann (once
   contravariant and trice covariant) and Ricci (fully covariant) curvature
   tensors are dimensionless. The relation between dimension and operational
-  meaning for the metric and stress-energy-momentum tensors is 
-  discussed.
+  meaning for the metric and stress-energy-momentum tensors is discussed.
   % \\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer,
   %   this manuscript is being peer-reviewed by you. Thank you.}
 % \par%\\[\jot]
@@ -805,8 +804,8 @@ tensor need to have the same dimension? What happens to these components if
 we choose coordinates that don't have dimensions of length or time? And if
 the components of a tensor have different dimensions, then does it make
 sense to speak of \enquote{the dimension of the tensor}? What are the
-dimensions of the metric and of the curvature tensors, in that case? What
-is the dimension of the constant in the Einstein equations?
+dimensions of the metric and of the curvature tensors? What is the
+dimension of the constant in the Einstein equations?
 
 A sense of insecurity often gets hold of many students (and possibly of
 some researchers) in relativity, when they have to discuss and answer
@@ -816,20 +815,20 @@ questions like the above. % the dimensions
 % field equations.
 This is evident in many question \amp\ answer websites and wiki pages,
 where some incorrect or unfounded statements about dimensional analysis in
-general relativity are in circulation. For example, the notion that the
-components of a tensor or the coordinate functions should all have the same
-dimension. As we'll see shortly, both notions are false.
+relativity are in circulation. For example, the notion that the components
+of a tensor or the coordinate functions should all have the same dimension.
+As we'll see shortly, this notion is false.
 
-Several factors contribute to these misconceptions and
-insecurity. Modern texts in Lorentzian and general relativity commonly use
-geometrized units. They say that, for finding the dimension of some
-constant in a tensorial equation, it's sufficient to compare the dimensions
-of the terms in the equation. But this procedure is sometimes not so
-immediate to apply, because some tensors don't have universally agreed
-dimensions -- prime example the metric tensor. Older texts often use four
-coordinates with dimension of length, and base their dimensional analyses
-on that specific choice. They even multiply\citep[\eg][p.~72
-\eqn~(37.8)]{tolman1934_t1949}[p.~80
+Several factors contribute to these misconceptions and insecurity. Modern
+texts in Lorentzian and general relativity commonly use geometrized units.
+They say that, for finding the dimension of some constant in a tensorial
+equation, it's sufficient to compare the dimensions of the terms in the
+equation. But the application of this procedure is sometimes not so
+immediate, because some tensors don't have universally agreed dimensions --
+prime example the metric tensor. Older texts often use four coordinates
+with dimension of length, and base their dimensional analyses on that
+specific choice. They even multiply\citep[\eg][p.~71
+\eqn~(37.1)]{tolman1934_t1949}[p.~80
 \eqn~(32.15)]{landauetal1939_t1996}[p.~332
 \eqn~(10.15)]{adleretal1965_r1975} coordinates or tensorial components
 having dimension of time by powers of $c$. A student thus gets the
@@ -840,9 +839,9 @@ case is][\sect~X]{kitano2013}.
 
 \medskip
 
-Dimensional analysis may thus not be as self-evident in general relativity
-and in differential geometry as authors in these subjects take it to be.
-The present note wants to provide a short but exhaustive guide to it.
+Dimensional analysis may thus not be as self-evident in relativity and in
+differential geometry as authors in these subjects take it to be. The
+present note wants to provide a short but exhaustive guide to it.
 % the application of the usual rules of dimensional analysis to
 % differential geometry. The usual rules are that if two quantities are
 % summed they must have the same dimension; that the dimension of a product
@@ -852,8 +851,8 @@ also consistently settled in this note; for example the dimension of the
 Riemann curvature tensor, or the effect of the covariant or Lie derivatives
 on dimensions.
 
-The application of dimensional analysis in general relativity seems to me
-most straightforward and self-evident if we rely on the coordinate-free or
+The application of dimensional analysis in relativity seems to me most
+straightforward and self-evident if we rely on the coordinate-free or
 intrinsic approach to differential geometry, briefly recalled below, and if
 we adopt the perhaps overlooked notion of \emph{intrinsic dimension} of a
 tensor. %The present note tries to revive this notion.
@@ -869,7 +868,7 @@ coordinate functions. It is distinct from the dimensions of the tensor's
 \emph{components}, which instead depend on the dimensions of the
 coordinates. The intrinsic dimension of a tensor is determined by the
 latter's physical and operational \citep{bridgman1927_r1958} meaning. It is
-therefore a natural notion for dimensional analysis in general relativity.
+therefore a natural notion for dimensional analysis in relativity.
 
 \medskip
 
@@ -994,10 +993,10 @@ index in this notation is \enquote{a \emph{label} whose sole purpose is to
   discussion}~\citep[p.~75]{penroseetal1984_r2003}. So this notation
 doesn't stand for the set of \emph{components} of the tensor. For the
 latter set, \textbf{bold} indices are used instead:
-\defquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. In our discussion, however,
-where the difference between a tensor and its set of components will be
-crucial, this abstract-index notation unfortunately lends itself to
-conceptual and typographic misunderstanding.
+\defquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. In our discussion, where the
+difference between a tensor and its set of components will be crucial, this
+abstract-index notation unfortunately lends itself to conceptual and
+typographic misunderstanding.
 
 I shall therefore use a notation such as $\yA\i{_{\q}^{\q\q}}$ to indicate
 that $\yA$ is covariant in its first slot and contravariant in its second
@@ -1012,8 +1011,8 @@ types. % In spirit this notation is similar to the
 
 The only weak points of this notation are the operations of transposition
 and contraction, which literal indices depict so well instead. Considering
-that transposition a generalization of matrix transposition, and
-contraction is a generalization of trace, I'll use the following notation:
+that transposition is a generalization of matrix transposition, and
+contraction a generalization of trace, I'll use the following notation:
 \begin{itemize}[wide]%,label=\textemdash]
 \item $\yA^{\intercal_{\alpha\beta}}$ is the transposition
   (swapping) of the $\alpha$th and $\beta$th slots. Its coordinate-free
@@ -1032,7 +1031,7 @@ contraction is a generalization of trace, I'll use the following notation:
     \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\bm{\zeta}}
     ,\dotso)
   \end{equation}
-  for each $\bm{\zeta},\bm{\eta}$ of appropriate variance type.
+  for all $\bm{\zeta},\bm{\eta}$ of appropriate variance type.
 \item $\tr_{\alpha\beta}\yA$ is the contraction of the $\alpha$th and
   $\beta$th slots (which must have opposite variant types). Its
   coordinate-free definition is
@@ -1050,7 +1049,7 @@ contraction is a generalization of trace, I'll use the following notation:
         ,\dotso)
       \\
       \parbox{0.9\columnwidth}{\small for any arbitrary complete and
-        linearly independent \;$\set{\bm{u}_{i}}$,
+        linearly independent sets \;$\set{\bm{u}_{i}}$,
         $\set{\bm{\omega}^{j}}$\\
         such that \;$\bm{\omega}^{j}(\bm{u}_{i}) = \delt\i{^{j}_{i}}$ \;.}
         % representation\; $\tsum_{i}
@@ -1149,9 +1148,8 @@ where $A\i{^{x}_{x}} \defd \yA\bigl(\di x, \frac{\de}{\de x}\bigr)$ and so
 on are the components of the tensor in the coordinate system $(x, y)$.
 
 By the rules of dimensional analysis, the two sides of the expansion above
-must have the same dimension. The four summands of the right side must also
-have the same dimension. Denoting $\Aa \defd \dim(\yA)$, we thus have the four
-equations
+must have the same dimension. The same holds for the four summands on the
+right side. Denoting $\Aa \defd \dim(\yA)$, we thus have the four equations
 \begin{equation*}
   \label{eq:four_dims_2d_pre}
   \begin{aligned}
@@ -1181,13 +1179,14 @@ independent of the coordinate system, by construction -- such expansion
 could be done in any other coordinate system, and the left side would be
 the same. The effect of coordinate transformations is examined more in
 detail in \sect~\ref{sec:tensors}. The intrinsic dimension $\Aa$ is
-determined by the physical or operational meaning of the tensor. Together
-with the dimensions of the coordinates it determines the dimensions of the
-components, \eqn~\eqref{eq:four_dims_2d}, which need not be all equal.
+determined by the physical and operational meaning of the tensor; see
+\sects~\ref{sec:metric}, \ref{sec:stressenergy} for concrete examples.
+Together with the dimensions of the coordinates it determines the
+dimensions of the components, \eqn~\eqref{eq:four_dims_2d}, which need not
+be all equal.
 
 This simple example should have disclosed the main points of dimensional
 analysis on manifolds, which will now be discussed in more generality.
-
 In the derivation above we silently adopted a couple of natural
 conventions; for example, that the tensor product behaves similarly to
 multiplication with regard to dimensions. Such conventions are briefly
@@ -1490,12 +1489,17 @@ result~\eqref{eq:lie_bracket}.
 
 \smallskip
 
-
-% \item The \emph{pull-back} and \emph{push-forward} of a map $F$ between
-%   manifolds don't change the dimensions of the tensors they map.
+\item The \emph{pull-back} [III.A.2], \emph{tangent map} [III.B.1] and
+  \emph{push-forward} of a map $F$ between manifolds don't change the
+  dimensions of the tensors they map. The reason, evident from their
+  definitions, is that they all rest on the pull-back of any function
+  $F^{*}(f) \defd F\circ f$, which being a composition doesn't alter the
+  dimension of the function.
 %   \begin{equation}
 %   \dim(\yA\otimes\yB) = \dim(\yA)\dim(\yB).\label{eq:tensor_mult}
 % \end{equation}
+
+\smallskip
 
 \item The \emph{Lie derivative} [III.C.2] of a tensor with respect to a
   vector field has the product of the dimensions of the tensor and of the
@@ -1536,15 +1540,15 @@ Regarding operations and operators on differential forms:
   Theorem~6.4.8]{abrahametal1983_r1988} together with
   \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
 
-\item The \emph{integral} [IV.B.1] of a form over a submanifold, or more
-  generally a chain, $M$ has the same dimension as the form:
+\item The \emph{integral} [IV.B.1] of a form over a submanifold (or more
+  generally a chain) $M$ has the same dimension as the form:
   \begin{equation}
     \dim\bigl(\tint_{M}\yom\bigr) =\dim(\yom).
     \label{eq:integration}
   \end{equation}
 \end{itemize}
-The reason is that the integral of a form over a chain ultimately rests on
-the standard definition of integration on the real line
+The reason is that the integral of a form over a submanifold or chain
+ultimately rests on the standard definition of integration on the real line
 \citep[\eg][\sects~IV.B.1--2]{choquetbruhatetal1977_r1996}[\sect~5 p.~21,
 \sect~6
 p.~24]{derham1955_t1984}[\sect~7.1]{abrahametal1983_r1988}[\sect~VI.2]{boothby1975_r2003},
@@ -1552,7 +1556,7 @@ which satisfies the dimensional rule above. In fact, the integral is
 invariant with respect to reparameterizations of the chain; it depends only
 on its image (some texts~\citep[\eg][\sect~10.4
 p.~297]{martin1991_r2004}[\sect~7.3]{fecko2006} even define chains as
-equivalence classes determined by their image.)
+equivalence classes determined by their image).
 
 \medskip
 
@@ -1579,18 +1583,18 @@ quantities, then the dimension of the tangent or velocity vector $\dot{C}$
 to the curve is
 \begin{equation}
   \label{eq:dim_velocity}
-  \dim(\dot{C}) = \Ss^{-1},
+  \dim(\dot{C}) = \Ss^{-1} \;,
 \end{equation}
 owing to the definition
 \citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}[\sect~IV.(1.9)]{boothby1975_r2003}
 \begin{equation}
   \label{eq:def_tangent_curve}
-\dot{C} \defd \frac{\de (x^{i} \circ C)}{\de s}\;\dex .
+\dot{C} \defd \frac{\de (x^{i} \circ C)}{\de s}\;\dex \;.
 \end{equation}
 % or considering that $\dot{C}$ can be interpreted as the push-forward of
 % $\partial_s$, that is, $C_*(\partial_s)$.
 
-This has a quirky but interesting consequence. Given a vector field $\yv$
+This has a quirky  interesting consequence. Given a vector field $\yv$
 we say that $C$ is an integral curve for it if
 \begin{equation}
   \yv = \dot{C}
@@ -1708,7 +1712,7 @@ The exact contra- and co-variant type of these tensors is very important in
 the equations above. If we raise any of their indices using a metric, their
 dimensions will generally change.
 
-Misner \etal\ \citey[p.~35%, 407
+Misner \etal\ \citep[p.~35%, 407
 ]{misneretal1970_r1973} say that \enquote{curvature}, by which they seem to
 mean the Riemann tensor, has dimension $\Le^{-2}$. This statement is
 seemingly at variance with the dimensionless
@@ -1721,9 +1725,9 @@ formula~\eqref{eq:dim_component_generic}, if and only if the intrinsic
 dimension of $\yR$ is unity, $\dim(\yR)=\Un$. So I believe that Misner
 \etal's statement actually agrees with the
 results~\eqref{eq:dim_torsion_riemann_ricci}. This possible
-misunderstanding shows the importance of distinguishing between intrinsic
-dimensions, which don't depend on any specific coordinate choice, and
-component dimensions, which do.
+misunderstanding shows the importance of distinguishing between the
+intrinsic dimension, which doesn't depend on any specific coordinate
+choice, and component dimensions, which do.
 
 \medskip
 
@@ -1789,7 +1793,8 @@ expression for the \enquote{line element $\ds^{2}$} as it appears in many
 works:
 \begin{equation}
   \label{eq:line_elem}
-  \ds^{2} = c^2\mathit{dt}^2 - \mathit{dx}^2 -\mathit{dy}^2 - \mathit{dz}^2,
+  \ds^{2} = c^2\mathit{dt}^2 - \mathit{dx}^2 -\mathit{dy}^2 - \mathit{dz}^2
+  \;,
 \end{equation}
 possibly with opposite signature (for an exception with dimension $\Ti^{2}$
 see Kilmister \citep[\chap~II p.~25]{kilmister1973}{kilmister1973}). If the
@@ -1803,7 +1808,7 @@ unspecified \citep[\cf][Box~3.2~D p.~77]{misneretal1970_r1973}. In this
 case we have
 \begin{equation}
   \label{eq:line_elem_dim_ambiguous}
-  \Le^{2} = \dim(\yg)\dim(\yv)^{2}
+  \Le^{2} = \dim(\yg)\,\dim(\yv)^{2}
 \end{equation}
 and the dimension of $\yg$ is ambiguous or undefined, because the vector
 $\yv$ could have any dimension.% -- possibly dimensionless if $\yv$
@@ -1849,13 +1854,15 @@ $\yom = \tr_{23}(\yg\otimes\yv)$). The \emph{inverse metric tensor}
 $\yg\i{^{-1}^{\q\q}}$ is then defined by the formula
 \begin{equation}
   \label{eq:inverse_g}
-  \yg^{-1}\yg = \id\i{^{\q}_{\q}},\qquad
-  \yg\yg^{-1} = \id\i{_{\q}^{\q}}\quad,
+  \yg^{-1}\yg = \id\i{^{\q}_{\q}} \;,
+  % \qquad
+  % \yg\yg^{-1} = \id\i{_{\q}^{\q}} = (\id\i{^{\q}_{\q}})^{\intercal}\;,
 \end{equation}
-so that
+where $\id\i{^{\q}_{\q}}\colon \bm{v} \mapsto \bm{v}$ is the dimensionless
+identity operator (tensor) on the tangent space. Hence
 \begin{equation}
   \label{eq:dim_ig}
-  \dim(\yg^{-1}) = \dim(\yg)^{-1}.
+  \dim(\yg^{-1}) = \dim(\yg)^{-1} \;.
   % \begin{cases}
   %   \Ti^{-2} \\
   %   \Le^{-2} \\
@@ -1882,7 +1889,8 @@ component, given by the square root of the determinant of the (positively
 ordered) components $(g\i{_{ij}})$ of the metric:
 \begin{equation}
   \label{eq:volume_elem}
-  \ygv = \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\;\dix[0]\land\dix[1]\land\dix[2]\land\dix[3].
+  \ygv =
+  \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\;\dix[0]\land\dix[1]\land\dix[2]\land\dix[3] \;.
 \end{equation}
 From this expression and the results of \sect~\ref{sec:tensor_ops} it can
 be shown that, in spacetime,
@@ -1915,11 +1923,13 @@ $\yA\i{_{\q\q}} \equiv
 for tensors of other types. Therefore
 \begin{equation}
   \label{eq:raising_lowering}
-  \dim(\yA\i{_{\dotso}_{\q}_{\dotso}}) =
-  \dim(\yA\i{_{\dotso}^{\q}_{\dotso}})\dim(\yg),
-\quad
-  \dim(\yA\i{_{\dotso}^{\q}_{\dotso}}) =
-  \dim(\yA\i{_{\dotso}_{\q}_{\dotso}})\dim(\yg)^{-1}.
+  \begin{split}
+  \dim(\yA\i{_{\dotso}_{\q}_{\dotso}}) &=
+  \dim(\yA\i{_{\dotso}^{\q}_{\dotso}})\,\dim(\yg)
+\\
+  \dim(\yA\i{_{\dotso}^{\q}_{\dotso}}) &=
+  \dim(\yA\i{_{\dotso}_{\q}_{\dotso}})\,\dim(\yg)^{-1} \;.
+\end{split}
 \end{equation}
 
 \medskip
@@ -1933,13 +1943,13 @@ obtained from the metric by the formulae
 \begin{equation}
   \label{eq:christoffel_g}
   \yGa\i{^{i}_{jk}} = \frac{1}{2}
-  \biggl(\dex[k]g_{jl} + \dex[j]g_{kl} - \dex[l]g_{jk}\biggr)g^{li},
+  \biggl(\dex[k]g_{jl} + \dex[j]g_{kl} - \dex[l]g_{jk}\biggr)\,g^{li} \;,
 \end{equation}
-and it's easily verified that the dimensions~\eqref{eq:dim_christoffel} of these
-coefficients still hold. Also the result for
-the curvature tensors~\eqref{eq:dim_torsion_riemann_ricci} still holds,
-since their expressions in terms of the connection coefficients is the same
-with or without a metric.
+and it's easily verified that the dimensions of these coefficients given in
+\eqn~\eqref{eq:dim_christoffel} still hold. Also the results for the
+curvature tensors~\eqref{eq:dim_torsion_riemann_ricci} still hold, since
+their expressions in terms of the connection coefficients is the same with
+or without a metric.
 
 \medskip
 
@@ -2091,7 +2101,7 @@ depending on the signature of the metric or on the orientation of the
 stress) is Einstein's constant. For the dimension of $\yk$ we thus find
 \begin{equation}
   \label{eq:dim_k_1}
-  \dim(\yk) = \dim(\yG\i{_{\q}^{\q}})\dim(\yT\i{_{\q}^{\q}})^{-1} \equiv
+  \dim(\yk) = \dim(\yG\i{_{\q}^{\q}}) \, \dim(\yT\i{_{\q}^{\q}})^{-1} \equiv
     \begin{cases}
     \Ma^{-1}\Le \\
     \Ma^{-1}\Le^{-1}\Ti^{2}
@@ -2105,12 +2115,12 @@ stress) is Einstein's constant. For the dimension of $\yk$ we thus find
 This constant can be obtained from the dimensions of Newton's gravitational
 constant $\dim(G)=\Ma^{-1}\Le^{3}\Ti^{-2}$ (this is not the Einstein tensor
 $\yG$!) and of the speed of light $\dim(c)=\Le\Ti^{-1}$ only in the
-following ways, with an $8\pi$ factor coming from the Newtonian limit:
+following ways, with an $8\pu$ factor coming from the Newtonian limit:
 \begin{equation}
   \label{eq:k_Gc}
   \yk =     \begin{cases}
-   8\pi G/c^{2} \\
-   8\pi G/c^{4}
+   8\pu G/c^{2} \\
+   8\pu G/c^{4}
   \end{cases}
   \quad\text{if }\dim(\yg)\defd
   \begin{cases}
@@ -2136,18 +2146,19 @@ and~(52.06)]{fock1955_t1964} and Adler \etal\ \citep[\sect~10.5
 \label{sec:summary}
 
 We have seen that dimensional analysis, with its familiar rules, can be
-seamlessly performed in general relativity and in differential geometry if
-we adopt the coordinate-free approach typical of modern texts. In this
-approach each tensor has an \emph{intrinsic} dimension (a notion introduced
-by Schouten and Dorgelo). This dimension doesn't depend on the
-dimensions of the coordinates, and is determined by the physical or
-operational meaning of the tensor. It is therefore generally more
-profitable to focus on the intrinsic dimension of a tensor rather than on
-the dimensions of its components. The dimension of each specific component is
-easily found by formula~\eqref{eq:dim_component_generic}: it's the product
-of the intrinsic dimension, times the dimension of the $i$th coordinate
-function for each contravariant index $i$, times the inverse of the
-dimension of the $j$th coordinate function for each covariant index $j$.
+seamlessly performed in Lorentzian and general relativity and in
+differential geometry if we adopt the coordinate-free approach typical of
+modern texts. In this approach each tensor has an \emph{intrinsic}
+dimension (a notion introduced by Schouten and Dorgelo). This dimension
+doesn't depend on the dimensions of the coordinates, and is determined by
+the physical and operational meaning of the tensor. It is therefore
+generally more profitable to focus on the intrinsic dimension of a tensor
+rather than on the dimensions of its components. The dimension of each
+specific component is easily found by
+formula~\eqref{eq:dim_component_generic}: it's the product of the intrinsic
+dimension by the dimension of the $i$th coordinate function for each
+contravariant index $i$, by the inverse of the dimension of the $j$th
+coordinate function for each covariant index $j$.
 
 Dimensional analysis in differential geometry seems to rest on two main
 conventions: the tensor product and the action of covectors on vectors
@@ -2168,7 +2179,7 @@ tensor.
 Since the dimensions of the components are usually different from the
 intrinsic dimension and depend on the coordinates, I recommend to avoid
 statements such as \enquote{the tensor $A\i{_{i}^{jk}}$ has dimension
-  $\Xx$}, because it leaves unclear whether \enquote{$A\i{_{i}^{jk}}$} is
+  $\Xx$}, which leave it unclear whether \enquote{$A\i{_{i}^{jk}}$} is
 meant to represent the tensor in general (as in Penrose \amp\ Rindler's
 notation), or to represent its set of components, or to represent just a
 specific component.
@@ -2271,13 +2282,14 @@ review by de~Boer \citep{deboer1995}, and references therein.
 %%% Acknowledgements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \begin{acknowledgements}
-  \ldots to Ingemar Bengtsson and Iv\'an Davidovich for valuable
-  comments on previous drafts. To the staff of the NTNU library for their
-  always prompt support. To Mari, Miri, Emma for continuous encouragement
-  and affection, and to Buster Keaton and Saitama for filling life with awe
-  and inspiration. To the developers and maintainers of \LaTeX, Emacs,
-  AUC\TeX, Open Science Framework, R, Python, Inkscape, Sci-Hub for making
-  a free and impartial scientific exchange possible. \mbox{}\hfill\autanet
+  \ldots to Ingemar Bengtsson, Iv\'an Davidovich, Claudia Battistin for
+  valuable comments on previous drafts. To the staff of the NTNU library
+  for their always prompt support. To Mari, Miri, Emma for continuous
+  encouragement and affection, and to Buster Keaton and Saitama for filling
+  life with awe and inspiration. To the developers and maintainers of
+  \LaTeX, Emacs, AUC\TeX, Open Science Framework, R, Python, Inkscape,
+  Sci-Hub for making a free and impartial scientific exchange possible.
+  \mbox{}\hfill\autanet
   
   This work is financially supported by the Kavli Foundation and the Centre
   of Excellence scheme of the Research Council of Norway (Yasser Roudi

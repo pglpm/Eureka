@@ -69,8 +69,8 @@ explanation and given some references.
 2. I had read Kitano's work, but probably skipped the final section, where
 that quote appears. That work is now mentioned in the Introduction as an
 example of text that's explicit about tensor components. Please see the new
-Introduction. (Note that the formatting of citations is not definitive, and
-up to the Journal's typographers.)
+Introduction. (Note that the formatting of citations is not definitive, it
+is up to the Journal's typographers.)
 
 Several recent works that develop dimensional analysis in different
 directions are also cited in the new version. Please see the references at

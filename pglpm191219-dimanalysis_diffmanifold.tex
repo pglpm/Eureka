@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-18T11:33:45+0200
+%% Last-Updated: 2020-06-19T15:53:12+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -756,13 +756,14 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
   analysis in general relativity and in differential geometry. It tries to
   revive Dorgelo and Schouten's notion of \defquote{intrinsic} or
   \defquote{absolute} dimension of a tensorial quantity. The intrinsic
-  dimension is independent of the dimensions of the coordinates. The
+  dimension is independent of the dimensions of the coordinates and
+  expresses the physical or operational meaning of a tensor. The
   dimensional analysis of several important tensors and tensor operations
   is summarized. In particular it is shown that the components of a tensor
   need not have all the same dimension, and that the Riemann (once
   contravariant and trice covariant) and Ricci (fully covariant) curvature
   tensors are dimensionless. The relation between dimension and operational
-  meaning for the metric and stress-energy-momentum tensors is also
+  meaning for the metric and stress-energy-momentum tensors is 
   discussed.
   % \\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer,
   %   this manuscript is being peer-reviewed by you. Thank you.}
@@ -800,28 +801,35 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 
 
 From the point of view of dimensional analysis, do all components of a
-tensor need to have the same dimension? What are the dimensions of the
-metric and of the curvature tensor? And what is the dimension of the
-constant in the Einstein equations?
+tensor need to have the same dimension? What happens to these components if
+we choose coordinates that don't have dimensions of length or time? And if
+the components of a tensor have different dimensions, then does it make
+sense to speak of \enquote{the dimension of the tensor}? What are the
+dimensions of the metric and of the curvature tensors, in that case? What
+is the dimension of the constant in the Einstein equations?
 
-A sense of insecurity often gets hold of many students in relativity, and
-of some researchers, when they have to discuss the dimensions of tensors
-and of tensor components, the effect of tensor operators on dimensions, and
-the dimensions of constants in differential-geometric and field equations.
-Some incorrect or unfounded statements about these topics are in
-circulation. For example, the notion that the components of a tensor or the
-coordinate functions should all have the same dimension. As we'll see
-shortly, both statements are false.
+A sense of insecurity often gets hold of many students (and possibly of
+some researchers) in relativity, when they have to discuss and answer
+questions like the above. % the dimensions
+% of tensors and of tensor components, the effect of tensor operators on
+% dimensions, and the dimensions of constants in differential-geometric and
+% field equations.
+This is evident in many question \amp\ answer websites and wiki pages,
+where some incorrect or unfounded statements about dimensional analysis in
+general relativity are in circulation. For example, the notion that the
+components of a tensor or the coordinate functions should all have the same
+dimension. As we'll see shortly, both notions are false.
 
-Several factors contribute to these misconceptions and insecurity. Modern
-texts in Lorentzian and general relativity commonly use geometrized units.
-They say that, for finding the dimension of some constant in a tensorial
-equation, it's sufficient to compare the dimensions of the tensors in the
-equation. But this procedure is not so immediate, because some tensors
-don't have universally agreed dimensions -- prime example the metric
-tensor. Older texts often use four coordinates with dimension of length,
-and base their dimensional analyses on that specific choice. They even
-multiply\citep[\eg][p.~72 \eqn~(37.8)]{tolman1934_t1949}[p.~80
+Several factors contribute to these misconceptions and
+insecurity. Modern texts in Lorentzian and general relativity commonly use
+geometrized units. They say that, for finding the dimension of some
+constant in a tensorial equation, it's sufficient to compare the dimensions
+of the terms in the equation. But this procedure is sometimes not so
+immediate to apply, because some tensors don't have universally agreed
+dimensions -- prime example the metric tensor. Older texts often use four
+coordinates with dimension of length, and base their dimensional analyses
+on that specific choice. They even multiply\citep[\eg][p.~72
+\eqn~(37.8)]{tolman1934_t1949}[p.~80
 \eqn~(32.15)]{landauetal1939_t1996}[p.~332
 \eqn~(10.15)]{adleretal1965_r1975} coordinates or tensorial components
 having dimension of time by powers of $c$. A student thus gets the
@@ -832,71 +840,88 @@ case is][\sect~X]{kitano2013}.
 
 \medskip
 
-The present note wants to provide a short but exhaustive guide to the
-application of the usual rules of dimensional analysis to differential
-geometry. The usual rules are that if two quantities are summed they must
-have the same dimension; that the dimension of a product is the product of
-the dimensions; and so on. Some important dimensional-analysis questions in
-general relativity will also be consistently settled in this note; for
-example the dimension of the Riemann curvature tensor, or the effect of the
-covariant derivative on dimensions. An introductory example of the basic
+Dimensional analysis may thus not be as self-evident in general relativity
+and in differential geometry as authors in these subjects take it to be.
+The present note wants to provide a short but exhaustive guide to it.
+% the application of the usual rules of dimensional analysis to
+% differential geometry. The usual rules are that if two quantities are
+% summed they must have the same dimension; that the dimension of a product
+% is the product of the dimensions; and so on.
+Some important dimensional-analysis questions in general relativity are
+also consistently settled in this note; for example the dimension of the
+Riemann curvature tensor, or the effect of the covariant or Lie derivatives
+on dimensions.
+
+The application of dimensional analysis in general relativity seems to me
+most straightforward and self-evident if we rely on the coordinate-free or
+intrinsic approach to differential geometry, briefly recalled below, and if
+we adopt the perhaps overlooked notion of \emph{intrinsic dimension} of a
+tensor. %The present note tries to revive this notion.
+
+The intrinsic dimension of a tensor was
+% pivots on the perhaps forgotten notion of \emph{intrinsic
+%   dimension} of a tensor. The present note tries to revive this notion,
+introduced under the name of \defquote{absolute dimension} by Schouten and
+Dorgelo \citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} and used in
+Truesdell \amp\ Toupin \citep[Appendix II]{truesdelletal1960}. As its name
+implies, this dimension is independent of the choice and dimensions of
+coordinate functions. It is distinct from the dimensions of the tensor's
+\emph{components}, which instead depend on the dimensions of the
+coordinates. The intrinsic dimension of a tensor is determined by the
+latter's physical and operational \citep{bridgman1927_r1958} meaning. It is
+therefore a natural notion for dimensional analysis in general relativity.
+
+\medskip
+
+A brief reminder of the intrinsic approach to differential geometry, with
+references, is given in the next section, together with some special
+notation necessary to our discussion. An introductory example of the basic
 way of reasoning about dimensional analysis in differential geometry is
-given in \sect~\ref{sec:2d_example}.
-Sections~\ref{sec:tensors}--\ref{sec:curves} offer a more general and
-systematic discussion and a synopsis of the main tensorial operations. % It
+then presented in \sect~\ref{sec:2d_example}.
+Sections~\ref{sec:coords}--\ref{sec:curves} offer a more systematic
+discussion and a synopsis of dimensional analysis for the main tensorial
+operations. The notion of intrinsic dimension is explained in
+\sect~\ref{sec:tensors}. The intrinsic dimensions of the various curvature
+tensors, of the metric tensor, and of the stress-energy-momentum tensor are
+separately discussed in
+\sects~\ref{sec:connection}--\ref{sec:stressenergy}. The (contravariant and
+thrice covariant) Riemann and (fully covariant) Ricci tensors, in
+particular, are found to have intrinsic dimension $\Un$, that is, to be
+dimensionless. The operational motivation of the two standard choices for
+the dimension of the metric tensor are also discussed. The dimension of the
+constant in the Einstein equations is finally derived in
+\sect~\ref{sec:einstein_eq}. This note obviously assumes familiarity with
+basic tensor calculus and related notions, for example of co- and
+contra-variance, tensor product, contraction. Some passages assume
+familiarity with the exterior calculus of differential forms. The general
+ideas, however, should be understandable even without such familiarity.
+
+
+% Section~\ref{sec:tensors}--\ref{sec:curves}
+% offer a more general and systematic discussion and a synopsis of the main
+% tensorial operations. % It
 % is shown, in particular, that \emph{the components of a tensor need not
 % have the same dimensions}.
-The dimension of the constant in the Einstein
-equations is derived in \sect~\ref{sec:einstein_eq}.
 
-The application of dimensional analysis in differential geometry pivots on
-the perhaps forgotten notion of \emph{intrinsic dimension} of a tensor. The
-present note tries to revive this notion, introduced under the name of
-\defquote{absolute dimension} by Schouten and Dorgelo
-\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} and used in Truesdell
-\amp\ Toupin \citep[Appendix II]{truesdelletal1960}. The intrinsic or
-absolute dimension is an intrinsic property of a tensor, independent of the
-choice and dimensions of coordinates. It is distinct from the dimensions of
-the tensor's \emph{components}, which instead depend on the dimensions of
-the coordinate functions. The intrinsic dimension should thus be the
-primary focus of dimensional analysis in general relativity and in
-differential geometry. This notion is explained in \sect~\ref{sec:tensors}.
-The intrinsic dimensions of the various curvature tensors, of the metric
-tensor, and of the stress-energy-momentum tensor are discussed in
-\sects~\ref{sec:connection}--\ref{sec:stressenergy}, owing to their
-importance in general relativity. The (contravariant and thrice covariant)
-Riemann and (fully covariant) Ricci tensors are found to have intrinsic
-dimension $\Un$, that is, to be dimensionless. Two standard choices for the
-intrinsic dimension of the metric tensor are discussed.
-
-Dimensional reasoning in differential geometry is clearest when we rely on
-the coordinate-free, intrinsic view of tensors and other
-differential-geometrical objects. % The insecurities mentioned above possibly
-% stem from the exclusive use of the index-based presentation typical of
-% older texts.
-A brief reminder of this view, with references, is given in
-\sect~\ref{sec:remined}, together with some special notation necessary to
-our discussion.
 
 
 % The final \sect~\ref{sec:summary} gives a summary of the main results, with
 % some additional comments.
 
-\medskip
+% \medskip
 
-This note assumes familiarity with basic tensor calculus and related
-notions, for example of co- and contra-variance, tensor product,
-contraction. Some passages assume familiarity with the exterior calculus of
-differential forms. Above all, familiarity with the intrinsic presentation
-of differential geometry mentioned above is assumed; but the general ideas
-should be understandable even without such familiarity.
+% This note assumes familiarity with basic tensor calculus and related
+% notions, for example of co- and contra-variance, tensor product,
+% contraction. Some passages assume familiarity with the exterior calculus of
+% differential forms. Above all, familiarity with the intrinsic presentation
+% of differential geometry mentioned above is assumed; but the general ideas
+% should be understandable even without such familiarity.
 
 Finally, quoting Truesdell \amp\ Toupin \citep[Appendix \sect~7
 footnote~4]{truesdelletal1960}, \enquote{dimensional analysis remains a
   controversial and somewhat obscure subject. We do not attempt a complete
-  presentation here}.  References
-about recent developments in this
-subject are given in the final summary, \sect~\ref{sec:summary}.
+  presentation here}. References about recent developments in this subject
+are given in the final summary, \sect~\ref{sec:summary}.
 
 
 % \citep{aldersley1977} also confuses component- and absolute dimensions
@@ -1077,20 +1102,22 @@ elaborate geometric objects.
 
 In a region of a two-dimensional spacetime we use coordinates $(x,y)$.
 These coordinates allow us to uniquely identify every event in the region
-(otherwise they wouldn't be coordinates). The coordinate $x$ has dimension
-of temperature, and $y$ of specific entropy:
+(otherwise they wouldn't be coordinates). Let us say that coordinate $x$
+has dimension of temperature, and $y$ of specific entropy:
 \begin{equation}
   \label{eq:example_coords2d}
   \dim(x)=\Te \;,\quad
   \dim(y)= \Ent \defd \Le^{2}\Ti^{-2}\Te^{-1} \;.
 \end{equation}
-This may happen, for example, if the region is occupied by a
-heat-conducting material \citep[for general-relativintic thermomechanics
-see
-\eg][]{eckart1940c,maugin1974b,maugin1978b,maugin1978c,maugin1978d,maugin1978e,muschiketal2014};
-its temperature is uniform over the slices of a specific spacelike
-foliation, but increases across the slices; its entropy density instead
-increases along each 1-dimensional slice.
+This choice may be possible for several reasons. For example, the region
+could occupied by a heat-conducting material; in a specific spacetime
+foliation, its temperature increases along each 1-dimensional spacelike
+slice (constant $y$), and its entropy density is uniform on each slice but
+increases from slice to slice. \citep[For general-relativistic
+thermomechanics see
+\eg][]{eckart1940c,maugin1974b,maugin1978b,maugin1978c,maugin1978d,maugin1978e,muschiketal2014}
+The point here is that coordinates can have any dimensions owing to
+physical reasons.
 
 From these coordinates we construct two covector fields $(\di x, \di y)$,
 and two vector fields $\bigl(\frac{\de}{\de x}, \frac{\de}{\de y}\bigr)$
@@ -1118,10 +1145,10 @@ this region. Using the basis fields above it can be written as
   A\i{^{y}_{x}}\,\frac{\de}{\de y} \otimes\di x + 
   A\i{^{y}_{y}}\,\frac{\de}{\de y} \otimes\di y \;,
 \end{equation}
-where $A\i{^{x}_{x}} \defd \yA\bigl(\di x, \frac{\de}{\de x}\bigr)$, \ldots
-are the components of the tensor in the coordinate system $(x, y)$.
+where $A\i{^{x}_{x}} \defd \yA\bigl(\di x, \frac{\de}{\de x}\bigr)$ and so
+on are the components of the tensor in the coordinate system $(x, y)$.
 
-By the rules of dimensional analyses, the two sides of the expansion above
+By the rules of dimensional analysis, the two sides of the expansion above
 must have the same dimension. The four summands of the right side must also
 have the same dimension. Denoting $\Aa \defd \dim(\yA)$, we thus have the four
 equations
@@ -1150,12 +1177,12 @@ or
 
 The intrinsic dimension of the tensor $\yA$ is $\Aa$. The
 expansion~\eqref{eq:expansion_tensor_2d} shows that this dimension is
-independent of the coordinate system, by construction -- that expansion
+independent of the coordinate system, by construction -- such expansion
 could be done in any other coordinate system, and the left side would be
 the same. The effect of coordinate transformations is examined more in
-detail in \sect~\ref{sec:tensors}. The intrinsic dimension is determined by
-the physical or operational meaning of the tensor. Together with the
-dimensions of the coordinates it determines the dimensions of the
+detail in \sect~\ref{sec:tensors}. The intrinsic dimension $\Aa$ is
+determined by the physical or operational meaning of the tensor. Together
+with the dimensions of the coordinates it determines the dimensions of the
 components, \eqn~\eqref{eq:four_dims_2d}, which need not be all equal.
 
 This simple example should have disclosed the main points of dimensional

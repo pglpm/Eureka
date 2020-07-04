@@ -1,0 +1,21 @@
+EJP-105403.R1 - Reply to Referee 3
+
+I thank the Referee for the additional comments.
+
+I have amended the text regarding the first and third points, see pages 4
+and end of page 12.
+
+Regarding the second point I disagree. The manifold in the example of
+Section 2 is a spacetime manifold. Its points are events. Temperature and
+entropy are scalar fields defined in a region of this spacetime manifold.
+These fields allow us - in this specific region - to uniquely *label* each
+spacetime event. They can therefore be used as coordinates. (I'm not saying
+that they can be always used this way, or over the whole spacetime;
+coordinate systems can be defined in limited domains.) Something similar is
+done in atmospheric or ocean dynamics, where longitude, latitude, and
+pressure (or mass density) are sometimes used as coordinates (we're of
+course speaking of resolutions of kilometres, not metres). I have now tried
+to explain this point more clearly on pages 5-6.
+
+Best regards,
+the author

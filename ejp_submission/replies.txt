@@ -11,25 +11,25 @@ in my experience this is a statistically rare attitude).
 The Introduction of the manuscript was somewhat repetitive, and I thought
 that an introductory self-explaining example of dimensional analysis in a
 2D case could be useful. So I slightly modified the first three sections of
-manuscript. I'd be happy to hear the Referee's comments and suggestions
+the manuscript. I'd be happy to hear the Referee's comments and suggestions
 about these modifications.
 
 
 
 - REFEREE 3:
 
-I thank the Referee for pointing out Kitano's work. Here are my replies to
-the individual points:
+I thank the Reviewer for the important reference and for pointing out
+unclear points. Here are my replies to the individual points:
 
 
-1. Please note that S is the dimension of the *parameter* of the curve, not
-of the curve itself, in particular not of its image (range). I believe this
-is clearly stated in sect. 7, also mathematically, since it's written
+(1) Please note that S is the dimension of the *parameter* of the curve,
+not of the curve itself, in particular not of its image (range). I believe
+this is clearly stated in sect. 7, also mathematically, since it's written
 dim(s)=S, not dim(C)=S.
 
 I was at first surprised that the dimension of a curve's parameter affects
 the dimension of its tangent vector. But a dimensional analysis of the very
-definition of tangent vector (eqn 24 in the new version) shows that this is
+definition of tangent vector (eqn 26 in the new version) shows that this is
 indeed the case. I'd be happy to know if the Referee finds any wrong
 mathematical steps there.
 
@@ -49,37 +49,41 @@ of the value of the integral.
 
 A deeper reason is that the integral over a chain is ultimately defined in
 terms of the standard integral on the real line. The dimension of a
-standard integral on the real line
-
-\int_M f(x) dx
-
-traditionally is the same as the dimension of f(x)dx. The definition of the
-Riemann integral makes clear why. Yet, maybe this can be considered as a
-convention, and different conventions could be consistently used. But the
-purpose of my manuscript is not to explore possible alternative
-conventions. (I only do that for the dimension of the metric tensor,
-because some historically important authors have used T^2 instead of L^2,
-as discussed in section 9.)
+standard integral on the real line, \int_M f(x) dx, traditionally is the
+same as the dimension of f(x)dx. The definition of the Riemann integral
+makes clear why. Yet, maybe this can be considered as a convention, and
+different conventions could be consistently used. But the purpose of my
+manuscript is not to explore possible alternative conventions. (I only do
+that for the dimension of the metric tensor, because some historically
+important authors have used T^2 instead of L^2, as discussed in section 9.)
 
 The rule for the integral as given in the previous version of the
 manuscript was somewhat dogmatic and unclear, however. I have now added an
 explanation and given some references.
 
+-- CHANGES: Please see the new text and references after eqn (24)
 
-2. I had read Kitano's work, but probably skipped the final section, where
-that quote appears. That work is now mentioned in the Introduction as an
-example of text that's explicit about tensor components. Please see the new
-Introduction. (Note that the formatting of citations is not definitive, it
-is up to the Journal's typographers.)
+
+(2a) I had read Kitano's work, but probably skipped the final section, where
+that quote appears. I thank the Referee for pointing that out to me. That
+work is now mentioned in the Introduction as an example of text that's
+explicit about tensor components.
 
 Several recent works that develop dimensional analysis in different
-directions are also cited in the new version. Please see the references at
-the end of the final section of the revised version.
+directions are now cited in the new version
 
-The scope of the cited literature is different and vaster: the epistemological
-meaning of "dimension" and its possible definitions, the deeper reasons
-behind the usual rules of dimensional analysis, and so on. That literature
-explores new results.
+-- CHANGES: Please see the third paragraph of the revised Introduction.
+[Note that the formatting of citations is not definitive, it is decided by
+the Journal's typographers]
+
+-- CHANGES: Please see the references at the end of section 12 of the
+revised version.
+
+
+(2b) The scope of the literature cited in the revised version is different
+and vaster: the epistemological meaning of "dimension" and its possible
+definitions, the deeper reasons behind the usual rules of dimensional
+analysis, and so on. That literature explores new results.
 
 The purpose of my manuscript is pedagogical instead - that's why I
 submitted it to the European Journal of Physics, which publishes
@@ -95,20 +99,23 @@ tensors, and only in the final section. Maybe authors of relativity and
 differential-geometry texts believe that such analysis is self-evident, but
 my experience with students shows that it isn't.
 
-I have now rephrased Introduction and Abstract, stating that I'm offering a
-guide to dimensional analysis in general relativity, especially to
-students.
+-- CHANGES: I have now rephrased Introduction and Abstract, stating that
+I'm just offering a guide to dimensional analysis in general relativity,
+especially to students.
 
 
-3. The expression "Riemann curvature tensor" is now used, at least when
-first encountered.
+(3)
+--CHANGES: The expression "Riemann curvature tensor" is now used, at
+least when first encountered.
 
 
-4. In the revised version this definition is given in section 2, p. 5, and
-separated from the main text to make it more visible. Section 2 now also
-gives a lengthy motivation for this unusual notation; please see pages 4-5.
-This operation can be defined independently of coordinates as, for example,
+(4)
+-- CHANGES: see revised section 2:
 
-A^{T12}(u,v,w,...) := A(v,u,w,...)
+* the two definitions are now given separately to make them more visible
 
-so I believe no reference to vector and covector bases is needed.
+* their coordinate-free definitions are given
+
+* an extended discussion is given of why this peculiar notation is needed
+  in the present paper
+

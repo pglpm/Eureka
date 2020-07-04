@@ -1,0 +1,21 @@
+Manuscript EJP-105403
+List of changes:
+
+
+* Section 1 is partly rewritten in response to Referee #3 and reference to
+  Kitano has been added.
+
+* Section 2 is partly rewritten in response to Referee #3 to motivate and
+  explain the unusual notation.
+
+* The example of previous section "Tensors" has been simplified and moved
+  to a separate section 3.
+
+* In section 6, after equation (24), an explanation is given for the
+  integral rule, in response to Referee #3.
+
+* At the end of section 12, references have been added to recent works in
+  dimensional analysis, in response to Referee #3.
+
+* In the title I have replaced "general relativity" with "relativity" since
+  the work applies to the special and general theory

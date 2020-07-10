@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2020-06-15T12:06:08+0200
-%% Last-Updated: 2020-07-10T16:55:52+0200
+%% Last-Updated: 2020-07-10T20:21:20+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -723,42 +723,61 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %%% BEGINNING OF MAIN TEXT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Background}
-\label{sec:background}
-
-
 Background knowledge and point of view is from Astarita
 \citey{astarita1989_r1990} and Samoh\'yl \amp\ Peka\v{r}
 \citey{samohyletal1987_r2014}.
 
-A system is defined as a set of observables about a body.
+\section{Background}
+\label{sec:background}
 
-We introduce a manifold of states of the system. A state represents the
-information that, given at time $t$ together with some boundary conditions,
-allows us to determine the evolution of all observables of interest at
-later times. It thus also allows us to determine the state at later times.
+A system is defined as a set of observables, a state manifold, and a set of
+admissible processes.
+
+The observables are quantities we want to measure or control.
+
+A state represents the minimal information that, given at time $t$ together
+with some boundary conditions, allows us to determine the state at later
+time (this is a self-referential definition).
+
+The set of observables can be divided into two classes: those that depend
+directly on the state, at each instant, and those that don't. The latter
+are generally functionals of state-dependent observables, or just
+independent quantities that can be specified at will. Often the state
+manifold is coordinatized, at least locally, using state-dependent
+observables.
+
+An example. In studying the motion of a pointlike body in a given reference
+frame, the observables we are interested in may be the body's position $x$,
+its velocity $v$, acceleration $a$, the force acting on the body, and so
+on. In Newtonian mechanics, the state of the body can be coordinatized by
+the body's position and velocity. This means that the observables $x$ and
+$v$ are direct functions of state; but the acceleration is not: it can only
+be found once we specify the time dependence of position or of velocity.
+The force is usually prescribed: it is not a function of the state, nor a
+functional of other observables.
+
+A process is a time-dependent sequence of states, represented by a function
+from a real interval to the state manifold.
+
+Processes can be divided into two classes: admissible and inadmissible.
+Each inadmissible process is physically impossible -- not for dynamical
+reasons, but for kinematic ones. Take again the example above. a generic
+process is a map $t \mapsto \bigl(x(t), v(t) \bigr)$. Now if
+$\di x(t)/\di t \ne v(t)$, the process doesn't really make physical sense,
+because the rate of change of position isn't equal to velocity -- which by
+definition should be the rate of change of position. Such a process is
+inadmissible: it only represent an abstract trajectory on the state
+manifold. Such kind of trajectories do have their uses, for example in
+studies of stabilities. A process for which $\di x(t)/\di t = v(t)$, on the
+other hand, is kinematically possible, and therefore admissible -- even if
+it may turn out to be dynamically impossible.
+
+
 
 The manifold of states is usually coordinatized by a subset of the system's
 observable, for example temperature $T$ and volume $V$. Here we avoid as
 much as possible the use of specific coordinates. This allows for a
 presentation that doesn't rely on partial derivatives.
-
-A process is time-dependent sequence of states, represented by a function
-from a real interval to the state manifold.
-
-Some process are admissible, others inadmissible. Each inadmissible process
-is physically impossible not for dynamical reasons, but for kinematic ones.
-For example, it may contradict the very definition of state.
-
-An important example is a process in a phase space, which we can
-coordinatize with position and momentum, $(x, m v)$. A process
-$t \mapsto \bigl(x(t), m v(t) \bigr)$ for which $\di x(t)/\di t \ne v(t)$
-is obviously inadmissible, because the rate of change of position isn't
-equal to velocity -- which by definition is the rate of change of position.
-Admissible processes are therefore only those for which
-$\di x(t)/\di t = v(t)$.
-
-
 
 
 \textcolor{white}{If you find this you can claim a postcard from me.}

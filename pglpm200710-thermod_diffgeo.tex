@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2020-06-15T12:06:08+0200
-%% Last-Updated: 2020-07-10T16:44:44+0200
+%% Last-Updated: 2020-07-10T16:55:52+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -669,6 +669,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\DeclareMathOperator*{\argsup}{arg\,sup}
 \newcommand*{\dob}{degree of belief}
 \newcommand*{\dobs}{degrees of belief}
+\newcommand*{\xv}{v}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -741,6 +742,24 @@ The manifold of states is usually coordinatized by a subset of the system's
 observable, for example temperature $T$ and volume $V$. Here we avoid as
 much as possible the use of specific coordinates. This allows for a
 presentation that doesn't rely on partial derivatives.
+
+A process is time-dependent sequence of states, represented by a function
+from a real interval to the state manifold.
+
+Some process are admissible, others inadmissible. Each inadmissible process
+is physically impossible not for dynamical reasons, but for kinematic ones.
+For example, it may contradict the very definition of state.
+
+An important example is a process in a phase space, which we can
+coordinatize with position and momentum, $(x, m v)$. A process
+$t \mapsto \bigl(x(t), m v(t) \bigr)$ for which $\di x(t)/\di t \ne v(t)$
+is obviously inadmissible, because the rate of change of position isn't
+equal to velocity -- which by definition is the rate of change of position.
+Admissible processes are therefore only those for which
+$\di x(t)/\di t = v(t)$.
+
+
+
 
 \textcolor{white}{If you find this you can claim a postcard from me.}
 

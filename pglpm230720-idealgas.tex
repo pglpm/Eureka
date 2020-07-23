@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2020-07-12T16:31:50+0200
-%% Last-Updated: 2020-07-23T16:31:05+0200
+%% Last-Updated: 2020-07-23T20:01:10+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -582,7 +582,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\providecommand{\varparallel}{\ensuremath{\mathbin{/\mkern-7mu/}}}%parallel (tentative symbol)
 \renewcommand*{\le}{\leqslant}%less or equal
 \renewcommand*{\ge}{\geqslant}%greater or equal
-%\DeclarePairedDelimiter\clcl{[}{]}
+\DeclarePairedDelimiter\clcl{[}{]}
 %\DeclarePairedDelimiter\clop{[}{[}
 %\DeclarePairedDelimiter\opcl{]}{]}
 %\DeclarePairedDelimiter\opop{]}{[}
@@ -668,18 +668,23 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % \newcommand*{\ptext}[1]{\text{\small #1}}
 %\DeclareMathOperator*{\argsup}{arg\,sup}
 \newcommand*{\yl}{l}
+\newcommand*{\yld}{\Dot{l}}
+\newcommand*{\yldd}{\Ddot{l}}
+\newcommand*{\yno}{n_{\text{r}}}
 \newcommand*{\yt}{\theta}
 \newcommand*{\yq}{\bm{q}}
 \newcommand*{\yv}{\bm{v}}
 \newcommand*{\yp}{\mathte{p}}
 \newcommand*{\yZ}{\varZeta}
 \newcommand*{\yE}{\varEta}
+\newcommand*{\yL}{\varLambda}
 \newcommand*{\yC}{C}
 \newcommand*{\yx}{\bm{x}}
 \newcommand*{\yX}{\bm{X}}
 \newcommand*{\yD}{\mathte{D}}
 \newcommand*{\yc}{\bm{c}}
 \newcommand*{\ytb}{\Hat{\yt}}
+\newcommand*{\ypb}{\Hat{p}}
 \newcommand*{\ygb}{\widehat{\nabla\yt}}
 
 
@@ -839,23 +844,62 @@ body is at rest, then the pressure must be equal throughout the boundary;
 its parabolic spatial dependence is therefore symmetric with respect to the
 mass centre. The same symmetry holds for the parabolic spatial dependence
 of the temperature if the heating flux at the boundary is also assumed
-constant with respect to the surface normal. In the following we shall
-assume that the body is in a cylindrical container of given cross section,
-within movable pistons in the direction $x$, and mass centre at rest at
-$\yx = 0$. The pressures on the two pistons must be equal (to keep the mass
-centre at rest). We also require that the heat fluxes at the two pistons be
-equal in magnitude and opposite.
+constant with respect to the surface normal.
 
-Under these conditions the symmetric parabolic profile of the temperature
-field $\yt$ can be summarized by two numbers, for example the values of the
-temperature $\ytb$ and of the temperature gradient $\ygb$ at one piston
-surface. These two values can be considered quantities. One more state
-quantity is the uniform $n$ or equivalently the volume occupied by the
-body, which is equivalent to the specification of the position $\yl >0 $ of
-one piston, the other having position $-l$, so that the volume is given by
-$2 l \times{}$cross-sectional area.
+In the following we shall assume that the body is in a cylindrical
+container of given cross section, within movable pistons in the direction
+$x$, and mass centre at rest at $\yx = 0$. The
+motion~\eqref{eq:affine_motion} can be simplified to
+\begin{equation}
+  \label{eq:simplified_affine_motion}
+  x(X,t) = \yl(t) X, \qquad X \in \clcl{-1, 1}
+\end{equation}
+with the $y$ and $z$ coordinates remaining constant. This motion requires
+the pressures on the two pistons, at positions $\yl$ and $-\yl$, to be
+equal (to keep the mass centre at rest). We also require that the heat
+fluxes at the two pistons be equal in magnitude and opposite.
 
+Under these conditions the symmetric parabolic profile along $x$ of the
+temperature field $\yt(x, t)$ can be summarized by two numbers, for example
+the values of the temperature $\yt[\yl(t), t] \defs \ytb(t)$ and of the
+temperature gradient $(\de_{x}\yt)[\yl(t), t] \defs \ygb(t)$ at one piston
+surface. These two values can be considered state quantities. One more
+state quantity is the uniform $n(t)$ or equivalently the volume occupied by
+the body, which is in turn equivalent to the specification of the position
+$\yl(t) > 0$ of one piston, the other having position $-\yl(t)$, so that
+the volume is given by $2 \yl(t) \times{}$cross-sectional area.
 
+From the motion~\eqref{eq:simplified_affine_motion} we can calculate the
+simplified space-time dependence of all the fields through the
+equations~\eqref{eq:const_idealgas}--\eqref{eq:matter_bal}:
+\begin{align}
+  \label{eq:v_motion}
+  v(x,t) &= \yld\, \frac{x}{\yl}
+\\
+\label{eq:n_motion}
+n(x,t) &= \frac{\yno}{\yl}
+\\
+\label{eq:p_motion}
+  \begin{split}
+p(x,t) &= R\, n\, \ytb + \tfrac{1}{2} \,R \, n \, \ygb \,
+         \frac{x^{2}-\yl^{2}}{\yl} - \yL \,\frac{\yld}{\yl}
+         \\&=
+         \ypb + \tfrac{1}{2} \,R \, n \, \ygb \,
+         \frac{x^{2}-\yl^{2}}{\yl} 
+       \end{split}
+\\
+\label{eq:T_motion}
+\yt(x,t) &= \ytb + \tfrac{1}{2}\, \ygb\, \frac{x^{2}-\yl^{2}}{\yl}
+\\
+\label{eq:u_motion}
+  u(x,t) &= \yC \, \ytb +
+           \tfrac{1}{2}\, \yC \,\ygb \,\frac{x^{2}-\yl^{2}}{\yl}
+\\
+\label{eq:q_motion}
+q(x,t) &= - K \, \ygb \,\frac{x}{\yl}
+\end{align}
+where it we have omitted the time-dependence of the quantities $\yl(t)$, $\ypb(t)$,
+$\yld(t)$, $\ytb(t)$, $\ygb(t)$
 
 
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-06-19T19:32:02+0200
+%% Last-Updated: 2020-07-21T14:04:26+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -21,7 +21,7 @@ british%
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
 \newcommand*{\propertitle}{Dimensional analysis in relativity\\ and in differential geometry%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
-\newcommand*{\pdftitle}{\propertitle}
+\newcommand*{\pdftitle}{Dimensional analysis in relativity and in differential geometry}
 \newcommand*{\headtitle}{Dimensional analysis, relativity, manifolds}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
@@ -370,7 +370,7 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \setheaderspaces{*}{2\onelineskip}{*}
 \setmarginnotes{2ex}{10mm}{0pt}
 \checkandfixthelayout[nearest]
-\fixpdflayout
+%\fixpdflayout
 %%% End layout
 %% this fixes missing white spaces
 \pdfmapline{+dummy-space <dummy-space.pfb}\pdfinterwordspaceon%
@@ -1100,7 +1100,7 @@ of the general point of view, of the assumptions, and of cases with more
 elaborate geometric objects.
 
 In a region of a two-dimensional spacetime we use coordinates $(x,y)$.
-These coordinates allow us to uniquely identify every event in the region
+These coordinates allow us to uniquely label every event in the region
 (otherwise they wouldn't be coordinates). Let us say that coordinate $x$
 has dimension of temperature, and $y$ of specific entropy:
 \begin{equation}
@@ -1109,14 +1109,19 @@ has dimension of temperature, and $y$ of specific entropy:
   \dim(y)= \Ent \defd \Le^{2}\Ti^{-2}\Te^{-1} \;.
 \end{equation}
 This choice may be possible for several reasons. For example, the region
-could occupied by a heat-conducting material; in a specific spacetime
+could be occupied by a heat-conducting material; in a specific spacetime
 foliation, its temperature increases along each 1-dimensional spacelike
-slice (constant $y$), and its entropy density is uniform on each slice but
-increases from slice to slice. \citep[For general-relativistic
-thermomechanics see
+slice, and its entropy density is uniform on each slice but increases from
+slice to slice. \citep[For general-relativistic thermomechanics see
 \eg][]{eckart1940c,maugin1974b,maugin1978b,maugin1978c,maugin1978d,maugin1978e,muschiketal2014}
-The point here is that coordinates can have any dimensions owing to
-physical reasons.
+Owing to this kind of monotonic behaviour for these quantities, if we are
+given a pair of temperature \amp\ specific-entropy values we can identify a
+unique event associated to them in this spacetime region. They can thus be
+used as a coordinate system. The point here is that coordinates can have
+any dimensions owing to physical reasons. In atmospheric and ocean
+dynamics, for example, pressure or mass density are sometimes used as
+coordinates for depth
+\citep[\chap~6]{griffies2004}[\sect~2.6.2]{vallis2006}.
 
 From these coordinates we construct two covector fields $(\di x, \di y)$,
 and two vector fields $\bigl(\frac{\de}{\de x}, \frac{\de}{\de y}\bigr)$
@@ -1709,8 +1714,10 @@ which imply that \emph{torsion, Riemann curvature, and Ricci curvature
    \dim(\yRi\i{_{\q\q}}) =\Un.
 \end{equation}
 The exact contra- and co-variant type of these tensors is very important in
-the equations above. If we raise any of their indices using a metric, their
-dimensions will generally change.
+the equations above. If a metric tensor is also introduced and used to
+raise or lower any indices of these tensors, the resulting tensors will
+have different dimensions; see next section, especially
+\eqn~\eqref{eq:raising_lowering}.
 
 Misner \etal\ \citep[p.~35%, 407
 ]{misneretal1970_r1973} say that \enquote{curvature}, by which they seem to

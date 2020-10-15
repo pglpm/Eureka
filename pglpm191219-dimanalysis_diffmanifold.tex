@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-15T13:19:58+0200
+%% Last-Updated: 2020-10-15T13:28:18+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1966,10 +1966,10 @@ obtained from the metric by the formulae
   \biggl(\dex[k]g_{jl} + \dex[j]g_{kl} - \dex[l]g_{jk}\biggr)\,g^{li} \ ,
 \end{equation}
 and it's easily verified that the dimensions of these coefficients given in
-\eqn~\eqref{eq:dim_christoffel} still hold. Also the results for the
-curvature tensors~\eqref{eq:dim_torsion_riemann_ricci} still hold, since
-their expressions in terms of the connection coefficients is the same with
-or without a metric.
+\eqn~\eqref{eq:dim_christoffel} still hold. The results for the
+curvature tensors~\eqref{eq:dim_torsion_riemann_ricci} still hold because
+their expressions in terms of the connection coefficients do not involve
+any metric.
 
 \medskip
 
@@ -1977,7 +1977,7 @@ The \emph{scalar curvature} $\ysc$ and the \emph{Einstein tensor}
 $\yG\i{_{\q}^{\q}}$
 \begin{equation}
   \label{eq:curv_einst}
-  \ysc \defd \tr\yRi\i{_{\q}^{\q}}%\equiv\tr_{23}(\yRi\otimes\yg^{-1})
+  \ysc \defd \tr\yRi\i{_{\q}^{\q}}\equiv\tr(\yRi\ \yg^{-1})
   \ ,
   \qquad
   \yG\i{_{\q}^{\q}} \defd \yRi\i{_{\q}^{\q}} -

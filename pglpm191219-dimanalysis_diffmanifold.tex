@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-20T17:28:48+0200
+%% Last-Updated: 2020-10-20T18:40:58+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1793,17 +1793,16 @@ From the results of \sect~\ref{sec:tensor_ops} this formula implies that
 %\end{equation}
 independently of the dimension of $s$, and therefore
 \begin{equation}%\addtocounter{equation}{1}\tag{\theequation a}
-    \label{eq:dim_g}
-    \dim(\yg\i{_{\q\q}}) = \Ti^{2}.
-  \end{equation}
+  \label{eq:dim_g}
+  \dim(\yg\i{_{\q\q}}) = \Ti^{2}.
+\end{equation}
 %\end{subequations}
 
-  Many authors \citep[\eg][\sect~V.62
-  \eqn~(62.02)]{fock1955_t1964}[\chap~11
-  \eqn~(11.21)]{curtisetal1985}[\sect~5.3
-  \eqn~(5.6)]{rindler1969_r1986}[\chap~6 \eqn~(6.24)]{hartle2003}, however,
-  prefer to include a dimensional factor $1/c$ in front of the
-  integral~\eqref{eq:proper_time}:
+Most authors \citep[\eg][\sect~V.62 \eqn~(62.02)]{fock1955_t1964}[\chap~11
+\eqn~(11.21)]{curtisetal1985}[\sect~5.3
+\eqn~(5.6)]{rindler1969_r1986}[\chap~6 \eqn~(6.24)]{hartle2003}, however,
+prefer to include a dimensional factor $1/c$ in front of the
+integral~\eqref{eq:proper_time}:
 \begin{equation}%\addtocounter{equation}{-1}\tag{\theequation b}
   \label{eq:proper_time_c}
   \inct = \frac{1}{c} \int_a^b
@@ -1824,8 +1823,8 @@ works:
   \ds^{2} = c^2\mathit{dt}^2 - \mathit{dx}^2 -\mathit{dy}^2 - \mathit{dz}^2
   \ ,
 \end{equation}
-possibly with opposite signature (for an exception with dimension $\Ti^{2}$
-see Kilmister \citep[\chap~II p.~25]{kilmister1973}{kilmister1973}). If the
+possibly with opposite signature; for an exception with dimension $\Ti^{2}$
+see Kilmister \citep[\chap~II p.~25]{kilmister1973}{kilmister1973}. If the
 coordinates $(t,x,y,z)$ have the dimensions suggested by their symbols,
 this formula has dimension $\Le^{2}$, so that if we interpret
 \enquote{$\ds^{2}$} as $\ygc$ we find $\dim(\ygc) = \Le^{2}$. The
@@ -1834,10 +1833,10 @@ meaning, however, because it may also represent the metric applied to some
 \emph{unspecified} vector, that is, $\yg(\yv,\yv)$, where $\yv$ is left
 unspecified \citep[\cf][Box~3.2~D p.~77]{misneretal1970_r1973}. In this
 case we have
-\begin{equation}
+\begin{equation*}
   \label{eq:line_elem_dim_ambiguous}
   \Le^{2} = \dim(\yg)\,\dim(\yv)^{2}
-\end{equation}
+\end{equation*}
 and the dimension of $\yg$ is ambiguous or undefined, because the vector
 $\yv$ could have any dimension.% -- possibly dimensionless if $\yv$
 % has dimension of length, but we'll see in \sect~\ref{sec:einstein_eq} that
@@ -1845,8 +1844,8 @@ $\yv$ could have any dimension.% -- possibly dimensionless if $\yv$
 
 \medskip
 
-The standard choices for $\dim(\yg)$ are thus $\Ti^{2}$ or $\Le^{2}$. My
-favourite choice is the first, for reasons discussed by Synge and Bressan
+The standard choices for $\dim(\yg)$ are thus $\Le^{2}$ or $\Ti^{2}$. The
+second choice has some merit for reasons discussed by Synge and Bressan
 \citep[\sects~III.2--4]{synge1960b}[\sects~15, 18]{bressan1978}. Synge
 gives a vivid summary: \citep[\sect~III.3 pp.~108--109]{synge1960b}
 \begin{quote}\footnotesize
@@ -1874,6 +1873,13 @@ calibration still relies on a measurement of time -- this is also reflected
 in the current definition of the standard metre
 \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}.
 
+The first choice, $\dim(\yg) = \Le^{2}$, seems by far the most common,
+however. It has the merit that the projection of the metric onto a
+spacelike hypersurface also has dimension $\Le^{2}$, which is sensible from
+a Newtonian point of view. And such projections are at the heart of the
+$3+1$ formulations of general relativity
+\citep{gourgoulhon2007_r2012,alcubierre2008}[\chap~21]{misneretal1970_r1973}.
+In the following we shall see how both choices affect some dimensional results.
 
 \medskip
 
@@ -2378,6 +2384,8 @@ formula~\eqref{eq:dim_component_generic}: it's the product of the intrinsic
 dimension by the dimension of the $i$th coordinate function for each
 contravariant index $i$, by the inverse of the dimension of the $j$th
 coordinate function for each covariant index $j$.
+
+** add note on usefulness of coordinate-free way to settle questions as in \sect~\ref{sec:stressenergy}.
 
 Dimensional analysis in differential geometry seems to rest on two main
 conventions: the tensor product and the action of covectors on vectors

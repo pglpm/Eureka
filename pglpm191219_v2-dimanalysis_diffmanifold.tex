@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-20T17:28:48+0200
+%% Last-Updated: 2020-10-18T15:37:16+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -728,12 +728,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\id}{\mathbf{id}}%id matrix
 \newcommand*{\ye}{\bm{e}}
 \newcommand*{\ygv}{\bm{\gamma}}
+\newcommand*{\yt}{\bm{\sigma}}
 \newcommand*{\yk}{\kappa}
-\newcommand*{\snab}{\Bar{\nabla}}
-\newcommand*{\en}{\epsilon}
-\newcommand*{\yq}{q}
-\newcommand*{\yp}{p}
-\newcommand*{\yt}{\sigma}
 
 %%% Custom macros end @@@
 
@@ -1263,8 +1259,8 @@ tensor products are bases for the tangent spaces of higher tensor types.
 
 The differential $\dix$ traditionally has the same dimension as $x^{i}$:
 $\dim(\dix) = \Xx_{i}$, and the vector $\dex$ traditionally has the
-inverse dimension: $\dim\bigl(\dex\bigr) = {\Xx_{i}}^{-1}$.
-% We'll see later that these conventions are self-consistent.
+inverse dimension: $\dim\dex = {\Xx_{i}}^{-1}$. % We'll see later that these
+% conventions are self-consistent.
 
 For our discussion let's take a concrete example: a contra-co-variant tensor
 field $\yA \equiv \yA\i{^{\q}_{\q}}$\,. The discussion generalizes to tensors
@@ -1679,13 +1675,13 @@ is carried by the \emph{connection coefficients} or Christoffel symbols
 $(\yGa\i{^{i}_{jk}})$ defined by
 \begin{equation}
   \label{eq:christoffel}
-  \nab\dex[k] = \yGa\i{^{i}_{jk}}\  \dix[j]\otimes\dex[i]\ .
+  \nab\dex[k] = \yGa\i{^{i}_{jk}}\  \dix[j]\otimes\dex[i].
 \end{equation}
 From this equation and the previous ones it follows that these coefficients
 have dimensions
 \begin{equation}
   \label{eq:dim_christoffel}
-  \dim(\yGa\i{^{i}_{jk}}) = \Xx_{i}\, {\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}\ .
+  \dim(\yGa\i{^{i}_{jk}}) = \Xx_{i}\, {\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}.
 \end{equation}
 
 \medskip
@@ -1696,11 +1692,11 @@ The \emph{torsion} $\yTo\i{^{\q}_{\q\q}}$, \emph{Riemann
 \citep[\sect~V.B.1]{choquetbruhatetal1977_r1996}
 \begin{gather}
   \label{eq:torsion_eq}
-\yTo(\yu,\yv) \defd \nab_{\yu}\yv - \nab_{\yv}\yu - \clcl{\yu,\yv}\ ,
+\yTo(\yu,\yv) \defd \nab_{\yu}\yv - \nab_{\yv}\yu - \clcl{\yu,\yv},
 \\
 \yR(\yu,\yv;\yw) \defd
 \nab_{\yu}\nab_{\yv}\yw - \nab_{\yv}\nab_{\yu}\yw
-- \nab_{\clcl{\yu,\yv}}\yw\ ,
+- \nab_{\clcl{\yu,\yv}}\yw,
   \label{eq:riemann_eq}  
 \\
 \yRi\i{_{\q\q}} \defd \tr_{13} \yR\i{^{\q}_{\q\q\q}} \ .
@@ -1710,13 +1706,13 @@ From these definitions and the results of \sect~\ref{sec:tensor_ops} we
 find the dimensional requirements
 \begin{gather}
   \label{eq:torsion_eq_dim}
-\dim(\yTo\i{^{\q}_{\q\q}})\dim(\yu)\dim(\yv) = \dim(\yu) \dim(\yv)\ ,
+\dim(\yTo\i{^{\q}_{\q\q}})\dim(\yu)\dim(\yv) = \dim(\yu) \dim(\yv),
 \\
 \dim(\yR\i{^{\q}_{\q\q\q}})\dim(\yu)\dim(\yv)\dim(\yw) =
-\dim(\yu)\dim(\yv)\dim(\yw)\ ,
+\dim(\yu)\dim(\yv)\dim(\yw),
 \label{eq:riemann_eq_dim}
 \\
-\dim(\yRi\i{_{\q\q}}) = \dim(\yR\i{^{\q}_{\q\q\q}})\ ,
+\dim(\yRi\i{_{\q\q}}) = \dim(\yR\i{^{\q}_{\q\q\q}}),
   \label{eq:ricci_eq_dim}  
 \end{gather}
 which imply that \emph{torsion, Riemann curvature, and Ricci curvature
@@ -1727,17 +1723,12 @@ which imply that \emph{torsion, Riemann curvature, and Ricci curvature
   % \label{eq:dim_riem}
    \dim(\yR\i{^{\q}_{\q\q\q}}) =
   % \label{eq:dim_ricci}
-   \dim(\yRi\i{_{\q\q}}) =\Un\ .
+   \dim(\yRi\i{_{\q\q}}) =\Un.
 \end{equation}
-This result is sensible, because the notion of local parallelism, which
-these tensors express, doesn't involve any notion of distance or angle
-\citep[\cf][]{portamana2011_r2019}.
-
-
-The exact contra- and co-variant primitive type of these tensors is very
-important in the equations above. If a metric tensor is also introduced and
-used to raise or lower any indices of these tensors, the resulting tensors
-will have different dimensions; see next section, especially
+The exact contra- and co-variant type of these tensors is very important in
+the equations above. If a metric tensor is also introduced and used to
+raise or lower any indices of these tensors, the resulting tensors will
+have different dimensions; see next section, especially
 \eqn~\eqref{eq:raising_lowering}.
 
 Misner \etal\ \citep[p.~35%, 407
@@ -1745,8 +1736,8 @@ Misner \etal\ \citep[p.~35%, 407
 mean the Riemann tensor, has dimension $\Le^{-2}$. This statement is
 seemingly at variance with the dimensionless
 results~\eqref{eq:dim_torsion_riemann_ricci}. But I believe that Misner
-\etal\ refer to the \emph{components} of the Riemann tensor in specific
-coordinates of dimension $\Le$ and using geometrized units. In such
+\etal\ refer to the \emph{components} of the Riemann tensor, in specific
+coordinates of dimension $\Le$, and using geometrized units. In such
 specific coordinates every \emph{component} $R\i{^{i}_{jkl}}$ does indeed
 have dimension $\Le^{-2}$, according to the general
 formula~\eqref{eq:dim_component_generic}, if and only if the intrinsic
@@ -1845,7 +1836,7 @@ $\yv$ could have any dimension.% -- possibly dimensionless if $\yv$
 
 \medskip
 
-The standard choices for $\dim(\yg)$ are thus $\Ti^{2}$ or $\Le^{2}$. My
+The standard choices for $\dim{\yg}$ are thus $\Ti^{2}$ or $\Le^{2}$. My
 favourite choice is the first, for reasons discussed by Synge and Bressan
 \citep[\sects~III.2--4]{synge1960b}[\sects~15, 18]{bressan1978}. Synge
 gives a vivid summary: \citep[\sect~III.3 pp.~108--109]{synge1960b}
@@ -1912,7 +1903,7 @@ in spacetime is an outer-oriented 4-form $\ygv$, equivalent to a completely
 antisymmetric tensor $\ygv\i{_{\q\q\q\q}}$, such that
 $\ygv(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for every quadruple of
 positively-oriented orthonormal vector fields $(\ye_{k})$ (orthonormal
-obviously means $\abs{\yg(\ye_{k},\ye_{l})}=\delt_{kl}$). The volume element
+obviously means $\yg(\ye_{k},\ye_{l})=\pm\delt_{kl}$). The volume element
 is determined by the metric and by an inner orientation of spacetime, which
 is independent of the metric. It has only one non-zero component, given by
 the square root of the determinant of the %(positively ordered)
@@ -1986,21 +1977,20 @@ any metric.
 
 \medskip
 
-The \emph{scalar curvature} $\ysc$ and the co-co-variant \emph{Einstein
-  tensor} $\yG\i{_{\q\q}}$
+The \emph{scalar curvature} $\ysc$ and the co-contra-variant \emph{Einstein
+  tensor} $\yG\i{_{\q}^{\q}}$
 \begin{equation}
   \label{eq:curv_einst}
-  \ysc \defd %\tr\yRi\i{_{\q}^{\q}}\equiv
-  \tr(\yRi\ \yg^{-1})
+  \ysc \defd \tr\yRi\i{_{\q}^{\q}}\equiv\tr(\yRi\ \yg^{-1})
   \ ,
   \qquad
-  \yG\i{_{\q\q}} \defd \yRi -%\i{_{\q\q}} -
-  \tfrac{1}{2} \ysc\ \yg %\i{_{\q}^{\q}} 
+  \yG\i{_{\q}^{\q}} \defd \yRi\i{_{\q}^{\q}} -
+  \tfrac{1}{2} \ysc\ \id\i{_{\q}^{\q}} 
 \end{equation}
 have therefore dimension
-\begin{gather}
-  \label{eq:dim_scalcurv}
-  \dim(\ysc) = \dim(\yg)^{-1} \equiv
+\begin{equation}
+  \label{eq:dim_curv_einst}
+  \dim(\ysc) = \dim(\yG\i{_{\q}^{\q}}) =\dim(\yg)^{-1} \equiv
   \begin{cases}
     \Ti^{-2} \\
     \Le^{-2}
@@ -2009,195 +1999,14 @@ have therefore dimension
   \begin{cases}
      \Ti^2 \\
     \Le^2
-  \end{cases}\ ,
-  \\[\jot]
-  \label{eq:dim_einst}
-  \dim(\yG\i{_{\q\q}}) = \Un \ ,
-\end{gather}
-that is, \emph{the twice covariant Einstein tensor is dimensionless}, just
-like the Ricci and Riemann curvature tensors.
+  \end{cases}.
+\end{equation}
+Note that, from \eqn~\eqref{eq:raising_lowering}, \emph{the twice covariant
+  Einstein tensor is dimensionless:} $\dim(\yG\i{_{\q\q}})=\Un$, just like
+the Ricci and Riemann curvature tensors.
 
 \section{Stress-energy-momentum tensor}
 \label{sec:stressenergy}
-
-The operational meaning of the stress-energy-momentum tensor is still
-surrounded by some mystery, to be discussed later. To find the dimension of
-this tensor let's follow a more heuristic approach starting from Newtonian
-mechanics.
-
-Consider the balances of energy and momentum (or force) for a material
-continuum in Newtonian mechanics, in the absence of volumic forces and
-volumic heating.
-\citep{truesdelletal1960,truesdell1977_r1991}{birdetal1960_r2002}{samohyletal1987_r2014}
-Choose an inertial frame in which the material continuum is instantaneously
-at rest at a specific spacetime point. Use rectangular Cartesian
-coordinates $(t,x,y,z) \equiv (x^{0},x^{1},x^{2},x^{3})$, with standard
-dimensions of time and length, adapted to such frame. The two balances then
-assume, at the specified point, the following component expression:
-\begin{align}
-  \label{eq:bal_energy}
-  \de_{t} \en + \tsum\limits_{r=1}^{3}\de_{r} \yq_{r} &= 0 \ ,
-  \\
-  \label{eq:bal_force}
-  \de_{t} \yp_{s} + \tsum\limits_{r=1}^{3}\de_{r}\yt_{sr} &= 0 \ ,
-  \quad s \in \set{1,2,3}
-\end{align}
-where the indices' levels do \emph{not} denote any variance type yet. Here
-$\en$ is the volumic internal energy, $\yq_{i}$ are the components of the
-areic energy flux, $\yp_{i}$ are the components of the volumic momentum,
-and $\yt_{ij}$ are the components of the stress tensor, a force per unit
-area. Their dimensions are
-\begin{subequations}\label{eq:dims_stress_components}
-  \begin{gather}
-    \label{eq:dim_en}
-    \dim(\en) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
-    \qquad
-    % \label{eq:dim_yq}
-    \dim(\yq_{i}) = \En\Le^{-2}\Ti^{-1} \equiv \Ma\Ti^{-3} \ ,
-    \\
-    \label{eq:dim_yp}
-    \dim(\yp_{i}) = \Ma\Le\Ti^{-1} \ ,
-    \qquad
-    % \label{eq:dim_stress}
-    \dim(\yt_{ij}) = \Ma\Le^{-1}\Ti^{-2} \ .
-  \end{gather}
-\end{subequations}
-
-These two balances can be suggestively combined, letting indices $i,j$ run
-over  all four coordinates:
-\begin{gather}
-  \label{eq:bal_energy-force}
-  % \begin{pmatrix}
-  %   \de_{t} & \de_{i}
-  % \end{pmatrix} \ 
-  \tsum_{j}\de_{j} T_{ij} = 0
-  \\
-  \shortintertext{with}
-  \label{eq:T}
-  T_{ij} \defd 
-  \begin{pmatrix}
-    \en & \yq_{r} \\ \yp_{s} & \yt_{sr}
-  \end{pmatrix} \ .
-\end{gather}
-The combined balance resembles a four-dimensional divergence. Cartan
-\citep{cartan1923} in fact showed that Newtonian mechanics can be
-formulated in fully covariant form in terms of a special connection $\nab$,
-and the terms $T_{ij}$ are indeed four-dimensional components of a
-stress-energy-momentum tensor $\yT$. For details see especially Truesdell
-\amp\ Toupin \citep[\sects~152--154, 203--205, 238,
-285--289]{truesdelletal1960}[see also][\sect~2.4]{marsdenetal1983b_r1994}.
-Cartan's connection can even express Newtonian gravitation, see Misner
-\etal\ \citep[\chap~12]{misneretal1970_r1973}[also][]{trautman1964}.
-
-The balances of energy and momentum~\eqref{eq:bal_energy},
-\eqref{eq:bal_force} in Newtonian mechanics are thus covariantly expressed
-in coordinate-free form as
-\begin{equation}
-  \label{eq:div_T_cov}
-  \tr_{13}\nab\i{_{\q}}\yT\i{_{\q}^{\q}} = 0 \ ,
-  \quad\text{\small commonly written}\ \nab\cdot\yT=0 \ ,
-\end{equation}
-with components $\nab\i{_{j}}\yT\i{_{i}^{j}} = 0$. This is the same
-equation that can be obtained from the Einstein equations in general
-relativity from the fact that the Einstein tensor has zero divergence.
-Indeed this is the starting point to define the stress-energy-momentum
-tensor $\yT$ in relativity: it is assumed to be locally equal to the
-Newtonian one in an inertial (free-fall) frame in which the material
-continuum is momentarily at rest.
-
-From the components~\eqref{eq:T}, the dimensions
-\eqref{eq:dims_stress_components}, and the relation between intrinsic and
-component dimensions~\eqref{eq:dim_component_generic} we can thus find the
-intrinsic dimension of the stress-energy-momentum tensor. To determine the
-variance type of the components $(T_{ij})$ consider the four alternatives in
-which it might be written in terms of basis vectors and covectors:
-% \begin{multline*}
-%     \yT \stackrel{?}{=} {}\\[-\jot]
-%   \begin{aligned}
-%   &\ \en\, \dix[0]\otimes\dix[0] +
-%   \yq_{1}\, \dix[0]\otimes\dix[1] +
-%   \yp_{1}\, \dix[1]\otimes\dix[0] +
-%   \yt_{1\, 1}\, \dix[1]\otimes\dix[1] + \dotsb
-%     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-%     &\ \en\, \dex[0]\otimes\dex[0] +
-%   \yq_{1}\, \dex[0]\otimes\dex[1] +
-%   \yp_{1}\, \dex[1]\otimes\dex[0] +
-%   \yt_{1\, 1}\, \dex[1]\otimes\dex[1] + \dotsb
-%     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-%   &\ \en\, \dex[0]\otimes\dix[0] +
-%   \yq_{1}\, \dex[0]\otimes\dix[1] +
-%   \yp_{1}\, \dex[1]\otimes\dix[0] +
-%   \yt_{1\, 1}\, \dex[1]\otimes\dix[1] + \dotsb
-%     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-%   &\ \en\, \dix[0]\otimes\dex[0] +
-%   \yq_{1}\, \dix[0]\otimes\dex[1] +
-%   \yp_{1}\, \dix[1]\otimes\dex[0] +
-%   \yt_{1\, 1}\, \dix[1]\otimes\dex[1] + \dotsb
-%   \end{aligned}
-% \end{multline*}
-\begin{equation*}
-  \begin{aligned}
-    \yT \stackrel{?}{=}
-  &\ \en\  \di t\otimes\di x +
-  \yq_{x}\  \di t\otimes\di x +
-  \yp_{x}\  \di x\otimes\di t +
-  \yt_{x\,x}\  \di x\otimes\di x + \dotsb
-\\ %   \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-\yT \stackrel{?}{=}    &\ \en\  \frac{\de}{\de t}\otimes\frac{\de}{\de t} +
-  \yq_{x}\  \frac{\de}{\de t}\otimes\frac{\de}{\de x} +
-  \yp_{x}\  \frac{\de}{\de x}\otimes\frac{\de}{\de t} +
-  \yt_{x\, x}\  \frac{\de}{\de x}\otimes\frac{\de}{\de x} + \dotsb
-\\ %   \\[-\jot]\text{\footnotesize or}&\\[-\jot]
- \yT \stackrel{?}{=} &\ \en\  \frac{\de}{\de t}\otimes\di t +
-  \yq_{x}\  \frac{\de}{\de t}\otimes\di x +
-  \yp_{x}\  \frac{\de}{\de x}\otimes\di t +
-  \yt_{x\, x}\  \frac{\de}{\de x}\otimes\di x + \dotsb
-\\ %  \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-\yT \stackrel{?}{=}  &\ \en\  \di t\otimes\frac{\de}{\de t} +
-  \yq_{x}\  \di t\otimes\frac{\de}{\de x} +
-  \yp_{x}\  \di x\otimes\frac{\de}{\de t} +
-  \yt_{x\, x}\  \di x\otimes\frac{\de}{\de x} + \dotsb
-  \end{aligned}
-\end{equation*}
-You can check that the first two summands in the first alternative have
-incompatible dimensions $\En\Le^{-3}\Ti^{2}$ and $\En\Le^{-1}$. Similarly
-for the second and third alternatives. Only the last alternative is
-dimensionally consistent. It is co-contra-variant and has a dimension of
-volumic energy, $\En\Le^{-3}$. We thus find
-\begin{gather}
-  \label{eq:dim_T_co_contra}
-  \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
-  \\[\jot]
-  \dim(\yT\i{_{\q\q}}) \equiv
-  \dim[\tr_{23}(\yT\i{_{\q}^{\q}}\ \yg\i{_{\q\q}})]
-= 
-    \begin{cases}
-    \Ma\Le^{-1} \\
-    \Ma\Le^{-3}\Ti^{-2} \equiv \En\Le^{-1}
-  \end{cases}
-  \quad\text{if }\dim(\yg)\defd
-  \begin{cases}
-     \Ti^2 \\
-    \Le^2
-  \end{cases}
-\end{gather}
-
-
-
-
-
-
-
-
-
-
-Here
-$\en$ is the volumic internal energy, $\yq_{i}$ are the components of the
-areic energy flux, $\yp_{i}$ are the components of the volumic momentum,
-and $\yt_{ij}$ are the components of the stress tensor, a force per unit
-area. Hence
-
-
 
 To find the dimension of the stress-energy-momentum $\yT$, or
 \defquote{4-stress} for short, let's start with the analysis of the

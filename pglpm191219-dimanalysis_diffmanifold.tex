@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-20T18:40:58+0200
+%% Last-Updated: 2020-10-20T19:47:30+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -2027,19 +2027,20 @@ like the Ricci and Riemann curvature tensors.
 \label{sec:stressenergy}
 
 The operational meaning of the stress-energy-momentum tensor is still
-surrounded by some mystery, to be discussed later. To find the dimension of
-this tensor let's follow a more heuristic approach starting from Newtonian
-mechanics.
+surrounded by some mystery. It will be briefly discussed later. To find the
+dimension of this tensor let's follow a more heuristic approach starting
+from Newtonian mechanics.
 
-Consider the balances of energy and momentum (or force) for a material
-continuum in Newtonian mechanics, in the absence of volumic forces and
-volumic heating.
-\citep{truesdelletal1960,truesdell1977_r1991}{birdetal1960_r2002}{samohyletal1987_r2014}
+Consider the balances of energy and of momentum (or of force) for a
+material continuum in Newtonian mechanics, in the absence of volumic forces
+and volumic heating
+\citep{truesdelletal1960,truesdell1977_r1991}{birdetal1960_r2002}{samohyletal1987_r2014}.
 Choose an inertial frame in which the material continuum is instantaneously
 at rest at a specific spacetime point. Use rectangular Cartesian
 coordinates $(t,x,y,z) \equiv (x^{0},x^{1},x^{2},x^{3})$, with standard
-dimensions of time and length, adapted to such frame. The two balances then
-assume, at the specified point, the following component expression:
+dimensions of time and length, adapted to such frame. Let the indices $r,s$
+run only through spatial coordinates. The two balances then assume, at the
+specified point, the following component expressions:
 \begin{align}
   \label{eq:bal_energy}
   \de_{t} \en + \tsum\limits_{r=1}^{3}\de_{r} \yq_{r} &= 0 \ ,
@@ -2052,7 +2053,8 @@ where the indices' levels do \emph{not} denote any variance type yet. Here
 $\en$ is the volumic internal energy, $\yq_{i}$ are the components of the
 areic energy flux, $\yp_{i}$ are the components of the volumic momentum,
 and $\yt_{ij}$ are the components of the stress tensor, a force per unit
-area. Their dimensions are
+area \citep[considered as pressure rather than tension, hence
+its sign; \cf][\sect~1.2 p.~19]{birdetal1960_r2002}. Their dimensions are
 \begin{subequations}\label{eq:dims_stress_components}
   \begin{gather}
     \label{eq:dim_en}
@@ -2069,8 +2071,8 @@ area. Their dimensions are
   \end{gather}
 \end{subequations}
 
-These two balances can be suggestively combined, letting indices $i,j$ run
-over  all four coordinates:
+The two balances can be suggestively combined into a four-dimensional
+equation:
 \begin{gather}
   \label{eq:bal_energy-force}
   % \begin{pmatrix}
@@ -2083,17 +2085,18 @@ over  all four coordinates:
   T_{ij} \defd 
   \begin{pmatrix}
     \en & \yq_{r} \\ \yp_{s} & \yt_{sr}
-  \end{pmatrix} \ .
+  \end{pmatrix} \ ,
 \end{gather}
-The combined balance resembles a four-dimensional divergence. Cartan
-\citep{cartan1923} in fact showed that Newtonian mechanics can be
-formulated in fully covariant form in terms of a special connection $\nab$,
-and the terms $T_{ij}$ are indeed four-dimensional components of a
-stress-energy-momentum tensor $\yT$. For details see especially Truesdell
-\amp\ Toupin \citep[\sects~152--154, 203--205, 238,
+where indices $i,j$ run over all four coordinates, The combined balance
+resembles a four-dimensional divergence. Cartan \citep{cartan1923} in fact
+showed that Newtonian mechanics can be formulated in fully covariant form
+in terms of a special connection $\nab$, and the terms $T_{ij}$ are indeed
+four-dimensional components of a stress-energy-momentum tensor $\yT$. This
+reformulation is usually called Newton-Cartan theory; for details see
+especially Truesdell \amp\ Toupin \citep[\sects~152--154, 203--205, 238,
 285--289]{truesdelletal1960}[see also][\sect~2.4]{marsdenetal1983b_r1994}.
-Cartan's connection can even express Newtonian gravitation, see Misner
-\etal\ \citep[\chap~12]{misneretal1970_r1973}[also][]{trautman1964}.
+Cartan's connection can even express Newtonian gravitation, for which see
+Misner \etal\ \citep[\chap~12]{misneretal1970_r1973}[also][]{trautman1964}.
 
 The balances of energy and momentum~\eqref{eq:bal_energy},
 \eqref{eq:bal_force} in Newtonian mechanics are thus covariantly expressed
@@ -2165,11 +2168,13 @@ which it might be written in terms of basis vectors and covectors:
   \yt_{x\, x}\  \di x\otimes\frac{\de}{\de x} + \dotsb
   \end{aligned}
 \end{equation*}
-You can check that the first two summands in the first alternative have
-incompatible dimensions $\En\Le^{-3}\Ti^{2}$ and $\En\Le^{-1}$. Similarly
-for the second and third alternatives. Only the last alternative is
-dimensionally consistent. It is co-contra-variant and has a dimension of
-volumic energy, $\En\Le^{-3}$. We thus find
+You can check that the first alternative is dimensionally inconsistent: its
+first two summands have incompatible dimensions $\En\Le^{-3}\Ti^{2}$ and
+$\En\Le^{-1}$. The second and third alternatives are similarly
+inconsistent. Only the last alternative is dimensionally consistent. It is
+co-contra-variant and has a dimension of volumic energy, $\En\Le^{-3}$.
+
+We thus find
 \begin{gather}
   \label{eq:dim_T_co_contra}
   \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-20T19:47:30+0200
+%% Last-Updated: 2020-10-21T17:37:33+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -765,10 +765,11 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
   dimensional analysis of several important tensors and tensor operations
   is summarized. In particular it is shown that the components of a tensor
   need not have all the same dimension, and that the Riemann (once
-  contravariant and thrice covariant) and Ricci (fully covariant) curvature
-  tensors are dimensionless. The relation between dimension and operational
-  meaning for the metric and stress-energy-momentum tensors, and the
-  dimension of Einstein's constant are also discussed.
+  contravariant and thrice covariant), Ricci (twice covariant), and
+  Einstein (twice covariant) curvature tensors are dimensionless. The
+  relation between dimension and operational meaning for the metric and
+  stress-energy-momentum tensors, and the dimension of Einstein's constant
+  are also discussed.
   % \\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer,
   %   this manuscript is being peer-reviewed by you. Thank you.}
 % \par%\\[\jot]
@@ -1681,8 +1682,9 @@ $(\yGa\i{^{i}_{jk}})$ defined by
   \label{eq:christoffel}
   \nab\dex[k] = \yGa\i{^{i}_{jk}}\  \dix[j]\otimes\dex[i]\ .
 \end{equation}
-From this equation and the previous ones it follows that these coefficients
-have dimensions
+From this equation and \eqns~\eqref{eq:tensor_mult},
+\eqref{eq:dim_cov_der_vect} it follows that these coefficients have
+dimensions
 \begin{equation}
   \label{eq:dim_christoffel}
   \dim(\yGa\i{^{i}_{jk}}) = \Xx_{i}\, {\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}\ .
@@ -1731,14 +1733,11 @@ which imply that \emph{torsion, Riemann curvature, and Ricci curvature
 \end{equation}
 This result is sensible, because the notion of local parallelism, which
 these tensors express, doesn't involve any notion of distance or angle
-\citep[\cf][]{portamana2011_r2019}.
-
-
-The exact contra- and co-variant primitive type of these tensors is very
-important in the equations above. If a metric tensor is also introduced and
-used to raise or lower any indices of these tensors, the resulting tensors
-will have different dimensions; see next section, especially
-\eqn~\eqref{eq:raising_lowering}.
+\citep[\cf][]{portamana2011_r2019}. The exact contra- and co-variant
+primitive type of these tensors is very important in the equations above.
+If a metric tensor is also introduced and used to raise or lower any
+indices of these tensors, the resulting tensors will have different
+dimensions; see next section, especially \eqn~\eqref{eq:raising_lowering}.
 
 Misner \etal\ \citep[p.~35%, 407
 ]{misneretal1970_r1973} say that \enquote{curvature}, by which they seem to
@@ -1883,10 +1882,10 @@ In the following we shall see how both choices affect some dimensional results.
 
 \medskip
 
-The metric $\yg$ can be considered as an operator mapping vectors to
-covectors, which we can compactly write as $\yom=\yg\yv$ (instead of the cumbersome
-$\yom = \tr_{23}(\yg\otimes\yv)$). The \emph{inverse metric tensor}
-$\yg\i{^{-1}^{\q\q}}$ is then defined by the formula
+The metric $\yg$ can be considered as an operator mapping vectors $\yv$ to
+covectors $\yom$, which we can compactly write as $\yom=\yg\yv$ instead of the
+cumbersome $\yom = \tr_{23}(\yg\otimes\yv)$. The \emph{inverse metric
+  tensor} $\yg\i{^{-1}^{\q\q}}$ is then defined by the formula
 \begin{equation}
   \label{eq:inverse_g}
   \yg^{-1}\yg = \id\i{^{\q}_{\q}} \ ,
@@ -1894,7 +1893,7 @@ $\yg\i{^{-1}^{\q\q}}$ is then defined by the formula
   % \yg\yg^{-1} = \id\i{_{\q}^{\q}} = (\id\i{^{\q}_{\q}})^{\intercal}\ ,
 \end{equation}
 where $\id\i{^{\q}_{\q}}\colon \bm{v} \mapsto \bm{v}$ is the dimensionless
-identity operator (tensor) on the tangent space. Hence
+identity operator (which is a tensor) on the tangent space. Hence
 \begin{equation}
   \label{eq:dim_ig}
   \dim(\yg^{-1}) = \dim(\yg)^{-1} \ .
@@ -1985,10 +1984,8 @@ obtained from the metric by the formulae
   \biggl(\dex[k]g_{jl} + \dex[j]g_{kl} - \dex[l]g_{jk}\biggr)\,g^{li} \ ,
 \end{equation}
 and it's easily verified that the dimensions of these coefficients given in
-\eqn~\eqref{eq:dim_christoffel} still hold. The results for the
-curvature tensors~\eqref{eq:dim_torsion_riemann_ricci} still hold because
-their expressions in terms of the connection coefficients do not involve
-any metric.
+\eqn~\eqref{eq:dim_christoffel} still hold, as do The results for the
+curvature tensors~\eqref{eq:dim_torsion_riemann_ricci}.
 
 \medskip
 
@@ -2003,7 +2000,7 @@ The \emph{scalar curvature} $\ysc$ and the co-co-variant \emph{Einstein
   \yG\i{_{\q\q}} \defd \yRi -%\i{_{\q\q}} -
   \tfrac{1}{2} \ysc\ \yg %\i{_{\q}^{\q}} 
 \end{equation}
-have therefore dimension
+have  dimensions
 \begin{gather}
   \label{eq:dim_scalcurv}
   \dim(\ysc) = \dim(\yg)^{-1} \equiv
@@ -2020,8 +2017,8 @@ have therefore dimension
   \label{eq:dim_einst}
   \dim(\yG\i{_{\q\q}}) = \Un \ ,
 \end{gather}
-that is, \emph{the twice covariant Einstein tensor is dimensionless}, just
-like the Ricci and Riemann curvature tensors.
+that is, \emph{the twice covariant Einstein tensor is dimensionless,
+  independently of the dimension of the metric tensor}.
 
 \section{Stress-energy-momentum tensor}
 \label{sec:stressenergy}
@@ -2088,15 +2085,17 @@ equation:
   \end{pmatrix} \ ,
 \end{gather}
 where indices $i,j$ run over all four coordinates, The combined balance
-resembles a four-dimensional divergence. Cartan \citep{cartan1923} in fact
-showed that Newtonian mechanics can be formulated in fully covariant form
-in terms of a special connection $\nab$, and the terms $T_{ij}$ are indeed
-four-dimensional components of a stress-energy-momentum tensor $\yT$. This
-reformulation is usually called Newton-Cartan theory; for details see
-especially Truesdell \amp\ Toupin \citep[\sects~152--154, 203--205, 238,
-285--289]{truesdelletal1960}[see also][\sect~2.4]{marsdenetal1983b_r1994}.
-Cartan's connection can even express Newtonian gravitation, for which see
-Misner \etal\ \citep[\chap~12]{misneretal1970_r1973}[also][]{trautman1964}.
+resembles a four-dimensional divergence. Cartan
+\citep{cartan1923,cartan1924} in fact showed that Newtonian mechanics can
+be formulated in fully covariant form in terms of a special connection
+$\nab$, and the terms $T_{ij}$ are indeed four-dimensional components of a
+stress-energy-momentum tensor $\yT$. This reformulation is usually called
+Newton-Cartan theory; for details see especially Truesdell \amp\ Toupin
+\citep[\sects~B.II.152--154, D.II.203--205, D.V.238,
+F.IV.285--289]{truesdelletal1960}[see
+also][\sect~2.4]{marsdenetal1983b_r1994}. Cartan's connection can even
+express Newtonian gravitation, for which see Misner \etal\
+\citep[\chap~12]{misneretal1970_r1973}[also][]{trautman1964,dixon1975}.
 
 The balances of energy and momentum~\eqref{eq:bal_energy},
 \eqref{eq:bal_force} in Newtonian mechanics are thus covariantly expressed
@@ -2109,10 +2108,10 @@ in coordinate-free form as
 with components $\nab\i{_{j}}\yT\i{_{i}^{j}} = 0$. This is the same
 equation that can be obtained from the Einstein equations in general
 relativity from the fact that the Einstein tensor has zero divergence.
-Indeed this is the starting point to define the stress-energy-momentum
+Indeed this is the starting point to define the stress part of the
 tensor $\yT$ in relativity: it is assumed to be locally equal to the
 Newtonian one in an inertial (free-fall) frame in which the material
-continuum is momentarily at rest.
+continuum is momentarily at rest. ** note on momentum of heat, refer to \citep[p.~923]{eckart1940c}
 
 From the components~\eqref{eq:T}, the dimensions
 \eqref{eq:dims_stress_components}, and the relation between intrinsic and
@@ -2179,12 +2178,12 @@ We thus find
   \label{eq:dim_T_co_contra}
   \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
   \\[\jot]
-  \dim(\yT\i{_{\q\q}}) \equiv
-  \dim[\tr_{23}(\yT\i{_{\q}^{\q}}\ \yg\i{_{\q\q}})]
+  \dim(\yT\i{_{\q\q}}) = \dim(\yT\i{_{\q}^{\q}}) \dim(\yg)
+%  \dim[\tr_{23}(\yT\i{_{\q}^{\q}}\ \yg\i{_{\q\q}})]
 = 
     \begin{cases}
     \Ma\Le^{-1} \\
-    \Ma\Le^{-3}\Ti^{-2} \equiv \En\Le^{-1}
+    \Ma\Le\Ti^{-2} \equiv \En\Le^{-1}
   \end{cases}
   \quad\text{if }\dim(\yg)\defd
   \begin{cases}

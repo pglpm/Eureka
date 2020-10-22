@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-21T17:37:33+0200
+%% Last-Updated: 2020-10-22T13:11:10+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -277,45 +277,28 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \newcommand*{\subtitleproc}[1]{}
 \newcommand*{\chapb}{ch.}
 %
-% \def\arxivp{}
-% \def\mparcp{}
-% \def\philscip{}
-% \def\biorxivp{}
-% \newcommand*{\arxivsi}{\texttt{arXiv} eprints available at \url{http://arxiv.org/}.\\}
-% \newcommand*{\mparcsi}{\texttt{mp\_arc} eprints available at \url{http://www.ma.utexas.edu/mp_arc/}.\\}
-% \newcommand*{\philscisi}{\texttt{philsci} eprints available at \url{http://philsci-archive.pitt.edu/}.\\}
-% \newcommand*{\biorxivsi}{\texttt{bioRxiv} eprints available at \url{http://biorxiv.org/}.\\}
-\newcommand*{\arxiveprint}[1]{%\global\def\arxivp{\arxivsi}%\citeauthor{0arxivcite}\addtocategory{ifarchcit}{0arxivcite}%eprint
+\newcommand*{\arxiveprint}[1]{%
 \texttt{arXiv:\urlalt{https://arxiv.org/abs/#1}{#1}}%
-%\texttt{\href{http://arxiv.org/abs/#1}{\protect\url{arXiv:#1}}}%
-%\renewcommand{\arxivnote}{\texttt{arXiv} eprints available at \url{http://arxiv.org/}.}
 }
-\newcommand*{\mparceprint}[1]{%\global\def\mparcp{\mparcsi}%\citeauthor{0mparccite}\addtocategory{ifarchcit}{0mparccite}%eprint
+\newcommand*{\mparceprint}[1]{%
 \texttt{mp\_arc:\urlalt{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{#1}}%
-%\texttt{\href{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{\protect\url{mp_arc:#1}}}%
-%\providecommand{\mparcnote}{\texttt{mp_arc} eprints available at \url{http://www.ma.utexas.edu/mp_arc/}.}
 }
-\newcommand*{\haleprint}[1]{%\global\def\arxivp{\arxivsi}%\citeauthor{0arxivcite}\addtocategory{ifarchcit}{0arxivcite}%eprint
+\newcommand*{\haleprint}[1]{%
 \texttt{HAL:\urlalt{https://hal.archives-ouvertes.fr/#1}{#1}}%
-%\texttt{\href{http://arxiv.org/abs/#1}{\protect\url{arXiv:#1}}}%
-%\renewcommand{\arxivnote}{\texttt{arXiv} eprints available at \url{http://arxiv.org/}.}
 }
-\newcommand*{\philscieprint}[1]{%\global\def\philscip{\philscisi}%\citeauthor{0philscicite}\addtocategory{ifarchcit}{0philscicite}%eprint
+\newcommand*{\philscieprint}[1]{%
 \texttt{PhilSci:\urlalt{http://philsci-archive.pitt.edu/archive/#1}{#1}}%
-%\texttt{\href{http://philsci-archive.pitt.edu/archive/#1}{\protect\url{PhilSci:#1}}}%
-%\providecommand{\mparcnote}{\texttt{philsci} eprints available at \url{http://philsci-archive.pitt.edu/}.}
-}
-\newcommand*{\biorxiveprint}[1]{%\global\def\biorxivp{\biorxivsi}%\citeauthor{0arxivcite}\addtocategory{ifarchcit}{0arxivcite}%eprint
-\texttt{bioRxiv doi:\urlalt{https://doi.org/10.1101/#1}{10.1101/#1}}%
-%\texttt{\href{http://arxiv.org/abs/#1}{\protect\url{arXiv:#1}}}%
-%\renewcommand{\arxivnote}{\texttt{arXiv} eprints available at \url{http://arxiv.org/}.}
-}
-\newcommand*{\osfeprint}[1]{%
-\texttt{Open Science Framework doi:\urlalt{https://doi.org/10.17605/osf.io/#1}{10.17605/osf.io/#1}}%
 }
 \newcommand*{\doi}[1]{%
-\texttt{DOI:\urlalt{https://doi.org/#1}{#1}}%
+\textsc{doi:}\href{https://doi.org/#1}{\nolinkurl{#1}}%
 }
+\newcommand*{\biorxiveprint}[1]{%
+bioRxiv \doi{10.1101/#1}%
+}
+\newcommand*{\osfeprint}[1]{%
+Open Science Framework \doi{10.31219/osf.io/#1}%
+}
+
 
 \usepackage{graphicx}
 
@@ -1550,6 +1533,11 @@ Regarding operations and operators on differential forms:
     \label{eq:inter_prod}
 \end{equation}
 
+\mynote{add note about dual product and \citep{deschamps1970}}
+
+  
+
+
 \item The \emph{exterior derivative} [IV.A.2] of a form has the same
   dimension of the form:
   \begin{equation}
@@ -2031,7 +2019,7 @@ from Newtonian mechanics.
 Consider the balances of energy and of momentum (or of force) for a
 material continuum in Newtonian mechanics, in the absence of volumic forces
 and volumic heating
-\citep{truesdelletal1960,truesdell1977_r1991}{birdetal1960_r2002}{samohyletal1987_r2014}.
+\citep{truesdelletal1960,truesdell1977_r1991,samohyletal1987_r2014,birdetal1960_r2002}.
 Choose an inertial frame in which the material continuum is instantaneously
 at rest at a specific spacetime point. Use rectangular Cartesian
 coordinates $(t,x,y,z) \equiv (x^{0},x^{1},x^{2},x^{3})$, with standard
@@ -2051,7 +2039,8 @@ $\en$ is the volumic internal energy, $\yq_{i}$ are the components of the
 areic energy flux, $\yp_{i}$ are the components of the volumic momentum,
 and $\yt_{ij}$ are the components of the stress tensor, a force per unit
 area \citep[considered as pressure rather than tension, hence
-its sign; \cf][\sect~1.2 p.~19]{birdetal1960_r2002}. Their dimensions are
+its sign; \cf][\sect~1.2 p.~19]{birdetal1960_r2002}. \mynote{$\yt$ also contains
+macroscopic momentum transport; this makes the derivation less neat} Their dimensions are
 \begin{subequations}\label{eq:dims_stress_components}
   \begin{gather}
     \label{eq:dim_en}
@@ -2111,7 +2100,7 @@ relativity from the fact that the Einstein tensor has zero divergence.
 Indeed this is the starting point to define the stress part of the
 tensor $\yT$ in relativity: it is assumed to be locally equal to the
 Newtonian one in an inertial (free-fall) frame in which the material
-continuum is momentarily at rest. ** note on momentum of heat, refer to \citep[p.~923]{eckart1940c}
+continuum is momentarily at rest. \mynote{note on momentum of heat, refer to \citep[p.~923]{eckart1940c}}
 
 From the components~\eqref{eq:T}, the dimensions
 \eqref{eq:dims_stress_components}, and the relation between intrinsic and
@@ -2302,7 +2291,7 @@ $\yt\i{_{\q\ \q\q}}$. See for example the discussion about
 \enquote{$^{\displaystyle *}\mathte{T}$} by Misner
 \etal~\citep[\chap~15]{misneretal1970_r1973}, the works by
 Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
-discussion by Burke~\citep[\sect~41]{burke1985_r1987}.
+discussion by Burke~\citep[\sect~41]{burke1985_r1987}. \mynote{add \citep{kansoetal2007}}
 
 % Some texts state that the timelike component of the 4-force equals the work
 % done by the force, apart from relativistic factors.
@@ -2389,7 +2378,8 @@ dimension by the dimension of the $i$th coordinate function for each
 contravariant index $i$, by the inverse of the dimension of the $j$th
 coordinate function for each covariant index $j$.
 
-** add note on usefulness of coordinate-free way to settle questions as in \sect~\ref{sec:stressenergy}.
+\mynote{add note on usefulness of coordinate-free way to settle questions
+  as in \sect~\ref{sec:stressenergy}?}
 
 Dimensional analysis in differential geometry seems to rest on two main
 conventions: the tensor product and the action of covectors on vectors

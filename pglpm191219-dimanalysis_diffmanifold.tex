@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-22T13:11:10+0200
+%% Last-Updated: 2020-10-24T07:05:27+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -685,6 +685,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ii}{\mathrm{i}}
 %
 \newcommand*{\yA}{\mathte{A}}
+\newcommand*{\yAg}{\Bar{\mathte{A}}}
 \newcommand*{\yB}{\mathte{B}}
 \newcommand*{\yg}{\mathte{g}}
 \newcommand*{\ygc}{\mathte{g}}
@@ -1061,7 +1062,7 @@ contraction a generalization of trace, I'll use the following notation:
   An analogous definition holds if the $\alpha$th slot is covariant and the
   $\beta$th contravariant.
 \end{itemize}
-In index notation these operations are the familiar
+In index notation the two operations above are the familiar
 \begin{equation*}
   A\i{_{\dotsm\ }^{%
       \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{i}
@@ -1081,6 +1082,18 @@ In index notation these operations are the familiar
       \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{i}
       \ \dotsm}} \ .
 \end{equation*}
+
+For the sake of notation economy I'll denote the contraction of the closest
+slots of two multiplied tensors by simple juxtaposition. For example, if
+$\yA \equiv \yA\i{_{\q}^{\q}}$, $\yB \equiv \yB\i{_{\q\q}}$, and $\yv$ is a
+vector, then
+\begin{equation}
+  \label{eq:simple_contraction}
+  \yA\yB \defd \tr_{23}(\yA\i{_{\q}^{\q}}\otimes\yB\i{_{\q\q}})\ ,
+  \qquad
+  \yB\yv \defd \tr_{23}(\yB\i{_{\q\q}} \otimes \yv\i{^{\q}}) \ .
+\end{equation}
+This notation makes sense considering tensors as linear operators.
 
 Contraction and transposition will be discussed only sparsely, so I hope
 you won't find the notation above too uncomfortable.
@@ -1316,10 +1329,19 @@ The generalization of the formula above to tensors of other types is obvious:
 %    \Ma\Le^{-1}\Ti^{-2}\Te^{-1} & \Ma\Le^{-2}\Ti^{-2} & \Ma\Le^{-2}\Ti^{-2} & \Un
 %   \end{pmatrix}.
 % \end{equation}
-Clearly the components can have different dimensions. But this doesn't matter.
-What matters is that the sum~\eqref{eq:expansion_tensor} be dimensionally
-consistent. (Fokker \citep[\sect~VII.1 p.~88]{fokker1960_t1965}, for
-example, uses a metric tensor with components having different dimensions.)
+Clearly the components can have different dimensions \citep[\sect~VII.1
+p.~88, for example, uses a metric tensor with components having different
+dimensions.]{fokker1960_t1965}. But this doesn't matter. What matters is
+that the sum~\eqref{eq:expansion_tensor} be dimensionally consistent.
+
+If in \eqn~\eqref{eq:coords_change} above we have
+$\Xx_{1}=\Xx_{2}= \dotso =\Xx$, then all components also have equal
+dimensions. So \emph{if we use a system of coordinates having equal
+  dimensions, the components of any tensor must also have equal
+  dimensions}. This justifies the common practice in the literature.
+Considering coordinates of different dimensions, however, allows
+dimensional analysis to be a heuristic tool to determine the variance type
+of a tensor; we'll see an example in \sect~\ref{sec:stressenergy}.
 
 \medskip
 
@@ -1532,10 +1554,9 @@ Regarding operations and operators on differential forms:
     \dim(\ii_{\yv}\yom) =\dim(\yv)\dim(\yom).
     \label{eq:inter_prod}
 \end{equation}
-
-\mynote{add note about dual product and \citep{deschamps1970}}
-
-  
+This equation also holds for the generalized inner product
+\citep{deschamps1970}[Appendices]{deschamps1981}{lindell2004}[\sect~F.I.267]{truesdelletal1960}
+of a multi-vector $\yv$ and a form $\yom$.
 
 
 \item The \emph{exterior derivative} [IV.A.2] of a form has the same
@@ -1580,7 +1601,7 @@ All rules above extend in obvious ways to inner-oriented forms
 \citep{burke1983,burke1995}[\chap~3]{bossavit1991} forms) and to tensor densities.
 
 
-\section{Curves and integral curves}
+\section{Curves and integral curves, 4-velocity}
 \label{sec:curves}
 
 
@@ -1620,6 +1641,30 @@ condition~\eqref{eq:def_tangent_curve} must be modified into
 $\yv = k\dot{C}$, where $k$ is a possibly dimensionful constant. This is
 equivalent to considering an affine and dimensional reparameterization of
 $C$.
+
+\medskip
+
+The worldline of a small body is a curve into spacetime parameterized by
+some time $t$ (usually but not necessarily the proper time; see
+\sect~\ref{sec:metric}), with $\dim(t) = \Ti$. The 4-velocity of the body
+at a given spacetime event is the tangent vector to the worldline thus
+parameterized. From \eqn~\eqref{eq:dim_velocity} it follows that \emph{the
+  4-velocity has intrinsic dimension $\Ti^{-1}$}.
+
+You might find this result counter-intuitive. Probably the reason is that
+you're thinking in terms of components. There is no contradiction: if we
+use a system of coordinates with dimensions $\Le$ and $\Ti$, then the
+components of the 4-velocity have dimensions $\Le/\Ti$ and $\Un$. But the
+fact that the intrinsic dimension is $\Ti^{-1}$, with no lengths involved,
+is quite sensible. We have equipped the body with some kind of clock, so we
+can say how much time has passed between two spacetime events intersected
+by the body's worldline. But we cannot say what their distance is, because
+no metric has been introduced yet.
+
+If we introduce a metric tensor, The \emph{norm} of the 4-velocity,
+calculated using the metric tensor, has dimension $\Le \Ti^{-1}$ or $\Un$,
+depending on the dimension chosen for the metric tensor; see
+\sect~\ref{sec:metric}.
 
 %% the dimension of the parameter of a curve doesn't influence an integral
 %% over the curve, just like a reparameterization of the curve doesn't.
@@ -1866,7 +1911,10 @@ spacelike hypersurface also has dimension $\Le^{2}$, which is sensible from
 a Newtonian point of view. And such projections are at the heart of the
 $3+1$ formulations of general relativity
 \citep{gourgoulhon2007_r2012,alcubierre2008}[\chap~21]{misneretal1970_r1973}.
-In the following we shall see how both choices affect some dimensional results.
+In the following we shall see how both choices affect some dimensional
+results. % Another merit is that the norm of a 4-velocity -- and therefore
+% also its spacelike projection, the ordinary 3-velocity -- has indeed the
+% dimension of a velocity, $\Le\Ti^{-1}$.
 
 \medskip
 
@@ -1944,17 +1992,17 @@ vector fields, not only positively-oriented ones: it is an inner-oriented
 The operation of \emph{raising or lowering an index} of a tensor represents a
 contraction of the tensor product of that tensor with the metric or the
 metric inverse, for example
-$\yA\i{_{\q\q}} \equiv
+$\yAg\i{_{\q\q}} \equiv
 \tr_{13}(\yA\i{^{\q}_{\q}}\otimes\yg\i{_{\q\q}})$ and similarly
 for tensors of other types. Therefore
 \begin{equation}
   \label{eq:raising_lowering}
   \begin{split}
-  \dim(\yA\i{_{\dotso}_{\q}_{\dotso}}) &=
+  \dim(\yAg\i{_{\dotso}_{\q}_{\dotso}}) &=
   \dim(\yA\i{_{\dotso}^{\q}_{\dotso}})\,\dim(\yg)
 \\
   \dim(\yA\i{_{\dotso}^{\q}_{\dotso}}) &=
-  \dim(\yA\i{_{\dotso}_{\q}_{\dotso}})\,\dim(\yg)^{-1} \ .
+  \dim(\yAg\i{_{\dotso}_{\q}_{\dotso}})\,\dim(\yg)^{-1} \ .
 \end{split}
 \end{equation}
 
@@ -2008,8 +2056,13 @@ have  dimensions
 that is, \emph{the twice covariant Einstein tensor is dimensionless,
   independently of the dimension of the metric tensor}.
 
-\section{Stress-energy-momentum tensor}
+\section{Four-momentum and stress-energy-momentum tensor}
 \label{sec:stressenergy}
+
+The 4-momentum of a small body that doesn't emit or absorb energy is given
+by its 4-velocity multiplied by its***
+
+
 
 The operational meaning of the stress-energy-momentum tensor is still
 surrounded by some mystery. It will be briefly discussed later. To find the

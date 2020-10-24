@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-24T07:05:27+0200
+%% Last-Updated: 2020-10-24T18:51:37+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -673,6 +673,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\Ma}{\textsf{M}}
 \newcommand*{\Te}{\Theta}
 \newcommand*{\Cu}{\textsf{I}}
+\newcommand*{\Ch}{\textsf{Q}}
 \newcommand*{\Fl}{\Phi}
 \newcommand*{\Ent}{\textsf{s}}
 \newcommand*{\En}{\Epsilon}%{\textsf{E}}
@@ -681,7 +682,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\Aa}{\textsf{A}}
 \newcommand*{\Bb}{\textsf{B}}
 \newcommand*{\Ss}{\textsf{S}}
-\newcommand*{\Li}{\mathrm{L}}
+\newcommand*{\Li}{\textsf{L}}
 \newcommand*{\ii}{\mathrm{i}}
 %
 \newcommand*{\yA}{\mathte{A}}
@@ -1329,19 +1330,12 @@ The generalization of the formula above to tensors of other types is obvious:
 %    \Ma\Le^{-1}\Ti^{-2}\Te^{-1} & \Ma\Le^{-2}\Ti^{-2} & \Ma\Le^{-2}\Ti^{-2} & \Un
 %   \end{pmatrix}.
 % \end{equation}
-Clearly the components can have different dimensions \citep[\sect~VII.1
-p.~88, for example, uses a metric tensor with components having different
-dimensions.]{fokker1960_t1965}. But this doesn't matter. What matters is
-that the sum~\eqref{eq:expansion_tensor} be dimensionally consistent.
+Clearly the components can have different dimensions
+\citep[see][\sect~VII.1 p.~88 for an example of metric tensor with
+components having different dimensions.]{fokker1960_t1965}. But this isn't
+an issue. What matters is that the sum~\eqref{eq:expansion_tensor} be
+dimensionally consistent.
 
-If in \eqn~\eqref{eq:coords_change} above we have
-$\Xx_{1}=\Xx_{2}= \dotso =\Xx$, then all components also have equal
-dimensions. So \emph{if we use a system of coordinates having equal
-  dimensions, the components of any tensor must also have equal
-  dimensions}. This justifies the common practice in the literature.
-Considering coordinates of different dimensions, however, allows
-dimensional analysis to be a heuristic tool to determine the variance type
-of a tensor; we'll see an example in \sect~\ref{sec:stressenergy}.
 
 \medskip
 
@@ -1393,6 +1387,25 @@ with the general formula~\eqref{eq:dim_component_generic}. % (You may have notic
 In the following I'll drop the adjective \defquote{intrinsic} when it is
 clear from the context.
 
+\medskip
+
+If in \eqn~\eqref{eq:coords_change}, relating intrinsic and component
+dimensions, we have $\Xx_{1}=\Xx_{2}= \dotso =\Xx$, then all components
+also have equal dimensions. So \emph{if we use a system of coordinates
+  having equal dimensions, the components of any tensor must also have
+  equal dimensions}. This justifies the common practice in the literature.
+
+Choosing coordinates of different dimensions, however, has several
+advantages. First, it allows us to use dimensional analysis as a heuristic
+tool to determine the variance type of a tensor; we'll see an example in
+\sect~\ref{sec:stressenergy}. Second, it can lead to components with
+familiar dimensions. For example, if we use a timelike coordinate of
+dimension $\Ti$ and spacelike coordinates of dimension $\Le$ (without $c$
+factors), then the timelike and spacelike components of the charge-current
+form have dimensions $\Cu\Le^{-3}\Ti$ and $\Cu\Le^{-2}$ -- the familiar
+charge density and surface current density.
+
+
 \section{Tensor operations}
 \label{sec:tensor_ops}
 
@@ -1407,7 +1420,7 @@ differential-geometric operations and operators, except for the covariant
 derivative, the metric, and related tensors, discussed more in depth in
 \sects~\ref{sec:connection}--\ref{sec:metric} below. Some of these rules
 are actually definition or conventions, as briefly discussed in their
-description. The others can be proved; I only give a proof for one of them,
+description. The others can be proved; I only give proof for some of them,
 leaving the other proofs as an exercise. For reference, in brackets I give
 the section of Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}
 where these operations are defined.
@@ -1948,44 +1961,68 @@ identity operator (which is a tensor) on the tangent space. Hence
 
 \medskip
 
-The \emph{metric volume element} \citep[\sect~6.2]{abrahametal1983_r1988}
-in spacetime is an outer-oriented 4-form $\ygv$, equivalent to a completely
-antisymmetric tensor $\ygv\i{_{\q\q\q\q}}$, such that
-$\ygv(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for every quadruple of
-positively-oriented orthonormal vector fields $(\ye_{k})$ (orthonormal
-obviously means $\abs{\yg(\ye_{k},\ye_{l})}=\delt_{kl}$). The volume element
-is determined by the metric and by an inner orientation of spacetime, which
-is independent of the metric. It has only one non-zero component, given by
-the square root of the determinant of the %(positively ordered)
+% in spacetime is an outer-oriented 4-form $\ygv$, equivalent to a completely
+% antisymmetric tensor $\ygv\i{_{\q\q\q\q}}$, such that
+% $\ygv(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for every quadruple of
+% positively-oriented orthonormal vector fields $(\ye_{k})$ (orthonormal
+% obviously means $\abs{\yg(\ye_{k},\ye_{l})}=\delt_{kl}$). The volume element
+% is determined by the metric and by an inner orientation of spacetime, which
+% is independent of the metric. It has only one non-zero component, given by
+% the square root of the determinant of the %(positively ordered)
+% components $(g\i{_{ij}})$ of the metric:
+A metric tensor and an inner orientation on a four-dimensional spacetime
+together determine a unique outer-oriented 4-form, called the metric volume
+element \citep[\sect~6.2]{abrahametal1983_r1988}. It can be seen as a
+completely antisymmetric tensor of rank 4, with only one non-zero
+component, given by the square root of the determinant of
+the %(positively ordered)
 components $(g\i{_{ij}})$ of the metric:
+\begin{equation*}
+  \label{eq:undim_volume_elem}
+  \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\ \dix[0]\land\dix[1]\land\dix[2]\land\dix[3] \ ,
+\end{equation*}
+where the sequence $(x^{0}, x^{1}, x^{2}, x^{3})$ must define a
+positive orientation. From the results of \sect~\ref{sec:tensor_ops} it can
+be shown that the 4-form above has absolute dimension $\dim(\yg)^{2}$ (in
+an $n$-dimensional spacetime it has dimension $\dim(\yg)^{n/2}$).
+
+It's convenient to multiply the 4-form above by a power of $c$, and to
+define the \emph{natural metric volume element} $\ygv$ as follows:
 \begin{equation}
   \label{eq:volume_elem}
-  \ygv =
-  \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\ \dix[0]\land\dix[1]\land\dix[2]\land\dix[3] \ .
-\end{equation}
-From this expression and the results of \sect~\ref{sec:tensor_ops} it can
-be shown that in four-dimensional spacetime
-\begin{equation}
-  \label{eq:dim_volume_elem}
-  \dim(\ygv) = \dim(\yg)^{2} \equiv
-    \begin{cases}
-    \Ti^{4} \\
-    \Le^{4}
+  \ygv \defd
+      \begin{cases}
+        \frac{1}{c}\
+        \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\ \dix[0]\land\dix[1]\land\dix[2]\land\dix[3] 
+     \\[\jot]
+        c^{3}\
+        \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\ \dix[0]\land\dix[1]\land\dix[2]\land\dix[3] 
   \end{cases}
   \text{if }\dim(\yg)\defd
   \begin{cases}
-     \Ti^2 \\
-    \Le^2
+    \Le^2 \\[\jot]
+     \Ti^2
   \end{cases}.
 \end{equation}
-Note that in a metric manifold of dimension $n$ the more general relation
-is $\dim(\ygv) = \dim(\yg)^{n/2}$.
+As a consequence we have
+\begin{equation}
+  \label{eq:dim_volume_elem}
+  \dim(\ygv) = \Le^{3}\Ti
+\end{equation}
+independently of whether $\dim(\yg)$ is $\Li^{2}$ or $\Ti^{2}$.
 
-The dimension above also holds for the \emph{density} $\abs{\ygv}$, which,
-unlike the volume element $\ygv$, has the property that
-$\abs{\ygv}(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for all sets of orthonormal
-vector fields, not only positively-oriented ones: it is an inner-oriented
-4-form, canonically determined only by the metric.
+This convention will be seen to have several advantages. Moreover, the
+hypervolume of a four-dimensional region is given by the integral of $\ygv$
+and has its same dimension (see \sect~\ref{sec:tensor_ops}); and a region
+of \emph{spacetime} should reasonably have dimension $\Li^{3}\Ti$.
+
+The dimension~\eqref{eq:dim_volume_elem} also holds for the inner-oriented
+version $\abs{\ygv}$ (sometimes called \emph{density}).
+% which, unlike the volume element $\ygv$, has the property
+% that $\abs{\ygv}(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for all sets of
+% orthonormal vector fields, not only positively-oriented ones: it is an
+% inner-oriented 4-form, canonically determined only by the metric.
+
 
 \medskip
 
@@ -2237,7 +2274,7 @@ We thus find
 
 
 
-
+\mynote{ \citep[\sects~III.35--37]{tolman1934_t1949}}
 
 
 
@@ -2247,7 +2284,7 @@ Here
 $\en$ is the volumic internal energy, $\yq_{i}$ are the components of the
 areic energy flux, $\yp_{i}$ are the components of the volumic momentum,
 and $\yt_{ij}$ are the components of the stress tensor, a force per unit
-area. Hence
+area. Hence ***
 
 
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-24T18:51:37+0200
+%% Last-Updated: 2020-10-25T09:56:36+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -683,7 +683,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\Bb}{\textsf{B}}
 \newcommand*{\Ss}{\textsf{S}}
 \newcommand*{\Li}{\textsf{L}}
-\newcommand*{\ii}{\mathrm{i}}
+%\newcommand*{\ii}{\mathrm{i}}
+\newcommand*{\ii}{\mathbin{\rfloor}}
 %
 \newcommand*{\yA}{\mathte{A}}
 \newcommand*{\yAg}{\Bar{\mathte{A}}}
@@ -719,7 +720,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yq}{q}
 \newcommand*{\yp}{p}
 \newcommand*{\yt}{\sigma}
-
+\DeclarePairedDelimiter\mul{\shortmid}{\shortmid}
+% \DeclarePairedDelimiter\mul{\lvert}{\rvert}
+\newcommand*{\ori}{\widetilde}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -939,12 +942,12 @@ is an object that operates on functions defined on the (spacetime)
 manifold, yielding new functions, with the properties
 $\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for all
 functions $f$, $g$ and reals $a$, $b$. A covector field (1-form) $\yom$ is
-an object that operates on vector fields, yielding functions
-(\defquote{duality}), with the property
-$\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields $\yu$, $\yv$
-and functions $f$, $g$. The sum of vector or covector fields, and their
-products by functions -- let's call this \defquote{linearity} -- are
-defined in an obvious way. Tensors are constructed from these objects.
+an object that operates on vector fields, yielding functions, with the
+property $\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields
+$\yu$, $\yv$ and functions $f$, $g$. The sum of vector or covector fields,
+and their products by functions -- let's call this \defquote{linearity} --
+are defined in an obvious way. Tensors are constructed from these objects;
+but see at the end of this section for a slightly different point of view.
 
 A system of coordinates $(x^{i})$ is just a set of linearly independent
 functions. This set gives rise to a set of vectors fields
@@ -965,8 +968,7 @@ respect to the basis $\bigl(\dex\bigr)$. Analogously for a covector field.
 For the presentation of the intrinsic view I recommend the excellent texts
 by Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}, Boothby
 \citey{boothby1975_r2003}, Abraham \etal\ \citey{abrahametal1983_r1988},
-Bossavit \citey{bossavit1991}, Burke
-\citey{burke1985_r1987}[\chap~2]{burke1980b}, and more on the
+ and more on the
 general-relativity side Misner \etal\
 \citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
 \citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \amp\ Rindler
@@ -1010,6 +1012,10 @@ types. % In spirit this notation is similar to the
 % \citep[\sect~2.2]{penroseetal1984_r2003}; but I avoid using letters for the
 % indices, so that the notational difference between a tensor and its
 % components, which is very important for our discussion, doesn't disappear.
+A set of completely antisymmetric slots will be put within bars: thus the
+notation $\yA\i{_{\q}^{\mul{\q\q}}}$ means that $\yA$ is completely
+antisymmetric in its last two contravariant slots.
+
 
 The only weak points of this notation are the operations of transposition
 and contraction, which literal indices depict so well instead. Considering
@@ -1101,6 +1107,26 @@ you won't find the notation above too uncomfortable.
 
 % $\yA\i{^{\q \mathrm{c}}_{\q \mathrm{c}\q}}$
 
+\medskip
+
+\paragraph{Multi-vectors, multi-covectors, orientations }
+
+I prefer to build the tensor architecture not on the tensor product of
+vectors and covectors, but on that of multi-vectors and multi-covectors,
+with their inner and outer orientations. This elegant, powerful, geometric
+point of view leads to deeper physical insight, and is gaining popularity.
+For its presentation I recommend the texts of Bossavit
+\citey{bossavit1991}, Burke \citey{burke1985_r1987,burke1980b,burke1995},
+de~Rham \citey{derham1955_t1984}, Schouten \citey{schouten1924_r1954}; and
+Deschamps \citey{deschamps1970,deschamps1981} and Lindell
+\citey{lindell2004} for the spaces of multi-vectors and -covectors.
+
+In the notation above, $k$-vectors and -covectors for $k>1$ are indicated
+by bars. Thus $\yA\i{_{\q}^{\mul{\q\q}}}$ really means that $\yA$ is the
+tensor product of a covector and a 2-vector.
+
+
+$\yA\i{_{\q}^{\ori{\q\q}}}$
 
 
 
@@ -1561,10 +1587,11 @@ Regarding operations and operators on differential forms:
   \dim(\yom\land\yta) = \dim(\yom)\dim(\yta).\label{eq:ext_prod}
 \end{equation}
   
-\item The \emph{interior product} [IV.A.4] of a vector and a form
-  multiplies their dimensions:
+\item The \emph{interior product} [IV.A.4] (also called \defquote{dual} or
+  \defquote{dot} product) of a vector and a form multiplies their
+  dimensions:
   \begin{equation}
-    \dim(\ii_{\yv}\yom) =\dim(\yv)\dim(\yom).
+    \dim(\yv\ii\yom) =\dim(\yv)\dim(\yom).
     \label{eq:inter_prod}
 \end{equation}
 This equation also holds for the generalized inner product
@@ -1579,7 +1606,7 @@ of a multi-vector $\yv$ and a form $\yom$.
     \label{eq:ext_deriv}
   \end{equation}
   This can be proven using the identity
-  $\di\,\ii_{\yv}+\ii_{\yv}\,\di = \Li_{\yv}$ or similar identities
+  $\di\circ(\yv\ii)+(\yv\ii)\circ\di = \Li_{\yv}$ or similar identities
   \citep[\chap~9 p.~180 Theorem~9.78]{curtisetal1985}[\sect~6.4
   Theorem~6.4.8]{abrahametal1983_r1988} together with
   \eqns~\eqref{eq:lie_der} and~\eqref{eq:inter_prod}.
@@ -1846,12 +1873,12 @@ independently of the dimension of $s$, and therefore
 Most authors \citep[\eg][\sect~V.62 \eqn~(62.02)]{fock1955_t1964}[\chap~11
 \eqn~(11.21)]{curtisetal1985}[\sect~5.3
 \eqn~(5.6)]{rindler1969_r1986}[\chap~6 \eqn~(6.24)]{hartle2003}, however,
-prefer to include a dimensional factor $1/c$ in front of the
-integral~\eqref{eq:proper_time}:
+prefer to include a dimensional factor $1/c$ in the
+definition~\eqref{eq:proper_time}:
 \begin{equation}%\addtocounter{equation}{-1}\tag{\theequation b}
   \label{eq:proper_time_c}
-  \inct = \frac{1}{c} \int_a^b
-  \sqrt{\abs*{\ygc[\dot{C}(s),\dot{C}(s)]}} \ \di s\ ,
+  \inct = \int_a^b
+  \frac{1}{c} \sqrt{\abs*{\ygc[\dot{C}(s),\dot{C}(s)]}} \ \di s\ ,
 \end{equation}
 thus obtaining
 \begin{equation}%\addtocounter{equation}{1}\tag{\theequation b}
@@ -1972,9 +1999,10 @@ identity operator (which is a tensor) on the tangent space. Hence
 % components $(g\i{_{ij}})$ of the metric:
 A metric tensor and an inner orientation on a four-dimensional spacetime
 together determine a unique outer-oriented 4-form, called the metric volume
-element \citep[\sect~6.2]{abrahametal1983_r1988}. It can be seen as a
-completely antisymmetric tensor of rank 4, with only one non-zero
-component, given by the square root of the determinant of
+element
+\citep[\sect~V.A.4]{choquetbruhatetal1977_r1996}[\sect~6.2]{abrahametal1983_r1988}.
+It can be seen as a completely antisymmetric tensor of rank 4, with only
+one non-zero component, given by the square root of the determinant of
 the %(positively ordered)
 components $(g\i{_{ij}})$ of the metric:
 \begin{equation*}
@@ -1987,7 +2015,7 @@ be shown that the 4-form above has absolute dimension $\dim(\yg)^{2}$ (in
 an $n$-dimensional spacetime it has dimension $\dim(\yg)^{n/2}$).
 
 It's convenient to multiply the 4-form above by a power of $c$, and to
-define the \emph{natural metric volume element} $\ygv$ as follows:
+define the \emph{standard metric volume element} $\ygv$ as follows:
 \begin{equation}
   \label{eq:volume_elem}
   \ygv \defd
@@ -2016,8 +2044,16 @@ hypervolume of a four-dimensional region is given by the integral of $\ygv$
 and has its same dimension (see \sect~\ref{sec:tensor_ops}); and a region
 of \emph{spacetime} should reasonably have dimension $\Li^{3}\Ti$.
 
+In general the metric $\yg$ induces volume, area, and line elements on
+three-, two-, and one-dimensional regions. It can be convenient to multiply
+these elements by appropriate powers of $c$ so that the region's volume has
+intuitive dimensions; for example, $\Li^{3}$ for a spacelike
+three-dimensional region and $\Li^{2}\Ti$ for a timelike one. Indeed the
+definition of proper time~\eqref{eq:proper_time_c} is doing exactly this,
+including a factor $1/c$ in the induced line element on a timelike curve.
+
 The dimension~\eqref{eq:dim_volume_elem} also holds for the inner-oriented
-version $\abs{\ygv}$ (sometimes called \emph{density}).
+volume element $\abs{\ygv}$ (sometimes called \emph{density})  \citep[\chap~3]{bossavit1991}[\chap~II]{derham1955_t1984}{burke1995}.
 % which, unlike the volume element $\ygv$, has the property
 % that $\abs{\ygv}(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for all sets of
 % orthonormal vector fields, not only positively-oriented ones: it is an
@@ -2373,7 +2409,7 @@ represented by a tensor of order 2, as above, its most fitting geometrical
 nature is still shrouded in mystery from the kinematic and the dynamical
 points of view. There are indications that it could be more properly
 represented by a covector-valued 3-form (equivalent to a tensor
-$\yT\i{_{\q\ \q\q\q}}$ antisymmetric in the last three slots), or by a
+$\yT\i{_{\q\ \mul{\q\q\q}}}$ antisymmetric in the last three slots), or by a
 3-vector-valued 3-form (equivalent to a tensor $\yT\i{^{\q\q\q}_{\q\q\q}}$
 antisymmetric in the first three and last three slots), for reasons
 connected with integration, similar to those mentioned above for the stress

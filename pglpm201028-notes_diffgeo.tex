@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-10-29T19:34:56+0100
+%% Last-Updated: 2020-10-29T21:05:50+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -859,10 +859,49 @@ represent an associative operation (unlike the wedge).
 
 The inner product with a 1-vector or a 1-covector is a graded derivation.
 
+\section{Tensor products and equivalent objects}
+\label{sec:tensor_equivalent}
+
+When we take tensor products of exterior objects, some special objects and
+some canonical correspondences between different classes of objects appear.
+
+Take for example a non-zero $N$-covector $\gamma$. The tensor product
+$\gamma \otimes \gamma^{-1}$ is an $N$-vector-valued $N$-covector. This
+object is independent of the specific $\gamma$ we chose. It has only one
+non-zero component, of value 1, which is invariant under basis or
+coordinate changes \citep[\sect~II.8 p.~29 bottom]{schouten1951_r1989}. It
+has properties similar to those of a scalar, and the tensor space of
+$N$-vector-valued $N$-covectors is similar to those of scalars
+(\textcite{schouten1951_r1989} \sect~II.8 p.~29: \enquote{This is not a new
+  geometric conception, only a new notation enabling us to get rid of a lot
+  of indices}).
+
+The inner product of a $p$-vector $u$ with the object above is an
+$N$-vector-valued $(N-p)$-covector:
+\begin{equation}
+  \label{eq:hypervolume-valued-covector}
+  u \cdot \gamma \otimes \gamma^{-1} = \omega \otimes \gamma^{-1}
+  \qquad \text{with } \omega = u \cdot \gamma \ .
+\end{equation}
+The space of $p$-vectors is therefore equivalent, in a canonical way, to
+the space of $N$-vector-valued $(N-p)$-covectors. The independent
+components transform in the same way under a change of basis/coordinates;
+see the example in \textcite{schouten1951_r1989} \sect~II.8 p.~30 bottom.
+
+As Schouten \citey[\sect~II.8 p.~30]{schouten1951_r1989} says,
+\enquote{Hence the geometrical meanings of corresponding quantities do not
+  differ. There is only a difference notation. \textelp{} The use of
+  $\Delta$-densities is sometimes convenient; \textelp{} the formulae
+  contain less indices}.
+
+With the coordinate-free (and index-free) approach the use of such
+quantities offers no advantages.
+
+
 \section{Inner product with $N$-covector}
 \label{sec:inner_volume}
 
-If $\gamma$ is an $N$-covector (hypervolume covector), so that
+If $\gamma$ is a non-zero $N$-covector (hypervolume covector), so that
 $\gamma^{-1}$ is its dual $N$-vector, we have
 \begin{gather}
   \label{eq:inner_volume}
@@ -871,8 +910,8 @@ $\gamma^{-1}$ is its dual $N$-vector, we have
   \gamma \cdot (\omega \cdot \gamma^{-1}) =
   (\gamma^{-1} \cdot \omega) \cdot \gamma = \omega
 \end{gather}
-for any vector $u$ and form $\omega$. According
-to~\eqref{eq:right_inner_prod},
+for any multivector $u$ and multicovector $\omega$ \citep[\cf][\sect~II.7
+p.~28]{schouten1951_r1989}. According to~\eqref{eq:right_inner_prod},
 \begin{equation}
   \label{eq:sign_inner_volume}
   \gamma\cdot u = (-1)^{\deg(u)\ (N-1)}\ u \cdot \gamma
@@ -883,10 +922,6 @@ Therefore
 $\gamma^{-1} \cdot(\gamma \cdot u) = (-1)^{\deg(u)\ (N-1)}\ u \ne u =
 (\gamma^{-1} \cdot \gamma) \cdot u$, which shows that the inner product
 is non-associative in general.
-
-
-\section{Tensor products and equivalent objects}
-\label{sec:tensor_equivalent}
 
 
 

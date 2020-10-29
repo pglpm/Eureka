@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-10-28T21:28:56+0100
+%% Last-Updated: 2020-10-29T19:34:56+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -666,6 +666,8 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %\DeclareMathOperator*{\argsup}{arg\,sup}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\sgn}{sgn}
+\newcommand*{\ii}{\mathbin{\!\rfloor\!}}
+\newcommand*{\rii}{\mathbin{\!\lfloor\!}}
 \newcommand*{\dob}{degree of belief}
 \newcommand*{\dobs}{degrees of belief}
 %%% Custom macros end @@@
@@ -726,11 +728,17 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 
 The idea is to build tensors not from the two spaces of vectors and
 covectors, but from the $2N^{2}$ spaces of multivectors and multicovectors
-with their possible straight or twisted orientations.
+with their possible straight and twisted orientations.
 
 
-\section{Comparison of exterior-product definitions}
-\label{sec:wedge_defs}
+The exterior algebra is an algebra independent of the tensor one, and it
+expresses very intuitive geometric relations
+\citep[\cf][]{deschamps1970,deschamps1981}.
+
+The fact that it is independent of the tensor algebra is clear from the
+fact that we can establish several inequivalent relations between the tensor and
+exterior products, none of them being canonical.
+
 
 Antisymmetrizer $A$ (a projection):
 \begin{equation}
@@ -738,29 +746,147 @@ Antisymmetrizer $A$ (a projection):
   AT \defd \frac{1}{(\deg T)!} \sum_{\pi}\sgn(\pi)\ T\circ\pi
 \end{equation}
 \textcite{abrahametal1983_r1988}, \textcite{choquetbruhatetal1977_r1996},
-\textcite{bossavit1991}:
+\textcite{bossavit1991} use this relation:
 \begin{equation}
   \label{eq:wedge_marsden}
   \begin{split}
-    \alpha \land \beta &\defd
+    \alpha \land \beta &\equiv
     \frac{(\deg \alpha+\deg \beta)!}{(\deg \alpha)!\ (\deg \beta)!}\ 
     A(\alpha \otimes \beta)
   \\
-  &= \frac{1}{(\deg \alpha)!\ (\deg \beta)!}
-  \sum_{\pi}\sgn(\pi)\ (\alpha \otimes \beta)\circ\pi
+  &\equiv \frac{1}{(\deg \alpha)!\ (\deg \beta)!}
+  \sum_{\pi}\sgn(\pi)\ (\alpha \otimes \beta)\circ\pi \ ,
 \end{split}
 \end{equation}
-Note that for 1-covectors $\alpha \land \beta = \alpha \otimes \beta -
-\beta \otimes \alpha$.
+but relations with different multiplicative factors are also possible.
 
-The fact that the definition of multi(co)vector is not unique shows that
-the multivector algebra is a separate entity from the tensor algebra, not a
-subspace of it \citep[\cf][]{deschamps1970,deschamps1981}.
+It's best to define the exterior product intrinsically, with its
+multilinear, associative, and graded-commutative properties.
 
 \section{Inner or dual or dot product}
 \label{sec:inner_product}
 
+For a vector $u$ and covector $\omega$ with $\deg u \le \deg\omega$ it's
+defined as
+\begin{equation}
+  \label{eq:inner_prod}
+  \begin{gathered}
+    u \ii \omega \defd \omega(u) \quad\text{if } \deg u=\deg\omega
+\\
+(u \ii \omega)(v) \defd (u\land v)\ii \omega \equiv \omega(u \land v)
+ \quad\text{if } \deg u < \deg\omega
+  \end{gathered}
+\end{equation}
+It's possible to define an inner product from the right side, but it gives
+the same result as above except for a sign:
+\begin{equation}
+  \label{eq:right_inner_prod}
+\begin{gathered}
+  \begin{aligned}
+  (\omega \rii u)(v) \defd (v\land u)\ii \omega
+  &\equiv (-1)^{\deg u\ \deg v}\ (u\land v)\ii \omega
+  \\&\equiv (-1)^{\deg u\ \deg v}\ (u \ii \omega)(v)
+  \end{aligned}
+  \\[\jot]
+  {}\implies
+\omega \rii u \equiv (-1)^{\deg u\ (\deg\omega-\deg u)}\ 
+u \ii \omega \equiv (-1)^{\deg u\ (\deg\omega-1)}\ 
+u \ii \omega
+\end{gathered}
+\end{equation}
+For 1-vectors in particular:
+\begin{equation}
+  \label{eq:right_inner_equiv_1vector}
+  \omega \rii u \equiv (-1)^{\deg\omega-1}\ 
+  u \ii \omega
+  \qquad\text{if }\deg u = 1
+\end{equation}
 
+Also
+\begin{equation}
+  \label{eq:ext_inner_prod}
+  \begin{gathered}
+    u \rii \omega \defd \omega(u) \equiv u \ii \omega \quad\text{if } \deg u=\deg\omega
+\\
+(u \rii \omega)(\xi) \defd u\rii(\xi\land \omega) \equiv (\xi\land\omega)(u)
+\quad\text{if } \deg u > \deg\omega
+\end{gathered}
+\end{equation}
+and
+\begin{equation}
+  \label{eq:ext_right_inner_prod}
+\begin{gathered}
+  \begin{aligned}
+    (\omega\ii u)(\xi) \defd
+    u\ii (\omega \land \xi)
+  &\equiv (-1)^{\deg \omega\ \deg \xi}\ u\ii (\xi \land \omega)
+  \\&\equiv (-1)^{\deg \omega\ \deg \xi}\ (u \rii \omega)(\xi)
+  \end{aligned}
+  \\[\jot]
+  {}\implies
+  \omega\ii u \equiv (-1)^{\deg \omega\ (\deg v-1)}\ 
+u \rii \omega
+\end{gathered}
+\end{equation}
+
+The lower hook in \enquote{$\ii$} and \enquote{$\rii$} is useful to denote
+the object with lower degree, to know how to apply the sign in the
+graded-commutativity property and to know what kind of object --
+multivector or multicovector -- one obtains.
+
+If we define the degree of vectors to be negative, we can say that
+$\alpha \ii \beta$ yields an object of degree
+$\deg(\alpha\ii\beta)=\deg\alpha+\deg\beta$, no matter whether $\alpha$ is
+a vector and $\beta$ a covector or vice versa. With this convention we
+could use the more compact dot-notation
+\citep[\cf][\sect~F.I.267]{truesdelletal1960}
+\begin{equation}
+  \label{eq:inner_dot}
+  \begin{gathered}
+    \alpha \cdot \beta
+    \\
+    \text{with}\qquad
+    \deg(\alpha \cdot \beta) = \deg\alpha+\deg\beta
+    \\
+    \beta \cdot \alpha =
+    (-1)^{\min\set{\abs{\deg \alpha},\abs{\deg\beta}}\ (\deg\alpha+\deg\beta)}\
+    \alpha \cdot \beta \ .
+\end{gathered}
+\end{equation}
+
+But it doesn't make much sense to use a unique symbol, because it would not
+represent an associative operation (unlike the wedge).
+
+The inner product with a 1-vector or a 1-covector is a graded derivation.
+
+\section{Inner product with $N$-covector}
+\label{sec:inner_volume}
+
+If $\gamma$ is an $N$-covector (hypervolume covector), so that
+$\gamma^{-1}$ is its dual $N$-vector, we have
+\begin{gather}
+  \label{eq:inner_volume}
+  \gamma^{-1} \cdot (u\cdot \gamma) = (\gamma \cdot u) \cdot \gamma^{-1} = u
+  \qquad
+  \gamma \cdot (\omega \cdot \gamma^{-1}) =
+  (\gamma^{-1} \cdot \omega) \cdot \gamma = \omega
+\end{gather}
+for any vector $u$ and form $\omega$. According
+to~\eqref{eq:right_inner_prod},
+\begin{equation}
+  \label{eq:sign_inner_volume}
+  \gamma\cdot u = (-1)^{\deg(u)\ (N-1)}\ u \cdot \gamma
+\end{equation}
+and analogously for the dual case.
+
+Therefore
+$\gamma^{-1} \cdot(\gamma \cdot u) = (-1)^{\deg(u)\ (N-1)}\ u \ne u =
+(\gamma^{-1} \cdot \gamma) \cdot u$, which shows that the inner product
+is non-associative in general.
+
+
+\section{Tensor products and equivalent objects}
+\label{sec:tensor_equivalent}
 
 
 

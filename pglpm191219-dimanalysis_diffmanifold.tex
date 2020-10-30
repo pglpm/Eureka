@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-30T17:00:00+0100
+%% Last-Updated: 2020-10-30T22:23:35+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -988,6 +988,10 @@ quantity $\yA$, and among the base quantities are mass $\Ma$, length $\Le$,
 time $\Ti$, temperature $\Te$, electric current $\Cu$. Note that I don't
 discuss units -- it doesn't matter here whether the unit for length is the
 metre or the centimetre, for example.
+
+Throughout this note $c$ denotes the speed of light, with
+$\dim(c) = \Le\Ti^{-1}$; its numerical quantity value $\set{c}$ depends on
+the chosen units of length and time.
 
 The number and ordering of a tensor's covariant and contravariant
 \enquote{slots} \citep[\sect~3.2]{misneretal1970_r1973} will often be
@@ -2317,10 +2321,9 @@ stress-energy-momentum tensor to be one of the four alternatives above.
 
 Among these, only the second~\eqref{eq:T_co_co3} is consistent under
 rescaling of the spatial coordinates. For example, if we switch from metres
-to decimetres, the new coordinates $(x',y',z')$ are obtained from the old
-multiplying by $10\,\textrm{dm}/\textrm{m}$, and the new energy density
-$\en'$ is obtained from the old dividing by
-$(10\,\textrm{dm}/\textrm{m})^{3}$. Only the second
+to decimetres, the new coordinates $(x',y',z')$ are obtained multiplying
+the old by $10\,\textrm{dm}/\textrm{m}$, and the new energy density $\en'$
+dividing the old by $(10\,\textrm{dm}/\textrm{m})^{3}$. Only the second
 alternative~\eqref{eq:dim_T_co_co3} is consistent with this:
 \begin{equation*}
   \en\  \di t\otimes\di xyz =
@@ -2335,28 +2338,67 @@ alternative~\eqref{eq:T_co_co3} should have a twisted orientation.
 
 A heuristic application of intrinsic dimensional analysis, combined with a
 simple rescaling and reorienting argument, thus tell us that the
-stress-energy-momentum tensor should have the variance
-\begin{multline}
-  \label{eq:final_T}
-\yT\i{_{\q\mul{\q\q\q}}} =
-\en\  \di t\otimes(\di x \land \di y \land \di z) -
-  \yq_{x}\  \di t\otimes(\di t \land \di y \land \di z) +{}\\
-  \yp_{x}\  \di x\otimes(\di x \land \di y \land \di z) 
-  -\yt_{x x}\  \di x\otimes(\di t \land \di y \land \di z) + \dotsb
-\end{multline}
-the antisymmetric slots having a twisted orientation, and should have dimension
+stress-energy-momentum tensor has variance $\yT\i{_{\q\mul{\q\q\q}}}$ --
+it's a covector-valued 3-covector, or equivalently a covector-valued
+3-form, or equivalently a four-times-covariant tensor completely
+antisymmetric in three slots.
+% \begin{multline}
+%   \label{eq:final_T}
+% \yT\i{_{\q\mul{\q\q\q}}} =
+% \en\  \di t\otimes(\di x \land \di y \land \di z) -
+%   \yq_{x}\  \di t\otimes(\di t \land \di y \land \di z) +{}\\
+%   \yp_{x}\  \di x\otimes(\di x \land \di y \land \di z) 
+%   -\yt_{x x}\  \di x\otimes(\di t \land \di y \land \di z) + \dotsb
+% \end{multline}
+The 3-covector or antisymmetric slots have a twisted orientation. It has
+the dimension of an \emph{action}:
 \begin{equation}
     \label{eq:final_dim_T}
-  \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ ,
+  \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
 \end{equation}
-that is dimension of an \emph{action}.
 
-Note that we couldn't have obtained this result without considering
-intrinsic dimensions. Traditionally we would have multiplied the components
-by appropriate powers of $c$ to ensure they all had the same dimension; but
-this procedure would have left the variance type undetermined. This shows
-the value of intrinsic-dimensional analysis, as opposed to dimensional
-analysis focused on components only.
+Note that we couldn't have obtained this result by dimensional analysis
+without considering intrinsic dimensions. Traditionally we would have
+multiplied the components by appropriate powers of $c$ to ensure they all
+had the same dimension; but this procedure would have left the variance
+type undetermined. This shows the value of intrinsic-dimensional analysis,
+as opposed to dimensional analysis focused on components only.
+
+\medskip
+
+This form of the stress-energy-momentum tensor indeed appears in Einstein's
+original work \citep[\sect~C.9]{einstein1914b}; Cartan
+\citep[\sect~13]{cartan1923}; Brillouin
+\citep[\cf][\sect~7]{brillouin1924}; Truesdell \amp\ Toupin
+\citep[\sect~F.IV.288]{truesdelletal1960}, who try to find an expression
+universally valid in Newtonian, Lorentzian, and general-relativistic
+mechanics; and more recent works \citep[\chap~14 Exercise~14.18,
+\chap~15]{misneretal1970_r1973}{hehletal1986}{gronwaldetal1997}[\cf\
+also]{segev1986,segevetal1999,segev2000,segev2000b,segev2002,kansoetal2007}
+which approach its definition from diverse points of view. (Older texts
+often speak of a once covariant and once contravariant
+\enquote{V(olume)-tensor} or \enquote{tensor density}, but this is an
+object completely equivalent to $\yT\i{_{\q \mul{\q\q\q}}}$, with the same
+transformation law; the two are related by a contraction with
+$\omega\otimes\omega^{-1}$, where $\omega$ is an arbitrary non-vanishing
+4-form. See Schouten \citep[\sect~II.8 p.~30]{schouten1951_r1989}.)
+
+This is also the form obtained with variational principles from a Lagrangean,
+
+[esp.\
+Theorem~1]{gotayetal1992}
+
+
+
+\mynote{possibly Schouten}
+\mynote{add dois}
+
+action: \citep[\sect~21.3]{misneretal1970_r1973}
+\citep[\sect~3.3]{hawkingetal1973_r1994}  \citep[\sect~IV.55]{pauli1921_t1958}
+
+
+
+
 
 To obtain a twice covariant tensor to be used in the Einstein equations, we
 can first take the inner product of the antisymmetric part by the inverse proper
@@ -2388,23 +2430,13 @@ $\Le^{2}$.
 
 \medskip
 
-The result
 
- \citep[\sect~F.IV.288]{truesdelletal1960}
-\citep[\chap~14 Exercise~14.18, \chap~15]{misneretal1970_r1973}
-\citep[\cf][\sect~7]{brillouin1925}
-\citep[esp.\ Theorem~1]{gotayetal1992}
- \citep{hehletal1986}
- \citep{gronwaldetal1997}
- \citep[\cf]{kansoetal2007}
-\citep[\cf][\sect~13]{cartan1923}
-\mynote{possibly Schouten}
-\mynote{add dois}
- 
+
+
  \enquote{$^{\displaystyle *}\mathte{T}$} by Misner
 \etal~, the works by
 Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
-discussion by Burke~\citep[\sect~41]{burke1985_r1987}. \mynote{add \citep{kansoetal2007}}
+discussion by Burke~%\citep[\sect~41]{burke1985_r1987}.
 
 
 According to the discussion of intrinsic dimension in

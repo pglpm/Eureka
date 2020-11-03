@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-10-30T22:23:35+0100
+%% Last-Updated: 2020-11-03T10:14:32+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -688,8 +688,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\rii}{\mathbin{\!\lfloor\!}}
 %
 \newcommand*{\yA}{\mathte{A}}
-\newcommand*{\yAg}{\Bar{\mathte{A}}}
+\newcommand*{\yAg}{\underline{\yA}}
 \newcommand*{\yB}{\mathte{B}}
+\newcommand*{\yBg}{\overline{\yB}}
 \newcommand*{\yg}{\mathte{g}}
 \newcommand*{\ygc}{\mathte{g}}
 \newcommand*{\yT}{\mathte{T}}
@@ -715,6 +716,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\id}{\mathbf{id}}%id matrix
 \newcommand*{\ye}{\bm{e}}
 \newcommand*{\ygv}{\bm{\gamma}}
+\newcommand*{\ygu}{\overline{\ygv}}
 \newcommand*{\yk}{\kappa}
 \newcommand*{\snab}{\Bar{\nabla}}
 \newcommand*{\en}{\epsilon}
@@ -2018,6 +2020,26 @@ identity operator (also a tensor) on the cotangent space. Hence
 
 \medskip
 
+The operation of \emph{raising or lowering an index} of a tensor represents
+a contraction of the tensor product of that tensor with the metric or the
+metric inverse, for example
+$\yAg\i{_{\q\q}} \defd \yg\yA \equiv \tr_{23}(\yg\i{_{\q\q}} \otimes
+\yA\i{^{\q}_{\q}})$ from the mixed tensor $\yA\i{^{\q}_{\q}}$, and
+similarly for tensors of other types. Therefore
+\begin{equation}
+  \label{eq:raising_lowering}
+  \begin{split}
+  \dim(\yAg\i{_{\dotso}_{\q}_{\dotso}}) &=
+  \dim(\yA\i{_{\dotso}^{\q}_{\dotso}})\,\dim(\yg)
+\\
+  \dim(\yBg\i{_{\dotso}^{\q}_{\dotso}}) &=
+  \dim(\yB\i{_{\dotso}_{\q}_{\dotso}})\,\dim(\yg)^{-1} \ .
+\end{split}
+\end{equation}
+
+\medskip
+
+
 % in spacetime is an outer-oriented 4-form $\ygv$, equivalent to a completely
 % antisymmetric tensor $\ygv\i{_{\q\q\q\q}}$, such that
 % $\ygv(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for every quadruple of
@@ -2069,7 +2091,6 @@ As a consequence we have
   \dim\bigl(\ygv\i{_{\mul{\q\q\q\q}}}\bigr) = \Le^{3}\Ti
 \end{equation}
 independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$.
-
 This convention will be seen to have several advantages. Moreover, the
 hypervolume of a four-dimensional region is given by the integral of $\ygv$
 and has its same dimension (see \sect~\ref{sec:tensor_ops}); and a region
@@ -2083,6 +2104,20 @@ three-dimensional region and $\Li^{2}\Ti$ for a timelike one. Indeed the
 definition of proper time~\eqref{eq:proper_time_c} is doing exactly this,
 including a factor $1/c$ in the induced line element on a timelike curve.
 
+The proper volume element appears in the definition of the \emph{star
+  operator} on covectors or forms. The latter is obtained by first rising all
+indices of a covector and then taking its inner product with the proper
+volume element. For example, for a 2-covector or 2-form $\omega \equiv
+\omega\i{_{\q\q}}$,
+\begin{equation}
+  \label{eq:star_op}
+  *\omega \defd (\yg^{-1}\omega\yg^{-1})\ii\ygv \ .
+\end{equation}
+From this definition it is clear that the star operator's effect on the
+dimension depends on the degree of the form it operates on. (I personally
+prefer to avoid the star operator and explicitly use the inner product with
+the proper volume element \citep[\cf][\sects~4.1--2]{bossavit1991}.)
+
 The \emph{inverse proper volume element} is the 4-vector field (completely
 antisymmetric contravariant tensor) $\ygv^{-1}$, with twisted orientation,
 having unit inner product \citep[Box 4.1, p. 92, item
@@ -2095,6 +2130,18 @@ element: $\ygv^{-1} \ii \ygv = 1$. Its intrinsic dimension is therefore
 \end{equation}
 again independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$.
 
+Note that the inverse proper volume element is dimensionally and
+numerically different from the tensor $\ygu$ obtained by raising all
+indices of $\ygv$. It can be proven, for example using an orthonormal
+basis, that the relation between the two is
+\begin{equation}
+  \label{eq:relation_volumes}
+  \ygu = -\frac{1}{c^{2}} \ygv^{-1} \ .
+\end{equation}
+More generally the negative factor is replaced with $(-1)^{s}$, where $s$ is
+the number of negative eigenvalues of the metric tensor.
+
+
 % The dimension~\eqref{eq:dim_volume_elem} also holds for the inner-oriented
 % volume element $\abs{\ygv}$ (sometimes called \emph{density})  \citep[\chap~3]{bossavit1991}[\chap~II]{derham1955_t1984}{burke1995}.
 
@@ -2106,24 +2153,6 @@ again independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$.
 
 \medskip
 
-The operation of \emph{raising or lowering an index} of a tensor represents a
-contraction of the tensor product of that tensor with the metric or the
-metric inverse, for example
-$\yAg\i{_{\q\q}} \equiv
-\tr_{13}(\yA\i{^{\q}_{\q}}\otimes\yg\i{_{\q\q}})$ and similarly
-for tensors of other types. Therefore
-\begin{equation}
-  \label{eq:raising_lowering}
-  \begin{split}
-  \dim(\yAg\i{_{\dotso}_{\q}_{\dotso}}) &=
-  \dim(\yA\i{_{\dotso}^{\q}_{\dotso}})\,\dim(\yg)
-\\
-  \dim(\yA\i{_{\dotso}^{\q}_{\dotso}}) &=
-  \dim(\yAg\i{_{\dotso}_{\q}_{\dotso}})\,\dim(\yg)^{-1} \ .
-\end{split}
-\end{equation}
-
-\medskip
 
 The formulae for the covariant derivative~\eqref{eq:dim_cov_der_vect},
 connection coefficients~\eqref{eq:dim_christoffel}, and curvature
@@ -2173,7 +2202,7 @@ have  dimensions
 that is, \emph{the twice covariant Einstein tensor is dimensionless,
   independently of the dimension of the metric tensor}.
 
-\section{stress-energy-momentum tensor and four-momentum}
+\section{Stress-energy-momentum tensor and four-momentum}
 \label{sec:stressenergy}
 
 The operational meaning of the stress-energy-momentum tensor is still

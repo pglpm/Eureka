@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-10-30T21:22:26+0100
+%% Last-Updated: 2020-11-03T09:57:13+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -550,7 +550,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
 %\newcommand*{\nabl}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
-%\DeclareMathOperator{\tr}{tr}%trace
+\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
 %\DeclareMathOperator{\im}{Im}%im part
 %\DeclareMathOperator{\re}{Re}%re part
@@ -923,11 +923,43 @@ $\gamma^{-1} \cdot(\gamma \cdot u) = (-1)^{\deg(u)\ (N-1)}\ u \ne u =
 (\gamma^{-1} \cdot \gamma) \cdot u$, which shows that the inner product
 is non-associative in general.
 
+\section{Star operator}
+\label{sec:star_operator}
+
+\mynote{This section has mistakes}
+
+Comparison of definitions of star operator:
+
+Denote with $\widebar{\omega}$ the $p$-vector obtained by rising all slots
+of $\omega$ with a metric $g$, and with $\underbar{v}$ the reverse
+operation. Let $\gamma$ be the volume element induced by the metric.
+
+ \textcite[\sect~V.A.4]{choquetbruhatetal1977_r1996}:
+ \begin{equation}
+   \label{eq:starop_choquet}
+   *\omega \defd \widebar{\omega}\cdot \gamma
+ \end{equation}
+Applying twice:
+\begin{multline}
+  \label{eq:double_star}
+  **\omega = \widebar{\widebar{\omega}\cdot \gamma} \cdot \gamma =
+  (\omega \cdot \gamma^{-1}) \cdot \gamma ={}\\
+  (-1)^{\deg(\omega)\ (N-1)} (\gamma^{-1} \cdot \omega) \cdot \gamma =
+  (-1)^{\deg(\omega)\ (N-1)} \omega
+\end{multline}
+So $*^{-1} = (-1)^{\deg(\omega)\ (N-1)}\ *$. Compare with
+\textcite[\sect~4.2 Ex.~71]{bossavit1991}.
 
 
 \textcolor{white}{If you find this you can claim a postcard from me.}
 
+% \clearpage
 
+% $\p(O \| M \land S)
+% = \tr\bigl(\bm{\varLambda}_{O,M} \bm{\rho}_{S}\bigr)
+%  = \langle \psi_{O} \vert \psi_{S} \rangle$
+
+% \clearpage
 
 %%%% examples use empheq
 %   \begin{empheq}[left={\mathllap{\begin{aligned}    \de\yF_{\yc}/\de\yp&=0\text{:} \\

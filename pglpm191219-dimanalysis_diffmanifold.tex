@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-03T10:14:32+0100
+%% Last-Updated: 2020-11-03T10:51:01+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -2150,6 +2150,26 @@ the number of negative eigenvalues of the metric tensor.
 % orthonormal vector fields, not only positively-oriented ones: it is an
 % inner-oriented 4-form, canonically determined only by the metric.
 
+In a rectangular Cartesian coordinate system $(x^{0}, x^{1}, x^{2}, x^{3})$
+with dimensions $(\Ti,\Le,\Le,\Le)$, adapted to an inertial (freely
+falling) observer at a specific spacetime event, the components of the
+metric tensor $\yg$ and of the proper volume element $\ygv$ at that event
+are
+\begin{equation}
+  \label{eq:inertial_components}
+  (g\i{_{ij}}) =
+  \begin{pmatrix}
+    -c^{2} &0\ \mathrm{ms^{-1}}&0\ \mathrm{ms^{-1}}&0\ \mathrm{ms^{-1}}\\
+    0\ \mathrm{ms^{-1}}& 1 & 0 & 0\\
+    0\ \mathrm{ms^{-1}}& 0 & 1 & 0\\
+    0\ \mathrm{ms^{-1}}& 0 & 0 & 1
+  \end{pmatrix} \ ,
+  \qquad
+  \gamma\i{_{0\,1\,2\,3}} = 1 \ ;
+\end{equation}
+the units of the zero components are arbitrary of course, as long as they
+have dimension $\Le\Ti^{-1}$. Many authors use a metric with opposite sign.
+
 
 \medskip
 
@@ -2220,21 +2240,19 @@ measured by an observer at that event, using a system of one timelike and
 three spacelike coordinates $(t,x,y,z)$. If these coordinates have
 dimensions $(\Ti,\Le,\Le,\Le)$, then the dimensions of the quantities above
 are
-\begin{subequations}\label{eq:dims_stress_components}
-  \begin{align}
-    \label{eq:dim_en}
+\begin{equation}\label{eq:dims_stress_components}
+  \begin{aligned}
     \dim(\en) &= \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
     &
     % \label{eq:dim_yq}
     \dim(\yq_{r}) &= \En\Le^{-2}\Ti^{-1} \equiv \Ma\Ti^{-3} \ ,
     \\
-    \label{eq:dim_yp}
     \dim(\yp_{r}) &= \En\Le^{-4}\Ti \equiv \Ma\Le^{-2}\Ti^{-1} \ ,
     &
     % \label{eq:dim_stress}
     \dim(\yt_{rs}) &= \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
-  \end{align}
-\end{subequations}
+  \end{aligned}
+\end{equation}
 where the vertical positions of the indices do \emph{not} denote any
 variance type.
 
@@ -2247,8 +2265,8 @@ of two spaces, each spanned by four basis elements. There are four such
 spaces: vectors, covectors, 3-vectors\footnote{completely antisymmetric
   contravariant tensors of rank 3.}, and 3-covectors\footnote{completely
   antisymmetric covariant tensors of rank 3.}. Let's use shorthands such as
-$\de_{txy} \defd \de_{t} \land \de_{x} \land \de_{y}$ and
-$\di txy \defd \di t \land \di x \land \di y$. These four spaces then have
+$\de_{tzy} \defd \de_{t} \land \de_{z} \land \de_{y}$ and
+$\di tzy \defd \di t \land \di z \land \di y$. These four spaces then have
 the following coordinate-induced bases and corresponding dimensions:
 \begin{subequations}\label{eq:bases}
   \begin{align}
@@ -2261,22 +2279,22 @@ the following coordinate-induced bases and corresponding dimensions:
     &&\text{\small }\ (\Ti, \Le, \dotsc) \ ,%\Le, \Le) \ ,
     \\
     \label{eq:base_trivec}
-    &  (-\de_{xyz}, \de_{tyz}, -\de_{txz}, \de_{txy})\ \text{:}
+    &  (\de_{xyz}, \de_{tzy}, \de_{txz}, \de_{tyx})\ \text{:}
     &&\text{\small }\  (\Le^{-3}, \Le^{-2}\Ti^{-1}, \dotsc)\ ,%\Le^{-2}\Ti^{-1}, \Le^{-2}\Ti^{-1}) \ ,
     \\
     \label{eq:base_tricovec}
-    &  (\di xyz, -\di tyz, \di txz, -\di txy)\ \text{:}
+    &  (\di xyz, \di tzy, \di txz, \di tyx)\ \text{:}
     &&\text{\small }\  (\Le^{3}, \Le^{2}\Ti, \dotsc) % \Le^{2}\Ti, \Le^{2}\Ti) 
   \end{align}
 \end{subequations}
-(the signs are chosen to respect duality). There are therefore $4 \times 4$
-possible tensor-product spaces, each constructed by the product of two of
-the four spaces above, in all possible combinations. We thus have 16
-possible alternatives to represent our stress-energy-momentum tensor.
-Energy density is intuitively associated with the purely timelike component
-of this tensor, stress with the purely spacelike ones, and surface
-energy-flux density and momentum density with the mixed timelike-spacelike
-components.
+(the orderings are chosen to minimize the minus signs appearing from inner
+products with a volume element). There are therefore $4 \times 4$ possible
+tensor-product spaces, each constructed by the product of two of the four
+spaces above, in all possible combinations. We thus have 16 possible
+alternatives to represent our stress-energy-momentum tensor. Energy density
+is intuitively associated with the purely timelike component of this
+tensor, stress with the purely spacelike ones, and surface energy-flux
+density and momentum density with the mixed timelike-spacelike components.
 
 Consider therefore this first alternative, obtained from the tensor product
 of the space~\eqref{eq:base_vec} with itself, and omitting $y$- and
@@ -2324,24 +2342,24 @@ dimensionally consistent:
 \\
 &\!\begin{multlined}[b][0.9\textwidth]
 \yT\i{_{\q\mul{\q\q\q}}} =
-\en\  \di t\otimes\di xyz -
-  \yq_{x}\  \di t\otimes\di tyz +{}\\
+\en\  \di t\otimes\di xyz +
+  \yq_{x}\  \di t\otimes\di tzy +{}\\
   \yp_{x}\  \di x\otimes\di xyz 
-  -\yt_{x x}\  \di x\otimes\di tyz + \dotsb
+  +\yt_{x x}\  \di x\otimes\di tzy + \dotsb
 \end{multlined}
   \\[\jot]
 &\!\begin{multlined}[b][0.9\textwidth]
-\yT\i{^{\mul{\q\q\q}\q}} = -\en\  \de_{xyz} \otimes\de_{t} 
-  -\yq_{x}\  \de_{xyz}\otimes\de_{x} +{}\\
- \yp_{x}\  \de_{tyz} \otimes\de_{t} +
-  \yt_{x x}\  \de_{tyz}\otimes\de_{x} + \dotsb
+\yT\i{^{\mul{\q\q\q}\q}} = \en\  \de_{xyz} \otimes\de_{t} 
+  +\yq_{x}\  \de_{xyz}\otimes\de_{x} +{}\\
+ \yp_{x}\  \de_{tzy} \otimes\de_{t} +
+  \yt_{x x}\  \de_{tzy}\otimes\de_{x} + \dotsb
 \end{multlined}
 \\
 &\!\begin{multlined}[b][0.9\textwidth]
-\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}} = -\en\  \de_{xyz} \otimes\di xyz 
-  +\yq_{x}\  \de_{xyz}\otimes\di tyz +{}\\
-  \yp_{x}\  \de_{tyz} \otimes\di yxz 
-      - \yt_{x x}\  \de_{tyz}\otimes\di tyz
+\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}} = \en\  \de_{xyz} \otimes\di xyz 
+  +\yq_{x}\  \de_{xyz}\otimes\di tzy +{}\\
+  \yp_{x}\  \de_{tzy} \otimes\di yxz 
+      + \yt_{x x}\  \de_{tzy}\otimes\di tzy
       + \dotsb
     \end{multlined}
 \end{align}

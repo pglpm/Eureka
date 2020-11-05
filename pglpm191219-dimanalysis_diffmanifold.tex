@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-03T10:51:01+0100
+%% Last-Updated: 2020-11-05T15:14:27+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -944,17 +944,17 @@ are given in the summary of \sect~\ref{sec:summary}.
 
 
 From the intrinsic point of view, a tensor is defined by its geometric
-properties. For example, a vector field $\yv$ % \equiv \yv(\dotv)
+properties. For example, a vector $\yv$ % \equiv \yv(\dotv)
 is an object that operates on functions defined on the (spacetime)
 manifold, yielding new functions, with the properties
 $\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for all
-functions $f$, $g$ and reals $a$, $b$. A covector field (1-form) $\yom$ is
-an object that operates on vector fields, yielding functions, with the
-property $\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields
-$\yu$, $\yv$ and functions $f$, $g$. The sum of vector or covector fields,
-and their products by functions -- let's call this \defquote{linearity} --
-are defined in an obvious way. Tensors are constructed from these objects;
-but see at the end of this section for a slightly different point of view.
+functions $f$, $g$ and reals $a$, $b$. A covector $\yom$ is an object that
+operates on vector fields, yielding functions, with the property
+$\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields $\yu$, $\yv$
+and functions $f$, $g$. The sum of vector or covector fields (the latter
+also called 1-forms), and their products by functions are defined in an
+obvious way. Tensors are constructed from these objects; see also the end
+of this section for a slightly different point of view.
 
 A system of coordinates $(x^{i})$ is just a set of linearly independent
 functions. This set gives rise to a set of vectors fields
@@ -992,13 +992,13 @@ discuss units -- it doesn't matter here whether the unit for length is the
 metre or the centimetre, for example.
 
 Throughout this note $c$ denotes the speed of light, with
-$\dim(c) = \Le\Ti^{-1}$; its numerical quantity value $\set{c}$ depends on
+$\dim(c) = \Le\Ti^{-1}$. Its numerical quantity value $\set{c}$ depends on
 the chosen units of length and time.
 
-The number and ordering of a tensor's covariant and contravariant
-\enquote{slots} \citep[\sect~3.2]{misneretal1970_r1973} will often be
-important in our discussion. The traditional coordinate-free notation
-\defquote{$\yA$} unfortunately omits this information. We thus need a
+The number, ordering, and symmetries of a tensor's covariant and
+contravariant \enquote{slots} \citep[\sect~3.2]{misneretal1970_r1973} will
+often be important in our discussion. The traditional coordinate-free
+notation \defquote{$\yA$} omits this information. We thus need a
 coordinate-free notation that makes it explicit. Penrose \amp\ Rindler
 \citep[\sect~2.2]{penroseetal1984_r2003} propose an abstract-index notation
 where \defquote{$A\i{_{i}^{jk}}$}, for example, denotes a tensor covariant
@@ -1007,11 +1007,11 @@ index in this notation is \enquote{a \emph{label} whose sole purpose is to
   keep track of the type of tensor under
   discussion}~\citep[p.~75]{penroseetal1984_r2003}. So this notation
 doesn't stand for the set of \emph{components} of the tensor. For the
-latter set, \textbf{bold} indices are used instead:
-\defquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. In our discussion, where the
-difference between a tensor and its set of components will be crucial, this
-abstract-index notation unfortunately lends itself to conceptual and
-typographic misunderstanding.
+latter set, Penrose \amp\ Rindler use \textbf{bold} indices instead:
+\defquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. But in our discussion the
+difference between a tensor and its set of components is crucial, and
+Penrose \amp\ Rindler's abstract-index notation unfortunately lends itself
+to conceptual and typographic misunderstanding.
 
 I shall therefore use a notation such as $\yA\i{_{\q}^{\q\q}}$ to indicate
 that $\yA$ is covariant in its first slot and contravariant in its second
@@ -1024,14 +1024,20 @@ types. % In spirit this notation is similar to the
 % indices, so that the notational difference between a tensor and its
 % components, which is very important for our discussion, doesn't disappear.
 A set of completely antisymmetric slots will be put within bars: thus the
-notation $\yA\i{_{\q}^{\mul{\q\q}}}$ means that $\yA$ is completely
-antisymmetric in its last two contravariant slots.
+notation $\yA\i{^{\q}_{\mul{\q\q}}}$ means that $\yA$ is completely
+antisymmetric in its last two covariant slots. Finally, in accord with
+convenient modern terminology, a completely antisymmetric contravariant
+tensor of rank $k$ will be called \defquote{$k$-vector}; and a completely
+antisymmetric covariant tensor of rank $k$, a \defquote{$k$-covector}. The
+terms \defquote{multi-vector} and \defquote{multi-covector} are used when
+$k$ isn't specified.
 
 
-The only weak points of this notation are the operations of transposition
-and contraction, which literal indices depict so well instead. Considering
-that transposition is a generalization of matrix transposition, and
-contraction a generalization of trace, I'll use the following notation:
+The only weak points of the notation just explained are the operations of
+transposition and contraction, which literal indices depict so well
+instead. Considering that transposition is a generalization of matrix
+transposition, and contraction a generalization of trace, I'll use the
+following notation:
 \begin{itemize}[wide]%,label=\textemdash]
 \item $\yA^{\intercal_{\alpha\beta}}$ is the transposition
   (swapping) of the $\alpha$th and $\beta$th slots. Its coordinate-free
@@ -1051,9 +1057,10 @@ contraction a generalization of trace, I'll use the following notation:
     ,\dotso)
   \end{equation}
   for all $\bm{\zeta},\bm{\eta}$ of appropriate variance type.
+  
 \item $\tr_{\alpha\beta}\yA$ is the contraction of the $\alpha$th and
-  $\beta$th slots (which must have opposite variant types). Its
-  coordinate-free definition is
+  $\beta$th slots, which must have opposite variant types; note that we may
+  have $\beta < \alpha$. Its coordinate-free definition is
   \begin{equation}
     \label{eq:def_contr}
     \begin{gathered}
@@ -1077,8 +1084,6 @@ contraction a generalization of trace, I'll use the following notation:
         % \bm{v} \mapsto \bm{v}$ 
     \end{gathered}
   \end{equation}
-  An analogous definition holds if the $\alpha$th slot is covariant and the
-  $\beta$th contravariant.
 \end{itemize}
 In index notation the two operations above are the familiar
 \begin{equation*}
@@ -1102,9 +1107,9 @@ In index notation the two operations above are the familiar
 \end{equation*}
 
 For the sake of notation economy I'll denote the contraction of the closest
-slots of two multiplied tensors by simple juxtaposition. For example, if
-$\yA \equiv \yA\i{_{\q}^{\q}}$, $\yB \equiv \yB\i{_{\q\q}}$, and $\yv$ is a
-vector, then
+slots of two tensor-multiplied tensors by simple juxtaposition. For
+example, if $\yA \equiv \yA\i{_{\q}^{\q}}$, $\yB \equiv \yB\i{_{\q\q}}$,
+and $\yv$ is a vector, then
 \begin{equation}
   \label{eq:simple_contraction}
   \yA\yB \defd \tr_{23}(\yA\i{_{\q}^{\q}}\otimes\yB\i{_{\q\q}})\ ,
@@ -1118,31 +1123,29 @@ you won't find the notation above too uncomfortable.
 
 % $\yA\i{^{\q \mathrm{c}}_{\q \mathrm{c}\q}}$
 
-\medskip
+\bigskip
 
-\paragraph{Multi-vectors, multi-covectors, orientations }
+%\paragraph{Multi-vectors, multi-covectors, orientations }
 
-It's possible to build the tensor-product architecture not on vectors and
+It is possible to build the tensor-product architecture not on vectors and
 covectors, but on multi-vectors and multi-covectors, with their straight
 and twisted (also called \defquote{odd} %\citep{derham1955_t1984}
 or \defquote{axial}% \citep{truesdelletal1960}
 ) orientations. This elegant and powerful geometric point of view leads to
-deeper physical insight, and is gaining popularity in the literature. For
+deeper physical insight and is gaining popularity in the literature. For
 its presentation I recommend the texts of Bossavit \citey[especially
 \chap~3]{bossavit1991}, Burke
 \citey{burke1983,burke1985_r1987,burke1980b,burke1995}, de~Rham
-\citey[\chap~2]{derham1955_t1984}, Schouten \citey{schouten1924_r1954}; and
+\citey[\chap~2]{derham1955_t1984}, Schouten \citey{schouten1924_r1954},
 Deschamps \citey{deschamps1970,deschamps1981} and Lindell
-\citey{lindell2004} for the spaces of multi-vectors and -covectors.
+\citey{lindell2004}.
 
-In the notation above, the bars actually denote $k$-vectors and -covectors
-for $k>1$. Thus $\yA\i{_{\q}^{\mul{\q\q}}}$ really means that $\yA$ belongs
-to the tensor product of 1-covectors and 2-vectors, or equivalently that
-it's a 1-covector-valued 2-vector.
-
-To avoid burdening the notation I won't add symbols denoting straight or
-twisted orientation, but I'll explicitly say when any particular object has
-a twisted orientation.
+In the notation above, the bars identify $k$-vectors and -covectors for
+$k>1$. Thus $\yA\i{^{\q}_{\mul{\q\q}}}$ indicates that $\yA$ belongs to the
+tensor product of 1-vectors and 2-covectors; it's also called a
+1-vector-valued 2-covector. To avoid burdening the notation I won't add
+symbols denoting straight or twisted orientation, but I'll explicitly say
+in the text when any object has a twisted orientation.
 
 % $\yA\i{_{\q}^{\ori{\q\q}}}$
 
@@ -1411,8 +1414,8 @@ stress-energy-momentum tensors.
 The notion of intrinsic dimension was introduced by Dorgelo and
 Schouten~\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} under the
 name \defquote{absolute dimension}. I find the adjective
-\defquote{intrinsic} more congruous to modern terminology (and less prone
-to suggest spurious connections with absolute values).
+\defquote{intrinsic} more congruous to modern terminology and less prone to
+suggest spurious connections with absolute values.
 
 
 
@@ -1624,8 +1627,9 @@ Regarding operations and operators on differential forms:
     \label{eq:inter_prod}
 \end{equation}
 This equation also holds for the generalized inner product
-\citep{deschamps1970}[Appendices]{deschamps1981}{lindell2004}[\sect~F.I.267]{truesdelletal1960}
-of a multi-vector $\yv$ and a multi-covector $\yom$.
+\citep{deschamps1970}[Appendices]{deschamps1981}{lindell2004}[\sect~F.I.267]{truesdelletal1960}[Box
+4.1, p. 92, item 4]{misneretal1970_r1973}[see also][]{portamana2019e} of a
+multi-vector $\yv$ and a multi-covector $\yom$.
 
 
 \item The \emph{exterior derivative} [IV.A.2] of a form has the same
@@ -2025,7 +2029,9 @@ a contraction of the tensor product of that tensor with the metric or the
 metric inverse, for example
 $\yAg\i{_{\q\q}} \defd \yg\yA \equiv \tr_{23}(\yg\i{_{\q\q}} \otimes
 \yA\i{^{\q}_{\q}})$ from the mixed tensor $\yA\i{^{\q}_{\q}}$, and
-similarly for tensors of other types. Therefore
+similarly for tensors of other types. Therefore every lowering of a
+tensor's index multiplies its dimension by $\dim(\yg)$, and every rising
+divides it by $\dim(\yg)$:
 \begin{equation}
   \label{eq:raising_lowering}
   \begin{split}
@@ -2050,7 +2056,7 @@ similarly for tensors of other types. Therefore
 % the square root of the determinant of the %(positively ordered)
 % components $(g\i{_{ij}})$ of the metric:
 A metric tensor on a four-dimensional spacetime determines a unique twisted
-4-form, called the volume element
+4-covector field or 4-form, called the volume element
 \citep[\sect~V.24]{derham1955_t1984}[\sect~V.A.4]{choquetbruhatetal1977_r1996}[\sect~6.2]{abrahametal1983_r1988}.
 It can be seen as a completely antisymmetric tensor of rank 4 (whose
 coordinate transformation includes the sign of the Jacobian), with only one
@@ -2063,11 +2069,12 @@ components $(g\i{_{ij}})$ of the metric:
 \end{equation*}
 where
 $\dix[0]\land\dix[1]\land\dix[2]\land\dix[3]$ %the sequence $(x^{0},x^{1}, x^{2}, x^{3})$ must define a positive orientation.
-actually has a twisted orientation. From the results of
-\sect~\ref{sec:tensor_ops} it can be shown that the 4-form above has
-intrinsic dimension $\dim(\yg)^{2}$ (in an $n$-dimensional spacetime it has
-dimension $\dim(\yg)^{n/2}$). It's convenient to multiply it by a power of
-$c$, and to define the \emph{proper volume element}
+actually has a twisted orientation. Note a non-vanishing volume element can
+be defined on orientable and non-orientable manifolds alike. From the
+results of \sect~\ref{sec:tensor_ops} it can be shown that the 4-form above
+has intrinsic dimension $\dim(\yg)^{2}$ (in an $n$-dimensional spacetime it
+has dimension $\dim(\yg)^{n/2}$). It's convenient to multiply it by a power
+of $c$, and to define the \emph{proper volume element}
 $\ygv\i{_{\mul{\q\q\q\q}}}$ as follows:
 \begin{equation}
   \label{eq:volume_elem}
@@ -2090,39 +2097,38 @@ As a consequence we have
   \label{eq:dim_volume_elem}
   \dim\bigl(\ygv\i{_{\mul{\q\q\q\q}}}\bigr) = \Le^{3}\Ti
 \end{equation}
-independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$.
-This convention will be seen to have several advantages. Moreover, the
-hypervolume of a four-dimensional region is given by the integral of $\ygv$
-and has its same dimension (see \sect~\ref{sec:tensor_ops}); and a region
-of \emph{spacetime} should reasonably have dimension $\Li^{3}\Ti$.
+independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$. This
+convention has several advantages; it moreover implies that the hypervolume
+of a four-dimensional region, given by the integral of $\ygv$ (see
+\sect~\ref{sec:tensor_ops}), also has dimension $\Li^{3}\Ti$ -- which is a
+reasonable result for a \emph{spacetime} region.
 
 In general the metric $\yg$ induces volume, area, and line elements on
-three-, two-, and one-dimensional regions. It can be convenient to multiply
+three-, two-, and one-dimensional regions. It is convenient to multiply
 these elements by appropriate powers of $c$ so that the region's volume has
-intuitive dimensions; for example, $\Li^{3}$ for a spacelike
-three-dimensional region and $\Li^{2}\Ti$ for a timelike one. Indeed the
-definition of proper time~\eqref{eq:proper_time_c} is doing exactly this,
-including a factor $1/c$ in the induced line element on a timelike curve.
+intuitive dimensions; such as $\Li^{3}$ for a spacelike three-dimensional
+region and $\Li^{2}\Ti$ for a timelike one. Indeed the definition of proper
+time~\eqref{eq:proper_time_c} is doing exactly this, including a factor
+$1/c$ in the induced line element on a timelike curve.
 
 The proper volume element appears in the definition of the \emph{star
-  operator} on covectors or forms. The latter is obtained by first rising all
-indices of a covector and then taking its inner product with the proper
-volume element. For example, for a 2-covector or 2-form $\omega \equiv
-\omega\i{_{\q\q}}$,
+  operator} on covectors and forms. This operator acts by first rising all
+indices of a covector and then taking the generalized inner product (see
+\sect~\ref{sec:tensor_ops}) with the proper volume element. For example,
+for a 2-covector $\omega \equiv \omega\i{_{\q\q}}$,
 \begin{equation}
   \label{eq:star_op}
   *\omega \defd (\yg^{-1}\omega\yg^{-1})\ii\ygv \ .
 \end{equation}
 From this definition it is clear that the star operator's effect on the
-dimension depends on the degree of the form it operates on. (I personally
-prefer to avoid the star operator and explicitly use the inner product with
-the proper volume element \citep[\cf][\sects~4.1--2]{bossavit1991}.)
+dimension depends on the degree of the form it operates on \citep[I
+personally prefer to avoid the star operator and explicitly use the inner
+product with the proper volume element; \cf][\sects~4.1--2]{bossavit1991}.
 
-The \emph{inverse proper volume element} is the 4-vector field (completely
-antisymmetric contravariant tensor) $\ygv^{-1}$, with twisted orientation,
-having unit inner product \citep[Box 4.1, p. 92, item
-4]{misneretal1970_r1973}[see also][]{portamana2019e} with the proper volume
-element: $\ygv^{-1} \ii \ygv = 1$. Its intrinsic dimension is therefore
+The \emph{inverse proper volume element} is the 4-vector field $\ygv^{-1}$,
+with twisted orientation, having unit generalized inner product with the
+proper volume element: $\ygv^{-1} \ii \ygv = 1$. Its intrinsic dimension is
+therefore
 \begin{equation}
   \label{eq:dim_inv_volume_elem}
   \dim\bigl(\ygv^{-1}{}\i{^{\mul{\q\q\q\q}}}\bigr) =
@@ -2153,8 +2159,8 @@ the number of negative eigenvalues of the metric tensor.
 In a rectangular Cartesian coordinate system $(x^{0}, x^{1}, x^{2}, x^{3})$
 with dimensions $(\Ti,\Le,\Le,\Le)$, adapted to an inertial (freely
 falling) observer at a specific spacetime event, the components of the
-metric tensor $\yg$ and of the proper volume element $\ygv$ at that event
-are
+metric tensor $\yg$ with $\dim(\yg)=\Le^{2}$ and of the proper volume
+element $\ygv$ at that event are
 \begin{equation}
   \label{eq:inertial_components}
   (g\i{_{ij}}) =
@@ -2165,10 +2171,11 @@ are
     0\ \mathrm{ms^{-1}}& 0 & 0 & 1
   \end{pmatrix} \ ,
   \qquad
-  \gamma\i{_{0\,1\,2\,3}} = 1 \ ;
+  \gamma\i{_{0\,1\,2\,3}} = 1 \ .
 \end{equation}
-the units of the zero components are arbitrary of course, as long as they
-have dimension $\Le\Ti^{-1}$. Many authors use a metric with opposite sign.
+the units of the zero components above are arbitrary of course, as long as
+they have dimension $\Le\Ti^{-1}$. Many authors use a metric with opposite
+sign.
 
 
 \medskip
@@ -2233,10 +2240,12 @@ differential manifolds.
 
 The stress-energy-momentum tensor for a material continuum at a spacetime
 event embodies the energy density (including rest energy) $\en$, surface
-energy-flux density $\yq_{r}$, momentum density $\yp_{r}$, and stress
-(including convected momentum density) $\yt_{sr}$ of the material at that
-event; here the indices $r,s \in \set{x,y,z}$. These quantities are
-measured by an observer at that event, using a system of one timelike and
+energy-flux density $\yq_{r}$ (comprising convected energy density,
+heating, and working), momentum density $\yp_{r}$, and stress (including
+convected momentum density) $\yt_{sr}$ of the material at that event. Here
+the indices $r,s \in \set{x,y,z}$, and the vertical positions of the
+indices do \emph{not} denote any variance type. These quantities are
+measured by an observer at that event using a system of one timelike and
 three spacelike coordinates $(t,x,y,z)$. If these coordinates have
 dimensions $(\Ti,\Le,\Le,\Le)$, then the dimensions of the quantities above
 are
@@ -2250,22 +2259,19 @@ are
     \dim(\yp_{r}) &= \En\Le^{-4}\Ti \equiv \Ma\Le^{-2}\Ti^{-1} \ ,
     &
     % \label{eq:dim_stress}
-    \dim(\yt_{rs}) &= \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
+    \dim(\yt_{rs}) &= \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ .
   \end{aligned}
 \end{equation}
-where the vertical positions of the indices do \emph{not} denote any
-variance type.
 
 Suppose we want to construct a spacetime tensor containing these 16
 quantities as components. What should the variance type and the intrinsic
 dimension of such a tensor be?
 
 Since we have 16 components, this tensor could belong to the tensor product
-of two spaces, each spanned by four basis elements. There are four such
-spaces: vectors, covectors, 3-vectors\footnote{completely antisymmetric
-  contravariant tensors of rank 3.}, and 3-covectors\footnote{completely
-  antisymmetric covariant tensors of rank 3.}. Let's use shorthands such as
-$\de_{tzy} \defd \de_{t} \land \de_{z} \land \de_{y}$ and
+of two tangent spaces, each spanned by four basis elements. There are four
+such spaces: vectors, covectors, 3-vectors (completely antisymmetric
+contravariant tensors of rank 3), and 3-covectors. Let's use shorthands
+such as $\de_{tzy} \defd \de_{t} \land \de_{z} \land \de_{y}$ and
 $\di tzy \defd \di t \land \di z \land \di y$. These four spaces then have
 the following coordinate-induced bases and corresponding dimensions:
 \begin{subequations}\label{eq:bases}

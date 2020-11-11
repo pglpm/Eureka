@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-09T20:52:18+0100
+%% Last-Updated: 2020-11-11T16:29:15+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -103,7 +103,8 @@ british%
 
 \usepackage[autostyle=false,autopunct=false,english=british]{csquotes}
 \setquotestyle{american}
-\newcommand*{\defquote}[1]{`\,#1\,'}
+\newcommand*{\defquote}[1]{`#1'}
+\newcommand*{\mathquote}[1]{`\,#1\,'}
 
 \usepackage{amsthm}
 \newcommand*{\QED}{\textsc{q.e.d.}}
@@ -693,8 +694,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yBg}{\overline{\yB}}
 \newcommand*{\yg}{\mathte{g}}
 \newcommand*{\ygc}{\mathte{g}}
-\newcommand*{\yT}{\mathte{T}}
-\newcommand*{\yTe}{\Bar{\mathte{T}}}
+\newcommand*{\yT}{\bm{\mathcal{T}}}
+\newcommand*{\yTe}{\mathte{T}}
 \newcommand*{\yG}{\mathte{G}}
 %\newcommand*{\yR}{\mathte{R}}
 \newcommand*{\yR}{\mathte{Rie}}
@@ -802,15 +803,15 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 
 From the point of view of dimensional analysis, do all components of a
 tensor need to have the same dimension? What happens to these components if
-we choose coordinates that don't have dimensions of length or time? And if
-the components of a tensor have different dimensions, then does it make
+we choose coordinates that don't all have dimensions of length or time? And
+if the components of a tensor have different dimensions, then does it make
 sense to speak of \enquote{the dimension of the tensor}? What are the
 dimensions of the metric and of the curvature tensors? What is the
 dimension of the constant in the Einstein equations?
 
-A sense of insecurity often gets hold of many students (and possibly of
-some researchers) in relativity, when they have to discuss and answer
-this kind of questions. % the dimensions
+A sense of insecurity gets hold of many students (and possibly of some
+researchers) in relativity, when they have to discuss and answer this kind
+of questions. % the dimensions
 % of tensors and of tensor components, the effect of tensor operators on
 % dimensions, and the dimensions of constants in differential-geometric and
 % field equations.
@@ -818,9 +819,10 @@ This is evident in many question \amp\ answer websites and wiki pages,
 where several incorrect or unfounded statements about dimensional analysis
 in relativity are in circulation. (For the record, the answers to the
 questions above are: No -- See \eqn~\eqref{eq:dim_component_generic} below
--- Yes -- They are dimensionless -- Either $\Ma^{-1}\Le$ or
-$\Ma^{-1}\Le^{-1}\Ti^{2}$, depending on the dimension you assign the metric
-tensor, see \sects~\ref{sec:metric}--\ref{sec:einstein_eq}.)
+-- Yes -- They are dimensionless -- $\Ma^{-1}\Le^{-1}\Ti^{2}$, or
+$\Ma^{-1}\Le$, or $\Ma^{-1}\Le^{3}\Ti^{-2}$, depending on the dimensions
+you assign to the metric and stress-energy-momentum tensors, see
+\sects~\ref{sec:metric}--\ref{sec:einstein_eq}.)
 % For example, the notion that the components
 % of a tensor or the coordinate functions should all have the same dimension.
 % As we'll see shortly, this notion is false.
@@ -831,19 +833,16 @@ They say that, for finding the dimension of some constant in a tensorial
 equation, it's sufficient to compare the dimensions of the terms in the
 equation. But the application of this procedure is sometimes not so
 immediate, because some tensors don't have universally agreed dimensions --
-prime example the metric tensor. Older texts often use four coordinates
-with dimension of length, and base their dimensional analyses on that
-specific choice. They even multiply\citep[\eg][p.~71
-\eqn~(37.1)]{tolman1934_t1949}[p.~80
-\eqn~(32.15)]{landauetal1939_t1996}[p.~332
-\eqn~(10.15)]{adleretal1965_r1975}[\sect~5.7]{penfieldetal1967}[for
-exception see \eg][\sect~F.III.280]{truesdelletal1960}[\sect~X]{kitano2013} \mynote{mcvittie}
-tensorial components having dimension of time by powers of $c$. Such common
-practices therefore give students the impression that coordinates ought to
-always be lengths, and that all components of a tensor ought to have the
-same dimension. Yet, students cannot find such rules explicitly stated
-anywhere. We'll see shortly that no such rules in fact exist, nor are they
-necessary.
+prime example the metric tensor. Many texts use four coordinates with
+dimension of length, and base their dimensional analyses on that specific
+choice \citep[\eg][p.~71 \eqn~(37.1)]{tolman1934_t1949}[p.~80
+\eqn~(32.15)]{landauetal1939_t1996}[for exceptions with coordinates with mixed dimensions see \eg][\sect~V.55]{fock1955_t1964}[\sect~4.1]{mcvittie1956_r1965}[\sect~VII.1]{fokker1960_t1965}[\sect~F.III.280]{truesdelletal1960}[\sect~X]{kitano2013},%[p.~332 \eqn~(10.15)]{adleretal1965_r1975}[\sect~5.7]{penfieldetal1967}
+multiplying timelike tensorial components by appropriate powers of $c$.
+Such common practices can therefore give students the impression that
+coordinates ought to always be lengths, and that all components of a tensor
+ought to have the same dimension. Yet, students cannot find such rules
+explicitly stated anywhere. We'll see shortly that no such rules in fact
+exist, nor are they necessary.
 
 \medskip
 
@@ -855,9 +854,9 @@ exhaustive guide to it.
 % summed they must have the same dimension; that the dimension of a product
 % is the product of the dimensions; and so on.
 Some important dimensional-analysis questions in general relativity are
-also consistently settled in this note; for example the dimension of the
-Riemann curvature tensor, or the effect of the covariant or Lie derivatives
-on dimensions.
+also consistently settled here; for example the dimension of the Riemann
+curvature tensor, or the effect of the covariant or Lie derivatives on
+dimensions.
 
 The application of dimensional analysis in relativity is most
 straightforward and self-evident if we rely on the coordinate-free or
@@ -883,24 +882,22 @@ Here is a synopsis of the rest of this note. A brief reminder of the
 intrinsic approach to differential geometry, with references, is given in
 the next section, together with some special notation necessary to our
 discussion. Section~\ref{sec:2d_example} gives a simple example of
-dimensional analysis in a two-dimensional spacetime; I believe that this
-example will actually be enough for most readers to get the basic way of
-reasoning; such readers can work out the rest for themselves whenever they
-need and don't need to read the rest of this note.
-Sections~\ref{sec:coords}--\ref{sec:curves} offer a more systematic
-discussion and a synopsis of dimensional analysis for the main tensorial
-operations. The notion of intrinsic dimension is explained in
-\sect~\ref{sec:tensors}. The intrinsic dimensions of the various curvature
+dimensional analysis in a two-dimensional spacetime. This example might be
+enough for most readers to get the basic way of reasoning; such readers can
+work out the rest for themselves whenever they need and don't need to read
+the rest of this note. Sections~\ref{sec:coords}--\ref{sec:curves} offer a
+more systematic discussion and a synopsis of dimensional analysis for the
+main tensorial operations. The notion of intrinsic dimension is explained
+in \sect~\ref{sec:tensors}. The intrinsic dimensions of various curvature
 tensors, of the metric tensor, and of the stress-energy-momentum tensor are
-separately discussed in
-\sects~\ref{sec:connection}--\ref{sec:stressenergy}. The (contravariant and
-thrice covariant) Riemann and (fully covariant) Ricci tensors, in
-particular, are found to have intrinsic dimension $\Un$, that is, to be
-dimensionless. The operational motivation of the two standard choices for
-the dimension of the metric tensor are also discussed. The dimension of the
-constant in the Einstein equations is finally derived in
+discussed in \sects~\ref{sec:connection}--\ref{sec:stressenergy}. The
+contravariant and thrice covariant Riemann, fully covariant Ricci, and
+fully covariant Einstein curvature tensors, in particular, are found to
+have intrinsic dimension $\Un$, that is, to be dimensionless. The
+operational motivation of several standard choices for the dimensions of
+the metric and the stress-energy-momentum tensors are also discussed. The
+dimension of the constant in the Einstein equations is finally derived in
 \sect~\ref{sec:einstein_eq}.
-
 
 This note obviously assumes familiarity with basic tensor calculus and
 related notions, for example of co- and contra-variance, tensor product,
@@ -945,17 +942,17 @@ are given in the summary of \sect~\ref{sec:summary}.
 
 
 From the intrinsic point of view, a tensor is defined by its geometric
-properties. For example, a vector $\yv$ % \equiv \yv(\dotv)
+properties. For example, a vector field $\yv$ % \equiv \yv(\dotv)
 is an object that operates on functions defined on the (spacetime)
 manifold, yielding new functions, with the properties
 $\yv(af+bg)=a\yv(f)+b\yv(g)$ and $\yv(fg)=\yv(f)g+f\yv(g)$ for all
-functions $f$, $g$ and reals $a$, $b$. A covector $\yom$ is an object that
-operates on vector fields, yielding functions, with the property
-$\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for all vector fields $\yu$, $\yv$
-and functions $f$, $g$. The sum of vector or covector fields (the latter
-also called 1-forms), and their products by functions are defined in an
-obvious way. Tensors are constructed from these objects; see also the end
-of this section for a slightly different point of view.
+functions $f$, $g$ and reals $a$, $b$. A covector field (also called
+1-form) $\yom$ is an object that operates on vector fields, yielding
+functions, with the property $\yom(f\yu+g\yv)=f\yom(\yu)+g\yom(\yv)$ for
+all vector fields $\yu$, $\yv$ and functions $f$, $g$. The sum of vector or
+covector fields and their products by functions are defined in an obvious
+way. Tensors are constructed from these objects; see also the end of this
+section for a slightly different point of view.
 
 A system of coordinates $(x^{i})$ is just a set of linearly independent
 functions. This set gives rise to a set of vectors fields
@@ -968,16 +965,16 @@ vector field $\yv$ can thus be written as
   \label{eq:vector_intrinsic}
   \yv \equiv \sum_{i}v^{i}\dex \equiv v^{i}\dex \ ,
 \end{equation}
-where the \emph{functions} $v^{i}\defd \yv(x^{i})$ are its components with
-respect to the basis $\bigl(\dex\bigr)$. Analogously for a covector field.
+where the functions $v^{i}\defd \dix(\yv)$ are its components with respect
+to the basis $\bigl(\dex\bigr)$. Analogously for a covector field.
 
 \medskip
 
 For the presentation of the intrinsic view I recommend the excellent texts
 by Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}, Boothby
 \citey{boothby1975_r2003}, Abraham \etal\ \citey{abrahametal1983_r1988},
- and more on the
-general-relativity side Misner \etal\
+Burke \citey{burke1985_r1987}, Bossavit \citey{bossavit1991}, and more on
+the general-relativity side Misner \etal\
 \citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
 \citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \amp\ Rindler
 \citey[\chap~4]{penroseetal1984_r2003}. \textcolor{white}{If you find this
@@ -988,9 +985,9 @@ general-relativity side Misner \etal\
 For the notation in dimensional analysis I use \textsc{iso}
 conventions:\citep[\sect~5]{iso2009} $\dim(\yA)$ is the dimension of the
 quantity $\yA$, and among the base quantities are mass $\Ma$, length $\Le$,
-time $\Ti$, temperature $\Te$, electric current $\Cu$. Note that I don't
-discuss units -- it doesn't matter here whether the unit for length is the
-metre or the centimetre, for example.
+time $\Ti$, temperature $\Te$, electric current $\Cu$, and the
+dimensionless $\Un$. Note that I don't discuss units -- it doesn't matter
+here whether the unit for length is the metre or the foot, for example.
 
 Throughout this note $c$ denotes the speed of light, with
 $\dim(c) = \Le\Ti^{-1}$. Its numerical quantity value $\set{c}$ depends on
@@ -998,27 +995,27 @@ the chosen units of length and time.
 
 The number, ordering, and symmetries of a tensor's covariant and
 contravariant \enquote{slots} \citep[\sect~3.2]{misneretal1970_r1973} will
-often be important in our discussion. The traditional coordinate-free
-notation \defquote{$\yA$} omits this information. We thus need a
-coordinate-free notation that makes it explicit. Penrose \amp\ Rindler
+be important in our discussion. The traditional coordinate-free notation
+\mathquote{$\yA$} omits this information. We thus need a coordinate-free
+notation that makes it explicit when needed. Penrose \amp\ Rindler
 \citep[\sect~2.2]{penroseetal1984_r2003} propose an abstract-index notation
-where \defquote{$A\i{_{i}^{jk}}$}, for example, denotes a tensor covariant
+where \mathquote{$A\i{_{i}^{jk}}$}, for example, denotes a tensor covariant
 in its first slot and contravariant in its second and third slots. Every
 index in this notation is \enquote{a \emph{label} whose sole purpose is to
   keep track of the type of tensor under
   discussion}~\citep[p.~75]{penroseetal1984_r2003}. So this notation
 doesn't stand for the set of \emph{components} of the tensor. For the
 latter set, Penrose \amp\ Rindler use \textbf{bold} indices instead:
-\defquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. But in our discussion the
+\mathquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. But in our discussion the
 difference between a tensor and its set of components is crucial, and
 Penrose \amp\ Rindler's abstract-index notation unfortunately lends itself
 to conceptual and typographic misunderstanding.
 
 I shall therefore use a notation such as $\yA\i{_{\q}^{\q\q}}$ to indicate
 that $\yA$ is covariant in its first slot and contravariant in its second
-and third slots. Its components would thus be $(A\i{_{i}^{jk}})$. For
-brevity I'll call this a \defquote{co-contra-contra-variant} tensor, with
-an obvious naming generalization for other tensor
+and third slots. Its components would thus be $\bigl(A\i{_{i}^{jk}}\bigr)$.
+For brevity I'll call this a \defquote{co-contra-contra-variant} tensor,
+with an obvious naming generalization for other tensor
 types. % In spirit this notation is similar to the
 % abstract-index one of Penrose \amp\ Rindler
 % \citep[\sect~2.2]{penroseetal1984_r2003}; but I avoid using letters for the
@@ -1130,8 +1127,9 @@ you won't find the notation above too uncomfortable.
 
 It is possible to build the tensor-product architecture not on vectors and
 covectors, but on multi-vectors and multi-covectors, with their straight
-and twisted (also called \defquote{odd} %\citep{derham1955_t1984}
-or \defquote{axial}% \citep{truesdelletal1960}
+and twisted (also called \defquote{even} and
+\defquote{odd}, %\citep{derham1955_t1984}
+or \defquote{polar} and \defquote{axial}% \citep{truesdelletal1960}
 ) orientations. This elegant and powerful geometric point of view leads to
 deeper physical insight and is gaining popularity in the literature. For
 its presentation I recommend the texts of Bossavit \citey[especially
@@ -1141,7 +1139,7 @@ its presentation I recommend the texts of Bossavit \citey[especially
 Deschamps \citey{deschamps1970,deschamps1981} and Lindell
 \citey{lindell2004}.
 
-In the notation above, the bars identify $k$-vectors and -covectors for
+In the notation above, the bars identify $k$-vectors and $k$-covectors for
 $k>1$. Thus $\yA\i{^{\q}_{\mul{\q\q}}}$ indicates that $\yA$ belongs to the
 tensor product of 1-vectors and 2-covectors; it's also called a
 1-vector-valued 2-covector. To avoid burdening the notation I won't add
@@ -1220,12 +1218,13 @@ this region. Using the basis fields above it can be written as
   A\i{^{y}_{x}}\,\frac{\de}{\de y} \otimes\di x + 
   A\i{^{y}_{y}}\,\frac{\de}{\de y} \otimes\di y \ ,
 \end{equation}
-where $A\i{^{x}_{x}} \defd \yA\bigl(\di x, \frac{\de}{\de x}\bigr)$ and so
-on are the components of the tensor in the coordinate system $(x, y)$.
+where $A\i{^{x}_{x}} \defd \yA\bigl(\di x, \frac{\de}{\de x}\bigr)$,
+$A\i{^{x}_{y}} \defd \yA\bigl(\di x, \frac{\de}{\de y}\bigr)$, and so on,
+are the components of the tensor in the coordinate system $(x, y)$.
 
 By the rules of dimensional analysis, the two sides of the expansion above
 must have the same dimension. The same holds for the four summands on the
-right side. Denoting $\Aa \defd \dim(\yA)$, we thus have the four equations
+right side. Denoting $\Aa \defd \dim(\yA)$, we thus find the four equations
 \begin{equation*}
   \label{eq:four_dims_2d_pre}
   \begin{aligned}
@@ -1258,12 +1257,12 @@ detail in \sect~\ref{sec:tensors}. The intrinsic dimension $\Aa$ is
 determined by the physical and operational meaning of the tensor; see
 \sects~\ref{sec:metric}, \ref{sec:stressenergy} for concrete examples.
 Together with the dimensions of the coordinates it determines the
-dimensions of the components, \eqn~\eqref{eq:four_dims_2d}, which need not
+dimensions of the components, \eqns~\eqref{eq:four_dims_2d}, which need not
 be all equal.
 
 This simple example should have disclosed the main points of dimensional
 analysis on manifolds, which will now be discussed in more generality. In
-the derivation above we silently adopted a couple of natural conventions;
+the derivation above we silently adopted a couple of natural conventions:
 for example, that the tensor product behaves similarly to multiplication
 with regard to dimensions. Such conventions are briefly discussed in
 \sect~\ref{sec:summary}.
@@ -1272,10 +1271,10 @@ with regard to dimensions. Such conventions are briefly discussed in
 \section{Coordinates}
 \label{sec:coords}
 
-From a physical point of view, a coordinate is just a function that
+From a physical point of view a coordinate is just a function that
 associates values of some physical quantity with the events in a region
 (the domain of the coordinate chart) of spacetime. Together with the other
-coordinates, such function allows us to uniquely identify every event
+coordinates such function allows us to uniquely identify every event
 within that region. Any physical quantity will do: the distance from
 something, the time elapsed since something, an angle, an energy density,
 the strength of a magnetic flux, a temperature, and so on. A coordinate can
@@ -1284,10 +1283,10 @@ $\Te$, magnetic flux $\Fl \defd \Ma\Le^{2}\Ti^{-2}\Cu^{-1}$, and so on.
 
 The functional relation between two sets of coordinates must of course be
 dimensionally consistent. For example, if $\dim(x^{0})=\Ti$ and
-$\dim(x^{1})=\Le$, and we introduce a coordinate $\xi(x^{0},x^{1})$ with
-dimension $\Un$, additive in the previous two, then we must have
-$\xi = a x^{0} + b x^{1}$ with $\dim(a) = \Ti^{-1}$ and
-$\dim(b) = \Le^{-1}$.
+$\dim(x^{1})=\Le$, and we introduce a new coordinate $\xi(x^{0},x^{1})$
+with dimension $\Fl$, additive in the previous two, then we must have
+$\xi = a x^{0} + b x^{1}$ with $\dim(a) = \Fl\Ti^{-1}$ and
+$\dim(b) = \Fl\Le^{-1}$.
 
 %The dimensions of the coordinates don't matter, as we'll now see.
 
@@ -1371,8 +1370,7 @@ The generalization of the formula above to tensors of other types is obvious:
 %   \end{pmatrix}.
 % \end{equation}
 Clearly the components can have different dimensions
-\citep[see][\sect~VII.1 p.~88 for an example of metric tensor with
-components having different dimensions.]{fokker1960_t1965}. But this isn't
+\citep[\cf\ the discussion in][\sect~IV.5 p.~179]{synge1960b}. But this isn't
 an issue. What matters is that the sum~\eqref{eq:expansion_tensor} be
 dimensionally consistent.
 
@@ -1399,6 +1397,9 @@ name \defquote{absolute dimension}. I find the adjective
 \defquote{intrinsic} more congruous to modern terminology and less prone to
 suggest spurious connections with absolute values.
 
+In the following I'll drop the adjective \defquote{intrinsic} when it is
+clear from the context.
+
 
 
 \medskip
@@ -1422,10 +1423,6 @@ with the general formula~\eqref{eq:dim_component_generic}. % (You may have notic
 % expression; that's on purpose but I won't dwell on the reason here, because
 % it doesn't affect our discussion.)
 
-\smallskip
-
-In the following I'll drop the adjective \defquote{intrinsic} when it is
-clear from the context.
 
 \medskip
 
@@ -1433,17 +1430,22 @@ If in \eqn~\eqref{eq:coords_change}, relating intrinsic and component
 dimensions, we have $\Xx_{1}=\Xx_{2}= \dotso =\Xx$, then all components
 also have equal dimensions. So \emph{if we use a system of coordinates
   having equal dimensions, the components of any tensor must also have
-  equal dimensions}. This justifies the common practice in the literature.
+  equal dimensions}. This justifies common practice in the literature.
 
 Choosing coordinates of different dimensions, however, has several
 advantages. First, it allows us to use dimensional analysis as a heuristic
 tool to determine the variance type of a tensor; we'll see an example in
 \sect~\ref{sec:stressenergy}. Second, it can lead to components with
 familiar dimensions. For example, if we use a timelike coordinate of
-dimension $\Ti$ and spacelike coordinates of dimension $\Le$ (without $c$
-factors), then the timelike and spacelike components of the charge-current
-form have dimensions $\Cu\Le^{-3}\Ti$ and $\Cu\Le^{-2}$ -- the familiar
-charge density and surface current density.
+dimension $\Ti$ and spacelike coordinates of dimension $\Le$, then the
+components of the (co-contra-variant) stress-energy-momentum tensor have
+the familiar dimensions of energy density, surface energy-flux density,
+momentum density, and pressure, with no $c$ factors involved; see again
+\sect~\ref{sec:stressenergy}.
+
+% the timelike and spacelike components of the charge-current
+% form have dimensions $\Cu\Le^{-3}\Ti$ and $\Cu\Le^{-2}$ -- the familiar
+% charge density and surface current density.
 
 
 \section{Tensor operations}
@@ -1913,16 +1915,14 @@ works:
   \ds^{2} = c^2\mathit{dt}^2 - \mathit{dx}^2 -\mathit{dy}^2 - \mathit{dz}^2
   \ ,
 \end{equation}
-possibly with opposite signature; for an exception with dimension $\Ti^{2}$
-see Kilmister \citep[\chap~II p.~25]{kilmister1973}{kilmister1973}. If the
-coordinates $(t,x,y,z)$ have the dimensions suggested by their symbols,
-this formula has dimension $\Le^{2}$, so that if we interpret
-\enquote{$\ds^{2}$} as $\ygc$ we find $\dim(\ygc) = \Le^{2}$. The
-line-element expression above often has an ambiguous differential-geometric
-meaning, however, because it may also represent the metric applied to some
-\emph{unspecified} vector, that is, $\yg(\yv,\yv)$, where $\yv$ is left
-unspecified \citep[\cf][Box~3.2~D p.~77]{misneretal1970_r1973}. In this
-case we have
+possibly with opposite sign. If the coordinates $(t,x,y,z)$ have the
+dimensions suggested by their symbols, this formula has dimension
+$\Le^{2}$, so that if we interpret \enquote{$\ds^{2}$} as $\ygc$ we find
+$\dim(\ygc) = \Le^{2}$. The line-element expression above often has an
+ambiguous differential-geometric meaning, however, because it may also
+represent the metric applied to some \emph{unspecified} vector, that is,
+$\yg(\yv,\yv)$, where $\yv$ is left unspecified \citep[\cf][Box~3.2~D
+p.~77]{misneretal1970_r1973}. In this case we have
 \begin{equation*}
   \label{eq:line_elem_dim_ambiguous}
   \Le^{2} = \dim(\yg)\,\dim(\yv)^{2}
@@ -1957,22 +1957,25 @@ constant. Its measurement, however, is more involved than in the timelike
 case. It requires dividing the curve into very short pieces, and having
 specially-chosen observers (orthogonal to the pieces) measure each piece.
 But the measurement of each piece actually relies on the measurement of
-\emph{proper time}: each observer uses radar distance
-\citep[\chap~2]{frankel1979}[\sect~84]{landauetal1939_t1996}, sending a
-lightlike signal which bounces back at the end of the piece, and measuring
-the time it takes to come back. Even if rigid rods are used, their
-calibration still relies on a measurement of time -- this is also reflected
-in the current definition of the standard metre
-\citep[p.~98]{bipm1983}[p.~25]{giacomo1984}.
+\emph{proper time}
+\citep[\chap~2]{frankel1979}[\sect~84]{landauetal1939_t1996}: each observer
+uses radar distance, sending a lightlike signal which bounces back at the
+end of the piece, and measuring the time it takes to come back. Even if
+rigid rods are used, their calibration still relies on a measurement of
+time -- this is also reflected in the current definition of the standard
+metre \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}. McVittie, Synge,
+Kilmister
+\citep[\sect~4.1]{mcvittie1956_r1965}[\sect~IV.5]{synge1960b}[\chap~II
+p.~25]{kilmister1973} choose $\dim(\yg)=\Ti^{2}$.
 
 The first choice, $\dim(\yg) = \Le^{2}$, seems by far the most common,
 however. It has the merit that the projection of the metric onto a
 spacelike hypersurface also has dimension $\Le^{2}$, which is sensible from
 a Newtonian point of view; and such projections are at the heart of the
 $3+1$ formulations of general relativity
-\citep{gourgoulhon2007_r2012,alcubierre2008}[\chap~21. I thank I. Bengtsson
+\citep{gourgoulhon2007_r2012,alcubierre2008}[\chap~21. I thank I.~Bengtsson
 for this remark]{misneretal1970_r1973}.
-
+\mynote{add refs to Wilson etc from commented text below}
 
 In the following we shall see how these choices affect some dimensional
 results. % Another merit is that the norm of a 4-velocity -- and therefore
@@ -2056,12 +2059,12 @@ components $(g\i{_{ij}})$ of the metric:
 \end{equation*}
 where
 $\dix[0]\land\dix[1]\land\dix[2]\land\dix[3]$ %the sequence $(x^{0},x^{1}, x^{2}, x^{3})$ must define a positive orientation.
-actually has a twisted orientation. Note a non-vanishing volume element can
-be defined on orientable and non-orientable manifolds alike. From the
-results of \sect~\ref{sec:tensor_ops} it can be shown that the 4-form above
-has intrinsic dimension $\dim(\yg)^{2}$ (in an $n$-dimensional spacetime it
-has dimension $\dim(\yg)^{n/2}$). It's convenient to multiply it by a power
-of $c$, and to define the \emph{proper volume element}
+actually has a twisted orientation. Note that a non-vanishing volume
+element can be defined on orientable and non-orientable manifolds alike.
+From the results of \sect~\ref{sec:tensor_ops} it can be shown that the
+4-form above has intrinsic dimension $\dim(\yg)^{2}$ (in an $n$-dimensional
+spacetime it has dimension $\dim(\yg)^{n/2}$). It's convenient to multiply
+it by a power of $c$, and to define the \emph{proper volume element}
 $\ygv\i{_{\mul{\q\q\q\q}}}$ as follows:
 \begin{equation}
   \label{eq:volume_elem}
@@ -2085,8 +2088,8 @@ As a consequence we have
   \dim\bigl(\ygv\i{_{\mul{\q\q\q\q}}}\bigr) = \Le^{3}\Ti
 \end{equation}
 independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$. This
-convention has several advantages; it moreover implies that the hypervolume
-of a four-dimensional region, given by the integral of $\ygv$ (see
+convention has several advantages, and implies that the hypervolume of a
+four-dimensional region, given by the integral of $\ygv$ (see
 \sect~\ref{sec:tensor_ops}), also has dimension $\Li^{3}\Ti$ -- which is a
 reasonable result for a \emph{spacetime} region.
 
@@ -2143,26 +2146,44 @@ the number of negative eigenvalues of the metric tensor.
 % orthonormal vector fields, not only positively-oriented ones: it is an
 % inner-oriented 4-form, canonically determined only by the metric.
 
-In a rectangular Cartesian coordinate system $(x^{0}, x^{1}, x^{2}, x^{3})$
-with dimensions $(\Ti,\Le,\Le,\Le)$, adapted to an inertial (freely
-falling) observer at a specific spacetime event, the components of the
-metric tensor $\yg$ with $\dim(\yg)=\Le^{2}$ and of the proper volume
-element $\ygv$ at that event are
-\begin{equation}
-  \label{eq:inertial_components}
-  (g\i{_{ij}}) =
-  \begin{pmatrix}
-    -c^{2} &0\ \mathrm{ms^{-1}}&0\ \mathrm{ms^{-1}}&0\ \mathrm{ms^{-1}}\\
-    0\ \mathrm{ms^{-1}}& 1 & 0 & 0\\
-    0\ \mathrm{ms^{-1}}& 0 & 1 & 0\\
-    0\ \mathrm{ms^{-1}}& 0 & 0 & 1
-  \end{pmatrix} \ ,
+For the case $\dim(\yg)=\Le^{2}$, here is a summary of the components of
+the metric tensor $\yg$ and of the proper volume element $\ygv$, in a
+rectangular Cartesian coordinate system adapted to an inertial (freely
+falling) observer at a specific spacetime event. For coordinate with
+different dimensions:
+\begin{align}
+  \label{eq:inertial_components_dimcase}
+  &\begin{aligned}
+    &\dim(t,x,y,z) = (\Ti,\Le,\Le,\Le) \ ,
+    \\
+  &(g\i{_{ij}}) =
+  \begin{psmallmatrix}
+    -c^{2} &0\ \mathrm{m\ s^{-1}}&0\ \mathrm{m\ s^{-1}}&0\ \mathrm{m\ s^{-1}}\\
+    0\ \mathrm{m\ s^{-1}}& 1 & 0 & 0\\
+    0\ \mathrm{m\ s^{-1}}& 0 & 1 & 0\\
+    0\ \mathrm{m\ s^{-1}}& 0 & 0 & 1
+  \end{psmallmatrix} \ ,
   \qquad
-  \gamma\i{_{0\,1\,2\,3}} = 1 \ .
-\end{equation}
-the units of the zero components above are arbitrary of course, as long as
-they have dimension $\Le\Ti^{-1}$. Many authors use a metric with opposite
-sign.
+  \gamma\i{_{t\,x\,y\,z}} = 1 \ ,
+  \end{aligned}
+  \\
+  \intertext{where the units of the zero timelike components above are arbitrary of  course, as long as they have dimension $\Le\Ti^{-1}$. For coordinates with equal dimensions:}
+\label{eq:inertial_components_Lcase}
+  &\begin{aligned}
+    &\dim(x^{0}, x^{1}, x^{2}, x^{3}) = (\Le,\Le,\Le,\Le) \ ,
+    \\
+  &(g\i{_{ij}}) =
+  \begin{psmallmatrix}
+    -1 &0&0&0\\
+    0& 1 & 0 & 0\\
+    0& 0 & 1 & 0\\
+    0& 0 & 0 & 1
+  \end{psmallmatrix} \ ,
+  \qquad
+  \gamma\i{_{0\,1\,2\,3}} = \frac{1}{c} \ .
+\end{aligned}
+\end{align}
+Many authors use a metric tensor with opposite sign.
 
 
 \medskip
@@ -2180,7 +2201,7 @@ obtained from the metric by the formulae
   \biggl(\dex[k]g_{jl} + \dex[j]g_{kl} - \dex[l]g_{jk}\biggr)\,g^{li} \ ,
 \end{equation}
 and it's easily verified that the dimensions of these coefficients given in
-\eqn~\eqref{eq:dim_christoffel} still hold, as do The results for the
+\eqn~\eqref{eq:dim_christoffel} still hold, as do the results for the
 curvature tensors~\eqref{eq:dim_torsion_riemann_ricci}.
 
 \medskip
@@ -2219,43 +2240,48 @@ that is, \emph{the twice covariant Einstein tensor is dimensionless,
 \section{Stress-energy-momentum tensor and four-momentum}
 \label{sec:stressenergy}
 
-The operational meaning of the stress-energy-momentum tensor is still
-surrounded by some mystery and will be briefly discussed later. Let's first
-try to find the dimension of this tensor with a heuristic approach, which
-also shows the usefulness of intrinsic dimensional analysis on differential
-manifolds.
+Also in the case of the stress-energy-momentum tensor the literature offers
+two main choices of intrinsic dimension, independent of the choices for the
+metric tensor discussed in the previous section. Moreover, there seems to
+be no consensus yet on what the primitive variance type of the
+stress-energy-momentum tensor should be: its operational meaning is still
+surrounded by some mystery.
+
+Let's try to find its dimension and variance type through a heuristic
+approach, which also shows the usefulness of intrinsic dimensional analysis
+on differential manifolds.
 
 The stress-energy-momentum tensor for a material continuum at a spacetime
-event embodies the energy density (including rest energy) $\en$, surface
-energy-flux density $\yq_{r}$ (comprising convected energy density,
-heating, and working), momentum density $\yp_{r}$, and stress (including
-convected momentum density) $\yt_{sr}$ of the material at that event. Here
-the indices $r,s \in \set{x,y,z}$, and the vertical positions of the
-indices do \emph{not} denote any variance type. These quantities are
-measured by an inertial observer at that event using a system of one
-timelike and three spacelike coordinates $(t,x,y,z)$. If these coordinates
-have dimensions $(\Ti,\Le,\Le,\Le)$, then the dimensions of the quantities
-above are
+event embodies the energy density (comprising rest energy, internal energy,
+kinetic energy) $\en$, surface energy-flux density $\yq_{r}$ (comprising
+convected energy density, heating, and working), momentum density
+$\yp_{r}$, and stress (including convected momentum density) $\yt_{sr}$ of
+the material at that event. Here the indices $r,s \in \set{x,y,z}$, and the
+vertical positions of the indices do \emph{not} denote any variance type.
+These quantities are measured by an inertial observer at that event using a
+system of one timelike and three spacelike coordinates $(t,x,y,z)$. If
+these coordinates have dimensions $(\Ti,\Le,\Le,\Le)$, then the dimensions
+of the quantities above are
 \begin{equation}\label{eq:dims_stress_components}
   \begin{aligned}
-    \dim(\en) &= \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
+    \dim(\en) &=\Ma\Le^{-1}\Ti^{-2} \equiv  \En\Le^{-3} \ ,
     &
     % \label{eq:dim_yq}
-    \dim(\yq_{r}) &= \En\Le^{-2}\Ti^{-1} \equiv \Ma\Ti^{-3} \ ,
+    \dim(\yq_{r}) &=\Ma\Ti^{-3} \equiv  \En\Le^{-2}\Ti^{-1} \ ,
     \\
-    \dim(\yp_{r}) &= \En\Le^{-4}\Ti \equiv \Ma\Le^{-2}\Ti^{-1} \ ,
+    \dim(\yp_{r}) &=\Ma\Le^{-2}\Ti^{-1} \equiv  \En\Le^{-4}\Ti \ ,
     &
     % \label{eq:dim_stress}
-    \dim(\yt_{rs}) &= \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ .
+    \dim(\yt_{rs}) &=\Ma\Le^{-1}\Ti^{-2} \equiv  \En\Le^{-3} \ .
   \end{aligned}
 \end{equation}
 
-Suppose we want to construct a spacetime tensor containing these 16
-independent quantities as components (I'm not assuming a priori the
-symmetry of this tensor: it can be seen as a consequence of the Einstein
-equations, and it only needs to hold for the sum of the
-stress-energy-momentum tensors from all kinds of matter). What should the
-variance type and the intrinsic dimension of such a tensor be?
+Suppose we want to construct a spacetime tensor $\yT$ having these 16
+independent quantities as components. What should the variance type and the
+intrinsic dimension of such a tensor be? I won't assume the symmetry of
+this tensor as an a-priori kinematic property, but leave it as a dynamical
+law enforced by the Einstein equations; it only needs to hold for the sum
+of the stress-energy-momentum tensors from all kinds of matter.
 
 Since we have 16 components, this tensor should belong to the tensor
 product of two tangent spaces, each spanned by four basis elements. There
@@ -2280,11 +2306,11 @@ the following coordinate-induced bases and corresponding dimensions:
     \\
     \label{eq:base_tricovec}
     &  (\di xyz, \di tzy, \di txz, \di tyx)\ \text{:}
-    &&\text{\small }\  (\Le^{3}, \Le^{2}\Ti, \Le^{2}\Ti, \Le^{2}\Ti) 
+    &&\text{\small }\  (\Le^{3}, \Le^{2}\Ti, \Le^{2}\Ti, \Le^{2}\Ti) \ ,
   \end{align}
 \end{subequations}
-(the orderings are chosen to minimize the minus signs appearing from inner
-products with a volume element). There are therefore $4 \times 4$ possible
+the orderings chosen to minimize the minus signs appearing from inner
+products with a volume element. There are therefore $4 \times 4$ possible
 tensor-product spaces, each constructed by the product of two of the four
 spaces above; % , in all possible combinations;
 and thus 16 possible alternatives to represent our stress-energy-momentum
@@ -2335,49 +2361,52 @@ dimensionally consistent:
   \label{eq:T_alternatives}
   \begin{align}
     \label{eq:T_co_contra}
-    &\yT\i{_{\q}^{\q}} = \en\  \di t\otimes\de_{t} +
-      \yq_{x}\  \di t\otimes\de_{x} +
+    &\yT\i{_{\q}^{\q}} = -\en\  \di t\otimes\de_{t} 
+      -\yq_{x}\  \di t\otimes\de_{x} +
       \yp_{x}\  \di x\otimes\de_{t} +
       \yt_{x x}\  \di x\otimes\de_{x} + \dotsb
-    \\
+    \\[\jot]
     \label{eq:T_co_co3}
     &\!\begin{multlined}[b][0.85\textwidth]
       \yT\i{_{\q\mul{\q\q\q}}} =
-      \en\  \di t\otimes\di xyz +
-      \yq_{x}\  \di t\otimes\di tzy +{}\\
+      -\en\  \di t\otimes\di xyz 
+      -\yq_{x}\  \di t\otimes\di tzy +{}\\
       \yp_{x}\  \di x\otimes\di xyz 
       +\yt_{x x}\  \di x\otimes\di tzy + \dotsb
     \end{multlined}
     \\[\jot]
     \label{eq:T_contra3_contra}
     &\!\begin{multlined}[b][0.85\textwidth]
-      \yT\i{^{\mul{\q\q\q}\q}} = \en\  \de_{xyz} \otimes\de_{t} 
-      +\yq_{x}\  \de_{xyz}\otimes\de_{x} +{}\\
+      \yT\i{^{\mul{\q\q\q}\q}} = -\en\  \de_{xyz} \otimes\de_{t} 
+      -\yq_{x}\  \de_{xyz}\otimes\de_{x} +{}\\
       \yp_{x}\  \de_{tzy} \otimes\de_{t} +
       \yt_{x x}\  \de_{tzy}\otimes\de_{x} + \dotsb
     \end{multlined}
-    \\
+    \\[\jot]
     \label{eq:T_contra3_co3}
     &\!\begin{multlined}[b][0.85\textwidth]
-      \yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}} = \en\  \de_{xyz} \otimes\di xyz 
-      +\yq_{x}\  \de_{xyz}\otimes\di tzy +{}\\
+      \yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}} = -\en\  \de_{xyz} \otimes\di xyz 
+      -\yq_{x}\  \de_{xyz}\otimes\di tzy +{}\\
       \yp_{x}\  \de_{tzy} \otimes\di yxz 
       + \yt_{x x}\  \de_{tzy}\otimes\di tzy
       + \dotsb
     \end{multlined}
   \end{align}
 \end{subequations}
-Our analysis of the intrinsic dimensions therefore restricts the
-stress-energy-momentum tensor to be one of the four alternatives above.
-Note that their kind of orientation, straight or twisted, is also still
-undetermined.
+where the particular signs of the components, which are not determined by
+dimensional analysis, will be explained later. Our analysis of the
+intrinsic dimensions therefore restricts the stress-energy-momentum tensor
+to be one of the four alternatives above. Note that their kind of
+orientation, straight or twisted, is still undetermined. To further
+restrict the possibilities let's consider a couple of additional,
+interrelated heuristic arguments.
 
-To further restrict the possibilities let's consider a couple of
-additional, interrelated heuristic arguments. First, the notions of energy
-and momentum density, surface energy-flux density, and stress imply some
-kind of integration over three-dimensional spacelike or timelike regions.
-Such integration needs a 3-form and thus excludes
-alternatives~\eqref{eq:T_co_contra} and \eqref{eq:T_contra3_contra}.
+First, the notions of energy and momentum density, surface energy-flux
+density, and stress imply some kind of integration over three-dimensional
+spacelike or timelike regions. Such integration needs a 3-form and thus
+excludes alternatives~\eqref{eq:T_co_contra} and
+\eqref{eq:T_contra3_contra}.
+
 Second, the total energy measured by a specific observer within a
 \emph{topologically} specified three-dimensional spatial region is
 considered to be independent of the metric extent of that region (just like
@@ -2385,13 +2414,25 @@ charge, although the latter is also independent of the observer's
 motion). % \citep[\cf][\sect~4.28]{landauetal1939_t1996}
 The energy \emph{density} therefore does depend on the metric properties
 and must change accordingly. Similar arguments hold for the surface energy
-flux, and for the momentum density and stress, provided we consider mass as
-a spatial topological invariant (for a given observer). Only the second
-tensor alternative~\eqref{eq:dim_T_co_co3} above is consistent with these
-requirements. Finally, the value of the energy density should not change
-under a change in the orientation of the spacelike coordinates. This means
-that the 3-covector slot in alternative~\eqref{eq:T_co_co3} should have a
-twisted orientation.
+flux. Only the second tensor alternative~\eqref{eq:T_co_co3} above is
+consistent with these requirements. Two points are worth noting here: (i)
+This metric scaling argument doesn't quite work for the momentum-density
+part $\yp_{x}\ \di x\otimes\di xyz$, though, if it's interpreted as a mass
+flux $\Ma\Le^{-2}\Ti^{-1}$: the $\Le^{-2}$ scaling in the component
+$\yp_{x}$ and the $\Le^{4}$ scaling in the corresponding basis element
+$\di x\otimes\di xyz$ don't match. They do match, however, if we interpret
+the momentum-density part in terms of energy or action:
+$\Ma\Le^{-2}\Ti^{-1}=\En\Ti\Le^{-4}$. A similar situation occurs for the
+stress part. (ii) This kind of scaling mismatch also occurs, even in worse
+forms, in all other 15 alternatives for the stress-energy-momentum tensor.
+Thus intrinsic dimensional analysis alone suggests connections between mass
+and energy, and seems to give the latter quantity a more fundamental
+status.
+
+Finally, the value of the energy density should not change under a change
+in the orientation of the spacelike coordinates. This means that the
+3-covector slot in alternative~\eqref{eq:T_co_co3} should have a twisted
+orientation.
 % \begin{equation*}
 %   \en\  \di t\otimes\di xyz =
 %   \en'\  \di t\otimes\di x'y'z' \ ,
@@ -2421,19 +2462,20 @@ has the dimension of an \emph{action}:
   \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
 \end{equation}
 
-Note that we couldn't have obtained this result by dimensional analysis
-without considering \emph{intrinsic} dimensions. Traditionally we would
-have multiplied the components by appropriate powers of $c$ to ensure they
-all had the same dimension; but this procedure would have left the variance
-type undetermined. This shows the value of intrinsic-dimensional analysis,
-as opposed to dimensional analysis focused on components only.
+% Note that we couldn't have obtained this result by dimensional analysis
+% without considering \emph{intrinsic} dimensions. Traditionally we would
+% have multiplied the components by appropriate powers of $c$ to ensure they
+% all had the same dimension; but this procedure would have left the variance
+% type undetermined. This shows the value of intrinsic-dimensional analysis,
+% as opposed to dimensional analysis focused on components only.
 
 \medskip
 
 This form of the stress-energy-momentum tensor appears for example in
 Einstein's original work \citep[\sect~C.9]{einstein1914b}, Cartan's
 \citep[\sect~13]{cartan1923}, Brillouin's
-\citep[\cf][\sect~7]{brillouin1924}, Truesdell \amp\ Toupin's
+\citep[\cf][\sect~7]{brillouin1924}, Fokker's
+\citep[\sect~VII.2]{fokker1960_t1965}, Truesdell \amp\ Toupin's
 \citep[\sect~F.IV.288]{truesdelletal1960}, who try to find an expression
 universally valid in Newtonian, Lorentzian, and general-relativistic
 mechanics. It also appears in more recent works
@@ -2444,131 +2486,485 @@ also][]{segev1986,segevetal1999,segev2000,segev2000b,segev2002,kansoetal2007}
 which approach its definition from diverse points of view. This is also the
 form obtained with variational principles from an action Lagrangean
 \citep[\sect~21.3]{misneretal1970_r1973}[\sect~3.3]{hawkingetal1973_r1994}[\sect~IV.55]{pauli1921_t1958}[see
-also]{gotayetal1992}, from which it is easily seen that this tensor has the
-intrinsic dimension of an action.
+also][\sect~VII.8]{fokker1960_t1965}{gotayetal1992}, from which it is
+easily seen that this tensor has the intrinsic dimension of an action.
 
-Note that some of the works just cited speak of a tensor of variance type
+
+Some authors
+\citep[\eg][\sect~V.55]{fock1955_t1964}[\sect~4.1]{mcvittie1956_r1965}[\sect~10.1]{adleretal1965_r1975}
+think about this tensor in terms of mass rather than energy (Fock
+\citep[\sect~II.31]{fock1955_t1964} calls it the \enquote{mass tensor}),
+and therefore assign to its covector-valued 3-covector form
+$\yT\i{_{\q \mul{\q\q\q}}}$ the dimension of mass-time, that is, an action
+per squared velocity:
+\begin{equation}
+  \label{eq:final_dim_T_MT}
+  \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \Ma\Ti \equiv \En\Le^{-2}\Ti^{3} \ .
+\end{equation}
+With this intrinsic dimension, however, not all components of the
+stress-energy-momentum tensor have an intuitive meaning and dimensions,
+when coordinates with dimensions $(\Ti,\Le,\Le,\Le)$ are used.
+
+The two choices \eqref{eq:final_dim_T}, \eqref{eq:final_dim_T_MT} differ by
+a factor $c^{2}$.
+
+\medskip
+
+The two dimensional choices for the metric, \eqns~\eqref{eq:dim_g} and
+\eqref{eq:dim_g_c}, and for the stress-energy-momentum tensor,
+\eqns~\eqref{eq:final_dim_T} and \eqref{eq:final_dim_T_MT}, appear in all
+four combinations in the literature. For example, $\dim(\yg)=\Ti^{2}$ \amp\
+$\dim(\yT)=\En\Ti$ is used by Synge \citep[\sects~IV.4--5]{synge1960b};
+$\dim(\yg)=\Le^{2}$ \amp\ $\dim(\yT)=\Ma\Ti$ is used by Fock
+\citep[\sects~V.54--55]{fock1955_t1964} and Adler \etal\
+\citep[\sect~10.1]{adleretal1965_r1975}; $\dim(\yg)=\Ti^{2}$ \amp\
+$\dim(\yT)=\Ma\Ti$ is used by McVittie
+\citep[\sect~4.1]{mcvittie1956_r1965} and possibly Kilmister
+\citep[\chaps~II--III; he seems to shift to natural units at some
+point]{kilmister1973}. Most other works use $\dim(\yg)=\Le^{2}$ \amp\
+$\dim(\yT)=\En\Ti$. These combinations lead to three possible values for
+Einstein's constant, as we'll see in the next section.
+
+\medskip
+
+Note that some of the works cited speak of a tensor of variance type
 $\yT\i{_{\q \mul{\q\q\q}}}$, others of a once covariant and once
 contravariant \enquote{V(olume)-tensor} or \enquote{tensor density}, which
-has variance type $\yT\i{_{\q}^{\q}_{\mul{\q\q\q\q}}}$. But these two
-objects are geometrically equivalent, in the sense that their independent
+has variance type $\yT\i{_{\q}^{\q}_{\mul{\q\q\q\q}}}$. These two objects
+are geometrically equivalent, in the sense that their independent
 components have the same transformation law under changes of coordinates
-\citep[\sect~II.8 p.~30]{schouten1951_r1989}. They are related by a
-contraction with $\omega\otimes\omega^{-1}$, where $\omega$ is an arbitrary
-non-vanishing 4-form (this object has only one independent component, which
-transforms as the scalar $1$).
+\citep[\sect~II.8 p.~30]{schouten1951_r1989} (this is why I chose a
+calligraphic letter to denote this tensor). They are related by an inner
+product with $\omega\otimes\omega^{-1}$, where $\omega$ is an arbitrary
+non-vanishing 4-form; this last object has only one independent component,
+which transforms as the scalar $1$.
+
+The signs of the components of $\yT$ depend on the signature of the metric
+$\yg$. If the latter has signature $(-,+,+,+)$, then the energy components
+have negative sign, as in \eqn~\eqref{eq:T_co_co3}. If the metric has
+opposite sign, that is, signature $(+,-,-,-)$, then $\yT$ has opposite sign
+as well, and its momentum components are negative.
 
 \medskip
 
 To obtain a twice covariant tensor to be used in the Einstein equations, we
-can first take the inner product of the antisymmetric part by the inverse
-proper volume element, obtaining a co-contravariant tensor equivalent
-to~\eqref{eq:T_co_contra} above, and then lower the new contravariant slot
-using the metric tensor:
+first take the inner product of the 3-covector, or antisymmetric, part by
+the inverse proper volume element, obtaining a co-contravariant tensor
+equivalent to~\eqref{eq:T_co_contra} above. In general coordinates this
+operation corresponds to dividing the components by
+$\frac{1}{c}\sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}$ if
+$\dim(\yg)=\Le^{2}$, according to \eqn~\eqref{eq:volume_elem}, and so can
+be interpreted as passing from a tensor density to an ordinary tensor. Then
+we lower the new contravariant slot using the metric tensor:
 \begin{gather}
   \label{eq:co_co_T}
-  \yTe\i{_{\q\q}} = \bigl(\yT\i{_{\q\mul{\q\q\q}}} \rii \ygv^{-1} \bigr) \yg
-\\\intertext{with intrinsic dimension}
-\label{eq:dim_co_co_T}
-\begin{aligned}
-\dim(\yTe\i{_{\q\q}}) &=
-\dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr)\dim(\ygv)^{-1}\, \dim(\yg)
-  \\&=
-  \begin{cases}
-\En\Le^{-1} \equiv \Ma\Le\Ti^{-2} \\
-\En\Le^{-3}\Ti^{2} \equiv \Ma\Le^{-1}
-  \end{cases}
-  \quad\text{if }\dim(\yg)\defd
-  \begin{cases}
-     \Le^2 \\
-    \Ti^2
-  \end{cases}\ ,
-\end{aligned}
+  \yTe\i{_{\q\q}} \defd
+  \bigl(\yT\i{_{\q\mul{\q\q\q}}} \rii \ygv^{-1} \bigr) \yg \ .
 \end{gather}
-that is, it has the dimension of a \emph{force} if the metric has dimension
-$\Le^{2}$.
 
-
-\medskip
-
-
-
-\citep[\sect~V.55 p.~198]{fock1955_t1964}
-
- \citep{mcvittie1956_r1965}
-%metric \sect~3.6
+According to this definition and \eqns~\eqref{eq:final_dim_T_MT},
+\eqref{eq:dim_g}, \eqref{eq:dim_g_c}, \eqref{eq:dim_volume_elem}, there are
+three possible dimensional choices for the co-co-variant tensor $\yTe$,
+dependent on the choices of dimensions of $\yg$ and $\yT$:
+\begin{multline}
+\label{eq:dim_co_co_T}
+\dim(\yTe\i{_{\q\q}}) =
+\dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) \dim(\yg) \dim(\ygv)^{-1}
+  \\{}=
+  \begin{cases}
+\Ma\Le\Ti^{-2} \equiv \En\Le^{-1} \\[2\jot]
+\Ma\Le^{-1} \equiv \En\Le^{-3}\Ti^{2} \\[2\jot]
+\Ma\Le^{-3}\Ti^{2} \equiv \En\Le^{-5}\Ti^{4}
+  \end{cases}
+  \quad\text{if }
+  \begin{cases}
+\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti \\[\jot]
+    \dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti 
+    \ \text{ or }\\
+\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti \\[\jot]
+\dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti
+  \end{cases}
+\end{multline}
+All three possibilities, which differ by factors $c^{2}$, appear in the
+literature: see the examples cited above for the combinations of metric and
+stress-energy-momentum.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  % s = pressive stress, dim = E/L^3
  % G=L^3/T^2/M = L^5/T^4/E = c^4*L/E = c^2*L/M
+ % my T_,___ = coords T,L,L,L
  
- % Eckart, Synge, Landau, (Gourgoulhon):
+ % Eckart, Landau, (Gourgoulhon):
  % dim x = L
  % dim g = L^2, -1+1+1+1
- % T^^ = E/L^3, +q/c, +cp, s, dim = E/L^5
+ % T^^ = +e, +q/c, +cp, +s
+ % my T_,___ = -e, -q, +p, +s
+ % my T^,___ = +e/c, +q/c, +p/c, +s/c
  % dim T^^ = E/L^5
  % dim T__ = E/L
  % dim T_,___ = E*T
+ % dim T^,___ = E*T/L^2 = M/T
+ % k ~ G/c^4
 
  % Tolman:
  % dim x = L
- % dim g = L^2, +1-1-1-1
- % T^^ = E/L^3, +q/c, +cp, s, dim = E/L^5
+ % dim g = L^2, +1-1-1-1 (\sect~74)
+ % T^^ = +e, +q/c, +cp, s
+ % my T_,___ = +e, +q, -p, -s
+ % my T^,___ = +e/c, +q/c^2, +p, +s/c
+ % dim T^^ = E/L^5
+ % dim T__ = E/L
+ % dim T_,___ = E*T
+ % dim T^,___ = E*T/L^2 = M/T
+ % k ~ -G/c^4
+
+ % Synge:  g=T^2 T=ET
+ % dim x = T (\sect~IV.5)
+ % dim g = T^2, -1+1+1+1 (\sect~IV.5)
+ % T^^ = +e, +q/c, +cp, +s
+ % my T_,___ = -e*c^3, -q*c^2, +p*c^4, +s*c^3
+ % my T^,___ = +e*c^3, +q*c^2, +p*c^4, +s*c^3
+ % dim T^^ = E/L^3/T^2
+ % dim T__ = E*T^2/L^3
+ % dim T_,___ = E*T
+ % dim T^,___ = E/T
+ % k ~ -G/c^4 (Synge forces it to be dimensionless, \sect~IV.5)
+
+ % Fock: g=L^2 T=MT
+ % dim x = T,L,L,L (\sect~V.55 p.~198)
+ % dim g = L^2, +c^2-1-1-1
+ % T^^ = +e/c^4, +q/c^4, +p/c^2, +s/c^2 (\sect~V.55 \eqn~(55.02)),
+ % T^^ = +m/c^2, +q/c^4, +p/c^2, +s/c^2 (\sect~V.55 \eqn~(55.02)),
+ % my T_,___ = +e/c^2, +q/c^2, -p/c^2, -s/c^2
+ % my T^,___ = +e/c^4, +q/c^4, +p/c^2, +s/c^2
+ % dim T^^ = E*T^2/L^7 = M/L^5
+ % dim T__ = M/L ("Mass tensor")
+ % dim T_,___ = M*T
+ % dim T^,___ = M*T/L^2
+ % k ~ -G/c^2 (\eqn~(55.15))
+
+ % Fokker:
+ % dim x = T,L,L,L
+ % dim g = L^2, +c^2-1-1-1, \sect~VII.1 p.~88
+ % T^^ = +e/c^2, +q/c^2, +p, +s (\sect~VIII.2 \eqn~(4.104)),
+ % my T_,___ = +e, +q, -p, -s
  % dim T^^ = E/L^5
  % dim T__ = E/L
  % dim T_,___ = E*T
  % k ~ G/c^4
 
- % Fock:
- % dim x = T,L,L,L (\sect~V.55 p.~198)
- % dim g = L^2, +c^2-1-1-1
- % T^^ = E/c^4/L^3, +q/c^4, +p/c^2, s/c^2 (\sect~V.55 \eqn~(55.02)),
- % T^^ = M/c^2/L^3, +q/c^4, +p/c^2, s/c^2 (\sect~V.55 \eqn~(55.02)),
- % dim T^^ = E*T^2/L^7 = M/L^5
- % dim T__ = M/L ("Mass tensor")
- % dim T_,___ = M*T
- % k ~ G/c^2 (\eqn~(55.15))
-
- % McVittie:
+ % McVittie: g=T^2 T=MT
  % dim x = T,L,L,L (\sect~4.1 \eqn~(4.101))
  % dim g = T^2, +1-1/c^2-1/c^2-1/c^2  (\sect~4.1 \eqn~(4.101))
- % T^^ = E/c^2/L^3, +q/c^2, +p, s (\sect~4.1 \eqn~(4.104)),
- % T^^ = M/L^3, +q/c^2, +p, s (\sect~4.1 \eqn~(4.104)),
+ % T^^ = +e/c^2, +q/c^2, +p, +s (\sect~4.1 \eqn~(4.104)),
+ % T^^ = +e/c^2, +q/c^2, +p, +s (\sect~4.1 \eqn~(4.104)),
+ % my T_,___ = +e/c^2, +q/c^2, -p/c^2, -s/c^2
  % dim T^^ = E/L^5 = M/L^3/T^2
  % dim T__ = E*T^4/L^5 = M*T^2/L^3 -> dim c^2T__ = M/L
  % dim T_,___ = M*T
  % Ein = -kc^2 T (\sect~4.1 \eqn~(4.107)),
- % k ~ G/c^2 (\sect~4.2 \eqn~(4.225)),
+ % k ~ really -G; but -G/c^2 (\sect~4.2 \eqn~(4.225)),
 
- % Adleretal:
- % dim x = L,L,L,L (\sect~10.1)
- % dim g = L^2, +c^2-1-1-1 (\sect~10.1 \eqn~(10.9))
- % T^^ = M/L^3, +q/c^2, +p/c, s/c^2 (\sect~10.1 \eqn~(10.15)),
+ % Adleretal: g=L^2 T=MT
+ % dim x = L (\sect~10.1)
+ % dim g = L^2, +1-1-1-1 (\sect~10.1 \eqn~(10.9))
+ % T^^ = +e/c^2, +q/c^3, +p/c, +s/c^2 (\sect~10.1 \eqn~(10.15)),
+ % my T_,___ = +e/c^2, +q/c^2, -p/c^2, -s/c^2
  % dim T^^ = M/L^5
  % dim T__ = M/L
  % dim T_,___ = M*T
  % k ~ -G/c^2 (\sect~10.5 \eqn~(10.98))
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
- \enquote{$^{\displaystyle *}\mathte{T}$} by Misner
-\etal~, the works by
-Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
-discussion by Burke~%\citep[\sect~41]{burke1985_r1987}.
+
+ % Kilmister: g=T^2 T=MT
+ % dim x = T (\chap~II p.~25)
+ % dim g = T^2, +1-1-1-1 (\chap~II p.~25)
+ % T^^ = +e/c^2, +q/c^3, +p/c, +s/c^2 (\chap~III p.~65)
+ % my T_,___ = +e*c, +q, -p*c^2, -s*c
+ % dim T^^ = M/L^3/T^2 = E/L^5
+ % dim T__ = E*T^4/L^5 = M*T^2/L^3
+ % dim T_,___ = M*T  =  E*T^3/L^2
+ % k ~ G (he uses k=1, seems to equate mass and length)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OLD PRESENTATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  \enquote{$^{\displaystyle *}\mathte{T}$} by Misner \etal~, the works by
+%  Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
+%  discussion by Burke~%\citep[\sect~41]{burke1985_r1987}.
 
 
-According to the discussion of intrinsic dimension in
-\sect~\ref{sec:tensors}, the first alternative is dimensionally
-inconsistent: its first  The second and third alternatives
-are similarly inconsistent. Only the last alternative is
-intrinsic-dimensionally consistent. It is co-contra-variant and has
-intrinsic dimension of volumic energy, $\En\Le^{-3}$.
+% According to the discussion of intrinsic dimension in
+% \sect~\ref{sec:tensors}, the first alternative is dimensionally
+% inconsistent: its first  The second and third alternatives
+% are similarly inconsistent. Only the last alternative is
+% intrinsic-dimensionally consistent. It is co-contra-variant and has
+% intrinsic dimension of volumic energy, $\En\Le^{-3}$.
 
-The heuristic dimensional analysis above therefore suggests a
-co-contra-variant stress-energy-momentum tensor $\yT\i{_{\q}^{\q}}$ with
-intrinsic dimension
-\begin{equation}
-  \label{eq:dim_T_co_contra}
-  \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ .
+% The heuristic dimensional analysis above therefore suggests a
+% co-contra-variant stress-energy-momentum tensor $\yT\i{_{\q}^{\q}}$ with
+% intrinsic dimension
+% \begin{equation}
+%   \label{eq:dim_T_co_contra}
+%   \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ .
+% %   \\[\jot]
+% %   \dim(\yT\i{_{\q\q}}) = \dim(\yT\i{_{\q}^{\q}}) \dim(\yg)
+% % %  \dim[\tr_{23}(\yT\i{_{\q}^{\q}}\ \yg\i{_{\q\q}})]
+% % = 
+% %     \begin{cases}
+% %     \Ma\Le^{-1} \\
+% %     \Ma\Le\Ti^{-2} \equiv \En\Le^{-1}
+% %   \end{cases}
+% %   \quad\text{if }\dim(\yg)\defd
+% %   \begin{cases}
+% %      \Ti^2 \\
+% %     \Le^2
+% %   \end{cases}
+% \end{equation}
+
+% The analysis above doesn't exclude other possibilities. For example,
+% instead of the space vectors as the left-side term of the tensor product,
+% we could use the four-dimensional space of 3-covectors. This would lead to
+% the dimensionally consistent expression
+% \begin{gather}
+%     \yT\i{_{\q \mul{\q\q\q}}} =
+% \en\  \di t\otimes(\di x \land \di y \land \di z) +
+%   \yq_{x}\  \di t\otimes (\di t \land \di y \land \di z) +
+%   \dotsb
+% \\\shortintertext{with intrinsic dimension}
+%   \label{eq:dim_T_co_co3}
+%   \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
+% \end{gather}
+% We could also use 4-covector-valued co-vectors as the right side of the
+% tensor product, obtaining the dimensionally consistent expression
+% \begin{gather}
+%   \label{eq:T_co4_co_v}
+%   \yT\i{_{\mul{\q\q\q\q}\q}^{\q}} =
+%   \en\  \di t\otimes(\di x \land \di y \land \di z) +
+%   \yq_{x}\  \di t\otimes (\di t \land \di y \land \di z) +
+%   \dotsb
+% \\\shortintertext{with intrinsic dimension}
+%   \label{eq:dim_T_co4_co_v}
+%   \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
+% \end{gather}
+
+
+% Note that we couldn't have obtained this result without considering
+% intrinsic dimensions. Traditionally we would have multiplied the components
+% by appropriate powers of $c$ to ensure they all had the same dimension; but
+% this procedure would have left the variance type undetermined. This shows
+% the value of intrinsic-dimensional analysis, as opposed to dimensional
+% analysis focused on components only.
+
+
+% determine all geometric
+% properties of the tensor. Any tensor operations that preserve the intrinsic
+% dimensionality lead to other dimensionally consistent alternatives. For
+% example, the tensor above could have its covariant or contravariant slot
+% with a twisted orientation. We could also take the inner product of either
+% slot with the proper volume element or its inverse; this would be
+% equivalent to choosing the four-dimensional spaces of 3-vectors or
+% 3-covectors as components of the tensor product, in the analysis above.
+% Finally we could also tensor-multiply the tensor by the proper volume element
+
+
+% or multiply the tensor
+% by a obtaining the following
+% variants:
+% \begin{align}
+%   \label{eq:dim_T_13}
+%   \yT\i{_{\q \mul{\q\q\q}}} &\defd \yT\i{_{\q}^{\q}} \ii \ygv
+%   \\
+%   \label{eq:dim_T_13}
+%   \yT\i{_{\q \mul{\q\q\q}}} &\defd \yT\i{_{\q}^{\q}} \ii \ygv
+% \end{align}
+
+
+
+% From the components~\eqref{eq:T}, the dimensions
+% \eqref{eq:dims_stress_components}, and the relation between intrinsic and
+% component dimensions~\eqref{eq:dim_component_generic} we can thus find the
+% intrinsic dimension of the stress-energy-momentum tensor. To determine the
+% variance type of the components $(T_{ij})$ consider the four alternatives in
+% which it might be written in terms of basis vectors and covectors:
+% % \begin{multline*}
+% %     \yT \stackrel{?}{=} {}\\[-\jot]
+% %   \begin{aligned}
+% %   &\ \en\, \dix[0]\otimes\dix[0] +
+% %   \yq_{1}\, \dix[0]\otimes\dix[1] +
+% %   \yp_{1}\, \dix[1]\otimes\dix[0] +
+% %   \yt_{1\, 1}\, \dix[1]\otimes\dix[1] + \dotsb
+% %     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
+% %     &\ \en\, \dex[0]\otimes\dex[0] +
+% %   \yq_{1}\, \dex[0]\otimes\dex[1] +
+% %   \yp_{1}\, \dex[1]\otimes\dex[0] +
+% %   \yt_{1\, 1}\, \dex[1]\otimes\dex[1] + \dotsb
+% %     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
+% %   &\ \en\, \dex[0]\otimes\dix[0] +
+% %   \yq_{1}\, \dex[0]\otimes\dix[1] +
+% %   \yp_{1}\, \dex[1]\otimes\dix[0] +
+% %   \yt_{1\, 1}\, \dex[1]\otimes\dix[1] + \dotsb
+% %     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
+% %   &\ \en\, \dix[0]\otimes\dex[0] +
+% %   \yq_{1}\, \dix[0]\otimes\dex[1] +
+% %   \yp_{1}\, \dix[1]\otimes\dex[0] +
+% %   \yt_{1\, 1}\, \dix[1]\otimes\dex[1] + \dotsb
+% %   \end{aligned}
+% % \end{multline*}
+% You can check that the first alternative is dimensionally inconsistent: its
+% first two summands have incompatible dimensions $\En\Le^{-3}\Ti^{2}$ and
+% $\En\Le^{-1}$. The second and third alternatives are similarly
+% inconsistent. Only the last alternative is dimensionally consistent. It is
+% co-contra-variant and has a dimension of volumic energy, $\En\Le^{-3}$.
+
+
+% \begin{equation*}
+% \yT \stackrel{?}{=}    \ \en\  \de_{t}\otimes\de_{t} +
+%   \yq_{x}\  \de_{t}\otimes\de_{x} +
+%   \yp_{x}\  \de_{x}\otimes\de_{t} +
+%   \yt_{x\, x}\  \de_{x}\otimes\de_{x} + \dotsb \ .
+% \end{equation*}
+% The expression above, however, is dimensionally inconsistent: its first two
+% summands have incompatible intrinsic dimensions $\En\Le^{-3}\Ti^{2}$ and
+% $\En\Le^{-1}$.
+
+
+
+
+
+
+
+% with basis $(\de_{t}, \de_{x},
+% \de_{y}, \de_{z})$, of covectors $(\di t, \di x,
+% \di y, \di z)$, of 3-vectors 
+
+
+% Consider the balances of energy and of momentum (or of force) for a
+% material continuum in Newtonian mechanics, in the absence of volumic forces
+% and volumic heating
+% \citep{truesdelletal1960,truesdell1977_r1991,samohyletal1987_r2014,birdetal1960_r2002}.
+% Choose an inertial frame in which the material continuum is instantaneously
+% at rest at a specific spacetime point. Use rectangular Cartesian
+% coordinates $(t,x,y,z) \equiv (x^{0},x^{1},x^{2},x^{3})$, with standard
+% dimensions of time and length, adapted to such frame. Let the indices $r,s$
+% run only through spatial coordinates. The two balances then assume, at the
+% specified point, the following component expressions:
+% \begin{align}
+%   \label{eq:bal_energy}
+%   \de_{t} \en + \tsum\limits_{r=1}^{3}\de_{r} \yq_{r} &= 0 \ ,
+%   \\
+%   \label{eq:bal_force}
+%   \de_{t} \yp_{s} + \tsum\limits_{r=1}^{3}\de_{r}\yt_{sr} &= 0 \ ,
+%   \quad s \in \set{1,2,3}
+% \end{align}
+% where the indices' levels do \emph{not} denote any variance type yet. Here
+% $\en$ is the volumic internal energy, $\yq_{i}$ are the components of the
+% areic energy flux, $\yp_{i}$ are the components of the volumic momentum,
+% and $\yt_{ij}$ are the components of the stress tensor, a force per unit
+% area \citep[considered as pressure rather than tension, hence
+% its sign; \cf][\sect~1.2 p.~19]{birdetal1960_r2002}. \mynote{$\yt$ also contains
+% macroscopic momentum transport; this makes the derivation less neat} Their dimensions are
+% \begin{subequations}\label{eq:dims_stress_components}
+%   \begin{gather}
+%     \label{eq:dim_en}
+%     \dim(\en) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
+%     \qquad
+%     % \label{eq:dim_yq}
+%     \dim(\yq_{i}) = \En\Le^{-2}\Ti^{-1} \equiv \Ma\Ti^{-3} \ ,
+%     \\
+%     \label{eq:dim_yp}
+%     \dim(\yp_{i}) = \Ma\Le\Ti^{-1} \ ,
+%     \qquad
+%     % \label{eq:dim_stress}
+%     \dim(\yt_{ij}) = \Ma\Le^{-1}\Ti^{-2} \ .
+%   \end{gather}
+% \end{subequations}
+
+% The two balances can be suggestively combined into a four-dimensional
+% equation:
+% \begin{gather}
+%   \label{eq:bal_energy-force}
+%   % \begin{pmatrix}
+%   %   \de_{t} & \de_{i}
+%   % \end{pmatrix} \ 
+%   \tsum_{j}\de_{j} T_{ij} = 0
+%   \\
+%   \shortintertext{with}
+%   \label{eq:T}
+%   T_{ij} \defd 
+%   \begin{pmatrix}
+%     \en & \yq_{r} \\ \yp_{s} & \yt_{sr}
+%   \end{pmatrix} \ ,
+% \end{gather}
+% where indices $i,j$ run over all four coordinates, The combined balance
+% resembles a four-dimensional divergence. Cartan
+% \citep{cartan1923,cartan1924} in fact showed that Newtonian mechanics can
+% be formulated in fully covariant form in terms of a special connection
+% $\nab$, and the terms $T_{ij}$ are indeed four-dimensional components of a
+% stress-energy-momentum tensor $\yT$. This reformulation is usually called
+% Newton-Cartan theory; for details see especially Truesdell \amp\ Toupin
+% \citep[\sects~B.II.152--154, D.II.203--205, D.V.238,
+% F.IV.285--289]{truesdelletal1960}[see
+% also][\sect~2.4]{marsdenetal1983b_r1994}. Cartan's connection can even
+% express Newtonian gravitation, for which see Misner \etal\
+% \citep[\chap~12]{misneretal1970_r1973}[also][]{trautman1964,dixon1975}.
+
+% The balances of energy and momentum~\eqref{eq:bal_energy},
+% \eqref{eq:bal_force} in Newtonian mechanics are thus covariantly expressed
+% in coordinate-free form as
+% \begin{equation}
+%   \label{eq:div_T_cov}
+%   \tr_{13}\nab\i{_{\q}}\yT\i{_{\q}^{\q}} = 0 \ ,
+%   \quad\text{\small commonly written}\ \nab\cdot\yT=0 \ ,
+% \end{equation}
+% with components $\nab\i{_{j}}\yT\i{_{i}^{j}} = 0$. This is the same
+% equation that can be obtained from the Einstein equations in general
+% relativity from the fact that the Einstein tensor has zero divergence.
+% Indeed this is the starting point to define the stress part of the
+% tensor $\yT$ in relativity: it is assumed to be locally equal to the
+% Newtonian one in an inertial (free-fall) frame in which the material
+% continuum is momentarily at rest. \mynote{note on momentum of heat, refer to \citep[p.~923]{eckart1940c}}
+
+% From the components~\eqref{eq:T}, the dimensions
+% \eqref{eq:dims_stress_components}, and the relation between intrinsic and
+% component dimensions~\eqref{eq:dim_component_generic} we can thus find the
+% intrinsic dimension of the stress-energy-momentum tensor. To determine the
+% variance type of the components $(T_{ij})$ consider the four alternatives in
+% which it might be written in terms of basis vectors and covectors:
+% % \begin{multline*}
+% %     \yT \stackrel{?}{=} {}\\[-\jot]
+% %   \begin{aligned}
+% %   &\ \en\, \dix[0]\otimes\dix[0] +
+% %   \yq_{1}\, \dix[0]\otimes\dix[1] +
+% %   \yp_{1}\, \dix[1]\otimes\dix[0] +
+% %   \yt_{1\, 1}\, \dix[1]\otimes\dix[1] + \dotsb
+% %     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
+% %     &\ \en\, \dex[0]\otimes\dex[0] +
+% %   \yq_{1}\, \dex[0]\otimes\dex[1] +
+% %   \yp_{1}\, \dex[1]\otimes\dex[0] +
+% %   \yt_{1\, 1}\, \dex[1]\otimes\dex[1] + \dotsb
+% %     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
+% %   &\ \en\, \dex[0]\otimes\dix[0] +
+% %   \yq_{1}\, \dex[0]\otimes\dix[1] +
+% %   \yp_{1}\, \dex[1]\otimes\dix[0] +
+% %   \yt_{1\, 1}\, \dex[1]\otimes\dix[1] + \dotsb
+% %     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
+% %   &\ \en\, \dix[0]\otimes\dex[0] +
+% %   \yq_{1}\, \dix[0]\otimes\dex[1] +
+% %   \yp_{1}\, \dix[1]\otimes\dex[0] +
+% %   \yt_{1\, 1}\, \dix[1]\otimes\dex[1] + \dotsb
+% %   \end{aligned}
+% % \end{multline*}
+% You can check that the first alternative is dimensionally inconsistent: its
+% first two summands have incompatible dimensions $\En\Le^{-3}\Ti^{2}$ and
+% $\En\Le^{-1}$. The second and third alternatives are similarly
+% inconsistent. Only the last alternative is dimensionally consistent. It is
+% co-contra-variant and has a dimension of volumic energy, $\En\Le^{-3}$.
+
+% We thus find
+% \begin{gather}
+%   \label{eq:dim_T_co_contra}
+%   \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
 %   \\[\jot]
 %   \dim(\yT\i{_{\q\q}}) = \dim(\yT\i{_{\q}^{\q}}) \dim(\yg)
 % %  \dim[\tr_{23}(\yT\i{_{\q}^{\q}}\ \yg\i{_{\q\q}})]
@@ -2582,377 +2978,119 @@ intrinsic dimension
 %      \Ti^2 \\
 %     \Le^2
 %   \end{cases}
-\end{equation}
-
-The analysis above doesn't exclude other possibilities. For example,
-instead of the space vectors as the left-side term of the tensor product,
-we could use the four-dimensional space of 3-covectors. This would lead to
-the dimensionally consistent expression
-\begin{gather}
-    \yT\i{_{\q \mul{\q\q\q}}} =
-\en\  \di t\otimes(\di x \land \di y \land \di z) +
-  \yq_{x}\  \di t\otimes (\di t \land \di y \land \di z) +
-  \dotsb
-\\\shortintertext{with intrinsic dimension}
-  \label{eq:dim_T_co_co3}
-  \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
-\end{gather}
-We could also use 4-covector-valued co-vectors as the right side of the
-tensor product, obtaining the dimensionally consistent expression
-\begin{gather}
-  \label{eq:T_co4_co_v}
-  \yT\i{_{\mul{\q\q\q\q}\q}^{\q}} =
-  \en\  \di t\otimes(\di x \land \di y \land \di z) +
-  \yq_{x}\  \di t\otimes (\di t \land \di y \land \di z) +
-  \dotsb
-\\\shortintertext{with intrinsic dimension}
-  \label{eq:dim_T_co4_co_v}
-  \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
-\end{gather}
-
-
-Note that we couldn't have obtained this result without considering
-intrinsic dimensions. Traditionally we would have multiplied the components
-by appropriate powers of $c$ to ensure they all had the same dimension; but
-this procedure would have left the variance type undetermined. This shows
-the value of intrinsic-dimensional analysis, as opposed to dimensional
-analysis focused on components only.
-
-
-determine all geometric
-properties of the tensor. Any tensor operations that preserve the intrinsic
-dimensionality lead to other dimensionally consistent alternatives. For
-example, the tensor above could have its covariant or contravariant slot
-with a twisted orientation. We could also take the inner product of either
-slot with the proper volume element or its inverse; this would be
-equivalent to choosing the four-dimensional spaces of 3-vectors or
-3-covectors as components of the tensor product, in the analysis above.
-Finally we could also tensor-multiply the tensor by the proper volume element
-
-
-or multiply the tensor
-by a obtaining the following
-variants:
-\begin{align}
-  \label{eq:dim_T_13}
-  \yT\i{_{\q \mul{\q\q\q}}} &\defd \yT\i{_{\q}^{\q}} \ii \ygv
-  \\
-  \label{eq:dim_T_13}
-  \yT\i{_{\q \mul{\q\q\q}}} &\defd \yT\i{_{\q}^{\q}} \ii \ygv
-\end{align}
+% \end{gather}
 
 
 
-From the components~\eqref{eq:T}, the dimensions
-\eqref{eq:dims_stress_components}, and the relation between intrinsic and
-component dimensions~\eqref{eq:dim_component_generic} we can thus find the
-intrinsic dimension of the stress-energy-momentum tensor. To determine the
-variance type of the components $(T_{ij})$ consider the four alternatives in
-which it might be written in terms of basis vectors and covectors:
-% \begin{multline*}
-%     \yT \stackrel{?}{=} {}\\[-\jot]
-%   \begin{aligned}
-%   &\ \en\, \dix[0]\otimes\dix[0] +
-%   \yq_{1}\, \dix[0]\otimes\dix[1] +
-%   \yp_{1}\, \dix[1]\otimes\dix[0] +
-%   \yt_{1\, 1}\, \dix[1]\otimes\dix[1] + \dotsb
-%     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-%     &\ \en\, \dex[0]\otimes\dex[0] +
-%   \yq_{1}\, \dex[0]\otimes\dex[1] +
-%   \yp_{1}\, \dex[1]\otimes\dex[0] +
-%   \yt_{1\, 1}\, \dex[1]\otimes\dex[1] + \dotsb
-%     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-%   &\ \en\, \dex[0]\otimes\dix[0] +
-%   \yq_{1}\, \dex[0]\otimes\dix[1] +
-%   \yp_{1}\, \dex[1]\otimes\dix[0] +
-%   \yt_{1\, 1}\, \dex[1]\otimes\dix[1] + \dotsb
-%     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-%   &\ \en\, \dix[0]\otimes\dex[0] +
-%   \yq_{1}\, \dix[0]\otimes\dex[1] +
-%   \yp_{1}\, \dix[1]\otimes\dex[0] +
-%   \yt_{1\, 1}\, \dix[1]\otimes\dex[1] + \dotsb
-%   \end{aligned}
-% \end{multline*}
-You can check that the first alternative is dimensionally inconsistent: its
-first two summands have incompatible dimensions $\En\Le^{-3}\Ti^{2}$ and
-$\En\Le^{-1}$. The second and third alternatives are similarly
-inconsistent. Only the last alternative is dimensionally consistent. It is
-co-contra-variant and has a dimension of volumic energy, $\En\Le^{-3}$.
 
-
-\begin{equation*}
-\yT \stackrel{?}{=}    \ \en\  \de_{t}\otimes\de_{t} +
-  \yq_{x}\  \de_{t}\otimes\de_{x} +
-  \yp_{x}\  \de_{x}\otimes\de_{t} +
-  \yt_{x\, x}\  \de_{x}\otimes\de_{x} + \dotsb \ .
-\end{equation*}
-The expression above, however, is dimensionally inconsistent: its first two
-summands have incompatible intrinsic dimensions $\En\Le^{-3}\Ti^{2}$ and
-$\En\Le^{-1}$.
+% \mynote{ \citep[\sects~III.35--37]{tolman1934_t1949}}
 
 
 
 
 
-
-
-with basis $(\de_{t}, \de_{x},
-\de_{y}, \de_{z})$, of covectors $(\di t, \di x,
-\di y, \di z)$, of 3-vectors 
-
-
-Consider the balances of energy and of momentum (or of force) for a
-material continuum in Newtonian mechanics, in the absence of volumic forces
-and volumic heating
-\citep{truesdelletal1960,truesdell1977_r1991,samohyletal1987_r2014,birdetal1960_r2002}.
-Choose an inertial frame in which the material continuum is instantaneously
-at rest at a specific spacetime point. Use rectangular Cartesian
-coordinates $(t,x,y,z) \equiv (x^{0},x^{1},x^{2},x^{3})$, with standard
-dimensions of time and length, adapted to such frame. Let the indices $r,s$
-run only through spatial coordinates. The two balances then assume, at the
-specified point, the following component expressions:
-\begin{align}
-  \label{eq:bal_energy}
-  \de_{t} \en + \tsum\limits_{r=1}^{3}\de_{r} \yq_{r} &= 0 \ ,
-  \\
-  \label{eq:bal_force}
-  \de_{t} \yp_{s} + \tsum\limits_{r=1}^{3}\de_{r}\yt_{sr} &= 0 \ ,
-  \quad s \in \set{1,2,3}
-\end{align}
-where the indices' levels do \emph{not} denote any variance type yet. Here
-$\en$ is the volumic internal energy, $\yq_{i}$ are the components of the
-areic energy flux, $\yp_{i}$ are the components of the volumic momentum,
-and $\yt_{ij}$ are the components of the stress tensor, a force per unit
-area \citep[considered as pressure rather than tension, hence
-its sign; \cf][\sect~1.2 p.~19]{birdetal1960_r2002}. \mynote{$\yt$ also contains
-macroscopic momentum transport; this makes the derivation less neat} Their dimensions are
-\begin{subequations}\label{eq:dims_stress_components}
-  \begin{gather}
-    \label{eq:dim_en}
-    \dim(\en) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
-    \qquad
-    % \label{eq:dim_yq}
-    \dim(\yq_{i}) = \En\Le^{-2}\Ti^{-1} \equiv \Ma\Ti^{-3} \ ,
-    \\
-    \label{eq:dim_yp}
-    \dim(\yp_{i}) = \Ma\Le\Ti^{-1} \ ,
-    \qquad
-    % \label{eq:dim_stress}
-    \dim(\yt_{ij}) = \Ma\Le^{-1}\Ti^{-2} \ .
-  \end{gather}
-\end{subequations}
-
-The two balances can be suggestively combined into a four-dimensional
-equation:
-\begin{gather}
-  \label{eq:bal_energy-force}
-  % \begin{pmatrix}
-  %   \de_{t} & \de_{i}
-  % \end{pmatrix} \ 
-  \tsum_{j}\de_{j} T_{ij} = 0
-  \\
-  \shortintertext{with}
-  \label{eq:T}
-  T_{ij} \defd 
-  \begin{pmatrix}
-    \en & \yq_{r} \\ \yp_{s} & \yt_{sr}
-  \end{pmatrix} \ ,
-\end{gather}
-where indices $i,j$ run over all four coordinates, The combined balance
-resembles a four-dimensional divergence. Cartan
-\citep{cartan1923,cartan1924} in fact showed that Newtonian mechanics can
-be formulated in fully covariant form in terms of a special connection
-$\nab$, and the terms $T_{ij}$ are indeed four-dimensional components of a
-stress-energy-momentum tensor $\yT$. This reformulation is usually called
-Newton-Cartan theory; for details see especially Truesdell \amp\ Toupin
-\citep[\sects~B.II.152--154, D.II.203--205, D.V.238,
-F.IV.285--289]{truesdelletal1960}[see
-also][\sect~2.4]{marsdenetal1983b_r1994}. Cartan's connection can even
-express Newtonian gravitation, for which see Misner \etal\
-\citep[\chap~12]{misneretal1970_r1973}[also][]{trautman1964,dixon1975}.
-
-The balances of energy and momentum~\eqref{eq:bal_energy},
-\eqref{eq:bal_force} in Newtonian mechanics are thus covariantly expressed
-in coordinate-free form as
-\begin{equation}
-  \label{eq:div_T_cov}
-  \tr_{13}\nab\i{_{\q}}\yT\i{_{\q}^{\q}} = 0 \ ,
-  \quad\text{\small commonly written}\ \nab\cdot\yT=0 \ ,
-\end{equation}
-with components $\nab\i{_{j}}\yT\i{_{i}^{j}} = 0$. This is the same
-equation that can be obtained from the Einstein equations in general
-relativity from the fact that the Einstein tensor has zero divergence.
-Indeed this is the starting point to define the stress part of the
-tensor $\yT$ in relativity: it is assumed to be locally equal to the
-Newtonian one in an inertial (free-fall) frame in which the material
-continuum is momentarily at rest. \mynote{note on momentum of heat, refer to \citep[p.~923]{eckart1940c}}
-
-From the components~\eqref{eq:T}, the dimensions
-\eqref{eq:dims_stress_components}, and the relation between intrinsic and
-component dimensions~\eqref{eq:dim_component_generic} we can thus find the
-intrinsic dimension of the stress-energy-momentum tensor. To determine the
-variance type of the components $(T_{ij})$ consider the four alternatives in
-which it might be written in terms of basis vectors and covectors:
-% \begin{multline*}
-%     \yT \stackrel{?}{=} {}\\[-\jot]
-%   \begin{aligned}
-%   &\ \en\, \dix[0]\otimes\dix[0] +
-%   \yq_{1}\, \dix[0]\otimes\dix[1] +
-%   \yp_{1}\, \dix[1]\otimes\dix[0] +
-%   \yt_{1\, 1}\, \dix[1]\otimes\dix[1] + \dotsb
-%     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-%     &\ \en\, \dex[0]\otimes\dex[0] +
-%   \yq_{1}\, \dex[0]\otimes\dex[1] +
-%   \yp_{1}\, \dex[1]\otimes\dex[0] +
-%   \yt_{1\, 1}\, \dex[1]\otimes\dex[1] + \dotsb
-%     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-%   &\ \en\, \dex[0]\otimes\dix[0] +
-%   \yq_{1}\, \dex[0]\otimes\dix[1] +
-%   \yp_{1}\, \dex[1]\otimes\dix[0] +
-%   \yt_{1\, 1}\, \dex[1]\otimes\dix[1] + \dotsb
-%     \\[-\jot]\text{\footnotesize or}&\\[-\jot]
-%   &\ \en\, \dix[0]\otimes\dex[0] +
-%   \yq_{1}\, \dix[0]\otimes\dex[1] +
-%   \yp_{1}\, \dix[1]\otimes\dex[0] +
-%   \yt_{1\, 1}\, \dix[1]\otimes\dex[1] + \dotsb
-%   \end{aligned}
-% \end{multline*}
-You can check that the first alternative is dimensionally inconsistent: its
-first two summands have incompatible dimensions $\En\Le^{-3}\Ti^{2}$ and
-$\En\Le^{-1}$. The second and third alternatives are similarly
-inconsistent. Only the last alternative is dimensionally consistent. It is
-co-contra-variant and has a dimension of volumic energy, $\En\Le^{-3}$.
-
-We thus find
-\begin{gather}
-  \label{eq:dim_T_co_contra}
-  \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
-  \\[\jot]
-  \dim(\yT\i{_{\q\q}}) = \dim(\yT\i{_{\q}^{\q}}) \dim(\yg)
-%  \dim[\tr_{23}(\yT\i{_{\q}^{\q}}\ \yg\i{_{\q\q}})]
-= 
-    \begin{cases}
-    \Ma\Le^{-1} \\
-    \Ma\Le\Ti^{-2} \equiv \En\Le^{-1}
-  \end{cases}
-  \quad\text{if }\dim(\yg)\defd
-  \begin{cases}
-     \Ti^2 \\
-    \Le^2
-  \end{cases}
-\end{gather}
+% Here
+% $\en$ is the volumic internal energy, $\yq_{i}$ are the components of the
+% areic energy flux, $\yp_{i}$ are the components of the volumic momentum,
+% and $\yt_{ij}$ are the components of the stress tensor, a force per unit
+% area. Hence ***
 
 
 
+% To find the dimension of the stress-energy-momentum $\yT$, or
+% \defquote{4-stress} for short, let's start with the analysis of the
+% (3-)stress $\yt$ in Newtonian mechanics. The stress $\yt$ is the projection
+% of the 4-stress $\yT$ onto a spacelike tangent plane with respect to some
+% observer\citep[\sect~3.4.1]{gourgoulhon2007_r2012}{smarretal1978,york1979,smarretal1980}[\sect~1.3]{wilsonetal2003_r2007}[the
+% projection doesn't need to be
+% orthogonal:][\sect~2.4]{marsdenetal1983b_r1994}[\sect~B.1.4]{hehletal2003}. If we
+% assume that such spatial projection preserves the intrinsic dimension, then
+% the 4-stress and the stress have the same intrinsic dimension.
 
-\mynote{ \citep[\sects~III.35--37]{tolman1934_t1949}}
-
-
-
-
-
-Here
-$\en$ is the volumic internal energy, $\yq_{i}$ are the components of the
-areic energy flux, $\yp_{i}$ are the components of the volumic momentum,
-and $\yt_{ij}$ are the components of the stress tensor, a force per unit
-area. Hence ***
-
-
-
-To find the dimension of the stress-energy-momentum $\yT$, or
-\defquote{4-stress} for short, let's start with the analysis of the
-(3-)stress $\yt$ in Newtonian mechanics. The stress $\yt$ is the projection
-of the 4-stress $\yT$ onto a spacelike tangent plane with respect to some
-observer\citep[\sect~3.4.1]{gourgoulhon2007_r2012}{smarretal1978,york1979,smarretal1980}[\sect~1.3]{wilsonetal2003_r2007}[the
-projection doesn't need to be
-orthogonal:][\sect~2.4]{marsdenetal1983b_r1994}[\sect~B.1.4]{hehletal2003}. If we
-assume that such spatial projection preserves the intrinsic dimension, then
-the 4-stress and the stress have the same intrinsic dimension.
-
-In Newtonian mechanics the stress $\yt$ is an object that, integrated over
-the boundary of a body, gives the total surface force acting on the body
-\citep[\chap~III]{truesdell1977_r1991} (such integration requires a flat
-connection). This means that it must be represented by a
-\enquote{force-valued} 2-form. Force, in turn, can be interpreted as an
-object that, integrated over a (spacelike) trajectory, gives an energy --
-the work done by the force along the trajectory. It's therefore a 1-form.
-Putting these two requirements together, the stress turns out to be a
-covector-valued 2-form, equivalent to a tensor $\yt\i{_{\q\ \q\q}}$
-antisymmetric in its last two indices. Integrated over a surface, and then
-over a trajectory, it yields an energy. From \sect~\ref{sec:tensor_ops},
-integration of a form does not change the dimension of the form. Therefore
-\begin{equation}
-  \label{eq:dim_3stress_form}
-  \dim(\yt\i{_{\q\ \q\q}}) = \En \equiv \Ma\Le^{2}\Ti^{-2} \ .
-\end{equation}
-
-But usually the stress is represented by a co-contra-variant tensor
-$\yt\i{_{\q}^{\q}}$\,. The latter is obtained by contracting the last two
-slots of $\yt\i{_{\q\ \q\q}}$ with the inverse of the volume element of the
-3-metric -- this is the duality \citep[\sect~4.1.2]{bossavit1991} between
-$k$-vectors and $(n-k)$-covectors induced by the metric (and an orientation
-choice), where $n$ is the geometric dimension of the manifold. If we assume
-the Newtonian 3-metric to have dimension $\Le^{2}$, it can be shown
-similarly to \sect~\ref{sec:metric} that its volume element has dimension
-$\Le^{3}$, and the inverse volume element has dimension $\Le^{-3}$. Thus we
-obtain
-\begin{equation}
-  \label{eq:dim_3stress}
-  \dim(\yt\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
-\end{equation}
-an energy density (or \defquote{volumic energy} according to \textsc{iso}
-\citep[item~A.6.2]{iso2009}).
-
-Since the stress $\yt\i{_{\q}^{\q}}$ is the projection of
-$\yT\i{_{\q}^{\q}}$ and the projection preserves the intrinsic dimension, we
-finally find that $\yT\i{_{\q}^{\q}}$ also has the dimension of an energy density:
-\begin{equation}
-  \label{eq:dim_4stress}
-  \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ .
-\end{equation}
-
-Note that other co- or contra-variant versions of the 4-stress  have
-different intrinsic dimension, because they're obtained by lowering or
-raising indices. For example,
-$\dim(\yT\i{_{\q\q}})=\dim(\yT\i{_{\q}^{\q}})\dim(\yg)=\Ma\Le^{-1}$ if
-$\dim(\yg)\defd \Ti^{2}$.
-
-
-
-% In most texts the stress-energy-momentum, which I'll call
-% \defquote{4-stress}, is represented by a tensor of order 2,
+% In Newtonian mechanics the stress $\yt$ is an object that, integrated over
+% the boundary of a body, gives the total surface force acting on the body
+% \citep[\chap~III]{truesdell1977_r1991} (such integration requires a flat
+% connection). This means that it must be represented by a
+% \enquote{force-valued} 2-form. Force, in turn, can be interpreted as an
+% object that, integrated over a (spacelike) trajectory, gives an energy --
+% the work done by the force along the trajectory. It's therefore a 1-form.
+% Putting these two requirements together, the stress turns out to be a
+% covector-valued 2-form, equivalent to a tensor $\yt\i{_{\q\ \q\q}}$
+% antisymmetric in its last two indices. Integrated over a surface, and then
+% over a trajectory, it yields an energy. From \sect~\ref{sec:tensor_ops},
+% integration of a form does not change the dimension of the form. Therefore
 % \begin{equation}
-%   \label{eq:4stress}
-%   \yT\i{_{\q}^{\q\q}} =  T\i{_{i}^{j}}\  \dix\otimes\dex[j].
+%   \label{eq:dim_3stress_form}
+%   \dim(\yt\i{_{\q\ \q\q}}) = \En \equiv \Ma\Le^{2}\Ti^{-2} \ .
 % \end{equation}
-% To find its dimension let's examine its spatial part only
 
-\medskip
+% But usually the stress is represented by a co-contra-variant tensor
+% $\yt\i{_{\q}^{\q}}$\,. The latter is obtained by contracting the last two
+% slots of $\yt\i{_{\q\ \q\q}}$ with the inverse of the volume element of the
+% 3-metric -- this is the duality \citep[\sect~4.1.2]{bossavit1991} between
+% $k$-vectors and $(n-k)$-covectors induced by the metric (and an orientation
+% choice), where $n$ is the geometric dimension of the manifold. If we assume
+% the Newtonian 3-metric to have dimension $\Le^{2}$, it can be shown
+% similarly to \sect~\ref{sec:metric} that its volume element has dimension
+% $\Le^{3}$, and the inverse volume element has dimension $\Le^{-3}$. Thus we
+% obtain
+% \begin{equation}
+%   \label{eq:dim_3stress}
+%   \dim(\yt\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ ,
+% \end{equation}
+% an energy density (or \defquote{volumic energy} according to \textsc{iso}
+% \citep[item~A.6.2]{iso2009}).
+
+% Since the stress $\yt\i{_{\q}^{\q}}$ is the projection of
+% $\yT\i{_{\q}^{\q}}$ and the projection preserves the intrinsic dimension, we
+% finally find that $\yT\i{_{\q}^{\q}}$ also has the dimension of an energy density:
+% \begin{equation}
+%   \label{eq:dim_4stress}
+%   \dim(\yT\i{_{\q}^{\q}}) = \En\Le^{-3} \equiv \Ma\Le^{-1}\Ti^{-2} \ .
+% \end{equation}
+
+% Note that other co- or contra-variant versions of the 4-stress  have
+% different intrinsic dimension, because they're obtained by lowering or
+% raising indices. For example,
+% $\dim(\yT\i{_{\q\q}})=\dim(\yT\i{_{\q}^{\q}})\dim(\yg)=\Ma\Le^{-1}$ if
+% $\dim(\yg)\defd \Ti^{2}$.
 
 
-% The contracted covariant derivative, or \defquote{divergence} of the
-% 4-stress, $\tr_{13}\nab\yT\i{_{\q}^{\q}}$ yields the 4-force, which always
-% vanishes in general relativity because of the Einstein equation. Note that
-% we can consider the total 4-stress as coming from the additive contribution
-% of several 4-stresses, and the latter don't need individually to have a
-% vanishing divergence; their 4-forces can thus be different from zero.
 
-%Let me close this section with a couple of remarks.
+% % In most texts the stress-energy-momentum, which I'll call
+% % \defquote{4-stress}, is represented by a tensor of order 2,
+% % \begin{equation}
+% %   \label{eq:4stress}
+% %   \yT\i{_{\q}^{\q\q}} =  T\i{_{i}^{j}}\  \dix\otimes\dex[j].
+% % \end{equation}
+% % To find its dimension let's examine its spatial part only
 
-Let me add a passing remark. Even though in most texts the 4-stress is
-represented by a tensor of order 2, as above, its most fitting geometrical
-nature is still shrouded in mystery from the kinematic and the dynamical
-points of view. There are indications that it could be more properly
-represented by a covector-valued 3-form (equivalent to a tensor
-$\yT\i{_{\q\ \mul{\q\q\q}}}$ antisymmetric in the last three slots), or by a
-3-vector-valued 3-form (equivalent to a tensor $\yT\i{^{\q\q\q}_{\q\q\q}}$
-antisymmetric in the first three and last three slots), for reasons
-connected with integration, similar to those mentioned above for the stress
-$\yt\i{_{\q\ \q\q}}$. See for example the discussion about
-\enquote{$^{\displaystyle *}\mathte{T}$} by Misner
-\etal~\citep[\chap~15]{misneretal1970_r1973}, the works by
-Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
-discussion by Burke~\citep[\sect~41]{burke1985_r1987}. \mynote{add \citep{kansoetal2007}}
+% \medskip
+
+
+% % The contracted covariant derivative, or \defquote{divergence} of the
+% % 4-stress, $\tr_{13}\nab\yT\i{_{\q}^{\q}}$ yields the 4-force, which always
+% % vanishes in general relativity because of the Einstein equation. Note that
+% % we can consider the total 4-stress as coming from the additive contribution
+% % of several 4-stresses, and the latter don't need individually to have a
+% % vanishing divergence; their 4-forces can thus be different from zero.
+
+% %Let me close this section with a couple of remarks.
+
+% Let me add a passing remark. Even though in most texts the 4-stress is
+% represented by a tensor of order 2, as above, its most fitting geometrical
+% nature is still shrouded in mystery from the kinematic and the dynamical
+% points of view. There are indications that it could be more properly
+% represented by a covector-valued 3-form (equivalent to a tensor
+% $\yT\i{_{\q\ \mul{\q\q\q}}}$ antisymmetric in the last three slots), or by a
+% 3-vector-valued 3-form (equivalent to a tensor $\yT\i{^{\q\q\q}_{\q\q\q}}$
+% antisymmetric in the first three and last three slots), for reasons
+% connected with integration, similar to those mentioned above for the stress
+% $\yt\i{_{\q\ \q\q}}$. See for example the discussion about
+% \enquote{$^{\displaystyle *}\mathte{T}$} by Misner
+% \etal~\citep[\chap~15]{misneretal1970_r1973}, the works by
+% Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
+% discussion by Burke~\citep[\sect~41]{burke1985_r1987}. \mynote{add \citep{kansoetal2007}}
 
 % Some texts state that the timelike component of the 4-force equals the work
 % done by the force, apart from relativistic factors.
@@ -2971,54 +3109,77 @@ We finally arrive at the Einstein equations,
 \begin{equation}
   \label{eq:einstein}
   \yG%\i{_{\q}^{\q}}
-  = \yk \yT%\i{_{\q}^{\q}}
+  = \yk \yTe%\i{_{\q}^{\q}}
 \end{equation}
-where $\yk$ (sometimes seen with a minus \citep[\eg][\sect~78
-\eqn~(78.3)]{tolman1934_t1949}[\sect~52
-\eqn~(52.06)]{fock1955_t1964}[\sect~14.2 \eqn~(14.8)]{rindler2001_r2006}
-depending on the signature of the metric or on the orientation of the
-stress) is Einstein's constant. For the dimension of $\yk$ we thus find
+sometimes seen with a minus sign, depending on the signature of the metric
+and of alternative definitions of the curvature tensors \citep[see the
+\emph{Table of sign conventions} on the final pages
+of][]{misneretal1970_r1973}. $\yk$ is Einstein's constant.
+
+According to our definitions of $\yG\i{_{\q\q}}$,
+\eqn~\eqref{eq:dim_einst}, and $\yTe\i{_{\q\q}}$, \eqn~\eqref{eq:co_co_T},
+the equations above are considered in their co-co-variant form. This form
+is convenient because the left side is then dimensionless (its intrinsic
+dimension is $\Un$), independently of the dimension of the metric tensor,
+as explained at the end of \sect~\ref{sec:metric},
+\eqn~\eqref{eq:dim_einst}. We therefore find as a general rule that
 \begin{equation}
-  \label{eq:dim_k_1}
-  \dim(\yk) = \dim(\yG\i{_{\q}^{\q}}) \, \dim(\yT\i{_{\q}^{\q}})^{-1} \equiv
-    \begin{cases}
-    \Ma^{-1}\Le \\
-    \Ma^{-1}\Le^{-1}\Ti^{2}
-  \end{cases}
-  \quad\text{if }\dim(\yg)\defd
-  \begin{cases}
-     \Ti^2 \\
-    \Le^2
-  \end{cases}
+  \label{eq:dim_k_general}
+  \dim(\yk) = \dim(\yTe\i{_{\q\q}})^{-1} 
 \end{equation}
-This constant can be obtained from the dimensions of Newton's gravitational
-constant $\dim(G)=\Ma^{-1}\Le^{3}\Ti^{-2}$ (this is not the Einstein tensor
-$\yG$!) and of the speed of light $\dim(c)=\Le\Ti^{-1}$ only in the
-following ways, with an $8\pu$ factor coming from the Newtonian limit:
+always, for all choices of dimensions for the metric and
+stress-energy-momentum tensors. Combining this equation with the results
+for $\yTe$, \eqn~\eqref{eq:dim_co_co_T}, we find three possible
+conventions:
+\begin{multline}
+\label{eq:dim_k_choices}
+\dim(\yk) ={}\\
+  \begin{cases}
+\Ma^{-1}\Le^{-1}\Ti^{2} \equiv \En^{-1}\Le \\[2\jot]
+\Ma^{-1}\Le \equiv \En^{-1}\Le^{3}\Ti^{-2} \\[2\jot]
+\Ma^{-1}\Le^{3}\Ti^{-2} \equiv \En^{-1}\Le^{5}\Ti^{-4}
+  \end{cases}
+  \quad\text{if }
+  \begin{cases}
+\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti \\[\jot]
+    \dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti 
+    \ \text{ or }\\
+\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti \\[\jot]
+\dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti
+  \end{cases}
+\end{multline}
+
+Einstein's constant $\yk$ can therefore be obtained from Newton's
+gravitational constant $\dim(G)=\Ma^{-1}\Le^{3}\Ti^{-2}$ (this is not the
+Einstein tensor $\yG$!) and the speed of light $\dim(c)=\Le\Ti^{-1}$ only
+in the following three ways, with the $8\pu$ factor coming from the
+Newtonian limit:
 \begin{equation}
-  \label{eq:k_Gc}
-  \yk =     \begin{cases}
-   8\pu G/c^{2} \\
-   8\pu G/c^{4}
+\label{eq:dim_k_Gc}
+\yk =
+\begin{cases}
+  8\pu G/c^{4} \\[2\jot]
+  8\pu G/c^{2} \\[2\jot]
+  8\pu G 
   \end{cases}
-  \quad\text{if }\dim(\yg)\defd
+  \quad\text{if }
   \begin{cases}
-     \Ti^2 \\
-    \Le^2
-  \end{cases}.
+\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti \\[\jot]
+    \dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti 
+    \ \text{ or }\\
+\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti \\[\jot]
+\dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti
+  \end{cases} \ .
 \end{equation}
-The second choice is by far the most common, consistently with the most
-common choice of $\dim(\yg)=\Le^{2}$ discussed before. The first choice
-appears for example in Fock \citep[\sect~55 \eqns~(55.15)
+From the discussion of the literature given in
+\sect~\ref{sec:stressenergy}, the first convention is the most common. The
+second convention appears for example in Fock \citep[\sect~55 \eqns~(55.15)
 and~(52.06)]{fock1955_t1964} and Adler \etal\ \citep[\sect~10.5
-\eqn~(10.98)]{adleretal1965_r1975}.
+\eqn~(10.98)]{adleretal1965_r1975}. The third convention would appear in
+McVittie if he didn't cheat a factor $1/c^{2}$ into $\yk$ by writing the
+Einstein equations \citep[\sect~4.2 \eqn~(4.107)]{mcvittie1956_r1965} as
+\enquote{\,$\yG = \yk c^{2} \yTe$\,}.
 
-% \medskip
-
-% The analysis above has a curious and possibly important implication.
-% Recall that $\dim(\yG\i{_{\q}^{\q}}) = \dim(\yg)^{-1}$. If the metric is
-% taken to be dimensionless, $\dim(\yg)\defd \Un$, it follows that
-% $\yG\i{_{\q}^{\q}}$ is also dimensionless, and then from the Einstein
 
 
 \section{Summary and conclusions}
@@ -3037,26 +3198,24 @@ specific component is easily found by
 formula~\eqref{eq:dim_component_generic}: it's the product of the intrinsic
 dimension by the dimension of the $i$th coordinate function for each
 contravariant index $i$, by the inverse of the dimension of the $j$th
-coordinate function for each covariant index $j$.
+coordinate function for each covariant index $j$. Intrinsic dimensional
+analysis seems to rest on two main conventions: the tensor product and the
+action of covectors on vectors behave analogously to usual multiplication
+for the purposes of dimensional analysis. Alternative, equivalent sets of
+conventions could perhaps be considered.
 
-\mynote{add note on usefulness of coordinate-free way to settle questions
-  as in \sect~\ref{sec:stressenergy}?}
-
-Dimensional analysis in differential geometry seems to rest on two main
-conventions: the tensor product and the action of covectors on vectors
-behave analogously to usual multiplication for the purposes of dimensional
-analysis. Alternative, equivalent sets of conventions can also be
-considered, for example involving the exterior derivative.
+Intrinsic dimensional analysis can help us determine or at least constrain
+the variance type of candidate tensors, as we saw for the
+stress-energy-momentum tensor in \sect~\ref{sec:stressenergy}.
 
 We found or re-derived some essential results for general relativity, in
-particular that the Riemann $\yR\i{^{\q}_{\q\q\q}}$ and Ricci
-$\yRi\i{_{\q\q}}$ curvature tensors are dimensionless, and that the
-Einstein tensor $\yG\i{_{\q}^{\q}}$ has the inverse dimension of the metric
-tensor. Maybe these results can be of importance for some current research
-involving scales and conformal factors
+particular that the Riemann $\yR\i{^{\q}_{\q\q\q}}$, Ricci
+$\yRi\i{_{\q\q}}$, and twice-covariant Einstein $\yG\i{_{\q\q}}$ curvature
+tensors are dimensionless. Maybe these results can be of importance for
+some current research involving scales and conformal factors
 \citep[\eg][]{roehretal2005,cadonietal2019}. We also discussed the
-operational reasons behind two common choices of dimension for the metric
-tensor.
+operational reasons behind two common choices of dimensions for the metric
+and the stress-energy-momentum tensors.
 
 Since the dimensions of the components are usually different from the
 intrinsic dimension and depend on the coordinates, I recommend to avoid

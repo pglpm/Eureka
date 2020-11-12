@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-12T09:34:26+0100
+%% Last-Updated: 2020-11-12T12:04:39+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1724,7 +1724,7 @@ distance is, because no metric is involved in the definition.
 
 If we introduce a metric tensor, The \emph{norm} of the 4-velocity,
 calculated using the metric tensor, has dimension $\Le/\Ti$ or $\Un$
-depending on the dimension chosen for the metric tensor; see
+depending on the dimension chosen for the metric tensor, discussed in
 \sect~\ref{sec:metric}.
 
 %% the dimension of the parameter of a curve doesn't influence an integral
@@ -1769,19 +1769,19 @@ tensors of arbitrary type.
 
 \medskip
 
-In the coordinate system $(x^{i})$, the action of the covariant derivative
+In the coordinate system $(x^{i})$ the action of the covariant derivative
 is carried by the \emph{connection coefficients} or Christoffel symbols
-$(\yGa\i{^{i}_{jk}})$ defined by
+$\bigl(\yGa\i{^{i}_{jk}}\bigr)$ defined by
 \begin{equation}
   \label{eq:christoffel}
   \nab\dex[k] = \yGa\i{^{i}_{jk}}\  \dix[j]\otimes\dex[i]\ .
 \end{equation}
 From this equation and \eqns~\eqref{eq:tensor_mult},
-\eqref{eq:dim_cov_der_vect} it follows that these coefficients have
-dimensions
+\eqref{eq:dim_cov_der_vect} it follows that an individual coefficient has
+dimension
 \begin{equation}
   \label{eq:dim_christoffel}
-  \dim(\yGa\i{^{i}_{jk}}) = \Xx_{i}\, {\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}\ .
+  \dim\bigl(\yGa\i{^{i}_{jk}}\bigr) = \Xx_{i}\, {\Xx_{j}}^{-1}\,{\Xx_{k}}^{-1}\ .
 \end{equation}
 
 \medskip
@@ -1815,7 +1815,7 @@ find the dimensional requirements
 \dim(\yRi\i{_{\q\q}}) = \dim\bigl(\yR\i{^{\q}_{\q\mul{\q\q}}}\bigr)\ ,
   \label{eq:ricci_eq_dim}  
 \end{gather}
-which imply that \emph{torsion, Riemann curvature, and Ricci curvature
+which imply that the \emph{torsion, Riemann curvature, and Ricci curvature
   tensors are dimensionless}:
 \begin{equation}
   \label{eq:dim_torsion_riemann_ricci}
@@ -1825,7 +1825,7 @@ which imply that \emph{torsion, Riemann curvature, and Ricci curvature
   % \label{eq:dim_ricci}
    \dim(\yRi\i{_{\q\q}}) =\Un\ .
 \end{equation}
-This result is sensible, because the notion of local parallelism, which
+This result is sensible because the notion of local parallelism, which
 these tensors express, doesn't involve any notion of distance or angle
 \citep[\cf][]{portamana2011_r2019}. The exact contra- and co-variant
 primitive type of these tensors is very important in the equations above.
@@ -1838,13 +1838,13 @@ Misner \etal\ \citep[p.~35%, 407
 mean the Riemann tensor, has dimension $\Le^{-2}$. This statement is
 seemingly at variance with the dimensionless
 results~\eqref{eq:dim_torsion_riemann_ricci}. But I believe that Misner
-\etal\ refer to the \emph{components} of the Riemann tensor in specific
-coordinates of dimension $\Le$ and using geometrized units. In such
-specific coordinates every \emph{component} $R\i{^{i}_{jkl}}$ does indeed
-have dimension $\Le^{-2}$, according to the general
-formula~\eqref{eq:dim_component_generic}, if and only if the intrinsic
-dimension of $\yR$ is unity, $\dim(\yR)=\Un$. So I believe that Misner
-\etal's statement actually agrees with the
+\etal\ refer to the \emph{components} of the Riemann tensor in
+\emph{specific coordinates} of dimension $\Le$ and using geometrized units.
+In such specific coordinates every \emph{component}
+$\mathit{Rie}\i{^{i}_{jkl}}$ has dimension $\Le^{-2}$, according to the
+general formula~\eqref{eq:dim_component_generic}, if and only if the
+intrinsic dimension of $\yR$ is unity, $\dim(\yR)=\Un$. So I believe that
+Misner \etal's statement actually agrees with the
 results~\eqref{eq:dim_torsion_riemann_ricci}. This possible
 misunderstanding shows the importance of distinguishing between the
 intrinsic dimension, which doesn't depend on any specific coordinate
@@ -1855,18 +1855,16 @@ choice, and component dimensions, which do.
 The formulae above are also valid if a metric is defined and the connection
 is compatible with it. The connection coefficients in this case are defined
 in terms of the metric tensor, but using the results of
-\sect~\ref{sec:metric} it's easy to see that
-\eqns~\eqref{eq:dim_cov_der_vect}, \eqref{eq:dim_dircov_der_vect},
-\eqref{eq:dim_christoffel}, \eqref{eq:dim_torsion_riemann_ricci} still
-hold.
+\sect~\ref{sec:metric} it's easy to see that all results obtained in the
+present section still hold.
 
 
 \section{Metric and related tensors and operations}
 \label{sec:metric}
 
-Let us now consider a metric tensor $\yg\i{_{\q\q}}$. What is its intrinsic
-dimension $\dim(\yg)$? There seem to be two choices in the literature; both
-can be derived from the operational meaning of the metric.
+Let us now consider a metric tensor $\yg \equiv \yg\i{_{\q\q}}$. What is
+its intrinsic dimension $\dim(\yg)$? There seem to be two choices in the
+literature; both can be derived from the operational meaning of the metric.
 
 
 Consider a (timelike) worldline $s \mapsto C(s)$, $s\in \clcl{a,b}$,
@@ -1884,7 +1882,7 @@ From the results of \sect~\ref{sec:tensor_ops} this formula implies that
 %  \label{eq:dim_dt}
  $\Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\q\q}})}$,
 %\end{equation}
-independently of the dimension of $s$, and therefore
+ independently of the dimension of the parameter $s$, and therefore
 \begin{equation}%\addtocounter{equation}{1}\tag{\theequation a}
   \label{eq:dim_g}
   \dim(\yg\i{_{\q\q}}) = \Ti^{2}\ .
@@ -1908,21 +1906,21 @@ thus obtaining
 \end{equation}
 %To avoid confusion I'm using $\ygc$ for the metric with such dimension.
 
-The choice~\eqref{eq:dim_g_c} seems also supported by the traditional
+The choice~\eqref{eq:dim_g_c} is also supported by the traditional
 expression for the \enquote{line element $\ds^{2}$} as it appears in many
 works:
 \begin{equation}
   \label{eq:line_elem}
-  \ds^{2} = c^2\mathit{dt}^2 - \mathit{dx}^2 -\mathit{dy}^2 - \mathit{dz}^2
+  \ds^{2} = -c^2\mathit{dt}^2 + \mathit{dx}^2 +\mathit{dy}^2 + \mathit{dz}^2
   \ ,
 \end{equation}
-possibly with opposite sign. If the coordinates $(t,x,y,z)$ have the
+sometimes with opposite sign. If the coordinates $(t,x,y,z)$ have the
 dimensions suggested by their symbols, this formula has dimension
 $\Le^{2}$, so that if we interpret \enquote{$\ds^{2}$} as $\ygc$ we find
 $\dim(\ygc) = \Le^{2}$. The line-element expression above often has an
 ambiguous differential-geometric meaning, however, because it may also
 represent the metric applied to some \emph{unspecified} vector, that is,
-$\yg(\yv,\yv)$, where $\yv$ is left unspecified \citep[\cf][Box~3.2~D
+$\ds^{2} = \yg(\yv,\yv)$ with $\yv$ left unspecified \citep[\cf][Box~3.2~D
 p.~77]{misneretal1970_r1973}. In this case we have
 \begin{equation*}
   \label{eq:line_elem_dim_ambiguous}
@@ -1938,9 +1936,10 @@ $\yv$ could have any dimension.% -- possibly dimensionless if $\yv$
 The standard choices for $\dim(\yg)$ are thus $\Le^{2}$ or $\Ti^{2}$; the
 corresponding metric tensors differ by a factor $c^{2}$.
 
-The second choice has some merit for reasons discussed by Synge and Bressan
-\citep[\sects~III.2--4]{synge1960b}[\sects~15, 18]{bressan1978}. Synge
-gives a vivid summary: \citep[\sect~III.3 pp.~108--109]{synge1960b}
+The choice $\dim(\yg) \defd \Ti^{2}$ has some merit for reasons discussed
+by Synge and Bressan \citep[\sects~III.2--4]{synge1960b}[\sects~15,
+18]{bressan1978}. Synge gives a vivid summary: \citep[\sect~III.3
+pp.~108--109]{synge1960b}
 \begin{quote}\footnotesize
   We are now launched on the task of giving physical meaning to the
   Riemannian geometry \textelp{}. It is indeed a Riemannian
@@ -1957,7 +1956,7 @@ defined by the integral~\eqref{eq:proper_time} apart from a dimensional
 constant. Its measurement, however, is more involved than in the timelike
 case. It requires dividing the curve into very short pieces, and having
 specially-chosen observers (orthogonal to the pieces) measure each piece.
-But the measurement of each piece actually relies on the measurement of
+And the measurement of each piece actually relies on the measurement of
 \emph{proper time}
 \citep[\chap~2]{frankel1979}[\sect~84]{landauetal1939_t1996}: each observer
 uses radar distance, sending a lightlike signal which bounces back at the
@@ -1969,16 +1968,17 @@ Kilmister
 \citep[\sect~4.1]{mcvittie1956_r1965}[\sect~IV.5]{synge1960b}[\chap~II
 p.~25]{kilmister1973} choose $\dim(\yg)=\Ti^{2}$.
 
-The first choice, $\dim(\yg) = \Le^{2}$, seems by far the most common,
-however. It has the merit that the projection of the metric onto a
-spacelike hypersurface also has dimension $\Le^{2}$, which is sensible from
-a Newtonian point of view; and such projections are at the heart of the
-$3+1$ formulations of general relativity
-\citep{gourgoulhon2007_r2012,alcubierre2008}[\chap~21. I thank I.~Bengtsson
-for this remark]{misneretal1970_r1973}.
-\mynote{add refs to Wilson etc from commented text below}
+The choice $\dim(\yg) \defd \Le^{2}$ is by far the most common, however. It
+has the merit that the projection of the metric onto a spacelike
+hypersurface also has dimension $\Le^{2}$, which is sensible from a
+Newtonian point of view. Such projections are at the heart of $3+1$
+formulations of general relativity \citep(I thank I.~Bengtsson for this
+remark){gourgoulhon2007_r2012,alcubierre2008}[\chap~21]{misneretal1970_r1973}{wilsonetal2003_r2007,smarretal1978,york1979,smarretal1980}
+and also of covariant formulations of Newtonian mechanics
+\citep[\sects~B.II.152--154, D.II.203--205, D.V.238,
+F.IV.285--289]{truesdelletal1960}[\sect~2.4]{marsdenetal1983b_r1994}.
 
-In the following we shall see how these choices affect some dimensional
+In the following we shall see how these choices affect several dimensional
 results. % Another merit is that the norm of a 4-velocity -- and therefore
 % also its spacelike projection, the ordinary 3-velocity -- has indeed the
 % dimension of a velocity, $\Le\Ti^{-1}$.
@@ -1986,15 +1986,15 @@ results. % Another merit is that the norm of a 4-velocity -- and therefore
 \medskip
 
 The metric $\yg$ can be considered as an operator mapping vectors $\yv$ to
-covectors $\yom$, which we can compactly write as $\yom=\yg\yv$ instead of the
-cumbersome $\yom = \tr_{23}(\yg\otimes\yv)$. The \emph{inverse metric
-  tensor} $\yg\i{^{-1}^{\q\q}}$ is then defined by the formula
+covectors $\yom$, which we can compactly write as $\yom=\yg\yv$ as
+discussed in \sect~\ref{sec:remined}. The \emph{inverse metric tensor}
+$\yg^{-1} \equiv \yg\i{^{-1}^{\q\q}}$ is then defined by the formula
 \begin{equation}
   \label{eq:inverse_g}
   \yg\,\yg^{-1} = \id\i{_{\q}^{\q}} \ ,
   % \qquad
   % \yg\yg^{-1} = \id\i{_{\q}^{\q}} = (\id\i{^{\q}_{\q}})^{\intercal}\ ,
-\end{equation}e
+\end{equation}
 where $\id\i{_{\q}^{\q}}\colon \yom \mapsto \yom$ is the dimensionless
 identity operator (also a tensor) on the cotangent space. Hence
 \begin{equation}
@@ -2050,8 +2050,8 @@ A metric tensor on a four-dimensional spacetime determines a unique twisted
 4-covector field or 4-form, called the volume element
 \citep[\sect~V.24]{derham1955_t1984}[\sect~V.A.4]{choquetbruhatetal1977_r1996}[\sect~6.2]{abrahametal1983_r1988}.
 It can be seen as a completely antisymmetric tensor of order 4 (whose
-coordinate transformation includes the sign of the Jacobian), with only one
-non-zero component equal to the square root of the determinant of
+coordinate transformation includes the sign of the Jacobian) with only one
+non-zero component, which is equal to the square root of the determinant of
 the %(positively ordered)
 components $(g\i{_{ij}})$ of the metric:
 \begin{equation*}
@@ -2061,13 +2061,13 @@ components $(g\i{_{ij}})$ of the metric:
 where
 $\dix[0]\land\dix[1]\land\dix[2]\land\dix[3]$ %the sequence $(x^{0},x^{1}, x^{2}, x^{3})$ must define a positive orientation.
 actually has a twisted orientation \citep[\chap~6 p.~60,
-\chap.~9]{frankel1979}. Note that a non-vanishing volume element can be
-defined on orientable and non-orientable manifolds alike. From the results
-of \sect~\ref{sec:tensor_ops} it can be shown that the 4-form above has
-intrinsic dimension $\dim(\yg)^{2}$ (in an $n$-dimensional spacetime it has
-dimension $\dim(\yg)^{n/2}$). It's convenient to multiply it by a power of
-$c$, and to define the \emph{proper volume element}
-$\ygv\i{_{\mul{\q\q\q\q}}}$ as follows:
+\chap~9]{frankel1979}. Note that a globally non-vanishing volume element
+can be defined on orientable and non-orientable manifolds alike. From the
+results of \sect~\ref{sec:tensor_ops} it can be shown that the 4-form above
+has intrinsic dimension $\dim(\yg)^{2}$ (in an $n$-dimensional spacetime it
+has dimension $\dim(\yg)^{n/2}$). It's convenient to multiply it by a power
+of $c$ and to define the \emph{proper volume element}
+$\ygv \equiv \ygv\i{_{\mul{\q\q\q\q}}}$ as follows:
 \begin{equation}
   \label{eq:volume_elem}
   \ygv \defd
@@ -2093,7 +2093,8 @@ independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$. This
 convention has several advantages, and implies that the hypervolume of a
 four-dimensional region, given by the integral of $\ygv$ (see
 \sect~\ref{sec:tensor_ops}), also has dimension $\Li^{3}\Ti$ -- which is a
-reasonable result for a \emph{spacetime} region.
+reasonable result for a
+\emph{space\textnormal{($\Le^{3}$)}time\textnormal{($\Ti$)}} region.
 
 In general the metric $\yg$ induces volume, area, and line elements on
 three-, two-, and one-dimensional regions. It is convenient to multiply

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-12T13:25:30+0100
+%% Last-Updated: 2020-11-12T14:57:10+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1786,9 +1786,9 @@ dimension
 
 \medskip
 
-The \emph{torsion} $\yTo\i{^{\q}_{\mul{\q\q}}}$, \emph{Riemann
-  curvature} $\yR\i{^{\q}_{\q\mul{\q\q}}}$, and \emph{Ricci
-  curvature} $\yRi\i{_{\q\q}}$ tensors are defined by
+The \emph{torsion} $\yTo \equiv \yTo\i{^{\q}_{\mul{\q\q}}}$, \emph{Riemann
+  curvature} $\yR \equiv \yR\i{^{\q}_{\q\mul{\q\q}}}$, and \emph{Ricci
+  curvature} $\yRi \equiv \yRi\i{_{\q\q}}$ tensors are defined by
 \citep[\sect~V.B.1]{choquetbruhatetal1977_r1996}
 \begin{gather}
   \label{eq:torsion_eq}
@@ -2255,7 +2255,6 @@ metric tensor discussed in the previous section. Moreover, there seems to
 be no consensus yet on what the primitive variance type of the
 stress-energy-momentum tensor should be: its operational meaning is still
 surrounded by some mystery.
-
 Let's try to find its dimension and variance type through a heuristic
 approach, which also shows the usefulness of intrinsic dimensional analysis
 on differential manifolds.
@@ -2265,12 +2264,12 @@ event embodies the energy density (comprising rest energy, internal energy,
 kinetic energy) $\en$, surface energy-flux density $\yq_{r}$ (comprising
 convected energy density, heating, and working), momentum density
 $\yp_{r}$, and stress (including convected momentum density) $\yt_{sr}$ of
-the material at that event. Here the indices $r,s \in \set{x,y,z}$, and the
-vertical positions of the indices do \emph{not} denote any variance type.
-These quantities are measured by an inertial observer at that event using a
+the material at that event. Here the vertical position of the indices
+$r,s \in \set{x,y,z}$ does \emph{not} denote any variance type. These
+quantities are measured by an inertial observer at that event using a
 system of one timelike and three spacelike coordinates $(t,x,y,z)$. If
 these coordinates have dimensions $(\Ti,\Le,\Le,\Le)$, then the dimensions
-of the quantities above are
+of the quantities are
 \begin{equation}\label{eq:dims_stress_components}
   \begin{aligned}
     \dim(\en) &=\Ma\Le^{-1}\Ti^{-2} \equiv  \En\Le^{-3} \ ,
@@ -2287,10 +2286,11 @@ of the quantities above are
 
 Suppose we want to construct a spacetime tensor $\yT$ having these 16
 independent quantities as components. What should the variance type and the
-intrinsic dimension of such a tensor be? I won't assume the symmetry of
-this tensor as an a-priori kinematic property, but leave it as a dynamical
-law enforced by the Einstein equations; it only needs to hold for the sum
-of the stress-energy-momentum tensors from all kinds of matter.
+intrinsic dimension of such a tensor be? (I'm not assuming the symmetry of
+this tensor as an a-priori kinematic property, leaving it as a dynamical
+law enforced by the Einstein equations; in fact this symmetry only needs to
+hold for the sum of the stress-energy-momentum tensors from all kinds of
+matter.)
 
 Since we have 16 components, this tensor should belong to the tensor
 product of two tangent spaces, each spanned by four basis elements. There
@@ -2318,13 +2318,13 @@ the following coordinate-induced bases and corresponding dimensions:
     &&\text{\small }\  (\Le^{3}, \Le^{2}\Ti, \Le^{2}\Ti, \Le^{2}\Ti) \ ,
   \end{align}
 \end{subequations}
-the orderings chosen to minimize the minus signs appearing from inner
-products with a volume element. There are therefore $4 \times 4$ possible
-tensor-product spaces, each constructed by the product of two of the four
-spaces above; % , in all possible combinations;
+where the orderings are chosen to minimize the minus signs appearing from
+inner products with a volume element. There are therefore $4 \times 4$
+possible tensor-product spaces, each constructed by the product of two of
+the four spaces above; % , in all possible combinations;
 and thus 16 possible alternatives to represent our stress-energy-momentum
 tensor. Energy density is intuitively associated with the purely timelike
-component of this tensor, stress with the purely spacelike ones, and
+component of this tensor, stress with the purely spacelike components, and
 surface energy-flux density and momentum density with the mixed
 timelike-spacelike components.
 
@@ -2403,12 +2403,12 @@ dimensionally consistent:
   \end{align}
 \end{subequations}
 where the particular signs of the components, which are not determined by
-dimensional analysis, will be explained later. Our analysis of the
+dimensional analysis, will be motivated later. Our analysis of the
 intrinsic dimensions therefore restricts the stress-energy-momentum tensor
 to be one of the four alternatives above. Note that their kind of
 orientation, straight or twisted, is still undetermined. To further
-restrict the possibilities let's consider a couple of additional,
-interrelated heuristic arguments.
+restrict the possibilities let's consider three additional and interrelated
+heuristic arguments.
 
 First, the notions of energy and momentum density, surface energy-flux
 density, and stress imply some kind of integration over three-dimensional
@@ -2418,17 +2418,20 @@ excludes alternatives~\eqref{eq:T_co_contra} and
 
 Second, the total energy measured by a specific observer within a
 \emph{topologically} specified three-dimensional spatial region is
-considered to be independent of the metric extent of that region (just like
+considered to be independent of the extent of that region, whether measured
+by a physical metric or by arbitrary coordinate intervals (just like
 charge, although the latter is also independent of the observer's
 motion). % \citep[\cf][\sect~4.28]{landauetal1939_t1996}
-The energy \emph{density} therefore does depend on the metric properties
-and must change accordingly. Similar arguments hold for the surface energy
-flux. Only the second tensor alternative~\eqref{eq:T_co_co3} above is
-consistent with these requirements. Two points are worth noting here: (i)
-This metric scaling argument doesn't quite work for the momentum-density
-part $\yp_{x}\ \di x\otimes\di xyz$, though, if it's interpreted as a mass
-flux $\Ma\Le^{-2}\Ti^{-1}$: the $\Le^{-2}$ scaling in the component
-$\yp_{x}$ and the $\Le^{4}$ scaling in the corresponding basis element
+The energy \emph{density} therefore \emph{does} depend on the extent of the
+region and must change accordingly. Similar arguments hold for the surface
+energy flux. Only the second tensor alternative~\eqref{eq:T_co_co3} above
+is consistent with these requirements.
+
+Two points are worth noting here: (i) The extent-scaling argument above
+doesn't quite work for the momentum-density part
+$\yp_{x}\ \di x\otimes\di xyz$, though, if it's interpreted as a mass flux
+$\Ma\Le^{-2}\Ti^{-1}$: the $\Le^{-2}$ scaling in the component $\yp_{x}$
+and the $\Le^{4}$ scaling in the corresponding basis element
 $\di x\otimes\di xyz$ don't match. They do match, however, if we interpret
 the momentum-density part in terms of energy or action:
 $\Ma\Le^{-2}\Ti^{-1}=\En\Ti\Le^{-4}$. A similar situation occurs for the
@@ -2438,8 +2441,8 @@ Thus intrinsic dimensional analysis alone suggests connections between mass
 and energy, and seems to give the latter quantity a more fundamental
 status.
 
-Finally, the value of the energy density should not change under a change
-in the orientation of the spacelike coordinates. This means that the
+Third, the value of the energy density should not change under a change in
+the orientation of the spacelike coordinates. This means that the
 3-covector slot in alternative~\eqref{eq:T_co_co3} should have a twisted
 orientation.
 % \begin{equation*}
@@ -2459,8 +2462,8 @@ orientation.
 
 \medskip
 
-A heuristic application of intrinsic dimensional analysis, combined with a
-integration, rescaling, and reorientation arguments, thus tells us that the
+A heuristic application of intrinsic dimensional analysis combined with
+integration, scaling, and orientation arguments thus tells us that the
 stress-energy-momentum tensor has variance type $\yT\i{_{\q\mul{\q\q\q}}}$,
 or equivalently that it's a covector-valued 3-covector, or a
 four-times-covariant tensor completely antisymmetric in three slots. The
@@ -2480,11 +2483,11 @@ has the dimension of an \emph{action}:
 
 \medskip
 
-This form of the stress-energy-momentum tensor appears for example in
-Einstein's original work \citep[\sect~C.9]{einstein1914b}, Cartan's
-\citep[\sect~13]{cartan1923}, Brillouin's
-\citep[\cf][\sect~7]{brillouin1924}, Fokker's
-\citep[\sect~VII.2]{fokker1960_t1965}, Truesdell \amp\ Toupin's
+This is indeed the form of the stress-energy-momentum tensor that appears
+for example in Einstein's original work \citep[\sect~C.9]{einstein1914b};
+Cartan's \citep[\sect~13]{cartan1923}; Brillouin's
+\citep[\cf][\sect~7]{brillouin1924}; Fokker's
+\citep[\sect~VII.2]{fokker1960_t1965}; and Truesdell \amp\ Toupin's
 \citep[\sect~F.IV.288]{truesdelletal1960}, who try to find an expression
 universally valid in Newtonian, Lorentzian, and general-relativistic
 mechanics. It also appears in more recent works
@@ -2512,10 +2515,9 @@ per squared velocity:
 \end{equation}
 With this intrinsic dimension, however, not all components of the
 stress-energy-momentum tensor have an intuitive meaning and dimensions,
-when coordinates with dimensions $(\Ti,\Le,\Le,\Le)$ are used.
-
-The two choices \eqref{eq:final_dim_T}, \eqref{eq:final_dim_T_MT} differ by
-a factor $c^{2}$.
+when coordinates with dimensions $(\Ti,\Le,\Le,\Le)$ are used. The two
+choices \eqref{eq:final_dim_T}, \eqref{eq:final_dim_T_MT} differ by a
+factor $c^{2}$.
 
 \medskip
 

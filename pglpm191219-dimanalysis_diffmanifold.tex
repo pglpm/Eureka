@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-12T12:04:39+0100
+%% Last-Updated: 2020-11-12T13:25:30+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1613,7 +1613,7 @@ Regarding operations and operators on differential forms:
 \end{equation}
 This equation also holds for the generalized interior product
 \citep{deschamps1970}[Appendices]{deschamps1981}{lindell2004}[\sect~F.I.267]{truesdelletal1960}[Box
-4.1, p. 92, item 4]{misneretal1970_r1973}[see also][]{portamana2019e} of a
+4.1, item 4]{misneretal1970_r1973}[see also][]{portamana2019e} of a
 multi-vector $\yv$ and a multi-covector $\yom$. The interior product is
 also often denoted \mathquote{$\mathrm{i}_{\yv}\yom$} or
 \mathquote{$\yv\mathbin{\!\rfloor\!}\yom$}.
@@ -2061,12 +2061,14 @@ components $(g\i{_{ij}})$ of the metric:
 where
 $\dix[0]\land\dix[1]\land\dix[2]\land\dix[3]$ %the sequence $(x^{0},x^{1}, x^{2}, x^{3})$ must define a positive orientation.
 actually has a twisted orientation \citep[\chap~6 p.~60,
-\chap~9]{frankel1979}. Note that a globally non-vanishing volume element
-can be defined on orientable and non-orientable manifolds alike. From the
-results of \sect~\ref{sec:tensor_ops} it can be shown that the 4-form above
-has intrinsic dimension $\dim(\yg)^{2}$ (in an $n$-dimensional spacetime it
-has dimension $\dim(\yg)^{n/2}$). It's convenient to multiply it by a power
-of $c$ and to define the \emph{proper volume element}
+\chap~9]{frankel1979}, which in this case means that it has no screw-sense
+orientation at all, only an abstract \mathquote{$+$} orientation (for this
+reason a globally non-vanishing volume element can be defined on orientable
+and non-orientable manifolds alike). From the results of
+\sect~\ref{sec:tensor_ops} it can be shown that the 4-form above has
+intrinsic dimension $\dim(\yg)^{2}$ (in an $n$-dimensional spacetime it has
+dimension $\dim(\yg)^{n/2}$). It's convenient to multiply it by a power of
+$c$ and to define the \emph{proper volume element}
 $\ygv \equiv \ygv\i{_{\mul{\q\q\q\q}}}$ as follows:
 \begin{equation}
   \label{eq:volume_elem}
@@ -2099,24 +2101,27 @@ reasonable result for a
 In general the metric $\yg$ induces volume, area, and line elements on
 three-, two-, and one-dimensional regions. It is convenient to multiply
 these elements by appropriate powers of $c$ so that the region's volume has
-intuitive dimensions; such as $\Li^{3}$ for a spacelike three-dimensional
-region and $\Li^{2}\Ti$ for a timelike one. Indeed the definition of proper
-time~\eqref{eq:proper_time_c} is doing exactly this, including a factor
-$1/c$ in the induced line element on a timelike curve.
+intuitive dimensions, such as $\Li^{3}$ for a spacelike three-dimensional
+region and $\Li\Ti$ for a timelike two-dimensional one. Indeed the
+definition of proper time~\eqref{eq:proper_time_c} does exactly this,
+including a factor $1/c$ in the induced line element on a timelike curve.
 
-The proper volume element appears in the definition of the \emph{star
-  operator} on covectors and forms. This operator acts by first rising all
+The proper volume element appears in the various definitions of the
+\emph{star operator}
+\citep[\eg][\sect~V.A.4]{choquetbruhatetal1977_r1996}[Box~4.3]{misneretal1970_r1973}[\sect~IV.24]{burke1985_r1987}
+on covectors and forms. This operator usually acts by first rising all
 indices of a covector and then taking the generalized inner product (see
 \sect~\ref{sec:tensor_ops}) with the proper volume element. For example,
-for a 2-covector $\omega \equiv \omega\i{_{\q\q}}$,
+for a 2-covector $\omega \equiv \omega\i{_{\mul{\q\q}}}$
 \begin{equation}
   \label{eq:star_op}
-  *\omega \defd (\yg^{-1}\omega\yg^{-1})\ii\ygv \ .
+  *\omega \defd (\yg^{-1}\omega\yg^{-1})\ii\ygv \ ,
 \end{equation}
-From this definition it is clear that the star operator's effect on the
-dimension depends on the degree of the form it operates on \citep[I
-personally prefer to avoid the star operator and explicitly use the inner
-product with the proper volume element; \cf][\sects~4.1--2]{bossavit1991}.
+with $\yg^{-1}$ appearing twice in this specific case. From this definition
+it's clear that the star operator's effect on the dimension depends on the
+degree of the form it operates on \citep[I personally prefer to avoid the
+star operator and explicitly use the inner product with the proper volume
+element; \cf][\sects~4.1--2]{bossavit1991}.
 
 The \emph{inverse proper volume element} is the 4-vector field $\ygv^{-1}$,
 with twisted orientation, having unit generalized inner product with the
@@ -2140,6 +2145,7 @@ basis, that the relation between the two is
 More generally the negative factor is replaced with $(-1)^{s}$, where $s$ is
 the number of negative eigenvalues of the metric tensor.
 
+\medskip
 
 % The dimension~\eqref{eq:dim_volume_elem} also holds for the inner-oriented
 % volume element $\abs{\ygv}$ (sometimes called \emph{density})  \citep[\chap~3]{bossavit1991}[\chap~II]{derham1955_t1984}{burke1995}.
@@ -2149,10 +2155,10 @@ the number of negative eigenvalues of the metric tensor.
 % orthonormal vector fields, not only positively-oriented ones: it is an
 % inner-oriented 4-form, canonically determined only by the metric.
 
-For the case $\dim(\yg)=\Le^{2}$, here is a summary of the components of
-the metric tensor $\yg$ and of the proper volume element $\ygv$, in a
+For the case $\dim(\yg)=\Le^{2}$ here is a summary of the components of the
+metric tensor $\yg$ and of the proper volume element $\ygv$, in a
 rectangular Cartesian coordinate system adapted to an inertial (freely
-falling) observer at a specific spacetime event. For coordinate with
+falling) observer at a specific spacetime event. For coordinates having
 different dimensions:
 \begin{align}
   \label{eq:inertial_components_dimcase}
@@ -2189,7 +2195,7 @@ different dimensions:
 Many authors use a metric tensor with opposite sign.
 
 
-\medskip
+\bigskip
 
 
 The formulae for the covariant derivative~\eqref{eq:dim_cov_der_vect},
@@ -2210,7 +2216,7 @@ curvature tensors~\eqref{eq:dim_torsion_riemann_ricci}.
 \medskip
 
 The \emph{scalar curvature} $\ysc$ and the co-co-variant \emph{Einstein
-  tensor} $\yG\i{_{\q\q}}$
+  tensor} $\yG \equiv \yG\i{_{\q\q}}$
 \begin{equation}
   \label{eq:curv_einst}
   \ysc \defd %\tr\yRi\i{_{\q}^{\q}}\equiv

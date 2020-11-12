@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-11-03T09:57:13+0100
+%% Last-Updated: 2020-11-11T19:05:01+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -668,6 +668,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \DeclareMathOperator{\sgn}{sgn}
 \newcommand*{\ii}{\mathbin{\!\rfloor\!}}
 \newcommand*{\rii}{\mathbin{\!\lfloor\!}}
+\newcommand*{\ts}[1][txyz]{\underset{#1}{1}}
 \newcommand*{\dob}{degree of belief}
 \newcommand*{\dobs}{degrees of belief}
 %%% Custom macros end @@@
@@ -952,6 +953,36 @@ So $*^{-1} = (-1)^{\deg(\omega)\ (N-1)}\ *$. Compare with
 
 
 \textcolor{white}{If you find this you can claim a postcard from me.}
+
+
+
+\section{Twisted scalars, vectors, covectors}
+\label{sec:twisted}
+
+A twisted scalar is a positive number with an associated outer orientation.
+We can specify such orientation locally for example by giving an ordered
+list of coordinate functions. Denote such a unit twisted scalar by
+\begin{equation}
+  \label{eq:twisted_scalar}
+  \ts
+\end{equation}
+It satisfies
+\begin{equation}
+  \label{eq:twisted_scalar_properties}
+  \begin{gathered}
+    \ts \cdot \ts = 1
+    \\
+    a \cdot \ts = \underset{txyz}{a} \text{ for any scalar $a$}
+    \\
+    \underset{txyz}{-1} = \ts[xtyz] \text{ or any other odd permutation}
+\end{gathered}
+\end{equation}
+
+
+
+$\ts$
+
+
 
 % \clearpage
 

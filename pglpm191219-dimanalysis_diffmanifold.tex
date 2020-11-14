@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-13T22:27:27+0100
+%% Last-Updated: 2020-11-14T14:19:00+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -707,7 +707,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ysc}{R}
 \newcommand*{\yTo}{\bm{\tau}}
 \newcommand*{\yom}{\bm{\omega}}
-\newcommand*{\yta}{\bm{\tau}}
+\newcommand*{\yta}{\bm{\xi}}
 \newcommand*{\yv}{\bm{v}}
 \newcommand*{\yu}{\bm{u}}
 \newcommand*{\yw}{\bm{w}}
@@ -718,7 +718,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yGa}{\varGamma}
 \newcommand*{\ds}{\mathit{ds}}
 \newcommand*{\inct}{\incr t}
-\newcommand*{\yCs}{\Bar{C}}
+\newcommand*{\yC}{\dot{C}}
+\newcommand*{\yU}{\bm{U}}
+\newcommand*{\yUu}{\underline{\yU}}
 \newcommand*{\id}{\mathbf{id}}%id matrix
 \newcommand*{\ye}{\bm{e}}
 \newcommand*{\ygv}{\bm{\gamma}}
@@ -729,6 +731,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yq}{q}
 \newcommand*{\yp}{p}
 \newcommand*{\yt}{\sigma}
+\newcommand*{\ytp}{\tau}
+\newcommand*{\yl}{\beta}
+\newcommand*{\yV}{\bm{V}}
 \newcommand*{\rul}{{\mkern2mu\rule[-0.1ex]{0.75pt}{1.1ex}\mkern2mu}}
 \DeclarePairedDelimiter\mul{\rul}{\rul}%{{\bm{\shortmid}}}
 % \DeclarePairedDelimiter\mul{\lvert}{\rvert}
@@ -1287,9 +1292,9 @@ $\Te$, magnetic flux $\Fl \defd \Ma\Le^{2}\Ti^{-2}\Cu^{-1}$, and so on.
 
 The functional relation between two sets of coordinates must of course be
 dimensionally consistent. For example, if $\dim(x^{0})=\Ti$ and
-$\dim(x^{1})=\Le$, and we introduce a new coordinate $\xi(x^{0},x^{1})$
+$\dim(x^{1})=\Le$, and we introduce a new coordinate $y(x^{0},x^{1})$
 with dimension $\Fl$, additive in the previous two, then we must have
-$\xi = a x^{0} + b x^{1}$ with $\dim(a) = \Fl\Ti^{-1}$ and
+$y = a x^{0} + b x^{1}$ with $\dim(a) = \Fl\Ti^{-1}$ and
 $\dim(b) = \Fl\Le^{-1}$.
 
 %The dimensions of the coordinates don't matter, as we'll now see.
@@ -1673,35 +1678,35 @@ parameter $s$ having some dimension $\dim(s)=\Ss$.
 
 
 If we consider the events of the spacetime manifold as dimensionless
-quantities, then the dimension of the tangent or velocity vector $\dot{C}$
+quantities, then the dimension of the tangent or velocity vector $\yC$
 to the curve is
 \begin{equation}
   \label{eq:dim_velocity}
-  \dim(\dot{C}) = \Ss^{-1} \ ,
+  \dim(\yC) = \Ss^{-1} \ ,
 \end{equation}
 owing to the definition
 \citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}[\sect~IV.(1.9)]{boothby1975_r2003}
 \begin{equation}
   \label{eq:def_tangent_curve}
-\dot{C} \defd \frac{\de (x^{i} \circ C)}{\de s}\ \dex \ .
+\yC \defd \frac{\de (x^{i} \circ C)}{\de s}\ \dex \ .
 \end{equation}
-% or considering that $\dot{C}$ can be interpreted as the push-forward of
+% or considering that $\yC$ can be interpreted as the push-forward of
 % $\partial_s$, that is, $C_*(\partial_s)$.
 
 Note an important consequence of this fact. Given a vector field $\yv$ we
 say that $C$ is an integral curve for it if
 \begin{equation}
-  \yv = \dot{C}
+  \yv = \yC
   \label{eq:integral_curve}
 \end{equation}
 at all events $C(s)$ in the image of the curve (or more precisely
-$\yv_{C(s)} = \dot{C}_{C(s)}$ in standard differential-geometric notation
+$\yv_{C(s)} = \yC_{C(s)}$ in standard differential-geometric notation
 \citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}). From the point of view
 of dimensional analysis this definition is only valid if $\yv$ has
 dimension $\Ss^{-1}$. If $\yv$ and $s^{-1}$ have different dimensions -- a
 case which could happen for physical reasons -- the
 condition~\eqref{eq:integral_curve} must be modified into
-$\yv = k\dot{C}$, where $k$ is a dimensionful constant. This is equivalent
+$\yv = k\yC$, where $k$ is a dimensionful constant. This is equivalent
 to considering an affine and dimensional reparameterization of $C$.
 
 \medskip
@@ -1863,6 +1868,9 @@ present section still hold.
 \section{Metric and related tensors and operations}
 \label{sec:metric}
 
+\subsection{Intrinsic dimensions: two choices}
+\label{sec:g_intr_dim}
+
 Let us now consider a metric tensor $\yg \equiv \yg\i{_{\q\q}}$. What is
 its intrinsic dimension $\dim(\yg)$? There seem to be two choices in the
 literature; both can be derived from the operational meaning of the metric.
@@ -1876,7 +1884,7 @@ the formula
 \begin{equation}%\addtocounter{equation}{1}\tag{\theequation a}
   \label{eq:proper_time}
 \inct =  \int_a^b
-\sqrt{\abs*{\yg[\dot{C}(s),\dot{C}(s)]}} \  \di s\ .
+\sqrt{\abs*{\yg[\yC(s),\yC(s)]}} \  \di s\ .
 \end{equation}
 From the results of \sect~\ref{sec:tensor_ops} this formula implies that
 %\begin{equation}
@@ -1898,7 +1906,7 @@ definition~\eqref{eq:proper_time}:
 \begin{equation}%\addtocounter{equation}{-1}\tag{\theequation b}
   \label{eq:proper_time_c}
   \inct = \int_a^b
-  \frac{1}{c} \sqrt{\abs*{\ygc[\dot{C}(s),\dot{C}(s)]}} \ \di s\ ,
+  \frac{1}{c} \sqrt{\abs*{\ygc[\yC(s),\yC(s)]}} \ \di s\ ,
 \end{equation}
 thus obtaining
 \begin{equation}%\addtocounter{equation}{1}\tag{\theequation b}
@@ -1964,12 +1972,12 @@ uses radar distance, sending a lightlike signal which bounces back at the
 end of the piece, and measuring the time it takes to come back. Even if
 rigid rods are used, their calibration still relies on a measurement of
 time -- this is also reflected in the current definition of the standard
-metre \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}. McVittie, Synge,
-Kilmister
+metre \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}. The choice
+$\dim(\yg) \defd \Ti^{2}$, used for example by McVittie, Synge, Kilmister
 \citep[\sect~4.1]{mcvittie1956_r1965}[\sect~IV.5]{synge1960b}[\chap~II
-p.~25]{kilmister1973} choose $\dim(\yg)=\Ti^{2}$.
+p.~25]{kilmister1973}, has some advantages for the definition of the
+co-variant 4-velocity, discussed in \sect~\ref{sec:g_4velocity}.
 
-\mynote{mention advantage for 4-velocity normalization}
 
 The choice $\dim(\yg) \defd \Le^{2}$ is by far the most common, however. It
 has the merit that the projection of the metric onto a spacelike
@@ -1986,7 +1994,8 @@ results. % Another merit is that the norm of a 4-velocity -- and therefore
 % also its spacelike projection, the ordinary 3-velocity -- has indeed the
 % dimension of a velocity, $\Le\Ti^{-1}$.
 
-\medskip
+\subsection{Inverse metric, index raising and lowering, proper volume element}
+\label{sec:g_inv_vol}
 
 The metric $\yg$ can be considered as an operator mapping vectors $\yv$ to
 covectors $\yom$, which we can compactly write as $\yom=\yg\yv$ as
@@ -2158,7 +2167,7 @@ the number of negative eigenvalues of the metric tensor.
 % orthonormal vector fields, not only positively-oriented ones: it is an
 % inner-oriented 4-form, canonically determined only by the metric.
 
-For the case $\dim(\yg)=\Le^{2}$ here is a summary of the components of the
+For the case $\dim(\yg) \defd \Le^{2}$ here is a summary of the components of the
 metric tensor $\yg$ and of the proper volume element $\ygv$, in a
 rectangular Cartesian coordinate system adapted to an inertial (freely
 falling) observer at a specific spacetime event. For coordinates having
@@ -2197,8 +2206,90 @@ different dimensions:
 \end{align}
 Many authors use a metric tensor with opposite sign.
 
+\subsection{Four-velocity}
+\label{sec:g_4velocity}
 
-\bigskip
+The worldline of an observer or of a small body is a timelike curve
+$C\colon \ytp \mapsto P(\ytp)$ into spacetime, parameterized by the proper
+time $\ytp$, with $\dim(\ytp)=\Ti$. According to the discussions in
+\sects~\ref{sec:curves}, \ref{sec:g_intr_dim}, \ref{sec:g_inv_vol}, the
+condition that the curve's parameter should beat the proper time leads to
+two different normalization conditions for the \emph{4-velocity tangent
+  vector} $\yU \equiv \yU\i{^{\q}} \defd \yC$, depending on the choice of
+dimension for the metric:
+\begin{equation}
+  \label{eq:proper_time_condition}
+  \begin{aligned}
+   - \frac{1}{c^{2}}\, \yU(\tau)\,\yg\,\yU(\tau) &= 1
+    &&\text{if }\dim(\yg) \defd \Le^{2} \ ,
+      \\
+    -\yU(\tau)\,\yg\,\yU(\tau) &= 1
+    &&\text{if }\dim(\yg) \defd \Ti^{2} \ ;
+  \end{aligned}
+\end{equation}
+either equation is dimensionless under its specific condition.
+Independently of normalization conditions the 4-velocity has intrinsic
+dimension $\dim(\yU\i{^{\q}}) = \Ti^{-1}$.
+
+Both conditions lead to the same expression for the 4-velocity in a system
+of rectangular Cartesian coordinates $(t,x,y,z)$ with
+$\dim(t,x,y,z) = (\Ti,\Le,\Le,\Le)$, adapted to an inertial observer:
+\begin{equation}
+  \label{eq:4-velocity_coords}
+  \yU  = \yl \de_{t} + \yl V^{r} \de_{r} \ ,
+  \qquad  \yl \defd 1/\sqrt{1- \yV^{2}/c^{2}}
+\end{equation}
+where $\yl$ is the (dimensionless) Lorentz contraction factor and $V^{r}$,
+$r \in \set{x,y,z}$, are the components of the \emph{coordinate} 3-velocity
+$\yV$.
+
+Care must be taken with the \emph{covariant} 4-velocity, usually obtained
+by lowering the index of $\yU$. It is convenient to define it as
+\begin{equation}
+  \label{eq:covariant_4velocity}
+  \yUu \defd
+  \begin{cases}
+    \dfrac{1}{c^{2}}\,\yU \yg & \text{if }\dim(\yg)\defd \Le^{2}
+    \\[\jot]
+    \yU \yg & \text{if }\dim(\yg)\defd \Ti^{2}
+  \end{cases} \ .
+\end{equation}
+This definition leads to the same expression in rectangula Cartesian
+inertial coordinates, and also to the property $\yU\yUu = -1$, with
+$\dim(\yUu) = \dim(\yU)^{-1} = \Ti^{-1}$, independently of the choice of
+dimension for the metric. This property is especially useful in $3+1$
+formulations of general relativity, where $\yU \otimes \yUu$ acts as a
+normal projector. If you use $\dim(\yg)\defd\Le^{2}$ and define the
+covariant 4-velocity as $\yU\yg$ instead, then keep in mind that the normal
+projector requires an extra factor $1/c^{2}$.
+
+
+
+% -- usually but not necessarily the proper
+% time, see \sect~\ref{sec:metric} -- with $\dim(t) = \Ti$. The 4-velocity of
+% the body at a given spacetime event is the tangent vector to the worldline
+% thus parameterized. From \eqn~\eqref{eq:dim_velocity} it follows that
+% \emph{the 4-velocity has intrinsic dimension \textnormal{$\Ti^{-1}$}}.
+
+% % You might find this result counter-intuitive. Probably the reason is that
+% % you're thinking in terms of components. There is no contradiction: 
+% If we use a system of coordinates with dimensions $\Le$ and $\Ti$, then the
+% components of the 4-velocity have dimensions $\Le/\Ti$ and $\Un$, in accord
+% with intuition. The fact that the intrinsic dimension is $\Ti^{-1}$, with
+% no lengths involved, is quite sensible. We have equipped the body with some
+% kind of clock, so we can say how much time has passed between two spacetime
+% events intersected by the body's worldline. But we cannot say what their
+% distance is, because no metric is involved in the definition.
+
+% If we introduce a metric tensor, The \emph{norm} of the 4-velocity,
+% calculated using the metric tensor, has dimension $\Le/\Ti$ or $\Un$
+% depending on the dimension chosen for the metric tensor, discussed in
+% \sect~\ref{sec:metric}.
+
+
+
+\subsection{Induced connection and Einstein tensor}
+\label{sec:g_einst}
 
 
 The formulae for the covariant derivative~\eqref{eq:dim_cov_der_vect},
@@ -2495,32 +2586,55 @@ Exercise~14.18, \chap~15,
 also][for similar conclusions in general manifolds and in Newtonian
 mechanics]{segevetal1999,kansoetal2007}. The commonly encountered versions
 of this tensor with only two slots are discussed below.
-%\citep[\enquote{$^{\displaystyle *}\mathte{T}$}]
+% \citep[\enquote{$^{\displaystyle *}\mathte{T}$}]
+Note that some of these works use a once covariant and once contravariant
+\enquote{V(olume)-tensor} or \enquote{tensor density}, which has variance
+type $\yT\i{_{\q}^{\q}_{\mul{\q\q\q\q}}}$. Such an object, however, is
+geometrically equivalent to the variance type $\yT\i{_{\q \mul{\q\q\q}}}$,
+in the sense that their independent components have the same transformation
+law under changes of coordinates \citep[\sect~II.8
+p.~30]{schouten1951_r1989} (this is why I chose a calligraphic letter to
+denote this form of the tensor). % They are related by
+% an inner product with $\omega\otimes\omega^{-1}$, where $\omega$ is an
+% arbitrary non-vanishing 4-form; this last object has only one independent
+% component, which transforms as the scalar $1$.
 
-The works just cited arrive at this kind of stress-energy-momentum tensor
-through inductive generalization, often via electromagnetic theory, from
-the stress tensor of Newtonian mechanics; or from principles of virtual
-work; or from variational principles with an action Lagrangean, from which
-it easily follows that this tensor should have the intrinsic dimension of
-an action; or from combinations of these points of view. The operational
-meaning of this tensor is therefore still under investigation. Extensive
-investigations have been recently made by Gotay \etal\
+The literature cited above arrive at this kind of stress-energy-momentum
+tensor through inductive generalization, often via electromagnetic theory,
+from the stress tensor of Newtonian mechanics; or from principles of
+virtual work; or from variational principles with an action Lagrangean,
+from which it easily follows that this tensor should have the intrinsic
+dimension of an action; or from combinations of these points of view. The
+operational meaning of this tensor is therefore still unclear. Extensive
+investigations were recently made by Gotay \etal\
 \citep{gotayetal1998,gotayetal2004,gotayetal2006}, and by Segev
 \citep{segev2002}[see also][]{segev2000b}, who interprets the
-stress-energy-momentum tensor as a linear map from the flux of a conserved
-quantity, such as charge or baryonic number, to energy flux. Since such
-fluxes are represented by 3-forms, he arrives at the fourth
-alternative~\eqref{eq:T_contra3_co3} above: the 3-vector part of
-$\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ can be contracted with a
-3-covector, yielding another 3-covector.
+stress-energy-momentum tensor as a linear map from the four-dimensional
+flux of a conserved quantity, such as charge or baryonic number, to that of
+energy. Since such fluxes are represented by 3-forms, he arrives at the
+fourth alternative~\eqref{eq:T_contra3_co3} above: the 3-vector part of
+$\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ can be contracted with a 3-form,
+yielding another 3-form. This interesting interpretation doesn't seem to
+work out dimensionally, however. The intrinsic dimension of the
+four-dimensional charge flux, for example, is charge itself,
+$\Ch \equiv \Cu\Ti$, and similarly for the energy flux. The tensor
+$\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ should then have intrinsic
+dimension $\En\Ch^{-1}$ according to the results of
+\sect~\ref{sec:tensor_ops}. The dimension of charge would then have to
+appear in Einstein's constant $\yk$ (see \sect~\ref{sec:einstein_eq}),
+because it cannot be eliminated by using the metric tensor or the proper
+volume element to obtain alternative variance types.
+
+
+
 
 \medskip
 
 Some authors
 \citep[\eg][\sect~V.55]{fock1955_t1964}[\sect~4.1]{mcvittie1956_r1965}[\sect~10.1]{adleretal1965_r1975}
-think about this tensor in terms of mass rather than energy (Fock
-\citep[\sect~II.31]{fock1955_t1964} calls it the \enquote{mass tensor}),
-and therefore assign to its covector-valued 3-covector form
+think about the stress-energy-momentum tensor in terms of mass rather than
+energy (Fock \citep[\sect~II.31]{fock1955_t1964} calls it the \enquote{mass
+  tensor}), and therefore assign to its covector-valued 3-covector form
 $\yT\i{_{\q \mul{\q\q\q}}}$ the dimension of mass-time, that is, an action
 divided by squared velocity:
 \begin{equation}
@@ -2552,18 +2666,6 @@ Einstein's constant, as we'll see in the next section.
 
 \medskip
 
-Note that some of the works just cited use a once covariant and once
-contravariant \enquote{V(olume)-tensor} or \enquote{tensor density}, which
-has variance type $\yT\i{_{\q}^{\q}_{\mul{\q\q\q\q}}}$. Such an object,
-however, is geometrically equivalent to the variance type
-$\yT\i{_{\q \mul{\q\q\q}}}$, in the sense that their independent components
-have the same transformation law under changes of coordinates
-\citep[\sect~II.8 p.~30]{schouten1951_r1989} (this is why I chose a
-calligraphic letter to denote this form of the tensor). They are related by
-an inner product with $\omega\otimes\omega^{-1}$, where $\omega$ is an
-arbitrary non-vanishing 4-form; this last object has only one independent
-component, which transforms as the scalar $1$.
-
 The signs of the components of $\yT$ depend on the signature of the metric
 $\yg$. If the latter has signature $(-,+,+,+)$, then the energy components
 have negative sign, as in \eqn~\eqref{eq:T_co_co3}. If the metric has
@@ -2582,7 +2684,7 @@ obtaining a co-contravariant tensor $\yTc \equiv
   \label{eq:T-co_contra}
   \yTc \defd \yT\i{_{\q\mul{\q\q\q}}} \rii \ygv^{-1} \ .
 \end{equation}
-In general coordinates, and if $\dim(\yg)=\Le^{2}$, this operation
+In general coordinates, and if $\dim(\yg) \defd \Le^{2}$, this operation
 corresponds to dividing all components of $\yT$ by
 $\frac{1}{c}\sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}$, according to
 \eqn~\eqref{eq:volume_elem}, and so can be interpreted as passing from a

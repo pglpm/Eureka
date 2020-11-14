@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-14T21:40:25+0100
+%% Last-Updated: 2020-11-14T22:42:09+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -2540,6 +2540,7 @@ twisted orientation. This tensor has the dimension of an \emph{action}:
   \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
 \end{equation}
 
+\mynote{remark that setting t=l wouldn't select any specific form}
 % Note that we couldn't have obtained this result by dimensional analysis
 % without considering \emph{intrinsic} dimensions. Traditionally we would
 % have multiplied the components by appropriate powers of $c$ to ensure they
@@ -2587,8 +2588,8 @@ stress-energy-momentum tensors of different variance types by means of
 inner products with the proper volume element and its inverse, and by
 raising and lowering indices. But the question of the operational meaning
 and primitive variance type of this tensor are important, for example, in
-topological field theories, which are not based on a metric, or for the
-formulation of constitutive equations for this tensor
+field theories not based on a metric, or for the formulation of
+constitutive equations
 \citep[\cf][\chap~G]{truesdelletal1960}{marsdenetal1983b_r1994,gotayetal1992}.
 Extensive investigations were recently made by Gotay \etal\
 \citep{gotayetal1998,gotayetal2004,gotayetal2006}, and by Segev
@@ -3260,17 +3261,20 @@ conventions:
 \label{eq:dim_k_choices}
 \dim(\yk) ={}\\
   \begin{cases}
-\Ma^{-1}\Le^{-1}\Ti^{2} \equiv \En^{-1}\Le \\[2\jot]
-\Ma^{-1}\Le \equiv \En^{-1}\Le^{3}\Ti^{-2} \\[2\jot]
-\Ma^{-1}\Le^{3}\Ti^{-2} \equiv \En^{-1}\Le^{5}\Ti^{-4}
-  \end{cases}
-  \quad\text{if }
-  \begin{cases}
-\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti \\[\jot]
-    \dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti 
-    \ \text{ or }\\
-\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti \\[\jot]
-\dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti
+    \Ma^{-1}\Le^{-1}\Ti^{2} \equiv \En^{-1}\Le
+&\quad\text{if}\ \dim(\yg)\defd \Le^2 \ ,\ \dim(\yT)\defd \En\Ti
+    \\[\jot]
+    \Ma^{-1}\Le \equiv \En^{-1}\Le^{3}\Ti^{-2}
+ &\quad\text{if}\ 
+ \begin{cases}
+\dim(\yg)\defd \Ti^2 \ ,\ \dim(\yT)\defd \En\Ti 
+    \quad\text{or}\\
+\dim(\yg)\defd \Le^2 \ ,\ \dim(\yT)\defd \Ma\Ti 
+ \end{cases}
+    \\[\jot]
+    \Ma^{-1}\Le^{3}\Ti^{-2} \equiv \En^{-1}\Le^{5}\Ti^{-4}
+     &\quad\text{if}\ 
+\dim(\yg)\defd \Ti^2 \ ,\ \dim(\yT)\defd \Ma\Ti
   \end{cases}
 \end{multline}
 
@@ -3283,18 +3287,18 @@ Newtonian limit:
 \label{eq:dim_k_Gc}
 \yk =
 \begin{cases}
-  8\pu G/c^{4} \\[2\jot]
-  8\pu G/c^{2} \\[2\jot]
-  8\pu G 
+  8\pu G/c^{4} &\quad\text{if}\ \dim(\yg)\defd \Le^2 \ ,\ \dim(\yT)\defd \En\Ti
+ \\[\jot]
+  8\pu G/c^{2} &\quad\text{if}\ 
+ \begin{cases}
+\dim(\yg)\defd \Ti^2 \ ,\ \dim(\yT)\defd \En\Ti 
+    \quad\text{or}\\
+\dim(\yg)\defd \Le^2 \ ,\ \dim(\yT)\defd \Ma\Ti 
+ \end{cases}
+\\[\jot]
+  8\pu G  &\quad\text{if}\ 
+\dim(\yg)\defd \Ti^2 \ ,\ \dim(\yT)\defd \Ma\Ti
   \end{cases}
-  \quad\text{if }
-  \begin{cases}
-\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti \\[\jot]
-    \dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \En\Ti 
-    \ \text{ or }\\
-\dim(\yg)\defd \Le^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti \\[\jot]
-\dim(\yg)\defd \Ti^2 \text{ \amp\ }\dim(\yT)\defd \Ma\Ti
-  \end{cases} \ .
 \end{equation}
 From the discussion of the literature given in
 \sect~\ref{sec:stressenergy}, the first convention is the most common. The
@@ -3334,7 +3338,7 @@ the variance type of candidate tensors, as we saw for the
 stress-energy-momentum tensor in \sect~\ref{sec:stressenergy}.
 
 We found or re-derived some essential results for general relativity, in
-particular that the Riemann $\yR\i{^{\q}_{\q\q\q}}$, Ricci
+particular that the Riemann $\yR\i{^{\q}_{\q\mul{\q\q}}}$, Ricci
 $\yRi\i{_{\q\q}}$, and twice-covariant Einstein $\yG\i{_{\q\q}}$ curvature
 tensors are dimensionless. Maybe these results can be of importance for
 some current research involving scales and conformal factors
@@ -3349,6 +3353,8 @@ statements such as \enquote{the tensor $A\i{_{i}^{jk}}$ has dimension
 meant to represent the tensor in general (as in Penrose \amp\ Rindler's
 notation), or to represent its set of components, or to represent just a
 specific component.
+
+\mynote{refs to Hehl's for charge and EM}
 
 % Finally, the above analysis, specific to general relativity, can be made
 % along the same lines also for Newtonian mechanics.

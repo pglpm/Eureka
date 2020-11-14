@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-14T18:52:17+0100
+%% Last-Updated: 2020-11-14T21:40:25+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -2580,8 +2580,17 @@ from the stress tensor of Newtonian mechanics; or from principles of
 virtual work; or from variational principles with an action Lagrangean,
 from which it easily follows that this tensor should have the intrinsic
 dimension of an action; or from combinations of these points of view. The
-operational meaning of this tensor is therefore still unclear. Extensive
-investigations were recently made by Gotay \etal\
+operational meaning of this tensor is therefore still unclear.
+
+In the presence of the a metric tensor we can of course obtain
+stress-energy-momentum tensors of different variance types by means of
+inner products with the proper volume element and its inverse, and by
+raising and lowering indices. But the question of the operational meaning
+and primitive variance type of this tensor are important, for example, in
+topological field theories, which are not based on a metric, or for the
+formulation of constitutive equations for this tensor
+\citep[\cf][\chap~G]{truesdelletal1960}{marsdenetal1983b_r1994,gotayetal1992}.
+Extensive investigations were recently made by Gotay \etal\
 \citep{gotayetal1998,gotayetal2004,gotayetal2006}, and by Segev
 \citep{segev2002}[see also][]{segev2000b}, who interprets the
 stress-energy-momentum tensor as a linear map from the four-dimensional
@@ -2653,24 +2662,23 @@ negative instead.
 To obtain a twice covariant tensor to be used in the Einstein equations, we
 first take the inner product of the inverse proper volume element with the
 3-covector (that is, antisymmetric) part of $\yT\i{_{\q \mul{\q\q\q}}}$,
-obtaining a co-contravariant tensor $\yTc \equiv
-\yTc{}\i{_{\q}^{\q}}$
-\begin{equation}
-  \label{eq:T-co_contra}
-  \yTc \defd \yT\i{_{\q\mul{\q\q\q}}} \rii \ygv^{-1} \ .
-\end{equation}
-In general coordinates, and if $\dim(\yg) \defd \Le^{2}$, this operation
-corresponds to dividing all components of $\yT$ by
-$\frac{1}{c}\sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}$, according to
-\eqn~\eqref{eq:volume_elem}, and so can be interpreted as passing from a
-tensor density to an ordinary tensor. Roughly speaking, whereas the tensor
-$\yT$ reports the three-dimensional spacelike or timelike densities with
-respect to \emph{coordinate} volume, the tensor $\yTc$ reports them with
-respect to physical volume determined by the metric. This interpretation
-must be taken with a pinch of salt because this tensor ***
-
-Then we lower the new contravariant
-slot using the metric tensor. The combined operation yields
+obtaining a co-contravariant tensor. % $\yTc \equiv
+% \yTc{}\i{_{\q}^{\q}}$
+% \begin{equation}
+%   \label{eq:T-co_contra}
+%   \yTc \defd \yT\i{_{\q\mul{\q\q\q}}} \rii \ygv^{-1} \ .
+% \end{equation}
+% In general coordinates, and if $\dim(\yg) \defd \Le^{2}$, this operation
+% corresponds to dividing all components of $\yT$ by
+% $\frac{1}{c}\sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}$, according to
+% \eqn~\eqref{eq:volume_elem}, and so can be interpreted as passing from a
+% tensor density to an ordinary tensor. Roughly speaking, whereas the tensor
+% $\yT$ reports the three-dimensional spacelike or timelike densities with
+% respect to \emph{coordinate} volume, the tensor $\yTc$ reports them with
+% respect to physical volume determined by the metric. This interpretation
+% must be taken with a pinch of salt because this tensor 
+Then we lower the new contravariant slot by means of the metric tensor. The
+combined operation yields
 \begin{gather}
   \label{eq:co_co_T}
   \yTe\i{_{\q\q}} \defd
@@ -2678,8 +2686,8 @@ slot using the metric tensor. The combined operation yields
 \end{gather}
 
 According to this definition and \eqns~\eqref{eq:final_dim_T_MT},
-\eqref{eq:dim_g}, \eqref{eq:dim_g_c}, \eqref{eq:dim_volume_elem}, there are
-three possible dimensional choices for the co-co-variant tensor $\yTe$,
+\eqref{eq:dim_g}, \eqref{eq:dim_g_c}, \eqref{eq:dim_volume_elem}, the
+co-co-variant tensor $\yTe$ has three possible intrinsic dimensions,
 depending on the choices of dimensions of $\yg$ and $\yT$:
 \begin{multline}
 \label{eq:dim_co_co_T}

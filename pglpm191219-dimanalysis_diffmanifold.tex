@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-14T15:05:50+0100
+%% Last-Updated: 2020-11-14T18:52:17+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -688,7 +688,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\ii}{\mathbin{\!\rfloor\!}}
 %\newcommand*{\rii}{\mathbin{\!\lfloor\!}}
 %
-\newcommand*{\ii}{\mathbin{\!\cdot\!}}
+%\newcommand*{\ii}{\mathbin{\!\cdot\!}}
+\newcommand*{\ii}{\cdot}
 \newcommand*{\rii}{\ii}
 %
 \newcommand*{\yA}{\mathte{A}}
@@ -2505,9 +2506,12 @@ suggests connections between mass and energy, and seems to give the latter
 quantity a more fundamental status.
 
 Third, the value of the energy density should not change under a change in
-the orientation of the spacelike coordinates. This means that the
-3-covector slot in alternative~\eqref{eq:T_co_co3} should have a twisted
-orientation.
+the orientation of the spacelike coordinates. The 3-covector slot in
+alternative~\eqref{eq:T_co_co3} should therefore have a twisted
+orientation. This means that the 3-form $\di xyz$ actually has an inner
+orientation in the positive $t$ direction, the 3-form $\di tzy$ in the
+positive $x$ direction, and so on \citep[To visualize this \cf][Fig.~6 and
+table in \sect~II.8 p.~31]{schouten1951_r1989}[and][Fig.~22.10]{burke1985_r1987}.
 % \begin{equation*}
 %   \en\  \di t\otimes\di xyz =
 %   \en'\  \di t\otimes\di x'y'z' \ ,
@@ -2565,7 +2569,7 @@ geometrically equivalent to the variance type $\yT\i{_{\q \mul{\q\q\q}}}$,
 in the sense that their independent components have the same transformation
 law under changes of coordinates \citep[\sect~II.8
 p.~30]{schouten1951_r1989} (this is why I chose a calligraphic letter to
-denote this form of the tensor). % They are related by
+denote this tensor). % They are related by
 % an inner product with $\omega\otimes\omega^{-1}$, where $\omega$ is an
 % arbitrary non-vanishing 4-form; this last object has only one independent
 % component, which transforms as the scalar $1$.

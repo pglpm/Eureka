@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-14T14:19:00+0100
+%% Last-Updated: 2020-11-14T15:05:50+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1397,7 +1397,7 @@ This dimension is independent of any coordinate system. It reflects the
 physical or operational \citep{bridgman1927_r1958}[see
 also][\sect~A.2]{synge1960}[\sects~A.3--4]{truesdelletal1960} meaning of
 the tensor. We shall see an example of such an operational analysis in
-\sects~\ref{sec:metric} and~\ref{sec:stressenergy} for the metric and
+\sects~\ref{sec:metric}, \ref{sec:stressenergy} for the metric and
 stress-energy-momentum tensors.
 
 The notion of intrinsic dimension was introduced by Dorgelo and
@@ -1533,7 +1533,7 @@ This definition doesn't lead to inconsistencies.
     \label{eq:tensor_contr}
   \end{equation}
   Note that the formula above only holds \emph{without raising or lowering
-    indices}; see \sect~\ref{sec:metric} for those operations.
+    indices}; see \sect~\ref{sec:g_inv_vol} for those operations.
 
   This operation can be traced back to the duality of vectors and covectors
   mentioned in \sect~\ref{sec:remined}: a covector field $\yom$ operates on
@@ -1709,33 +1709,7 @@ condition~\eqref{eq:integral_curve} must be modified into
 $\yv = k\yC$, where $k$ is a dimensionful constant. This is equivalent
 to considering an affine and dimensional reparameterization of $C$.
 
-\medskip
-
-The worldline of a small body is a curve into spacetime parameterized by
-some time $t$ -- usually but not necessarily the proper time, see
-\sect~\ref{sec:metric} -- with $\dim(t) = \Ti$. The 4-velocity of the body
-at a given spacetime event is the tangent vector to the worldline thus
-parameterized. From \eqn~\eqref{eq:dim_velocity} it follows that \emph{the
-  4-velocity has intrinsic dimension \textnormal{$\Ti^{-1}$}}.
-
-% You might find this result counter-intuitive. Probably the reason is that
-% you're thinking in terms of components. There is no contradiction: 
-If we use a system of coordinates with dimensions $\Le$ and $\Ti$, then the
-components of the 4-velocity have dimensions $\Le/\Ti$ and $\Un$, in accord
-with intuition. The fact that the intrinsic dimension is $\Ti^{-1}$, with
-no lengths involved, is quite sensible. We have equipped the body with some
-kind of clock, so we can say how much time has passed between two spacetime
-events intersected by the body's worldline. But we cannot say what their
-distance is, because no metric is involved in the definition.
-
-If we introduce a metric tensor, The \emph{norm} of the 4-velocity,
-calculated using the metric tensor, has dimension $\Le/\Ti$ or $\Un$
-depending on the dimension chosen for the metric tensor, discussed in
-\sect~\ref{sec:metric}.
-
-%% the dimension of the parameter of a curve doesn't influence an integral
-%% over the curve, just like a reparameterization of the curve doesn't.
-
+Worldlines and their 4-velocities are discussed in \sect~\ref{sec:g_4velocity}.
 
 
 
@@ -1859,10 +1833,7 @@ choice, and component dimensions, which do.
 \medskip
 
 The formulae above are also valid if a metric is defined and the connection
-is compatible with it. The connection coefficients in this case are defined
-in terms of the metric tensor, but using the results of
-\sect~\ref{sec:metric} it's easy to see that all results obtained in the
-present section still hold.
+is compatible with it, see \sect~\ref{sec:g_einst} below.
 
 
 \section{Metric and related tensors and operations}
@@ -2105,8 +2076,8 @@ As a consequence we have
 \end{equation}
 independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$. This
 convention has several advantages, and implies that the hypervolume of a
-four-dimensional region, given by the integral of $\ygv$ (see
-\sect~\ref{sec:tensor_ops}), also has dimension $\Li^{3}\Ti$ -- which is a
+four-dimensional region, given by the integral of $\ygv$, also has
+dimension $\Li^{3}\Ti$, see \eqn~\eqref{eq:integration} -- which is a
 reasonable result for a
 \emph{space\textnormal{($\Le^{3}$)}time\textnormal{($\Ti$)}} region.
 
@@ -2206,7 +2177,7 @@ different dimensions:
 \end{align}
 Many authors use a metric tensor with opposite sign.
 
-\subsection{Four-velocity}
+\subsection{Four-velocity and normal projection}
 \label{sec:g_4velocity}
 
 The worldline of an observer or of a small body is a timelike curve
@@ -3263,8 +3234,8 @@ of][]{misneretal1970_r1973}. $\yk$ is Einstein's constant.
 The equations above are considered in their co-co-variant form. This form
 is convenient because the left side is then dimensionless (its intrinsic
 dimension is $\Un$), independently of the dimension of the metric tensor,
-as explained at the end of \sect~\ref{sec:metric},
-\eqn~\eqref{eq:dim_einst}. We therefore find as a general rule that
+as explained in \sect~\ref{sec:g_einst}, \eqn~\eqref{eq:dim_einst}. We
+therefore find as a general rule that
 \begin{equation}
   \label{eq:dim_k_general}
   \dim(\yk) = \dim(\yTe\i{_{\q\q}})^{-1} 

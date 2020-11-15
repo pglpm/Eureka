@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-15T14:25:57+0100
+%% Last-Updated: 2020-11-15T14:54:30+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -893,25 +893,25 @@ therefore a natural notion for dimensional analysis in relativity.
 
 \medskip
 
-Here is a synopsis of the rest of this note. A brief reminder of the
-intrinsic approach to differential geometry, with references, is given in
-the next section, together with some special notation necessary to our
-discussion. Section~\ref{sec:2d_example} gives a simple example of
-dimensional analysis in a two-dimensional spacetime. This example might be
-enough for most readers to get the basic way of reasoning; such readers can
-work out the rest for themselves whenever they need and don't need to read
-the rest of this note. Sections~\ref{sec:coords}--\ref{sec:curves} offer a
-more systematic discussion and a synopsis of dimensional analysis for the
-main tensorial operations. The notion of intrinsic dimension is explained
-in \sect~\ref{sec:tensors}. The intrinsic dimensions of various curvature
+Here is a synopsis of the rest of this note. The intrinsic approach to
+differential geometry is outlined, with references, in the next section,
+together with some notation necessary to our discussion.
+Section~\ref{sec:2d_example} gives a simple example of dimensional analysis
+for a two-dimensional spacetime. This example might be enough for most
+readers to grasp the basic way of reasoning; such readers can work out the
+rest for themselves whenever they need and don't need to read the rest of
+this note. Sections~\ref{sec:coords}--\ref{sec:curves} offer a more
+systematic discussion and a synopsis of dimensional analysis for the main
+tensorial operations. The notion of intrinsic dimension is explained in
+\sect~\ref{sec:tensors}. The intrinsic dimensions of various curvature
 tensors, of the metric tensor, and of the stress-energy-momentum tensor are
-discussed in \sects~\ref{sec:connection}--\ref{sec:stressenergy}. The
-contravariant and thrice covariant Riemann, fully covariant Ricci, and
-fully covariant Einstein curvature tensors, in particular, are found to
-have intrinsic dimension $\Un$, that is, to be dimensionless. The
-operational motivation of several standard choices for the dimensions of
-the metric and the stress-energy-momentum tensors are also discussed. The
-dimension of the constant in the Einstein equations is finally derived in
+discussed in \sects~\ref{sec:connection}--\ref{sec:stressenergy}. In
+particular, the contravariant and thrice covariant Riemann, twice covariant
+Ricci, and twice covariant Einstein curvature tensors are found to have
+intrinsic dimension $\Un$, that is, to be dimensionless. The operational
+motivation of several standard choices for the dimensions of the metric and
+stress-energy-momentum tensors are also discussed. The possible dimensions
+of the constant in the Einstein equations are finally derived in
 \sect~\ref{sec:einstein_eq}.
 
 This note obviously assumes familiarity with basic tensor calculus and
@@ -992,7 +992,7 @@ Burke \citey{burke1985_r1987}, Bossavit \citey{bossavit1991}, and more on
 the general-relativity side Misner \etal\
 \citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
 \citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \amp\ Rindler
-\citey[\chap~4]{penroseetal1984_r2003}. \textcolor{white}{If you find this
+\citey{penroseetal1984_r2003}. \textcolor{white}{If you find this
   you can claim a postcard from me.}
 
 \bigskip
@@ -1002,7 +1002,7 @@ conventions:\citep[\sect~5]{iso2009} $\dim(\yA)$ is the dimension of the
 quantity $\yA$, and among the base quantities are mass $\Ma$, length $\Le$,
 time $\Ti$, temperature $\Te$, electric current $\Cu$, and the
 dimensionless $\Un$. Note that I don't discuss units -- it doesn't matter
-here whether the unit for length is the metre or the foot, for example.
+here whether the unit for length is the metre or the furlong, for example.
 
 Throughout this note $c$ denotes the speed of light, with
 $\dim(c) = \Le\Ti^{-1}$. Its numerical quantity value $\set{c}$ depends on
@@ -1019,8 +1019,8 @@ in its first slot and contravariant in its second and third slots. Every
 index in this notation is \enquote{a \emph{label} whose sole purpose is to
   keep track of the type of tensor under
   discussion}~\citep[p.~75]{penroseetal1984_r2003}. So this notation
-doesn't stand for the set of \emph{components} of the tensor. For the
-latter set, Penrose \amp\ Rindler use \textbf{bold} indices instead:
+doesn't stand for a \emph{component} of the tensor. For the latter, Penrose
+\amp\ Rindler use \textbf{bold} indices instead:
 \mathquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. But in our discussion the
 difference between a tensor and its set of components is crucial, and
 Penrose \amp\ Rindler's abstract-index notation unfortunately lends itself
@@ -1039,15 +1039,15 @@ types. % In spirit this notation is similar to the
 A set of completely antisymmetric slots will be put within bars: thus the
 notation $\yA\i{^{\q}_{\mul{\q\q}}}$ means that $\yA$ is completely
 antisymmetric in its last two covariant slots. Finally, in accord with
-convenient modern terminology, a completely antisymmetric contravariant
-tensor of order $k$ will be called \defquote{$k$-vector}; and a completely
-antisymmetric covariant tensor of order $k$, a \defquote{$k$-covector}. The
+convenient modern terminology, completely antisymmetric contravariant
+tensors of order $k$ will be called \defquote{$k$-vectors}; and completely
+antisymmetric covariant tensors of order $k$, \defquote{$k$-covectors}. The
 terms \defquote{multi-vector} and \defquote{multi-covector} are used when
 $k$ isn't specified.
 
 
 The only weak points of the notation just explained are the operations of
-transposition and contraction, which literal indices depict so well
+transposition and contraction, which the index notation depicts so well
 instead. Considering that transposition is a generalization of matrix
 transposition, and contraction a generalization of trace, I'll use the
 following notation:
@@ -1072,7 +1072,7 @@ following notation:
   for all $\bm{\zeta},\bm{\eta}$ of appropriate variance type.
   
 \item $\tr_{\alpha\beta}\yA$ is the contraction of the $\alpha$th and
-  $\beta$th slots, which must have opposite variant types; note that we may
+  $\beta$th slots, which must have opposite variance types; note that we may
   have $\beta < \alpha$. Its coordinate-free definition is
   \begin{equation}
     \label{eq:def_contr}
@@ -1119,10 +1119,10 @@ In index notation the two operations above are the familiar
       \ \dotsm}} \ .
 \end{equation*}
 
-For the sake of notation economy I'll denote the contraction of the closest
-slots of two tensor-multiplied tensors by simple juxtaposition. For
-example, if $\yA \equiv \yA\i{_{\q}^{\q}}$, $\yB \equiv \yB\i{_{\q\q}}$,
-and $\yv$ is a vector, then
+For the sake of notation economy I'll denote the contraction of adjacent
+slots of two tensors by simple juxtaposition. For example, if
+$\yA \equiv \yA\i{_{\q}^{\q}}$, $\yB \equiv \yB\i{_{\q\q}}$, and $\yv$ is a
+vector, then
 \begin{equation}
   \label{eq:simple_contraction}
   \yA\yB \defd \tr_{23}(\yA\i{_{\q}^{\q}}\otimes\yB\i{_{\q\q}})\ ,
@@ -1146,7 +1146,7 @@ and twisted (also called \defquote{even} and
 \defquote{odd}, %\citep{derham1955_t1984}
 or \defquote{polar} and \defquote{axial}% \citep{truesdelletal1960}
 ) orientations. This elegant and powerful geometric point of view leads to
-deeper physical insight and is gaining popularity in the literature. For
+deeper physical insights and is gaining popularity in the literature. For
 its presentation I recommend the texts of Bossavit \citey[especially
 \chap~3]{bossavit1991}, Burke
 \citey{burke1983,burke1985_r1987,burke1980b,burke1995}, de~Rham
@@ -1157,7 +1157,7 @@ In the notation above, the bars identify $k$-vectors and $k$-covectors for
 $k>1$. Thus $\yA\i{^{\q}_{\mul{\q\q}}}$ indicates that $\yA$ belongs to the
 tensor product of 1-vectors and 2-covectors; it's also called a
 1-vector-valued 2-covector. To avoid burdening the notation I won't add
-symbols denoting straight or twisted orientation, but I'll explicitly say
+symbols denoting straight or twisted orientation, but I'll explicitly state
 in the text when any object has a twisted orientation.
 
 % $\yA\i{_{\q}^{\ori{\q\q}}}$
@@ -2331,7 +2331,7 @@ have  dimensions
 that is, \emph{the twice covariant Einstein tensor is dimensionless,
   independently of the dimension of the metric tensor}.
 
-\section{Stress-energy-momentum tensor and four-momentum}
+\section{Stress-energy-momentum tensor}
 \label{sec:stressenergy}
 
 Also in the case of the stress-energy-momentum tensor the literature offers

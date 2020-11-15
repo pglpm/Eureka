@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-15T10:25:17+0100
+%% Last-Updated: 2020-11-15T14:25:57+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -494,7 +494,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % \hspace*{\stretch{1}}%
 \parbox{0.75\linewidth}%\makebox[0pt][c]%
 {\protect\centering P.G.L.  Porta Mana \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}\\%
-\footnotesize Kavli Institute, Trondheim, Norway\quad\epost{\email{pgl}{portamana.org}}}%
+\footnotesize Western Norway University of Applied Sciences, Bergen, Norway\quad\epost{\email{pgl}{portamana.org}}}%
 \hspace*{\stretch{1}}%
 }
 
@@ -828,11 +828,16 @@ of questions. % the dimensions
 This is evident in many question \amp\ answer websites and wiki pages,
 where several incorrect or unfounded statements about dimensional analysis
 in relativity are in circulation. (For the record, the answers to the
-questions above are: No -- See \eqn~\eqref{eq:dim_component_generic} below
--- Yes -- They are dimensionless -- $\Ma^{-1}\Le^{-1}\Ti^{2}$, or
-$\Ma^{-1}\Le$, or $\Ma^{-1}\Le^{3}\Ti^{-2}$, depending on the dimensions
-you assign to the metric and stress-energy-momentum tensors, see
-\sects~\ref{sec:metric}--\ref{sec:einstein_eq}.)
+questions above are:
+\begin{enumerate*}[label=\arabic*.]
+\item No, they don't. \item See \eqn~\eqref{eq:dim_component_generic}
+  below. \item Yes. \item They are dimensionless. \item
+  $\Ma^{-1}\Le^{-1}\Ti^{2}$, or $\Ma^{-1}\Le$, or
+  $\Ma^{-1}\Le^{3}\Ti^{-2}$, depending on the dimensions you assign to the
+  metric and stress-energy-momentum tensors, see
+  \sects~\ref{sec:metric}--\ref{sec:einstein_eq}.
+\end{enumerate*}
+)
 % For example, the notion that the components
 % of a tensor or the coordinate functions should all have the same dimension.
 % As we'll see shortly, this notion is false.
@@ -1146,8 +1151,7 @@ its presentation I recommend the texts of Bossavit \citey[especially
 \chap~3]{bossavit1991}, Burke
 \citey{burke1983,burke1985_r1987,burke1980b,burke1995}, de~Rham
 \citey[\chap~2]{derham1955_t1984}, Schouten \citey{schouten1924_r1954},
-Deschamps \citey{deschamps1970,deschamps1981} and Lindell
-\citey{lindell2004}.
+Deschamps \citey{deschamps1970,deschamps1981}, Lindell \citey{lindell2004}.
 
 In the notation above, the bars identify $k$-vectors and $k$-covectors for
 $k>1$. Thus $\yA\i{^{\q}_{\mul{\q\q}}}$ indicates that $\yA$ belongs to the
@@ -1174,7 +1178,7 @@ in the text when any object has a twisted orientation.
 \section{An introductory two-dimensional example}
 \label{sec:2d_example}
 
-Let me first present a simple example of dimensional analysis in a
+Let me first present a simple example of dimensional analysis for a
 two-dimensional spacetime. I provide very little explanation, letting the
 analysis speak for itself. The next sections will give a longer discussion
 of the general point of view, of the assumptions, and of cases with more
@@ -1953,7 +1957,7 @@ this is also reflected in the current definition of the standard metre
 seems to ultimately rely on the measurement of time. It could be objected,
 however, that the laws of light propagation depend on the metric tensor,
 which connects the Faraday and Maxwell tensors
-\citep[\chap~F.III]{truesdelletal1960}[\chap~II.4]{misneretal1970_r1973}{puntigametal1997,hehletal2001},
+\citep[\chap~F.III]{truesdelletal1960}[\chap~II.4]{misneretal1970_r1973}{puntigametal1997,hehletal2001,hehletal2004},
 so this reasoning could be circular.
 
 
@@ -2189,12 +2193,12 @@ Many authors use a metric tensor with opposite sign.
 
 The worldline of an observer or of a small body is a timelike curve
 $C\colon \ytp \mapsto P(\ytp)$ into spacetime, parameterized by the proper
-time $\ytp$, with $\dim(\ytp)=\Ti$. According to the discussions in
-\sects~\ref{sec:curves}, \ref{sec:g_intr_dim}, \ref{sec:g_inv_vol}, the
-condition that the curve's parameter should beat the proper time leads to
-two different normalization conditions for the \emph{4-velocity tangent
-  vector} $\yU \equiv \yU\i{^{\q}} \defd \yC$, depending on the choice of
-dimension for the metric:
+time $\ytp$. If we assume $\dim(\ytp)=\Ti$, then according to the
+discussions in \sects~\ref{sec:curves}, \ref{sec:g_intr_dim},
+\ref{sec:g_inv_vol} the condition that the curve's parameter should beat
+the proper time leads to two different normalization conditions for the
+\emph{4-velocity tangent vector} $\yU \equiv \yU\i{^{\q}} \defd \yC$,
+depending on the choice of dimension for the metric:
 \begin{equation}
   \label{eq:proper_time_condition}
   \begin{aligned}
@@ -2240,6 +2244,15 @@ formulations of general relativity, where $\yU \otimes \yUu$ acts as a
 normal projector. If you use $\dim(\yg)\defd\Le^{2}$ and define the
 covariant 4-velocity as $\yU\yg$ instead, then keep in mind that the normal
 projector requires an extra factor $1/c^{2}$.
+
+\medskip
+
+Alternatively we can stipulate that when $\dim(\yg) \defd \Le^{2}$ the
+proper time is actually a \emph{length}, $\dim(\ytp) \defd \Le$. Then the $c^{2}$
+factors in the formulae above disappear, the special coordinate
+expression~\eqref{eq:4-velocity_coords} must be replaced by
+$\yU = c\yl \de_{t} + c\yl V^{r} \de_{r}$, and we have $\yU\yUu = -1$ with
+$\dim(\yUu) = \dim(\yU)^{-1} = \Le^{-1}$ in this case.
 
 
 
@@ -2475,10 +2488,16 @@ dimensionally consistent:
 where the particular signs of the components, which are not determined by
 dimensional analysis, will be motivated later. Our analysis of the
 intrinsic dimensions therefore restricts the stress-energy-momentum tensor
-to be one of the four alternatives above. Note that their kind of
-orientation, straight or twisted, is still undetermined. To further
-restrict the possibilities let's consider three additional and interrelated
-heuristic arguments.
+to be one of the four alternatives above, with their kinds of orientation,
+straight or twisted, still undetermined. Note that if we had conflated time
+and length dimensions in \eqns~\eqref{eq:dims_stress_components} and
+\eqref{eq:bases} by introducing $c$ factors, then dimensional analysis
+wouldn't have led to any restrictions: all sixteen alternatives would have
+been dimensionally consistent. This shows the usefulness -- at times at
+least -- to keep dimensions well distinct.
+
+To further restrict the possibilities let's consider three additional and
+interrelated heuristic arguments.
 
 First, the notions of energy and momentum density, surface energy-flux
 density, and stress imply some kind of integration over three-dimensional
@@ -2545,14 +2564,6 @@ twisted orientation. This tensor has the dimension of an \emph{action}:
     \label{eq:final_dim_T}
   \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
 \end{equation}
-
-\mynote{remark that setting t=l wouldn't select any specific form}
-% Note that we couldn't have obtained this result by dimensional analysis
-% without considering \emph{intrinsic} dimensions. Traditionally we would
-% have multiplied the components by appropriate powers of $c$ to ensure they
-% all had the same dimension; but this procedure would have left the variance
-% type undetermined. This shows the value of intrinsic-dimensional analysis,
-% as opposed to dimensional analysis focused on components only.
 
 \medskip
 
@@ -3337,18 +3348,17 @@ action of covectors on vectors behave analogously to usual multiplication
 for the purposes of dimensional analysis. Alternative, equivalent sets of
 conventions could perhaps be considered.
 
-Intrinsic dimensional analysis can help us determine or at least constrain
-the variance type of candidate tensors, as we saw for the
-stress-energy-momentum tensor in \sect~\ref{sec:stressenergy}.
-
-We found or re-derived some essential results for general relativity, in
-particular that the Riemann $\yR\i{^{\q}_{\q\mul{\q\q}}}$, Ricci
-$\yRi\i{_{\q\q}}$, and twice-covariant Einstein $\yG\i{_{\q\q}}$ curvature
-tensors are dimensionless. Maybe these results can be of importance for
-some current research involving scales and conformal factors
-\citep[\eg][]{roehretal2005,cadonietal2019}. We also discussed the
-operational reasons behind two common choices of dimensions for the metric
-and the stress-energy-momentum tensors.
+We have also seen that intrinsic dimensional analysis can help us determine
+or at least constrain the variance type of candidate tensors, as
+exemplified with the stress-energy-momentum tensor in
+\sect~\ref{sec:stressenergy}. We found or re-derived some essential results
+for general relativity, in particular that the Riemann
+$\yR\i{^{\q}_{\q\mul{\q\q}}}$, Ricci $\yRi\i{_{\q\q}}$, and twice covariant
+Einstein $\yG\i{_{\q\q}}$ curvature tensors are dimensionless. These
+results could be of importance for current research involving scales and
+conformal factors \citep[\eg][]{roehretal2005,cadonietal2019}. We also
+discussed the operational reasons behind two common choices of dimensions
+for the metric and the stress-energy-momentum tensors.
 
 Since the dimensions of the components are usually different from the
 intrinsic dimension and depend on the coordinates, I recommend to avoid
@@ -3358,7 +3368,10 @@ meant to represent the tensor in general (as in Penrose \amp\ Rindler's
 notation), or to represent its set of components, or to represent just a
 specific component.
 
-\mynote{refs to Hehl's for charge and EM}
+For the dimensional analysis of tensorial objects in electromagnetism,
+which wasn't discussed in this note, see for example Truesdell \amp\ Toupin
+\citep[\chap~F]{truesdelletal1960} and Hehl \amp\ Obukhov
+\citep{hehletal2003,hehletal2004b}.
 
 % Finally, the above analysis, specific to general relativity, can be made
 % along the same lines also for Newtonian mechanics.
@@ -3473,8 +3486,8 @@ review by de~Boer \citep{deboer1995}, and references therein.
   motivation. It's sad and alarming that the possibility of pre-print
   feedback is curtailed like that.
   
-  This work is financially supported by the Kavli Foundation and the Centre
-  of Excellence scheme of the Research Council of Norway (Roudi
+  This work was financially supported by the Kavli Foundation and the
+  Centre of Excellence scheme of the Research Council of Norway (Roudi
   group).
 %\rotatebox{15}{P}\rotatebox{5}{I}\rotatebox{-10}{P}\rotatebox{10}{\reflectbox{P}}\rotatebox{-5}{O}.
 %\sourceatright{\autanet}

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-15T19:26:28+0100
+%% Last-Updated: 2020-11-15T21:39:07+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -791,8 +791,10 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
   contravariant and thrice covariant), Ricci (twice covariant), and
   Einstein (twice covariant) curvature tensors are dimensionless. The
   relation between dimension and operational meaning for the metric and
-  stress-energy-momentum tensors, and the dimension of Einstein's constant
-  are also discussed.
+  stress-energy-momentum tensors is discussed; and the possible conventions
+  for the dimensions of these two tensors and of Einstein's constant $\yk$,
+  including the curious possibility $\yk = 8\pu G$ without $c$ factors, are
+  reviewed.
   % \\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer,
   %   this manuscript is being peer-reviewed by you. Thank you.}
 % \par%\\[\jot]
@@ -900,11 +902,12 @@ The intrinsic dimension of a tensor was
 %   dimension} of a tensor. The present note tries to revive this notion,
 introduced under the name \defquote{absolute dimension} by Schouten and
 Dorgelo \citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} and used in
-Truesdell \amp\ Toupin \citep[Appendix II]{truesdelletal1960}. As its name
-implies, this dimension is independent of the choice and dimensions of
-coordinate functions. It is distinct from the dimensions of the tensor's
-\emph{components}, which instead depend on the dimensions of the
-coordinates. The intrinsic dimension of a tensor is determined by the
+Truesdell \amp\ Toupin \citep[Appendix II]{truesdelletal1960} and recently
+in Hehl \amp\ Obukhov \citep[\sect~B.1]{hehletal2003}{hehletal2004b}. As
+its name implies, this dimension is independent of the choice and
+dimensions of coordinate functions. It is distinct from the dimensions of
+the tensor's \emph{components}, which instead depend on the dimensions of
+the coordinates. The intrinsic dimension of a tensor is determined by the
 latter's physical and operational \citep{bridgman1927_r1958} meaning. It is
 therefore a natural notion for dimensional analysis in relativity.
 
@@ -2581,7 +2584,7 @@ twisted orientation. This tensor has the dimension of an \emph{action}:
 This result agrees with the stress-energy-momentum tensor that appears for
 example in Einstein's original work \citep[\sect~C.9]{einstein1914b} and
 other early works
-\citep[\eg][\sects~IV.54--55]{pauli1921_t1958}[\sect~13]{cartan1923}[\sect~7]{brillouin1924};
+\citep[\eg][]{hilbert1915,hilbert1917}[\sects~IV.54--55]{pauli1921_t1958}[\sect~13]{cartan1923}[\sect~7]{brillouin1924};
 in Truesdell \amp\ Toupin \citep[\sect~F.IV.288]{truesdelletal1960}, who
 try to find an expression universally valid in Newtonian, Lorentzian, and
 general-relativistic mechanics; and in more recent works \citep[\sects~VII.2,\,8]{fokker1960_t1965}[\chap~14
@@ -2593,25 +2596,24 @@ of this tensor with only two slots are discussed below.
 % \citep[\enquote{$^{\displaystyle *}\mathte{T}$}]
 Note that some of these works use a once covariant and once contravariant
 \enquote{V(olume)-tensor} or \enquote{tensor density}, which has variance
-type $\yT\i{_{\q}^{\q}_{\mul{\q\q\q\q}}}$. Such an object, however, is
-geometrically equivalent to the variance type $\yT\i{_{\q \mul{\q\q\q}}}$,
-in the sense that their independent components have the same transformation
-law under changes of coordinates \citep[\sect~II.8
-p.~30]{schouten1951_r1989} (this is why I chose a calligraphic letter to
-denote this tensor). % They are related by
+type $\yT\i{_{\q}^{\q}_{\mul{\q\q\q\q}}}\,$. Such an object, however, is
+geometrically equivalent to the variance type $\yT\i{_{\q \mul{\q\q\q}}}\,$;
+their independent components have the same transformation law under changes
+of coordinates \citep[\sect~II.8 p.~30]{schouten1951_r1989} (this is why I
+chose a calligraphic letter to denote this tensor). % They are related by
 % an inner product with $\omega\otimes\omega^{-1}$, where $\omega$ is an
 % arbitrary non-vanishing 4-form; this last object has only one independent
 % component, which transforms as the scalar $1$.
 
 The literature cited above arrive at this kind of stress-energy-momentum
 tensor through inductive generalization, often via electromagnetic theory,
-from the stress tensor of Newtonian mechanics; or from principles of
-virtual work; or from variational principles with an action Lagrangean,
-from which it easily follows that this tensor should have the intrinsic
-dimension of an action; or from combinations of these points of view. The
-operational meaning of this tensor is therefore still unclear.
+of the stress tensor of Newtonian mechanics; or from principles of virtual
+work; or from variational principles with an action Lagrangean, from which
+it easily follows that this tensor should have the intrinsic dimension of
+an action; or from combinations of these approaches. The operational
+meaning of this tensor is therefore still unclear.
 
-In the presence of the a metric tensor we can of course obtain
+In the presence of a metric tensor we can of course obtain
 stress-energy-momentum tensors of different variance types by means of
 inner products with the proper volume element and its inverse, and by
 raising and lowering indices. But the question of the operational meaning
@@ -2720,7 +2722,7 @@ depending on the choices of dimensions of $\yg$ and $\yT$:
 \label{eq:dim_co_co_T}
 \dim(\yTe\i{_{\q\q}}) =
 \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) \dim(\yg) \dim(\ygv)^{-1}
-  \\{}=
+  ={}\\
   \begin{cases}
     \Ma\Le\Ti^{-2} \equiv \En\Le^{-1} & \quad\text{if}\ 
 \dim(\yg)\defd \Le^2 \ ,\ \dim(\yT)\defd \En\Ti
@@ -2737,7 +2739,7 @@ depending on the choices of dimensions of $\yg$ and $\yT$:
   \end{cases}
 \end{multline}
 All three possibilities, which differ by factors $c^{2}$, appear in the
-literature: see the examples cited after \eqn~\eqref{eq:final_dim_T}
+literature: see the works cited after \eqn~\eqref{eq:final_dim_T}
 concerning the combinations of dimensions for metric and
 stress-energy-momentum.
 
@@ -3274,12 +3276,12 @@ The equations above are considered in their co-co-variant form. This form
 is convenient because the left side is then dimensionless (its intrinsic
 dimension is $\Un$), independently of the dimension of the metric tensor,
 as explained in \sect~\ref{sec:g_einst}, \eqn~\eqref{eq:dim_einst}. We
-therefore find as a general rule that
+therefore find that the equality
 \begin{equation}
   \label{eq:dim_k_general}
   \dim(\yk) = \dim(\yTe\i{_{\q\q}})^{-1} 
 \end{equation}
-always, for all choices of dimensions for the metric and
+must always hold, for all choices of dimensions for the metric and
 stress-energy-momentum tensors. Combining this equation with the results
 for $\yTe$, \eqn~\eqref{eq:dim_co_co_T}, we find three possible
 conventions:
@@ -3297,7 +3299,7 @@ conventions:
     \quad\text{or}\\
 \dim(\yg)\defd \Le^2 \ ,\ \dim(\yT)\defd \Ma\Ti 
  \end{cases}
-    \\[\jot]
+    \\[2\jot]
     \Ma^{-1}\Le^{3}\Ti^{-2} \equiv \En^{-1}\Le^{5}\Ti^{-4}
      &\quad\text{if}\ 
 \dim(\yg)\defd \Ti^2 \ ,\ \dim(\yT)\defd \Ma\Ti
@@ -3321,19 +3323,19 @@ Newtonian limit:
     \quad\text{or}\\
 \dim(\yg)\defd \Le^2 \ ,\ \dim(\yT)\defd \Ma\Ti 
  \end{cases}
-\\[\jot]
+\\[2\jot]
   8\pu G  &\quad\text{if}\ 
 \dim(\yg)\defd \Ti^2 \ ,\ \dim(\yT)\defd \Ma\Ti
   \end{cases}
 \end{equation}
-From the discussion of the literature given in
+As we saw in the discussion of the literature cited in
 \sect~\ref{sec:stressenergy}, the first convention is the most common. The
 second convention appears for example in Fock \citep[\sect~55 \eqns~(55.15)
 and~(52.06)]{fock1955_t1964} and Adler \etal\ \citep[\sect~10.5
-\eqn~(10.98)]{adleretal1965_r1975}. The third convention would appear in
-McVittie if he didn't cheat a factor $1/c^{2}$ into $\yk$ by writing the
-Einstein equations \citep[\sect~4.2 \eqn~(4.107)]{mcvittie1956_r1965} as
-\enquote{\,$\yG = \yk c^{2} \yTe$\,}.
+\eqn~(10.98)]{adleretal1965_r1975}. The third, interesting convention would
+appear in McVittie if he didn't cheat a factor $1/c^{2}$ into $\yk$ by
+writing the Einstein equations \citep[\sect~4.2
+\eqn~(4.107)]{mcvittie1956_r1965} as \enquote{\,$\yG = \yk c^{2} \yTe$\,}.
 
 
 
@@ -3344,7 +3346,7 @@ We have seen that dimensional analysis, with its familiar rules, can be
 seamlessly performed in Lorentzian and general relativity and in
 differential geometry if we adopt the coordinate-free approach typical of
 modern texts. In this approach each tensor has an \emph{intrinsic}
-dimension (a notion introduced by Schouten and Dorgelo). This dimension
+dimension, a notion introduced by Schouten and Dorgelo. This dimension
 doesn't depend on the dimensions of the coordinates, and is determined by
 the physical and operational meaning of the tensor. It is therefore
 generally more profitable to focus on the intrinsic dimension of a tensor
@@ -3369,17 +3371,17 @@ Einstein $\yG\i{_{\q\q}}$ curvature tensors are dimensionless. These
 results could be of importance for current research involving scales and
 conformal factors \citep[\eg][]{roehretal2005,cadonietal2019}. We also
 discussed the operational reasons behind two common choices of dimensions
-for the metric and the stress-energy-momentum tensors.
+for the metric and stress-energy-momentum tensors.
 
 Since the dimensions of the components are usually different from the
 intrinsic dimension and depend on the coordinates, I recommend to avoid
 statements such as \enquote{the tensor $A\i{_{i}^{jk}}$ has dimension
   $\Xx$}, which leave it unclear whether \enquote{$A\i{_{i}^{jk}}$} is
 meant to represent the tensor in general (as in Penrose \amp\ Rindler's
-notation), or to represent its set of components, or to represent just a
+notation), or to represent its set of components, or to represent only a
 specific component.
 
-For the dimensional analysis of tensorial objects in electromagnetism,
+For the dimensional analysis of tensorial objects in electrodynamics,
 which wasn't discussed in this note, see for example Truesdell \amp\ Toupin
 \citep[\chap~F]{truesdelletal1960} and Hehl \amp\ Obukhov
 \citep{hehletal2003,hehletal2004b}.

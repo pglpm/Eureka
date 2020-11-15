@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-14T22:42:09+0100
+%% Last-Updated: 2020-11-15T10:25:17+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1917,10 +1917,14 @@ $\yv$ could have any dimension.% -- possibly dimensionless if $\yv$
 The standard choices for $\dim(\yg)$ are thus $\Le^{2}$ or $\Ti^{2}$; the
 corresponding metric tensors differ by a factor $c^{2}$.
 
-The choice $\dim(\yg) \defd \Ti^{2}$ has some merit for reasons discussed
-by Synge and Bressan \citep[\sects~III.2--4]{synge1960b}[\sects~15,
-18]{bressan1978}. Synge gives a vivid summary: \citep[\sect~III.3
-pp.~108--109]{synge1960b}
+The choice $\dim(\yg) \defd \Ti^{2}$, used for example by McVittie, Synge,
+Kilmister
+\citep[\sect~4.1]{mcvittie1956_r1965}[\sect~IV.5]{synge1960b}[\chap~II
+p.~25]{kilmister1973}, has some advantages for the definition of the
+co-variant 4-velocity, discussed in \sect~\ref{sec:g_4velocity}. It could
+be motivated on operational grounds for reasons discussed by Synge and
+Bressan \citep[\sects~III.2--4]{synge1960b}[\sects~15, 18]{bressan1978}.
+Synge gives a vivid summary: \citep[\sect~III.3 pp.~108--109]{synge1960b}
 \begin{quote}\footnotesize
   We are now launched on the task of giving physical meaning to the
   Riemannian geometry \textelp{}. It is indeed a Riemannian
@@ -1931,37 +1935,39 @@ pp.~108--109]{synge1960b}
 \end{quote}
 In fact, to measure the proper time $\inct$ defined above we only need to
 ensure that a clock has the worldline $C$, and then take the difference
-between the clock's final and initial times. On the other hand, consider
-the case when the curve $C$ is \emph{spacelike}. Its proper length is still
+between the clock's final and initial times. %  On the other hand, consider
+% the case when the curve $C$ is \emph{spacelike}. Its proper length is
+% still defined by the integral~\eqref{eq:proper_time} apart from a
+% dimensional constant.
+The measurement of the proper \emph{length} of a spacelike curve, still
 defined by the integral~\eqref{eq:proper_time} apart from a dimensional
-constant. Its measurement, however, is more involved than in the timelike
-case. It requires dividing the curve into very short pieces, and having
-specially-chosen observers (orthogonal to the pieces) measure each piece.
-And the measurement of each piece actually relies on the measurement of
-\emph{proper time}
-\citep[\chap~2]{frankel1979}[\sect~84]{landauetal1939_t1996}: each observer
-uses radar distance, sending a lightlike signal which bounces back at the
-end of the piece, and measuring the time it takes to come back. Even if
-rigid rods are used, their calibration still relies on a measurement of
-time -- this is also reflected in the current definition of the standard
-metre \citep[p.~98]{bipm1983}[p.~25]{giacomo1984}. The choice
-$\dim(\yg) \defd \Ti^{2}$, used for example by McVittie, Synge, Kilmister
-\citep[\sect~4.1]{mcvittie1956_r1965}[\sect~IV.5]{synge1960b}[\chap~II
-p.~25]{kilmister1973}, has some advantages for the definition of the
-co-variant 4-velocity, discussed in \sect~\ref{sec:g_4velocity}.
+constant, is more involved instead. It requires dividing the curve into
+very short pieces, and having specially-chosen observers (with 4-velocities
+orthogonal to the pieces) measure each piece. To measure each short piece,
+each observer uses radar distance, sending a light signal which bounces
+back at the end of the piece, and timing how long it takes to come back
+\citep[\chap~2]{frankel1979}[\sect~84]{landauetal1939_t1996}. Even if rigid
+rods are used, their calibration still relies on a measurement of time --
+this is also reflected in the current definition of the standard metre
+\citep[p.~98]{bipm1983}[p.~25]{giacomo1984}. Thus the measurement of length
+seems to ultimately rely on the measurement of time. It could be objected,
+however, that the laws of light propagation depend on the metric tensor,
+which connects the Faraday and Maxwell tensors
+\citep[\chap~F.III]{truesdelletal1960}[\chap~II.4]{misneretal1970_r1973}{puntigametal1997,hehletal2001},
+so this reasoning could be circular.
 
 
-The choice $\dim(\yg) \defd \Le^{2}$ is by far the most common, however. It
-has the merit that the projection of the metric onto a spacelike
-hypersurface also has dimension $\Le^{2}$, which is sensible from a
-Newtonian point of view. Such projections are at the heart of $3+1$
-formulations of general relativity \citep(I thank I.~Bengtsson for this
+The choice $\dim(\yg) \defd \Le^{2}$ is by far the most common. It has the
+merit that the projection of the metric onto a spacelike hypersurface also
+has dimension $\Le^{2}$, which is sensible from a Newtonian point of view.
+Such projections are at the heart of $3+1$ formulations of general
+relativity \citep(I thank I.~Bengtsson for this
 remark){gourgoulhon2007_r2012,alcubierre2008}[\chap~21]{misneretal1970_r1973}{wilsonetal2003_r2007,smarretal1978,york1979,smarretal1980}
 and also of covariant formulations of Newtonian mechanics
 \citep[\sects~B.II.152--154, D.II.203--205, D.V.238,
 F.IV.285--289]{truesdelletal1960}[\sect~2.4]{marsdenetal1983b_r1994}.
 
-In the following we shall see how these choices affect several dimensional
+In the following we shall see how both choices affect several dimensional
 results. % Another merit is that the norm of a 4-velocity -- and therefore
 % also its spacelike projection, the ordinary 3-velocity -- has indeed the
 % dimension of a velocity, $\Le\Ti^{-1}$.
@@ -2609,8 +2615,6 @@ dimension $\En\Ch^{-1}$ according to the results of
 appear in Einstein's constant $\yk$ (see \sect~\ref{sec:einstein_eq}),
 because it cannot be eliminated by using the metric tensor or the proper
 volume element to obtain alternative variance types.
-
-
 
 
 \medskip

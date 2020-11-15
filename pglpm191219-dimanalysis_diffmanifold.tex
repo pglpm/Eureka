@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-15T17:18:27+0100
+%% Last-Updated: 2020-11-15T19:26:28+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -735,6 +735,23 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ytp}{\tau}
 \newcommand*{\yl}{\beta}
 \newcommand*{\yV}{\bm{V}}
+\newcommand*{\dexyz}{\de_{xyz}}
+\newcommand*{\detzy}{\de_{tzy}}
+\newcommand*{\detxz}{\de_{txz}}
+\newcommand*{\detyx}{\de_{tyx}}
+\newcommand*{\dixyz}{\di xyz}
+\newcommand*{\ditzy}{\di tzy}
+\newcommand*{\ditxz}{\di txz}
+\newcommand*{\dityx}{\di tyx}
+% \newcommand*{\dexyz}{\de_{x}\de_{y}\de_{z}}
+% \newcommand*{\detzy}{\de_{t}\de_{z}\de_{y}}
+% \newcommand*{\detxz}{\de_{t}\de_{x}\de_{z}}
+% \newcommand*{\detyx}{\de_{t}\de_{y}\de_{x}}
+% \newcommand*{\dixyz}{\di x\di y\di z}
+% \newcommand*{\ditzy}{\di t\di z\di y}
+% \newcommand*{\ditxz}{\di t\di x\di z}
+% \newcommand*{\dityx}{\di t\di y\di x}
+
 \newcommand*{\rul}{{\mkern2mu\rule[-0.1ex]{0.75pt}{1.1ex}\mkern2mu}}
 \DeclarePairedDelimiter\mul{\rul}{\rul}%{{\bm{\shortmid}}}
 % \DeclarePairedDelimiter\mul{\lvert}{\rvert}
@@ -1156,7 +1173,7 @@ Deschamps \citey{deschamps1970,deschamps1981}, Lindell \citey{lindell2004}.
 In the notation above, the bars identify $k$-vectors and $k$-covectors for
 $k>1$. Thus $\yA\i{^{\q}_{\mul{\q\q}}}$ indicates that $\yA$ belongs to the
 tensor product of 1-vectors and 2-covectors; it's also called a
-1-vector-valued 2-covector. To avoid burdening the notation I won't add
+vector-valued 2-covector. To avoid burdening the notation I won't add
 symbols denoting straight or twisted orientation, but I'll explicitly state
 in the text when any object has a twisted orientation.
 
@@ -2096,6 +2113,29 @@ region and $\Li\Ti$ for a timelike two-dimensional one. Indeed the
 definition of proper time~\eqref{eq:proper_time_c} does exactly this,
 including a factor $1/c$ in the induced line element on a timelike curve.
 
+The \emph{inverse proper volume element} is the 4-vector field $\ygv^{-1}$,
+with twisted orientation, having unit generalized inner product with the
+proper volume element: $\ygv^{-1} \ii \ygv = 1$. Its intrinsic dimension is
+therefore
+\begin{equation}
+  \label{eq:dim_inv_volume_elem}
+  \dim\bigl(\ygv^{-1}{}\i{^{\mul{\q\q\q\q}}}\bigr) =
+  \dim(\ygv)^{-1} \equiv \Le^{-3}\Ti^{-1}
+\end{equation}
+again independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$.
+Note that the inverse proper volume element is dimensionally and
+numerically different from the tensor  obtained by raising all
+indices of $\ygv$.%  It can be proven, for example using an orthonormal
+% basis, that the relation between the two is
+% \begin{equation}
+%   \label{eq:relation_volumes}
+%   \ygu = -\frac{1}{c^{2}} \ygv^{-1} \ .
+% \end{equation}
+% More generally the negative factor is replaced with $(-1)^{s}$, where $s$ is
+% the number of negative eigenvalues of the metric tensor.
+
+\medskip
+
 The proper volume element appears in the various definitions of the
 \emph{star operator}
 \citep[\eg][\sect~V.A.4]{choquetbruhatetal1977_r1996}[Box~4.3]{misneretal1970_r1973}[\sect~IV.24]{burke1985_r1987}
@@ -2113,78 +2153,57 @@ depends on the degree of the form it operates on \citep[I personally prefer
 to avoid the star operator and to explicitly use the inner product with the
 proper volume element; \cf][\sects~4.1--2]{bossavit1991}.
 
-The \emph{inverse proper volume element} is the 4-vector field $\ygv^{-1}$,
-with twisted orientation, having unit generalized inner product with the
-proper volume element: $\ygv^{-1} \ii \ygv = 1$. Its intrinsic dimension is
-therefore
-\begin{equation}
-  \label{eq:dim_inv_volume_elem}
-  \dim\bigl(\ygv^{-1}{}\i{^{\mul{\q\q\q\q}}}\bigr) =
-  \dim(\ygv)^{-1} \equiv \Le^{-3}\Ti^{-1}
-\end{equation}
-again independently of whether $\dim(\yg)$ equals $\Li^{2}$ or $\Ti^{2}$.
 
-Note that the inverse proper volume element is dimensionally and
-numerically different from the tensor $\ygu$ obtained by raising all
-indices of $\ygv$. It can be proven, for example using an orthonormal
-basis, that the relation between the two is
-\begin{equation}
-  \label{eq:relation_volumes}
-  \ygu = -\frac{1}{c^{2}} \ygv^{-1} \ .
-\end{equation}
-More generally the negative factor is replaced with $(-1)^{s}$, where $s$ is
-the number of negative eigenvalues of the metric tensor.
+% \medskip
 
-\medskip
+% % The dimension~\eqref{eq:dim_volume_elem} also holds for the inner-oriented
+% % volume element $\abs{\ygv}$ (sometimes called \emph{density})  \citep[\chap~3]{bossavit1991}[\chap~II]{derham1955_t1984}{burke1995}.
 
-% The dimension~\eqref{eq:dim_volume_elem} also holds for the inner-oriented
-% volume element $\abs{\ygv}$ (sometimes called \emph{density})  \citep[\chap~3]{bossavit1991}[\chap~II]{derham1955_t1984}{burke1995}.
+% % which, unlike the volume element $\ygv$, has the property
+% % that $\abs{\ygv}(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for all sets of
+% % orthonormal vector fields, not only positively-oriented ones: it is an
+% % inner-oriented 4-form, canonically determined only by the metric.
 
-% which, unlike the volume element $\ygv$, has the property
-% that $\abs{\ygv}(\ye_{0},\ye_{1},\ye_{2},\ye_{3})=1$ for all sets of
-% orthonormal vector fields, not only positively-oriented ones: it is an
-% inner-oriented 4-form, canonically determined only by the metric.
+% For the case $\dim(\yg) \defd \Le^{2}$ here is a summary of the components of the
+% metric tensor $\yg$ and of the proper volume element $\ygv$, in a
+% rectangular Cartesian coordinate system adapted to an inertial (freely
+% falling) observer at a specific spacetime event. For coordinates having
+% different dimensions:
+% \begin{align}
+%   \label{eq:inertial_components_dimcase}
+%   &\begin{aligned}
+%     &\dim(t,x,y,z) = (\Ti,\Le,\Le,\Le) \ ,
+%     \\
+%   &(g\i{_{ij}}) =
+%   \begin{psmallmatrix}
+%     -c^{2} &0\ \mathrm{m\ s^{-1}}&0\ \mathrm{m\ s^{-1}}&0\ \mathrm{m\ s^{-1}}\\
+%     0\ \mathrm{m\ s^{-1}}& 1 & 0 & 0\\
+%     0\ \mathrm{m\ s^{-1}}& 0 & 1 & 0\\
+%     0\ \mathrm{m\ s^{-1}}& 0 & 0 & 1
+%   \end{psmallmatrix} \ ,
+%   \qquad
+%   \gamma\i{_{t\,x\,y\,z}} = 1 \ ,
+%   \end{aligned}
+%   \\
+%   \intertext{where the units of the zero timelike components above are arbitrary of  course, as long as they have dimension $\Le\Ti^{-1}$. For coordinates with equal dimensions:}
+% \label{eq:inertial_components_Lcase}
+%   &\begin{aligned}
+%     &\dim(x^{0}, x^{1}, x^{2}, x^{3}) = (\Le,\Le,\Le,\Le) \ ,
+%     \\
+%   &(g\i{_{ij}}) =
+%   \begin{psmallmatrix}
+%     -1 &0&0&0\\
+%     0& 1 & 0 & 0\\
+%     0& 0 & 1 & 0\\
+%     0& 0 & 0 & 1
+%   \end{psmallmatrix} \ ,
+%   \qquad
+%   \gamma\i{_{0\,1\,2\,3}} = \frac{1}{c} \ .
+% \end{aligned}
+% \end{align}
+% Many authors use a metric tensor with opposite sign.
 
-For the case $\dim(\yg) \defd \Le^{2}$ here is a summary of the components of the
-metric tensor $\yg$ and of the proper volume element $\ygv$, in a
-rectangular Cartesian coordinate system adapted to an inertial (freely
-falling) observer at a specific spacetime event. For coordinates having
-different dimensions:
-\begin{align}
-  \label{eq:inertial_components_dimcase}
-  &\begin{aligned}
-    &\dim(t,x,y,z) = (\Ti,\Le,\Le,\Le) \ ,
-    \\
-  &(g\i{_{ij}}) =
-  \begin{psmallmatrix}
-    -c^{2} &0\ \mathrm{m\ s^{-1}}&0\ \mathrm{m\ s^{-1}}&0\ \mathrm{m\ s^{-1}}\\
-    0\ \mathrm{m\ s^{-1}}& 1 & 0 & 0\\
-    0\ \mathrm{m\ s^{-1}}& 0 & 1 & 0\\
-    0\ \mathrm{m\ s^{-1}}& 0 & 0 & 1
-  \end{psmallmatrix} \ ,
-  \qquad
-  \gamma\i{_{t\,x\,y\,z}} = 1 \ ,
-  \end{aligned}
-  \\
-  \intertext{where the units of the zero timelike components above are arbitrary of  course, as long as they have dimension $\Le\Ti^{-1}$. For coordinates with equal dimensions:}
-\label{eq:inertial_components_Lcase}
-  &\begin{aligned}
-    &\dim(x^{0}, x^{1}, x^{2}, x^{3}) = (\Le,\Le,\Le,\Le) \ ,
-    \\
-  &(g\i{_{ij}}) =
-  \begin{psmallmatrix}
-    -1 &0&0&0\\
-    0& 1 & 0 & 0\\
-    0& 0 & 1 & 0\\
-    0& 0 & 0 & 1
-  \end{psmallmatrix} \ ,
-  \qquad
-  \gamma\i{_{0\,1\,2\,3}} = \frac{1}{c} \ .
-\end{aligned}
-\end{align}
-Many authors use a metric tensor with opposite sign.
-
-\subsection{Four-velocity and normal projection}
+\subsection{Four-velocity and projector onto it}
 \label{sec:g_4velocity}
 
 The worldline of an observer or of a small body is a timelike curve
@@ -2232,14 +2251,14 @@ by lowering the index of $\yU$. It is convenient to define it as
     \yU \yg & \text{if }\dim(\yg)\defd \Ti^{2}
   \end{cases} \ .
 \end{equation}
-This definition leads to the same expression in rectangula Cartesian
+Either definition leads to the same expression in rectangular Cartesian
 inertial coordinates, and also to the property $\yU\yUu = -1$, with
 $\dim(\yUu) = \dim(\yU)^{-1} = \Ti^{-1}$, independently of the choice of
 dimension for the metric. This property is especially useful in $3+1$
 formulations of general relativity, where $\yU \otimes \yUu$ acts as a
-normal projector. If you use $\dim(\yg)\defd\Le^{2}$ and define the
-covariant 4-velocity as $\yU\yg$ instead, then keep in mind that the normal
-projector requires an extra factor $1/c^{2}$.
+projector onto the proper-time axis. If you use $\dim(\yg)\defd\Le^{2}$ and
+define the covariant 4-velocity as $\yU\yg$ instead, then keep in mind that
+such a projector requires an extra factor $1/c^{2}$.
 
 \medskip
 
@@ -2312,14 +2331,9 @@ have  dimensions
   \label{eq:dim_scalcurv}
   \dim(\ysc) = \dim(\yg)^{-1} \equiv
   \begin{cases}
-    \Ti^{-2} \\
-    \Le^{-2}
-  \end{cases}
-  \quad\text{if }\dim(\yg)\defd
-  \begin{cases}
-     \Ti^2 \\
-    \Le^2
-  \end{cases}\ ,
+    \Le^{-2}   \quad\text{if }\dim(\yg)\defd      \Le^2 \\
+    \Ti^{-2}\quad\text{if }\dim(\yg)\defd      \Ti^2 \\
+  \end{cases} \ ,
   \\[\jot]
   \label{eq:dim_einst}
   \dim(\yG\i{_{\q\q}}) = \Un \ ,
@@ -2334,9 +2348,9 @@ Also in the case of the stress-energy-momentum tensor the literature offers
 two main choices of intrinsic dimension, independent of the choices for the
 metric tensor discussed in the previous section. Moreover, there seems to
 be no consensus yet on what the primitive variance type of the
-stress-energy-momentum tensor should be: its operational meaning is still
+stress-energy-momentum tensor should be. Its operational meaning is still
 surrounded by some mystery. Let's try to find its dimension and variance
-type through a heuristic approach which also shows the usefulness of
+type through a heuristic approach, which will also show the usefulness of
 intrinsic dimensional analysis on differential manifolds.
 
 The stress-energy-momentum tensor for a material continuum at a spacetime
@@ -2364,19 +2378,19 @@ $(\Ti,\Le,\Le,\Le)$, then the dimensions of the quantities are
   \end{aligned}
 \end{equation}
 
-Suppose we want to construct a spacetime tensor $\yT$ having these 16
-independent quantities as components. What should its variance type and its
-intrinsic dimension be? (I'm not assuming the symmetry of this tensor as an
-a-priori kinematic property, leaving it as a dynamical law enforced by the
-Einstein equations; in fact this symmetry only needs to hold for the sum of
-the stress-energy-momentum tensors from all kinds of matter.)
+Suppose we want to construct a tensor $\yT$ having these 16 independent
+quantities as components. What should its variance type and its intrinsic
+dimension be? (I'm not assuming the symmetry of this tensor as an a-priori
+kinematic property, leaving it as a dynamical law enforced by the Einstein
+equations; in fact this symmetry only needs to hold for the sum of the
+stress-energy-momentum tensors from all kinds of matter.)
 
 Since we have 16 components, this tensor should belong to the tensor
 product of two tangent spaces, each spanned by four basis elements. There
 are four such spaces: vectors, covectors, 3-vectors, and 3-covectors. Let's
 use shorthands such as
-$\de_{tzy} \defd \de_{t} \land \de_{z} \land \de_{y}$ and
-$\di tzy \defd \di t \land \di z \land \di y$. These four spaces then have
+$\detzy \defd \de_{t} \land \de_{z} \land \de_{y}$ and
+$\ditzy \defd \di t \land \di z \land \di y$. These four spaces then have
 the following coordinate-induced bases and corresponding dimensions:
 \begin{subequations}\label{eq:bases}
   \begin{align}
@@ -2389,11 +2403,11 @@ the following coordinate-induced bases and corresponding dimensions:
     &&\text{\small }\ (\Ti, \Le, \Le, \Le) \ ,
     \\
     \label{eq:base_trivec}
-    &  (\de_{xyz}, \de_{tzy}, \de_{txz}, \de_{tyx})\ \text{:}
+    &  (\dexyz, \detzy, \detxz, \detyx)\ \text{:}
     &&\text{\small }\  (\Le^{-3}, \Le^{-2}\Ti^{-1}, \Le^{-2}\Ti^{-1}, \Le^{-2}\Ti^{-1}) \ ,
     \\
     \label{eq:base_tricovec}
-    &  (\di xyz, \di tzy, \di txz, \di tyx)\ \text{:}
+    &  (\dixyz, \ditzy, \ditxz, \dityx)\ \text{:}
     &&\text{\small }\  (\Le^{3}, \Le^{2}\Ti, \Le^{2}\Ti, \Le^{2}\Ti) \ ,
   \end{align}
 \end{subequations}
@@ -2401,7 +2415,7 @@ where the orderings are chosen to minimize the minus signs appearing from
 inner products with a volume element. There are therefore $4 \times 4$
 possible tensor-product spaces, each constructed by the product of two of
 the four spaces above; % , in all possible combinations;
-and thus 16 possible alternatives to represent our stress-energy-momentum
+and thus sixteen possible alternatives to represent our stress-energy-momentum
 tensor. Energy density is intuitively associated with the purely timelike
 component of this tensor, stress with the purely spacelike components, and
 surface energy-flux density and momentum density with the mixed
@@ -2457,26 +2471,26 @@ dimensionally consistent:
     \label{eq:T_co_co3}
     &\!\begin{multlined}[b][0.85\textwidth]
       \yT\i{_{\q\mul{\q\q\q}}} =
-      -\en\  \di t\otimes\di xyz 
-      -\yq_{x}\  \di t\otimes\di tzy +{}\\
-      \yp_{x}\  \di x\otimes\di xyz 
-      +\yt_{x x}\  \di x\otimes\di tzy + \dotsb
+      -\en\  \di t\otimes\dixyz 
+      -\yq_{x}\  \di t\otimes\ditzy +{}\\
+      \yp_{x}\  \di x\otimes\dixyz 
+      +\yt_{x x}\  \di x\otimes\ditzy + \dotsb
     \end{multlined}
     \\[\jot]
     \label{eq:T_contra3_contra}
     &\!\begin{multlined}[b][0.85\textwidth]
-      \yT\i{^{\mul{\q\q\q}\q}} = -\en\  \de_{xyz} \otimes\de_{t} 
-      -\yq_{x}\  \de_{xyz}\otimes\de_{x} +{}\\
-      \yp_{x}\  \de_{tzy} \otimes\de_{t} +
-      \yt_{x x}\  \de_{tzy}\otimes\de_{x} + \dotsb
+      \yT\i{^{\mul{\q\q\q}\q}} = -\en\  \dexyz \otimes\de_{t} 
+      -\yq_{x}\  \dexyz\otimes\de_{x} +{}\\
+      \yp_{x}\  \detzy \otimes\de_{t} +
+      \yt_{x x}\  \detzy\otimes\de_{x} + \dotsb
     \end{multlined}
     \\[\jot]
     \label{eq:T_contra3_co3}
     &\!\begin{multlined}[b][0.85\textwidth]
-      \yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}} = -\en\  \de_{xyz} \otimes\di xyz 
-      -\yq_{x}\  \de_{xyz}\otimes\di tzy +{}\\
-      \yp_{x}\  \de_{tzy} \otimes\di yxz 
-      + \yt_{x x}\  \de_{tzy}\otimes\di tzy
+      \yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}} = -\en\  \dexyz \otimes\dixyz 
+      -\yq_{x}\  \dexyz\otimes\ditzy +{}\\
+      \yp_{x}\  \detzy \otimes\dixyz 
+      + \yt_{x x}\  \detzy\otimes\ditzy
       + \dotsb
     \end{multlined}
   \end{align}
@@ -2501,10 +2515,11 @@ spacelike or timelike regions. Such integration needs a 3-form and thus
 excludes alternatives~\eqref{eq:T_co_contra} and
 \eqref{eq:T_contra3_contra}.
 
-Second, the total energy measured by a specific observer within a
-\emph{topologically} specified three-dimensional spatial region is
-considered to be independent of the extent of that region, whether measured
-by a physical metric or by arbitrary coordinate intervals. % (just like
+Second, the total energy measured within a \emph{topologically} specified
+three-dimensional spatial region of an observer's orthogonal hyperplane is
+considered to be independent of the extent of that region, whether the
+extent is reckoned by a physical metric or by arbitrary coordinate
+intervals. % (just like
 % charge, although the latter is also independent of the observer's
 % motion). 
 % \citep[\cf][\sect~4.28]{landauetal1939_t1996}
@@ -2514,14 +2529,14 @@ energy flux. Only the second tensor alternative~\eqref{eq:T_co_co3} above
 is consistent with these requirements.
 
 This extent-scaling argument comes a caveat: it doesn't quite work for the
-momentum-density part $\yp_{x}\ \di x\otimes\di xyz$ interpreted as a mass
+momentum-density part $\yp_{x}\ \di x\otimes\dixyz$ interpreted as a mass
 flux $\Ma\Le^{-2}\Ti^{-1}$: the $\Le^{-2}$ scaling in the component
 $\yp_{x}$ and the $\Le^{4}$ scaling in the corresponding basis element
-$\di x\otimes\di xyz$ don't match. They do match, however, if we interpret
+$\di x\otimes\dixyz$ don't match. They do match, however, if we interpret
 the momentum-density part in terms of energy or action:
 $\Ma\Le^{-2}\Ti^{-1}=\En\Ti\Le^{-4}$. A similar situation occurs for the
 stress part. Yet, it's worth noting that this kind of scaling mismatch also
-occurs, even for more components, in all other 15 alternatives for the
+occurs, even for more components, in all other fifteen alternatives for the
 stress-energy-momentum tensor. Intrinsic dimensional analysis alone thus
 suggests connections between mass and energy, and seems to give the latter
 quantity a more fundamental status.
@@ -2529,12 +2544,12 @@ quantity a more fundamental status.
 Third, the value of the energy density should not change under a change in
 the orientation of the spacelike coordinates. The 3-covector slot in
 alternative~\eqref{eq:T_co_co3} should therefore have a twisted
-orientation. This means that the 3-form $\di xyz$ actually has an inner
-orientation in the positive $t$ direction, the 3-form $\di tzy$ in the
+orientation. This means that the 3-form $\dixyz$ actually has an inner
+orientation in the positive $t$ direction, the 3-form $\ditzy$ in the
 positive $x$ direction, and so on \citep[To visualize this \cf][Fig.~6 and
 table in \sect~II.8 p.~31]{schouten1951_r1989}[and][Fig.~22.10]{burke1985_r1987}.
 % \begin{equation*}
-%   \en\  \di t\otimes\di xyz =
+%   \en\  \di t\otimes\dixyz =
 %   \en'\  \di t\otimes\di x'y'z' \ ,
 % \end{equation*}
 % To further restrict the possibilities let's consider changes of scale and
@@ -2566,10 +2581,10 @@ twisted orientation. This tensor has the dimension of an \emph{action}:
 This result agrees with the stress-energy-momentum tensor that appears for
 example in Einstein's original work \citep[\sect~C.9]{einstein1914b} and
 other early works
-\citep[\eg][\sects~IV.54--55]{pauli1921_t1958}[\sect~13]{cartan1923}[\sect~7]{brillouin1924}[\sects~VII.2,\,8]{fokker1960_t1965};
+\citep[\eg][\sects~IV.54--55]{pauli1921_t1958}[\sect~13]{cartan1923}[\sect~7]{brillouin1924};
 in Truesdell \amp\ Toupin \citep[\sect~F.IV.288]{truesdelletal1960}, who
 try to find an expression universally valid in Newtonian, Lorentzian, and
-general-relativistic mechanics; and in more recent works \citep[\chap~14
+general-relativistic mechanics; and in more recent works \citep[\sects~VII.2,\,8]{fokker1960_t1965}[\chap~14
 Exercise~14.18, \chap~15,
 \sect~21.3]{misneretal1970_r1973}[\sect~3.3]{hawkingetal1973_r1994}{hehletal1986,gotayetal1992,gronwaldetal1997,castrillonlopezetal2008,castrillonlopezetal2009}[see
 also][for similar conclusions in general manifolds and in Newtonian

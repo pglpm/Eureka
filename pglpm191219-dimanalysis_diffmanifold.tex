@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-15T14:54:30+0100
+%% Last-Updated: 2020-11-15T17:18:27+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1193,7 +1193,7 @@ has dimension of temperature, and $y$ of specific entropy:
   \dim(x)=\Te \ ,\quad
   \dim(y)= \Ent \defd \Le^{2}\Ti^{-2}\Te^{-1} \ .
 \end{equation}
-This choice may be possible for several reasons. For example, the region
+This choice could be possible for several reasons. For example, the region
 could be occupied by a heat-conducting material; in a specific spacetime
 foliation, its temperature increases along each 1-dimensional spacelike
 slice, and its entropy density is uniform on each slice but increases from
@@ -1203,7 +1203,7 @@ Owing to this kind of monotonic behaviour for these quantities, if we are
 given a pair of temperature \amp\ specific-entropy values we can identify a
 unique event associated to them in this spacetime region. They can thus be
 used as a coordinate system. The point here is that coordinates can have
-any dimensions owing to physical reasons. In atmospheric and ocean
+any dimensions, because of physical reasons. In atmospheric and ocean
 dynamics, for example, pressure or mass density are sometimes used as
 coordinates for depth
 \citep[\chap~6]{griffies2004}[\sect~2.6.2]{vallis2006}.
@@ -1236,18 +1236,17 @@ where $A\i{^{x}_{x}} \defd \yA\bigl(\di x, \frac{\de}{\de x}\bigr)$,
 $A\i{^{x}_{y}} \defd \yA\bigl(\di x, \frac{\de}{\de y}\bigr)$, and so on,
 are the components of the tensor in the coordinate system $(x, y)$.
 
-By the rules of dimensional analysis, the two sides of the expansion above
-must have the same dimension. The same holds for the four summands on the
-right side. Denoting $\Aa \defd \dim(\yA)$, we thus find the four equations
+By the rules of dimensional analysis, the two sides of the expansion above,
+and in fact each summand on the right side, must have the same dimension.
+Denoting $\Aa \defd \dim(\yA)$, we thus find the four equations
 \begin{equation*}
   \label{eq:four_dims_2d_pre}
-  \begin{aligned}
-    \Aa &= \dim(A\i{^{x}_{x}}) &\qquad \Aa &=
+    \Aa = \dim(A\i{^{x}_{x}}) =
  \dim(A\i{^{x}_{y}})\,\Te^{-1}\,\Ent 
- \\
-    \Aa &= \dim(A\i{^{y}_{x}})\,\Te\,\Ent^{-1} &\qquad \Aa &=
+ =
+ \dim(A\i{^{y}_{x}})\,\Te\,\Ent^{-1}
+ =
  \dim(A\i{^{y}_{y}}) \ ,
-  \end{aligned}
 \end{equation*}
 or
 \begin{equation}
@@ -1268,7 +1267,7 @@ independent of the coordinate system, by construction -- such expansion
 could be done in any other coordinate system, and the left side would be
 the same. The effect of coordinate transformations is examined more in
 detail in \sect~\ref{sec:tensors}. The intrinsic dimension $\Aa$ is
-determined by the physical and operational meaning of the tensor; see
+determined by the physical and operational meaning of the tensor $\yA$; see
 \sects~\ref{sec:metric}, \ref{sec:stressenergy} for concrete examples.
 Together with the dimensions of the coordinates it determines the
 dimensions of the components, \eqns~\eqref{eq:four_dims_2d}, which need not
@@ -1308,7 +1307,7 @@ $\dim(b) = \Fl\Le^{-1}$.
 \label{sec:tensors}
 
 Consider a system of coordinates $(x^i)$ with dimensions $(\Xx_i)$, and the
-ensuing sets of covector fields (1-forms) $\dix$ and of vector fields
+ensuing sets of covector fields $(\dix)$ and of vector fields
 $\bigl(\dex\bigr)$, bases for the cotangent and tangent spaces. Their
 tensor products are bases for the tangent spaces of higher tensor types.
 
@@ -1333,6 +1332,9 @@ covectors, as in \sect~\ref{sec:remined} and in the example of
 Each function
 \begin{equation}
   A\i{^{i}_{j}} \defd  \yA\Bigl(\dix, \dex[j]\Bigr)
+  \equiv \tr_{12}\tr_{34}\Bigl(\yA\i{^{\q}_{\q}} \otimes \dix \otimes
+  \dex[j]\Bigr)
+  \equiv \dix\,\yA\,\dex[j]
   \label{eq:components_def}
 \end{equation}
 is a component of the tensor in this coordinate system.
@@ -1355,12 +1357,10 @@ $\Aa$.
 The generalization of the formula above to tensors of other types is obvious:
 \begin{equation}
   \label{eq:dim_component_generic}
-  \begin{aligned}
-&\dim\bigl(A\i{^{ij\dotso}_{kl\dotso}}\bigr) = \Aa\ {\Xx_{i}}\,{\Xx_{j}}\dotsm\,
-  {\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\dotsm \\
-  &\text{\small where the ordering of the indices doesn't matter.}
-  \end{aligned}
+\dim\bigl(A\i{^{ij\dotso}_{kl\dotso}}\bigr) = \Aa\ {\Xx_{i}}\,{\Xx_{j}}\dotsm\,
+  {\Xx_{k}}^{-1}\,{\Xx_{l}}^{-1}\dotsm \ ,
 \end{equation}
+where the ordering of the indices doesn't matter.
 % For example, if  we're using coordinates with dimensions
 % \begin{equation}
 %   \label{eq:example_coords}
@@ -1383,10 +1383,9 @@ The generalization of the formula above to tensors of other types is obvious:
 %    \Ma\Le^{-1}\Ti^{-2}\Te^{-1} & \Ma\Le^{-2}\Ti^{-2} & \Ma\Le^{-2}\Ti^{-2} & \Un
 %   \end{pmatrix}\ .
 % \end{equation}
-Clearly the components can have different dimensions
-\citep[\cf\ the discussion in][\sect~IV.5 p.~179]{synge1960b}. But this isn't
-an issue. What matters is that the sum~\eqref{eq:expansion_tensor} be
-dimensionally consistent.
+Clearly the components can have different dimensions \citep[\cf\ the
+discussion in][\sect~IV.5 p.~179]{synge1960b}. What matters is that the
+sum~\eqref{eq:expansion_tensor} be dimensionally consistent.
 
 
 \medskip
@@ -1410,7 +1409,6 @@ Schouten~\citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} under the
 name \defquote{absolute dimension}. I find the adjective
 \defquote{intrinsic} more congruous to modern terminology and less prone to
 suggest spurious connections with absolute values.
-
 In the following I'll drop the adjective \defquote{intrinsic} when it is
 clear from the context.
 
@@ -1441,10 +1439,11 @@ with the general formula~\eqref{eq:dim_component_generic}. % (You may have notic
 \medskip
 
 If in \eqn~\eqref{eq:coords_change}, relating intrinsic and component
-dimensions, we have $\Xx_{1}=\Xx_{2}= \dotso =\Xx$, then all components
-also have equal dimensions. So \emph{if we use a system of coordinates
-  having equal dimensions, the components of any tensor must also have
-  equal dimensions}. This justifies common practice in the literature.
+dimensions, all coordinates have equal dimensions, $\Xx_{i} =\Xx$ for all
+$i$, then all components also have equal dimensions. So \emph{if we use a
+  system of coordinates having equal dimensions, the components of any
+  tensor must also have equal dimensions}. This justifies common practice
+in the literature.
 
 Choosing coordinates of different dimensions, however, has several
 advantages. First, it allows us to use dimensional analysis as a heuristic
@@ -1687,7 +1686,7 @@ quantities, then the dimension of the tangent or velocity vector $\yC$
 to the curve is
 \begin{equation}
   \label{eq:dim_velocity}
-  \dim(\yC) = \Ss^{-1} \ ,
+  \dim(\yC) = \Ss^{-1} 
 \end{equation}
 owing to the definition
 \citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}[\sect~IV.(1.9)]{boothby1975_r2003}
@@ -1704,15 +1703,15 @@ say that $C$ is an integral curve for it if
   \yv = \yC
   \label{eq:integral_curve}
 \end{equation}
-at all events $C(s)$ in the image of the curve (or more precisely
+at all events $C(s)$ in the image of the curve (or
 $\yv_{C(s)} = \yC_{C(s)}$ in standard differential-geometric notation
 \citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}). From the point of view
 of dimensional analysis this definition is only valid if $\yv$ has
 dimension $\Ss^{-1}$. If $\yv$ and $s^{-1}$ have different dimensions -- a
 case which could happen for physical reasons -- the
-condition~\eqref{eq:integral_curve} must be modified into
-$\yv = k\yC$, where $k$ is a dimensionful constant. This is equivalent
-to considering an affine and dimensional reparameterization of $C$.
+condition~\eqref{eq:integral_curve} must be modified into $\yv = k\yC$,
+where $k$ is a dimensionful constant. This is equivalent to considering an
+affine and dimensional reparameterization of $C$.
 
 Worldlines and their 4-velocities are discussed in \sect~\ref{sec:g_4velocity}.
 
@@ -1816,7 +1815,7 @@ these tensors express, doesn't involve any notion of distance or angle
 primitive type of these tensors is very important in the equations above.
 If a metric tensor is also introduced and used to raise or lower any
 indices of these tensors, the resulting tensors will have different
-dimensions; see next section, especially \eqn~\eqref{eq:raising_lowering}.
+dimensions; see \sect~\ref{sec:g_inv_vol}.
 
 Misner \etal\ \citep[p.~35%, 407
 ]{misneretal1970_r1973} say that \enquote{curvature}, by which they seem to
@@ -1824,18 +1823,16 @@ mean the Riemann tensor, has dimension $\Le^{-2}$. This statement is
 seemingly at variance with the dimensionless
 results~\eqref{eq:dim_torsion_riemann_ricci}. But I believe that Misner
 \etal\ refer to the \emph{components} of the Riemann tensor in
-\emph{specific coordinates} of dimension $\Le$ and using geometrized units.
-In such specific coordinates every \emph{component}
-$\mathit{Rie}\i{^{i}_{jkl}}$ has dimension $\Le^{-2}$, according to the
-general formula~\eqref{eq:dim_component_generic}, if and only if the
-intrinsic dimension of $\yR$ is unity, $\dim(\yR)=\Un$. So I believe that
-Misner \etal's statement actually agrees with the
+\emph{specific coordinates} of dimension $\Le$. In such specific
+coordinates every \emph{component} $\mathit{Rie}\i{^{i}_{jkl}}$ has
+dimension $\Le^{-2}$, according to the general
+formula~\eqref{eq:dim_component_generic}, if and only if the intrinsic
+dimension of $\yR$ is unity, $\dim(\yR)=\Un$. So I believe that Misner
+\etal's statement actually agrees with the
 results~\eqref{eq:dim_torsion_riemann_ricci}. This possible
 misunderstanding shows the importance of distinguishing between the
 intrinsic dimension, which doesn't depend on any specific coordinate
 choice, and component dimensions, which do.
-
-\medskip
 
 The formulae above are also valid if a metric is defined and the connection
 is compatible with it, see \sect~\ref{sec:g_einst} below.
@@ -1848,8 +1845,8 @@ is compatible with it, see \sect~\ref{sec:g_einst} below.
 \label{sec:g_intr_dim}
 
 Let us now consider a metric tensor $\yg \equiv \yg\i{_{\q\q}}$. What is
-its intrinsic dimension $\dim(\yg)$? There seem to be two choices in the
-literature; both can be derived from the operational meaning of the metric.
+its intrinsic dimension $\dim(\yg)$? The literature offers two choices;
+both can be motivated by the operational meaning of the metric.
 
 
 Consider a (timelike) worldline $s \mapsto C(s)$, $s\in \clcl{a,b}$,
@@ -1901,12 +1898,12 @@ works:
 \end{equation}
 sometimes with opposite sign. If the coordinates $(t,x,y,z)$ have the
 dimensions suggested by their symbols, this formula has dimension
-$\Le^{2}$, so that if we interpret \enquote{$\ds^{2}$} as $\ygc$ we find
-$\dim(\ygc) = \Le^{2}$. The line-element expression above often has an
-ambiguous differential-geometric meaning, however, because it may also
-represent the metric applied to some \emph{unspecified} vector, that is,
-$\ds^{2} = \yg(\yv,\yv)$ with $\yv$ left unspecified \citep[\cf][Box~3.2~D
-p.~77]{misneretal1970_r1973}. In this case we have
+$\Le^{2}$, so that if we interpret \enquote{$\ds^{2}$} as $\ygc\i{_{\q\q}}$
+we find $\dim(\ygc\i{_{\q\q}}) = \Le^{2}$. The line-element expression
+above often has an ambiguous differential-geometric meaning, however,
+because it may also represent the metric applied to some \emph{unspecified}
+vector, that is, $\ds^{2} = \yg(\yv,\yv)$ with $\yv$ left unspecified
+\citep[\cf][Box~3.2~D p.~77]{misneretal1970_r1973}. In this case we have
 \begin{equation*}
   \label{eq:line_elem_dim_ambiguous}
   \Le^{2} = \dim(\yg)\,\dim(\yv)^{2}
@@ -1943,9 +1940,9 @@ between the clock's final and initial times. %  On the other hand, consider
 % the case when the curve $C$ is \emph{spacelike}. Its proper length is
 % still defined by the integral~\eqref{eq:proper_time} apart from a
 % dimensional constant.
-The measurement of the proper \emph{length} of a spacelike curve, still
-defined by the integral~\eqref{eq:proper_time} apart from a dimensional
-constant, is more involved instead. It requires dividing the curve into
+If $C$ is spacelike instead, the measurement of its proper \emph{length},
+still defined by the integral~\eqref{eq:proper_time} apart from a
+dimensional constant, is more involved. It requires dividing the curve into
 very short pieces, and having specially-chosen observers (with 4-velocities
 orthogonal to the pieces) measure each piece. To measure each short piece,
 each observer uses radar distance, sending a light signal which bounces
@@ -1960,12 +1957,13 @@ which connects the Faraday and Maxwell tensors
 \citep[\chap~F.III]{truesdelletal1960}[\chap~II.4]{misneretal1970_r1973}{puntigametal1997,hehletal2001,hehletal2004},
 so this reasoning could be circular.
 
+\medskip
 
-The choice $\dim(\yg) \defd \Le^{2}$ is by far the most common. It has the
-merit that the projection of the metric onto a spacelike hypersurface also
-has dimension $\Le^{2}$, which is sensible from a Newtonian point of view.
-Such projections are at the heart of $3+1$ formulations of general
-relativity \citep(I thank I.~Bengtsson for this
+The other choice, $\dim(\yg) \defd \Le^{2}$, is by far the most common. It
+has the merit that the projection of the metric onto a spacelike
+hypersurface also has dimension $\Le^{2}$, which is sensible from a
+Newtonian point of view. Such projections are at the heart of $3+1$
+formulations of general relativity \citep(I thank I.~Bengtsson for this
 remark){gourgoulhon2007_r2012,alcubierre2008}[\chap~21]{misneretal1970_r1973}{wilsonetal2003_r2007,smarretal1978,york1979,smarretal1980}
 and also of covariant formulations of Newtonian mechanics
 \citep[\sects~B.II.152--154, D.II.203--205, D.V.238,
@@ -1982,15 +1980,18 @@ results. % Another merit is that the norm of a 4-velocity -- and therefore
 The metric $\yg$ can be considered as an operator mapping vectors $\yv$ to
 covectors $\yom$, which we can compactly write as $\yom=\yg\yv$ as
 discussed in \sect~\ref{sec:remined}. The \emph{inverse metric tensor}
-$\yg^{-1} \equiv \yg\i{^{-1}^{\q\q}}$ is then defined by the formula
+$\yg^{-1} \equiv \yg\i{^{-1}^{\q\q}}$ is then defined by
 \begin{equation}
   \label{eq:inverse_g}
   \yg\,\yg^{-1} = \id\i{_{\q}^{\q}} \ ,
+  \qquad
+  \yg^{-1}\,\yg = \id\i{^{\q}_{\q}} \ ,
   % \qquad
   % \yg\yg^{-1} = \id\i{_{\q}^{\q}} = (\id\i{^{\q}_{\q}})^{\intercal}\ ,
 \end{equation}
 where $\id\i{_{\q}^{\q}}\colon \yom \mapsto \yom$ is the dimensionless
-identity operator (also a tensor) on the cotangent space. Hence
+identity operator (also a tensor) on the cotangent space, and
+$\id\i{^{\q}_{\q}}$ on the tangent space. Hence
 \begin{equation}
   \label{eq:dim_ig}
   \dim(\yg^{-1}) = \dim(\yg)^{-1} \ .
@@ -2013,10 +2014,10 @@ The operation of \emph{raising or lowering an index} of a tensor represents
 a contraction of the tensor product of that tensor with the metric or the
 metric inverse, for example
 $\yAg\i{_{\q\q}} \defd \yg\yA \equiv \tr_{23}(\yg\i{_{\q\q}} \otimes
-\yA\i{^{\q}_{\q}})$ from the mixed tensor $\yA\i{^{\q}_{\q}}$, and
-similarly for tensors of other types. Therefore every lowering of a
-tensor's index multiplies its dimension by $\dim(\yg)$, and every rising
-divides it by $\dim(\yg)$:
+\yA\i{^{\q}_{\q}})$ from the tensor $\yA\i{^{\q}_{\q}}$, and similarly for
+tensors of other types. Therefore every lowering of a tensor's index
+multiplies its dimension by $\dim(\yg)$, and every rising divides it by
+$\dim(\yg)$:
 \begin{equation}
   \label{eq:raising_lowering}
   \begin{split}
@@ -2069,14 +2070,9 @@ $\ygv \equiv \ygv\i{_{\mul{\q\q\q\q}}}$ as follows:
   \ygv \defd
       \begin{cases}
         \frac{1}{c}\
-        \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\ \dix[0]\land\dix[1]\land\dix[2]\land\dix[3] 
-     \\[\jot]
+        \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\ \dix[0]\land\dix[1]\land\dix[2]\land\dix[3] &\quad  \text{if }\dim(\yg)\defd    \Le^2 \\[\jot]
         c^{3}\
-        \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\ \dix[0]\land\dix[1]\land\dix[2]\land\dix[3] 
-  \end{cases}
-  \text{if }\dim(\yg)\defd
-  \begin{cases}
-    \Le^2 \\[\jot]
+        \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\ \dix[0]\land\dix[1]\land\dix[2]\land\dix[3] &\quad  \text{if }\dim(\yg)\defd
      \Ti^2
   \end{cases}.
 \end{equation}
@@ -2111,11 +2107,11 @@ for a 2-covector $\omega \equiv \omega\i{_{\mul{\q\q}}}$
   \label{eq:star_op}
   *\omega \defd (\yg^{-1}\omega\yg^{-1})\ii\ygv \ ,
 \end{equation}
-with $\yg^{-1}$ appearing twice in this specific case. From this definition
-it's clear that the star operator's effect on the dimension depends on the
-degree of the form it operates on \citep[I personally prefer to avoid the
-star operator and explicitly use the inner product with the proper volume
-element; \cf][\sects~4.1--2]{bossavit1991}.
+with $\yg^{-1}$ appearing twice in this specific case. From the general
+definition it's clear that the star operator's effect on the dimension
+depends on the degree of the form it operates on \citep[I personally prefer
+to avoid the star operator and to explicitly use the inner product with the
+proper volume element; \cf][\sects~4.1--2]{bossavit1991}.
 
 The \emph{inverse proper volume element} is the 4-vector field $\ygv^{-1}$,
 with twisted orientation, having unit generalized inner product with the

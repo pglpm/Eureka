@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-11-17T14:01:06+0100
+%% Last-Updated: 2020-11-16T21:30:22+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -16,16 +16,16 @@
 onecolumn,oneside,article,%french,italian,german,swedish,latin,
 british%
 ]{memoir}
-\newcommand*{\firstdraft}{28 October 2020}
+\newcommand*{\firstdraft}{20 November 2020}
 \newcommand*{\firstpublished}{\firstdraft}
-\newcommand*{\updated}{\ifarxiv***\else\today\fi}
-\newcommand*{\propertitle}{Notes on multivector algebra on differential manifolds%\\{\large ***}%
+\newcommand*{\updated}{\ifarxiv 20 November 2020\else\today\fi}
+\newcommand*{\propertitle}{Tensor calculus on multivector spaces%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{\propertitle}
-\newcommand*{\headtitle}{multivector algebra}
+\newcommand*{\headtitle}{Tensor calculus for multivectors}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
-\newcommand*{\reporthead}{\iftrue\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
+\newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Calls to packages (uncomment as needed)
@@ -506,9 +506,9 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 % {\protect\centering ***\\%
 % \footnotesize\epost{\email{***}{***}}}%
 % \hspace*{\stretch{1}}%
-\parbox{0.75\linewidth}%\makebox[0pt][c]%
+\parbox{1\linewidth}%\makebox[0pt][c]%
 {\protect\centering P.G.L.  Porta Mana  \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}\\%
-\footnotesize\epost{\email{pgl}{portamana.org}}}%
+\footnotesize Western Norway University of Applied Sciences, Bergen\quad\epost{\email{pgl}{portamana.org}}}%
 %% uncomment if additional authors present
 % \hspace*{\stretch{1}}%
 % \parbox{0.5\linewidth}%\makebox[0pt][c]%
@@ -550,7 +550,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
 %\newcommand*{\nabl}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
-\DeclareMathOperator{\tr}{tr}%trace
+%\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
 %\DeclareMathOperator{\im}{Im}%im part
 %\DeclareMathOperator{\re}{Re}%re part
@@ -645,7 +645,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %\newcommand*{\sint}{\begingroup\textstyle\int\endgroup}
 %\newcommand*{\sland}{\mathop{\textstyle\bigwedge}}
 %\newcommand*{\slor}{\mathop{\textstyle\bigvee}}
-\newcommand*{\T}{^\transp}%transpose
+%\newcommand*{\T}{^\transp}%transpose
 %%\newcommand*{\QEM}%{\textnormal{$\Box$}}%{\ding{167}}
 %\newcommand*{\qem}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
 %\quad\hbox{\QEM}}
@@ -664,11 +664,6 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 % \begin{tabular}[#1]{c}#2\\[0.5\jot]\rule{1pt}{#3}\\#4\end{tabular}}%}
 % \newcommand*{\ptext}[1]{\text{\small #1}}
 %\DeclareMathOperator*{\argsup}{arg\,sup}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\sgn}{sgn}
-\newcommand*{\ii}{\mathbin{\rfloor}}
-\newcommand*{\rii}{\mathbin{\lfloor}}
-\newcommand*{\ts}[1][txyz]{\underset{#1}{1}}
 \newcommand*{\dob}{degree of belief}
 \newcommand*{\dobs}{degrees of belief}
 %%% Custom macros end @@@
@@ -691,16 +686,16 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \setlength{\absleftindent}{0pt}
 \setlength{\absrightindent}{0pt}
 \setlength{\abstitleskip}{-\absparindent}
-% \begin{abstract}\labelsep 0pt%
-%   \noindent ***
-% % \\\noindent\emph{\footnotesize Note: Dear Reader
-% %     \amp\ Peer, this manuscript is being peer-reviewed by you. Thank you.}
-% % \par%\\[\jot]
-% % \noindent
-% % {\footnotesize PACS: ***}\qquad%
-% % {\footnotesize MSC: ***}%
-% %\qquad{\footnotesize Keywords: ***}
-% \end{abstract}
+\begin{abstract}\labelsep 0pt%
+  \noindent ***
+% \\\noindent\emph{\footnotesize Note: Dear Reader
+%     \amp\ Peer, this manuscript is being peer-reviewed by you. Thank you.}
+% \par%\\[\jot]
+% \noindent
+% {\footnotesize PACS: ***}\qquad%
+% {\footnotesize MSC: ***}%
+%\qquad{\footnotesize Keywords: ***}
+\end{abstract}
 \selectlanguage{british}\frenchspacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -724,487 +719,11 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %%% BEGINNING OF MAIN TEXT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Multivector tensor algebra}
-\label{sec:multivector_tensor}
-
-The idea is to build tensors not from the two spaces of vectors and
-covectors, but from the $2N^{2}$ spaces of multivectors and multicovectors
-with their possible straight and twisted orientations.
-
-
-The exterior algebra is an algebra independent of the tensor one, and it
-expresses very intuitive geometric relations
-\citep[\cf][]{deschamps1970,deschamps1981}.
-
-The fact that it is independent of the tensor algebra is clear from the
-fact that we can establish several inequivalent relations between the tensor and
-exterior products, none of them being canonical.
-
-
-Antisymmetrizer $A$ (a projection):
-\begin{equation}
-  \label{eq:antisymmetrizer}
-  AT \defd \frac{1}{(\deg T)!} \sum_{\pi}\sgn(\pi)\ T\circ\pi
-\end{equation}
-\textcite{abrahametal1983_r1988}, \textcite{choquetbruhatetal1977_r1996},
-\textcite{bossavit1991} use this relation:
-\begin{equation}
-  \label{eq:wedge_marsden}
-  \begin{split}
-    \alpha \land \beta &\equiv
-    \frac{(\deg \alpha+\deg \beta)!}{(\deg \alpha)!\ (\deg \beta)!}\ 
-    A(\alpha \otimes \beta)
-  \\
-  &\equiv \frac{1}{(\deg \alpha)!\ (\deg \beta)!}
-  \sum_{\pi}\sgn(\pi)\ (\alpha \otimes \beta)\circ\pi \ ,
-\end{split}
-\end{equation}
-but relations with different multiplicative factors are also possible.
-
-It's best to define the exterior product intrinsically, with its
-multilinear, associative, and graded-commutative properties.
-
-\section{Inner or dual or dot product}
-\label{sec:inner_product}
-
-For a vector $u$ and covector $\omega$ with $\deg u \le \deg\omega$ it's
-defined as
-\begin{equation}
-  \label{eq:inner_prod}
-  \begin{gathered}
-    u \ii \omega \defd \omega(u) \quad\text{if } \deg u=\deg\omega
-\\
-(u \ii \omega)(v) \defd (u\land v)\ii \omega \equiv \omega(u \land v)
- \quad\text{if } \deg u < \deg\omega
-  \end{gathered}
-\end{equation}
-It's possible to define an inner product from the right side, but it gives
-the same result as above except for a sign:
-\begin{equation}
-  \label{eq:right_inner_prod}
-\begin{gathered}
-  \begin{aligned}
-  (\omega \rii u)(v) \defd (v\land u)\ii \omega
-  &\equiv (-1)^{\deg u\ \deg v}\ (u\land v)\ii \omega
-  \\&\equiv (-1)^{\deg u\ \deg v}\ (u \ii \omega)(v)
-  \end{aligned}
-  \\[\jot]
-  {}\implies
-\omega \rii u \equiv (-1)^{\deg u\ (\deg\omega-\deg u)}\ 
-u \ii \omega \equiv (-1)^{\deg u\ (\deg\omega-1)}\ 
-u \ii \omega
-\end{gathered}
-\end{equation}
-For 1-vectors in particular:
-\begin{equation}
-  \label{eq:right_inner_equiv_1vector}
-  \omega \rii u \equiv (-1)^{\deg\omega-1}\ 
-  u \ii \omega
-  \qquad\text{if }\deg u = 1
-\end{equation}
-
-Also
-\begin{equation}
-  \label{eq:ext_inner_prod}
-  \begin{gathered}
-    u \rii \omega \defd \omega(u) \equiv u \ii \omega \quad\text{if } \deg u=\deg\omega
-\\
-(u \rii \omega)(\xi) \defd u\rii(\xi\land \omega) \equiv (\xi\land\omega)(u)
-\quad\text{if } \deg u > \deg\omega
-\end{gathered}
-\end{equation}
-and
-\begin{equation}
-  \label{eq:ext_right_inner_prod}
-\begin{gathered}
-  \begin{aligned}
-    (\omega\ii u)(\xi) \defd
-    u\ii (\omega \land \xi)
-  &\equiv (-1)^{\deg \omega\ \deg \xi}\ u\ii (\xi \land \omega)
-  \\&\equiv (-1)^{\deg \omega\ \deg \xi}\ (u \rii \omega)(\xi)
-  \end{aligned}
-  \\[\jot]
-  {}\implies
-  \omega\ii u \equiv (-1)^{\deg \omega\ (\deg v-1)}\ 
-u \rii \omega
-\end{gathered}
-\end{equation}
-
-The lower hook in \enquote{$\ii$} and \enquote{$\rii$} is useful to denote
-the object with lower degree, to know how to apply the sign in the
-graded-commutativity property and to know what kind of object --
-multivector or multicovector -- one obtains.
-
-If we define the degree of vectors to be negative, we can say that
-$\alpha \ii \beta$ yields an object of degree
-$\deg(\alpha\ii\beta)=\deg\alpha+\deg\beta$, no matter whether $\alpha$ is
-a vector and $\beta$ a covector or vice versa. With this convention we
-could use the more compact dot-notation
-\citep[\cf][\sect~F.I.267]{truesdelletal1960}
-\begin{equation}
-  \label{eq:inner_dot}
-  \begin{gathered}
-    \alpha \cdot \beta
-    \\
-    \text{with}\qquad
-    \deg(\alpha \cdot \beta) = \deg\alpha+\deg\beta
-    \\
-    \beta \cdot \alpha =
-    (-1)^{\min\set{\abs{\deg \alpha},\abs{\deg\beta}}\ (\deg\alpha+\deg\beta)}\
-    \alpha \cdot \beta \ .
-\end{gathered}
-\end{equation}
-
-But it doesn't make much sense to use a unique symbol, because it would not
-represent an associative operation (unlike the wedge).
-
-The inner product with a 1-vector or a 1-covector is a graded derivation.
-
-\section{Tensor products and equivalent objects}
-\label{sec:tensor_equivalent}
-
-When we take tensor products of exterior objects, some special objects and
-some canonical correspondences between different classes of objects appear.
-
-Take for example a non-zero $N$-covector $\gamma$. The tensor product
-$\gamma \otimes \gamma^{-1}$ is an $N$-vector-valued $N$-covector. This
-object is independent of the specific $\gamma$ we chose. It has only one
-non-zero component, of value 1, which is invariant under basis or
-coordinate changes \citep[\sect~II.8 p.~29 bottom]{schouten1951_r1989}. It
-has properties similar to those of a scalar, and the tensor space of
-$N$-vector-valued $N$-covectors is similar to those of scalars
-(\textcite{schouten1951_r1989} \sect~II.8 p.~29: \enquote{This is not a new
-  geometric conception, only a new notation enabling us to get rid of a lot
-  of indices}).
-
-The inner product of a $p$-vector $u$ with the object above is an
-$N$-vector-valued $(N-p)$-covector:
-\begin{equation}
-  \label{eq:hypervolume-valued-covector}
-  u \cdot \gamma \otimes \gamma^{-1} = \omega \otimes \gamma^{-1}
-  \qquad \text{with } \omega = u \cdot \gamma \ .
-\end{equation}
-The space of $p$-vectors is therefore equivalent, in a canonical way, to
-the space of $N$-vector-valued $(N-p)$-covectors. The independent
-components transform in the same way under a change of basis/coordinates;
-see the example in \textcite{schouten1951_r1989} \sect~II.8 p.~30 bottom.
-
-As Schouten \citey[\sect~II.8 p.~30]{schouten1951_r1989} says,
-\enquote{Hence the geometrical meanings of corresponding quantities do not
-  differ. There is only a difference in notation. \textelp{} The use of
-  $\Delta$-densities is sometimes convenient; \textelp{} the formulae
-  contain less indices}.
-
-With the coordinate-free (and index-free) approach the use of such
-quantities offers no advantages.
-
-
-\section{Inner product with $N$-covector}
-\label{sec:inner_volume}
-
-We can use several possible conventions in defining an inner product of
-multivectors and multicovectors. One basic requirement is that the usual
-inner product, which has the recursive property
-\begin{equation}
-  \label{eq:basic_inner_prod}
-  u \cdot (\omega\land \xi) = (u \cdot \omega)\land \xi 
-\end{equation}
-for every 1-vector $u$, be respected. This property says that the first
-slots of the covector on the right are combined first. Another basic
-requirement is that
-\begin{equation}
-  \label{eq:basic_inner_prod_volumes}
-  (u \land v \land \dotsb) \cdot (\omega\land \xi \land \dots) = (u \cdot
-  \omega)\ (v \cdot \xi) \dotsm
-\end{equation}
-for the same number of 1-vectors and 1-covectors.
-
-
-There are two main decisions in the extension: what to do if the vector and
-covector are swapped, and what to do if the vector has higher order than
-the covector. Reasonable alternatives for the first are
-\begin{subequations}
-    \label{eq:inner_swap_alternative}
-  \begin{gather}
-    \label{eq:inner_swap_alternative_right}
-    (\omega \land \xi) \cdot u \defd \omega\land (\xi \cdot u)
-    \quad\text{recursively}
-    \\\shortintertext{or}
-    \label{eq:inner_swap_alternative_left}
-    (\omega \land \xi) \cdot u \defd
-   u \cdot (\omega \land \xi) = (u \cdot \omega)\land \xi \ ,
-  \end{gather}
-\end{subequations}
-for every 1-vector $u$. Reasonable alternatives for the second are
-\begin{subequations}
-    \label{eq:inner_multiv_alternative}
-  \begin{gather}
-    \label{eq:inner_multiv_alternative_right}
-   (u \land v) \cdot \omega = u \land (v \cdot \omega)
-    \quad\text{recursively}
-    \\\shortintertext{or}
-    \label{eq:inner_multiv_alternative_left}
-   (u \land v) \cdot \omega \defd (u \cdot \omega) \land v
-  \end{gather}
-\end{subequations}
-for every 1-covector $\omega$.
-
-In other words, we must choose among
-\begin{enumerate}[label=(I\arabic*)]
-\item \emph{the adjacent maximal sets of slots of the two terms of the
-    inner product should always be combined} and \emph{the two terms of the
-    inner product should be left in the order they are};
-\item \emph{the adjacent maximal sets of slots of the two terms of the
-    inner product should always be combined} and \emph{the multivector
-    should always be put on the left of the multicovector as a first
-    thing};
-\item \emph{the first maximal sets of slots of the two terms of the inner
-    product should always be combined}.
-\end{enumerate}
-
-Let's examine the consequences of such choices in particular cases:
-\begin{align}
-  \label{eq:examples_choices_inner_two_x1}
- \de_{x} \cdot (\di x \land \di y)  &=
-  \begin{cases}
-    \di y &\text{I1}\\
-    \di y &\text{I2}\\
-    \di y &\text{I3}\\
-  \end{cases}
-  \\
-  \label{eq:examples_choices_inner_two_x2}
-  (\di x \land \di y) \cdot \de_{x} &=
-  \begin{cases}
-    -\di y &\text{I1}\\
-    \di y &\text{I2}\\
-    \di y &\text{I3}\\
-  \end{cases}
-  \\
-%   \label{eq:examples_choices_inner_two_x3}
-%   (\de_{x} \land \de_{y}) \cdot \di x &=
-%   \begin{cases}
-%     -\de_{y} &\text{I1}\\
-%     \de_{y} &\text{I2}\\
-%     \de_{y} &\text{I3}\\
-%   \end{cases}
-% \\
-%   \label{eq:examples_choices_inner_two_x4}
-%  \di x \cdot (\de_{x} \land \de_{y}) &=
-%   \begin{cases}
-%     \de_{y} &\text{I1}\\
-%     -\de_{y} &\text{I2}\\
-%     \de_{y} &\text{I3}\\
-%   \end{cases}
-% \end{align}
-% \begin{align}
-%   \label{eq:examples_choices_inner_two_y1}
-%  \de_{y} \cdot (\di x \land \di y)  &=
-%   \begin{cases}
-%     -\di x &\text{I1}\\
-%     -\di x &\text{I2}\\
-%     -\di x &\text{I3}\\
-%   \end{cases}
-%   \\
-%   \label{eq:examples_choices_inner_two_y2}
-%   (\di x \land \di y) \cdot \de_{y} &=
-%   \begin{cases}
-%     \di x &\text{I1}\\
-%     -\di x &\text{I2}\\
-%     -\di x &\text{I3}\\
-%   \end{cases}
-%   \\
-  \label{eq:examples_choices_inner_two_y3}
-  (\de_{x} \land \de_{y}) \cdot \di y &=
-  \begin{cases}
-    \de_{x} &\text{I1}\\
-    \de_{x} &\text{I2}\\
-    -\de_{x} &\text{I3}\\
-  \end{cases}
-\\
-  \label{eq:examples_choices_inner_two_y4}
- \di y \cdot (\de_{x} \land \de_{y}) &=
-  \begin{cases}
-    -\de_{x} &\text{I1}\\
-   \de_{x} &\text{I2}\\
-    -\de_{x} &\text{I3}\\
-  \end{cases}
-\end{align}
-\begin{align}
-  \label{eq:examples_choices_inner_three}
- \de_{x} \cdot (\di x \land \di y \land \di z) &=
-  \begin{cases}
-    \di y \land \di z &\text{I1}\\
-    \di y \land \di z &\text{I2}\\
-    \di y \land \di z &\text{I3}\\
-  \end{cases}
-  \\
-  (\di x \land \di y \land \di z) \cdot \de_{x} &=
-  \begin{cases}
-    \di y \land \di z &\text{I1}\\
-    \di y \land \di z &\text{I2}\\
-    \di y \land \di z &\text{I3}\\
-  \end{cases}
-  \\
-  (\de_{x} \land \de_{y} \land \de_{z}) \cdot (\di y \land \di z) &=
-  \begin{cases}
-    \de_{x}  &\text{I1}\\
-    \de_{x}  &\text{I2}\\
-    \de_{x}  &\text{I3}\\
-  \end{cases}
-  \\
-  (\di y \land \di z) \cdot (\de_{x} \land \de_{y} \land \de_{z})  &=
-  \begin{cases}
-    \de_{x} &\text{I1}\\
-    \de_{x} &\text{I2}\\
-    \de_{x} &\text{I3}\\
-  \end{cases}
-\end{align}
-
-
-Let's explore some consequences of the three alternatives.
-
-Under the third alternative (I3), in even dimensions the inner products
-with the straight volume element $\gamma$ and then with its inverse
-$\gamma^{-1}$ becomes an anti-involution, see
-\eqns~\eqref{eq:examples_choices_inner_two_x1} and
-\eqref{eq:examples_choices_inner_two_y4}; whereas in odd dimensions it's an
-involution. This may be confusing and cumbersome when one is studying a
-space with an unspecified dimension.
-
-Under the first alternative (I1), in even dimensions the inner product with
-the straight volume element and then its inverse may be an involution,
-provided that the product happens from opposite sides. For a tensor product
-this would lead to the equalities involving transposition, for example
-\begin{gather}
-  \label{eq:example_invol_transp}
-  u \otimes v =
-  \{ \gamma^{-1} \cdot
-  [\gamma \cdot (u \otimes v) \cdot \gamma]\T
-  \cdot \gamma^{-1} \}\T
-  \qquad\text{(I1)}
-  \\\shortintertext{or}
-  u \otimes v =
-  \{ \gamma^{-1} \cdot
-  [(u \otimes v) \cdot \gamma]\T 
-\}\T  \qquad\text{(I1)},
-\end{gather}
-whereas in odd dimensions such transposition wouldn't be necessary. This
-could perhaps be obviated by using two pairs of symbols such as
-\enquote{$\ii$} and \enquote{$\rii$} with $a \rii b \defd b \ii a$. But
-again in odd dimensions such distinction would often be unnecessary.
-
-The second alternative (I2) seems to lead to the least cumbersome
-consequences, valid in even and odd dimensions alike.
-
-So we can define the inner product starting from 1-vectors and 1-covectors as
-\begin{equation}
-  \label{eq:inner_prod_final_def}
-  \begin{gathered}
-    u \cdot \omega \equiv \omega \cdot u \defd \omega(u)
-    \\
-    (u \land v) \cdot (\omega \land \xi \land \zeta) \equiv
-    (\omega \land \xi \land \zeta) \cdot (u \land v)
-    \defd (u \cdot \omega)\ (v \cdot \xi)\ \zeta
-    \\
-    (u \land v \land w) \cdot (\omega \land \xi) \equiv
-    (\omega \land \xi) \cdot (u \land v \land w)
-    \defd u\ (v \cdot \omega)\ (w \cdot \xi)
-\end{gathered}
-\end{equation}
-and generalizing.
-
-
-\bigskip\mynote{Below: old text}
-
-If $\gamma$ is a non-zero $N$-covector (hypervolume covector), so that
-$\gamma^{-1}$ is its dual $N$-vector, we have
-\begin{gather}
-  \label{eq:inner_volume}
-  \gamma^{-1} \cdot (u\cdot \gamma) = (\gamma \cdot u) \cdot \gamma^{-1} = u
-  \qquad
-  \gamma \cdot (\omega \cdot \gamma^{-1}) =
-  (\gamma^{-1} \cdot \omega) \cdot \gamma = \omega
-\end{gather}
-for any multivector $u$ and multicovector $\omega$ \citep[\cf][\sect~II.7
-p.~28]{schouten1951_r1989}. According to~\eqref{eq:right_inner_prod},
-\begin{equation}
-  \label{eq:sign_inner_volume}
-  \gamma\cdot u = (-1)^{\deg(u)\ (N-1)}\ u \cdot \gamma
-\end{equation}
-and analogously for the dual case.
-
-Therefore
-$\gamma^{-1} \cdot(\gamma \cdot u) = (-1)^{\deg(u)\ (N-1)}\ u \ne u =
-(\gamma^{-1} \cdot \gamma) \cdot u$, which shows that the inner product
-is non-associative in general.
-
-\section{Star operator}
-\label{sec:star_operator}
-
-\mynote{This section has mistakes}
-
-Comparison of definitions of star operator:
-
-Denote with $\widebar{\omega}$ the $p$-vector obtained by rising all slots
-of $\omega$ with a metric $g$, and with $\underbar{v}$ the reverse
-operation. Let $\gamma$ be the volume element induced by the metric.
-
- \textcite[\sect~V.A.4]{choquetbruhatetal1977_r1996}:
- \begin{equation}
-   \label{eq:starop_choquet}
-   *\omega \defd \widebar{\omega}\cdot \gamma
- \end{equation}
-Applying twice:
-\begin{multline}
-  \label{eq:double_star}
-  **\omega = \widebar{\widebar{\omega}\cdot \gamma} \cdot \gamma =
-  (\omega \cdot \gamma^{-1}) \cdot \gamma ={}\\
-  (-1)^{\deg(\omega)\ (N-1)} (\gamma^{-1} \cdot \omega) \cdot \gamma =
-  (-1)^{\deg(\omega)\ (N-1)} \omega
-\end{multline}
-So $*^{-1} = (-1)^{\deg(\omega)\ (N-1)}\ *$. Compare with
-\textcite[\sect~4.2 Ex.~71]{bossavit1991}.
-
+\section{***}
+\label{sec:***}
 
 \textcolor{white}{If you find this you can claim a postcard from me.}
 
-
-
-\section{Twisted scalars, vectors, covectors}
-\label{sec:twisted}
-
-A twisted scalar is a positive number with an associated outer orientation.
-We can specify such orientation locally for example by giving an ordered
-list of coordinate functions. Denote such a unit twisted scalar by
-\begin{equation}
-  \label{eq:twisted_scalar}
-  \ts
-\end{equation}
-It satisfies
-\begin{equation}
-  \label{eq:twisted_scalar_properties}
-  \begin{gathered}
-    \ts \cdot \ts = 1
-    \\
-    a \cdot \ts = \underset{txyz}{a} \text{ for any scalar $a$}
-    \\
-    \underset{txyz}{-1} = \ts[xtyz] \text{ or any other odd permutation}
-\end{gathered}
-\end{equation}
-
-
-
-$\ts$
-
-
-
-% \clearpage
-
-% $\p(O \| M \land S)
-% = \tr\bigl(\bm{\varLambda}_{O,M} \bm{\rho}_{S}\bigr)
-%  = \langle \psi_{O} \vert \psi_{S} \rangle$
-
-% \clearpage
 
 %%%% examples use empheq
 %   \begin{empheq}[left={\mathllap{\begin{aligned}    \de\yF_{\yc}/\de\yp&=0\text{:} \\

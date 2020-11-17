@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-11-17T14:01:06+0100
+%% Last-Updated: 2020-11-17T20:28:48+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1113,6 +1113,58 @@ So we can define the inner product starting from 1-vectors and 1-covectors as
 \end{equation}
 and generalizing.
 
+\section{Orientation}
+\label{sec:orientation}
+
+One way to define \emph{inner} orientation is inductively as follows.
+
+The orientation of a point, a 0-flat, is $+$ or $-$.
+
+The orientation of an $r$-flat bounded by pairs of parallel $(r-1)$-flats
+is determined by giving an orientation of the $(r-1)$-flats in such a way
+that parallel pairs have opposite orientations, and the orientations of the
+common $(r-2)$-flats cancel each other.
+
+So the orientation of a line is determined by assigning $+$ and $-$ signs
+to its boundary points. The orientation of a parallelogram is determined by
+assigning opposite orientations to its opposite sides. The orientation of a
+volume is effectively given in terms of that of its boundary. This is
+equivalent to the definition in Tonti \citep[\chap~3]{tonti2013}. The
+orientation in terms of circulation is given by the orientation of the
+boundary at one of its points, followed by that of the inward normal.
+
+Because of the latter correspondence this definition of orientation seems
+to give a more straightforward understanding of the connection between
+inner and outer orientations.
+
+\medskip
+
+To define \emph{outer} orientation we proceed inductively in a similar way
+as follows.
+
+The outer orientation of a point is the \emph{inner} orientation of an
+$N$-flat (volume) containing that point.
+
+The orientation of an $r$-flat bounded by pairs of parallel $(r-1)$-flats
+is determined by giving an orientation of the $(r-1)$-flats in such a way
+that parallel pairs have opposite orientations, and the orientations of the
+common $(r-2)$-flats cancel each other.
+
+According to this definition and graphical conventions, an $N$-flat with an
+outer orientation $+$ is indicated by inward-pointing arrows crossing its
+boundary.
+
+\medskip
+
+It turns out that we can give a new, dual definition for the inner
+orientation of a point: the inner orientation of a point is the
+\emph{outer} orientation of an $N$-flat (volume) containing that point. The
+two definitions consistently lead to each other.
+
+
+
+
+\clearpage
 
 \bigskip\mynote{Below: old text}
 

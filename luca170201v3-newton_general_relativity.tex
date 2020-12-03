@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-12-03T09:22:48+0100
+%% Last-Updated: 2020-12-03T10:42:40+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1075,8 +1075,10 @@ of Newtonian continuum thermomechanics
 In Newtonian relativity a frame of reference is determined by the
 specification of four non-coplanar points having mutual distances constant
 in time. The notion of frame here rests on a special slicing of spacetime
--- the universal time -- and on a Euclidean metric on each slice. A frame
-is thus equivalent to the specification of a vector field transversal to
+-- the universal time -- and on a Euclidean metric on each slice. The
+slicing and 3-metric belong to the kinematics.
+
+A frame is equivalent to the specification of a vector field transversal to
 the slices. This vector field associates points between different slices;
 it expresses our choice that \enquote{this place today is the same as that
   place yesterday}. In choosing such a vector field we require that its Lie
@@ -1087,7 +1089,21 @@ statements \enquote{these two bodies are mutually at rest} and \enquote{the
 Observers using different, arbitrary frames always agrees on the 3-forces
 and on any objective scalars, such as energy density, defined on a slice.
 
-\medskip
+Dynamics (putting aside thermodynamics for the moment) is given by the law
+that the total 3-force on any matter element is zero. The total force comes
+from the sum of several kinds of forces, and these are frame-independent.
+
+Gravitation and inertia appear as forces like any other kind of force. The
+inertial force has an interesting expression, because it depends on the
+worldlines of all matter in the universe (via their axes of inertia, which
+can be calculated in a frame-independent way) as well as the worldline of
+the matter element it acts upon.
+
+The constitutive equations for most forces and stresses depend on the
+3-metric of the slices; and since the 3-metric is a kinematic object, these
+constitutive equations depend only on kinematic objects.
+
+\bigskip
 
 In general relativity the situation becomes more complex in several
 respects.
@@ -1105,6 +1121,9 @@ becomes completely arbitrary. We can say \enquote{these two bodies are
   changing} without contradiction, because rest is decided by decree, and
 the second statement simply means that the 3-metric field is changing from
 slice to slice.
+
+So the slicing belongs to the kinematic, having a sort of scaffolding role.
+But the 4-metric or 3-metric belongs to the dynamics.
 
 Third, observers with different motions don't agree on 3-forces and several
 other quantities such as energy density.

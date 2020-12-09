@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-12-03T14:40:50+0100
+%% Last-Updated: 2020-12-06T21:50:54+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -761,7 +761,9 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\yvh}{\Hat{v}}
 \newcommand*{\yvw}{\widebar{v}}
 \newcommand*{\yvo}{V}
-
+\newcommand*{\la}{N}
+\newcommand*{\shi}{\bm{v}}
+\newcommand*{\tpro}{\varPi}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -881,7 +883,60 @@ transition from one theory to the other.
 
 \bigskip
 
+3+1 balances of energy and force in general relativity, full form:
+\begin{gather}
+  \label{eq:balance_energy_full_gr}
+  (\de_t -\Li_{\shi}-\la \tr\yK)\ye + \ynab\cdot(\la\yq) - \la\tr(\yK\yT) +\yp\yg^{-1}\ynab\la =0
+  \\
+  \label{eq:dt_momentum}
+  (\de_t -\Li_{\shi}-\la \tr\yK+\la\yK)\yp
+  + \ynab\cdot(\la\yT\T)
+  - \la\yq\yK
+  +\ye\ynab\la =0 \ .
+\end{gather}
+To be stressed: these equations describe the evolution, along an arbitrary
+vector field, of the components \emph{seen by an Eulerian observer} -- not
+seen by the observer of the evolution vector field.
 
+Something opposite happens with the evolution equations in Newtonian
+mechanics: they describe the evolution, along the vector field of an
+Eulerian observer, of the components \emph{seen by an observer comoving
+  with the continuum}. This is clear from the fact that the energy flux or
+the stress tensor, for example, don't contain convective components. This
+is also the reason why these quantities are frame-indifferent: all
+observers relate them to the motion of the continuum.
+
+\section{Decomposition of the stress-energy-momentum tensor}
+\label{sec:decomp_stress-energy-momentum}
+
+Introduce a slicing $\di t$ and a frame $\yF$ as in
+\sect~\ref{sec:slicing_frames}. For a $k$-form $\alpha$, the horizontal
+component is the $(k-1)$-form $\yF \cdot \alpha$; the vertical component is
+the $k$-form $\tpro\cdot\alpha \defd \alpha - \di t \land (\yF \cdot \alpha)$.
+
+Consider the stress-energy-momentum tensor $\yTf$ represented as a
+covector-valued 3-covector. We have the decomposition
+\begin{equation}
+  \label{eq:decomp_T_cov_3cov}
+  \begin{aligned}
+    \ye &\defd \yF \cdot \yTf \cdot\tpro &\qquad&\text{3-covector}\\
+    \yq &\defd \yF \cdot \yTf \cdot \yF &&\text{2-covector}\\
+    \yp &\defd \tpro \cdot\yTf \cdot \tpro &&\text{covector-valued 3-covector}\\
+    \yT &\defd \tpro \cdot\yTf \cdot \yF &&
+                                            \text{covector-valued
+                                            2-covector}\ .
+  \end{aligned}
+\end{equation}
+The covector properties of the resulting quantities correspond to those in
+Newtonian mechanics: energy density is supposed to be integrated in a
+volume, energy flux on a surface; and momentum density in a volume, and
+stress on a surface, both yielding a covector.
+
+In Newtonian relativity the momentum density vanishes in the rest frame of
+a volume element. This frame $\yn$ is determined by the matter 3-form $\yr$
+through \eqns~\eqref{eq:eulerian_frame_conditions}: $\yn \cdot \yr = 0$,
+$\yn \cdot \di t = 1$. In this frame we thus have
+$\yp &\defd \tpro \cdot\yTf \cdot \tpro = 0$.
 
 
 
@@ -951,10 +1006,10 @@ transition from one theory to the other.
 %   \citep[\sect~158, pp.~534--535]{page1928_r1958}{ericksen2007}.
 % \end{itemize}
 
-This note explores some notions around kinematics, dynamics, matter,
-inertia, and force in Newtonian- and general-relativistic continuum
-mechanics. This exploration comes out of two desires. The first is to
-understand the boundary between kinematics and dynamics in general
+\mynote{Old snippet:} This note explores some notions around kinematics,
+dynamics, matter, inertia, and force in Newtonian- and general-relativistic
+continuum mechanics. This exploration comes out of two desires. The first
+is to understand the boundary between kinematics and dynamics in general
 relativity, and whether a single boundary common to Newtonian and general
 relativity can be drawn. The second is a dissatisfaction with the division
 between forced and unforced (geodesic) motion common to both theories as

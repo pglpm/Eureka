@@ -6,7 +6,7 @@
 %% Home page: http://magnaspesmeretrix.org/
 %% Email (remove ZZ): pglZZ[at]portamana.org
 %% Created: 2000-08-23T16:53:30+0200
-%% Last-Updated: 2020-12-09T10:26:37+0100
+%% Last-Updated: 2020-12-22T15:21:26+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % NB: This database contains also items whose content's validity I
@@ -170,6 +170,7 @@
 @String{apt = {Am.\ Phys.\ Teach.\ (Am.\ J. Phys.)}}
 @String{aqc = {Adv.\ Quant.\ Chem.}}
 @String{araa = {Annu.\ Rev.\ Astron.\ Astrophys.}}
+@String{arbbc = {Annu.\ Rev.\ Biophys.\ Biophys.\ Chem.}}
 @String{archmech = {Archives of Mechanics (\langnohyph{Archiwum Mechaniki Stosowanej})}}
 @String{arfm = {Ann.\ Rev.\ Fluid Mech.}}
 @String{arg = {Argumentation}}
@@ -277,7 +278,7 @@
 @String{cme = {Cubo Matem{\'a}tica Educacional}}
 @String{cmj = {College Math.\ J.}}
 @String{cmp = {Commun.\ Math.\ Phys.}}
-@String{cmt = {Continuum Mech.\ Thermodyn.}}
+@String{cmt = {Contin.\ Mech.\ Thermodyn.}}
 @String{cnp = {Clin.\ Neurophysiol.}}
 @String{cog = {Cognition}}
 @String{cognp = {Cognit.\ Neuropsychiatry}}
@@ -551,7 +552,7 @@
 @String{jde = {J. Differ.\ Equat.}}
 @String{jdm = {J. de Math.}}
 @String{jdp = {J. de Phys.}}
-@String{je = {J. Elasticity}}
+@String{je = {J. Elast.}}
 @String{jech = {J. Epidemiol.\ Community Health}}
 @String{jecons = {J. Econ.\ Surv.}}
 @String{jedc = {J. Econ.\ Dynam.\ Contr.}}
@@ -761,6 +762,7 @@
 @String{natnt = {Nature Nanotechnology}}
 @String{natphil = {The Natural Philosopher}}
 @String{natphot = {Nat.\ Photon.}}
+@String{natphys = {Nat.\ Phys.}}
 @String{natrg = {Nat.\ Rev.\ Genet.}}
 @String{natrns = {Nat.\ Rev.\ Neurosci.}}
 @String{navw = {Nieuw Archief voor Wiskunde}}
@@ -795,7 +797,8 @@
 @String{npa = {Nucl.\ Phys.\ A}}
 @String{npb = {Nucl.\ Phys.\ B}}
 @String{npbps = {Nucl.\ Phys.\ B Proc.\ Suppl.}}
-@String{npjsp = {NPJ Schizophr.}}
+@String{npjqi = {npj Quantum Inf.}}
+@String{npjsp = {npj Schizophr.}}
 @String{npl = {Neural Process.\ Lett.}}
 @String{nrl = {Nav.\ Res.\ Logist.}}
 @String{ns = {New Scientist}}
@@ -5003,7 +5006,8 @@ journal =      bstj,
 year =	       {1965},
 volume =       {44},
 number =       {4},
-pages =	       {725--729}
+pages =	       {725--729},
+note =	       {\doi{10.1002/j.1538-7305.1965.tb01684.x}}
 }
 
 @Book{artin1955,
@@ -5428,6 +5432,7 @@ year =	       {1978},
 volume =       {3},
 number =       {2},
 pages =	       {163--178},
+note =	       {\doi{10.1016/S0376-7388(00)83020-3}},
 keywords =     {continuum thermomechanics, non-equilibrium thermodynamics, entropy}
 }
 
@@ -5461,6 +5466,7 @@ year =	       {1976},
 volume =       {16},
 number =       {7},
 pages =	       {490--495},
+note =	       {\doi{10.1002/pen.760160705}},
 keywords =     {thermodynamics with memory}
 }
 
@@ -5472,6 +5478,7 @@ year =	       {1976},
 volume =       {1},
 number =       {1},
 pages =	       {39--50},
+note =	       {\doi{10.1016/0377-0257(76)80004-3}},
 keywords =     {continuum thermomechanics, non-equilibrium thermodynamics, entropy}
 }
 
@@ -7180,6 +7187,7 @@ pages =	       {176407}
 @Article{ballentine1970,
 author =       {Leslie E. Ballentine},
 title =	       {The Statistical Interpretation of Quantum Mechanics},
+note = 	       {\doi{10.1103/RevModPhys.42.358}},
 journal =      rmp,
 year =	       {1970},
 volume =       {42},
@@ -9895,10 +9903,10 @@ title =	       {Against `measurement'},
 journal =      pw,
 year =	       {1990},
 volume =       {3},
-number =       aug,
+number =       {8},
 pages =	       {33--40},
-month =	       aug,
-note =	       {See also \citebi{bell1990}}
+note =	       {\doi{10.1088/2058-7058/3/8/26}. See also \citebi{bell1990}},
+keywords =     {quantum theory}
 }
 
 @Book{bell1998_r2008,
@@ -12084,6 +12092,17 @@ edition =      {rev.\ ed.},
 note =	       {First publ.\ 1950. \url{https://archive.org/details/artofscientifici00beve/}},
 keywords =     {probability theory},
 origdate =     {1950}
+}
+
+@Article{beveridgeetal1989,
+author =       {D. L. Beveridge and F. M. DiCapua},
+title =	       {Free energy via molecular simulation: applications to chemical and biomolecular systems},
+journal =      arbbc,
+year =	       {1989},
+volume =       {18},
+pages =	       {431--92},
+note =	       {\doi{10.1146/annurev.bb.18.060189.002243}},
+keywords =     {molecular-dynamics simulation, statistical mechanics, free energy, lambda-dynamics}
 }
 
 @Article{bezginovetal2019,
@@ -17734,6 +17753,30 @@ note =	       {See also \citebi{brown1951}},
 keywords =     {energy density, electromagnetism}
 }
 
+@Article{brown1957,
+author =       {W. B. Brown},
+title =	       {The Statistical Thermodynamics of Mixtures of {Lennard-Jones} Molecules. {I}. {Random} Mixtures},
+journal =      ptrsla,
+year =	       {1957},
+volume =       {250},
+number =       {976},
+pages =	       {175--220},
+note =	       {\doi{10.1098/rsta.1957.0019}. See also \citebi{brown1957b}},
+keywords =     {configurational free energy}
+}
+
+@Article{brown1957b,
+author =       {W. B. Brown},
+title =	       {The Statistical Thermodynamics of Mixtures of {Lennard-Jones} Molecules. {II}. {Deviations} from Random Mixing},
+journal =      ptrsla,
+year =	       {1957},
+volume =       {250},
+number =       {976},
+pages =	       {221--246},
+note =	       {\doi{10.1098/rsta.1957.0020}. See also \citebi{brown1957}},
+keywords =     {configurational free energy}
+}
+
 @Article{brown1959,
 author =       {David T. Brown},
 title =	       {A note on approximations to discrete probability distributions},
@@ -19318,8 +19361,9 @@ publisher =    {Cambridge University Press},
 year =	       {1987},
 address =      {Cambridge},
 edition =      {repr.},
-note =	       {First publ.\ 1985. \doi{10.1017/CBO9781139171786}},
+note =	       {\doi{10.1017/CBO9781139171786}. First publ.\ 1985},
 keywords =     {twisted differential forms, electromagnetism, relativity, divergence of stress tensor \sect~41},
+mynote =       {epigraph p.~v: \enquote{To all those who, like me, have wondered how in hell you can change $\dot{q}$ without changing $q$.}},
 origdate =     {1985}
 }
 
@@ -19617,6 +19661,18 @@ volume =       {40},
 number =       {9},
 pages =	       {1341--1367},
 keywords =     {positive-operator-valued measure}
+}
+
+@Article{buschetal2013,
+author =       {Paul Busch and Pekka Lahti and and Reinhard F. Werner},
+title =	       {Proof of Heisenberg's Error-Disturbance Relation},
+journal =      prl,
+year =	       {2013},
+volume =       {111},
+number =       {16},
+pages =	       {160405},
+note =	       {\doi{10.1103/PhysRevLett.111.160405}},
+keywords =     {quantum theory, uncertainty principle}
 }
 
 @Article{bushetal2012,
@@ -19999,6 +20055,30 @@ note =	       {\doi{10.1103/PhysRevD.100.024029}},
 keywords =     {temperature, dark matter, general relativity}
 }
 
+@Article{cafaroetal2016,
+author =       {Carlo Cafaro and Sean Alan Ali},
+title =	       {Maximum caliber inference and the stochastic {Ising} model},
+journal =      pre,
+year =	       {2016},
+volume =       {94},
+number =       {5},
+pages =	       {052145},
+note =	       {\doi{10.1103/PhysRevE.94.052145}},
+keywords =     {non-equilibrium statistical mechanics}
+}
+
+@Article{caflischetal1993,
+author =       {Amedeo Caflisch and Andrew Miranker and Martin Karplus},
+title =	       {Multiple copy simultaneous search and construction of ligands in binding sites: application to inhibitors of {HIV-1} aspartic proteinase},
+journal =      jmedc,
+year =	       {1993},
+volume =       {36},
+number =       {15},
+pages =	       {2142--2167},
+note =	       {\doi{10.1021/jm00067a013}},
+keywords =     {molecular-dynamics simulation, statistical mechanics, free energy, lambda-dynamics}
+}
+
 @Book{cagnacetal1971_t1975,
 author =       {B. Cagnac and Pebay-Peyroula, J.-C.},
 title =	       {Modern Atomic Physics: Fundamental Principles},
@@ -20219,7 +20299,7 @@ year =	       {1960},
 address =      {New York},
 edition =      {1},
 keywords =     {statistical mechanics, maximum-entropy},
-mynote =       {This first edition is more comprehensive. Second ed.\ as \citebi{callen1960_r1985}. Undetermined stability at equilibrium: \emph{Equilibrium with Internal Adiabatic Constraints} Appendix~C p.~321}
+mynote =       {This first edition is more comprehensive. Second ed.\ as \citebi{callen1960_r1985}. Undetermined stability at equilibrium: \emph{Equilibrium with Internal Adiabatic Constraints} Appendix~C p.~321. \enquote{There exists a function (called the entropy $S$) of the extensive parameters of any composite system, defined for all equilibrium states and having the following property: The values assumed by the extensive parameters in the absence of an internal constraint are those that maximize the entropy over the manifold of constrained equilibrium states.}, \sect~1.10 Postulate II}
 }
 
 @Book{callen1960_r1985,
@@ -26337,7 +26417,7 @@ pages =	       {115--137}
 
 @Article{cooperstocketal2010,
 author =       {F. I. Cooperstock and Maurice J. Dupr{\'e}},
-title =	       {Space–time energy–momentum, the observer and uncertainty in general relativity},
+title =	       {Space-time energy-momentum, the observer and uncertainty in general relativity},
 journal =      ijmpd,
 year =	       {2010},
 volume =       {19},
@@ -32748,6 +32828,18 @@ pages =	       {1730001},
 keywords =     {probability theory, group theory, invariant measures}
 }
 
+@Article{diamantietal2015,
+author =       {Eleni Diamanti and Anthony Leverrier},
+title =	       {Distributing Secret Keys with Quantum Continuous Variables: Principle, Security and Implementations},
+journal =      entr,
+year =	       {2015},
+volume =       {17},
+number =       {9},
+pages =	       {6072--6092},
+note =	       {\doi{10.3390/e17096072}},
+keywords =     {quantum key distribution}
+}
+
 @Article{diamondetal1983,
 author =       {George A. Diamond and James S. Forrester},
 title =	       {Clinical Trials and Statistical Verdicts: Probable Grounds for Appeal},
@@ -33373,6 +33465,18 @@ volume =       {10},
 number =       {8},
 pages =	       {3002--3005},
 keywords =     {maximum-entropy, statistical mechanics, stochastic processes, maximum-calibre}
+}
+
+@Article{dixitetal2018,
+author =       {Purushottam D. Dixit and Jason Wagoner and Corey Weistuch and Steve Press{\'e} and Kingshuk Ghosh and Ken A. Dill},
+title =	       {Perspective: Maximum caliber is a general variational principle for dynamical systems},
+journal =      jcp,
+year =	       {2018},
+volume =       {148},
+number =       {1},
+pages =	       {010901},
+note =	       {\doi{10.1063/1.5012990}},
+keywords =     {non-equilibrium statistical mechanics}
 }
 
 @Article{dixon1951,
@@ -38213,6 +38317,18 @@ volume =       {57},
 pages =	       {887--898}
 }
 
+@Article{ekert1991,
+author =       {Artur K. Ekert},
+title =	       {Quantum cryptography based on {Bell's} theorem},
+journal =      prl,
+year =	       {1991},
+volume =       {67},
+number =       {6},
+pages =	       {661--663},
+note =	       {\doi{10.1103/PhysRevLett.67.661}},
+keywords =     {quantum key distribution}
+}
+
 @Book{ekin2006,
 author =       {Jack W. Ekin},
 title =	       {Experimental Techniques for Low-Temperature Measurements: Cryostat Design, Material Properties, and Superconductor Critical-Current Testing},
@@ -38873,6 +38989,17 @@ year =	       {2013},
 series =       {Springerbriefs in applied sciences and technology},
 address =      {Heidelberg},
 keywords =     {polar fluids, continuum mechanics}
+}
+
+@Article{erhartetal2012,
+author =       {Jacqueline Erhart and Stephan Sponar and Georg Sulyok and Gerald Badurek and Masanao Ozawa and Yuji Hasegawa},
+title =	       {Experimental demonstration of a universally valid error-disturbance uncertainty relation in spin measurements},
+journal =      natphys,
+year =	       {2012},
+volume =       {8},
+pages =	       {185--189},
+note =	       {\doi{10.1038/nphys2194}},
+keywords =     {quantum theory}
 }
 
 @Article{ericksen1956,
@@ -40030,7 +40157,7 @@ journal =      masb,
 year =	       {1757},
 volume =       {11},
 pages =	       {217--273, 402(plates)},
-note =	       {\url{http://eulerarchive.maa.org/}; presented 1753; repr.\ in \emph{Opera Omnia} series~2, vol.~12, pp.~2--53},
+note =	       {\url{http://eulerarchive.maa.org/}; presented 1753; repr.\ in \emph{Opera Omnia} series~2, vol.~12, pp.~2--53. Transl.\ by U. Frisch in \arxiveprint{0802.2383}},
 keywords =     {General principles of the state of equilibrium of fluids},
 mynote =       {concept of internal pressure introduced in \sects~VI--IX. Critique of ``microscopic'' models in \sect~V},
 origdate =     {1753}
@@ -42231,6 +42358,18 @@ year =	       {2003},
 volume =       {620},
 series =       {Lectures notes in physics},
 address =      {Berlin}
+}
+
+@Article{firmanetal2019,
+author =       {Taylor Firman and Anar Amgalan and Kingshuk Ghosh},
+title =	       {Maximum Caliber Can Build and Infer Models of Oscillation in a Three-Gene Feedback Network},
+journal =      jpcb,
+year =	       {2019},
+volume =       {123},
+number =       {2},
+pages =	       {343--355},
+note =	       {\doi{10.1021/acs.jpcb.8b07465}},
+keywords =     {non-equilibrium statistical mechanics}
 }
 
 @Article{fischer1975,
@@ -46655,11 +46794,15 @@ note =	       {See also discussion in \citebi{celeuxetal2017}},
 keywords =     {priors, Bayesian probability theory}
 }
 
-@Misc{gelmanetal2020,
+@Article{gelmanetal2020,
 author =       {Andrew Gelman and Yuling Yao},
 title =	       {Holes in {Bayesian} Statistics},
+journal =      jpg,
 year =	       {2020},
-note =	       {\arxiveprint{2002.06467}},
+volume =       {48},
+number =       {1},
+pages =	       {014002},
+note =	       {\doi{10.1088/1361-6471/abc3a5}},
 keywords =     {quantum theory, probability theory, conditional probability}
 }
 
@@ -48654,6 +48797,7 @@ year =	       {2000},
 volume =       {20},
 number =       {2},
 pages =	       {76--84},
+note =	       {\doi{10.1109/38.824547}},
 keywords =     {geometric algebra, affine spaces, projective spaces, differential forms, Whitney forms, Grassmann algebra, Bezier curves}
 }
 
@@ -48665,7 +48809,7 @@ year =	       {2002},
 volume =       {21},
 number =       {1},
 pages =	       {52--86},
-note =	       {\url{http://lvelho.impa.br/i3d15/geom/}},
+note =	       {\doi{10.1145/504789.504792}, \url{http://lvelho.impa.br/i3d15/geom/}},
 keywords =     {geometric algebra, affine spaces, projective spaces, differential forms, Whitney forms, Grassmann algebra, Bezier curves}
 }
 
@@ -49701,7 +49845,7 @@ year =	       {2012},
 volume =       {846},
 series =       {Lecture notes in physics},
 address =      {Heidelberg},
-note =	       {First publ.\ 2007 as \arxiveprint{gr-qc/0703035}. \doi{0.1007/978-3-642-24525-1}},
+note =	       {First publ.\ 2007 as \arxiveprint{gr-qc/0703035}. \doi{10.1007/978-3-642-24525-1}},
 keywords =     {general relativity, continuum mechanics, constitutive equations, 3+1 decomposition},
 origdate =     {2007}
 }
@@ -51795,6 +51939,16 @@ pages =	       {144516},
 keywords =     {statistical mechanics, thermodynamics}
 }
 
+@Article{grosshansetal2003,
+author =       {Fr{\'e}d{\'e}ric Grosshans and Van Assche, Gilles and J{\'e}r{\^o}me Wenger and Rosa Brouri and Nicolas J. Cerf and Philippe Grangier},
+title =	       {Quantum key distribution using gaussian-modulated coherent states},
+journal =      nat,
+year =	       {2003},
+volume =       {421},
+pages =	       {238--241},
+note =	       {\doi{10.1038/nature01289}}
+}
+
 @InCollection{grot1976,
 author =       {Richard A. Grot},
 title =	       {Relativistic continuum physics: electromagnetic interactions},
@@ -52245,6 +52399,37 @@ volume =       {255},
 number =       {1283},
 pages =	       {456--476},
 keywords =     {thermodynamics, temperature, entropy}
+}
+
+@PhdThesis{guglielmetti2010,
+author =       {Fabrizia Guglielmetti},
+title =	       {Background-Source separation in astronomical images with {Bayesian} Probability Theory},
+school =       {Ludwig-Maximilians-Universit{\"a}t M{\"u}nchen},
+year =	       {2010},
+address =      {M{\"u}nchen},
+note =	       {\doi{10.5282/edoc.12732}}
+}
+
+@Article{guglielmettietal2009,
+author =       {Fabrizia Guglielmetti and R. Fischer and V. Dose},
+title =	       {Background-source separation in astronomical images with {Bayesian} probability theory -- {I}. {The} method},
+journal =      mnras,
+year =	       {2009},
+volume =       {396},
+number =       {1},
+pages =	       {165--190},
+note =	       {\doi{10.1111/j.1365-2966.2009.14739.x}}
+}
+
+@Article{guglielmettietal2013,
+author =       {Fabrizia Guglielmetti and R. Fischer and V. Dose},
+title =	       {Background-source separation -- not only for astronomical images},
+journal =      aipcp,
+year =	       {2013},
+volume =       {1553},
+number =       {1},
+pages =	       {30},
+note =	       {\doi{10.1063/1.4819980}}
 }
 
 @Misc{gugushvilietal2013,
@@ -56248,7 +56433,7 @@ keywords =     {general relativity, electromagnetism, twisted differential forms
 
 @Misc{hehletal2000,
 author =       {Friedrich W. Hehl and Yuri N. Obukhov},
-title =	       {A gentle introduction to the foundations of classical electrodynamics: The meaning of the excitations {$(\mathcal{D},\mathcal{H})$} and the field strengths {$(E, B)$}},
+title =	       {A gentle introduction to the foundations of classical electrodynamics: The meaning of the excitations {$(\mathcal{D}, \mathcal{H})$} and the field strengths {$(E, B)$}},
 year =	       {2000},
 note =	       {\arxiveprint{physics/0005084}}
 }
@@ -70411,7 +70596,7 @@ keywords =     {statistical mechanics, thermodynamics, temperature fluctuation}
 
 @Article{kongetal1996,
 author =       {Xianjun Kong and Brooks III, Charles L.},
-title =	       {{$\lambda$}‐dynamics: A new approach to free energy calculations},
+title =	       {{$\lambda$}-dynamics: A new approach to free energy calculations},
 journal =      jcp,
 year =	       {1996},
 volume =       {105},
@@ -71365,7 +71550,7 @@ keywords =     {statistical mechanics}
 
 @Article{kroener1987,
 author =       {E. Kr{\"o}ner},
-title =	       {Stress Space and Strain Space in Continuum Mechanics†},
+title =	       {Stress Space and Strain Space in Continuum Mechanics},
 journal =      pssb,
 year =	       {1987},
 volume =       {144},
@@ -71509,7 +71694,7 @@ keywords =     {exterior covariant derivative, differential forms, curvature, di
 
 @Book{krupkovaetal2009,
 editor =       {Olga Krupkov{\'a} and David Saunders},
-title =	       {Variations, Geometry and Physics\subtitleproc{: In Honour of Demeter Krupka’s Sixty-Fifth Birthday}},
+title =	       {Variations, Geometry and Physics\subtitleproc{: In Honour of Demeter Krupka's Sixty-Fifth Birthday}},
 publisher =    {Nova Science},
 year =	       {2009},
 address =      {New York},
@@ -77700,6 +77885,17 @@ keywords =     {covariance matrix, correlation matrix},
 mynote =       {seems to make an impossible specification of correlations, eqn (13+) p. 5}
 }
 
+@Article{liuetal2019,
+author =       {Yang Liu and Zhihao Ma and Haijun Kang and Dongmei Han and Meihong Wang and Zhongzhong Qin and Xiaolong Su and Kunchi Peng},
+title =	       {Experimental test of error-tradeoff uncertainty relation using a continuous-variable entangled state},
+journal =      npjqi,
+year =	       {2019},
+volume =       {5},
+pages =	       {68},
+note =	       {\doi{10.1038/s41534-019-0183-6}},
+keywords =     {quantum theory, uncertainty principle}
+}
+
 @Book{livens1918,
 author =       {G. H. Livens},
 title =	       {The Theory of Electricity},
@@ -80032,6 +80228,16 @@ note =	       {\arxiveprint{gr-qc/9906059}},
 keywords =     {non-commutative geometry}
 }
 
+@Article{madsenetal2012,
+author =       {Lars S. Madsen and Vladyslav C. Usenko and Mikael Lassen and Radim Filip and Ulrik L. Andersen},
+title =	       {Continuous variable quantum key distribution with modulated entangled states},
+journal =      natcomm,
+year =	       {2012},
+volume =       {3},
+pages =	       {1083},
+note =	       {\doi{10.1038/ncomms2097}}
+}
+
 @Article{madureiraetal1998,
 author =       {Justino R. Madureira and {\'A}urea R. Vasconcellos and Roberto Luzzi},
 title =	       {A nonequilibrium statistical grand-canonical ensemble: Description in terms of flux operators},
@@ -80858,7 +81064,7 @@ keywords =     {quantum theory, interference, homodyne detection, quantum effici
 
 @Book{mandeletal1995_r2008,
 author =       {Leonard Mandel and Emil Wolf},
-title =	       {Optical coherence and quantum optics},
+title =	       {Optical Coherence and Quantum Optics},
 publisher =    {Cambridge University Press},
 year =	       {2008},
 address =      {Cambridge},
@@ -88088,6 +88294,7 @@ year =	       {2007},
 volume =       {88},
 number =       {2},
 pages =	       {113--140},
+note =	       {\doi{10.1007/s10659-007-9121-5}},
 keywords =     {continuum mechanics, statistical mechanics}
 }
 
@@ -88110,6 +88317,7 @@ year =	       {2011},
 volume =       {23},
 number =       {1},
 pages =	       {1--26},
+note =	       {\doi{10.1007/s00161-010-0146-9}},
 keywords =     {continuum mechanics, statistical mechanics}
 }
 
@@ -89893,7 +90101,7 @@ publisher =    {Cambridge University Press},
 year =	       {2010},
 address =      {Cambridge},
 edition =      {10th anniversary ed.},
-note =	       {First publ.\ 2000},
+note =	       {\doi{10.1017/CBO9780511976667}. First publ.\ 2000},
 keywords =     {quantum theory, communication theory},
 origdate =     {2000}
 }
@@ -93623,7 +93831,7 @@ title =	       {\langnohyph{Calcolo Geometrico secondo l'Ausdehnungslehre di H. 
 publisher =    {Bocca},
 year =	       {1888},
 address =      {Torino},
-note =	       {\url{https://archive.org/details/CalcoloGeometricoSecondoLAusdehnungslhereDiH.GrassmannBw}. Transl.\ in \citebi{peano1888_t2000}},
+note =	       {\url{https://archive.org/details/calcologeometric00gpea}. Transl.\ in \citebi{peano1888_t2000}},
 keywords =     {geometric algebra, quaternions, exterior differential forms, twisted vectors}
 }
 
@@ -94124,6 +94332,18 @@ title =	       {A Non-Equilibrium Thermodynamics-Based View of the Kinetics of A
 year =	       {2020},
 note =	       {ChemRxiv \texttt{doi:\urlalt{https://doi.org/10.26434/chemrxiv.12519938.v1}{10.26434/chemrxiv.12519938.v1}}},
 keywords =     {continuum thermomechanics, second law, free energy, entropy}
+}
+
+@Book{pekaretal2014,
+author =       {Miloslav Peka{\v{r}} and Ivan Samoh{\'y}l},
+title =	       {The Thermodynamics of Linear Fluids and Fluid Mixtures},
+publisher =    {Springer},
+year =	       {2014},
+address =      {Cham},
+note =	       {\doi{10.1007/978-3-319-02514-8}},
+keywords =     {continuum thermomechanics, ideal gas, non-equilibrium thermodynamics, frame-indifference, inertia},
+mynote =       {\url{https://www.fch.vut.cz/vav/sapelite}},
+origdate =     {1987}
 }
 
 @Article{peleetal2008,
@@ -97372,6 +97592,17 @@ pages =	       {379--385},
 keywords =     {Bell's theorem, hidden variables, relativity}
 }
 
+@Article{popowiczetal2015,
+author =       {A. Popowicz and B. Smolka},
+title =	       {A method of complex background estimation in astronomical images},
+journal =      mnras,
+year =	       {2015},
+volume =       {452},
+number =       {1},
+pages =	       {809--823},
+note =	       {\doi{10.1093/mnras/stv1320}}
+}
+
 @Article{popper1934,
 author =       {Karl Popper},
 title =	       {\langnohyph{{Zur Kritik der Ungenauigkeitsrelationen}}},
@@ -97517,7 +97748,7 @@ keywords =     {convex spaces}
 author =       {Porta Mana, Piero Giovanni Luca},
 title =	       {In favour of the time variable in classical thermo\emph{dynamics}},
 year =	       {2011},
-note =	       {\arxiveprint{1012.3091}},
+note =	       {\osfeprint{10.31219/osf.io/cu4ad}, \arxiveprint{1012.3091}},
 keywords =     {thermodynamics}
 }
 
@@ -100869,6 +101100,18 @@ booktitle =    {\citein{schilpp1949_r1970}},
 year =	       {1951},
 pages =	       {287--311},
 bookt =	       {{Albert} {Einstein}: Philosopher-Scientist}
+}
+
+@Article{reid2000,
+author =       {M. D. Reid},
+title =	       {Quantum cryptography with a predetermined key, using continuous-variable {Einstein-Podolsky-Rosen} correlations},
+journal =      pra,
+year =	       {2000},
+volume =       {62},
+number =       {6},
+pages =	       {062308},
+note =	       {\doi{10.1103/PhysRevA.62.062308}},
+keywords =     {quantum key distribution}
 }
 
 @Article{reidetal2004,
@@ -104359,6 +104602,18 @@ number =       {4--5},
 pages =	       {295--310}
 }
 
+@Article{rozemaetal2012,
+author =       {Lee A. Rozema and Ardavan Darabi and Dylan H. Mahler and Alex Hayat and Yasaman Soudagar and and Aephraim M. Steinberg},
+title =	       {Violation of Heisenberg's Measurement-Disturbance Relationship by Weak Measurements},
+journal =      prl,
+year =	       {2012},
+volume =       {109},
+number =       {10, 18},
+pages =	       {100404, 189902},
+note =	       {\doi{10.1103/PhysRevLett.109.100404}, \doi{10.1103/PhysRevLett.109.189902}},
+keywords =     {quantum theory, uncertainty principle}
+}
+
 @Article{rubilar2002,
 author =       {G. F. Rubilar},
 title =	       {Linear pre-metric electrodynamics and deduction of the light cone},
@@ -105342,7 +105597,7 @@ year =	       {1987},
 volume =       {12},
 series =       {Teubner-Texte zur Physik},
 address =      {Leipzig},
-note =	       {Partially rewritten as \citebi{samohyletal1987_r2014}.}
+mynote =       {Partially rewritten as \citebi{samohyletal1987_r2014}.}
 }
 
 @Article{samohyl1997,
@@ -110851,7 +111106,8 @@ title =	       {Relations between the barycentric and {von~Neumann} entropies of
 journal =      pla,
 year =	       {1991},
 volume =       {159},
-pages =	       {411--414}
+pages =	       {411--414},
+note =	       {\doi{10.1016/0375-9601(91)90371-E}}
 }
 
 @Article{slater1992,
@@ -119579,7 +119835,9 @@ author =       {Truesdell, III, Clifford Ambrose},
 title =	       {Essays in the History of Mechanics},
 publisher =    {Springer},
 year =	       {1968},
-address =      {Berlin}
+address =      {Berlin},
+note =	       {\doi{10.1007/978-3-642-86647-0}},
+keywords =     {concept of stress}
 }
 
 @Article{truesdell1968b,
@@ -119598,6 +119856,16 @@ booktitle =    {\citein{parkusetal1968}},
 year =	       {1968},
 pages =	       {373--389},
 note =	       {With discussion}
+}
+
+@InCollection{truesdell1968d,
+author =       {Truesdell, III, Clifford Ambrose},
+title =	       {The Creation and Unfolding of the Concept of Stress},
+booktitle =    {\citein{truesdell1968}},
+year =	       {1968},
+chapter =      {IV},
+pages =	       {184--238},
+keywords =     {continuum mechanics}
 }
 
 @Book{truesdell1969,
@@ -124728,6 +124996,19 @@ year =	       {1994},
 address =      {Oxford}
 }
 
+@Article{weedbrooketal2012,
+author =       {Christian Weedbrook and Stefano Pirandola and Ra{\'u}l Garc{\'i}a-Patr{\'o}n and Nicolas J. Cerf and Timothy C. Ralph and Jeffrey H. Shapiro and Seth Lloyd},
+title =	       {Gaussian quantum information},
+journal =      rmp,
+year =	       {2012},
+volume =       {84},
+number =       {2},
+pages =	       {621--669},
+note =	       {\doi{10.1103/RevModPhys.84.621}},
+keywords =     {quantum key distribution, coherent states},
+mynote =       {necessity of infinite precision in one-shot measurement result: \sect~IV.A \enquote{The outcome of the measurement $\gamma \defd (q_{-} + \I p_{+})/2$ is then communicated to Bob via a standard telecom line. Once he receives this information, Bob can reconstruct Alice's input state \textelp{}}; also \sect~VI.A.6: \enquote{In the sifting stage, once Bob revealed which quadrature he measured, Alice replied with the absolute value of her corresponding quadrature ($\abs{a_{q}}$ or $\abs{a_{p}}$). Subsequently, Bob, depending on Alice's revealed value and the absolute value of his measurement outcome $\abs{b}$, decides, following a preestablished rule, whether they should discard or keep parts of their data. }}
+}
+
 @Book{weeks1985_r2002,
 author =       {Jeffrey R. Weeks},
 title =	       {The Shape of Space},
@@ -127740,6 +128021,16 @@ number =       {2},
 pages =	       {363--381}
 }
 
+@Article{worpeletal2015,
+author =       {H. Worpel and A. D. Schwope},
+title =	       {Background subtraction and transient timing with {Bayesian} Blocks},
+journal =      aa,
+year =	       {2015},
+volume =       {578},
+pages =	       {A80},
+note =	       {\doi{10.1051/0004-6361/201525946}}
+}
+
 @Article{worrall2005,
 author =       {John Worrall},
 title =	       {Prediction and the `periodic law': a rejoinder to {Barnes}},
@@ -129853,6 +130144,30 @@ series =       {Studies in condensed matter physics},
 address =      {Bristol}
 }
 
+@Article{zwanzig1954,
+author =       {Robert W. Zwanzig},
+title =	       {High-Temperature Equation of State by a Perturbation Method. {I}. {Nonpolar} Gases},
+journal =      jcp,
+year =	       {1954},
+volume =       {22},
+number =       {8},
+pages =	       {1420--1426},
+note =	       {\doi{10.1063/1.1740409}. See also \citebi{zwanzig1955}},
+keywords =     {statistical mechanics, molecular-dynamics simulation}
+}
+
+@Article{zwanzig1955,
+author =       {Robert W. Zwanzig},
+title =	       {High-Temperature Equation of State by a Perturbation Method. {II}. {Polar} Gases},
+journal =      jcp,
+year =	       {1955},
+volume =       {23},
+number =       {10},
+pages =	       {1915--1922},
+note =	       {\doi{10.1063/1.1740604}. See also \citebi{zwanzig1954}},
+keywords =     {statistical mechanics, molecular-dynamics simulation}
+}
+
 @Article{zwanzig1961,
 author =       {Robert Zwanzig},
 title =	       {Memory Effects in Irreversible Thermodynamics},
@@ -129881,7 +130196,8 @@ title =	       {Time-correlation functions and transport coefficients in statist
 journal =      arpc,
 year =	       {1965},
 volume =       {16},
-pages =	       {67--102}
+pages =	       {67--102},
+note =	       {\doi{10.1146/annurev.pc.16.100165.000435}}
 }
 
 @Book{zwanzig2001,

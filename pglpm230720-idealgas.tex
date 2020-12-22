@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2020-07-12T16:31:50+0200
-%% Last-Updated: 2020-08-03T13:19:58+0200
+%% Last-Updated: 2020-12-22T17:30:09+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -19,10 +19,10 @@ british%
 \newcommand*{\firstdraft}{23 July 2020}
 \newcommand*{\firstpublished}{\firstdraft}
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
-\newcommand*{\propertitle}{Affine ideal gas [draft]%\\{\large ***}%
+\newcommand*{\propertitle}{\enquote{Affine} ideal gas {\large(Notes for Mila)}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{\propertitle}
-\newcommand*{\headtitle}{Affine ideal gas}
+\newcommand*{\headtitle}{\enquote{Affine} ideal gas}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
 \newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
@@ -104,6 +104,11 @@ british%
 \newcommand*{\defquote}[1]{`\,#1\,'}
 
 \usepackage{amsthm}
+%% from https://tex.stackexchange.com/a/404680/97039
+\makeatletter
+\def\@endtheorem{\endtrivlist}
+\makeatother
+
 \newcommand*{\QED}{\textsc{q.e.d.}}
 \renewcommand*{\qedsymbol}{\QED}
 \theoremstyle{remark}
@@ -280,41 +285,26 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \newcommand*{\subtitleproc}[1]{}
 \newcommand*{\chapb}{ch.}
 %
-% \def\arxivp{}
-% \def\mparcp{}
-% \def\philscip{}
-% \def\biorxivp{}
-% \newcommand*{\arxivsi}{\texttt{arXiv} eprints available at \url{http://arxiv.org/}.\\}
-% \newcommand*{\mparcsi}{\texttt{mp\_arc} eprints available at \url{http://www.ma.utexas.edu/mp_arc/}.\\}
-% \newcommand*{\philscisi}{\texttt{philsci} eprints available at \url{http://philsci-archive.pitt.edu/}.\\}
-% \newcommand*{\biorxivsi}{\texttt{bioRxiv} eprints available at \url{http://biorxiv.org/}.\\}
-\newcommand*{\arxiveprint}[1]{%\global\def\arxivp{\arxivsi}%\citeauthor{0arxivcite}\addtocategory{ifarchcit}{0arxivcite}%eprint
+\newcommand*{\arxiveprint}[1]{%
 \texttt{arXiv:\urlalt{https://arxiv.org/abs/#1}{#1}}%
-%\texttt{\href{http://arxiv.org/abs/#1}{\protect\url{arXiv:#1}}}%
-%\renewcommand{\arxivnote}{\texttt{arXiv} eprints available at \url{http://arxiv.org/}.}
 }
-\newcommand*{\mparceprint}[1]{%\global\def\mparcp{\mparcsi}%\citeauthor{0mparccite}\addtocategory{ifarchcit}{0mparccite}%eprint
+\newcommand*{\mparceprint}[1]{%
 \texttt{mp\_arc:\urlalt{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{#1}}%
-%\texttt{\href{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{\protect\url{mp_arc:#1}}}%
-%\providecommand{\mparcnote}{\texttt{mp_arc} eprints available at \url{http://www.ma.utexas.edu/mp_arc/}.}
 }
-\newcommand*{\haleprint}[1]{%\global\def\arxivp{\arxivsi}%\citeauthor{0arxivcite}\addtocategory{ifarchcit}{0arxivcite}%eprint
+\newcommand*{\haleprint}[1]{%
 \texttt{HAL:\urlalt{https://hal.archives-ouvertes.fr/#1}{#1}}%
-%\texttt{\href{http://arxiv.org/abs/#1}{\protect\url{arXiv:#1}}}%
-%\renewcommand{\arxivnote}{\texttt{arXiv} eprints available at \url{http://arxiv.org/}.}
 }
-\newcommand*{\philscieprint}[1]{%\global\def\philscip{\philscisi}%\citeauthor{0philscicite}\addtocategory{ifarchcit}{0philscicite}%eprint
+\newcommand*{\philscieprint}[1]{%
 \texttt{PhilSci:\urlalt{http://philsci-archive.pitt.edu/archive/#1}{#1}}%
-%\texttt{\href{http://philsci-archive.pitt.edu/archive/#1}{\protect\url{PhilSci:#1}}}%
-%\providecommand{\mparcnote}{\texttt{philsci} eprints available at \url{http://philsci-archive.pitt.edu/}.}
 }
-\newcommand*{\biorxiveprint}[1]{%\global\def\biorxivp{\biorxivsi}%\citeauthor{0arxivcite}\addtocategory{ifarchcit}{0arxivcite}%eprint
-bioRxiv \texttt{doi:\urlalt{https://doi.org/10.1101/#1}{10.1101/#1}}%
-%\texttt{\href{http://arxiv.org/abs/#1}{\protect\url{arXiv:#1}}}%
-%\renewcommand{\arxivnote}{\texttt{arXiv} eprints available at \url{http://arxiv.org/}.}
+\newcommand*{\doi}[1]{%
+\href{https://doi.org/#1}{\textsc{doi}:\texttt{#1}}%
+}
+\newcommand*{\biorxiveprint}[1]{%
+bioRxiv \doi{10.1101/#1}%
 }
 \newcommand*{\osfeprint}[1]{%
-Open Science Framework \texttt{doi:\urlalt{https://doi.org/10.17605/osf.io/#1}{10.17605/osf.io/#1}}%
+Open Science Framework \doi{10.31219/osf.io/#1}%
 }
 
 \usepackage{graphicx}
@@ -323,7 +313,7 @@ Open Science Framework \texttt{doi:\urlalt{https://doi.org/10.17605/osf.io/#1}{1
 
 %\usepackage{tikz-cd}
 
-\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false,pdfencoding=unicode,psdextra]{hyperref}
 
 \usepackage[depth=4]{bookmark}
 \hypersetup{colorlinks=true,bookmarksnumbered,pdfborder={0 0 0.25},citebordercolor={0.2667 0.4667 0.6667},citecolor=mypurpleblue,linkbordercolor={0.6667 0.2 0.4667},linkcolor=myredpurple,urlbordercolor={0.1333 0.5333 0.2},urlcolor=mygreen,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
@@ -371,7 +361,7 @@ Open Science Framework \texttt{doi:\urlalt{https://doi.org/10.17605/osf.io/#1}{1
 \checkandfixthelayout[nearest]
 %%% End layout
 %% this fixes missing white spaces
-%\pdfmapline{+dummy-space <dummy-space.pfb}%
+%\pdfmapline{+dummy-space <dummy-space.pfb}
 \pdfinterwordspaceon%
 
 %%% Sectioning
@@ -450,11 +440,11 @@ Open Science Framework \texttt{doi:\urlalt{https://doi.org/10.17605/osf.io/#1}{1
 \bfseries}
 \posttitle{\bigskip\end{center}}
 
-\makeatletter\newcommand*{\atf}{\includegraphics[%trim=1pt 1pt 0pt 0pt,
-totalheight=\heightof{@}]{atblack.png}}\makeatother
+\makeatletter\newcommand*{\atf}{\includegraphics[totalheight=\heightof{@}]{atblack.png}}\makeatother
 \providecommand{\affiliation}[1]{\textsl{\textsf{\footnotesize #1}}}
 \providecommand{\epost}[1]{\texttt{\footnotesize\textless#1\textgreater}}
 \providecommand{\email}[2]{\href{mailto:#1ZZ@#2 ((remove ZZ))}{#1\protect\atf#2}}
+%\providecommand{\email}[2]{\href{mailto:#1@#2}{#1@#2}}
 
 \preauthor{\vspace{-0.5\baselineskip}\begin{center}
 \normalsize\sffamily%
@@ -505,9 +495,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % {\protect\centering ***\\%
 % \footnotesize\epost{\email{***}{***}}}%
 % \hspace*{\stretch{1}}%
-\parbox{0.75\linewidth}%\makebox[0pt][c]%
+\parbox{1\linewidth}%\makebox[0pt][c]%
 {\protect\centering P.G.L.  Porta Mana  \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}\\%
-\footnotesize Kavli Institute, Trondheim\quad\epost{\email{pgl}{portamana.org}}}%
+\footnotesize Western Norway University of Applied Sciences\quad\epost{\email{pgl}{portamana.org}}}%
 %% uncomment if additional authors present
 % \hspace*{\stretch{1}}%
 % \parbox{0.5\linewidth}%\makebox[0pt][c]%
@@ -549,7 +539,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
 \newcommand*{\nabl}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
-%\DeclareMathOperator{\tr}{tr}%trace
+\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
 %\DeclareMathOperator{\im}{Im}%im part
 %\DeclareMathOperator{\re}{Re}%re part
@@ -644,7 +634,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\sint}{\begingroup\textstyle\int\endgroup}
 %\newcommand*{\sland}{\mathop{\textstyle\bigwedge}}
 %\newcommand*{\slor}{\mathop{\textstyle\bigvee}}
-\newcommand*{\T}{^\intercal}%transpose
+\newcommand*{\T}{^\transp}%transpose
 %%\newcommand*{\QEM}%{\textnormal{$\Box$}}%{\ding{167}}
 %\newcommand*{\qem}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
 %\quad\hbox{\QEM}}
@@ -653,9 +643,10 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %%% Custom macros for this file @@@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \definecolor{notecolour}{RGB}{68,170,153}
-\newcommand*{\puzzle}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{225}}}
-%\newcommand*{\puzzle}{\maltese}
-\newcommand{\mynote}[1]{ {\color{notecolour}\puzzle\ #1}}
+% \newcommand*{\puzzle}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{225}}}
+% \newcommand{\mynote}[1]{ {\color{notecolour}\puzzle\ #1}}
+\newcommand*{\wrench}{{\fontencoding{U}\fontfamily{fontawesomethree}\selectfont\symbol{114}}}
+\newcommand{\mynote}[1]{ {\color{notecolour}\wrench\ #1}}
 \newcommand*{\widebar}[1]{{\mkern1.5mu\skew{2}\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}}
 
 % \newcommand{\explanation}[4][t]{%\setlength{\tabcolsep}{-1ex}
@@ -664,11 +655,18 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % \newcommand*{\ptext}[1]{\text{\small #1}}
 %\DeclareMathOperator*{\argsup}{arg\,sup}
 \newcommand*{\yr}{r}
-\newcommand*{\yrd}{\Dot{\yr}}
-\newcommand*{\yrdd}{\Ddot{\yr}}
+\newcommand*{\yrd}{\dot{\yr}}
+\newcommand*{\yrdd}{\ddot{\yr}}
 \newcommand*{\yno}{N}
 \newcommand*{\yt}{\theta}
+\newcommand*{\yV}{\upsilon}
+\newcommand*{\yVb}{\bar{\upsilon}}
+\newcommand*{\yVd}{\dot{\yVb}}
+\newcommand*{\yVdd}{\ddot{\yVb}}
+\newcommand*{\yub}{\bar{u}}
 \newcommand*{\yq}{\bm{q}}
+\newcommand*{\yqb}{\bar{q}}
+\newcommand*{\ywb}{\bar{w}}
 \newcommand*{\yv}{\bm{v}}
 \newcommand*{\yp}{\mathte{p}}
 \newcommand*{\yZ}{\varZeta}
@@ -679,9 +677,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yX}{\bm{X}}
 \newcommand*{\yD}{\mathte{L}}
 \newcommand*{\yc}{\bm{c}}
-\newcommand*{\ytb}{\Hat{\yt}}
-\newcommand*{\ypb}{\Hat{p}}
-\newcommand*{\ygb}{\widehat{\nabla\yt}}
+\newcommand*{\ytb}{\bar{\yt}}
+\newcommand*{\ypb}{\bar{p}}
+\newcommand*{\ygb}{\widebar{\nabla\yt}}
 
 
 %%% Custom macros end @@@
@@ -698,7 +696,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Abstract
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\abstractrunin
+\iffalse \abstractrunin
 \abslabeldelim{}
 \renewcommand*{\abstractname}{}
 \setlength{\absleftindent}{0pt}
@@ -714,6 +712,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % {\footnotesize MSC: ***}%
 %\qquad{\footnotesize Keywords: ***}
 \end{abstract}
+\fi
 \selectlanguage{british}\frenchspacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -737,21 +736,101 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %%% BEGINNING OF MAIN TEXT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Ideal gas in continuum thermomechanics and in thermostatics}
-\label{sec:idealgas_ct_ts}
+\section{Limitations of the ideal-gas model in graduate-physics teaching}
+\label{sec:limitations}
+
+The ideal gas of graduate-physics curricula, modelled with $(V,T)$ or
+equivalent states and the equation of state $pV=nRt$, targets simplified
+problems of (Gibbsian) thermostatics, involving comparisons of equilibria.
+Many students find difficulties when questions involving motion and rates
+of change are involved, for example \enquote{how long will it take for the
+  volume of the gas to change from $V_{0}$ to $V_{1}$?} (given particular
+conditions). Yet, experiments involving such changes can be readily thought
+and taught; for example the Assmann-R\"uchardt experiment
+\citep{assmann1852,ruechardt1929}, in which a massive piston closes a
+cylinder containing an ideal gas, and various questions can be asked about
+the motion of the piston and the changes in volume, pressure, temperature
+of the gas.
+
+Answers to such questions can for example be given \citep[See
+\eg][]{portamana2010_r2011} using the thermo\emph{dynamic} model with
+$(V,T)$ state as presented in \textcite[\sect~2.1 model A]{pekaretal2014}.
+But this kind of analysis has some interrelated singular points and
+limitations: \mynote{Make the following statements more precise; concrete
+  examples}
+\begin{enumerate}
+\item If we assume the piston to have negligible mass, some evolution
+  equations degenerate, and the gas shows infinitely fast responses
+\item There is no dissipation and no differences in pressure between compression and
+  expansion, as instead expected in irreversible processes.
+\end{enumerate}
+Owing to these peculiarities there's often an increased difficulty for the
+students to move to a continuum ideal gas later on.
+
+The limitations above are connected to the fact that, from a continuum
+point of view, the gas can be seen as always having uniform pressure and
+temperature, and negligible mass. \mynote{Make more precise.}
+
+\medskip
+
+It is possible to model the ideal gas in a slightly more realistic way,
+having these useful features:
+\begin{itemize}
+\item the state variables are still finite, so we don't need to use
+  continuum mechanics;
+\item the gas shows different pressures in compression and expansion,
+  viscosity and dissipation;
+\item dynamical questions can be asked even with massless pistons;
+\item it's possible to make clearer connections with the continuum model of
+  the gas, and in particular to the question of the boundary conditions
+  necessary to study an continuum model.
+\end{itemize}
+Such model is very similar to \emph{model~C} in \sect~2.1 of
+\textcite{pekaretal2014}. The state of the gas is determined by four
+quantities: volume $\yV$, rate of change of volume $\dot{\yV}$, temperature
+$\yt$ at the boundary, and temperature gradient $\nabl \yt$ at the boundary
+or equivalently heating flux $Q$ at the boundary \mynote{I must check
+  whether it's possible to replace the latter with $\dot{\yt}$.}
+
+This model can be introduced as a special class of solutions of the
+continuum equations. I start from there.
+
+\section{Special continuum solution}
+\label{sec:cont_solution}
+
+Some notation: constants are denoted by capital letters, spatially dependent
+quantities with lowercase letters, and quantities that depend only on time
+have an overbar.
 
 Let $n$ be the volumic amount of substance, $\yv$ the velocity, $\yp$ the
 (tensorial) pressure, $\yt$ the temperature, $u$ the molar internal energy,
-$\yq$ the heat flux. They are space-time-dependent fields. Also,
+$\yq$ the heat flux, and $N$ the total amount of substance in this body of
+gas. Also,
 \begin{equation}
   \label{eq:def_shear}
   \nabl\yv^{+}\defd \tfrac{1}{2}(\nabl\yv+\nabl\yv\T),
-  \quad
-  \nabl\yv^{\perp}\defd \nabl\yv^{+}-\tfrac{1}{3}\nabl\cdot\yv\; \id
+  \qquad
+  \nabl\yv^{\perp}\defd \nabl\yv^{+}-\tfrac{1}{3}\nabl\cdot\yv\; \id \ .
 \end{equation}
 
-In continuum thermomechanics an ideal gas is usually defined by the
-following constitutive equations:
+The independent fields, defining the state of the body, are taken to be
+$(n, \yv,\yt)$. Pressure, internal energy, heat flux are local functions of
+state. The fields satisfy the balance laws of matter, force, internal
+energy (the balance of torque is automatically satisfied owing to the
+symmetry of $\yp$):
+\begin{gather}
+  \label{eq:matter_bal}
+  \de_{t}n +\nabl\cdot(n\yv) = 0
+\\
+  \label{eq:force_bal}
+  M \; \de_{t}(n\yv) + M\; \nabl\cdot(n\yv\otimes\yv) + \nabl\cdot\yp = 0
+\\
+  \label{eq:energy_bal}
+  \de_{t} (n u) + \nabl\cdot(n u \yv)  + \nabl\cdot\yq + \tr(\yp\nabl\yv^{+}) = 0
+\end{gather}
+where $M$ is the molar mass.
+
+We define the continuum ideal gas by the following constitutive equations:
 \begin{gather}
   \label{eq:const_idealgas}
   \yq = -K\,\nabl\yt %- \kappa(n,\yte)\,\nab n
@@ -762,26 +841,12 @@ following constitutive equations:
   \\
  R, K, C, \yE, \yZ \ge 0
 \end{gather}
-$K$ is the thermal conductivity, $\yE$ the shear viscosity, $\yZ$ the
-bulk or volume viscosity.
+$K$ is the thermal conductivity, $\yE$ the shear viscosity, $\yZ$ the bulk
+or volume viscosity. The shear viscosity $\yE$ should depend on temperature
+\citep{sutherland1893}, but here we consider it constant for simplicity.
 % Equations for these are given \eg\ in Kannuluik
 % \amp\ Carman \citey{kannuluiketal1951}, Sutherland \citey{sutherland1893},
 % Cramer or Sharma \amp\ Kumar \citey{cramer2012,sharmaetal2019}.
-These are field equations. The independent fields, defining the state of
-the body, are taken to be $(n, \yv,\yt)$. Then pressure, internal energy,
-heat flux are local functions of state. The fields satisfy the balance laws
-of matter, force, internal energy:
-\begin{gather}
-  \label{eq:matter_bal}
-  \de_{t}n +\nabl\cdot(n\yv) = 0
-\\
-  \label{eq:force_bal}
-  M \; \de_{t}(n\yv) + M\; \nabl\cdot(n\yv\otimes\yv) + \nabl\cdot\yp = 0
-\\
-  \label{eq:energy_bal}
-  \de_{t} (n u) + \nabl\cdot(n u \yv)  + \nabl\cdot\yq + \yp\con\nabl\yv^{+} = 0
-\end{gather}
-where $M$ is the molar mass.
 
 The thermomechanic processes of the system are determined by the system of
 partial differential equations above together with appropriate initial and
@@ -789,6 +854,161 @@ boundary conditions. The latter, for example, may consist in the
 specification of the pressure and heat flux on the boundary of the body.
 
 \bigskip
+
+Let's now look for a specific class of solutions. Consider a coordinate
+system $(x,y,z)$ where the centre of mass of the gas is at rest with
+coordinate $x=0$, and assume that the fields have no $(y,z)$ dependence.
+The problem becomes one-dimensional. The gas can be imagined to be in a
+cylindrical container of given cross section $A$, within two pistons
+movable in the direction $x$. Let's identify the matter elements of the gas
+with the coordinate $X \in \clcl{-1, 1}$ in the reference configuration,
+the centre of mass being at $X=0$.
+
+We require the volumic amount of matter $n$ to be uniform at all times (so
+it's a constant). The balance of matter~\eqref{eq:matter_bal} then requires
+that the motion of a matter element of gas at the reference position $X$
+can only have a motion of the form
+\begin{equation}
+  \label{eq:simplified_affine_motion}
+  x(X,t) = \frac{1}{2A}\yVb(t) \, X \ .
+\end{equation}
+The boundary points of the body of gas -- that is, the positions of the two
+pistons -- are $x=\pm\frac{1}{2A}\yVb(t)$.
+
+
+It turns out that the class of motions~\eqref{eq:simplified_affine_motion}
+and the balance laws of force and energy lead to a parabolic spatial
+dependence of pressure, temperature, internal energy, and a linear spatial
+dependence of the heat flux. We are also assuming this parabolic spatial
+dependence to be symmetric with respect to the mass centre; this requires
+the pressures on the two pistons to be equal (to keep the mass centre at
+rest), and the heat fluxes at the two boundaries to be opposite and equal
+in magnitude. These last symmetric restrictions can be easily lifted,
+however.
+
+The solutions for the fields of velocity, matter density,  temperature, pressure
+internal energy, heat flux are found to be
+\begin{align}
+  \label{eq:v_motion}
+  v(x,t) &= \yVd\, \frac{x}{\yVb}
+\\
+\label{eq:n_motion}
+n(x,t) &= \frac{\yno}{\yVb}
+\\
+\label{eq:T_motion}
+  \yt(x,t) &= \ytb - \frac{1}{2} \frac{M}{R}\frac{\yVdd}{\yVb}\
+             \biggl(x^{2}-\frac{\yVb^{2}}{4A^{2}}\biggr)
+\\[\jot]
+\label{eq:p_motion}
+  p(x,t) &= NR \frac{\ytb}{\yVb} - \frac{2}{3}\yE \frac{\yVd}{\yVb}
+           - \frac{1}{2}MN\frac{\yVdd}{\yVb^{2}}\
+           \biggl(x^{2}-\frac{\yVb^{2}}{4A^{2}}\biggr)
+  \\[\jot]
+\label{eq:u_motion}
+  u(x,t) &= \yC N \frac{\ytb}{\yVb} -
+                           \frac{1}{2} \frac{\yC N M}{R}\frac{\yVdd}{\yVb^{2}}\
+             \biggl(x^{2}-\frac{\yVb^{2}}{4A^{2}}\biggr)
+  \\[\jot]
+\label{eq:q_motion}
+q(x,t) &= \frac{KM}{R} \frac{\yVdd}{\yVb}\ x
+\end{align}
+where the time dependence of the barred quantities $\ytb(t)$, $\yVb(t)$ has
+been omitted for brevity. $\ytb(t)$ is the temperature \emph{at the boundaries}.
+
+By integration we also find the \emph{average} pressure, total internal
+energy, heating, and work:
+\begin{align}
+  \label{eq:p_motion_avg}
+  \ypb_{\text{average}}(t) &= NR \frac{\ytb}{\yVb}
+                          - \frac{2}{3}\yE \frac{\yVd}{\yVb}
+                          +\frac{MN}{12 A^{2}} \yVdd
+  \\[\jot]
+\label{eq:u_motion_tot}
+  \yub_{\text{total}}(t) &= \yC N \ytb +
+                           \frac{1}{3}\frac{\yC MN}{4RA^{2}} \yVb\yVdd
+  \\
+\label{eq:q_motion_tot}
+\yqb_{\text{total}}(t) &= \frac{KM}{R} \yVdd
+  \\
+\label{eq:work_tot}
+  \ywb_{\text{total}} &=
+  \yVd \ \ypb_{\text{average}}
+\end{align}
+
+We see that in this specific class of solutions the state of the ideal gas
+at time $t$ is completely determined by the variables
+$(\ytb,\yVb,\yVd,\yVdd)$, similarly to model model~C of
+\citeauthor{pekaretal2014}. It is possible to associate to this model the
+average pressure $\ypb_{\text{average}}$ above, which is given by an
+equation of state. Such a pressure shows different values at equilibrium
+($\yVdd=\yVd=0$) and during compression or expansion, leading to
+dissipation.
+
+A result at variance with model~C is that the total energy does depend on
+the state variable $\yVdd$, whereas it is found in
+\citeauthor{pekaretal2014} that it shouldn't have such
+dependence. \mynote{this can be a computation error on my part. All thee
+  calculations have to be rechecked. Also, the equation of balance for the
+  energy hasn't been used yet.}
+
+
+\bigskip
+
+The point of the calculations above is to see whether a connection could be
+made between one of the higher-order models in \citeauthor{pekaretal2014}
+and a special state of a continuum ideal gas – just like model~A can be
+interpreted, in one specific case, as describing a continuum ideal gas in a
+uniform state.
+
+As already mentioned, I believe that such an association could be
+pedagogically useful, allowing thermodynamics students to study a
+finite-dimensional system showing dissipation and irreversibility, and at
+the same time showing them a first connection with its continuum description.
+
+
+\iffalse
+The same symmetry holds for the parabolic
+spatial dependence of the temperature if the heating flux at the boundary
+is also assumed constant with respect to the surface normal.
+
+In the following we shall assume that the body is in a cylindrical
+container of given cross section, within movable pistons in the direction
+$x$, and mass centre at rest at $\yx = 0$. The
+motion~\eqref{eq:affine_motion} can be simplified to
+\begin{equation}
+  \label{eq:simplified_affine_motion}
+  x(X,t) = \yr(t) \, X, \qquad X \in \clcl{-1, 1}
+\end{equation}
+with the $y$ and $z$ coordinates remaining constant. This motion requires
+the pressures on the two pistons, at positions $\yr$ and $-\yr$, to be
+equal (to keep the mass centre at rest). We also require that the heat
+fluxes at the two pistons be equal in magnitude and opposite.
+
+
+
+
+
+the motionhave an affine dependence on $x$. In the
+material description we have
+
+
+and mass centre at rest at $\yx = 0$. The
+motion~\eqref{eq:affine_motion} can be simplified to
+\begin{equation}
+  \label{eq:simplified_affine_motion}
+  x(X,t) = \yr(t) \, X, \qquad X \in \clcl{-1, 1}
+\end{equation}
+
+
+
+then the body can only undergo affine motions, that is, motions of the form
+\begin{equation}
+  \label{eq:affine_motion}
+  \yx(\yX,t) = \yD(t)\,\yX + \yc(t) \;,
+\end{equation}
+where $\yX$ are its points in a reference configuration.
+
+
 
 In introductory thermostatics courses the ideal gas is usually intended in
 a much more restrictive way: a body for which matter density, temperature,
@@ -918,8 +1138,20 @@ $\yrd(t)$, $\ytb(t)$, $\ygb(t)$
 \end{equation}
 
 
-
 \textcolor{white}{If you find this you can claim a postcard from me.}
+\fi
+
+%%\setlength{\intextsep}{0ex}% with wrapfigure
+%%\setlength{\columnsep}{0ex}% with wrapfigure
+\begin{center}%[h!]% with figure
+%\begin{wrapfigure}{r}{0.4\linewidth} % with wrapfigure
+\centering\includegraphics[width=\linewidth]{idealgas2_IMG_20200725_114540.jpg}\\
+%\caption{caption}\label{fig:comparison_a5}
+(Preliminary calculations)
+\end{center}%
+
+
+
 
 
 
@@ -946,10 +1178,10 @@ $\yrd(t)$, $\ytb(t)$, $\ygb(t)$
 
 % \[
 %   \begin{tikzcd}
-%       M_{n,n}(\CC) \arrow{r}{R'_{a}(\Hat{U})} & M_{n,n}(\CC)
+%       M_{n,n}(\CC) \arrow{r}{R'_{a}(\hat{U})} & M_{n,n}(\CC)
 %     \\
-%     L(\mathcal{H}) \arrow{r}{\Hat{U}} \arrow[swap]{d}{R_*}\arrow[swap]{u}{R'_*} & L(\mathcal{H}) \arrow{d}{R_*}\arrow{u}{R'_*} \\
-%       M_{n,n}(\CC) \arrow{r}{R_{a}(\Hat{U})} & M_{n,n}(\CC)
+%     L(\mathcal{H}) \arrow{r}{\hat{U}} \arrow[swap]{d}{R_*}\arrow[swap]{u}{R'_*} & L(\mathcal{H}) \arrow{d}{R_*}\arrow{u}{R'_*} \\
+%       M_{n,n}(\CC) \arrow{r}{R_{a}(\hat{U})} & M_{n,n}(\CC)
 %   \end{tikzcd}
 % \]
 

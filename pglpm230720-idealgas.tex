@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2020-07-12T16:31:50+0200
-%% Last-Updated: 2020-12-22T17:30:09+0100
+%% Last-Updated: 2020-12-22T23:45:34+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -25,7 +25,7 @@ british%
 \newcommand*{\headtitle}{\enquote{Affine} ideal gas}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
-\newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
+\newcommand*{\reporthead}{\iffalse\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Calls to packages (uncomment as needed)
@@ -905,8 +905,8 @@ n(x,t) &= \frac{\yno}{\yVb}
            \biggl(x^{2}-\frac{\yVb^{2}}{4A^{2}}\biggr)
   \\[\jot]
 \label{eq:u_motion}
-  u(x,t) &= \yC N \frac{\ytb}{\yVb} -
-                           \frac{1}{2} \frac{\yC N M}{R}\frac{\yVdd}{\yVb^{2}}\
+  u(x,t) &= \yC \ytb -
+                           \frac{1}{2} \frac{\yC M}{R}\frac{\yVdd}{\yVb}\
              \biggl(x^{2}-\frac{\yVb^{2}}{4A^{2}}\biggr)
   \\[\jot]
 \label{eq:q_motion}
@@ -916,7 +916,8 @@ where the time dependence of the barred quantities $\ytb(t)$, $\yVb(t)$ has
 been omitted for brevity. $\ytb(t)$ is the temperature \emph{at the boundaries}.
 
 By integration we also find the \emph{average} pressure, total internal
-energy, heating, and work:
+energy, heating, and work (found integrating the $\tr(\yp\nabl\yv^{+})$
+term):
 \begin{align}
   \label{eq:p_motion_avg}
   \ypb_{\text{average}}(t) &= NR \frac{\ytb}{\yVb}
@@ -946,10 +947,12 @@ dissipation.
 
 A result at variance with model~C is that the total energy does depend on
 the state variable $\yVdd$, whereas it is found in
-\citeauthor{pekaretal2014} that it shouldn't have such
-dependence. \mynote{this can be a computation error on my part. All thee
-  calculations have to be rechecked. Also, the equation of balance for the
-  energy hasn't been used yet.}
+\citeauthor{pekaretal2014} that it shouldn't have such dependence.
+\mynote{this can be a computation error on my part. All these calculations
+  have to be rechecked. Also, the equation of balance for the energy hasn't
+  been used yet. It's possible that with some change in the equations above
+  and using the balance of energy, the variable $\yVdd$ might be replaced by
+  $\dot{\ytb}$.}
 
 
 \bigskip
@@ -1147,7 +1150,7 @@ $\yrd(t)$, $\ytb(t)$, $\ygb(t)$
 %\begin{wrapfigure}{r}{0.4\linewidth} % with wrapfigure
 \centering\includegraphics[width=\linewidth]{idealgas2_IMG_20200725_114540.jpg}\\
 %\caption{caption}\label{fig:comparison_a5}
-(Preliminary calculations)
+(Some old calculations before I left Trondheim)
 \end{center}%
 
 

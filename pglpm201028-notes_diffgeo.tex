@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2020-11-17T20:28:48+0100
+%% Last-Updated: 2021-06-02T08:06:39+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -19,7 +19,7 @@ british%
 \newcommand*{\firstdraft}{28 October 2020}
 \newcommand*{\firstpublished}{\firstdraft}
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
-\newcommand*{\propertitle}{Notes on multivector algebra on differential manifolds%\\{\large ***}%
+\newcommand*{\propertitle}{Notes on multivector algebra\\ on differential manifolds%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{\propertitle}
 \newcommand*{\headtitle}{multivector algebra}
@@ -94,6 +94,8 @@ british%
 \usepackage{amssymb}
 
 \usepackage{amsxtra}
+
+\usepackage{tensor}
 
 \usepackage[main=british]{babel}\selectlanguage{british}
 %\newcommand*{\langnohyph}{\foreignlanguage{nohyphenation}}
@@ -457,7 +459,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \providecommand{\email}[2]{\href{mailto:#1ZZ@#2 ((remove ZZ))}{#1\protect\atf#2}}
 %\providecommand{\email}[2]{\href{mailto:#1@#2}{#1@#2}}
 
-\preauthor{\vspace{-0.5\baselineskip}\begin{center}
+\preauthor{\vspace{-0\baselineskip}\begin{center}
 \normalsize\sffamily%
 \lineskip  0.5em}
 \postauthor{\par\end{center}}
@@ -671,6 +673,34 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\ts}[1][txyz]{\underset{#1}{1}}
 \newcommand*{\dob}{degree of belief}
 \newcommand*{\dobs}{degrees of belief}
+\newcommand*{\hx}{\hat{x}}
+\newcommand*{\lx}{\bar{x}}
+% from https://tex.stackexchange.com/a/424252/97039
+\makeatletter
+\newcommand*{\q}{}% Check if undefined
+\DeclareRobustCommand*{\q}{%
+  \mathord{\mathpalette\bigcdot@{}}% changed mathbin to mathord
+}
+\newcommand*{\bigcdot@scalefactor}{0.7}
+\newcommand*{\bigcdot@widthfactor}{1.5}
+\newcommand*{\bigcdot@}[2]{%
+  % #1: math style
+  % #2: unused
+  \sbox0{$#1\vcenter{}$}% math axis
+  \sbox2{$#1\cdot\m@th$}%
+  \hbox to \bigcdot@widthfactor\wd2{%
+    \hfil
+    \raise\ht0\hbox{%
+      \scalebox{\bigcdot@scalefactor}{%
+        \lower\ht0\hbox{$#1\bullet\m@th$}%
+      }%
+    }%
+    \hfil
+  }%
+}
+\makeatother
+\renewcommand*{\i}{\indices}
+\newcommand*{\mino}[2][]{\overset{#1}{#2}}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -763,6 +793,158 @@ but relations with different multiplicative factors are also possible.
 
 It's best to define the exterior product intrinsically, with its
 multilinear, associative, and graded-commutative properties.
+
+
+
+\section{Transformation of components of multi-vectors and -covectors under
+  changes of coordinate}
+\label{sec:comp_transf}
+
+In the following, square brackets $[\dotso]$ will always only indicate a matrix,
+including row- or column-matrices. They will not be used to delimit
+function arguments or for grouping, to avoid confusion.
+
+\bigskip
+
+Consider coordinate systems $\lx^{a}$ and $\hx^{a}$ on an $(N-1)$-dimensional
+manifold. The tangent map from the first to the second chart domain is
+$\bm{M} = (M\i{^{a}_{b}}) \defd \Bigl(\frac{\de \hx^{a}}{\de \lx^{b}}\Bigr)$,
+so that, in matrix notation,
+\begin{align}
+  \label{eq:base_coord_vec_tr}
+  [\de_{\lx^{a}}] &=  [\de_{\hx^{b}}]\ \bm{M}
+  &
+    [\de_{\hx^{a}}] &= [\de_{\lx_{b}}]\ \bm{M}^{-1}
+  \\
+  \label{eq:base_coord_covec_tr}
+  [\di \lx^{a}] &= \bm{M}^{-1}\ [\di\hx^{b}]
+  &
+    [\di\hx^{a}] &= \bm{M}\ [\di \lx^{b}]
+\end{align}
+with the convention that every collection of objects (vectors or
+components) with lower indices is to be considered as a row matrix; and
+with upper indices, as a column matrix.
+
+The components $\bar{v}^{a}$ and $\hat{v}^{a}$ of a vector $\bm{v}$, and the
+components $\bar{\omega}_{a}$ and $\hat{\omega}_{a}$ of a covector $\bm{\omega}$
+in the two coordinate systems are related by
+\begin{align}
+  \label{eq:comp_vec_tr}
+  [\hat{v}^{a}] &= \bm{M}\ [\bar{v}^{b}]
+  &
+    [\bar{v}^{a}] &= \bm{M}^{-1}\ [\hat{v}^{b}]
+  \\
+  \label{eq:comp_covec_tr}
+  [\hat{\omega}_{a}] &= [\bar{\omega}_{b}]\ \bm{M}^{-1}
+  &
+    [\bar{\omega}_{a}] &= [\hat{\omega}_{b}]\ \bm{M}
+\end{align}
+These equations follow from the fact that, with the matrix-notation
+convention above,
+\begin{equation}
+  \label{eq:matrix_comps}
+  \bm{v} = [\de_{\hx^{a}}]\ [\hat{v}^{a}] = [\de_{\lx^{a}}]\ [\bar{v}^{a}]
+  \ ,
+  \qquad
+  \bm{\omega} = [\hat{\omega}_{a}]\ [\di\hx^{a}] = [\bar{\omega}_{a}]\
+  [\di\lx^{a}]
+  \ .
+\end{equation}
+
+\bigskip
+
+Now consider the volume elements in the two coordinate systems, let us
+denote them $\bar{\bm{\tau}} \defd \bigwedge_{i} \di \lx^{i}$ and $\hat{\bm{\tau}}
+\defd \bigwedge_{i} \di \hx^{i}$. They are related by
+\begin{equation}
+  \label{eq:base_coord_vol_tr}
+  \hat{\bm{\tau}} = \det(\bm{M})\ \bar{\bm{\tau}} \ .
+\end{equation}
+
+The components $\bar{q}$, $\hat{q}$ of an $N$-form in the two coordinate system, in
+terms of the corresponding (degenerate) bases of $N$-forms, are therefore
+related by
+\begin{equation}
+  \label{eq:comp_vol_tr}
+  \bar{q} = \hat{q}\ \det(\bm{M}) \ .
+\end{equation}
+This can be understood as a multiplication of $\hat{q}$ by a 1-by-1 matrix, namely
+the (only) \emph{minor} \citep[\sect~0.7.1]{hornetal1985_r2013} of order
+$N$ of $\bm{M}$. Let us generalize this.
+
+\bigskip
+
+Let $I$ and $J$ denote ordered, non-repeated multi-indices, for example
+$I= (0,2,3)$. Denote by
+\begin{gather}
+  \label{eq:minor_det}
+  \mino[r]{\bm{M}} \defd
+  \text{matrix of minors of $\bm{M}$ of order $r$}
+  \\
+  \label{eq:comp_minor_det}
+ \mino{M}\i{^{I}_{J}} \defd
+  \text{minor of $\bm{M}$ obtained keeping rows $I$ and columns $J$}
+\end{gather}
+Note in particular that $\mino[1]{\bm{M}} = \bm{M}$ and
+$\mino[N]{\bm{M}}=M\i{^{0\dotso N}_{0\dotso N}} = \det(\bm{M})$.
+
+Also denote, for a multi-index $I = (I_{1}, \dotsc, I_{r})$ of order r,
+\begin{equation}
+  \label{eq:bases_cov_multitind}
+  \di\lx^{I} \defd \di\lx^{I_{1}} \land \dotsb \land \di\lx^{I_{r}}
+\end{equation}
+and similarly for the basis elements of multivectors.
+
+
+\bigskip
+
+
+
+Now consider an $r$-covector $\omega$. It can be written in terms of the bases
+of $r$-covectors in the two coordinate systems:
+\begin{align}
+  \label{eq:2omega_bases}
+  \omega = \bar{\omega}_{I}\ \di \lx^{I} = \hat{\omega}_{I}\ \di\hx^{I} \ ,
+  \qquad\text{\small with $I$ ranging over multiindices of order $r$}
+\end{align}
+Then the components are related by the following formula:
+\begin{equation}
+  \label{eq:components_multicov_transf}
+  \hat{\omega}_{I} = \det\nolimits\i{^{J}_{I}}(\bm{M})\ \bar{\omega}_{J}
+\end{equation}
+
+Let us see a concrete example of why this is true, on a 4-dimensional
+manifold. Consider the component $\bar{\omega}_{0\,1}$ of a 2-form:
+\begin{multline}
+  \label{eq:coord_2form_01}
+  \bar{\omega}_{0\,1}\ \di\lx^{0} \land \di\lx^{1} =
+  \bar{\omega}_{0\,1}\
+  (M\i{^{0}_{i}}\ \di\hx^{i}) \land (M\i{^{1}_{j}}\ \di\hx^{j})={}\\
+  \bar{\omega}_{0\,1}\ 
+  \begin{aligned}[t]
+  \bigl[&(M\i{^{0}_{0}}\ M\i{^{1}_{1}} - M\i{^{1}_{0}}\ M\i{^{0}_{1}})\
+  \di\hx^{0\,1} +{}\\
+  &(M\i{^{0}_{0}}\ M\i{^{1}_{2}} - M\i{^{1}_{0}}\ M\i{^{0}_{2}})\
+  \di\hx^{0\,2} +{}\\
+  &(M\i{^{0}_{0}}\ M\i{^{1}_{3}} - M\i{^{1}_{0}}\ M\i{^{0}_{3}})\
+  \di\hx^{0\,3} +{}\\
+  &(M\i{^{0}_{1}}\ M\i{^{1}_{2}} - M\i{^{1}_{1}}\ M\i{^{0}_{2}})\
+  \di\hx^{1\,2} +{}\\
+  &(M\i{^{0}_{1}}\ M\i{^{1}_{3}} - M\i{^{1}_{1}}\ M\i{^{0}_{3}})\
+  \di\hx^{1\,3} +{}\\
+  &(M\i{^{0}_{2}}\ M\i{^{1}_{3}} - M\i{^{1}_{2}}\ M\i{^{0}_{3}})\
+  \di\hx^{2\,3} \bigr] = {}
+\end{aligned}\\
+\bar{\omega}_{0\,1}\ \det\nolimits\i{^{0\,1}_{I}}(\bm{M})\ \di\hx^{I}
+\end{multline}
+Analogous results can be obtained for all remaining components, and summing
+them we find
+\begin{equation}
+  \label{eq:components_multicov_transf_example2}
+  \bar{\omega}_{J}\ \di\lx^{J} =
+  \bar{\omega}_{J}\ \det\nolimits\i{^{J}_{I}}(\bm{M})\ \di\hx^{I}
+\end{equation}
+
 
 \section{Inner or dual or dot product}
 \label{sec:inner_product}
@@ -1248,7 +1430,7 @@ It satisfies
 
 $\ts$
 
-
+$$a \land b$$
 
 % \clearpage
 

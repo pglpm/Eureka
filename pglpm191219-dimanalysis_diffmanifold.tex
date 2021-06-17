@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2020-11-20T15:11:36+0100
+%% Last-Updated: 2021-05-23T14:15:00+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -18,7 +18,7 @@ british%
 ]{memoir}
 \newcommand*{\firstdraft}{13 December 2019}%not used
 \newcommand*{\firstpublished}{13 December 2019}
-\newcommand*{\updated}{\ifarxiv 16 November 2020\else\today\fi}
+\newcommand*{\updated}{\ifarxiv 20 May 2021\else\today\fi}
 \newcommand*{\propertitle}{Dimensional analysis in relativity\\ and in differential geometry%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{Dimensional analysis in relativity and in differential geometry}
@@ -2155,9 +2155,9 @@ for a 2-covector $\omega \equiv \omega\i{_{\mul{\q\q}}}$
 \end{equation}
 with $\yg^{-1}$ appearing twice in this specific case. From the general
 definition it's clear that the star operator's effect on the dimension
-depends on the degree of the form it operates on \citep[I personally prefer
-to avoid the star operator and to explicitly use the inner product with the
-proper volume element; \cf][\sects~4.1--2]{bossavit1991}.
+depends on the degree of the form it operates on. I personally prefer to
+avoid the star operator and to explicitly use the inner product with the
+proper volume element \citep[\cf][\sects~4.1--2]{bossavit1991}.
 
 
 % \medskip
@@ -2360,15 +2360,16 @@ type through a heuristic approach, which will also show the usefulness of
 intrinsic dimensional analysis on differential manifolds.
 
 The stress-energy-momentum tensor for a material continuum at a spacetime
-event embodies the energy density (comprising rest energy, internal energy,
-kinetic energy) $\en$, surface energy-flux density $\yq_{r}$ (comprising
-convected energy density and heating), momentum density $\yp_{r}$, and
-stress (considered as compressive rather than tensile, and including
-convected momentum density) $\yt_{sr}$ of the material at that event. Here
-the vertical position of the indices $r,s \in \set{x,y,z}$ does \emph{not}
-denote any variance type. These quantities are measured by an inertial
-observer at that event, using a system of one timelike and three spacelike
-coordinates $(t,x,y,z)$. If these coordinates have dimensions
+event embodies the volumic energy (comprising internal, kinetic, and rest
+energy) $\en$, areic energy flux $\yq_{r}$ (comprising convected volumic
+energy and heating), volumic momentum $\yp_{r}$, and stress $\yt_{sr}$
+(considered as compressive rather than tensile, and including convected
+volumic momentum) of the material at that event.\citep[For the
+\enquote{volumic} and \enquote{areic} terminology see][\sect~A.6]{iso2009}
+Here the vertical position of the indices $r,s \in \set{x,y,z}$ does
+\emph{not} denote any variance type. These quantities are measured by an
+inertial observer at that event, using a system of one timelike and three
+spacelike coordinates $(t,x,y,z)$. If these coordinates have dimensions
 $(\Ti,\Le,\Le,\Le)$, then the dimensions of the quantities are
 \begin{equation}\label{eq:dims_stress_components}
   \begin{aligned}
@@ -2386,10 +2387,10 @@ $(\Ti,\Le,\Le,\Le)$, then the dimensions of the quantities are
 
 Suppose we want to construct a tensor $\yT$ having these 16 independent
 quantities as components. What should its variance type and its intrinsic
-dimension be? (I'm not assuming the symmetry of this tensor as an a-priori
-kinematic property, leaving it as a dynamical law enforced by the Einstein
-equations; in fact this symmetry only needs to hold for the sum of the
-stress-energy-momentum tensors from all kinds of matter.)
+dimension be? I am not assuming the symmetry of this tensor as an a-priori
+kinematic property, leaving it instead as a dynamical law enforced by the
+Einstein equations; in fact this symmetry only needs to hold for the sum of
+the stress-energy-momentum tensors from all kinds of matter.
 
 Since we have 16 components, this tensor should belong to the tensor
 product of two tangent spaces, each spanned by four basis elements. There
@@ -2421,11 +2422,11 @@ where the orderings are chosen to minimize the minus signs appearing from
 inner products with a volume element. There are therefore $4 \times 4$
 possible tensor-product spaces, each constructed by the product of two of
 the four spaces above; % , in all possible combinations;
-and thus sixteen possible alternatives to represent our stress-energy-momentum
-tensor. Energy density is intuitively associated with the purely timelike
-component of this tensor, stress with the purely spacelike components, and
-surface energy-flux density and momentum density with the mixed
-timelike-spacelike components.
+and thus sixteen possible alternatives to represent our
+stress-energy-momentum tensor. Volumic energy is intuitively associated
+with the purely timelike component of this tensor, stress with the purely
+spacelike components, and areic energy flux and volumic momentum with the
+mixed timelike-spacelike components.
 
 Consider the following first alternative, obtained from the tensor product
 of the space~\eqref{eq:base_vec} with itself; omit $y$- and $z$-terms for
@@ -2515,11 +2516,10 @@ least -- to keep dimensions well distinct.
 To further restrict the possibilities let's consider three additional and
 interrelated heuristic arguments.
 
-First, the notions of energy and momentum density, surface energy-flux
-density, and stress imply some kind of integration over three-dimensional
-spacelike or timelike regions. Such integration needs a 3-form and thus
-excludes alternatives~\eqref{eq:T_co_contra} and
-\eqref{eq:T_contra3_contra}.
+First, the notions of volumic energy and momentum, areic energy flux, and
+stress imply some kind of integration over three-dimensional spacelike or
+timelike regions. Such integration needs a 3-form and thus excludes
+alternatives~\eqref{eq:T_co_contra} and \eqref{eq:T_contra3_contra}.
 
 Second, the total energy measured within a \emph{topologically} specified
 three-dimensional spatial region of an observer's orthogonal hyperplane is
@@ -2529,23 +2529,33 @@ intervals. % (just like
 % charge, although the latter is also independent of the observer's
 % motion). 
 % \citep[\cf][\sect~4.28]{landauetal1939_t1996}
-The energy \emph{density} therefore \emph{does} depend on the extent of the
+The \emph{volumic} energy therefore \emph{does} depend on the extent of the
 region and must change accordingly. Similar arguments hold for the surface
 energy flux. Only the second tensor alternative~\eqref{eq:T_co_co3} above
 is consistent with these requirements.
 
-This extent-scaling argument comes a caveat: it doesn't quite work for the
-momentum-density part $\yp_{x}\ \di x\otimes\dixyz$ interpreted as a mass
-flux $\Ma\Le^{-2}\Ti^{-1}$: the $\Le^{-2}$ scaling in the component
-$\yp_{x}$ and the $\Le^{4}$ scaling in the corresponding basis element
-$\di x\otimes\dixyz$ don't match. They do match, however, if we interpret
-the momentum-density part in terms of energy or action:
-$\Ma\Le^{-2}\Ti^{-1}=\En\Ti\Le^{-4}$. A similar situation occurs for the
-stress part. Yet, it's worth noting that this kind of scaling mismatch also
-occurs, even for more components, in all other fifteen alternatives for the
+This extent-scaling argument also suggests that the volumic-momentum part
+$\yp_{x}\ \di x\otimes\dixyz$ should not be interpreted as an areic mass
+flux $\Ma\Le^{-2}\Ti^{-1}$, that is, as something that needs to be
+integrated over a surface: the basis element $\di x\otimes\dixyz$ indicates
+that integration should happen over a volume instead: % We
+% are thus forced to interpret the momentum-density part in terms of an
+% \emph{action} density per length instead:
+$\dim(\yp_{r}) = (\Ma\Le\Ti^{-1})\ \Le^{-3}$.
+% the $\Le^{-2}$ scaling in the component
+% $\yp_{x}$ and the $\Le^{4}$ scaling in the corresponding basis element
+% $\di x\otimes\dixyz$ don't match. They do match, however, if we interpret
+% the momentum-density part in terms of energy or action:
+% $\Ma\Le^{-2}\Ti^{-1}=\En\Ti\Le^{-4}$.
+A similar situation occurs for the stress part, which should be interpreted
+as an areic momentum flux:
+$\dim(\yt_{rs}) = (\Ma\Le\Ti^{-1})\ \Le^{-2}\Ti^{-1}$. It is worth noting
+that scaling reinterpretations of this kind occur, even for more
+components, in all other fifteen alternatives for the
 stress-energy-momentum tensor. Intrinsic dimensional analysis alone thus
-suggests connections between mass and energy, and seems to give the latter
-quantity a more fundamental status.
+suggests that there is a differences between mass flux and
+momentum.% , energy, action, and seems to give the latter quantity a more
+% fundamental status.
 
 Third, the value of the energy density should not change under a change in
 the orientation of the spacelike coordinates. The 3-covector slot in
@@ -2581,21 +2591,19 @@ twisted orientation. This tensor has the dimension of an \emph{action}:
     \label{eq:final_dim_T}
   \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
 \end{equation}
-
-\medskip
-
 This result agrees with the stress-energy-momentum tensor that appears for
 example in Einstein's original work \citep[\sect~C.9, discussion before
-\eqn~(42a)]{einstein1914b} and other early works
-\citep[\eg][\sect~IV.54]{pauli1921_t1958}[\sect~13]{cartan1923}[\sect~7]{brillouin1924};
-in Truesdell \amp\ Toupin \citep[\sect~F.IV.288]{truesdelletal1960}, who
-try to find an expression universally valid in Newtonian, Lorentzian, and
-general-relativistic mechanics; and in more recent works
-\citep[\sect~VIII.3]{fokker1960_t1965}[\chap~14 Exercise~14.18, \chap~15,
+\eqn~(42a)]{einstein1914b}, other early works
+\citep[\eg][\sect~IV.54]{pauli1921_t1958}[\sect~13]{cartan1923}[\sect~7]{brillouin1924},
+and more recent works \citep[\sect~VIII.3]{fokker1960_t1965}[\chap~14
+Exercise~14.18, \chap~15,
 \sect~21.3]{misneretal1970_r1973}{hehletal1986,gotayetal1992,gronwaldetal1997,castrillonlopezetal2008,castrillonlopezetal2009}[see
 also][for similar conclusions in general manifolds and in Newtonian
-mechanics]{segevetal1999,kansoetal2007}. The commonly encountered versions
-of this tensor with only two slots are discussed below.
+mechanics]{segevetal1999,kansoetal2007}; and also in Truesdell \amp\ Toupin
+\citep[\sect~F.IV.288]{truesdelletal1960}, who try to find an expression
+universally valid in Newtonian, Lorentzian, and general-relativistic
+mechanics. The commonly encountered versions of this tensor with only two
+slots are discussed below.
 % \citep[\enquote{$^{\displaystyle *}\mathte{T}$}]
 Note that some of these works use a once covariant and once contravariant
 \enquote{V(olume)-tensor} or \enquote{tensor density}, which has variance
@@ -2608,6 +2616,16 @@ chose a calligraphic letter to denote this tensor). % They are related by
 % arbitrary non-vanishing 4-form; this last object has only one independent
 % component, which transforms as the scalar $1$.
 
+The signs of the components of $\yT$ depend on the signature of the metric
+$\yg$. If the latter has signature $(-,+,+,+)$, then the energy components
+have negative sign, as in \eqn~\eqref{eq:T_co_co3}. If the metric has
+opposite sign, that is, signature $(+,-,-,-)$, then $\yT$ has opposite sign
+to \eqn~\eqref{eq:T_co_co3} as well, and its momentum components are
+negative instead.
+
+
+\medskip
+
 The literature cited above arrive at this kind of stress-energy-momentum
 tensor through inductive generalization, often via electromagnetic theory,
 of the stress tensor of Newtonian mechanics; or from principles of virtual
@@ -2615,7 +2633,8 @@ work; or from variational principles with an action Lagrangean \citep[\cf\
 also][]{hilbert1915,hilbert1917}[\sect~3.3]{hawkingetal1973_r1994}, from
 which it easily follows that this tensor should have the intrinsic
 dimension of an action; or from combinations of these approaches. The
-operational meaning of this tensor is therefore still unclear.
+operational meaning of this tensor is therefore still unclear in my
+opinion.
 
 In the presence of a metric tensor we can of course obtain
 stress-energy-momentum tensors of different variance types by means of
@@ -2625,8 +2644,8 @@ and primitive variance type of this tensor are important, for example, in
 field theories not based on a metric, or for the formulation of
 constitutive equations
 \citep[\cf][\chap~G]{truesdelletal1960}{marsdenetal1983b_r1994,gotayetal1992}.
-Extensive investigations were recently made by Gotay \etal\
-\citep{gotayetal1998,gotayetal2004,gotayetal2006}, and by Segev
+Extensive investigations were made by Gotay \etal\
+\citep{gotayetal1998,gotayetal2004,gotayetal2006}; and by Segev
 \citep{segev2002}[see also][]{segev2000b}, who interprets the
 stress-energy-momentum tensor as a linear map from the four-dimensional
 flux of a conserved quantity, such as charge or baryonic number, to that of
@@ -2649,7 +2668,7 @@ volume element to obtain alternative variance types.
 
 Some authors
 \citep[\eg][\sect~V.55]{fock1955_t1964}[\sect~4.1]{mcvittie1956_r1965}[\sect~10.1]{adleretal1965_r1975}
-think about the stress-energy-momentum tensor in terms of mass rather than
+conceive the stress-energy-momentum tensor in terms of mass rather than
 energy (Fock \citep[\sect~II.31]{fock1955_t1964} calls it the \enquote{mass
   tensor}), and therefore assign to its covector-valued 3-covector form
 $\yT\i{_{\q \mul{\q\q\q}}}$ the dimension of mass-time, that is, an action
@@ -2679,16 +2698,8 @@ $\dim(\yT)=\Ma\Ti$ is used by McVittie
 \citep[\chaps~II--III; he seems to shift to natural units at some
 point]{kilmister1973}. Most other works use $\dim(\yg)=\Le^{2}$ and
 $\dim(\yT)=\En\Ti$. These combinations lead to three possible values for
-Einstein's constant, as we'll see in the next section.
+Einstein's constant, discussed in the next section.
 
-\medskip
-
-The signs of the components of $\yT$ depend on the signature of the metric
-$\yg$. If the latter has signature $(-,+,+,+)$, then the energy components
-have negative sign, as in \eqn~\eqref{eq:T_co_co3}. If the metric has
-opposite sign, that is, signature $(+,-,-,-)$, then $\yT$ has opposite sign
-to \eqn~\eqref{eq:T_co_co3} as well, and its momentum components are
-negative instead.
 
 \medskip
 
@@ -2746,6 +2757,35 @@ All three possibilities, which differ by factors $c^{2}$, appear in the
 literature: see the works cited after \eqn~\eqref{eq:final_dim_T}
 concerning the combinations of dimensions for metric and
 stress-energy-momentum.
+
+It may be useful to write the coordinate expressions of the tensors
+$\yTe\i{_{\q\q}}$ and $\yTe\i{^{\q\q}}$ obtained from
+$\yT\i{_{\q\mul{\q\q\q}}}$ of \eqn~\eqref{eq:T_co_co3}, in the common case
+with $\dim(\yg)\defd \Le^2$, $\dim(\yT)\defd \En\Ti$, and coordinate system
+with diagonal metric
+$\yg = \pm(-c^{2} \di t \otimes \di t + \di x \otimes \di x + \dotsb)$,
+commonly encountered in the literature:
+\begin{align}
+      \mbox{}\hspace{-1ex}\yTe\i{_{\q\q}} &=
+      c^{2}\en\  \di t\otimes\di t 
+      -\yq_{x}\  \di t\otimes\di x
+      -c^{2}\yp_{x}\  \di x\otimes\di t 
+                        +\yt_{x x}\  \di x\otimes\di x + \dotsb
+  \label{eq:common_T_coco}
+  \\
+      \mbox{}\hspace{-1ex}\yTe\i{^{\q\q}} &=
+      \frac{1}{c^{2}}\en\  \de_{t}\otimes\de_{t} 
+      +\frac{1}{c^{2}}\yq_{x}\  \de_{t}\otimes\de_{x} 
+      +\yp_{x}\  \de_{x}\otimes\de_{t} 
+      +\yt_{x x}\  \de_{x}\otimes\de_{x} + \dotsb
+    \label{eq:common_T_covcov}
+\end{align}
+where the $c$ factors can be freely interpreted as part either of the
+components or of the $t$ coordinate. Remember that the stress is here
+considered as compressive rather than tensile, and that the Einstein
+equations require in particular that $\yq_{x} = c^{2} \yp_{x}$ and so on
+(heat flux carries momentum \citep[p.~923]{eckart1940c}).
+ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  % s = pressive stress, dim = E/L^3
@@ -3500,12 +3540,11 @@ review by de~Boer \citep{deboer1995}, and references therein.
   scientific exchange possible. \mbox{}\hfill\autanet
 
   Note: this paper was rejected by arXiv without any kind of scientific
-  motivation. It's sad and alarming that the possibility of pre-print
-  feedback is curtailed like that.
+  justification. %It's sad and alarming that the possibility of pre-print  feedback is curtailed like that.
   
-  This work was financially supported by the Kavli Foundation and the
+  This work was financially supported partly by the Kavli Foundation and the
   Centre of Excellence scheme of the Research Council of Norway (Roudi
-  group).
+  group), partly by the Trond Mohn Research Foundation, grant number BFS2018TMT07.
 %\rotatebox{15}{P}\rotatebox{5}{I}\rotatebox{-10}{P}\rotatebox{10}{\reflectbox{P}}\rotatebox{-5}{O}.
 %\sourceatright{\autanet}
 \end{acknowledgements}

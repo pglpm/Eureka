@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2021-06-02T08:06:39+0200
+%% Last-Updated: 2022-01-25T09:58:31+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -22,7 +22,7 @@ british%
 \newcommand*{\propertitle}{Notes on multivector algebra\\ on differential manifolds%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{\propertitle}
-\newcommand*{\headtitle}{multivector algebra}
+\newcommand*{\headtitle}{Multivector algebra}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
 \newcommand*{\reporthead}{\iftrue\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
@@ -269,10 +269,11 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \makeatother\fi
 \DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}}
 \renewcommand*{\finalnamedelim}{\addspace\amp\space}
-%\renewcommand*{\finalnamedelim}{\addcomma\space}
-\setcounter{biburlnumpenalty}{1}
-\setcounter{biburlucpenalty}{0}
-\setcounter{biburllcpenalty}{1}
+% \renewcommand*{\finalnamedelim}{\addcomma\space}
+\renewcommand*{\textcitedelim}{\addcomma\space}
+% \setcounter{biburlnumpenalty}{1} % to allow url breaks anywhere
+% \setcounter{biburlucpenalty}{0}
+% \setcounter{biburllcpenalty}{1}
 \DeclareDelimFormat{multicitedelim}{\addsemicolon\addspace\space}
 \DeclareDelimFormat{compcitedelim}{\addsemicolon\addspace\space}
 \DeclareDelimFormat{postnotedelim}{\addspace}
@@ -298,20 +299,26 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \newcommand*{\subtitleproc}[1]{}
 \newcommand*{\chapb}{ch.}
 %
+%\def\UrlOrds{\do\*\do\-\do\~\do\'\do\"\do\-}%
+\def\myUrlOrds{\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z}%
+\makeatletter
+%\g@addto@macro\UrlSpecials{\do={\newline}}
+\g@addto@macro{\UrlBreaks}{\myUrlOrds}
+\makeatother
 \newcommand*{\arxiveprint}[1]{%
-\texttt{arXiv:\urlalt{https://arxiv.org/abs/#1}{#1}}%
+\href{https://arxiv.org/abs/#1}{arXiv:\allowbreak\nolinkurl{#1}}%
 }
 \newcommand*{\mparceprint}[1]{%
-\texttt{mp\_arc:\urlalt{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{#1}}%
+\href{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{mp\_arc:\allowbreak\nolinkurl{#1}}%
 }
 \newcommand*{\haleprint}[1]{%
-\texttt{HAL:\urlalt{https://hal.archives-ouvertes.fr/#1}{#1}}%
+\href{https://hal.archives-ouvertes.fr/#1}{\textsc{hal}:\allowbreak\nolinkurl{#1}}%
 }
 \newcommand*{\philscieprint}[1]{%
-\texttt{PhilSci:\urlalt{http://philsci-archive.pitt.edu/archive/#1}{#1}}%
+\href{http://philsci-archive.pitt.edu/archive/#1}{PhilSci:\allowbreak\nolinkurl{#1}}%
 }
 \newcommand*{\doi}[1]{%
-\textsc{doi:}\href{https://doi.org/#1}{\nolinkurl{#1}}%
+\href{https://doi.org/#1}{\textsc{doi}:\allowbreak\nolinkurl{#1}}%
 }
 \newcommand*{\biorxiveprint}[1]{%
 bioRxiv \doi{10.1101/#1}%
@@ -326,7 +333,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 
 %\usepackage{tikz-cd}
 
-\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false,pdfencoding=unicode,psdextra]{hyperref}
 
 \usepackage[depth=4]{bookmark}
 \hypersetup{colorlinks=true,bookmarksnumbered,pdfborder={0 0 0.25},citebordercolor={0.2667 0.4667 0.6667},citecolor=mypurpleblue,linkbordercolor={0.6667 0.2 0.4667},linkcolor=myredpurple,urlbordercolor={0.1333 0.5333 0.2},urlcolor=mygreen,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
@@ -355,9 +362,10 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \settrimmedsize{\stockheight}{\stockwidth}{*}
 \setlxvchars[\normalfont] %313.3632pt for a 66-characters line
 \setxlvchars[\normalfont]
-\setlength{\trimtop}{0pt}
-\setlength{\trimedge}{\stockwidth}
-\addtolength{\trimedge}{-\paperwidth}
+% \setlength{\trimtop}{0pt}
+% \setlength{\trimedge}{\stockwidth}
+% \addtolength{\trimedge}{-\paperwidth}
+%\settrims{0pt}{0pt}
 % The length of the normalsize alphabet is 133.05988pt - 10 pt = 26.1408pc
 % The length of the normalsize alphabet is 159.6719pt - 12pt = 30.3586pc
 % Bringhurst gives 32pc as boundary optimal with 69 ch per line
@@ -375,7 +383,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %%% End layout
 %% this fixes missing white spaces
 %\pdfmapline{+dummy-space <dummy-space.pfb}
-\pdfinterwordspaceon%
+%\pdfinterwordspaceon% seems to add a white margin to Sumatrapdf
 
 %%% Sectioning
 \newcommand*{\asudedication}[1]{%
@@ -459,7 +467,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \providecommand{\email}[2]{\href{mailto:#1ZZ@#2 ((remove ZZ))}{#1\protect\atf#2}}
 %\providecommand{\email}[2]{\href{mailto:#1@#2}{#1@#2}}
 
-\preauthor{\vspace{-0\baselineskip}\begin{center}
+\preauthor{\vspace{-0.5\baselineskip}\begin{center}
 \normalsize\sffamily%
 \lineskip  0.5em}
 \postauthor{\par\end{center}}
@@ -587,23 +595,25 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %\DeclarePairedDelimiter\opop{]}{[}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %\DeclarePairedDelimiter\norm{\lVert}{\rVert}
-\DeclarePairedDelimiter\set{\{}{\}}
+\DeclarePairedDelimiter\set{\{}{\}} %}
 %\DeclareMathOperator{\pr}{P}%probability
-\newcommand*{\pf}{\mathrm{p}}%probability
-\newcommand*{\p}{\mathrm{P}}%probability
+\newcommand*{\p}{\mathrm{p}}%probability
+\renewcommand*{\P}{\mathrm{P}}%probability
 %\newcommand*{\E}{\mathrm{E}}
-%\renewcommand*{\|}{\nonscript\,\vert\nonscript\;\mathopen{}}
-\renewcommand*{\|}[1][]{\nonscript\,#1\vert\nonscript\;\mathopen{}}
-%\DeclarePairedDelimiterX{\cond}[2]{(}{)}{#1\nonscript\,\delimsize\vert\nonscript\;\mathopen{}#2}
-%\DeclarePairedDelimiterX{\condt}[2]{[}{]}{#1\nonscript\,\delimsize\vert\nonscript\;\mathopen{}#2}
-%\DeclarePairedDelimiterX{\conds}[2]{\{}{\}}{#1\nonscript\,\delimsize\vert\nonscript\;\mathopen{}#2}
+%% The "\:" space is chosen to correctly separate inner binary and external rels
+\renewcommand*{\|}[1][]{\nonscript\:#1\vert\nonscript\:\mathopen{}}
+%\DeclarePairedDelimiterX{\cp}[2]{(}{)}{#1\nonscript\:\delimsize\vert\nonscript\:\mathopen{}#2}
+%\DeclarePairedDelimiterX{\ct}[2]{[}{]}{#1\nonscript\;\delimsize\vert\nonscript\:\mathopen{}#2}
+%\DeclarePairedDelimiterX{\cs}[2]{\{}{\}}{#1\nonscript\:\delimsize\vert\nonscript\:\mathopen{}#2}
 %\newcommand*{\+}{\lor}
 %\renewcommand{\*}{\land}
 %% symbol = for equality statements within probabilities
 %% from https://tex.stackexchange.com/a/484142/97039
-%\newcommand*{\eq}{\mathrel{\!=\!}}
-%\let\texteq\=
-%\renewcommand*{\=}{\TextOrMath\texteq\eq}
+% \newcommand*{\eq}{\mathrel{\!=\!}}
+% \let\texteq\=
+% \renewcommand*{\=}{\TextOrMath\texteq\eq}
+% \newcommand*{\eq}[1][=]{\mathrel{\!#1\!}}
+\newcommand*{\mo}[1][=]{\mathord{\,#1\,}}
 %%
 \newcommand*{\sect}{\S}% Sect.~
 \newcommand*{\sects}{\S\S}% Sect.~
@@ -656,9 +666,12 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %%% Custom macros for this file @@@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \definecolor{notecolour}{RGB}{68,170,153}
-\newcommand*{\puzzle}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{225}}}
 %\newcommand*{\puzzle}{\maltese}
+\newcommand*{\puzzle}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{225}}}
+\newcommand*{\wrench}{{\fontencoding{U}\fontfamily{fontawesomethree}\selectfont\symbol{114}}}
+\newcommand*{\pencil}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{210}}}
 \newcommand{\mynote}[1]{ {\color{notecolour}\puzzle\ #1}}
+
 \newcommand*{\widebar}[1]{{\mkern1.5mu\skew{2}\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}}
 
 % \newcommand{\explanation}[4][t]{%\setlength{\tabcolsep}{-1ex}
@@ -754,8 +767,8 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 %%% BEGINNING OF MAIN TEXT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Multivector tensor algebra}
-\label{sec:multivector_tensor}
+\section{Motivation}
+\label{sec:motivation}
 
 The idea is to build tensors not from the two spaces of vectors and
 covectors, but from the $2N^{2}$ spaces of multivectors and multicovectors
@@ -793,6 +806,67 @@ but relations with different multiplicative factors are also possible.
 
 It's best to define the exterior product intrinsically, with its
 multilinear, associative, and graded-commutative properties.
+
+
+\section{Multivector tensor algebra}
+\label{sec:multivector_tensor}
+
+Multivector algebra is based on an affine space, that is, a space on which
+the notion of distant parallelism is defined \citep{portamana2011_r2019}.
+We take the notion and properties of affine space as understood. We denote
+by $N$ the dimension of the base affine space.
+
+The primitive notions on which multivector algebra is constructed are those
+of subspace, complementary subspace, inner and outer orientation, and magnitude.
+
+
+\subsection{Space and complement space}
+\label{sec:complement}
+
+We take the notion of subspace as understood as well, and will usually omit
+the \enquote{sub-} prefix for brevity. A better name for it would be
+\enquote{flat}. We call \enquote{$n$-space} a subspace of dimension $n$. A
+0-space is a point, a 1-space is a straight line, a 2-space is a plane, and
+so on.
+
+The complement to an $n$-space is easier to picture and intuitively grasp
+than to define. We can define it as the set of spaces parallel to that
+space. It can be depicted as an $(N-n)$-space that crosses the $n$-space,
+with the understanding that the specific choice of such $(N-n)$-space is
+unimportant.
+
+
+\subsection{Inner and outer orientations}
+\label{sec:orientation}
+
+The orientation of a space is also a notion easier to grasp than to define.
+There are two kinds of orientations of a space: inner and outer.
+
+The inner orientation of an $n$-space can be defined or identified by
+giving a $+$ or $-$ sign to a point on the $n$-space, and then choosing an
+ordered sequence of other $n$ points such that the whole set of $n+1$
+points spans the $n$-space. The choice of such $n+1$ points is unimportant,
+modulo an affine transformation. From this it follows that every space can
+only have one out of two distinct inner orientations.
+
+A 0-space, that is a point, simply has a $+$ or $-$ sign as its inner
+orientation. Let's call this a \enquote{signed point}. The inner
+orientation of a 1-space, that is a line, is determined by an ordered
+sequence of two points, the first of which is signed. If the signed point
+is $-$ we can identify the inner orientation as traversing the line from
+the first (signed) to the second; if the signed point is $-$, we traverse
+from the second to the first. The inner orientation of a 2-space, that is a
+plane, is determined by a ordered sequence of three non-collinear points,
+the first of which is signed. If the signed point is $+$ we traverse the
+points so first to last, intuitively determining a sense of rotation of the
+plane. Similarly the inner orientation of a 3-space can be understood in
+terms of the familiar right-hand or left-hand screw senses.
+
+The outer orientation of an $n$-space corresponds to an inner orientation
+of its complement. This means that the outer orientation depends on the
+dimension of the base space on which we work.
+
+
 
 
 
@@ -1295,8 +1369,8 @@ So we can define the inner product starting from 1-vectors and 1-covectors as
 \end{equation}
 and generalizing.
 
-\section{Orientation}
-\label{sec:orientation}
+\section{Orientation 2}
+\label{sec:orientation2}
 
 One way to define \emph{inner} orientation is inductively as follows.
 

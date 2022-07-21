@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-21T19:23:16+0200
+%% Last-Updated: 2022-07-21T19:33:34+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -753,20 +753,12 @@ Western Norway University of Applied Sciences%
 \section{Scribbles and memos}
 \label{sec:memos}
 
-We can represent charge density and current density in one geometrical entity. We use a coordinate system $(t, x, y, z)$; denote the wedge product by juxtaposition: $\di t \land \di x \defs \di t\, \di x$ and so on; abbreviate $\di t\, \di x \defs \di tx$ and so on; and denote twisted differential forms by $\ti$. Then the charge-current density is
-\begin{multline}
-  \label{eq:charge-current}
-  \rho\ \ti xyz +
-  j_{x}\ \ti tyz + j_{y}\ \ti tzx + j_{z}\ \ti txy
-  \equiv{}\\
-  \rho\ \ti xyz + \di t\ (j_{x}\ \ti yz + j_{y}\ \ti zx + j_{z}\ \ti xy)
-\end{multline}
-
-
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 
-\section{Twisted objects}
+\subsection{Twisted objects}
 \label{sec:twisted}
+
+Denote the wedge product by juxtaposition: $\di t \land \di x \defs \di t\, \di x$ and so on; abbreviate $\di t\, \di x \defs \di tx$ and so on; and denote twisted differential forms by $\ti$.
 
 Where an ordered set of coordinate functions $(t,x,y,z)$ is chosen, the twisted unit $\tw{1}$ is defined. It has unit magnitude and outer-orientation $txyz$, and the property $\tw{1}\cdot\tw{1}=1$. In general it is only defined in chart domain, where coordinate functions can be defined, but not globally. We obtain twisted vectors and covectors by multiplying their non-twisted counterparts by the twisted unit. For a vector or covector $\omega$ we have that the orientation of its twisted counterpart is such that (see \cites{burke1983})
 \begin{equation}
@@ -793,9 +785,9 @@ We have:
   \set[\big]{\ti yz} = tx \ , \quad
   \set[\big]{\ti zx} = ty \ ;
   \\[\jot]
-  \set[\big]{\ti txy} = -z \ , \quad
   \set[\big]{\ti tyz} = -x \ , \quad
   \set[\big]{\ti tzx} = -y \ , \quad
+  \set[\big]{\ti txy} = -z \ , \quad
   \set[\big]{\ti xyz} = t \ ;
   \\[\jot]
   \set[\big]{\ti txyz} = +1 \ .
@@ -813,7 +805,23 @@ Note that considering, say, the \emph{function} $t$, we have
 \end{equation}
 
 
+\subsection{Charge and current densities}
+\label{sec:charge_current}
 
+We can represent charge density and current density in one geometrical entity. Consider an ordered coordinate system $(t, x, y, z)$. The charge-current density is
+\begin{multline}
+  \label{eq:charge-current}
+  \rho\ \ti xyz
+- j_{x}\ \ti tyz - j_{y}\ \ti tzx - j_{z}\ \ti txy
+  \equiv{}\\[\jot]
+  \rho\ \ti xyz -
+  \di t\ \bigl(j_{x}\ \ti yz + j_{y}\ \ti zx + j_{z}\ \ti xy\bigr) \ .
+\end{multline}
+The minus signs appear so that the $x$-component of the current, for example, is positive when $j_{x} > 0$, and so on.
+
+
+
+\iffalse
 \section{Orientation choices}
 \label{sec:orientation_choices}
 
@@ -916,6 +924,8 @@ It is convenient to keep $t$ factors always to either right or left, because thi
     \set[\big]{\de_{xyz}\cdot\gamma} &= xyz & & 
   \end{aligned}
 \end{equation}
+\fi
+
 
 %%%% examples use empheq
 %   \begin{empheq}[left={\mathllap{\begin{aligned}    \de\yF_{\yc}/\de\yp&=0\text{:} \\

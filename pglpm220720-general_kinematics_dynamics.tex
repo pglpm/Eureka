@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-21T19:44:06+0200
+%% Last-Updated: 2022-07-22T09:46:59+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -608,7 +608,7 @@ Western Norway University of Applied Sciences%
 %\providecommand{\varparallel}{\ensuremath{\mathbin{/\mkern-7mu/}}}%parallel (tentative symbol)
 \renewcommand*{\le}{\leqslant}%less or equal
 \renewcommand*{\ge}{\geqslant}%greater or equal
-%\DeclarePairedDelimiter\clcl{[}{]}
+\DeclarePairedDelimiter\clcl{[}{]}
 %\DeclarePairedDelimiter\clop{[}{[}
 %\DeclarePairedDelimiter\opcl{]}{]}
 %\DeclarePairedDelimiter\opop{]}{[}
@@ -694,8 +694,15 @@ Western Norway University of Applied Sciences%
 %\DeclareMathOperator*{\argsup}{arg\,sup}
 \newcommand*{\dob}{degree of belief}
 \newcommand*{\dobs}{degrees of belief}
-\newcommand*{\tw}[1]{\tilde{#1}}
-\newcommand*{\ti}{\tw{\di}}
+\newcommand*{\tw}[1]{\underline{#1}}
+%\newcommand*{\un}[2]{\underbracket[0pt][0pt]{#1}_{\scriptscriptstyle #2}}
+%\newcommand*{\ti}{\tw{\di}}
+%\newcommand*{\te}{\tw{\de}}
+\newcommand*{\un}[2]{\underset{\mathclap{{}^{#2}}}{#1}}
+\newcommand*{\ti}{\un{\di}{\scriptstyle\sim}}
+\newcommand*{\te}{\un{\de}{\scriptstyle\sim}}
+\newcommand*{\tti}[1]{\un{\di}{#1}}
+\newcommand*{\tte}[1]{\un{\de}{#1}}
 
 %%% Custom macros end @@@
 
@@ -792,15 +799,15 @@ We have:
   \\[\jot]
   \set[\big]{\ti txyz} = +1 \ .
 \end{gather}
-The minus signs appear when we have $t$ and an even number of other coordinates after the \enquote{$\ti$}.
+The minus signs appear in the odd ranks when we have $t$ and an even number of other coordinates after the \enquote{$\ti$}. These minus signs flip if we keep $t$ always to the right, with orientation $xyzt$.
 
-Note that considering, say, the \emph{function} $t$, we have
+Note that considering, say, the \emph{function} $x$, we have
 \begin{equation}
   \label{eq:function_t_twisted}
-  \set[\big]{\tw{t}} =
+  \set[\big]{\tw{x}} =
   \begin{cases}
-    \set{txyz} & \text{if } t>0 \ , \\
-    -\set{txyz} & \text{if } t<0 \ .
+    \set{txyz} & \text{if } x>0 \ , \\
+    -\set{txyz} & \text{if } x<0 \ .
   \end{cases}
 \end{equation}
 
@@ -817,11 +824,31 @@ We can represent charge density and current density in one geometrical entity. C
   \rho\ \ti xyz -
   \di t\ \bigl(j_{x}\ \ti yz + j_{y}\ \ti zx + j_{z}\ \ti xy\bigr) \ .
 \end{multline}
-It has the dimensions of charge (current${}\cdot{}$time). The minus signs appear so that the $x$-component of the current, for example, is positive when $j_{x} > 0$, and so on.
+It has the dimensions of charge (current${}\cdot{}$time). The minus signs appear so that the $x$-component of the current, for example, is positive when $j_{x} > 0$ and so on.
 
-This object automatically give us net volume charge when integrated over a three-dimensional region at constant time, or the net flux of charge when integrated over a two-dimensional surface -- possibly even moving -- over a lapse of time.
-
-
+This object automatically give us net volume charge when integrated over a three-dimensional region at constant time, or the net flux of charge when integrated over a two-dimensional surface -- possibly even moving -- over a lapse of time. Consider for example a 3-volume $V$ at constant time, having \emph{outer} orientation in the positive $t$ direction and parameterized by
+\begin{gather}
+  \label{eq:3-volume_space}
+  (u, v, w) \mapsto (t_{0}, u, v, w) \ .
+\\
+  \shortintertext{On it, the basis twisted 1-forms map to}
+  \begin{gathered}
+  \tti{-xyz} t\bigr\rvert_{V} = 0\ , \quad
+  \tti{tyz} x\bigr\rvert_{V} = \tti{vw} u\ , \quad
+  \tti{tzx} y\bigr\rvert_{V} = \tti{wu} v\ , \quad
+  \tti{txy} z\bigr\rvert_{V} = \tti{uv} w\ ,
+  \\
+  \tti{t}xyz\bigr\rvert_{V} = \tti{+}uvw \ .
+\end{gathered}
+\end{gather}
+Then we have
+\begin{equation}
+  \label{eq:charge-current_on_3volume}
+  \bigl(\rho\ \ti xyz
+  - j_{x}\ \ti tyz - j_{y}\ \ti tzx - j_{z}\ \ti txy \bigr)\bigr\rvert_{V} =
+  \rho\ \tti{+} uvw
+\end{equation}
+and the current density gives no contribution.
 
 \iffalse
 \section{Orientation choices}

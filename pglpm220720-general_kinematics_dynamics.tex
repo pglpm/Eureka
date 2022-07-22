@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-22T11:47:51+0200
+%% Last-Updated: 2022-07-22T14:56:07+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -853,17 +853,17 @@ The charge-current density also correctly transform under coordinate changes. Co
 \begin{gather}
   \label{eq:coord_change_galilei}
   (t', x', y', z') = (t, x-vt, y, z) \ ,
+  \qquad
+  (t, x, y, z) = (t', x'+vt', y', z') \ ,
   \\
   \shortintertext{for which}
   \begin{gathered}
-  \di t' = \di t \ , \quad
-  \di y' = \di y \ , \quad
-  \di z' = \di z \ , 
-\\
-  \di x' = \di x - v\,\di t \ , \qquad
+  \di t = \di t' \ , \quad
+  \di y = \di y' \ , \quad
+  \di z = \di z' \ , \quad
   \di x = \di x' + v\,\di t' \ ;
 \end{gathered}
-\\
+\\[\jot]
 \begin{aligned}
   \di x\, \di y\, \di z &=
   (\di x' + v\,\di t')\,\di y'\,\di z' =
@@ -907,22 +907,119 @@ The law of charge conservation is simply expressed by
   \di\bm{Q} = 0 \ ,
 \end{equation}
 which leads to, considering permutations and antisymmetry,
-\begin{multline}
+\begin{equation}
   \label{eq:charge_cons_calculated}
-\di\bm{Q} = \de_{t}\rho\ \ti txyz 
+  \begin{split}
+0=\di\bm{Q} &= \de_{t}\rho\ \ti txyz 
   -\de_{x}j_{x}\ \ti xtyz
   -\de_{y}j_{y}\ \ti ytzx
   -\de_{x}j_{x}\ \ti ztxy
-  ={}\\
-  \bigl(\de_{t}\rho + \de_{x}j_{x} + \de_{y}j_{y} + \de_{z}j_{z} \bigr)\
-  \ti txyz = 0 \ ,
-\end{multline}
+  \\
+  &=\bigl(\de_{t}\rho + \de_{x}j_{x} + \de_{y}j_{y} + \de_{z}j_{z} \bigr)\
+  \ti txyz \ ,
+\end{split}
+\end{equation}
 implying the familiar \autocites[\eqn~(1.14)]{kovetz2000}
 \begin{equation}
   \label{eq:familiar_charge_cons}
   \de_{t}\rho + \de_{x}j_{x} + \de_{y}j_{y} + \de_{z}j_{z} = 0 \ ,
 \end{equation}
 but now shown to be \emph{valid in any coordinate system}.
+
+All we have done in this section holds also for mass density and mass flux. It is important to keep mass flux and momentum separate, as they are not the same in Lorentzian and general relativity.
+
+\subsection{Electromagnetic field}
+\label{sec:electromagnetic_field}
+
+We can represent the electric field and magnetic flux in one geometrical entity as well:
+\begin{equation}
+  \label{eq:Faraday}
+  \begin{split}
+    \bm{F} &\defd
+    B_{x}\ \di yz + B_{y}\ \di zx + B_{z}\ \di xy
+  - E_{x}\ \di tx - E_{y}\ \di ty - E_{z}\ \di tz
+    \\
+    &\equiv
+    B_{x}\ \di yz + B_{y}\ \di zx + B_{z}\ \di xy -
+    \di t\ \bigl(E_{x}\ \di x + E_{y}\ \di y + E_{z}\ \di z \bigr)\ .
+\end{split}
+\end{equation}
+
+Under the coordinate transformation~\eqref{eq:coord_change_galilei} we have
+\begin{equation}
+  \label{eq:transf_2form_galilei}
+  \begin{gathered}
+    \di t\,\di x = \di t'\,\di x' \ ,\quad
+    \di t\,\di y = \di t'\,\di y' \ ,\quad
+    \di t\,\di z = \di t'\,\di z' \ ,
+    \\
+    \di y\,\di z = \di y'\,\di z' \ ,\\
+    \di z\,\di x = \di z'\,\di x' - v\,\di t'\,\di z'\ ,\quad
+    \di x\,\di y = \di x'\,\di y' + v\,\di t'\,\di y' \ ,
+  \end{gathered}
+\end{equation}
+and
+\begin{equation}
+  \label{eq:transf_faraday}
+  \begin{split}
+    \bm{F} &= 
+    \!\begin{aligned}[t]
+    &B_{x}\ \di y'z' + B_{y}\ (\di z'x' - v\,\di t'z')
+    + B_{z}\ (\di x'y' + v\,\di t'y') \\
+    &\quad {}- E_{x}\ \di t'x' - E_{y}\ \di t'y' - E_{z}\ \di t'z'
+  \end{aligned}
+  \\
+    &\equiv
+    \!\begin{aligned}[t]
+    &B_{x}\ \di y'z' + B_{y}\ \di z'x' + B_{z}\ \di x'y' \\
+    &\quad {} - E_{x}\ \di t'x' 
+   - (E_{y} - v\,B_{z})\ \di t'y' - (E_{z} + v\,B_{y})\ \di t'z' \ .
+  \end{aligned}
+\end{split}
+\end{equation}
+which is again as expected in the Galileian case \autocites[\eqn~(11.3)]{kovetz2000}.
+
+The conservation of electromagnetic flux is simply expressed by
+\begin{equation}
+  \label{eq:cons_EM}
+  \di \bm{F} = 0 \ ,
+\end{equation}
+which in coordinates becomes, keeping only terms that will not vanish owing to antisymmetry,
+\begin{equation}
+  \label{eq:cons_EM_coords}
+  \begin{split}
+    0 = \di\bm{F} &=
+    \!\begin{aligned}[t]
+     & (\de_{t}B_{x}\ \di t + \de_{x}B_{x}\ \di x)\ \di yz\\
+    &{}+ (\de_{t}B_{y}\ \di t + \de_{y}B_{y}\ \di y)\ \di zx\\
+    &{}+  (\de_{t}B_{z}\ \di t + \de_{z}B_{z}\ \di z)\ \di xy\\
+    &{}- (\de_{y}E_{x}\ \di y + \de_{z}E_{x}\ \di z)\ \di tx\\
+    &{}- (\de_{z}E_{y}\ \di z + \de_{x}E_{y}\ \di x)\ \di ty\\
+    &{}- (\de_{x}E_{z}\ \di x + \de_{y}E_{z}\ \di y)\ \di tz
+    \end{aligned}
+  \\[\jot]
+  &=
+  \!\begin{aligned}[t]
+&(\de_{x}B_{x} + \de_{y}B_{y} + \de_{z}B_{z})\ \di xyz \\
+  &{}+ (\de_{t}B_{x} + \de_{y}E_{z} - \de_{z}E_{y})\ \di tyz \\
+  &{}+ (\de_{t}B_{y} + \de_{z}E_{x} - \de_{x}E_{z})\ \di tzx \\
+  &{}+ (\de_{t}B_{z} + \de_{x}E_{y} - \de_{y}E_{x})\ \di txy \ ,
+\end{aligned}
+  \end{split}
+\end{equation}
+where all four components must vanish, implying the familiar
+\begin{equation}
+  \label{eq:cons_EM_familiar}
+  \begin{aligned}
+    \de_{x}B_{x} + \de_{y}B_{y} + \de_{z}B_{z} &= 0 \\[\jot]
+  \de_{t}B_{x} + \de_{y}E_{z} - \de_{z}E_{y} &=0 \\
+  \de_{t}B_{y} + \de_{z}E_{x} - \de_{x}E_{z} &=0 \\
+  \de_{t}B_{z} + \de_{x}E_{y} - \de_{y}E_{x} &=0 \ .
+\end{aligned}
+\end{equation}
+
+
+
 
 \iffalse
 \section{Orientation choices}

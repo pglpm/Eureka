@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-22T10:19:16+0200
+%% Last-Updated: 2022-07-22T11:45:53+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -698,10 +698,8 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\ti}{\tw{\di}}
 %\newcommand*{\te}{\tw{\de}}
 \newcommand*{\tw}[2][\scriptstyle\sim]{\smash[b]{\underset{\mathclap{{}^{#1}}}{#2}}}
-\newcommand*{\ti}{\tw{\di}}
-\newcommand*{\te}{\tw{\de}}
-\newcommand*{\tti}[1]{\tw[#1]{\di}}
-\newcommand*{\tte}[1]{\tw[#1]{\de}}
+\newcommand*{\ti}[1][\scriptstyle\sim]{\tw[#1]{\di}}
+\newcommand*{\te}[1][\scriptstyle\sim]{\tw[#1]{\de}}
 
 %%% Custom macros end @@@
 
@@ -815,14 +813,16 @@ Note that considering, say, the \emph{function} $x$, we have
 \label{sec:charge_current}
 
 We can represent charge density and current density in one geometrical entity. Consider an ordered coordinate system $(t, x, y, z)$. The charge-current density is
-\begin{multline}
+\begin{equation}
   \label{eq:charge-current}
-  \rho\ \ti xyz
+  \begin{split}
+\bm{Q} &\defd  \rho\ \ti xyz
 - j_{x}\ \ti tyz - j_{y}\ \ti tzx - j_{z}\ \ti txy
-  \equiv{}\\[\jot]
-  \rho\ \ti xyz -
+  \\[\jot]
+  &\equiv\rho\ \ti xyz -
   \di t\ \bigl(j_{x}\ \ti yz + j_{y}\ \ti zx + j_{z}\ \ti xy\bigr) \ .
-\end{multline}
+\end{split}
+\end{equation}
 It has the dimensions of charge (current${}\cdot{}$time). The minus signs appear so that the $x$-component of the current, for example, is positive when $j_{x} > 0$ and so on.
 
 This object automatically give us net volume charge when integrated over a three-dimensional region at constant time, or the net flux of charge when integrated over a two-dimensional surface -- possibly even moving -- over a lapse of time. Consider for example a 3-volume $V$ at constant time, having \emph{outer} orientation in the positive $t$ direction and parameterized by
@@ -832,12 +832,12 @@ This object automatically give us net volume charge when integrated over a three
 \\
   \shortintertext{On it, the basis twisted 1-forms map to}
   \begin{gathered}
-  \tti{-xyz} t\bigr\rvert_{V} = 0\ , \quad
-  \tti{tyz} x\bigr\rvert_{V} = \tti{vw} u\ , \quad
-  \tti{tzx} y\bigr\rvert_{V} = \tti{wu} v\ , \quad
-  \tti{txy} z\bigr\rvert_{V} = \tti{uv} w\ ,
+  \ti[-xyz] t\bigr\rvert_{V} = 0\ , \quad
+  \ti[tyz] x\bigr\rvert_{V} = \ti[vw] u\ , \quad
+  \ti[tzx] y\bigr\rvert_{V} = \ti[wu] v\ , \quad
+  \ti[txy] z\bigr\rvert_{V} = \ti[uv] w\ ,
   \\[2\jot]
-  \tti{t}xyz\bigr\rvert_{V} = \tti{+}uvw \ .
+  \ti[t]xyz\bigr\rvert_{V} = \ti[+]uvw \ .
 \end{gathered}
 \end{gather}
 Then we have
@@ -845,9 +845,84 @@ Then we have
   \label{eq:charge-current_on_3volume}
   \bigl(\rho\ \ti xyz
   - j_{x}\ \ti tyz - j_{y}\ \ti tzx - j_{z}\ \ti txy \bigr)\bigr\rvert_{V} =
-  \rho\ \tti{+} uvw
+  \rho\ \ti[+] uvw
 \end{equation}
 and the current density gives no contribution.
+
+The charge-current density also correctly transform under coordinate changes. Consider for example
+\begin{gather}
+  \label{eq:coord_change_galilei}
+  (t', x', y', z') = (t, x-vt, y, z) \ ,
+  \\
+  \shortintertext{for which}
+  \begin{gathered}
+  \di t' = \di t \ , \quad
+  \di y' = \di y \ , \quad
+  \di z' = \di z \ , 
+\\
+  \di x' = \di x - v\,\di t \ , \qquad
+  \di x = \di x' + v\,\di t' \ ;
+\end{gathered}
+\\
+\begin{aligned}
+  \di x\, \di y\, \di z &=
+  (\di x' + v\,\di t')\,\di y'\,\di z' =
+  \di x'y'z' + v\,\di t'y'z' \ ,
+  \\[\jot]
+  \di t\, \di z\, \di x &=
+  \di t'\, \di z'\, (\di x' + v\,\di t') =
+  \di t'\, \di z'\, \di x' \ ,
+  \\[\jot]
+  \di t\, \di x\, \di y &=
+  \di t'\, (\di x' + v\,\di t')\, \di y' =
+  \di t'\, \di x'\, \di y' \ .
+\end{aligned}
+\end{gather}
+The charge-current density can then be rewritten as
+\begin{equation}
+  \label{eq:charge-current_coordtransf}
+  \begin{split}
+\bm{Q} &=  \rho\ \ti xyz
+  - j_{x}\ \ti tyz - j_{y}\ \ti tzx - j_{z}\ \ti txy
+  \\[2\jot]
+  &=\rho\ \ti x'y'z'
+  - (j_{x} - \rho\ v)\ \ti t'y'z'
+  - j_{y}\ \ti t'z'x' - j_{z}\ \ti t'x'y' \ ,
+\end{split}
+\end{equation}
+which is indeed the correct transformation for the charge density and the $x$-component of the current density \autocites[\eqn~(5.8)]{kovetz2000}. It is important to note that we did not make any assumptions regarding spacetime symmetries and metric. The transformation~\eqref{eq:coord_change_galilei} is a Galilei boost between Galileian inertial frames, if we assume Newtonian relativity, and a non-symmetry preserving coordinate transformation in Lorentzian or general relativity. So there is no contradiction with any of these theories. If we assume that Lorentzian relativity holds and $(t,x,y,z)$ is a Lorentzian inertial frame, then a metric-preserving transformation would instead be
+\begin{equation}
+  \label{eq:coord_charge_lorentz}
+  \begin{gathered}
+  (t', x', y', z') =
+  \Bigl((t-x\,v/c^{2})/\gamma,\ (x-vt)/\gamma,\ y,\ z \Bigr) \ ,
+  \\ \gamma \defd \sqrt{1-v^{2}/c^{2}}\ ,
+\end{gathered}
+\end{equation}
+and a calculation similar to the previous one shows that the components of the charge-density would again transform as expected  \autocites[\eqns~(12.17)--(12.18)]{kovetz2000}.
+
+The law of charge conservation is simply expressed by
+\begin{equation}
+  \label{eq:charge_conservation}
+  \di\bm{Q} = 0 \ ,
+\end{equation}
+which leads to, considering the permutations and antisymmetry,
+\begin{multline}
+  \label{eq:charge_cons_calculated}
+\di\bm{Q} = \de_{t}\rho\ \ti txyz 
+  -\de_{x}j_{x}\ \ti xtyz
+  -\de_{y}j_{y}\ \ti ytzx
+  -\de_{x}j_{x}\ \ti ztxy
+  ={}\\
+  \bigl(\de_{t}\rho + \de_{x}j_{x} + \de_{y}j_{y} + \de_{z}j_{z} \bigr)\
+  \ti txyz = 0 \ ,
+\end{multline}
+leading to the familiar \autocites[\eqn~(1.14)]{kovetz2000}
+\begin{equation}
+  \label{eq:familiar_charge_cons}
+  \de_{t}\rho + \de_{x}j_{x} + \de_{y}j_{y} + \de_{z}j_{z} = 0 \ ,
+\end{equation}
+bu now shown to be \emph{valid in any coordinate system}.
 
 \iffalse
 \section{Orientation choices}

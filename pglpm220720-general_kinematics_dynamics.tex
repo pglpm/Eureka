@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-23T11:56:44+0200
+%% Last-Updated: 2022-07-23T22:44:58+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -754,8 +754,7 @@ Western Norway University of Applied Sciences%
 %%% BEGINNING OF MAIN TEXT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Scribbles and memos}
-\label{sec:memos}
+\section{Vectors and covectors}
 
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 
@@ -1018,7 +1017,7 @@ which in coordinates becomes, keeping only terms that will not vanish owing to a
     &{}- (\de_{x}E_{z}\ \di x + \de_{y}E_{z}\ \di y)\ \di tz
     \end{aligned}
   \\[\jot]
-  &=
+  &\equiv
   \!\begin{aligned}[t]
 &(\de_{x}B_{x} + \de_{y}B_{y} + \de_{z}B_{z})\ \di xyz \\
   &{}+ (\de_{t}B_{x} + \de_{y}E_{z} - \de_{z}E_{y})\ \di tyz \\
@@ -1039,7 +1038,33 @@ where all four components must vanish, implying the familiar
 \end{equation}
 Also these equations are \emph{valid in any coordinate system}.
 
+\section{Scribbles and memos}
+\label{sec:memos}
 
+Consider a coordinate system in which the metric tensor is written
+\begin{equation}
+  \label{eq:metric}
+  \bm{g} = -c^{2}\ \di t\otimes\di t + \di x\otimes\di x + \dotsb\ .
+\end{equation}
+The volume element \autocites[\sect~9.2]{portamana2019c_r2021} and its inverse are then
+\begin{equation}
+  \label{eq:vol_element}
+  \gamma = \ti txyz \ , \qquad \gamma^{-1} = \te xyz \ .
+\end{equation}
+The dot products \autocites[\sect~267 p.~661]{truesdelletal1960} of the inverse metric with the basis twisted covectors are
+\begin{equation}
+  \label{eq:raised_covectors}
+  \bm{g}\cdot\di t = -\de t/c^{2} \ ,\quad
+  \bm{g}\cdot\di x = \de x \ ,\quad
+  \text{and so on}.
+\end{equation}
+We therefore have
+\begin{multline}
+  \label{eq:raise_F}
+  \bm{g}\cdot\bm{F}\cdot\bm{g} ={}\\
+    B_{x}\ \de yz + B_{y}\ \de zx + B_{z}\ \de xy
+  + E_{x}/c^{2}\ \de tx + E_{y}/c^{2}\ \de ty + E_{z}/c^{2}\ \de tz
+\end{multline}
 
 \iffalse
 \section{Orientation choices}

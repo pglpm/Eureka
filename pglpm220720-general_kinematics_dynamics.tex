@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-22T15:43:13+0200
+%% Last-Updated: 2022-07-23T11:56:44+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -809,8 +809,11 @@ Note that considering, say, the \emph{function} $x$, we have
 \end{equation}
 
 
-\subsection{Charge and current densities}
+\section{Charge-current density}
 \label{sec:charge_current}
+
+\subsection{Representation and integration}
+\label{sec:charge_repr}
 
 We can represent charge density and current density in one geometrical entity. Consider an ordered coordinate system $(t, x, y, z)$. The charge-current density is
 \begin{equation}
@@ -848,6 +851,9 @@ Then we have
   \rho\ \ti[+] uvw
 \end{equation}
 and the current density gives no contribution.
+
+\subsection{Coordinate transformation}
+\label{sec:charge_coords}
 
 The charge-current density also correctly transform under coordinate changes. Consider for example
 \begin{gather}
@@ -901,6 +907,9 @@ which is indeed the correct transformation for the charge density and the $x$-co
 \end{equation}
 and a calculation similar to the previous one shows that the components of the charge-density would again transform as expected  \autocites[\eqns~(12.17)--(12.18)]{kovetz2000}.
 
+\subsection{Charge-current balance}
+\label{sec:charge_balance}
+
 The law of charge conservation is simply expressed by
 \begin{equation}
   \label{eq:charge_conservation}
@@ -928,8 +937,11 @@ but now shown to be \emph{valid in any coordinate system}.
 
 All we have done in this section holds also for mass density and mass flux. It is important to keep mass flux and momentum separate, as they are not the same in Lorentzian and general relativity.
 
-\subsection{Electromagnetic field}
+\section{Electromagnetic flux}
 \label{sec:electromagnetic_field}
+
+\subsection{Representation and integration}
+\label{sec:em_repres}
 
 We can represent the electric field and magnetic flux in one geometrical entity as well:
 \begin{equation}
@@ -947,6 +959,8 @@ We can represent the electric field and magnetic flux in one geometrical entity 
 
 This object automatically gives us the net magnetic flux, when integrated on a surface at a chosen time, or the time-integrated voltage, when integrated on a curve over a lapse of time. 
 
+\subsection{Coordinate transformation}
+\label{sec:em_coords}
 
 Under the coordinate transformation~\eqref{eq:coord_change_galilei} we have
 \begin{equation}
@@ -981,6 +995,9 @@ and
 \end{split}
 \end{equation}
 which is again as expected in the Galileian case \autocites[\eqn~(11.3)]{kovetz2000}.
+
+\subsection{Electromagnetic-flux balance}
+\label{sec:em_balance}
 
 The conservation of electromagnetic flux is simply expressed by
 \begin{equation}

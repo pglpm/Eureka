@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-24T15:43:52+0200
+%% Last-Updated: 2022-07-24T17:02:42+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1123,6 +1123,17 @@ where all four components must vanish, implying the familiar
 \end{aligned}
 \end{equation}
 Also these equations are \emph{valid in any coordinate system}.
+
+\section{Metric-induced slicing}
+\label{sec:metric_slicing}
+
+Consider a spacelike surface with coordinates $(x,y,z)$, and a point of this surface. We are not assuming the coordinates to be rectangular; the only condition they satisfy is that $\de x$, $\de y$, $\de z$ are spacelike.
+
+Consider the twisted 3-vector $\te xyz$. Contracting it with the volume element $\gamma$ we obtain a 1-covector $\bm{n}\defd \gamma \cdot \te xyz$ that is timelike, orthogonal to the spacelike basis 1-vectors. It's easy to see this by introducing coordinates $(t',x,y,z)$ that reduce to $(x,y,z)$ on the surface for $t'=t_{0}'$. The volume element is $\sqrt{\abs{\det\bm{g}}}\ \ti t'xyz/c$, and we have $\bm{n} = \sqrt{\abs{\det\bm{g}}} \di t'/c$. This vector has norm
+\begin{equation*}
+  \abs{\bm{n}} = \abs{\det\bm{g}}\ g^{t't'}/c^{2} \ .
+\end{equation*}
+
 
 \section{Scribbles and memos}
 \label{sec:memos}

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-23T22:44:58+0200
+%% Last-Updated: 2022-07-24T11:34:39+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -936,6 +936,59 @@ but now shown to be \emph{valid in any coordinate system}.
 
 All we have done in this section holds also for mass density and mass flux. It is important to keep mass flux and momentum separate, as they are not the same in Lorentzian and general relativity.
 
+\subsection{Charge-current potential}
+\label{sec:charge_potential}
+
+On a connected manifold the charge conservation $\de\bm{Q}=0$ implies that the charge can be written as the exterior derivative of a twisted 2-covector $\bm{f}$, the charge-current potential:
+\begin{equation}
+  \label{eq:charge_pot_coords}
+  % \begin{split}
+    \bm{f} \defd
+    D_{x}\ \ti yz + D_{y}\ \ti zx + D_{z}\ \ti xy
+  + H_{x}\ \ti tx + H_{y}\ \ti ty + H_{z}\ \ti tz \ .
+%     &\equiv
+%     D_{x}\ \ti yz + D_{y}\ \ti zx + D_{z}\ \ti xy -
+%     \ti t\ \bigl(H_{x}\ \ti x + H_{y}\ \ti y + H_{z}\ \ti z \bigr)\ .
+% \end{split}
+\end{equation}
+
+In coordinates we find
+\begin{equation}
+  \label{eq:d_potential_coords}
+  \begin{split}
+    \bm{Q} = \di\bm{f} &=
+    \!\begin{aligned}[t]
+     & (\de_{t}D_{x}\ \ti t + \de_{x}D_{x}\ \ti x)\ \ti yz\\
+    &{}+ (\de_{t}D_{y}\ \ti t + \de_{y}D_{y}\ \ti y)\ \ti zx\\
+    &{}+  (\de_{t}D_{z}\ \ti t + \de_{z}D_{z}\ \ti z)\ \ti xy\\
+    &{}+ (\de_{y}H_{x}\ \ti y + \de_{z}H_{x}\ \ti z)\ \ti tx\\
+    &{}+ (\de_{z}H_{y}\ \ti z + \de_{x}H_{y}\ \ti x)\ \ti ty\\
+    &{}+ (\de_{x}H_{z}\ \ti x + \de_{y}H_{z}\ \ti y)\ \ti tz
+    \end{aligned}
+  \\[\jot]
+  &\equiv
+  \!\begin{aligned}[t]
+&(\de_{x}D_{x} + \de_{y}D_{y} + \de_{z}D_{z})\ \ti xyz \\
+  &{}+ (\de_{t}D_{x} - \de_{y}H_{z} + \de_{z}H_{y})\ \ti tyz \\
+  &{}+ (\de_{t}D_{y} - \de_{z}H_{x} + \de_{x}H_{z})\ \ti tzx \\
+  &{}+ (\de_{t}D_{z} - \de_{x}H_{y} + \de_{y}H_{x})\ \ti txy \ ,
+\end{aligned}
+  \end{split}
+\end{equation}
+from which, by comparison with~\eqref{eq:charge-current}, we obtain the familiar equations
+\begin{equation}
+  \label{eq:charge_from_potential_familiar}
+  \begin{aligned}
+    \de_{x}D_{x} + \de_{y}D_{y} + \de_{z}D_{z} &= \rho \\[\jot]
+  -\de_{t}D_{x} + \de_{y}H_{z} - \de_{z}H_{y} &= j_{x} \\
+ - \de_{t}D_{y} + \de_{z}H_{x} - \de_{x}H_{z} &=j_{y} \\
+ - \de_{t}D_{z} + \de_{x}H_{y} - \de_{y}H_{x} &=j_{z} \ .
+\end{aligned}
+\end{equation}
+
+
+
+
 \section{Electromagnetic flux}
 \label{sec:electromagnetic_field}
 
@@ -1059,12 +1112,28 @@ The dot products \autocites[\sect~267 p.~661]{truesdelletal1960} of the inverse 
   \text{and so on}.
 \end{equation}
 We therefore have
-\begin{multline}
+\begin{equation}
   \label{eq:raise_F}
-  \bm{g}\cdot\bm{F}\cdot\bm{g} ={}\\
-    B_{x}\ \de yz + B_{y}\ \de zx + B_{z}\ \de xy
-  + E_{x}/c^{2}\ \de tx + E_{y}/c^{2}\ \de ty + E_{z}/c^{2}\ \de tz
-\end{multline}
+  \begin{split}
+  \bm{g}\cdot\bm{F}\cdot\bm{g} &=
+    B_{x}\ \de yz + B_{y}\ \de zx + B_{z}\ \de xy \\
+  &\quad+ E_{x}/c^{2}\ \de tx + E_{y}/c^{2}\ \de ty + E_{z}/c^{2}\ \de tz \ .
+\end{split}
+\end{equation}
+Taking the dot product with the volume element on the left and dividing by $\mu_{0}$
+\begin{equation}
+  \label{eq:raise_F_vol}
+  \begin{split}
+  \gamma \cdot (\bm{g}\cdot\bm{F}\cdot\bm{g})/\mu_{0} &= 
+    B_{x}/\mu_{0}\ \ti tx + B_{y}/\mu_{0}\ \ti ty + B_{z}/\mu_{0}\ \ti tz\\
+  &\quad+ \epsilon_0\,E_{x}\ \ti yz + \epsilon_0\,E_{y}\ \ti zx + \epsilon_0\,E_{z}\ \ti xy \ .
+\end{split}
+\end{equation}
+
+
+
+
+
 
 \iffalse
 \section{Orientation choices}

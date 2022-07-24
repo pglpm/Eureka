@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-24T11:34:39+0200
+%% Last-Updated: 2022-07-24T15:43:52+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -758,21 +758,31 @@ Western Norway University of Applied Sciences%
 
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 
+The terms \enquote*{vectors} and \enquote*{covectors} are used both for those defined in the tangent space at a specific point, and for fields thereof. These terms stand for \enquote*{multivectors} and \enquote*{multicovectors}; grade-one are specifically called \enquote*{1-vectors} and \enquote*{1-covectors}.
+
+For vectors and covectors, both twisted and untwisted, our main references are: \cites[esp.\ \chap~IV]{burke1985_r1987}[esp.\ \chaps~2--3]{bossavit1991}[esp.\ part~F]{truesdelletal1960}; and also \cites{burke1995,burke1995b}.
+
+Denote the wedge product by juxtaposition: $\di t \land \di x \defs \di t\, \di x$ and so on. Abbreviate $\di t\, \di x \defs \di tx$ and so on.
+
 \subsection{Twisted objects}
 \label{sec:twisted}
 
-Denote the wedge product by juxtaposition: $\di t \land \di x \defs \di t\, \di x$ and so on; abbreviate $\di t\, \di x \defs \di tx$ and so on; and denote twisted differential forms by $\ti$.
+We denote twisted basis vectors and covectors by an underneath tilde, for example \enquote*{\,$\ti x$\,} or \enquote*{\,$\te y$\,}. The tilde always refers to an orientation defined on a chart with an ordered tuple of coordinates, for example $(t,x,y,z)$. The resulting orientation is found by
+\begin{enumerate*}[label=(\roman*)]
+\item reordering the coordinates, keeping track of permutation signs, so that their last ones are the same as those in the basis vector or covector;
+\item discarding the last coordinates mentioned in the previous step.
+\end{enumerate*}
+For example, the twisted 2-covector $\ti ty$ has orientation $xz$, obtained by first reordering $txyz$ into $-xzty$, and then eliminating the latter $ty$.
 
-Where an ordered set of coordinate functions $(t,x,y,z)$ is chosen, the twisted unit $\tw{1}$ is defined. It has unit magnitude and outer-orientation $txyz$, and the property $\tw{1}\cdot\tw{1}=1$. In general it is only defined in chart domain, where coordinate functions can be defined, but not globally. We obtain twisted vectors and covectors by multiplying their non-twisted counterparts by the twisted unit. For a vector or covector $\omega$ we have that the orientation of its twisted counterpart is such that \autocites[\eqn~(28.1)]{burke1985_r1987}
+When we want be more explicit about the resulting orientation, we write it under the tilde. For example
 \begin{equation}
-  \label{eq:orientation_twisted_cov}
-  \set[\big]{\set{\tw{\omega}}, \set{\omega}} = \set[\big]{\tw{1}}\ .
+  \label{eq:examples_twisted_or}
+  \ti ty \equiv \ti[-xz]ty \equiv -\ti[xz]ty \ ,\quad
+  \te x \equiv \te[tyz]x \ ,\quad
+  \ti txyz \equiv \ti[+]txyz\ ,\quad
+  -\tw{2} \equiv -\tw[txyz]{2} \equiv \tw[-txyz]{2}\ .
 \end{equation}
-Said otherwise, in the product $\tw{1} \cdot \omega$ the \emph{right} side of the orientation of $\tw{1}$ cancels out with the orientation of $\omega$. This rule must be respected even if we invert the product order, so $\tw{1} \cdot \omega \equiv \omega \cdot \tw{1}$.
-
-Multiplying a twisted vector or covector by the twisted unit, we obtain its non-twisted counterpart. The resulting orientation is obtained by cancelling out the orientation of the twisted object and the \emph{left} side of the orientation of $\tw{1}$.
-
-We have:
+In particular, for covectors, indicating orientation by braces:
 \begin{gather}
   \set[\big]{\tw{1}} = txyz \ ;
   \\[\jot]
@@ -807,6 +817,29 @@ Note that considering, say, the \emph{function} $x$, we have
   \end{cases}
 \end{equation}
 
+All twisted vectors and covectors can be thought of as untwisted ones multiplied by the twisted unit $\tw{1}$, defined on a chart where an ordered tuple of coordinate functions $(t,x,y,z)$ is chosen. It has unit magnitude and outer-orientation $txyz$, and the property $\tw{1}\cdot\tw{1}=1$. In general it is only defined in a chart domain, but not globally unless the manifold is inner-orientable.
+
+For a vector or covector $\omega$ we have that the orientation of its twisted counterpart is such that \parencites[\eqn~(28.1)]{burke1985_r1987}
+\begin{equation}
+  \label{eq:orientation_twisted_cov}
+  \set[\big]{\set{\tw{\omega}}, \set{\omega}} = \set[\big]{\tw{1}}\ .
+\end{equation}
+Said otherwise, in the product $\tw{1} \cdot \omega$ the \emph{right} side of the orientation of $\tw{1}$ cancels out with the orientation of $\omega$. This rule must be respected even if we invert the product order, so $\tw{1} \cdot \omega \equiv \omega \cdot \tw{1}$.
+
+When we pull a twisted covector back on an \emph{outer}-oriented submanifold, the orientation of the resulting twisted covector is obtained by removing from the \emph{left} side of its orientation, appropriately reordered, the outer orientation of the submanifold. See \cites[p.~192]{burke1985_r1987}.
+
+The \emph{dot product} between vectors and covectors is defined as in  \cites[\sect~267 p.~661]{truesdelletal1960}: they so to speak cancel out identical adjacent components after reordering. For example
+\begin{equation}
+  \label{eq:example_dot_product}
+  \begin{gathered}
+  \de zx \cdot \di txz = -\di t \ ,\qquad
+  \de txy \cdot \di tx = \de y \ ,\\
+  \di zx \cdot \de txz = -\de t \ ,\qquad
+  \di txy \cdot \de tx = \di y \ .
+\end{gathered}
+\end{equation}
+
+
 
 \section{Charge-current density}
 \label{sec:charge_current}
@@ -832,7 +865,7 @@ This object automatically give us net volume charge when integrated over a three
   \label{eq:3-volume_space}
   (u, v, w) \mapsto (t_{0}, u, v, w) \ .
 \\
-  \shortintertext{On it, the basis twisted 1-forms map to \autocites[p.~192]{burke1985_r1987}}
+  \shortintertext{On it, the basis twisted 1-covectors map to}
   \begin{gathered}
   \ti[-xyz] t\bigr\rvert_{V} = 0\ , \quad
   \ti[tyz] x\bigr\rvert_{V} = \ti[vw] u\ , \quad
@@ -1104,7 +1137,7 @@ The volume element \autocites[\sect~9.2]{portamana2019c_r2021} and its inverse a
   \label{eq:vol_element}
   \gamma = \ti txyz \ , \qquad \gamma^{-1} = \te xyz \ .
 \end{equation}
-The dot products \autocites[\sect~267 p.~661]{truesdelletal1960} of the inverse metric with the basis twisted covectors are
+The dot products of the inverse metric with the basis twisted covectors are
 \begin{equation}
   \label{eq:raised_covectors}
   \bm{g}\cdot\di t = -\de t/c^{2} \ ,\quad
@@ -1129,8 +1162,15 @@ Taking the dot product with the volume element on the left and dividing by $\mu_
   &\quad+ \epsilon_0\,E_{x}\ \ti yz + \epsilon_0\,E_{y}\ \ti zx + \epsilon_0\,E_{z}\ \ti xy \ .
 \end{split}
 \end{equation}
+The aether relations are
+\begin{equation}
+  \label{eq:aether_rel}
+  \bm{f} = \gamma \cdot (\bm{g}\cdot\bm{F}\cdot\bm{g})/\mu_{0} \ .
+\end{equation}
 
 
+\section{Further references}
+\label{sec:refs}
 
 
 

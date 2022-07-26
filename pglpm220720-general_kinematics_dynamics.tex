@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2022-07-24T17:02:42+0200
+%% Last-Updated: 2022-07-26T12:59:58+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -569,7 +569,8 @@ Western Norway University of Applied Sciences%
 \newcommand*{\I}{\mathrm{i}}%imaginary unit
 \newcommand*{\e}{\mathrm{e}}%Neper
 \newcommand*{\di}{\mathrm{d}}%differential
-%\newcommand*{\Di}{\mathrm{D}}%capital differential
+\newcommand*{\Di}{\mathrm{D}}%capital differential
+\newcommand*{\Li}{\mathrm{L}}%Lie derivative
 %\newcommand*{\planckc}{\hslash}
 %\newcommand*{\avogn}{N_{\textrm{A}}}
 %\newcommand*{\NN}{\bm{\mathrm{N}}}
@@ -579,7 +580,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
 %\newcommand*{\nabl}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
-%\DeclareMathOperator{\tr}{tr}%trace
+\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
 %\DeclareMathOperator{\im}{Im}%im part
 %\DeclareMathOperator{\re}{Re}%re part
@@ -676,7 +677,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\sint}{\begingroup\textstyle\int\endgroup}
 %\newcommand*{\sland}{\mathop{\textstyle\bigwedge}}
 %\newcommand*{\slor}{\mathop{\textstyle\bigvee}}
-%\newcommand*{\T}{^\transp}%transpose
+\newcommand*{\T}{^\transp}%transpose
 %%\newcommand*{\QEM}%{\textnormal{$\Box$}}%{\ding{167}}
 %\newcommand*{\qem}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
 %\quad\hbox{\QEM}}
@@ -700,7 +701,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\tw}[2][\scriptstyle\sim]{\smash[b]{\underset{\mathclap{{}^{#1}}}{#2}}}
 \newcommand*{\ti}[1][\scriptstyle\sim]{\tw[#1]{\di}}
 \newcommand*{\te}[1][\scriptstyle\sim]{\tw[#1]{\de}}
-
+\newcommand*{\da}{^{\dagger}}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1137,6 +1138,112 @@ Consider the twisted 3-vector $\te xyz$. Contracting it with the volume element 
 
 \section{Scribbles and memos}
 \label{sec:memos}
+
+\subsection{3+1 decomposition of the Einstein equation}
+\label{sec:31einstein}
+
+Diverse:
+\begin{gather}
+    \bm{\varPi} = \bm{I} + \bm{n}\otimes\bm{n}\ \bm{g}
+= (\bm{g}^{-1} + \bm{n}\otimes\bm{n})\ \bm{g}
+  \\
+  \bm{\varPi}\ \bm{g}^{-1} = \bm{g}^{-1}\ \bm{\varPi}\T \qquad
+  \bm{g}\ \bm{\varPi} = \bm{\varPi}\T\ \bm{g}
+  \\
+    \bm{\gamma} =\bm{\varPi}\T\ \bm{g}\ \bm{\varPi} =
+    \bm{\varPi}\T\ \bm{g} =
+    \bm{g}\ \bm{\varPi} 
+    = \bm{g} + \bm{g}\bm{n}\otimes\bm{n}\bm{g}
+  \\
+    \bm{\gamma}\da = \bm{\varPi}\ \bm{g}^{-1}\ \bm{\varPi}\T =
+    \bm{g}^{-1}\ \bm{\varPi}\T = 
+    \bm{\varPi}\ \bm{g}^{-1}
+    = \bm{g}^{-1} + \bm{n}\otimes\bm{n}
+    \\
+    \bm{\gamma}\da\ \bm{\gamma} = \bm{\varPi}
+  \\
+  \bar{\bm{K}} = -\bm{\varPi}\T\ \nabla\bm{n}\ \bm{g}\ \bm{\varPi} =
+  -\bm{\varPi}\T\ \nabla\bm{n}\ \bm{\varPi}\T\ \bm{g}
+  \\
+    \bm{K} = \bar{\bm{K}}\ \bm{\gamma}\da  = \bar{\bm{K}}\ \bm{g}^{-1}
+    =-\bm{\varPi}\T\ \nabla\bm{n}\ \bm{\varPi}\T
+    \\
+    \bar{\bm{K}} = \bm{K}\ \bm{\gamma}
+    \\
+  \Li_{\bm{v}}\bm{\gamma} = -2N\bar{\bm{K}} \qquad
+  \Li_{\bm{v}}\bm{\varPi} = 0
+  \\
+  \Li_{\bm{v}}\bm{\gamma}\ \bm{\gamma}\da  = -2N\bm{K} \qquad 
+  \bm{\gamma}\ \Li_{\bm{v}}\bm{\gamma}\da= 2N\bm{K} \qquad
+  \Li_{\bm{v}}\bm{\gamma} = -2N\bm{K}\ \bm{\gamma}
+  \\
+  \Li_{\bm{v}}\bm{K} =
+  \Li_{\bm{v}}\bar{\bm{K}}\ \bm{\gamma}\da +
+  \bar{\bm{K}}\ \bm{\gamma}\da\ \bm{\gamma}\ \Li_{\bm{v}}\bm{\gamma}\da
+  = \Li_{\bm{v}}\bar{\bm{K}}\ \bm{\gamma}\da + 2N\bm{K}^{2}
+\end{gather}
+
+Tangent part of $\hat{\bm{R}}-\frac{1}{2}\hat{R}\bm{g}$ times $\bm{\gamma}\da$
+\begin{multline}
+  \label{eq:tangent31}
+  -[\Li_{\bm{v}}\bar{\bm{K}}/N - (\Di^{2}N)/N + \bm{R}
+  + \tr(\bar{\bm{K}}\bm{g}^{-1})\ \bar{\bm{K}}
+  - 2 \bar{\bm{K}}\bm{g}^{-1}\bar{\bm{K}}]\ \bm{\gamma}\da\\
+  {}-\frac{1}{2}
+  [R + \tr(\bar{\bm{K}}\bm{g}^{-1})^{2}
+  +\tr(\bar{\bm{K}} \bm{g}^{-1}\bar{\bm{K}} \bm{g}^{-1})
+  -2\Li_{\bm{v}}\tr(\bar{\bm{K}}\bm{g}^{-1})/N
+  -2\Di\bm{g}^{-1}\Di N /N] \bm{\gamma}\bm{\gamma}\da
+  \\
+  {}=
+  -\Li_{\bm{v}}\bm{K}/N + 2\bm{K}^{2} - (\Di^{2}N)\ \bm{\gamma}\da/N
+  + \bm{R}\ \bm{\gamma}\da + (\tr\bm{K})\ \bm{K} - 2\bm{K}^{2}\\
+  {}-R/2 - (\tr\bm{K}^{2})/2 - \tr(\bm{K}^{2})
+  + (\Li_{\bm{v}}\tr\bm{K})/N + (\Di\bm{g}^{-1}\Di N)/N
+\end{multline}
+
+\subsection{Stress}
+\label{sec:stress}
+
+Consider a volume element in a fluid. No heat flux. The energy density, momentum density, and (compressive) stress can be combined as
+\begin{equation}
+  \label{eq:stress_rest}
+  \begin{aligned}
+    \bm{\tau} &=  -\epsilon\ \di t\otimes\ti xyz\\
+    &\quad + p_{x}\ \di x\otimes\ti xyz\\
+  &\quad-\sigma_{xx}\ \di x\otimes \ti tyz 
+  -\sigma_{xy}\ \di x\otimes \ti tzx \\
+&\quad+ \dotsb\ .
+\end{aligned}
+\end{equation}
+In a new frame with coordinate system $(t',x',y',z')=(t,x-vt,y,z)$ we have
+\begin{equation}
+  \label{eq:stress_galmotion}
+  \begin{aligned}
+  \bm{\tau} &= -\epsilon\ \di t'\otimes\ti x'y'z'
+  -\epsilon\ v\ \di t'\otimes\ti t'y'z'\\
+  &\quad + p_{x}\ \di x'\otimes\ti x'y'z'
+  - p_{x}\ v\ \di t'\otimes\ti x'y'z'\\
+  &\quad- p_{x}\ v\ \di x'\otimes\ti t'y'z'
+  + p_{x}\ v^{2}\ \di t'\otimes\ti t'y'z' \\
+  &\quad-\sigma_{xx}\ \di x'\otimes\ti t'y'z'
+  -\sigma_{xx}\ v\ \di t'\otimes\ti t'y'z'
+  \\
+  &\quad-\sigma_{xy}\ \di x'\otimes\ti t'z'x'
+  -\sigma_{xy}\ v\ \di t'\otimes\ti t'z'x'
+  \\
+  &\equiv -(\epsilon + p_{x}\ v)\ \di t'\otimes\ti x'y'z'\\
+  &\quad + p_{x}\ \di x'\otimes\ti x'y'z'\\
+  &\quad-(\epsilon+\sigma_{xx}-p_{x}\ v)\ v\ \di t'\otimes\ti t'y'z'
+ -\sigma_{xy}\ v\ \di t'\otimes\ti t'z'x'\\
+ &\quad-(\sigma_{xx} + p_{x}\ v)\ \di x'\otimes\ti t'y'z'
+ -\sigma_{xy}\ \di x'\otimes\ti t'z'x'\\
+ &\quad+\dotsb
+\end{aligned}
+\end{equation}
+
+\subsection{Aether relations}
+\label{sec:aether}
 
 Consider a coordinate system in which the metric tensor is written
 \begin{equation}

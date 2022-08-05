@@ -1,11 +1,11 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2021-12-23T14:25:43+0100
+%% Last-Updated: 2022-08-05T09:59:44+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
-\ifarxiv\pdfmapfile{+classico.map}\fi
+\pdfmapfile{+classico.map}
 \newif\ifafour
 \afourfalse% true = A4, false = A5
 \newif\iftypodisclaim % typographical disclaim on the side
@@ -107,6 +107,11 @@ british%
 \newcommand*{\mathquote}[1]{`\,#1\,'}
 
 \usepackage{amsthm}
+%% from https://tex.stackexchange.com/a/404680/97039
+\makeatletter
+\def\@endtheorem{\endtrivlist}
+\makeatother
+
 \newcommand*{\QED}{\textsc{q.e.d.}}
 \renewcommand*{\qedsymbol}{\QED}
 \theoremstyle{remark}
@@ -237,6 +242,7 @@ british%
 \usepackage[backend=biber,mcite,%subentry,
 citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false]{biblatex}
 \DeclareSortingTemplate{ny}{\sort{\field{sortname}\field{author}\field{editor}}\sort{\field{year}}}
+\DeclareFieldFormat{postnote}{#1}
 \iffalse\makeatletter%%% replace parenthesis with brackets
 \newrobustcmd*{\parentexttrack}[1]{%
   \begingroup
@@ -251,9 +257,10 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \makeatother\fi
 \DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}}
 \renewcommand*{\finalnamedelim}{\addspace\amp\space}
-\setcounter{biburlnumpenalty}{1}
-\setcounter{biburlucpenalty}{0}
-\setcounter{biburllcpenalty}{1}
+\renewcommand*{\textcitedelim}{\addcomma\space}
+% \setcounter{biburlnumpenalty}{1}
+% \setcounter{biburlucpenalty}{0}
+% \setcounter{biburllcpenalty}{1}
 \DeclareDelimFormat{multicitedelim}{\addsemicolon\addspace\space}
 \DeclareDelimFormat{compcitedelim}{\addsemicolon\addspace\space}
 \DeclareDelimFormat{postnotedelim}{\addspace}
@@ -285,7 +292,7 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \g@addto@macro{\UrlBreaks}{\myUrlOrds}
 \makeatother
 \newcommand*{\arxiveprint}[1]{%
-\href{https://arxiv.org/abs/#1}{arXiv:\allowbreak\nolinkurl{#1}}%
+arXiv \doi{10.48550/arXiv.#1}%
 }
 \newcommand*{\mparceprint}[1]{%
 \href{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{mp\_arc:\allowbreak\nolinkurl{#1}}%
@@ -306,14 +313,13 @@ bioRxiv \doi{10.1101/#1}%
 Open Science Framework \doi{10.31219/osf.io/#1}%
 }
 
-
 \usepackage{graphicx}
 
 %\usepackage{wrapfig}
 
 %\usepackage{tikz-cd}
 
-\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false,pdfencoding=unicode,psdextra]{hyperref}
 
 \usepackage[depth=4]{bookmark}
 \hypersetup{colorlinks=true,bookmarksnumbered,pdfborder={0 0 0.25},citebordercolor={0.2667 0.4667 0.6667},citecolor=mypurpleblue,linkbordercolor={0.6667 0.2 0.4667},linkcolor=myredpurple,urlbordercolor={0.1333 0.5333 0.2},urlcolor=mygreen,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
@@ -597,7 +603,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\figs}{figs}%
 \newcommand*{\vs}{{vs}}
 %\newcommand*{\etc}{{etc.}}
-%\newcommand*{\ie}{{i.e.}}
+\newcommand*{\ie}{{i.e.}}
 %\newcommand*{\ca}{{c.}}
 \newcommand*{\eg}{{e.g.}}
 \newcommand*{\foll}{{ff.}}
@@ -727,7 +733,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\inct}{\incr t}
 \newcommand*{\yC}{\dot{C}}
 \newcommand*{\yU}{\bm{U}}
-\newcommand*{\yUu}{\underline{\yU}}
+\newcommand*{\yUu}{\mkern2mu\underline{\mkern-2mu\yU\mkern-3mu}\mkern3mu}
 \newcommand*{\id}{\mathbf{id}}%id matrix
 \newcommand*{\ye}{\bm{e}}
 \newcommand*{\ygv}{\bm{\gamma}}
@@ -876,16 +882,9 @@ immediate, because some tensors don't have universally agreed dimensions --
 prime example the metric tensor. Many texts use four coordinates with
 dimension of length, and base their dimensional analyses on that specific
 choice \citep[\eg][p.~71 \eqn~(37.1)]{tolman1934_t1949}[p.~80
-\eqn~(32.15)]{landauetal1939_t1996}[for exceptions with coordinates with
-mixed dimensions see
-\eg][\sect~V.55]{fock1955_t1964}[\sect~4.1]{mcvittie1956_r1965}[\sect~VII.1]{fokker1960_t1965}[\sect~F.III.280]{truesdelletal1960}[\sect~X]{kitano2013},
+\eqn~(32.15)]{landauetal1939_t1996},
 % [p.~332 \eqn~(10.15)]{adleretal1965_r1975}[\sect~5.7]{penfieldetal1967}
-multiplying timelike tensorial components by appropriate powers of $c$.
-Such common practices can therefore give students the impression that
-coordinates ought to always be lengths, and that all components of a tensor
-ought to have the same dimension. Yet, students cannot find such rules
-explicitly stated anywhere. We'll see shortly that no such rules in fact
-exist, nor are they necessary.
+multiplying timelike tensorial components by appropriate powers of $c$ (there are exceptions of course \citep[\eg][]{dedonder1925,dedonder1926}[\sect~V.55]{fock1955_t1964}[\sect~4.1]{mcvittie1956_r1965}[\sect~VII.1]{fokker1960_t1965}[\sect~F.III.280]{truesdelletal1960}[\sect~X]{kitano2013}). Such common practices can therefore give students the impression that coordinates ought to always be lengths, and that all components of a tensor ought to have the same dimension. Yet, students cannot find such rules explicitly stated anywhere. We'll see shortly that no such rules in fact exist, nor are they necessary.
 
 \medskip
 
@@ -909,16 +908,7 @@ tensor. %The present note tries to revive this notion.
 The intrinsic dimension of a tensor was
 % pivots on the perhaps forgotten notion of \emph{intrinsic
 %   dimension} of a tensor. The present note tries to revive this notion,
-introduced under the name \defquote{absolute dimension} by Schouten and
-Dorgelo \citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} and used in
-Truesdell \amp\ Toupin \citep[Appendix II]{truesdelletal1960} and recently
-in Hehl \amp\ Obukhov \citep[\sect~B.1]{hehletal2003}{hehletal2004b}. As
-its name implies, this dimension is independent of the choice and
-dimensions of coordinate functions. It is distinct from the dimensions of
-the tensor's \emph{components}, which instead depend on the dimensions of
-the coordinates. The intrinsic dimension of a tensor is determined by the
-latter's physical and operational \citep{bridgman1927_r1958} meaning. It is
-therefore a natural notion for dimensional analysis in relativity.
+introduced under the name \defquote{absolute dimension} by Schouten and Dorgelo \citep{dorgeloetal1946}[\chap~VI]{schouten1951_r1989} and used in Truesdell \amp\ Toupin \citep[Appendix II]{truesdelletal1960}, Post \citep{post1982c}, and recently in Hehl \amp\ Obukhov \citep[\sect~B.1]{hehletal2003}{hehletal2004b}. As its name implies, this dimension is independent of the choice and dimensions of coordinate functions. It is distinct from the dimensions of the tensor's \emph{components}, which instead depend on the dimensions of the coordinates. The intrinsic dimension of a tensor is determined by the latter's physical and operational \citep{bridgman1927_r1958} meaning. It is therefore a natural notion for dimensional analysis in relativity.
 
 \medskip
 
@@ -1846,6 +1836,8 @@ If a metric tensor is also introduced and used to raise or lower any
 indices of these tensors, the resulting tensors will have different
 dimensions; see \sect~\ref{sec:g_inv_vol}.
 
+The result~\eqref{eq:dim_torsion_riemann_ricci} appears in Post \citep[\sect~8]{post1982c}. Post also states that the \emph{intrinsic} dimension of the connection coefficients is unity, which could seemingly be at variance with \eqn~\eqref{eq:dim_christoffel}; but I have not managed to understand which intrinsic geometric object he associates with the connection coefficients. If that object is the covariant derivative $\nab$, then his statement agrees with \eqn~\eqref{eq:dim_cov_der_vect}.
+
 Misner \etal\ \citep[p.~35%, 407
 ]{misneretal1970_r1973} say that \enquote{curvature}, by which they seem to
 mean the Riemann tensor, has dimension $\Le^{-2}$. This statement is
@@ -1986,7 +1978,6 @@ which connects the Faraday and Maxwell tensors
 \citep[\chap~F.III]{truesdelletal1960}[\chap~II.4]{misneretal1970_r1973}{puntigametal1997,hehletal2001,hehletal2004},
 so this reasoning could be circular.
 
-\medskip
 
 The other choice, $\dim(\yg) \defd \Le^{2}$, is by far the most common. It
 has the merit that the projection of the metric onto a spacelike
@@ -1998,8 +1989,15 @@ and also of covariant formulations of Newtonian mechanics
 \citep[\sects~B.II.152--154, D.II.203--205, D.V.238,
 F.IV.285--289]{truesdelletal1960}[\sect~2.4]{marsdenetal1983b_r1994}.
 
-In the following we shall see how both choices affect several dimensional
-results. % Another merit is that the norm of a 4-velocity -- and therefore
+Post \citep[\sects~5, 8]{post1982c} offers some arguments for a dimensionless metric tensor: $\dim(\yg) \defd \Un$. In particular he states: \citep[\sects~5 p.~183]{post1982c}
+\begin{quote}\footnotesize
+  Since the relative [\ie, component] dimensions are the primary sources of information relating to measurement, a situation now obtains where dimensions determine index positions of physical tensors, which in turn means physical dimensions determine transformation characteristics. It is the first step for making the principle of covariance unique.
+\end{quote}
+I disagree with this conclusion. It is based on an implicit choice of coordinates of dimensions $(\Ti,\Le,\Le,\Le)$. With such choice and a dimensionless metric, then raising or lowering an index of a tensor does indeed lead to \emph{components} having different dimensions. But the \emph{intrinsic} dimension of the tensor would be unaffected, as shown in the next section; and even the component dimensions are unaffected if we choose dimensionless coordinates. A dimensionful metric, instead, always leads to a different intrinsic dimension of the tensor with a raised or lowered index, see \eqn~\eqref{eq:raising_lowering}. This is more desirable in coordinate-free physics and geometry.
+
+\medskip
+
+In the following we shall consider the choices $\dim(\yg) \defd \Le^{2}$ and $\dim(\yg) \defd \Ti^{2}$, showing how they affect several dimensional results. % Another merit is that the norm of a 4-velocity -- and therefore
 % also its spacelike projection, the ordinary 3-velocity -- has indeed the
 % dimension of a velocity, $\Le\Ti^{-1}$.
 
@@ -2229,10 +2227,10 @@ depending on the choice of dimension for the metric:
 \begin{equation}
   \label{eq:proper_time_condition}
   \begin{aligned}
-   - \frac{1}{c^{2}}\, \yU(\tau)\,\yg\,\yU(\tau) &= 1
+   \frac{1}{c^{2}}\, \yU(\tau)\,\yg\,\yU(\tau) &= -1
     &&\text{if }\dim(\yg) \defd \Le^{2} \ ,
       \\
-    -\yU(\tau)\,\yg\,\yU(\tau) &= 1
+    \yU(\tau)\,\yg\,\yU(\tau) &= -1
     &&\text{if }\dim(\yg) \defd \Ti^{2} \ ;
   \end{aligned}
 \end{equation}
@@ -2240,9 +2238,7 @@ either equation is dimensionless under its specific condition.
 Independently of normalization conditions the 4-velocity has intrinsic
 dimension $\dim(\yU\i{^{\q}}) = \Ti^{-1}$.
 
-Both conditions lead to the same expression for the 4-velocity in a system
-of rectangular Cartesian coordinates $(t,x,y,z)$ with
-$\dim(t,x,y,z) = (\Ti,\Le,\Le,\Le)$, adapted to an inertial observer:
+Either condition leads to the same expression for the 4-velocity in a system of rectangular Cartesian coordinates $(t,x,y,z)$ with $\dim(t,x,y,z) = (\Ti,\Le,\Le,\Le)$, adapted to an inertial observer:
 \begin{equation}
   \label{eq:4-velocity_coords}
   \yU  = \yl \de_{t} + \yl V^{r} \de_{r} \ ,
@@ -2252,8 +2248,7 @@ where $\yl$ is the (dimensionless) Lorentz contraction factor and $V^{r}$,
 $r \in \set{x,y,z}$, are the components of the \emph{coordinate} 3-velocity
 $\yV$.
 
-Care must be taken with the \emph{covariant} 4-velocity, usually obtained
-by lowering the index of $\yU$. It is convenient to define it as
+Care must be taken with the covariant 4-velocity usually obtained by lowering the index of $\yU$. It is convenient to define it as
 \begin{equation}
   \label{eq:covariant_4velocity}
   \yUu \defd
@@ -2263,9 +2258,9 @@ by lowering the index of $\yU$. It is convenient to define it as
     \yU \yg & \text{if }\dim(\yg)\defd \Ti^{2}
   \end{cases} \ .
 \end{equation}
-Either definition leads to the same expression in rectangular Cartesian
+This definition leads to the same expression in rectangular Cartesian
 inertial coordinates, and also to the property $\yU\yUu = -1$, with
-$\dim(\yUu) = \dim(\yU)^{-1} = \Ti^{-1}$, independently of the choice of
+$\dim(\yU)^{-1} = \dim(\yU) = \Ti^{-1}$, independently of the choice of
 dimension for the metric. This property is especially useful in $3+1$
 formulations of general relativity, where $\yU \otimes \yUu$ acts as a
 projector onto the proper-time axis. If you use $\dim(\yg)\defd\Le^{2}$ and
@@ -2279,7 +2274,7 @@ proper time is actually a \emph{length}, $\dim(\ytp) \defd \Le$. Then the $c^{2}
 factors in the formulae above disappear, the special coordinate
 expression~\eqref{eq:4-velocity_coords} must be replaced by
 $\yU = c\yl \de_{t} + c\yl V^{r} \de_{r}$, and we have $\yU\yUu = -1$ with
-$\dim(\yUu) = \dim(\yU)^{-1} = \Le^{-1}$ in this case.
+$\dim(\yUu)^{-1} = \dim(\yU) = \Le^{-1}$ in this case.
 
 
 
@@ -2597,19 +2592,7 @@ twisted orientation. This tensor has the dimension of an \emph{action}:
     \label{eq:final_dim_T}
   \dim\bigl(\yT\i{_{\q \mul{\q\q\q}}}\bigr) = \En\Ti \equiv \Ma\Le^{2}\Ti^{-1} \ .
 \end{equation}
-This result agrees with the stress-energy-momentum tensor that appears for
-example in Einstein's original work \citep[\sect~C.9, discussion before
-\eqn~(42a)]{einstein1914b}, other early works
-\citep[\eg][\sect~IV.54]{pauli1921_t1958}[\sect~13]{cartan1923}[\sect~7]{brillouin1924},
-and more recent works \citep[\sect~VIII.3]{fokker1960_t1965}[\chap~14
-Exercise~14.18, \chap~15,
-\sect~21.3]{misneretal1970_r1973}{hehletal1986,gotayetal1992,gronwaldetal1997,castrillonlopezetal2008,castrillonlopezetal2009}[see
-also][for similar conclusions in general manifolds and in Newtonian
-mechanics]{segevetal1999,kansoetal2007}; and also in Truesdell \amp\ Toupin
-\citep[\sect~F.IV.288]{truesdelletal1960}, who try to find an expression
-universally valid in Newtonian, Lorentzian, and general-relativistic
-mechanics. The commonly encountered versions of this tensor with only two
-slots are discussed below.
+This result agrees with the stress-energy-momentum tensor that appears for example in Einstein's original work \citep[\sect~C.9, discussion before \eqn~(42a)]{einstein1914b}, other early works \citep[\eg][\sect~IV.54]{pauli1921_t1958}[\sect~13]{cartan1923}[\sect~7]{brillouin1924}, and more recent works \citep[\sect~VIII.3]{fokker1960_t1965}[\chap~14 Exercise~14.18, \chap~15, \sect~21.3]{misneretal1970_r1973}[\sect~7 Table~I]{post1982c}{hehletal1986,gotayetal1992,gronwaldetal1997,castrillonlopezetal2008,castrillonlopezetal2009}[see also][for similar conclusions in general manifolds and in Newtonian mechanics]{segevetal1999,kansoetal2007}; and also in Truesdell \amp\ Toupin \citep[\sect~F.IV.288]{truesdelletal1960}, who try to find an expression universally valid in Newtonian, Lorentzian, and general-relativistic mechanics. The commonly encountered versions of this tensor with only two slots are discussed below.
 % \citep[\enquote{$^{\displaystyle *}\mathte{T}$}]
 Note that some of these works use a once covariant and once contravariant
 \enquote{V(olume)-tensor} or \enquote{tensor density}, which has variance
@@ -3387,7 +3370,7 @@ appear in McVittie if he didn't cheat a factor $1/c^{2}$ into $\yk$ by
 writing the Einstein equations \citep[\sect~4.2
 \eqn~(4.107)]{mcvittie1956_r1965} as \enquote{\,$\yG = \yk c^{2} \yTe$\,}.
 
-
+A fourth possibility is discussed by Post \citep[\sect~8]{post1982c}. If we choose a dimensionless metric tensor $\dim(\yg)\defd\Un$, and define the volume element as $\ygv \defd \sqrt{\smash[b]{\abs{\det(g\i{_{ij}})}}}\ \dix[0]\land\dix[1]\land\dix[2]\land\dix[3]$ so that $\dim(\ygv)=1$, then from \eqns~\eqref{eq:dim_co_co_T} and \eqref{eq:dim_k_general} we find that $\dim(\yk)=(\En\Ti)^{-1}$, the dimension of an inverse action. There is no way to obtain such a dimension with a product of powers of $G$ and $c$. If we include powers of Planck's constant $h$, then no powers of $G$ and $c$ can appear in $\yk$. The operational meaning of these particular dimensional choices and constants is yet unclear to me; I invite you to read Post's paper.
 
 \section{Summary and conclusions}
 \label{sec:summary}

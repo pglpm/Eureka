@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2022-08-05T09:59:44+0200
+%% Last-Updated: 2022-08-08T06:24:21+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -705,7 +705,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\rii}{\ii}
 %
 \newcommand*{\yA}{\mathte{A}}
-\newcommand*{\yAg}{\underline{\yA}}
+\newcommand*{\yAg}{\mkern2mu\underline{\mkern-2mu\yA\mkern-2mu}\mkern2mu}
 \newcommand*{\yB}{\mathte{B}}
 \newcommand*{\yBg}{\overline{\yB}}
 \newcommand*{\yg}{\mathte{g}}
@@ -733,7 +733,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\inct}{\incr t}
 \newcommand*{\yC}{\dot{C}}
 \newcommand*{\yU}{\bm{U}}
-\newcommand*{\yUu}{\mkern2mu\underline{\mkern-2mu\yU\mkern-3mu}\mkern3mu}
+\newcommand*{\yUu}{\mkern2mu\underline{\mkern-2mu\yU\mkern-2mu}\mkern2mu}
 \newcommand*{\id}{\mathbf{id}}%id matrix
 \newcommand*{\ye}{\bm{e}}
 \newcommand*{\ygv}{\bm{\gamma}}
@@ -1005,16 +1005,16 @@ to the basis $\bigl(\dex\bigr)$. Analogously for a covector field.
 \medskip
 
 For the presentation of the intrinsic view I recommend the excellent texts
-by Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}, Boothby
-\citey{boothby1975_r2003}, Abraham \etal\ \citey{abrahametal1983_r1988},
-Burke \citey{burke1985_r1987}, Bossavit \citey{bossavit1991}, and more on
+by Choquet-Bruhat \etal\ \cite*{choquetbruhatetal1977_r1996}; Boothby
+\cite*{boothby1975_r2003}; Abraham \etal\ \cite*{abrahametal1983_r1988};
+Burke \cite*{burke1985_r1987}; Bossavit \cite*{bossavit1991}; and more on
 the general-relativity side Misner \etal\
-\citey[\chap~9]{misneretal1970_r1973}, Gourgoulhon
-\citey[\chap~2]{gourgoulhon2007_r2012}, Penrose \amp\ Rindler
-\citey{penroseetal1984_r2003}. \textcolor{white}{If you find this
+\cite*[\chap~9]{misneretal1970_r1973}; Gourgoulhon
+\cite*[\chap~2]{gourgoulhon2007_r2012}; Penrose \amp\ Rindler
+\cite*{penroseetal1984_r2003}. \textcolor{white}{If you find this
   you can claim a postcard from me.}
 
-\bigskip
+\medskip
 
 For the notation in dimensional analysis I use \textsc{iso}
 conventions:\citep[\sect~5]{iso2009} $\dim(\yA)$ is the dimension of the
@@ -1159,18 +1159,9 @@ you won't find the notation above too uncomfortable.
 
 %\paragraph{Multi-vectors, multi-covectors, orientations }
 
-It is possible to build the tensor-product architecture not on vectors and
-covectors, but on multi-vectors and multi-covectors, with their straight
-and twisted (also called \defquote{even} and
-\defquote{odd}, %\citep{derham1955_t1984}
+It is possible to build the tensor-product architecture not on vectors and covectors, but on multi-vectors and multi-covectors, with their straight and twisted (also called \defquote{even} and \defquote{odd}, %\citep{derham1955_t1984}
 or \defquote{polar} and \defquote{axial}% \citep{truesdelletal1960}
-) orientations. This elegant and powerful geometric point of view leads to
-deeper physical insights and is gaining popularity in the literature. For
-its presentation I recommend the texts of Bossavit \citey[especially
-\chap~3]{bossavit1991}, Burke
-\citey{burke1983,burke1985_r1987,burke1980b,burke1995}, de~Rham
-\citey[\chap~2]{derham1955_t1984}, Schouten \citey{schouten1924_r1954},
-Deschamps \citey{deschamps1970,deschamps1981}, Lindell \citey{lindell2004}.
+) orientations. This elegant and powerful geometric point of view leads to deeper physical insights and is gaining popularity in the literature. For its presentation I recommend the texts of Bossavit \cite*[especially \chap~3]{bossavit1991}; Burke \cite*{burke1983,burke1985_r1987,burke1980b,burke1995}; de~Rham \cite*[\chap~2]{derham1955_t1984}; Schouten \cite*{schouten1924_r1954}; Cartan \cite*[\chap~I]{cartan1928_t1983}; Deschamps \cite*{deschamps1970,deschamps1981}; Lindell \cite*{lindell2004}.
 
 In the notation above, the bars identify $k$-vectors and $k$-covectors for
 $k>1$. Thus $\yA\i{^{\q}_{\mul{\q\q}}}$ indicates that $\yA$ belongs to the
@@ -1496,7 +1487,7 @@ derivative, the metric, and related tensors, discussed more in depth in
 are actually definitions or conventions, as briefly discussed in their
 description. The others can be proved; I only give proofs for some of them,
 leaving the other proofs as an exercise. For reference, in brackets I give
-the section of Choquet-Bruhat \etal\ \citey{choquetbruhatetal1977_r1996}
+the section of Choquet-Bruhat \etal\ \cite*{choquetbruhatetal1977_r1996}
 where these operations are defined.
 
 
@@ -2522,27 +2513,19 @@ stress imply some kind of integration over three-dimensional spacelike or
 timelike regions. Such integration needs a 3-form and thus excludes
 alternatives~\eqref{eq:T_co_contra} and \eqref{eq:T_contra3_contra}.
 
-Second, the total energy measured within a \emph{topologically} specified
-three-dimensional spatial region of an observer's orthogonal hyperplane is
-considered to be independent of the extent of that region, whether the
-extent is reckoned by a physical metric or by arbitrary coordinate
-intervals. % (just like
+Second, the total energy measured within a \emph{topologically} specified three-dimensional spatial region of an observer's orthogonal hyperplane is considered to be independent of the \enquote{volume} of that region, whether this volume be reckoned by a physical metric or by arbitrary coordinate intervals. % (just like
 % charge, although the latter is also independent of the observer's
 % motion). 
 % \citep[\cf][\sect~4.28]{landauetal1939_t1996}
-The \emph{volumic} energy therefore \emph{does} depend on the extent of the
+The \emph{volumic} energy therefore \emph{does} depend on the volume of the
 region and must change accordingly. Similar arguments hold for the surface
 energy flux. Only the second tensor alternative~\eqref{eq:T_co_co3} above
 is consistent with these requirements.
 
-This extent-scaling argument also suggests that the volumic-momentum part
-$\yp_{x}\ \di x\otimes\dixyz$ should not be interpreted as an areic mass
-flux $\Ma\Le^{-2}\Ti^{-1}$, that is, as something that needs to be
-integrated over a surface: the basis element $\di x\otimes\dixyz$ indicates
-that integration should happen over a volume instead: % We
+This volume-scaling argument also suggests that the volumic-momentum part $\yp_{x}\ \di x\otimes\dixyz$ should not be interpreted as an areic mass flux $\Ma/(\Le^{2}\Ti)$, that is, as something that needs to be integrated over a surface and over time to yield a mass. The second factor of the basis element $\di x\otimes\dixyz$ indicates that integration should instead happen over a volume, to yield a momentum: % We
 % are thus forced to interpret the momentum-density part in terms of an
 % \emph{action} density per length instead:
-$\dim(\yp_{r}) = (\Ma\Le\Ti^{-1})\ \Le^{-3}$.
+$\dim(\yp_{r}) = (\Ma\Le\Ti^{-1})/\Le^{3}$.
 % the $\Le^{-2}$ scaling in the component
 % $\yp_{x}$ and the $\Le^{4}$ scaling in the corresponding basis element
 % $\di x\otimes\dixyz$ don't match. They do match, however, if we interpret
@@ -2550,12 +2533,12 @@ $\dim(\yp_{r}) = (\Ma\Le\Ti^{-1})\ \Le^{-3}$.
 % $\Ma\Le^{-2}\Ti^{-1}=\En\Ti\Le^{-4}$.
 A similar situation occurs for the stress part, which should be interpreted
 as an areic momentum flux:
-$\dim(\yt_{rs}) = (\Ma\Le\Ti^{-1})\ \Le^{-2}\Ti^{-1}$. It is worth noting
+$\dim(\yt_{rs}) = (\Ma\Le\Ti^{-1})/(\Le^{2}\Ti)$. It is worth noting
 that scaling reinterpretations of this kind occur, even for more
 components, in all other fifteen alternatives for the
 stress-energy-momentum tensor. Intrinsic dimensional analysis alone thus
-suggests that there is a differences between mass flux and
-momentum.% , energy, action, and seems to give the latter quantity a more
+suggests that there is a difference between mass flux and
+momentum, a fact that relativity theory makes clear \citep{eckart1940c}.% , energy, action, and seems to give the latter quantity a more
 % fundamental status.
 
 Third, the value of the energy density should not change under a change in
@@ -2625,32 +2608,7 @@ dimension of an action; or from combinations of these approaches. The
 operational meaning of this tensor is therefore still unclear in my
 opinion.
 
-In the presence of a metric tensor we can of course obtain
-stress-energy-momentum tensors of different variance types by means of
-inner products with the proper volume element and its inverse, and by
-raising and lowering indices. But the question of the operational meaning
-and primitive variance type of this tensor are important, for example, in
-field theories not based on a metric, or for the formulation of
-constitutive equations
-\citep[\cf][\chap~G]{truesdelletal1960}{marsdenetal1983b_r1994,gotayetal1992}.
-Extensive investigations were made by Gotay \etal\
-\citep{gotayetal1998,gotayetal2004,gotayetal2006}; and by Segev
-\citep{segev2002}[see also][]{segev2000b}, who interprets the
-stress-energy-momentum tensor as a linear map from the four-dimensional
-flux of a conserved quantity, such as charge or baryonic number, to that of
-energy. Since such fluxes are represented by 3-forms, he arrives at the
-fourth alternative~\eqref{eq:T_contra3_co3} above: the 3-vector part of
-$\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ can be contracted with a 3-form,
-yielding another 3-form. This interesting interpretation doesn't seem to
-work out dimensionally, however. The intrinsic dimension of the
-four-dimensional charge flux, for example, is charge itself,
-$\Ch \equiv \Cu\Ti$, and similarly for the energy flux. The tensor
-$\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ should then have intrinsic
-dimension $\En\Ch^{-1}$ according to the results of
-\sect~\ref{sec:tensor_ops}. The dimension of charge would then have to
-appear in Einstein's constant $\yk$ (see \sect~\ref{sec:einstein_eq}),
-because it cannot be eliminated by using the metric tensor or the proper
-volume element to obtain alternative variance types.
+In the presence of a metric tensor we can of course obtain stress-energy-momentum tensors of different variance types by means of inner products with the proper volume element and its inverse, and by raising and lowering indices. But the question of the operational meaning and primitive variance type of this tensor are important, for example, in field theories not based on a metric, or for the formulation of constitutive equations \citep[\cf][\chap~G]{truesdelletal1960}{marsdenetal1983b_r1994,gotayetal1992}. Extensive investigations were made by Gotay \etal\ \citep{gotayetal1998,gotayetal2004,gotayetal2006}; and by Segev \citep{segev2002}[see also][]{segev2000b}, who interprets the stress-energy-momentum tensor as a linear map from the four-dimensional flux of a conserved quantity, such as charge or baryonic number, to the flux of energy. Since such fluxes are represented by 3-forms, he arrives at the fourth alternative~\eqref{eq:T_contra3_co3} above: the 3-vector part of $\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ can be contracted with a 3-form, yielding another 3-form. This interesting interpretation doesn't seem to work out dimensionally, however. For example, the intrinsic dimension of the four-dimensional charge flux is charge itself, $\Ch \equiv \Cu\Ti$; in order to yield an energy flux, which has intrinsic dimension of energy $\En$, the tensor $\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ should then have intrinsic dimension $\En\Ch^{-1}$ according to the results of \sect~\ref{sec:tensor_ops}. The dimension of charge would then have to appear in Einstein's constant $\yk$ (see \sect~\ref{sec:einstein_eq}), because it cannot be eliminated by using the metric tensor or the proper volume element to obtain alternative variance types.
 
 
 \medskip

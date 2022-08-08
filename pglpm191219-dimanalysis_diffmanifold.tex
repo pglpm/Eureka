@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2022-08-08T06:24:21+0200
+%% Last-Updated: 2022-08-08T06:36:13+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -689,7 +689,8 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\Ch}{\textsf{Q}}
 \newcommand*{\Fl}{\Phi}
 \newcommand*{\Ent}{\textsf{s}}
-\newcommand*{\En}{\Epsilon}%{\textsf{E}}
+\newcommand*{\En}{\Epsilon}
+%\newcommand*{\En}{\textsf{E}}
 \newcommand*{\Xx}{\textsf{X}}
 \newcommand*{\Yy}{\textsf{Y}}
 \newcommand*{\Aa}{\textsf{A}}
@@ -2608,7 +2609,7 @@ dimension of an action; or from combinations of these approaches. The
 operational meaning of this tensor is therefore still unclear in my
 opinion.
 
-In the presence of a metric tensor we can of course obtain stress-energy-momentum tensors of different variance types by means of inner products with the proper volume element and its inverse, and by raising and lowering indices. But the question of the operational meaning and primitive variance type of this tensor are important, for example, in field theories not based on a metric, or for the formulation of constitutive equations \citep[\cf][\chap~G]{truesdelletal1960}{marsdenetal1983b_r1994,gotayetal1992}. Extensive investigations were made by Gotay \etal\ \citep{gotayetal1998,gotayetal2004,gotayetal2006}; and by Segev \citep{segev2002}[see also][]{segev2000b}, who interprets the stress-energy-momentum tensor as a linear map from the four-dimensional flux of a conserved quantity, such as charge or baryonic number, to the flux of energy. Since such fluxes are represented by 3-forms, he arrives at the fourth alternative~\eqref{eq:T_contra3_co3} above: the 3-vector part of $\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ can be contracted with a 3-form, yielding another 3-form. This interesting interpretation doesn't seem to work out dimensionally, however. For example, the intrinsic dimension of the four-dimensional charge flux is charge itself, $\Ch \equiv \Cu\Ti$; in order to yield an energy flux, which has intrinsic dimension of energy $\En$, the tensor $\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ should then have intrinsic dimension $\En\Ch^{-1}$ according to the results of \sect~\ref{sec:tensor_ops}. The dimension of charge would then have to appear in Einstein's constant $\yk$ (see \sect~\ref{sec:einstein_eq}), because it cannot be eliminated by using the metric tensor or the proper volume element to obtain alternative variance types.
+In the presence of a metric tensor we can of course obtain stress-energy-momentum tensors of different variance types by means of inner products with the proper volume element and its inverse, and by raising and lowering indices. But the question of the operational meaning and primitive variance type of this tensor are important, for example, in field theories not based on a metric, or for the formulation of constitutive equations \citep[\cf][\chap~G]{truesdelletal1960}{marsdenetal1983b_r1994,gotayetal1992}. Extensive investigations were made by Gotay \etal\ \citep{gotayetal1998,gotayetal2004,gotayetal2006}; and by Segev \citep{segev2002}[see also][]{segev2000b}, who interprets the stress-energy-momentum tensor as a linear map from the four-dimensional flux of a conserved quantity, such as charge or baryonic number, to the flux of energy. Since such fluxes are represented by 3-forms, he arrives at the fourth alternative~\eqref{eq:T_contra3_co3} above: the 3-vector part of $\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ can be contracted with a 3-form, yielding another 3-form. This interesting interpretation doesn't seem to work out dimensionally, however. For example, the intrinsic dimension of the four-dimensional charge flux is charge itself, $\Ch \equiv \Cu\Ti$; in order to yield an energy flux, which has intrinsic dimension of energy $\En$, the tensor $\yT\i{^{\mul{\q\q\q}}_{\mul{\q\q\q}}}$ should then have intrinsic dimension $\En\Ch^{-1}$ according to the results of \sect~\ref{sec:tensor_ops}. The dimension of charge would then have to appear in Einstein's constant $\yk$ (see \sect~\ref{sec:einstein_eq}), because it cannot be eliminated by using the metric tensor or the proper volume element to obtain alternative variance types. Similar problems occur with the flux of baryonic number, which has dimension of amount of substance $\textsf{N}$.
 
 
 \medskip

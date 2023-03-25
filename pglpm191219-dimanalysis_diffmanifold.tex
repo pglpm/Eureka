@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2022-08-08T06:36:13+0200
+%% Last-Updated: 2022-08-27T23:26:09+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -712,8 +712,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yg}{\mathte{g}}
 \newcommand*{\ygc}{\mathte{g}}
 \newcommand*{\yT}{\bm{\mathcal{T}}}
-\newcommand*{\yTc}{\Hat{\mathte{T}}}
+%\newcommand*{\yTc}{\Hat{\mathte{T}}}
 \newcommand*{\yTe}{\mathte{T}}
+\newcommand*{\yTu}{\bar{\mathte{T}}}
 \newcommand*{\yG}{\mathte{G}}
 %\newcommand*{\yR}{\mathte{R}}
 \newcommand*{\yR}{\mathte{Rie}}
@@ -2496,6 +2497,8 @@ dimensionally consistent:
   \end{align}
 \end{subequations}
 where the particular signs of the components, which are not determined by
+$\texttt{determined by}$
+determined by
 dimensional analysis, will be motivated later. Our analysis of the
 intrinsic dimensions therefore restricts the stress-energy-momentum tensor
 to be one of the four alternatives above, with their kinds of orientation,
@@ -2543,7 +2546,7 @@ momentum, a fact that relativity theory makes clear \citep{eckart1940c}.% , ener
 % fundamental status.
 
 Third, the value of the energy density should not change under a change in
-the orientation of the spacelike coordinates. The 3-covector slot in
+the orientation of the spacelike coordinates: the total energy in a small region of space remains the same if we decide to replace the coordinate $x$ with $-x$. The 3-covector slot in
 alternative~\eqref{eq:T_co_co3} should therefore have a twisted
 orientation. This means that the 3-form $\dixyz$ actually has an inner
 orientation in the positive $t$ direction, the 3-form $\ditzy$ in the
@@ -2706,13 +2709,7 @@ literature: see the works cited after \eqn~\eqref{eq:final_dim_T}
 concerning the combinations of dimensions for metric and
 stress-energy-momentum.
 
-It may be useful to write the coordinate expressions of the tensors
-$\yTe\i{_{\q\q}}$ and $\yTe\i{^{\q\q}}$ obtained from
-$\yT\i{_{\q\mul{\q\q\q}}}$ of \eqn~\eqref{eq:T_co_co3}, in the common case
-with $\dim(\yg)\defd \Le^2$, $\dim(\yT)\defd \En\Ti$, and coordinate system
-with diagonal metric
-$\yg = \pm(-c^{2} \di t \otimes \di t + \di x \otimes \di x + \dotsb)$,
-commonly encountered in the literature:
+It may be useful to write the coordinate expressions of the tensors $\yTe\i{_{\q\q}}$ and $\yTu\i{^{\q\q}}$, obtained from $\yT\i{_{\q\mul{\q\q\q}}}$, in the case with $\dim(\yg)\defd \Le^2$, $\dim(\yT)\defd \En\Ti$, and coordinate system with diagonal metric $\yg = \pm(-c^{2} \di t \otimes \di t + \di x \otimes \di x + \dotsb)$, commonly encountered in the literature:
 \begin{align}
       \mbox{}\hspace{-1ex}\yTe\i{_{\q\q}} &=
       c^{2}\en\  \di t\otimes\di t 
@@ -2721,7 +2718,7 @@ commonly encountered in the literature:
                         +\yt_{x x}\  \di x\otimes\di x + \dotsb
   \label{eq:common_T_coco}
   \\
-      \mbox{}\hspace{-1ex}\yTe\i{^{\q\q}} &=
+      \mbox{}\hspace{-1ex}\yTu\i{^{\q\q}} &=
       \frac{1}{c^{2}}\en\  \de_{t}\otimes\de_{t} 
       +\frac{1}{c^{2}}\yq_{x}\  \de_{t}\otimes\de_{x} 
       +\yp_{x}\  \de_{x}\otimes\de_{t} 
@@ -3485,7 +3482,7 @@ review by de~Boer \citep{deboer1995}, and references therein.
   Buster Keaton and Saitama for filling life with awe and inspiration. To
   the developers and maintainers of \LaTeX, Emacs, AUC\TeX, Open Science
   Framework, R, Python, Inkscape, Sci-Hub for making a free and impartial
-  scientific exchange possible. \mbox{}\hfill\autanet
+  scientific exchange possible. %\mbox{}\hfill\autanet
 
   Note: this paper was rejected by arXiv without any kind of scientific
   justification. %It's sad and alarming that the possibility of pre-print  feedback is curtailed like that.

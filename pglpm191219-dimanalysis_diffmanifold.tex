@@ -1,10 +1,10 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2022-08-27T23:26:09+0200
+%% Last-Updated: 2023-03-25T18:19:02+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
-\arxivfalse
+\arxivtrue
 \pdfmapfile{+classico.map}
 \newif\ifafour
 \afourfalse% true = A4, false = A5
@@ -18,7 +18,7 @@ british%
 ]{memoir}
 \newcommand*{\firstdraft}{13 December 2019}%not used
 \newcommand*{\firstpublished}{13 December 2019}
-\newcommand*{\updated}{\ifarxiv 20 May 2021\else\today\fi}
+\newcommand*{\updated}{\ifarxiv 25 March 2023\else\today\fi}
 \newcommand*{\propertitle}{Dimensional analysis in relativity\\ and in differential geometry%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{Dimensional analysis in relativity and in differential geometry}
@@ -311,6 +311,9 @@ bioRxiv \doi{10.1101/#1}%
 }
 \newcommand*{\osfeprint}[1]{%
 Open Science Framework \doi{10.31219/osf.io/#1}%
+}
+\newcommand*{\osfproj}[1]{%
+Open Science Framework \doi{10.17605/osf.io/#1}%
 }
 
 \usepackage{graphicx}
@@ -860,17 +863,26 @@ of questions. % the dimensions
 % field equations.
 This is evident in many question \amp\ answer websites and wiki pages,
 where several incorrect or unfounded statements about dimensional analysis
-in relativity are in circulation. (For the record, the answers to the
-questions above are:
-\begin{enumerate*}[label=\arabic*.]
+in relativity are in circulation.\footnote{The answers to the questions above are:
+ \begin{enumerate*}[label=\arabic*.]
 \item No, they don't. \item See \eqn~\eqref{eq:dim_component_generic}
   below. \item Yes. \item They are dimensionless. \item
   $\Ma^{-1}\Le^{-1}\Ti^{2}$, or $\Ma^{-1}\Le$, or
   $\Ma^{-1}\Le^{3}\Ti^{-2}$, depending on the dimensions you assign to the
   metric and stress-energy-momentum tensors, see
   \sects~\ref{sec:metric}--\ref{sec:einstein_eq}.
-\end{enumerate*}
-)
+\end{enumerate*}}
+% (The answers to the
+% questions above are:
+% \begin{enumerate*}[label=\arabic*.]
+% \item No, they don't. \item See \eqn~\eqref{eq:dim_component_generic}
+%   below. \item Yes. \item They are dimensionless. \item
+%   $\Ma^{-1}\Le^{-1}\Ti^{2}$, or $\Ma^{-1}\Le$, or
+%   $\Ma^{-1}\Le^{3}\Ti^{-2}$, depending on the dimensions you assign to the
+%   metric and stress-energy-momentum tensors, see
+%   \sects~\ref{sec:metric}--\ref{sec:einstein_eq}.
+% \end{enumerate*}
+% )
 % For example, the notion that the components
 % of a tensor or the coordinate functions should all have the same dimension.
 % As we'll see shortly, this notion is false.
@@ -1009,8 +1021,8 @@ to the basis $\bigl(\dex\bigr)$. Analogously for a covector field.
 For the presentation of the intrinsic view I recommend the excellent texts
 by Choquet-Bruhat \etal\ \cite*{choquetbruhatetal1977_r1996}; Boothby
 \cite*{boothby1975_r2003}; Abraham \etal\ \cite*{abrahametal1983_r1988};
-Burke \cite*{burke1985_r1987}; Bossavit \cite*{bossavit1991}; and more on
-the general-relativity side Misner \etal\
+Burke \cite*{burke1985_r1987}; Bossavit \cite*{bossavit1991}; Gratus \cite*{gratus2017} for insightful pictorial illustrations. More on
+the general-relativity side, Misner \etal\
 \cite*[\chap~9]{misneretal1970_r1973}; Gourgoulhon
 \cite*[\chap~2]{gourgoulhon2007_r2012}; Penrose \amp\ Rindler
 \cite*{penroseetal1984_r2003}. \textcolor{white}{If you find this
@@ -1163,7 +1175,7 @@ you won't find the notation above too uncomfortable.
 
 It is possible to build the tensor-product architecture not on vectors and covectors, but on multi-vectors and multi-covectors, with their straight and twisted (also called \defquote{even} and \defquote{odd}, %\citep{derham1955_t1984}
 or \defquote{polar} and \defquote{axial}% \citep{truesdelletal1960}
-) orientations. This elegant and powerful geometric point of view leads to deeper physical insights and is gaining popularity in the literature. For its presentation I recommend the texts of Bossavit \cite*[especially \chap~3]{bossavit1991}; Burke \cite*{burke1983,burke1985_r1987,burke1980b,burke1995}; de~Rham \cite*[\chap~2]{derham1955_t1984}; Schouten \cite*{schouten1924_r1954}; Cartan \cite*[\chap~I]{cartan1928_t1983}; Deschamps \cite*{deschamps1970,deschamps1981}; Lindell \cite*{lindell2004}.
+) orientations. This elegant and powerful geometric point of view leads to deeper physical insights and is gaining popularity in the literature. For its presentation I recommend the texts of Bossavit \cite*[especially \chap~3]{bossavit1991}; Burke \cite*{burke1983,burke1985_r1987,burke1980b,burke1995}; de~Rham \cite*[\chap~2]{derham1955_t1984}; Schouten \cite*{schouten1924_r1954}; Cartan \cite*[\chap~I]{cartan1928_t1983}; Deschamps \cite*{deschamps1970,deschamps1981}; Lindell \cite*{lindell2004}; Gratus \cite*{gratus2017}.
 
 In the notation above, the bars identify $k$-vectors and $k$-covectors for
 $k>1$. Thus $\yA\i{^{\q}_{\mul{\q\q}}}$ indicates that $\yA$ belongs to the
@@ -2220,54 +2232,67 @@ depending on the choice of dimension for the metric:
 \begin{equation}
   \label{eq:proper_time_condition}
   \begin{aligned}
-   \frac{1}{c^{2}}\, \yU(\tau)\,\yg\,\yU(\tau) &= -1
+   \frac{1}{c^{2}}\, \yU(\tau)\,\yg\,\yU(\tau) &= \pm 1
     &&\text{if }\dim(\yg) \defd \Le^{2} \ ,
       \\
-    \yU(\tau)\,\yg\,\yU(\tau) &= -1
-    &&\text{if }\dim(\yg) \defd \Ti^{2} \ ;
+    \yU(\tau)\,\yg\,\yU(\tau) &= \pm 1
+    &&\text{if }\dim(\yg) \defd \Ti^{2} \ ,
   \end{aligned}
 \end{equation}
-either equation is dimensionless under its specific condition.
+where $\pm 1$ is the sign of the time-time component of the metric.
+Either equation is dimensionless under its specific condition.
 Independently of normalization conditions the 4-velocity has intrinsic
 dimension $\dim(\yU\i{^{\q}}) = \Ti^{-1}$.
 
 Either condition leads to the same expression for the 4-velocity in a system of rectangular Cartesian coordinates $(t,x,y,z)$ with $\dim(t,x,y,z) = (\Ti,\Le,\Le,\Le)$, adapted to an inertial observer:
 \begin{equation}
   \label{eq:4-velocity_coords}
-  \yU  = \yl \de_{t} + \yl V^{r} \de_{r} \ ,
+  \yU  = \yl \de_{t} + \yl V^{r} \de_{x^{r}} \ ,
   \qquad  \yl \defd 1/\sqrt{1- \yV^{2}/c^{2}}
 \end{equation}
 where $\yl$ is the (dimensionless) Lorentz contraction factor and $V^{r}$,
-$r \in \set{x,y,z}$, are the components of the \emph{coordinate} 3-velocity
+$r \in \set{1,2,3}$, are the components of the \emph{coordinate} 3-velocity
 $\yV$.
 
-Care must be taken with the covariant 4-velocity usually obtained by lowering the index of $\yU$. It is convenient to define it as
+Care must be taken with the covariant 4-velocity $\yUu$ usually obtained by lowering the index of $\yU$. Under the choice $\dim(\yg) \defd \Le^{2}$, simply lowering the index would lead to an object with the peculiar dimensions $\Le^{2}\Ti^{-1}$. This suggests that some $c$ factors should be included in its definition. Possibly some $\pm$ sign should also be included, depending on the sign of the time-time component of the metric, if we want $\yU \otimes \yUu$ to act as an \emph{idempotent} projector onto the proper-time axis in $3+1$ formulations of general relativity.
+
+I find it convenient to define the covariant 4-velocity as
 \begin{equation}
   \label{eq:covariant_4velocity}
   \yUu \defd
-  \begin{cases}
-    \dfrac{1}{c^{2}}\,\yU \yg & \text{if }\dim(\yg)\defd \Le^{2}
-    \\[\jot]
-    \yU \yg & \text{if }\dim(\yg)\defd \Ti^{2}
-  \end{cases} \ .
+  \frac{\yU \yg}{\yU(\tau)\,\yg\,\yU(\tau)}
+% \equiv \begin{cases}
+%     \pm\dfrac{1}{c^{2}}\,\yU \yg & \text{if }\dim(\yg)\defd \Le^{2}
+%     \\[\jot]
+%     \pm\yU \yg & \text{if }\dim(\yg)\defd \Ti^{2}
+%   \end{cases}
+ \ .
 \end{equation}
-This definition leads to the same expression in rectangular Cartesian
-inertial coordinates, and also to the property $\yU\yUu = -1$, with
-$\dim(\yU)^{-1} = \dim(\yU) = \Ti^{-1}$, independently of the choice of
-dimension for the metric. This property is especially useful in $3+1$
-formulations of general relativity, where $\yU \otimes \yUu$ acts as a
-projector onto the proper-time axis. If you use $\dim(\yg)\defd\Le^{2}$ and
-define the covariant 4-velocity as $\yU\yg$ instead, then keep in mind that
-such a projector requires an extra factor $1/c^{2}$.
+%where $\pm 1$ is again the sign of the time-time component of the metric.
+This definition has the following advantages:
+\begin{itemize}
+\item it has dimensions $\dim(\yUu) = \Ti$,
+\item in rectangular Cartesian inertial coordinates it has the expression
+\begin{equation}
+  \label{eq:cov_4-velocity_coords}
+  \yUu  = \yl \di t - \sum_{r} \tfrac{1}{c^{2}} \yl V^{r} \di x^{r}
+\end{equation}
+independently of the dimensions and signature of the metric,
+\item $\yU \otimes \yUu$ is an idempotent projector onto the time axis,
+independently of the dimensions and signature of the metric, and also independently of whether $\yU$ is normalized.
+\end{itemize}
+% leads to the same expression in rectangular Cartesian
+% inertial coordinates, and also to the property $\yU\yUu = -1$, with
+% $\dim(\yU)^{-1} = \dim(\yU) = \Ti^{-1}$, independently of the choice of
+% dimension for the metric. This property is especially useful in $3+1$
+% formulations of general relativity, where $\yU \otimes \yUu$ acts as a
+% projector onto the proper-time axis. If you use $\dim(\yg)\defd\Le^{2}$ and
+% define the covariant 4-velocity as $\yU\yg$ instead, then keep in mind that
+% such a projector requires an extra factor $1/c^{2}$.
 
 \medskip
 
-Alternatively we can stipulate that when $\dim(\yg) \defd \Le^{2}$ the
-proper time is actually a \emph{length}, $\dim(\ytp) \defd \Le$. Then the $c^{2}$
-factors in the formulae above disappear, the special coordinate
-expression~\eqref{eq:4-velocity_coords} must be replaced by
-$\yU = c\yl \de_{t} + c\yl V^{r} \de_{r}$, and we have $\yU\yUu = -1$ with
-$\dim(\yUu)^{-1} = \dim(\yU) = \Le^{-1}$ in this case.
+Alternatively we can stipulate that when $\dim(\yg) \defd \Le^{2}$ the proper time is actually a \emph{length}: $\dim(\ytp) \defd \Le$. Then  $\dim(\yUu)^{-1} = \dim(\yU) = \Le^{-1}$, the $c^{2}$ factors in formula~\eqref{eq:proper_time_condition} above disappear, and the special coordinate expressions~\eqref{eq:4-velocity_coords} and \eqref{eq:cov_4-velocity_coords} acquire factors $1/c$ and $c$.
 
 
 
@@ -3481,15 +3506,15 @@ review by de~Boer \citep{deboer1995}, and references therein.
   Mari, Miri, Emma for continuous encouragement and affection, and to
   Buster Keaton and Saitama for filling life with awe and inspiration. To
   the developers and maintainers of \LaTeX, Emacs, AUC\TeX, Open Science
-  Framework, R, Python, Inkscape, Sci-Hub for making a free and impartial
+  Framework, R, Inkscape, Sci-Hub for making a free and impartial
   scientific exchange possible. %\mbox{}\hfill\autanet
 
   Note: this paper was rejected by arXiv without any kind of scientific
   justification. %It's sad and alarming that the possibility of pre-print  feedback is curtailed like that.
   
-  This work was financially supported partly by the Kavli Foundation and the
+  This work was financially supported initially by the Kavli Foundation and the
   Centre of Excellence scheme of the Research Council of Norway (Roudi
-  group), partly by the Trond Mohn Research Foundation, grant number BFS2018TMT07.
+  group), then by the Trond Mohn Research Foundation, grant number BFS2018TMT07.
 %\rotatebox{15}{P}\rotatebox{5}{I}\rotatebox{-10}{P}\rotatebox{10}{\reflectbox{P}}\rotatebox{-5}{O}.
 %\sourceatright{\autanet}
 \end{acknowledgements}

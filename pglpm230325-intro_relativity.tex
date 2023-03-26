@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2023-03-26T17:54:29+0200
+%% Last-Updated: 2023-03-26T18:07:55+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -820,7 +820,6 @@ This last assumption is extremely important because it selects, in spacetime, a 
 
 The last assumption could have been restated as saying that the velocity of a light signal is independent of the velocity of its source. But we have thus far happily avoided the tricky notions of \enquote{velocity} and \enquote{distance}.
 
-\mynotep{Next: introduce radar coordinates. Emphasis on the fact that they can only be local. Notion of \enquote{constant distance or position} with respect to an observer. \emph{Definition} of local velocity.}
 
 \section{Remarks on the differential-geometric representation}
 \label{sec:diff_geo_intro}
@@ -835,7 +834,8 @@ This also implies that if we consider a tangent vector $\yv$ at the event $P$, w
 The metric (field) $\yg$ encodes the length of physical time intervals for all observers. Given the worldline $s \mapsto C(s)$ of an observer between events $C(s_{0})$ and $C(s_{1})$, the physical time elapsed for that observer between those two events is given by
 \begin{equation}
   \label{eq:proper_time_PQ}
-  \int_{s_{0}}^{s_{1}}\frac{1}{c}\sqrt{\abs{\dot{C}(s)\,\yg[C(s)]\,\dot{C}(s)}\,}\,\di s \ .
+  \int_{s_{0}}^{s_{1}}
+  \frac{1}{c}\sqrt{\abs{\dot{C}(s)\,\yg[C(s)]\,\dot{C}(s)}\,}\,\di s \ .
 \end{equation}
 
 If $\yv$ is the tangent vector at some event to a worldline, then the physical time interval between that event and one roughly corresponding to a parameter increment $\incr s$ along the worldline is $\frac{1}{c}\sqrt{\abs{\yv\,\yg\,\yv}}\,\incr s + \Ord(\incr s^{2})$, where $\yg$ is the metric at the first event. We can normalize $\yv$ in such a way that the increment $\incr s$ itself is the physical time interval; this corresponds to a local change of the worldline parameter $s$. With such normalization we must then have
@@ -875,13 +875,19 @@ If another worldline in the neighbourhood of $P$ has tangent vector $\yu$, then 
 This expression is valid even if $\yu$ is not normalized. In radar coordinates with respect to $\yv$, the 4-velocity of the second worldline has components
 \begin{equation}
   \label{eq:components_4-vel}
-  \biggl(1-\frac{\yV^{2}}{c^{2}}\biggr)^{-\frac12}\,
+  \Bigl(1-\tfrac{\yV^{2}}{c^{2}}\Bigr)^{-\frac12}\,
   (1, \yV) \ .
 \end{equation}
 
-These formulae also reveal the usual \enquote{time dilation} and \enquote{length contraction} phenomena. A time lapse of $\epsilon$ for the observer with 4-velocity $\yu$ has a larger \emph{radar-time lapse} of $\epsilon\yvu\yu = \epsilon/(1-\yV^{2}/c^{2})$ according to $\yv$, since $1-\yV^{2}/c^{2} \le 1$. That is,
+These formulae also reveal the \enquote{time dilation} and \enquote{length contraction} phenomena. A physical-time lapse of $\epsilon$ for the observer with 4-velocity $\yu$ has a larger \emph{radar-time lapse} of $\epsilon\yvu\yu = \epsilon/(1-\yV^{2}/c^{2})$ according to $\yv$, since $1-\yV^{2}/c^{2} \le 1$. That is,
 % observer $\yv$ attributes a \emph{conventional} time difference larger than $\epsilon$ to two events to which observer $\yu$ attributes a \emph{physical} time difference of $\epsilon$. Or alternatively,
-observer $\yv$ attributes a conventional time lapse larger than $\epsilon$ to a lapse of $\epsilon$ on the clock of $\yu$, which therefore \enquote{runs slowly} according to the conventional time reckoning of $\yv$.  It should again be emphasized that the radar-time lapse is just a conventional time coordinate, not a physical one. Also note that radar-time is not the time at which $\yv$ \emph{sees} other events.
+observer $\yv$ attributes a \emph{conventional} time lapse larger than $\epsilon$ to a \emph{physical} time lapse of $\epsilon$ on the clock of $\yu$, which therefore \enquote{runs slowly} according to the conventional time reckoning of $\yv$. It should again be emphasized that the radar-time lapse is just a conventional time coordinate, not a physical one. Also note that radar-time is not the time at which $\yv$ \emph{sees} other events.
+
+\mynotep{Notion of \enquote{constant distance or position} with respect to an observer.}
+
+\section{Energy, momentum, stress, and amount of matter}
+\label{sec:stress_matter}
+
 
 
 

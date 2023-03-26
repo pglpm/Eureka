@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2023-03-26T17:15:40+0200
+%% Last-Updated: 2023-03-26T17:54:29+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -734,6 +734,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yv}{\bm{v}}
 \newcommand*{\yu}{\bm{u}}
 \newcommand*{\yvu}{\underline{\yv}}
+\newcommand*{\yV}{\bm{V}}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -863,6 +864,26 @@ to a 4-velocity $\yv$, defined by the following properties:
 We call it the \enquote*{4-covelocity}.
 
 The 4-velocity and 4-covelocity allow us to associate a conventional radar-distance and radar-time to events in the neighbourhood of an event $P$ on a worldline with 4-velocity $\yv$ at $P$. For a neighbouring event approximately identified by the small tangent vector $\epsilon\yu$, its time with respect to $P$ is $\epsilon\yvu\yu$, and its position vector is $\epsilon\,(\id - \yv\otimes\yvu)\,\yu$.
+If another worldline in the neighbourhood of $P$ has tangent vector $\yu$, then its conventional radar-coordinate velocity $\yV$ from the point of view of the observer with 4-velocity $\yu$ is
+\begin{equation}
+  \label{eq:3-velocity}
+\yV \defd  \frac{(\id - \yv\otimes\yvu)\,\yu}{\yvu\yu}
+\equiv
+  \frac{\yu - \yv\,(\yvu\yu)}{\yvu\yu}
+  \ .
+\end{equation}
+This expression is valid even if $\yu$ is not normalized. In radar coordinates with respect to $\yv$, the 4-velocity of the second worldline has components
+\begin{equation}
+  \label{eq:components_4-vel}
+  \biggl(1-\frac{\yV^{2}}{c^{2}}\biggr)^{-\frac12}\,
+  (1, \yV) \ .
+\end{equation}
+
+These formulae also reveal the usual \enquote{time dilation} and \enquote{length contraction} phenomena. A time lapse of $\epsilon$ for the observer with 4-velocity $\yu$ has a larger \emph{radar-time lapse} of $\epsilon\yvu\yu = \epsilon/(1-\yV^{2}/c^{2})$ according to $\yv$, since $1-\yV^{2}/c^{2} \le 1$. That is,
+% observer $\yv$ attributes a \emph{conventional} time difference larger than $\epsilon$ to two events to which observer $\yu$ attributes a \emph{physical} time difference of $\epsilon$. Or alternatively,
+observer $\yv$ attributes a conventional time lapse larger than $\epsilon$ to a lapse of $\epsilon$ on the clock of $\yu$, which therefore \enquote{runs slowly} according to the conventional time reckoning of $\yv$.  It should again be emphasized that the radar-time lapse is just a conventional time coordinate, not a physical one. Also note that radar-time is not the time at which $\yv$ \emph{sees} other events.
+
+
 
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 

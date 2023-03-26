@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2023-03-25T13:12:26+0100
+%% Last-Updated: 2023-03-26T17:15:40+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -221,7 +221,7 @@ british%
 \renewcommand\sfdefault{uop}
 \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
 \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
-%\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
+\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
 % Upright sans-serif math alphabet
 % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
 % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
@@ -260,7 +260,7 @@ british%
 \usepackage{microtype}
 
 \usepackage[backend=biber,mcite,%subentry,
-citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false]{biblatex}
+citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false,autocite=footnote]{biblatex}
 \DeclareSortingTemplate{ny}{\sort{\field{sortname}\field{author}\field{editor}}\sort{\field{year}}}
 \DeclareFieldFormat{postnote}{#1}
 \iffalse\makeatletter%%% replace parenthesis with brackets
@@ -617,9 +617,9 @@ Western Norway University of Applied Sciences%
 \DeclareMathOperator{\re}{Re}%re part
 %\DeclareMathOperator{\sgn}{sgn}%signum
 %\DeclareMathOperator{\ent}{ent}%integer less or equal to
-%\DeclareMathOperator{\Ord}{O}%same order as
+\DeclareMathOperator{\Ord}{O}%same order as
 %\DeclareMathOperator{\ord}{o}%lower order than
-%\newcommand*{\incr}{\triangle}%finite increment
+\newcommand*{\incr}{\triangle}%finite increment
 \newcommand*{\defd}{\coloneqq}
 \newcommand*{\defs}{\eqqcolon}
 %\newcommand*{\Land}{\bigwedge}
@@ -692,6 +692,8 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\ibid}{{ibid.}}
 %\newcommand*{\sic}{{sic}}
 %\newcommand*{\id}{\mathte{I}}%id matrix
+%\DeclareMathOperator{\id}{\textsf{\textbf{id}}}%probability
+\newcommand*{\id}{\mathte{I}}
 %\newcommand*{\nbd}{\nobreakdash}%
 %\newcommand*{\bd}{\hspace{0pt}}%
 %\def\hy{-\penalty0\hskip0pt\relax}
@@ -728,6 +730,10 @@ Western Norway University of Applied Sciences%
 %\DeclareMathOperator*{\argsup}{arg\,sup}
 \newcommand*{\dob}{degree of belief}
 \newcommand*{\dobs}{degrees of belief}
+\newcommand*{\yg}{\mathte{g}}
+\newcommand*{\yv}{\bm{v}}
+\newcommand*{\yu}{\bm{u}}
+\newcommand*{\yvu}{\underline{\yv}}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -815,8 +821,48 @@ The last assumption could have been restated as saying that the velocity of a li
 
 \mynotep{Next: introduce radar coordinates. Emphasis on the fact that they can only be local. Notion of \enquote{constant distance or position} with respect to an observer. \emph{Definition} of local velocity.}
 
+\section{Remarks on the differential-geometric representation}
+\label{sec:diff_geo_intro}
 
+To each event we can also associate scalar values representing measurement results, thus obtaining scalar-valued functions over regions of the spacetime. We can also consider functions from a one-dimensional scalar space into spacetime. Spacetime with its collection of possible functions from and into can thus be represented by a differential manifold. The functions are so chosen that, if we \enquote{zoom in} on a region around an event, the level hypersurfaces of the functions from the manifold look like hyperplanes (or a constant value over the whole region), and the images of the functions onto the manifold look like straight lines (or points).
 
+This also implies that if we consider a tangent vector $\yv$ at the event $P$, we can approximately associate another event close to $P$ with the vector $\epsilon\,\yv$, if $\epsilon$ is small enough. The event approximately associated with $\epsilon\,\yv$ is the one having coordinates $x^{i}(P) + \epsilon\,\di x^{i}(P)\cdot\yv + \Ord(\epsilon^{2})$ in \emph{any} coordinate system $(x^{i})$ admitted by the differential manifold (this is possible because coordinate transformations only affect $\Ord(\epsilon^{2})$ terms).
+
+\section{Metric and radar coordinates}
+\label{sec:metric_radar_coords}
+
+The metric (field) $\yg$ encodes the length of physical time intervals for all observers. Given the worldline $s \mapsto C(s)$ of an observer between events $C(s_{0})$ and $C(s_{1})$, the physical time elapsed for that observer between those two events is given by
+\begin{equation}
+  \label{eq:proper_time_PQ}
+  \int_{s_{0}}^{s_{1}}\frac{1}{c}\sqrt{\abs{\dot{C}(s)\,\yg[C(s)]\,\dot{C}(s)}\,}\,\di s \ .
+\end{equation}
+
+If $\yv$ is the tangent vector at some event to a worldline, then the physical time interval between that event and one roughly corresponding to a parameter increment $\incr s$ along the worldline is $\frac{1}{c}\sqrt{\abs{\yv\,\yg\,\yv}}\,\incr s + \Ord(\incr s^{2})$, where $\yg$ is the metric at the first event. We can normalize $\yv$ in such a way that the increment $\incr s$ itself is the physical time interval; this corresponds to a local change of the worldline parameter $s$. With such normalization we must then have
+\begin{equation}
+  \label{eq:normalize_4-vel}
+  \abs{\yv\,\yg\,\yv} = c^{2} \quad\text{if $\yv$ is normalized},
+\end{equation}
+and we call $\yv$ the local \emph{4-velocity}. Note that this normalization assumes that the metric has dimensions of a squared-length, and that the 4-velocity has dimensions of inverse-time. Any vector $\yu$ tangent to a worldline can be normalized by multiplying it by $c/\sqrt{\abs{\yu\,\yg\,\yu}}$. Such multiplication also gives it dimensions of inverse-time.
+
+Given the 4-velocity $\yv$ of an observer at an event $P$, there's a special three-dimensional set of events in the spatial and temporal vicinity of $P$. Each event in this set has the property that a light signal sent by the observer a small interval of time $\incr s$ before $P$, and bouncing off the event, reaches back the observer an interval $\incr s$ after $P$, except for differences $\Ord(\incr s^{2})$. Such events are said to be locally orthogonal to the observer's 4-velocity $\yv$ at $P$. The observer can conventionally consider these local neighbouring events as \emph{simultaneous} to $P$.
+
+To each such orthogonal or simultaneous neighbouring event, the observer can also associate a distance, by convention. The distance is defined in such a way that the \enquote{ordinary} velocity of the signal reaching the event is equal to $c$. The distance must therefore be defined as $\incr s/c$.
+
+The constructions above can be made with respect to events on the worldline of the observer very close to $P$. This leads to a local set of coordinates in the neighbourhood of $P$ called \emph{radar coordinates}. The observer can therefore conventionally associate a \enquote{time} and a \enquote{distance}, and thus a \enquote{velocity}, to all events or worldlines in the neighbourhood of $P$. The extent of such neighbourhood is not well-defined and depends on the problem considered; it cannot be extended indefinitely. Speaking of the \enquote{velocity} of a faraway galaxy is therefore a subtle matter, relying on many conventions \autocites{davisetal2004}.
+
+We can associate a covector
+\begin{equation}
+  \label{eq:co-4-velocity}
+  \yvu \defd \frac{\yv\yg}{\yv\yg\yv}
+\end{equation}
+to a 4-velocity $\yv$, defined by the following properties:
+\begin{enumerate*}[label=(\alph*)]
+\item contracted with $\yv$ it yields unity: $\yvu\yv=1$,
+\item it yields zero when applied to any vector orthogonal to $\yv$.
+\end{enumerate*}
+We call it the \enquote*{4-covelocity}.
+
+The 4-velocity and 4-covelocity allow us to associate a conventional radar-distance and radar-time to events in the neighbourhood of an event $P$ on a worldline with 4-velocity $\yv$ at $P$. For a neighbouring event approximately identified by the small tangent vector $\epsilon\yu$, its time with respect to $P$ is $\epsilon\yvu\yu$, and its position vector is $\epsilon\,(\id - \yv\otimes\yvu)\,\yu$.
 
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 

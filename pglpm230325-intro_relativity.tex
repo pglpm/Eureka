@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2023-03-27T17:53:24+0200
+%% Last-Updated: 2023-03-27T21:20:36+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -735,6 +735,9 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yu}{\bm{u}}
 \newcommand*{\yvu}{\underline{\yv}}
 \newcommand*{\yV}{\bm{V}}
+\newcommand*{\yn}{\bm{n}}
+\newcommand*{\ygv}{\gamma^{-1}}
+\newcommand*{\ygc}{\gamma}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -903,7 +906,28 @@ Other kinds of \enquote{distances} and \enquote{velocities} can be \emph{defined
 
 Before discussing the notions of amount of matter, force, momentum, energy, it is best to clarify and emphasize important differences, but also important similarities, between Newtonian and Lorentzian relativity.
 
-In Newtonian relativity we somehow associate matter and mass.
+\medskip
+
+A fundamental primitive idea in Newtonian and Lorentzian relativity is that of something that persists and we can follow through time; something that preserves its identity through time. The word \enquote{thing} indeed is already associated with such a primitive idea. It is implicit in the notions of \enquote{body}, \enquote{particle}, \enquote{matter}. This primitive idea was so fundamental in the history of physics that any other physical notions were for a long time translated either in \enquote{things} themselves or in movement of such \enquote{things}. This is very evident in the history of the notions of light and aether \autocites{whittaker1910_r1951,whittaker1953}, and in the slow acceptance of the notion of \emph{field} as a sort of \enquote{thing} that we associate with a point in time and space but doesn't have a trajectory. We shall see later that the primitive idea of \enquote{identity} or \enquote{persistence} can be approached from another point of view, from which it also shows more similarities with the idea of field.
+
+In Newtonian relativity we associate matter and mass, and distinguish them from energy. In Lorentzian and general relativity we have to dissociate the notions of matter and mass instead, and almost identify the latter with energy. Luckily this process can partly be already achieved in Newtonian relativity.
+
+
+\mynotew{Start with balance of amount of matter (\enquote{moles}, stoichiometry). In Newtonian relativity, balance of mass is a consequence of this.
+
+  Introduce 3-covector fields: they naturally represent \enquote{bodies} and things having trajectories.}
+
+In both Newtonian and Lorentzian relativity we can introduce a matter 3-covector field $\yn$. Given a small spacelike 3-volume, any observer can trace a world-tube in spacetime out of it. For a very small 3-volume, the worldtube is a worldline.
+
+Given a metric $\yg$ and corresponding volume 4-vector $\ygv$, we can associate to the matter 3-covector $\yn$ a 4-velocity $\yv$ by \autocites[\cf][p.~920]{eckart1940c}
+\begin{equation}
+  \label{eq:matter_to_4velocity}
+  \yv \defd \frac{c\,\yn\cdot\ygv}{\sqrt{\abs{\yn\cdot\ygv\,\yg\,(\yn\cdot\ygv)}\,}}
+  \ .
+\end{equation}
+
+\mynotew{The fact that matter has energy and inertia comes from the fact that the energy-momentum-stress tensor depends, among other quantities, on $\yn$.}
+
 
 \mynotew{}
 

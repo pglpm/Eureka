@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2023-03-26T18:12:31+0200
+%% Last-Updated: 2023-03-27T17:50:54+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -340,7 +340,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 
 \usepackage{graphicx}
 
-%\usepackage{wrapfig}
+\usepackage{wrapfig}
 
 %\usepackage{tikz-cd}
 
@@ -849,7 +849,7 @@ Given the 4-velocity $\yv$ of an observer at an event $P$, there's a special thr
 
 To each such orthogonal or simultaneous neighbouring event, the observer can also associate a distance, by convention. The distance is defined in such a way that the \enquote{ordinary} velocity of the signal reaching the event is equal to $c$. The distance must therefore be defined as $\incr s/c$.
 
-The constructions above can be made with respect to events on the worldline of the observer very close to $P$. This leads to a local set of coordinates in the neighbourhood of $P$ called \emph{radar coordinates}. The observer can therefore conventionally associate a \enquote{time} and a \enquote{distance}, and thus a \enquote{velocity}, to all events or worldlines in the neighbourhood of $P$. The extent of such neighbourhood is not well-defined and depends on the problem considered; it cannot be extended indefinitely. Speaking of the \enquote{velocity} of a faraway galaxy is therefore a subtle matter, relying on many conventions \autocites{davisetal2004}.
+The constructions above can be made with respect to events on the worldline of the observer very close to $P$. This leads to a local set of coordinates in the neighbourhood of $P$ called \emph{radar coordinates}. The observer can therefore conventionally associate a \enquote{time} and a \enquote{distance}, and thus a \enquote{velocity}, to all events or worldlines in the neighbourhood of $P$.
 
 We can associate a covector
 \begin{equation}
@@ -883,12 +883,29 @@ These formulae also reveal the \enquote{time dilation} and \enquote{length contr
 % observer $\yv$ attributes a \emph{conventional} time difference larger than $\epsilon$ to two events to which observer $\yu$ attributes a \emph{physical} time difference of $\epsilon$. Or alternatively,
 observer $\yv$ attributes a \emph{conventional} time lapse larger than $\epsilon$ to a \emph{physical} time lapse of $\epsilon$ on the clock of $\yu$, which therefore \enquote{runs slowly} according to the conventional time reckoning of $\yv$. It should again be emphasized that the radar-time lapse is just a conventional time coordinate, not a physical one. Also note that radar-time is not the time at which $\yv$ \emph{sees} other events.
 
-\mynotep{Notion of \enquote{constant distance or position} with respect to an observer.}
+\medskip
+
+\setlength{\intextsep}{0ex}% with wrapfigure
+\setlength{\columnsep}{2ex}% with wrapfigure
+\begin{wrapfigure}{r}{0.3\linewidth} % with wrapfigure
+\centering\includegraphics[width=\linewidth]{radar_distance1.jpg}
+%  \\\caption{caption}\label{fig:radar_distance}
+\end{wrapfigure}%
+The extent of the neighbourhood around an event $P$ in which radar distances and velocities are well-defined depends on the problem considered; in general it cannot be extended indefinitely. It is important that the worldline of the observer measuring the radar discance can be considered straight, otherwise the result will not make much sense. In the figure on the right, for example, the observer with worldline \textcolor{red}{$D$} (\textcolor{red}{dashed red}) would attribute a shorter radar distance between events $P$ and $Q$, than the observer with worldline \textcolor{bluepurple}{$C$} (\textcolor{bluepurple}{solid blue}) would, even if both observers have the same tangent vectors at $P$ and at the events in which the light signals (\textcolor{yellow}{dot-dashed yellow}) are sent and received.
+
+Other kinds of \enquote{distances} and \enquote{velocities} can be \emph{defined} in more extended regions. But it is important to keep in mind that all such definitions have an element of arbitrariness, and Newtonian intuition should not be applied in such situations. Speaking of the \enquote{distances} and \enquote{velocity} of faraway galaxies, for example, is a subtle matter relying on many conventions and prone to misunderstandings \autocites[see \eg][]{davisetal2003,davisetal2004,groen2004,weber2004}. It would probably be much better if less intuitive and less misleading terms were used instead.
+
+
+\mynotep{Notion of \enquote{constant distance or position} with respect to an observer?}
 
 \section{Energy, momentum, stress, and amount of matter}
 \label{sec:stress_matter}
 
+Before discussing the notions of amount of matter, force, momentum, energy, it is best to clarify and emphasize important differences, but also important similarities, between Newtonian and Lorentzian relativity.
 
+In Newtonian relativity we somehow associate matter and mass.
+
+\mynotew{}
 
 
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]

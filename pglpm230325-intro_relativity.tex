@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2023-03-27T21:20:36+0200
+%% Last-Updated: 2023-04-08T13:32:57+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -16,9 +16,9 @@
 onecolumn,oneside,article,%french,italian,german,swedish,latin,
 british%
 ]{memoir}
-\newcommand*{\firstdraft}{25 March 2023}
+\newcommand*{\firstdraft}{\textbf{Draft.} 25 March 2023}
 \newcommand*{\firstpublished}{\firstdraft}
-\newcommand*{\updated}{\ifarxiv***\else\today\ [draft]\fi}
+\newcommand*{\updated}{\ifarxiv***\else\today\fi}
 \newcommand*{\propertitle}{Introduction and teaching of relativity theory%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{\propertitle}
@@ -550,7 +550,7 @@ Western Norway University of Applied Sciences%
 }
 
 %\date{Draft of \today\ (first drafted \firstdraft)}
-\date{\firstpublished; updated \updated}
+\date{\firstpublished;, updated \updated}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Macros @@@
@@ -573,31 +573,31 @@ Western Norway University of Applied Sciences%
 \newcommand*{\I}{\ensuremath{\mathrm{i}}}
 % \newcommand*{\e}{\mathrm{e}}%Neper
 \newcommand*{\e}{\ensuremath{\mathrm{e}}}
-% \newcommand*{\di}{\mathrm{d}}%differential
+\newcommand*{\di}{\mathrm{d}}%differential
 % \newcommand*{\dii}{\ensuremath{\mathrm{d}}}
-%% From TUGboat 18 (1997) 1
-\makeatletter
-\providecommand*{\di}%
-{\@ifnextchar^{\DIfF}{\DIfF^{}}}
-\def\DIfF^#1{%
-\mathop{\mathrm{\mathstrut d}}%
-\nolimits^{#1}\gobblespace}
-\def\gobblespace{%
-\futurelet\diffarg\opspace}
-\def\opspace{%
-\let\DiffSpace\!%
-\ifx\diffarg(%
-\let\DiffSpace\relax
-\else
-\ifx\diffarg[%
-\let\DiffSpace\relax
-\else
-\ifx\diffarg\{%
-\let\DiffSpace\relax
-\fi\fi\fi\DiffSpace}
-\makeatother
+% %% From TUGboat 18 (1997) 1
+% \makeatletter
+% \providecommand*{\di}%
+% {\@ifnextchar^{\DIfF}{\DIfF^{}}}
+% \def\DIfF^#1{%
+% \mathop{\mathrm{\mathstrut d}}%
+% \nolimits^{#1}\gobblespace}
+% \def\gobblespace{%
+% \futurelet\diffarg\opspace}
+% \def\opspace{%
+% \let\DiffSpace\!%
+% \ifx\diffarg(%
+% \let\DiffSpace\relax
+% \else
+% \ifx\diffarg[%
+% \let\DiffSpace\relax
+% \else
+% \ifx\diffarg\{%
+% \let\DiffSpace\relax
+% \fi\fi\fi\DiffSpace}
+% \makeatother
 
-% \newcommand*{\Di}{\mathrm{D}}%capital differential
+\newcommand*{\Di}{\mathrm{D}}%capital differential
 %\newcommand*{\Li}{\mathrm{L}}%Lie derivative
 %\newcommand*{\planckc}{\hslash}
 %\newcommand*{\avogn}{N_{\textrm{A}}}
@@ -636,7 +636,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\con}{\mathbin{:}}%scal prod of tensors
 %\newcommand*{\equi}{\sim}%equivalent to 
 \renewcommand*{\asymp}{\simeq}%equivalent to 
-%\newcommand*{\corr}{\mathrel{\hat{=}}}%corresponds to
+\newcommand*{\corr}{\mathrel{\hat{=}}}%corresponds to
 %\providecommand{\varparallel}{\ensuremath{\mathbin{/\mkern-7mu/}}}%parallel (tentative symbol)
 \renewcommand*{\le}{\leqslant}%less or equal
 \renewcommand*{\ge}{\geqslant}%greater or equal
@@ -732,12 +732,22 @@ Western Norway University of Applied Sciences%
 \newcommand*{\dobs}{degrees of belief}
 \newcommand*{\yg}{\mathte{g}}
 \newcommand*{\yv}{\bm{v}}
-\newcommand*{\yu}{\bm{u}}
 \newcommand*{\yvu}{\underline{\yv}}
+\newcommand*{\yu}{\bm{u}}
+\newcommand*{\yuu}{\underline{\yu}}
 \newcommand*{\yV}{\bm{V}}
-\newcommand*{\yn}{\bm{n}}
+\newcommand*{\yN}{\bm{N}}
 \newcommand*{\ygv}{\gamma^{-1}}
 \newcommand*{\ygc}{\gamma}
+\newcommand*{\ddi}[2][]{\di^{#1}#2}
+\newcommand*{\dde}[2][]{\de^{#1}_{#2}}
+\newcommand*{\dti}[2][]{\tilde{\di}^{#1}_{#2}}
+\newcommand*{\dte}[2][]{\tilde{\de}^{#1}#2}
+\DeclareMathOperator{\Or}{or}
+\newcommand*{\yT}{\bm{\mathcal{T}}}
+\newcommand*{\yq}{\bm{q}}
+\newcommand*{\yp}{\bm{p}}
+\newcommand*{\ys}{\bm{\sigma}}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -838,7 +848,7 @@ The metric (field) $\yg$ encodes the length of physical time intervals for all o
 \begin{equation}
   \label{eq:proper_time_PQ}
   \int_{s_{0}}^{s_{1}}
-  \frac{1}{c}\sqrt{\abs{\dot{C}(s)\,\yg[C(s)]\,\dot{C}(s)}\,}\,\di s \ .
+  \frac{1}{c}\sqrt{\abs{\dot{C}(s)\,\yg[C(s)]\,\dot{C}(s)}\,}\,\ddi{s} \ .
 \end{equation}
 
 If $\yv$ is the tangent vector at some event to a worldline, then the physical time interval between that event and one roughly corresponding to a parameter increment $\incr s$ along the worldline is $\frac{1}{c}\sqrt{\abs{\yv\,\yg\,\yv}}\,\incr s + \Ord(\incr s^{2})$, where $\yg$ is the metric at the first event. We can normalize $\yv$ in such a way that the increment $\incr s$ itself is the physical time interval; this corresponds to a local change of the worldline parameter $s$. With such normalization we must then have
@@ -846,7 +856,7 @@ If $\yv$ is the tangent vector at some event to a worldline, then the physical t
   \label{eq:normalize_4-vel}
   \abs{\yv\,\yg\,\yv} = c^{2} \quad\text{if $\yv$ is normalized},
 \end{equation}
-and we call $\yv$ the local \emph{4-velocity}. Note that this normalization assumes that the metric has dimensions of a squared-length, and that the 4-velocity has dimensions of inverse-time. Any vector $\yu$ tangent to a worldline can be normalized by multiplying it by $c/\sqrt{\abs{\yu\,\yg\,\yu}}$. Such multiplication also gives it dimensions of inverse-time.
+and we call $\yv$ the local \emph{4-velocity}. Note that this normalization assumes that the metric has dimensions of a squared-length, and that the 4-velocity has dimensions of inverse-time. Any vector $\yu$ tangent to a worldline can be normalized by multiplying it by $c/\sqrt{\abs{\yu\,\yg\,\yu}}$. Such multiplication also gives it dimensions of inverse time.
 
 Given the 4-velocity $\yv$ of an observer at an event $P$, there's a special three-dimensional set of events in the spatial and temporal vicinity of $P$. Each event in this set has the property that a light signal sent by the observer a small interval of time $\incr s$ before $P$, and bouncing off the event, reaches back the observer an interval $\incr s$ after $P$, except for differences $\Ord(\incr s^{2})$. Such events are said to be locally orthogonal to the observer's 4-velocity $\yv$ at $P$. The observer can conventionally consider these local neighbouring events as \emph{simultaneous} to $P$.
 
@@ -857,7 +867,7 @@ The constructions above can be made with respect to events on the worldline of t
 We can associate a covector
 \begin{equation}
   \label{eq:co-4-velocity}
-  \yvu \defd \frac{\yv\yg}{\yv\yg\yv}
+  \yvu \defd \frac{\yv\yg}{\yv\yg\yv} \equiv -\frac{1}{c^{2}} \yv\yg
 \end{equation}
 to a 4-velocity $\yv$, defined by the following properties:
 \begin{enumerate*}[label=(\alph*)]
@@ -899,7 +909,21 @@ The extent of the neighbourhood around an event $P$ in which radar distances and
 Other kinds of \enquote{distances} and \enquote{velocities} can be \emph{defined} in more extended regions. But it is important to keep in mind that all such definitions have an element of arbitrariness, and Newtonian intuition should not be applied in such situations. Speaking of the \enquote{distances} and \enquote{velocity} of faraway galaxies, for example, is a subtle matter relying on many conventions and prone to misunderstandings \autocites[see \eg][]{davisetal2003,davisetal2004,groen2004,weber2004}. It would probably be much better if less intuitive and less misleading terms were used instead.
 
 
-\mynotep{Notion of \enquote{constant distance or position} with respect to an observer?}
+\mynotep{Notion of \enquote{constant distance or position} with respect to an observer}
+
+\mynotep{Extensibility of coordinate systems}
+
+\section{Observer decomposition of geometric objects}
+\label{sec:obs_decomp}
+
+Most physico-geometric objects of interest in general relativity are the tensor product of a multicovector and a multivector and a multicovector. They can be called multi(co)vector-valued multicovectors. The multicovector part usually represent the possibility of locally integrating the object over a small segment, area, volume, or 4-volume.
+
+An \emph{instantaneous} observer at some event $P$ with instantaneous 4-velocity $\yu$ can always decompose such an object into a \enquote{time-aligned} and \enquote{space-aligned} part. The time-aligned part of an $m$-vector is an $m-1$-vector, and the space-aligned part another $m$-vector. Given a metric and consequent notion of instantaneous simultaneous space to the observer,  the time-aligned and space-aligned parts have the property of being orthogonal to the 4-velocity $\yu$; hence the observer can interpret both as \enquote{spatial} multivectors. An analogous situation holds for multicovectors.
+
+Balance laws are expressed as the vanishing of the exterior derivative or of the exterior covariant derivative of such objects. These derivatives can also be decomposed into time-aligned and space-aligned parts of the time- and space-aligned components of the original object. Such decomposition, however, \emph{depends on how the instantaneous observer is extended in the neighbouring region of spacetime}.
+
+\mynotew{}
+
 
 \section{Energy, momentum, stress, and amount of matter}
 \label{sec:stress_matter}
@@ -917,19 +941,58 @@ In Newtonian relativity we associate matter and mass, and distinguish them from 
 
   Introduce 3-covector fields: they naturally represent \enquote{bodies} and things having trajectories.}
 
-In both Newtonian and Lorentzian relativity we can introduce a matter 3-covector field $\yn$. Given a small spacelike 3-volume, any observer can trace a world-tube in spacetime out of it. For a very small 3-volume, the worldtube is a worldline.
+In both Newtonian and Lorentzian relativity we can introduce a matter twisted 3-covector field $\yN$. Given a small spacelike 3-volume, any observer can trace a world-tube in spacetime out of it. A worldline is just such world-tube, idealized to shrink to a vanishing spatial cross-section.
 
-Given a metric $\yg$ and corresponding volume 4-vector $\ygv$, we can associate to the matter 3-covector $\yn$ a 4-velocity $\yv$ by \autocites[\cf][p.~920]{eckart1940c}
+
+Balance of amount of matter is expressed by the equation
+\begin{equation}
+  \label{eq:balance_matter}
+  \di\yN = 0 \ .
+\end{equation}
+At a spacetime event we can choose an observer with 4-velocity $\yu$ such that\autocites[\cf][p.~920]{eckart1940c}
+\begin{equation}
+  \label{eq:4velocity_matter}
+  \yu \cdot \yN = 0 \ ,
+  \qquad
+  \yu\yg\yu = -c^{2} \ ;
+\end{equation}
+the first equation says that $\yu$ lies in the kernel of $\yN$. This 4-velocity is explicitly given by
 \begin{equation}
   \label{eq:matter_to_4velocity}
-  \yv \defd \frac{c\,\yn\cdot\ygv}{\sqrt{\abs{\yn\cdot\ygv\,\yg\,(\yn\cdot\ygv)}\,}}
+  \yu \defd \frac{c\,\ygv\cdot\yN}{
+    \sqrt{\abs{(\ygv\cdot\yN)\,\yg\,(\ygv\cdot\yN)}\,}
+  }
   \ .
 \end{equation}
 
-\mynotew{The fact that matter has energy and inertia comes from the fact that the energy-momentum-stress tensor depends, among other quantities, on $\yn$.}
 
+The exterior covariant derivative is denoted \enquote{$\Di$}.
 
-\mynotew{}
+Balance of 4-momentum is expressed by the equation
+\begin{equation}
+  \label{eq:balance_4mom}
+  \Di\yT = 0 \ .
+\end{equation}
+
+We express the 4-momentum associated to matter as
+\begin{gather}
+  \label{eq:4momentum_matter_decomp}
+  \yT = e \yuu \otimes \yN +
+  \yuu \otimes \yq +
+  \yp \otimes \yN +
+  \ys \land \yuu
+  \\
+  \shortintertext{with the properties}
+  \yu \yg \yp = 0 \ ,
+  \qquad
+  \yu \yg \ys = 0 \ ,
+  \qquad
+  \yq \overset{3}{\yg} \yN = 0 \ ,
+\end{gather}
+where $e$ is a scalar representing molar energy density, $\yp$ is a 1-covector representing molar momentum density, $\yq$ a 2-covector representing areic heat flux, and $\ys$ a 1-covector-valued 2-covector representing compressive stress, or pressure for short.
+
+\mynotew{The fact that matter has energy and inertia comes from the fact that the energy-momentum-stress tensor depends, among other quantities, on $\yN$.}
+
 
 
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
@@ -999,7 +1062,8 @@ Given a metric $\yg$ and corresponding volume 4-vector $\ygv$, we can associate 
   \ldots to Mari \amp\ Miri for continuous encouragement and affection, and
   to Buster Keaton and Saitama for filling life with awe and inspiration.
   To the developers and maintainers of \LaTeX, Emacs, AUC\TeX, Open Science
-  Framework, R, Python, Inkscape, Sci-Hub for making a free and impartial
+  Framework, R, %Python,
+  Inkscape, LibreOffice, Sci-Hub for making a free and impartial
   scientific exchange possible.
   % Our work was supported by the Trond Mohn Research Foundation, grant number BFS2018TMT07
 %\rotatebox{15}{P}\rotatebox{5}{I}\rotatebox{-10}{P}\rotatebox{10}{\reflectbox{P}}\rotatebox{-5}{O}.
@@ -1016,9 +1080,176 @@ Given a metric $\yg$ and corresponding volume 4-vector $\ygv$, we can associate 
 % %\renewcommand*{\appendixpagename}{Appendix}
 % %\renewcommand*{\appendixname}{Appendix}
 % %\appendixpage
-% \appendix
+\appendix
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Geometric remarks and conventions}
+\label{sec:geom_remarks}
+
+I summarize here some remarks and convenient conventions of a geometric character.
+
+\subsection{Coordinates and orderings}
+\label{sec:coords_order}
+
+Coordinates in a region are typically denoted $t,x,y,z$, corresponding to indices $0,1,2,3$. Coordinate $t$ has dimensions of time, $x,y,z$ of length. With these coordinates we associate an inner orientation in the given order.
+
+To work with multivector and multicovector spaces and with orientations, It is useful to set up the following correspondence between various \emph{ordered} groupings of coordinates (the symbol \enquote{$\corr$} means \enquote{corresponds to}):
+\begin{equation}
+  \label{eq:corresp}
+  \begin{gathered}
+    1 \corr txyz\\
+    t \corr xyz \qquad
+    x \corr tzy \qquad
+    y \corr txz \qquad
+    z \corr tyx \\
+    tx \corr yz \qquad
+    ty \corr zx \qquad
+    tz \corr xy
+  \end{gathered}
+\end{equation}
+the correspondence being symmetric.
+
+We take the orderings given above to be also the standard orientations in corresponding subspaces. For example, a 3-space extending in the $t,y,z$ directions, that is, with a value $x=\text{\small const}$, has standard orientation $tzy$.
+
+\subsection{Bases of multivector and multicovector spaces}
+\label{sec:bases}
+
+The coordinate system induces the basis $\ddi{t}, \ddi{x}, \ddi{y}, \ddi{z}$ in each tangent covector space and the dual $\dde{t}, \dde{x}, \dde{y}, \dde{z}$ in each tangent vector space.
+
+From two vectors such as $\dde{x}$ and $\dde{y}$ we can form a new 2-dimensional geometric object: an area of magnitude equal to that of the parallelogram formed by the two vectors but whose shape is unimportant, residing on the plane spanned by them, and inner-oriented in the direction defined by $\dde{x}$ followed by $\dde{y}$. We call this a 2-vector and denote its construction by the antisimmetric product $\dde{x}\land\dde{y}$. We can generalize this construction to multivectors and multicovectors. See \textcites{burke1985_r1987,burke1995,burke1983,bossavit1991,schouten1951_r1989} for more details and a geometric understanding of these objects \mynotew{for the moment}.
+
+Let us use the abbreviations
+\begin{equation}
+  \label{eq:abbrev_dide}
+  \ddi[2]{xy} \defd \ddi{x}\land\ddi{y}\ ,
+  \qquad
+  \dde[2]{xy} \defd \dde{x}\land\dde{y} \ ,
+\end{equation}
+and so on for wedge products of basis vectors and covectors.
+
+We choose the following ordered basis and dual on 2-covector and 2-vector spaces:
+\begin{equation}
+  \label{eq:basis_2vector}
+  \begin{aligned}
+  &\ddi[2]{tx}\ , 
+  &&\ddi[2]{ty}\ , 
+  &&\ddi[2]{tz}\ , 
+  &&\ddi[2]{yz}\ , 
+  &&\ddi[2]{zx}\ ,
+  &&\ddi[2]{xy}\ ;\\
+  &\dde[2]{tx}\ , 
+  &&\dde[2]{ty}\ , 
+  &&\dde[2]{tz}\ , 
+  &&\dde[2]{yz}\ , 
+  &&\dde[2]{zx}\ , 
+  &&\dde[2]{xy} \ .
+\end{aligned}
+\end{equation}
+For 3-covector and 3-vector spaces we choose
+\begin{equation}
+  \label{eq:basis_3vector}
+  \begin{aligned}
+  &\ddi[3]{xyz}\ ,
+  &&\ddi[3]{tzy}\ ,
+  &&\ddi[3]{txz}\ ,
+  &&\ddi[3]{tyx}\ ;\\
+  &\dde[3]{xyz}\ ,
+  &&\dde[3]{tzy}\ ,
+  &&\dde[3]{txz}\ ,
+  &&\dde[3]{tyx}\ .
+\end{aligned}
+\end{equation}
+The 4-vector and 4-covector spaces are one-dimensional, with bases $\ddi[4]{txyz}$ and $\dde[4]{txyz}$.
+
+
+
+\subsection{Metrics on multivector and multicovector spaces}
+\label{sec:metrics_multivec}
+
+A metric $\yg$ on the tangent 1-vector space also induces metrics on multivector spaces and multicovector spaces. Let us denote $\overset{3}{\yg}$ the matrix on the 2-vector space. It is a 3-covector-valued 3-vector whose action is defined by
+\begin{equation}
+  \label{eq:G2_example}
+  (\bm{u}\land\bm{u}')\, \overset{3}{\yg}\, (\bm{v}\land\bm{v}') =
+  (\bm{u}\land\bm{u}') \cdot\  [(\yg\bm{v})\land(\yg\bm{v}')] \ .
+\end{equation}
+This generalizes to multivectors, and to multicovectors using the inverse metric $\yg^{-1}$.
+
+The general rule is that the metric product between a multicovector basis element with ordered coordinates $I \defd ii'i''\dotso$ and one with coordinates $J \defd jj'j''\dotso$ is given by the minor $\det(g_{I,J})$ obtained by taking rows $I$ and columns $J$ from the matrix representing $\yg$. Analogously for multicovectors and minors of the inverse matrix representing $\yg^{-1}$.
+
+With our choice of bases~\eqref{eq:basis_2vector}, \eqref{eq:basis_3vector} and the correspondence~\eqref{eq:corresp} we have various convenient equalities involving these metrics, for example
+\begin{equation}
+  \label{eq:example_metric_3vector}
+  \begin{gathered}
+    \dde[3]{xyz}\ \overset{3}{\yg}\ \dde[3]{tzy} =  g^{tx}\, \det g\ , \\
+    \ddi[3]{txz}\ \overset{3}{\yg}\ \dde[3]{tyx} =  g_{yz}\, \det g\ , \\
+    \dde[3]{tx}\ \overset{2}{\yg}\ \dde[3]{zx} =
+\det(g_{tx,zx}) =  \det(g^{yz,ty})\, \det g\ , 
+\end{gathered}
+\end{equation}
+without the appearance of minus signs.
+
+\subsection{Inner- and outer-oriented objects}
+\label{sec:outer-or_obj}
+
+\mynotew{}
+
+Given the ordered coordinate system $t,x,y,z$ on a particular region, we define there the twisted unit function $P \mapsto \tilde{1}$ (which can be extended to the whole manifold only if the latter is inner-orientable). Note that $\tilde{1}\, \tilde{1} = 1$, the unit function.
+
+The symbol \enquote{$\tilde{}$} denotes multiplication by the twisted unit function, and transforms inner-oriented objects into outer-oriented ones and vice versa. When an untwisted object with orientation $o$ is multiplied by the twisted unit function, it acquires a twisted orientation $\tilde{o}$ given by the rule
+\begin{equation}
+  \label{eq:twisted_orientation_rule}
+  \Or(\tilde{o},o) = \Or(txyz) \ .
+\end{equation}
+For example, $\Or(\ddi[3]{\tilde{x}yz}) = \Or(t)$ and $\Or(\dde[2]{\tilde{t}y})=\Or(zx)$. Note the appearance of the correspondences~\eqref{eq:corresp}.
+
+In order to keep track of the orientation of twisted objects, a notation according to the following examples is convenient:
+\begin{equation}
+  \label{eq:notation_twisted_exchange}
+  \ddi[3]{\tilde{x}yz} \defs \dti[3]{t} \ ,
+  \qquad
+  \dde[2]{\tilde{t}y} \defs \dte[2]{zx} \ ,  
+  \qquad
+  \ddi{\tilde{t}} \defs -\dti{xyz} \ ,
+  \qquad
+  \ddi[4]{\tilde{t}xyz}=\dti[4]{1} \ .
+\end{equation}
+This notation is convenient not only because it is shorter, but also because the twisted orientation is often physically very important. A twisted 3-covector $a\,\ddi[3]{\tilde{t}zy}$ with $a>0$ can for example represent the areic current of positive electric charge, or charge/(time${}\times{}$area), across a $yz$ plane. It is important to know whether this current is directed towards positive or negative $x$ values, but this direction is not immediately evident from \enquote{$\tilde{t}zy$}. The notation $a\,\dti[3]{x}$ makes this information immediately apparent instead, while still keeping the plane's $yz$ identity easily deducible.
+
+
+
+As bases for the spaces of twisted vectors and covectors we take the twisted versions of~\eqref{eq:basis_2vector} and \eqref{eq:basis_3vector}. Note the following convenient relationships for multiplication by the 4-covector $\ddi[4]{\tilde{t}xyz} \equiv \dti[4]{1}$ and 4-vector $\dde[4]{\tilde{t}xyz} \equiv \dte[4]{1}$:
+\begin{equation}
+  \label{eq:multipl_volume}
+  \begin{gathered}
+    \dde{t}\cdot\dti[4]{1} = \dti[3]{t} \ ,
+    \qquad
+    \dde{x}\cdot\dti[4]{1} = \dti[3]{x} \ ,
+    \qquad
+    \text{\small and so on,}
+    \\
+    \dde{tx}\cdot\dti[4]{1} = \dti[3]{tx} \ ,
+    \qquad
+    \dde{ty}\cdot\dti[4]{1} = \dti[3]{ty} \ ,
+    \qquad
+    \text{\small and so on;}
+    \\[2\jot]
+    \dte[4]{1}\cdot\dti[3]{t} = \dde{t} \ ,
+    \qquad
+    \dte[4]{1} \cdot \dti[3]{x} = \dde{x} \ ,
+    \qquad
+    \text{\small and so on,}
+    \\
+    \dte[4]{1} \cdot \dti[3]{tx} = \dde{tx}\ ,
+    \qquad
+   \dte[4]{1} \cdot \dti[3]{ty} =  \dde{ty} \ ,
+    \qquad
+    \text{\small and so on.}
+  \end{gathered}
+\end{equation}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%% Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \renewcommand*{\finalnamedelim}{\addcomma\space}
@@ -1043,3 +1274,5 @@ Given a metric $\yg$ and corresponding volume 4-vector $\ygv$, we can associate 
 %%% TeX-PDF-mode: t
 %%% TeX-master: t
 %%% End: 
+
+% LocalWords:  areic

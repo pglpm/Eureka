@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2023-03-25T18:19:02+0100
+%% Last-Updated: 2023-04-04T17:45:29+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivtrue
@@ -752,14 +752,14 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\ytp}{\tau}
 \newcommand*{\yl}{\beta}
 \newcommand*{\yV}{\bm{V}}
-\newcommand*{\dexyz}{\de_{xyz}}
-\newcommand*{\detzy}{\de_{tzy}}
-\newcommand*{\detxz}{\de_{txz}}
-\newcommand*{\detyx}{\de_{tyx}}
-\newcommand*{\dixyz}{\di xyz}
-\newcommand*{\ditzy}{\di tzy}
-\newcommand*{\ditxz}{\di txz}
-\newcommand*{\dityx}{\di tyx}
+\newcommand*{\dexyz}{\de^3_{xyz}}
+\newcommand*{\detzy}{\de^3_{tzy}}
+\newcommand*{\detxz}{\de^3_{txz}}
+\newcommand*{\detyx}{\de^3_{tyx}}
+\newcommand*{\dixyz}{\di^3 xyz}
+\newcommand*{\ditzy}{\di^3 tzy}
+\newcommand*{\ditxz}{\di^3 txz}
+\newcommand*{\dityx}{\di^3 tyx}
 % \newcommand*{\dexyz}{\de_{x}\de_{y}\de_{z}}
 % \newcommand*{\detzy}{\de_{t}\de_{z}\de_{y}}
 % \newcommand*{\detxz}{\de_{t}\de_{x}\de_{z}}
@@ -2292,7 +2292,7 @@ independently of the dimensions and signature of the metric, and also independen
 
 \medskip
 
-Alternatively we can stipulate that when $\dim(\yg) \defd \Le^{2}$ the proper time is actually a \emph{length}: $\dim(\ytp) \defd \Le$. Then  $\dim(\yUu)^{-1} = \dim(\yU) = \Le^{-1}$, the $c^{2}$ factors in formula~\eqref{eq:proper_time_condition} above disappear, and the special coordinate expressions~\eqref{eq:4-velocity_coords} and \eqref{eq:cov_4-velocity_coords} acquire factors $1/c$ and $c$.
+Alternatively we can stipulate \citep[\eg][\eqn~(5) p.~920]{eckart1940c} that when $\dim(\yg) \defd \Le^{2}$ the proper time is actually a \emph{length}: $\dim(\ytp) \defd \Le$. Then  $\dim(\yUu)^{-1} = \dim(\yU) = \Le^{-1}$, the $c^{2}$ factors in formula~\eqref{eq:proper_time_condition} above disappear, and the special coordinate expressions~\eqref{eq:4-velocity_coords} and \eqref{eq:cov_4-velocity_coords} acquire factors $1/c$ and $c$.
 
 
 
@@ -2522,8 +2522,6 @@ dimensionally consistent:
   \end{align}
 \end{subequations}
 where the particular signs of the components, which are not determined by
-$\texttt{determined by}$
-determined by
 dimensional analysis, will be motivated later. Our analysis of the
 intrinsic dimensions therefore restricts the stress-energy-momentum tensor
 to be one of the four alternatives above, with their kinds of orientation,
@@ -2567,7 +2565,7 @@ that scaling reinterpretations of this kind occur, even for more
 components, in all other fifteen alternatives for the
 stress-energy-momentum tensor. Intrinsic dimensional analysis alone thus
 suggests that there is a difference between mass flux and
-momentum, a fact that relativity theory makes clear \citep{eckart1940c}.% , energy, action, and seems to give the latter quantity a more
+momentum, a fact that relativity theory makes quite clear \citep[see \eg]{eckart1940c}.% , energy, action, and seems to give the latter quantity a more
 % fundamental status.
 
 Third, the value of the energy density should not change under a change in

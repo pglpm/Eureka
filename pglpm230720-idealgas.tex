@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2020-07-12T16:31:50+0200
-%% Last-Updated: 2023-04-11T18:14:47+0200
+%% Last-Updated: 2023-04-13T19:15:48+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -677,7 +677,7 @@ Open Science Framework \doi{10.31219/osf.io/#1}%
 \newcommand*{\yX}{\bm{X}}
 \newcommand*{\yD}{\mathte{L}}
 \newcommand*{\yc}{\bm{c}}
-\newcommand*{\ytb}{\bar{\yt}}
+\newcommand*{\ytb}{\hat{\yt}}
 \newcommand*{\ypb}{\bar{p}}
 \newcommand*{\ygb}{\widebar{\nabla\yt}}
 
@@ -896,18 +896,18 @@ internal energy, heat flux are found to be
 n(x,t) &= \frac{\yno}{\yVb}
 \\
 \label{eq:T_motion}
-  \yt(x,t) &= \ytb - \frac{1}{2} \frac{M}{R}\frac{\yVdd}{\yVb}\
-             \biggl(x^{2}-\frac{\yVb^{2}}{4A^{2}}\biggr)
+  \yt(x,t) &= \ytb + \frac{1}{2} \frac{M}{R}\frac{\yVdd}{\yVb}\
+             \biggl(\frac{\yVb^{2}}{4A^{2}} - x^{2}\biggr)
 \\[\jot]
 \label{eq:p_motion}
   p(x,t) &= NR \frac{\ytb}{\yVb} - \frac{2}{3}\yE \frac{\yVd}{\yVb}
-           - \frac{1}{2}MN\frac{\yVdd}{\yVb^{2}}\
-           \biggl(x^{2}-\frac{\yVb^{2}}{4A^{2}}\biggr)
+           + \frac{1}{2}MN\frac{\yVdd}{\yVb^{2}}\
+           \biggl(\frac{\yVb^{2}}{4A^{2}} - x^{2} \biggr)
   \\[\jot]
 \label{eq:u_motion}
-  u(x,t) &= \yC \ytb -
-                           \frac{1}{2} \frac{\yC M}{R}\frac{\yVdd}{\yVb}\
-             \biggl(x^{2}-\frac{\yVb^{2}}{4A^{2}}\biggr)
+  u(x,t) &= \yC \ytb 
+                         +  \frac{1}{2} \frac{\yC M}{R}\frac{\yVdd}{\yVb}\
+             \biggl(\frac{\yVb^{2}}{4A^{2}} - x^{2}\biggr)
   \\[\jot]
 \label{eq:q_motion}
 q(x,t) &= \frac{KM}{R} \frac{\yVdd}{\yVb}\ x

@@ -1,10 +1,10 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2023-04-04T17:45:29+0200
+%% Last-Updated: 2023-08-25T19:53:57+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
-\arxivtrue
+\arxivfalse
 \pdfmapfile{+classico.map}
 \newif\ifafour
 \afourfalse% true = A4, false = A5
@@ -18,7 +18,7 @@ british%
 ]{memoir}
 \newcommand*{\firstdraft}{13 December 2019}%not used
 \newcommand*{\firstpublished}{13 December 2019}
-\newcommand*{\updated}{\ifarxiv 25 March 2023\else\today\fi}
+\newcommand*{\updated}{\ifarxiv 6 May 2023\else\today\fi}
 \newcommand*{\propertitle}{Dimensional analysis in relativity\\ and in differential geometry%\\{\large ***}%
 }% title uses LARGE; set Large for smaller
 \newcommand*{\pdftitle}{Dimensional analysis in relativity and in differential geometry}
@@ -2374,7 +2374,7 @@ two main choices of intrinsic dimension, independent of the choices for the
 metric tensor discussed in the previous section. Moreover, there seems to
 be no consensus yet on what the primitive variance type of the
 stress-energy-momentum tensor should be. Its operational meaning is still
-surrounded by some mystery. Let's try to find its dimension and variance
+surrounded by some mystery\footnote{Although a good description of this tensor is given in the Genesis' song \href{https://www.youtube.com/watch?v=eWgphYPf0PA}{\emph{it.}}}. Let's try to find its dimension and variance
 type through a heuristic approach, which will also show the usefulness of
 intrinsic dimensional analysis on differential manifolds.
 

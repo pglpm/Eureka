@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2023-11-21T12:53:47+0100
+%% Last-Updated: 2023-11-24T13:18:54+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -724,7 +724,7 @@ Western Norway University of Applied Sciences%
 % \fi\fi\fi\DiffSpace}
 % \makeatother
 
-% \newcommand*{\Di}{\mathrm{D}}%capital differential
+\newcommand*{\Di}{\mathrm{D}}%capital differential
 %\newcommand*{\Li}{\mathrm{L}}%Lie derivative
 %\newcommand*{\planckc}{\hslash}
 %\newcommand*{\avogn}{N_{\textrm{A}}}
@@ -733,7 +733,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\QQ}{\bm{\mathrm{Q}}}
 \newcommand*{\RR}{\bm{\mathrm{R}}}
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
-%\newcommand*{\nabl}{\bm{\nabla}}%nabla
+\newcommand*{\nab}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
 %\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
@@ -880,7 +880,7 @@ Western Norway University of Applied Sciences%
 % \newcommand*{\ttti}[1]{\smash[b]{\underset{\raisebox{1ex}{$\sim$}}{\di}}^{3}_{#1}}
 % \newcommand*{\tttti}[1]{\smash[b]{\underset{\raisebox{1ex}{$\sim$}}{\di}}^{4}_{#1}}
 %
-\newcommand*{\tw}[1]{\widetilde{#1}}
+\newcommand*{\tw}[1]{\tilde{#1}}
 \newcommand*{\te}[1]{\de{#1}}
 \newcommand*{\tte}[1]{\de^{2}{#1}}
 \newcommand*{\ttte}[1]{\de^{3}{#1}}
@@ -893,8 +893,8 @@ Western Norway University of Applied Sciences%
 %
 \newcommand*{\yg}{\bm{g}}
 \newcommand*{\dg}{\sqrt{g}}
-\newcommand*{\ve}{\bm{\sqrt[]{g}}}
-\newcommand*{\vi}{\bm{\sqrt[]{g^{-1}}}}
+\newcommand*{\ve}{\bm{\gamma}}
+\newcommand*{\vi}{\bm{\gamma}^{-1}}
 %
 \newcommand*{\yT}{\mathte{T}}
 
@@ -954,43 +954,169 @@ Western Norway University of Applied Sciences%
 \section{Bases of multivector spaces}
 \label{sec:bases_multivectors}
 
-Take an ordered coordinate system $(t,x,y,z)$, which also defines an orientation. The associated bases for 1-vector and 1-covector fields are $\se{t},\dotsc$ and $\si{t},\dotsc$. The bases for 2-vector and 2-covector fields are $\sse{tx},\dotsc$ and $\ssi{tx},\dotsc$; and so on.
+Take an ordered coordinate system $(t,x,y,z)$, which also defines an orientation. We shall usually assume that $t$ has dimensions of time and $x,y,z$ of length, and usually that they are orthogonal if a metric is defined.
 
-A twisted or outer 3-covector such as $\tw{\sssi{xyz}}$ has an associated outer direction, say positive $t$. This is indicated with a notation such as
+The associated bases for inner-oriented multicovector fields are
+\begin{gather}
+  \label{eq:basis_1vec}
+  \si{t}\quad
+  \si{x}\quad
+  \si{y}\quad
+  \si{z}
+  \\[\jot]
+  \label{eq:basis_2vec}
+  \ssi{tx}\quad
+  \ssi{ty}\quad
+  \ssi{tz}\quad
+  \ssi{yz}\quad
+  \ssi{zx}\quad
+  \ssi{xy}
+  \\
+  \label{eq:basis_3vec}
+  \sssi{xyz}\quad
+  -\sssi{tyz}\quad
+  -\sssi{tzx}\quad
+  -\sssi{txy}
+  \\
+  \label{eq:basis_4vec}
+  \ssssi{txyz}
+\end{gather}
+and analogously for inner-oriented multivector fields. The particular choice of ordering and sign is such that these bases are related by volume duality, see below.
+
+The outer-oriented unit scalar is $\tw{1}$, with outer orientation $txyz$; note that it's only defined on a coordinate patch. A twisted or outer 3-covector such as $\sssi{\tw{x}yz}$ has an associated outer direction, in this case positive $t$. We adopt this shorter notation for the outer-oriented versions of the bases above:
+\begin{gather}
+  \label{eq:basis_1vec_twshort}
+  -\ti{xyz}\quad
+  \ti{tyz}\quad
+  \ti{tzx}\quad
+  \ti{txy}
+  \\[\jot]
+  \label{eq:basis_2vec_twshort}
+  \tti{yz}\quad
+  \tti{zx}\quad
+  \tti{xy}\quad
+  \tti{tx}\quad
+  \tti{ty}\quad
+  \tti{tz}
+  \\
+  \label{eq:basis_3vec_twshort}
+  \ttti{t}\quad
+  \ttti{x}\quad
+  \ttti{y}\quad
+  \ttti{z}
+  \\
+  \label{eq:basis_4vec_twshort}
+  \tttti{}
+\end{gather}
+so that $-\ti{xyz} \defd \si{\tw{t}}$ and so on. Similar notation is used for outer-oriented multivector fields; for instance $-\te{xyz} \defd \se{\tw{t}}$.
+
+Here is an example of an outer-oriented 3-covector written in terms of the bases and notation above. Note the position of the super- and sub-scripts:
 \begin{equation}
-  \label{eq:convention_twisted_short}
- \ttti{t} \defd \tw{\sssi{xyz}} \ .
+  \label{eq:examples_expansion}
+  \begin{split}
+   &\quad n_{xyz}\,\sssi{\tw{x}yz}
+    -n_{tyz}\,\sssi{\tw{t}yz}
+    -n_{tzx}\,\sssi{\tw{t}zx}
+    -n_{txy}\,\sssi{\tw{t}xy}
+    \\[\jot]
+    &\equiv
+    n^{t}\,\ttti{t} +
+    n^{x}\,\ttti{x} +
+    n^{y}\,\ttti{y} +
+    n^{z}\,\ttti{z}
+    \\[2\jot]
+    &\qquad\text{with }\ 
+    n^{t} \equiv n_{xyz}\ ,\
+    n^{x} \equiv n_{tyz}\ ,\
+    \text{ and so on}.
+  \end{split}
 \end{equation}
 
-The determinant of the metric $\yg$ is denoted shortly
+\section{Metric}
+\label{sec:metric}
+
+We take the metric $\yg$ to have signature $(-,+,+,+)$ and dimensions of area. The square root of its negative determinant is denoted shortly
 \begin{equation}
   \label{eq:det_g}
 \dg \defd \sqrt{-\det\yg} \ .
 \end{equation}
-The volume element induced by a metric $\yg$ is denoted (note the boldface)
+
+The volume element induced by the metric $\yg$ has dimensions of volume-time and is denoted (note the boldface)
 \begin{equation}
   \label{eq:vol_element}
-  \ve \defd \dg\ \tw{\ssssi{txyz}}
+  \ve \defd \frac{1}{c}\dg\ \ssssi{\tw{t}xyz} \equiv \frac{1}{c}\dg\ \tttti{}
 \end{equation}
 and its corresponding inverse, a twisted 4-vector:
 \begin{equation}
   \label{eq:inv_vol_element}
-  \vi \defd \frac{1}{\dg}\ \tw{\sssse{txyz}}
+  \vi \defd \frac{c}{\dg}\ \tttte{}
 \end{equation}
 
-Contraction with the volume element or its inverse establishes a correspondence between outer $n$-vectors and inner $(4-n)$-covectors. In particular
+Contraction with the volume element or its inverse establishes a \enquote{volume duality} between outer $n$-covectors and inner $(4-n)$-vectors:
 \begin{equation}
-  \label{eq:vol_contraction}
-  \begin{gathered}
-    \vi \cdot \ttti{t} = \frac{1}{\dg}\,\se{t}
-    \qquad
-\vi\cdot \ttti{x} = \frac{1}{\dg}\,\se{x}
-\\
-\ve \cdot \se{t} = -\dg\,\ti{t}
-    \qquad
-\ve \cdot \se{x} = -\dg\,\ti{x}
-  \end{gathered}
+  \label{eq:volume_duality}
+  \left.
+\begin{gathered}
+  \ti{xyz}\enspace
+  \ti{tyz}\enspace
+  \ti{tzx}\enspace
+  \ti{txy}
+  \\[\jot]
+  \tti{yz}\enspace
+  \tti{zx}\enspace
+  \tti{xy}\enspace
+  \tti{tx}\enspace
+  \tti{ty}\enspace
+  \tti{tz}
+  \\
+  \ttti{t}\enspace
+  \ttti{x}\enspace
+  \ttti{y}\enspace
+  \ttti{z}
+  \\
+  \tttti{}
+\end{gathered}
+\right\}\quad
+\begin{gathered}
+  \xrightarrow{\quad\mathclap{\vi\cdot{}}\quad}
+  \\
+  \xleftarrow{\quad\mathclap{{}\cdot\ve}\quad}
+\end{gathered}
+\quad\tfrac{c}{\dg}\left\{
+\begin{gathered}
+  \ssse{xyz}\enspace
+  \ssse{tyz}\enspace
+  \ssse{tzx}\enspace
+  \ssse{txy}
+  \\[\jot]
+  \sse{tx}\enspace
+  \sse{ty}\enspace
+  \sse{tz}\enspace
+  \sse{yz}\enspace
+  \sse{zx}\enspace
+  \sse{xy}
+  \\
+  \se{t}\enspace
+  \se{x}\enspace
+  \se{y}\enspace
+  \se{z}
+  \\
+  \sssse{txyz}
+\end{gathered}
+\right.
 \end{equation}
+This is the reason why in older literature an outer-oriented $n$-covector is treated as a $(4-n)$-\enquote{vector density}, that is, a vector divided by the square root of the volume element.
+
+\medskip
+
+If the coordinates are orthonormal at some point, then the metric at that point has components
+\begin{equation}
+  \label{eq:metric_orthonormal}
+  \begin{bmatrix}
+    -c^{2}&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1
+  \end{bmatrix} \ ,
+\end{equation}
+and the volume element is simply $\tttti{}$.
 
 
 
@@ -1004,7 +1130,7 @@ The stress-energy-momentum tensor, or simply 4-stress, is a covector-valued 3-co
   \epsilon\, \ttti{t}\otimes\si{t} +
   q^{i}\, \ttti{i}\otimes\si{t} +
   p_{j}\, \ttti{t}\otimes\si{x^{j}} +
-  \sigma^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
+  \pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
 \end{equation}
 the indices $i,j$ running over $x,y,z$, and where
 \begin{equation}
@@ -1013,10 +1139,31 @@ the indices $i,j$ running over $x,y,z$, and where
     \epsilon &= \text{volumic energy} &
     q^{i} &= \text{aeric energy flux}\\
     p_{i} &= \text{volumic momentum} \qquad&
-    \sigma^{i}_{j} &= \text{3-stress}
+    \pi^{i}_{j} &= \text{3-stress}
   \end{aligned}
 \end{equation}
-measured in the coordinate system $txyz$. (The energy $\epsilon$ and momentum $p_{i}$ are per unit \emph{coordinate} volume $xyz$, not per unit metric volume, or \enquote{per unit mass}, or per unit mole.)
+measured in the coordinate system $txyz$. The energy $\epsilon$ is a density per unit \emph{coordinate} volume $xyz$, and possibly includes a conversion factor for the time unit. The component $q^{j}$ is an energy per coordinate area and coordinate time, and possibly includes a conversion factor for the time unit.
+The component $p_{i}$ is a momentum density per unit coordinate volume, and includes a conversion factor for the length $x^{i}$. The components $\pi^{i}_{j}$ are forces per unit coordinate area, possibly including conversion factors for the time unit and the length $x^{j}$.
+
+Suppose the coordinates $txyz$ are orthogonal and the metric at a point has diagonal components
+\begin{equation}
+  \label{eq:metric_orthonormal}
+  \begin{bmatrix}
+    -c^{2}\,g_{tt}&0&0&0\\0&g_{xx}&0&0\\0&0&g_{yy}&0\\0&0&0&g_{zz}
+  \end{bmatrix} \ .
+\end{equation}
+The diagonal elements $g_{tt}, \dotsc$ include a dimensions or unit transformation factor. For instance, if $x$ has dimensions of angle, then $g_{xx}$ has dimensions of area per squared angle.
+
+Contracting the 4-stress with the volume element and the inverse metric we obtain:
+\begin{multline}
+  \label{eq:contr_metric_T}
+  \vi \cdot \yT \cdot \yg^{-1} =
+  -\frac{1}{c\,g_{tt}\dg}\,\epsilon\, \se{t}\otimes\se{t}
+  -\frac{1}{c\,g_{tt}\dg}\,q^{i}\, \se{i}\otimes\se{t} +{}\\
+  \sum_{j}\frac{c}{g_{jj}\dg}\,p_{j}\, \se{t}\otimes\se{j} +
+  \sum_{j}\frac{c}{g_{jj}\dg}\,\pi^{i}_{j}\, \se{i}\otimes\se{j}
+\end{multline}
+
 
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 
@@ -1096,17 +1243,253 @@ measured in the coordinate system $txyz$. (The energy $\epsilon$ and momentum $p
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Appendices
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\clearpage
 \bigskip
 % %\renewcommand*{\appendixpagename}{Appendix}
 % %\renewcommand*{\appendixname}{Appendix}
 % %\appendixpage
-% \appendix
+\appendix
 
+\section{Checks about optimal representation of 4-stress}
+\label{sec:checks_4stress}
+
+First a lemma about the exterior derivative of some outer-oriented 3-covectors:
+\begin{equation}
+  \label{eq:d_3cov}
+  \begin{gathered}
+    \di\bigl(f\,\ttti{t}\bigr) =
+    \di\Bigl( f\,\tw{\sssi{xyz}}\Bigr) =
+    \se{t}f \di t \land \tw{\sssi{xyz}} + 0
+    = \se{t}f\ \tw{\ssssi{txyz}}
+    \\
+    \di\bigl(f\,\ttti{x}\bigr) =
+    -\di\Bigl( f\,\tw{\sssi{tyz}}\Bigr) =
+    -\se{x}f \di x \land \tw{\sssi{tyz}} + 0
+    = \se{x}f\ \tw{\ssssi{txyz}}
+    \\
+    \di\bigl(f\,\ttti{i}\bigr) =
+    \se{i}f\ \tw{\ssssi{txyz}}
+  \end{gathered}
+\end{equation}
+And a lemma about the covariant derivative of some inner-oriented 1-covectors:
+\begin{equation}
+  \label{eq:nab_1cov}
+  \begin{gathered}
+    \nab(\si{t}) =
+    -\varGamma^{t}_{tt}\, \si{t} \otimes \si{t}
+    -\varGamma^{t}_{tj}\, \si{t} \otimes \si{x^{j}}
+    -\varGamma^{t}_{it}\, \si{x^{i}} \otimes \si{t}
+    -\varGamma^{t}_{ij}\, \si{x^{i}} \otimes \si{x^{j}}
+    \\
+    \nab\bigl(\si{x^{k}}\bigr) =
+    -\varGamma^{k}_{tt}\, \si{t} \otimes \si{t}
+    -\varGamma^{k}_{tj}\, \si{t} \otimes \si{x^{j}}
+    -\varGamma^{k}_{it}\, \si{x^{i}} \otimes \si{t}
+    -\varGamma^{k}_{ij}\, \si{x^{i}} \otimes \si{x^{j}}
+  \end{gathered}
+\end{equation}
+
+
+Then
+\begin{equation}
+  \label{eq:div_T31}
+  \begin{aligned}
+    &0=\Di\yT
+    \\
+    &\quad{}= \Di\bigl(
+    e\, \ttti{t}\otimes\si{t} +
+    q^{i}\, \ttti{i}\otimes\si{t} +
+    p_{j}\, \ttti{t}\otimes\si{x^{j}} +
+    \pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
+    \bigr)
+    \\
+    &\quad{}=
+    \de_{t}e\ \tttti{}\otimes\si{t} +
+    \de_{i}q^{i}\, \tttti{}\otimes\si{t} +
+    \de_{t}p_{j}\, \tttti{}\otimes\si{x^{j}} +
+    \de_{i}\pi^{i}_{j}\, \tttti{}\otimes\si{x^{j}}
+    -{}
+    \\
+    &\qquad
+    \Bigl[
+    -e\,\varGamma^{t}_{tt}\, \ttti{t}\land\si{t} \otimes \si{t}
+    -e\,\varGamma^{t}_{tj}\, \ttti{t}\land\si{t} \otimes \si{x^{j}}
+    + 0 + {}
+    \\
+    &\qquad
+    - q^{i}\, \varGamma^{t}_{it}\, \ttti{i}\land\si{x^{i}} \otimes \si{t}
+    -q^{i}\,\varGamma^{t}_{ij}\, \ttti{i}\land\si{x^{i}} \otimes \si{x^{j}}
+    + 0 + {}
+    \\
+    &\qquad
+    -p_{j}\, \varGamma^{j}_{tt}\, \ttti{t}\land\si{t} \otimes \si{t}
+    -p_{k}\,\varGamma^{k}_{tj}\, \ttti{t}\land\si{t} \otimes \si{x^{j}}
+    + 0 + {}
+    \\
+    &\qquad
+    -\pi^{i}_{k}\, \varGamma^{k}_{it}\, \ttti{i}\land\si{x^{i}} \otimes \si{t}
+    -\pi^{i}_{k}\,\varGamma^{k}_{ij}\, \ttti{i}\land\si{x^{i}} \otimes \si{x^{j}}
+    \Bigr]
+    \\
+    &\quad{}=
+    \tttti{}\otimes \bigl[{}
+    \\
+    &\qquad
+    \de_{t}e\ \si{t} 
+    - e\,\varGamma^{t}_{tt}\, \si{t}
+    -e\,\varGamma^{t}_{tj}\,  \si{x^{j}} + {}
+    \\
+    &\qquad
+    \de_{i}q^{i}\, \si{t} 
+    -q^{i}\, \varGamma^{t}_{it}\,  \si{t}
+    -q^{i}\,\varGamma^{t}_{ij}\,  \si{x^{j}} +{}
+    \\
+    &\qquad
+    \de_{t}p_{j}\, \si{x^{j}} 
+    -p_{j}\, \varGamma^{j}_{tt}\, \si{t}
+    -p_{k}\,\varGamma^{k}_{tj}\,  \si{x^{j}} +{}
+    \\
+    &\qquad
+    \de_{i}\pi^{i}_{j}\, \si{x^{j}} 
+    -\pi^{i}_{k}\, \varGamma^{k}_{it}\, \si{t}
+    -\pi^{i}_{k}\,\varGamma^{k}_{ij}\, \si{x^{j}}
+    \\
+    &\qquad{}\bigr]
+  \end{aligned}
+\end{equation}
+This corresponds to the four balance equations
+\begin{align}
+  \label{eq:div_e}
+  \de_{t}e + \de_{i}q^{i} &=
+  e\,\varGamma^{t}_{tt}
+  +q^{i}\, \varGamma^{t}_{it}
+  +p_{j}\, \varGamma^{j}_{tt}
+  +\pi^{i}_{k}\, \varGamma^{k}_{it}
+  \\
+  \label{eq:div_p}
+  \de_{t}p_{j} +  \de_{i}\pi^{i}_{j} &=
+  e\,\varGamma^{t}_{tj}
+  +q^{i}\,\varGamma^{t}_{ij}
+  +p_{k}\,\varGamma^{k}_{tj}
+  +\pi^{i}_{k}\,\varGamma^{k}_{ij}
+\end{align}
+
+\paragraph{Radial case}
+
+\begin{align}
+  \label{eq:div_e_r}
+  \de_{t}e + \de_{r}q^{r} &=
+  e\,\varGamma^{t}_{tt}
+  +q^{r}\, \varGamma^{t}_{rt}
+  +p_{r}\, \varGamma^{r}_{tt}
+  +\pi^{r}_{r}\, \varGamma^{r}_{rt}
+  \\
+  \label{eq:div_p_r}
+  \de_{t}p_{r} +  \de_{r}\pi^{r}_{r} &=
+  e\,\varGamma^{t}_{tr}
+  +q^{r}\,\varGamma^{t}_{rr}
+  +p_{r}\,\varGamma^{r}_{tr}
+  +\pi^{r}_{r}\,\varGamma^{r}_{rr}
+\end{align}
+
+\begin{align}
+  \label{eq:div_e_r_S}
+  \de_{t}e + \de_{r}q^{r} &=
+ % e\,\varGamma^{t}_{tt}
+  q^{r}\, \frac{g}{c^{2}}
+  +p_{r}\, g
+  %+\pi^{r}_{r}\, \varGamma^{r}_{rt}
+  \\
+  \label{eq:div_p_r_S}
+  \de_{t}p_{r} +  \de_{r}\pi^{r}_{r} &=
+  e\, \frac{g}{c^{2}}
+  %+q^{r}\,\varGamma^{t}_{rr}
+  %+p_{r}\,\varGamma^{r}_{tr}
+  %+\pi^{r}_{r}\,\varGamma^{r}_{rr}
+\end{align}
+
+
+
+
+
+Let's consider a Cartesian coordinate system over a small neighbourhood on the Earth's surface, with $z$ pointing upwards. In the Newtonian approximation we have \autocites[\sect\,5.2.3]{poissonetal2014}
+\begin{equation}
+  \label{eq:christof_newt}
+  \varGamma^{t}_{jt}=\varGamma^{t}_{tj} =
+    \frac{GM}{c^{2}}\frac{x^{j}}{r^{3}} \approx \frac{g}{c^{2}}
+  \qquad\varGamma^{j}_{tt} = GM\frac{x^{j}}{r^{3}} \approx g
+\end{equation}
+where $g$ is the standard acceleration, considered positive. Take also $p_{j} \approx m v_{j}$ and $e\approx m c^{2} + \frac{1}{2}mv^{2}$.
+
+
+
+The balances above become
+\begin{align}
+  \label{eq:div_e_appr}
+  \de_{t}e + \de_{i}q^{i} &=
+  q^{z}\, \frac{g}{c^{2}}
+  +p_{z}\, g
+  \\
+  \label{eq:div_p_appr}
+  \de_{t}p_{z} +  \de_{i}\pi^{i}_{z} &=
+  e\,\frac{g}{c^{2}}
+\end{align}
+
+Also,
+
+\begin{equation}
+  \label{eq:christof_body}
+  \begin{gathered}
+    \varGamma^{t}_{tt} \approx
+    -2\frac{g}{c^{2}} v(t)
+    \qquad
+    \varGamma^{t}_{jt}=\varGamma^{t}_{tj}
+    \approx \frac{g}{c^{2}}
+    \\
+    \varGamma^{j}_{tt} \approx
+    g - 2\frac{g}{c^{2}}\,v(t)^{2} - \dot{v}(t)
+    \qquad
+    \varGamma^{j}_{jt} = \varGamma^{j}_{tj} \approx
+    \frac{g}{c^{2}} v(t)
+  \end{gathered}
+\end{equation}
+
+\begin{align}
+  \label{eq:div_e}
+  \de_{t}e + \de_{i}q^{i} &=
+  -e\,2\frac{g}{c^{2}} v(t)
+  +q^{z}\, \frac{g}{c^{2}}
+  +p_{j}\, \Bigl(g - 2\frac{g}{c^{2}}\,v(t)^{2} - \dot{v}(t)\Bigr)
+  +\pi^{z}_{z}\, \frac{g}{c^{2}} v(t)
+  \\
+  \label{eq:div_p}
+  \de_{t}p_{z} +  \de_{i}\pi^{i}_{z} &=
+  e\, \frac{g}{c^{2}}
+  % +q^{i}\,\varGamma^{t}_{ij}
+  +p_{z}\,\frac{g}{c^{2}} v(t)
+%  +\pi^{i}_{k}\,\varGamma^{k}_{ij}
+\end{align}
+
+\section{References for useful mathematical identities}
+\label{sec:ref_maths}
+
+For transformation or raising:  \autocites[\sect~I.4 \eqn~(33)]{gantmacher1959_r2000}.
+
+\begin{equation}
+  \gamma\cdot (B\land A) = (-1)^{\deg{A}\deg{B}} \gamma\cdot(A \land B)
+\end{equation}
+with $\deg(B) = n-\deg(A)$
+\autocites[prop.~4.1]{barnabeietal1985}
+
+
+
+Compound matrices:  \autocites[\sect~IV.A.1 p.~199, Problem~1 p.~270]{choquetbruhatetal1977_r1996}
+
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand*{\finalnamedelim}{\addcomma\space}
 \defbibnote{prenote}{{\footnotesize (\enquote{de $X$} is listed under D,
     \enquote{van $X$} under V, and so on, regardless of national
@@ -1121,7 +1504,7 @@ measured in the coordinate system $txyz$. (The energy $\epsilon$ and momentum $p
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Cut text (won't be compiled)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%% Local Variables: 

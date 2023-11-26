@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2023-11-24T13:18:54+0100
+%% Last-Updated: 2023-11-26T15:35:27+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -478,6 +478,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 
 \usepackage{tensor}
 
+
 \usepackage[british]{datetime2}
 \DTMnewdatestyle{mydate}%
 {% definitions
@@ -897,6 +898,45 @@ Western Norway University of Applied Sciences%
 \newcommand*{\vi}{\bm{\gamma}^{-1}}
 %
 \newcommand*{\yT}{\mathte{T}}
+\newcommand*{\yQ}{\bm{Q}}
+\newcommand*{\yu}{\bm{u}}
+\newcommand*{\yv}{\bm{v}}
+\newcommand*{\yo}{\bm{\omega}}
+\newcommand*{\yJ}{\bm{J}}
+
+\newcommand*{\iT}{^{-\transp}}%transpose
+\newcommand*{\id}{\mathbf{id}}%id matrix
+
+\renewcommand*{\i}{\indices}
+%%
+% from https://tex.stackexchange.com/a/424252/97039
+\makeatletter
+\newcommand*{\q}{}% Check if undefined
+\DeclareRobustCommand*{\q}{%
+  \mathord{\mathpalette\bigcdot@{}}% changed mathbin to mathord
+}
+\newcommand*{\bigcdot@scalefactor}{0.7}
+\newcommand*{\bigcdot@widthfactor}{1.5}
+\newcommand*{\bigcdot@}[2]{%
+  % #1: math style
+  % #2: unused
+  \sbox0{$#1\vcenter{}$}% math axis
+  \sbox2{$#1\cdot\m@th$}%
+  \hbox to \bigcdot@widthfactor\wd2{%
+    \hfil
+    \raise\ht0\hbox{%
+      \scalebox{\bigcdot@scalefactor}{%
+        \lower\ht0\hbox{$#1\bullet\m@th$}%
+      }%
+    }%
+    \hfil
+  }%
+}
+\makeatother
+%%
+\newcommand*{\rul}{{\mkern2mu\rule[-0.1ex]{0.75pt}{1.1ex}\mkern2mu}}
+\DeclarePairedDelimiter\mul{\rul}{\rul}%{{\bm{\shortmid}}}
+
 
 %%% Custom macros end @@@
 
@@ -1032,6 +1072,68 @@ Here is an example of an outer-oriented 3-covector written in terms of the bases
   \end{split}
 \end{equation}
 
+\section{Linear transformations of multivector bases}
+\label{sec:lintransf_multiv}
+
+Often we must consider multiplication of the basis of vectors or covectors by a square matrix, say
+\begin{equation*}
+  \label{eq:matrix_mult_bases}
+  M_{\alpha\beta}\,\di u^{\beta} \ ,
+\end{equation*}
+leading to an object in a vector space of the same dimension. The two most important examples for us are:
+\begin{itemize}
+\item coordinate transformations, for example
+  \begin{equation*}
+   \di \alpha'= \frac{\de \alpha'}{\de \alpha}\,\di \alpha
+  \end{equation*}
+\item raising or lowering of indices with the metric, for example
+  \begin{equation*}
+  \di \alpha \mapsto  g^{\alpha\beta}\, \de_{\beta} \ .
+  \end{equation*}
+\end{itemize}
+
+The corresponding operations for multivectors involve {compound matrices} of the original transformation matrix \autocites[\sect~IV.A.1 p.~199]{choquetbruhatetal1977_r1996}. For the spaces of 3-vectors and 3-covectors we have simplified formulae \autocites[\sect~I.4 \eqn~(33)]{gantmacher1959_r2000}:
+\begin{equation}
+  \label{eq:transf3_simple}
+  \begin{gathered}
+    \ttti{\alpha'} =
+    \det\bigl(
+    \tfrac{\de \alpha'}{\de \alpha}
+    \bigr)
+    \ 
+    \frac{\de \alpha}{\de \alpha'}
+    \ 
+    \ttti{\alpha}
+    \\[\jot]
+    \ttte{\alpha'} =
+    \det\bigl(
+    \tfrac{\de \alpha}{\de \alpha'}
+    \bigr)
+    \ 
+    \frac{\de \alpha'}{\de \alpha}
+    \ 
+    \ttte{\alpha}
+  \end{gathered}
+\end{equation}
+note how the 3-covectors almost transforms as 1-vectors and 3-vectors and 1-covectors, apart from a determinant factor.
+
+In an analogous way
+\begin{equation}
+  \label{eq:raise3_simple}
+  \begin{gathered}
+    \ttti{\alpha}
+    \mapsto
+\frac{1}{\abs{g}}\ g_{\alpha\beta}\
+    \ttte{\beta}
+    \\[\jot]
+    \ttte{\alpha}
+    \mapsto
+\abs{g}\ g^{\alpha\beta}\
+    \ttti{\beta}
+  \end{gathered}
+\end{equation}
+
+
 \section{Metric}
 \label{sec:metric}
 
@@ -1044,7 +1146,7 @@ We take the metric $\yg$ to have signature $(-,+,+,+)$ and dimensions of area. T
 The volume element induced by the metric $\yg$ has dimensions of volume-time and is denoted (note the boldface)
 \begin{equation}
   \label{eq:vol_element}
-  \ve \defd \frac{1}{c}\dg\ \ssssi{\tw{t}xyz} \equiv \frac{1}{c}\dg\ \tttti{}
+  \ve \defd \frac{1}{c}\dg\ \ssssi{\tw{t}xyz} \equiv \frac{\dg}{c}\ \tttti{}
 \end{equation}
 and its corresponding inverse, a twisted 4-vector:
 \begin{equation}
@@ -1056,33 +1158,6 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
 \begin{equation}
   \label{eq:volume_duality}
   \left.
-\begin{gathered}
-  \ti{xyz}\enspace
-  \ti{tyz}\enspace
-  \ti{tzx}\enspace
-  \ti{txy}
-  \\[\jot]
-  \tti{yz}\enspace
-  \tti{zx}\enspace
-  \tti{xy}\enspace
-  \tti{tx}\enspace
-  \tti{ty}\enspace
-  \tti{tz}
-  \\
-  \ttti{t}\enspace
-  \ttti{x}\enspace
-  \ttti{y}\enspace
-  \ttti{z}
-  \\
-  \tttti{}
-\end{gathered}
-\right\}\quad
-\begin{gathered}
-  \xrightarrow{\quad\mathclap{\vi\cdot{}}\quad}
-  \\
-  \xleftarrow{\quad\mathclap{{}\cdot\ve}\quad}
-\end{gathered}
-\quad\tfrac{c}{\dg}\left\{
 \begin{gathered}
   \ssse{xyz}\enspace
   \ssse{tyz}\enspace
@@ -1102,6 +1177,34 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
   \se{z}
   \\
   \sssse{txyz}
+\end{gathered}
+\right)\quad
+\begin{gathered}
+  \xleftarrow{\qquad\mathclap{\textstyle\frac{\dg}{c}\,\vi\cdot{}}\qquad}
+  \\
+  \xrightarrow{\qquad\mathclap{\textstyle{}\cdot\ve\,\frac{c}{\dg}}\qquad}
+\end{gathered}
+\quad%\tfrac{c}{\dg}
+\left(
+\begin{gathered}
+  \ti{xyz}\enspace
+  \ti{tyz}\enspace
+  \ti{tzx}\enspace
+  \ti{txy}
+  \\[\jot]
+  \tti{yz}\enspace
+  \tti{zx}\enspace
+  \tti{xy}\enspace
+  \tti{tx}\enspace
+  \tti{ty}\enspace
+  \tti{tz}
+  \\
+  \ttti{t}\enspace
+  \ttti{x}\enspace
+  \ttti{y}\enspace
+  \ttti{z}
+  \\
+  \tttti{}
 \end{gathered}
 \right.
 \end{equation}
@@ -1163,9 +1266,6 @@ Contracting the 4-stress with the volume element and the inverse metric we obtai
   \sum_{j}\frac{c}{g_{jj}\dg}\,p_{j}\, \se{t}\otimes\se{j} +
   \sum_{j}\frac{c}{g_{jj}\dg}\,\pi^{i}_{j}\, \se{i}\otimes\se{j}
 \end{multline}
-
-
-% \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 
 
 %%%% examples use empheq
@@ -1251,6 +1351,97 @@ Contracting the 4-stress with the volume element and the inverse metric we obtai
 % %\appendixpage
 \appendix
 
+\section{Matrix representation}
+\label{sec:matrix_repr}
+
+Column-vectors, row-vectors, and matrices are useful to encode the components of geometric objects, but they are too few to faithfully encode the difference between co- and contra-variant objects and multivectors of different orders. Here are some useful conventions and procedures.
+
+\begin{description}
+\item[1-vectors] represented by column-matrices
+\item[1-covectors] represented by row-matrices
+\item[3-vectors] represented by row-matrices
+\item[3-covectors] represented by column-matrices
+\end{description}
+objects such as metrics, covector-valued 3-covectors, tensor products of 1-vector and 1-covector, and similar must be represented by matrices.
+
+Here are the matrix representations of several operations. Consider these objects:
+\begin{itemize}
+\item $\yu\i{^{\q}}$ is a 1-vector, represented by the column-matrix $\yu$.
+\item Similarly for $\yv\i{^{\q}}$.
+\item $\yo\i{_{\q}}$ is a 1-covector, represented by the row-matrix $\yo$.
+\item $\yg\i{_{\q\q}}$ is a co-covector, represented by the matrix $\yg$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
+\item ${\yg^{-1}}\i{^{\q\q}}$ is a contra-contravector, inverse of $\yg$, that is: $\yg\cdot\yg^{1} = \id\i{_{\q}^{\q}}$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
+
+\item $\yQ\i{_{\mul{\q\q\q}}}$ is a 3-covector, represented by the column-matrix $\yQ$.
+
+\item $\yT\i{_{\mul{\q\q\q}\q}}$ is a 1-covector-valued 3-covector, represented by the matrix $\yT$. The rows represent the 3-covector components; the columns, the 1-covector components.
+\item $\ve\i{_{\mul{\q\q\q\q}}}$ is a 4-covector, represented by the number $\ve$.
+\item ${\vi}\i{^{\mul{\q\q\q\q}}}$ is a 4-vector, represented by the number $\vi$
+\item The Jacobian matrix $\frac{\de x'}{\de x}$ from \enquote{old} coordinates $x$ to \enquote{new} coordinates $x'$ is represented by the matrix $\yJ$. The rows correspond to the new coordinates $x'$; the columns, to the old $x$.
+
+\item The inverse-Jacobian matrix $\frac{\de x}{\de x'}$ from new coordinates $x'$ to old coordinates $x'$ is represented by the matrix $\yJ^{-1}$. The rows correspond to the old coordinates $x$; the columns, to the new $x'$.
+\end{itemize}
+
+Then -- note that the order on the right side is important:
+\begin{itemize}
+\item Contractions, index raising and lowering
+  \begin{align}
+    &\text{\small(object)}
+    &&\text{\small(matrix repr)}
+    \\[\jot]
+    &\yo \cdot \yu
+    &&\yo\yu \equiv \yu\T\yo\T
+    \quad\text{(number)}
+    \\
+    &\yv\cdot\yg\cdot\yu
+    &&\yv\T\yg\yu
+    \quad\text{(number)}
+    \\
+    &\yg\cdot\yu
+    &&\yu\T\yg\T
+    \quad\text{(row-matrix)}
+    \\
+    &\yo\cdot\yg^{-1}
+    &&\yg\iT\yo\T
+    \quad\text{(column-matrix)}
+    \\
+    &\vi\cdot\yQ
+    &&\vi\yQ
+    \quad\text{(column-matrix)}
+    \\
+    &\vi\cdot\yT
+    &&\vi\yT
+    \quad\text{(column-matrix)}
+    \\
+    &\yT\cdot\yu
+    &&\yT\yu
+    \quad\text{(column-matrix)}
+    \\
+    &\yg\cdot(\vi\cdot\yT)\cdot\yu
+    &&\vi\ \yg\yT\yu
+    \quad\text{(matrix)}
+  \end{align}
+
+\item Transformations
+  \begin{align}
+    \text{\small(old coords)} &\quad\mapsto\quad\text{\small(new coords)}
+    \\[\jot]
+    \yu &\quad\mapsto\quad \yJ\yu
+    \\
+    \yo &\quad\mapsto\quad \yo\yJ^{-1}
+    \\
+    \yg &\quad\mapsto\quad \yJ\iT\yg\yJ^{-1}
+    \\
+    \yQ &\quad\mapsto\quad \frac{1}{\det\yJ}\ \yJ\yQ
+    \\
+    \ve &\quad\mapsto\quad \frac{1}{\det\yJ}\ \ve
+    \\
+    \vi &\quad\mapsto\quad \det\yJ\ \vi
+    \\
+    \yT &\quad\mapsto\quad \frac{1}{\det\yJ}\ \yJ\yT\yJ^{-1}
+  \end{align}
+
+\end{itemize}
 \section{Checks about optimal representation of 4-stress}
 \label{sec:checks_4stress}
 
@@ -1471,8 +1662,15 @@ Also,
 %  +\pi^{i}_{k}\,\varGamma^{k}_{ij}
 \end{align}
 
-\section{References for useful mathematical identities}
-\label{sec:ref_maths}
+
+\section{Works with useful content}
+\label{sec:works}
+
+\begin{itemize}
+\item Eq.~(21) in \autocites{maugin1974b}: fluid with heat conduction.
+\item Factor $1/2$ in kinetic energy: \sect~6.3.3 in \autocites{gourgoulhon2007_r2012}
+\end{itemize}
+% \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 
 For transformation or raising:  \autocites[\sect~I.4 \eqn~(33)]{gantmacher1959_r2000}.
 
@@ -1481,6 +1679,7 @@ For transformation or raising:  \autocites[\sect~I.4 \eqn~(33)]{gantmacher1959_r
 \end{equation}
 with $\deg(B) = n-\deg(A)$
 \autocites[prop.~4.1]{barnabeietal1985}
+
 
 
 

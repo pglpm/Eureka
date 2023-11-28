@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2023-11-28T17:01:02+0100
+%% Last-Updated: 2023-11-28T23:27:41+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1528,7 +1528,7 @@ A balance equation with the exterior covariant derivative then becomes
 \begin{equation}
   \label{eq:balance_contracted}
 \Di\yT = 0 \qquad\implies\qquad
-  \di(\yT \cdot \yu) = \yT \dand \nabla\yu
+  \di(\yT \cdot \yu) = -\yT \dand \nabla\yu
 \end{equation}
 
 Then
@@ -1619,19 +1619,45 @@ The equation above corresponds to the four balance equations
 \medskip
 
 For $\yT\cdot\yu$ we find first
-\begin{gather}
-  \label{eq:Tu}
-    \yT\cdot\yu =
+\begin{align}
+    \yT\cdot\yu &=
     (-e\,u^{t} + p_{j}\,u^{j})\,\ttti{t} +
     (-q^{i}\,u^{t} + \pi^{i}_{j}\,u^{j})\,\ttti{i}
     \\
-    \shortintertext{and}
-    \di(\yT\cdot\yu) =
-    \bigl[
-    \de_{t}(-e\,u^{t} + p_{j}\,u^{j})
-    +\de_{i}(-q^{i}\,u^{t} + \pi^{i}_{j}\,u^{j})
-    \bigr]\,\tttti{}
-\end{gather}
+    \begin{split}
+      \yT \dand \nabla\yu &=
+      (-e\,\de_{t} u^{t} + p_{j}\,\de_{t}u^{j})\,\ttti{t}\land\di t
+      +(-q^{i}\,\de_{i}u^{t} + \pi^{i}_{j}\,\de_{i}u^{j})\,\ttti{i}\land\di x^{i}
+      \\
+      &\qquad{}+\text{$\varGamma$ terms}
+    \end{split}
+  \end{align}
+and therefore
+\begin{multline}
+  \label{eq:DT_contracted_u}
+  \de_{t}(-e\,u^{t} + p_{j}\,u^{j})
+  +\de_{i}(-q^{i}\,u^{t} + \pi^{i}_{j}\,u^{j})
+  ={}\\
+  \shoveright{
+    -e\,\de_{t} u^{t} + p_{j}\,\de_{t}u^{j}
+  -q^{i}\,\de_{i}u^{t} + \pi^{i}_{j}\,\de_{i}u^{j}
+}
+  \\
+  \shoveright{
+  {}-(e\,\varGamma^{t}_{tt}
+  +q^{i}\, \varGamma^{t}_{it}
+  -p_{j}\, \varGamma^{j}_{tt}
+  -\pi^{i}_{k}\, \varGamma^{k}_{it})\,u^{t}
+}
+  \\
+  {}-(e\,\varGamma^{t}_{tj}
+  +q^{i}\,\varGamma^{t}_{ij}
+  -p_{k}\,\varGamma^{k}_{tj}
+  -\pi^{i}_{k}\,\varGamma^{k}_{ij})\,u^{j}
+\end{multline}
+
+
+\bigskip
 
 \paragraph{Radial case}
 

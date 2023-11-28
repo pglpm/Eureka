@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2023-11-26T15:35:27+0100
+%% Last-Updated: 2023-11-28T17:01:02+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -849,6 +849,9 @@ Western Norway University of Applied Sciences%
 
 \newcommand*{\widebar}[1]{{\mkern1.5mu\skew{2}\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}}
 
+% wedge with superimposed dot
+\newcommand*{\dand}{\mathbin{\mathclap{\mkern12.5mu\bm{\cdot}}\wedge}}
+
 % \newcommand{\explanation}[4][t]{%\setlength{\tabcolsep}{-1ex}
 % %\smash{
 % \begin{tabular}[#1]{c}#2\\[0.5\jot]\rule{1pt}{#3}\\#4\end{tabular}}%}
@@ -902,6 +905,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yu}{\bm{u}}
 \newcommand*{\yv}{\bm{v}}
 \newcommand*{\yo}{\bm{\omega}}
+\newcommand*{\yphi}{\bm{\phi}}
 \newcommand*{\yJ}{\bm{J}}
 
 \newcommand*{\iT}{^{-\transp}}%transpose
@@ -1230,10 +1234,10 @@ The stress-energy-momentum tensor, or simply 4-stress, is a covector-valued 3-co
 \begin{equation}
   \label{eq:def_T}
   \yT =
-  \epsilon\, \ttti{t}\otimes\si{t} +
-  q^{i}\, \ttti{i}\otimes\si{t} +
-  p_{j}\, \ttti{t}\otimes\si{x^{j}} +
-  \pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
+  -\epsilon\, \ttti{t}\otimes\si{t} 
+  -q^{i}\, \ttti{i}\otimes\si{t} 
+  +p_{j}\, \ttti{t}\otimes\si{x^{j}} 
+  +\pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
 \end{equation}
 the indices $i,j$ running over $x,y,z$, and where
 \begin{equation}
@@ -1258,14 +1262,16 @@ Suppose the coordinates $txyz$ are orthogonal and the metric at a point has diag
 The diagonal elements $g_{tt}, \dotsc$ include a dimensions or unit transformation factor. For instance, if $x$ has dimensions of angle, then $g_{xx}$ has dimensions of area per squared angle.
 
 Contracting the 4-stress with the volume element and the inverse metric we obtain:
-\begin{multline}
+\begin{equation}
   \label{eq:contr_metric_T}
-  \vi \cdot \yT \cdot \yg^{-1} =
-  -\frac{1}{c\,g_{tt}\dg}\,\epsilon\, \se{t}\otimes\se{t}
-  -\frac{1}{c\,g_{tt}\dg}\,q^{i}\, \se{i}\otimes\se{t} +{}\\
-  \sum_{j}\frac{c}{g_{jj}\dg}\,p_{j}\, \se{t}\otimes\se{j} +
-  \sum_{j}\frac{c}{g_{jj}\dg}\,\pi^{i}_{j}\, \se{i}\otimes\se{j}
-\end{multline}
+  \begin{split}
+    \vi \cdot \yT \cdot \yg^{-1} &=
+    \frac{g^{tt}}{c\,\dg}\,\epsilon\, \se{t}\otimes\se{t}
+    +\frac{g^{tt}}{c\,\dg}\,q^{i}\, \se{i}\otimes\se{t} \\
+    &\qquad{}+\sum_{j}\frac{g^{jj}}{c\,\dg}\,p_{j}\, \se{t}\otimes\se{j}
+    +\sum_{j}\frac{g^{jj}}{c\,\dg}\,\pi^{i}_{j}\, \se{i}\otimes\se{j}
+  \end{split}
+\end{equation}
 
 
 %%%% examples use empheq
@@ -1481,6 +1487,49 @@ And a lemma about the covariant derivative of some inner-oriented 1-covectors:
   \end{gathered}
 \end{equation}
 
+If $\yo$ is a 3-covector, $\yphi$ a 1-covector, and $\Di$ the exterior covariant derivative, then
+\begin{gather}
+  \label{eq:ext_cov_der_31}
+  \Di(\yphi \otimes \yo) = (\di\yphi)\otimes\yo - \yphi\land\nabla\yo
+  \\
+  \shortintertext{and in particular}
+  \label{eq:ext_cov_der_3basis}
+  \Di\bigl(\yphi \otimes \di x^{\alpha}\bigr) =
+  (\di\yphi)\otimes\di x^{\alpha} +
+  \varGamma^{\alpha}_{\mu\nu}\,\bigl(\yphi\land\di x^{\mu}\bigr) \otimes \di x^{\nu}
+  \ .
+\end{gather}
+
+Let's also consider the contraction with a 1-vector $\yu$:
+\begin{gather}
+  \label{eq:ext_cov_contracted_vector}
+  \begin{split}
+    \Di(\yphi \otimes \yo \cdot \yu) &=
+    \Di(\yphi \otimes \yo) \cdot \yu
+    -(\yphi \otimes \yo) \dand \nabla\yu
+\\
+    &\equiv
+    \Di(\yphi \otimes \yo) \cdot \yu
+    -\yphi \land \nabla\yu \cdot \yo
+    \\
+    &= \di\yphi \otimes \yo \cdot \yu
+    -\yphi \land \nabla\yo \cdot \yu
+    -\yphi \land \nabla\yu \cdot \yo
+    \ .
+  \end{split}
+  \\
+  \shortintertext{and in particular}
+    \label{eq:ext_cov_basis_contracted_vector}
+    \Di(\yphi \otimes \di x^{\alpha} \cdot \yu) =
+    \di\yphi\, u^{\alpha}- \yphi \land \di x^{\beta}\, \de_{\beta} u^{\alpha}
+\end{gather}
+
+A balance equation with the exterior covariant derivative then becomes
+\begin{equation}
+  \label{eq:balance_contracted}
+\Di\yT = 0 \qquad\implies\qquad
+  \di(\yT \cdot \yu) = \yT \dand \nabla\yu
+\end{equation}
 
 Then
 \begin{equation}
@@ -1489,37 +1538,37 @@ Then
     &0=\Di\yT
     \\
     &\quad{}= \Di\bigl(
-    e\, \ttti{t}\otimes\si{t} +
-    q^{i}\, \ttti{i}\otimes\si{t} +
-    p_{j}\, \ttti{t}\otimes\si{x^{j}} +
-    \pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
+    -e\, \ttti{t}\otimes\si{t}
+    -q^{i}\, \ttti{i}\otimes\si{t}
+    +p_{j}\, \ttti{t}\otimes\si{x^{j}}
+    +\pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
     \bigr)
     \\
     &\quad{}=
-    \de_{t}e\ \tttti{}\otimes\si{t} +
-    \de_{i}q^{i}\, \tttti{}\otimes\si{t} +
-    \de_{t}p_{j}\, \tttti{}\otimes\si{x^{j}} +
-    \de_{i}\pi^{i}_{j}\, \tttti{}\otimes\si{x^{j}}
+    -\de_{t}e\ \tttti{}\otimes\si{t}
+    -\de_{i}q^{i}\, \tttti{}\otimes\si{t}
+    +\de_{t}p_{j}\, \tttti{}\otimes\si{x^{j}}
+    +\de_{i}\pi^{i}_{j}\, \tttti{}\otimes\si{x^{j}}
     -{}
     \\
     &\qquad
     \Bigl[
-    -e\,\varGamma^{t}_{tt}\, \ttti{t}\land\si{t} \otimes \si{t}
-    -e\,\varGamma^{t}_{tj}\, \ttti{t}\land\si{t} \otimes \si{x^{j}}
-    + 0 + {}
+    e\,\varGamma^{t}_{tt}\, \ttti{t}\land\si{t} \otimes \si{t}
+    +e\,\varGamma^{t}_{tj}\, \ttti{t}\land\si{t} \otimes \si{x^{j}}
+    + 0
     \\
     &\qquad
-    - q^{i}\, \varGamma^{t}_{it}\, \ttti{i}\land\si{x^{i}} \otimes \si{t}
-    -q^{i}\,\varGamma^{t}_{ij}\, \ttti{i}\land\si{x^{i}} \otimes \si{x^{j}}
-    + 0 + {}
+    q^{i}\, \varGamma^{t}_{it}\, \ttti{i}\land\si{x^{i}} \otimes \si{t}
+    +q^{i}\,\varGamma^{t}_{ij}\, \ttti{i}\land\si{x^{i}} \otimes \si{x^{j}}
+    + 0
     \\
     &\qquad
-    -p_{j}\, \varGamma^{j}_{tt}\, \ttti{t}\land\si{t} \otimes \si{t}
+    {}-p_{j}\, \varGamma^{j}_{tt}\, \ttti{t}\land\si{t} \otimes \si{t}
     -p_{k}\,\varGamma^{k}_{tj}\, \ttti{t}\land\si{t} \otimes \si{x^{j}}
-    + 0 + {}
+    + 0
     \\
     &\qquad
-    -\pi^{i}_{k}\, \varGamma^{k}_{it}\, \ttti{i}\land\si{x^{i}} \otimes \si{t}
+    {}-\pi^{i}_{k}\, \varGamma^{k}_{it}\, \ttti{i}\land\si{x^{i}} \otimes \si{t}
     -\pi^{i}_{k}\,\varGamma^{k}_{ij}\, \ttti{i}\land\si{x^{i}} \otimes \si{x^{j}}
     \Bigr]
     \\
@@ -1527,44 +1576,62 @@ Then
     \tttti{}\otimes \bigl[{}
     \\
     &\qquad
-    \de_{t}e\ \si{t} 
-    - e\,\varGamma^{t}_{tt}\, \si{t}
-    -e\,\varGamma^{t}_{tj}\,  \si{x^{j}} + {}
+    -\de_{t}e\ \si{t} 
+    + e\,\varGamma^{t}_{tt}\, \si{t}
+    +e\,\varGamma^{t}_{tj}\,  \si{x^{j}}
     \\
     &\qquad
-    \de_{i}q^{i}\, \si{t} 
-    -q^{i}\, \varGamma^{t}_{it}\,  \si{t}
-    -q^{i}\,\varGamma^{t}_{ij}\,  \si{x^{j}} +{}
+    {}-\de_{i}q^{i}\, \si{t} 
+    +q^{i}\, \varGamma^{t}_{it}\,  \si{t}
+    +q^{i}\,\varGamma^{t}_{ij}\,  \si{x^{j}}
     \\
     &\qquad
-    \de_{t}p_{j}\, \si{x^{j}} 
+    {}+\de_{t}p_{j}\, \si{x^{j}} 
     -p_{j}\, \varGamma^{j}_{tt}\, \si{t}
-    -p_{k}\,\varGamma^{k}_{tj}\,  \si{x^{j}} +{}
+    -p_{k}\,\varGamma^{k}_{tj}\,  \si{x^{j}}
     \\
     &\qquad
-    \de_{i}\pi^{i}_{j}\, \si{x^{j}} 
+    {}+\de_{i}\pi^{i}_{j}\, \si{x^{j}} 
     -\pi^{i}_{k}\, \varGamma^{k}_{it}\, \si{t}
     -\pi^{i}_{k}\,\varGamma^{k}_{ij}\, \si{x^{j}}
     \\
     &\qquad{}\bigr]
   \end{aligned}
 \end{equation}
-This corresponds to the four balance equations
+
+The equation above corresponds to the four balance equations
 \begin{align}
   \label{eq:div_e}
   \de_{t}e + \de_{i}q^{i} &=
   e\,\varGamma^{t}_{tt}
   +q^{i}\, \varGamma^{t}_{it}
-  +p_{j}\, \varGamma^{j}_{tt}
-  +\pi^{i}_{k}\, \varGamma^{k}_{it}
+  -p_{j}\, \varGamma^{j}_{tt}
+  -\pi^{i}_{k}\, \varGamma^{k}_{it}
   \\
   \label{eq:div_p}
   \de_{t}p_{j} +  \de_{i}\pi^{i}_{j} &=
-  e\,\varGamma^{t}_{tj}
-  +q^{i}\,\varGamma^{t}_{ij}
+  -e\,\varGamma^{t}_{tj}
+  -q^{i}\,\varGamma^{t}_{ij}
   +p_{k}\,\varGamma^{k}_{tj}
   +\pi^{i}_{k}\,\varGamma^{k}_{ij}
 \end{align}
+
+\medskip
+
+For $\yT\cdot\yu$ we find first
+\begin{gather}
+  \label{eq:Tu}
+    \yT\cdot\yu =
+    (-e\,u^{t} + p_{j}\,u^{j})\,\ttti{t} +
+    (-q^{i}\,u^{t} + \pi^{i}_{j}\,u^{j})\,\ttti{i}
+    \\
+    \shortintertext{and}
+    \di(\yT\cdot\yu) =
+    \bigl[
+    \de_{t}(-e\,u^{t} + p_{j}\,u^{j})
+    +\de_{i}(-q^{i}\,u^{t} + \pi^{i}_{j}\,u^{j})
+    \bigr]\,\tttti{}
+\end{gather}
 
 \paragraph{Radial case}
 

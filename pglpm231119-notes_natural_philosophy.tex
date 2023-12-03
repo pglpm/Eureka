@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2023-11-28T23:27:41+0100
+%% Last-Updated: 2023-12-03T12:48:13+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -764,7 +764,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\con}{\mathbin{:}}%scal prod of tensors
 %\newcommand*{\equi}{\sim}%equivalent to 
 \renewcommand*{\asymp}{\simeq}%equivalent to 
-%\newcommand*{\corr}{\mathrel{\hat{=}}}%corresponds to
+\newcommand*{\corr}{\mathrel{\hat{=}}}%corresponds to
 %\providecommand{\varparallel}{\ensuremath{\mathbin{/\mkern-7mu/}}}%parallel (tentative symbol)
 \renewcommand*{\le}{\leqslant}%less or equal
 \renewcommand*{\ge}{\geqslant}%greater or equal
@@ -896,17 +896,23 @@ Western Norway University of Applied Sciences%
 \newcommand*{\tttti}[1]{\di^{4}_{#1}}
 %
 \newcommand*{\yg}{\bm{g}}
+\newcommand*{\ygg}[1][]{\overset{#1}{\bm{g}}{}}
 \newcommand*{\dg}{\sqrt{g}}
+\DeclarePairedDelimiter\nor{\lVert}{\rVert}
 \newcommand*{\ve}{\bm{\gamma}}
 \newcommand*{\vi}{\bm{\gamma}^{-1}}
 %
+\newcommand*{\yN}{\bm{N}}
 \newcommand*{\yT}{\mathte{T}}
 \newcommand*{\yQ}{\bm{Q}}
+\newcommand*{\yU}{\bm{U}}
+\newcommand*{\yV}{\bm{V}}
 \newcommand*{\yu}{\bm{u}}
 \newcommand*{\yv}{\bm{v}}
 \newcommand*{\yo}{\bm{\omega}}
 \newcommand*{\yphi}{\bm{\phi}}
 \newcommand*{\yJ}{\bm{J}}
+
 
 \newcommand*{\iT}{^{-\transp}}%transpose
 \newcommand*{\id}{\mathbf{id}}%id matrix
@@ -1141,21 +1147,23 @@ In an analogous way
 \section{Metric}
 \label{sec:metric}
 
-We take the metric $\yg$ to have signature $(-,+,+,+)$ and dimensions of area. The square root of its negative determinant is denoted shortly
+We take the metric $\yg$ to have signature $(-,+,+,+)$ and dimensions of area. The determinant and the negative of its square root are denoted shortly
 \begin{equation}
   \label{eq:det_g}
+  g\defd \det\yg
+  \qquad
 \dg \defd \sqrt{-\det\yg} \ .
 \end{equation}
 
 The volume element induced by the metric $\yg$ has dimensions of volume-time and is denoted (note the boldface)
 \begin{equation}
   \label{eq:vol_element}
-  \ve \defd \frac{1}{c}\dg\ \ssssi{\tw{t}xyz} \equiv \frac{\dg}{c}\ \tttti{}
+  \ve \defd \frac{\dg}{c} \ssssi{\tw{t}xyz} \equiv \frac{\dg}{c}\ \tttti{}
 \end{equation}
 and its corresponding inverse, a twisted 4-vector:
 \begin{equation}
   \label{eq:inv_vol_element}
-  \vi \defd \frac{c}{\dg}\ \tttte{}
+  \vi \defd \frac{c}{\dg}\ \tttte{} \ .
 \end{equation}
 
 Contraction with the volume element or its inverse establishes a \enquote{volume duality} between outer $n$-covectors and inner $(4-n)$-vectors:
@@ -1216,6 +1224,24 @@ This is the reason why in older literature an outer-oriented $n$-covector is tre
 
 \medskip
 
+The metric on the space of 1-vectors also induces metrics on the spaces of 1-covectors, 2-vectors and 2-covectors, and so on. In particular, the metrics $\ygg[3]^{-1}$ on the space of 3-covectors and $\ygg[3]$ on the space of 3-vectors can be written in coordinates as
+\begin{gather}
+  \label{eq:3-covvect_metrics}
+  \ygg[3]^{-1} = \frac{g_{\mu\nu}}{g}\,\ttte{\mu}\otimes\ttte{\nu}
+  \qquad\text{with dimensions length${}^{-6}$}
+  \\
+  \label{eq:3-vect_metrics}
+  \ygg[3] = g\,g^{\mu\nu}\,\ttti{\mu}\otimes\ttti{\nu}
+  \qquad\text{with dimensions length${}^{6}$} \ .
+\end{gather}
+
+With these we can define squared norms $\nor{\mathord{\centerdot}}^{2}$ on all those spaces. Note in particular the following identity:
+\begin{equation}
+  \label{eq:norm_3cov_identity}
+  \nor{\vi\cdot\yN}^{2} = -c^{2}\,\nor{\yN}
+  \qquad\text{for every 3-covector $\yN$}.
+\end{equation}
+
 If the coordinates are orthonormal at some point, then the metric at that point has components
 \begin{equation}
   \label{eq:metric_orthonormal}
@@ -1225,12 +1251,56 @@ If the coordinates are orthonormal at some point, then the metric at that point 
 \end{equation}
 and the volume element is simply $\tttti{}$.
 
+\section{Matter current}
+\label{sec:matter_current}
+
+The amount-of-matter current $\yN$ is an outer-oriented 3-covector
+\begin{equation}
+  \label{eq:matter_current}
+  \yN = N\,\ttti{t} + J^{i}\,\ttti{i}
+\end{equation}
+of dimensions \enquote{amount of matter}, typically measured in moles, where
+\begin{itemize}
+\item $N$ is the volumic amount of matter, measured per unit coordinate volume.
+\item $J^{i}$ is the aeric flux of amount of matter (equivalent to a molar flux), measured per unit coordinate area and unit coordinate time.
+\end{itemize}
+
+The current for every particular kind of matter satisfies the conservation law
+\begin{equation}
+  \label{eq:cons_matter}
+  \di\yN = 0
+  \quad\text{or}\quad
+  \de_{t}N + \de_{i} J^{i} = 0
+\end{equation}
+independent of any metric.
+
+\medskip
+
+The common contravariant form of the matter current, \enquote{$N^{\mu}$}, is obtained by contracting the matter current with the inverse volume element:
+\begin{equation}
+  \label{eq:contrav_matter_current}
+  \text{`\,}N^{\mu}\text{\,'} \corr  \vi \cdot \yN =
+  \frac{c}{\dg}\, N\, \se{t} + \frac{c}{\dg}\, J^{i}\, \se{t} \ .
+\end{equation}
+
+\medskip
+
+If a metric is present, a four-velocity $\yU$ can be associated with the matter current $\yN$, defined by the following properties and identity:
+\begin{gather}
+  \label{eq:prop_UN}
+  \yU \cdot \yN = 0 \qquad \nor{\yU}^{2} = -c^{2}
+  \\
+  \label{eq:def_UN}
+  \yU = \frac{1}{\abs{\nor{\yN}}}\, \vi\cdot\yN \ .
+\end{gather}
+For normal matter (as opposed to antimatter), $\nor{\yN}^{2} \ge 0$.
+
 
 
 \section{Four-stress}
 \label{sec:tensor_energy}
 
-The stress-energy-momentum tensor, or simply 4-stress, is a covector-valued 3-covector field, the 3-covector being outer-oriented. It has the dimensions of an action, and can be decomposed as
+The stress-energy-momentum tensor, or simply four-stress, is a covector-valued 3-covector field, the 3-covector being outer-oriented. It has the dimensions of an action, and can be decomposed as
 \begin{equation}
   \label{eq:def_T}
   \yT =
@@ -1239,39 +1309,78 @@ The stress-energy-momentum tensor, or simply 4-stress, is a covector-valued 3-co
   +p_{j}\, \ttti{t}\otimes\si{x^{j}} 
   +\pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
 \end{equation}
-the indices $i,j$ running over $x,y,z$, and where
-\begin{equation}
-  \label{eq:components_T}
-  \begin{aligned}
-    \epsilon &= \text{volumic energy} &
-    q^{i} &= \text{aeric energy flux}\\
-    p_{i} &= \text{volumic momentum} \qquad&
-    \pi^{i}_{j} &= \text{3-stress}
-  \end{aligned}
-\end{equation}
-measured in the coordinate system $txyz$. The energy $\epsilon$ is a density per unit \emph{coordinate} volume $xyz$, and possibly includes a conversion factor for the time unit. The component $q^{j}$ is an energy per coordinate area and coordinate time, and possibly includes a conversion factor for the time unit.
-The component $p_{i}$ is a momentum density per unit coordinate volume, and includes a conversion factor for the length $x^{i}$. The components $\pi^{i}_{j}$ are forces per unit coordinate area, possibly including conversion factors for the time unit and the length $x^{j}$.
+the indices $i,j$ running over $x,y,z$, and where:
+\begin{itemize}
+\item The energy $\epsilon$ is a density per unit \emph{coordinate} volume $xyz$, and possibly includes a conversion factor for the time unit. If the point at which the four-stress is considered has a matter-current, then this energy comprises \enquote{rest} energy, kinetic energy, potential gravitational energy, and centrifugal potential energy.
+\item The energy flux $q^{j}$ is an energy per coordinate area and coordinate time, and possibly includes a conversion factor for the time unit. If the point at which the four-stress is considered has a matter-current, then this flux term includes transport of the energy term above and also heat flux.
+\item The momentum $p_{i}$ is a momentum density per unit coordinate volume, and includes a conversion factor for the length $x^{i}$.
+\item The compressive three-stress $\pi^{i}_{j}$ are forces per unit coordinate area, possibly including conversion factors for the time unit and the length $x^{j}$.  If the point at which the four-stress is considered has a matter-current, then this stress comprises momentum transport and internal stresses.
+\end{itemize}
 
 Suppose the coordinates $txyz$ are orthogonal and the metric at a point has diagonal components
 \begin{equation}
   \label{eq:metric_orthonormal}
   \begin{bmatrix}
-    -c^{2}\,g_{tt}&0&0&0\\0&g_{xx}&0&0\\0&0&g_{yy}&0\\0&0&0&g_{zz}
+    g_{tt}&0&0&0\\0&g_{xx}&0&0\\0&0&g_{yy}&0\\0&0&0&g_{zz}
   \end{bmatrix} \ .
 \end{equation}
 The diagonal elements $g_{tt}, \dotsc$ include a dimensions or unit transformation factor. For instance, if $x$ has dimensions of angle, then $g_{xx}$ has dimensions of area per squared angle.
 
-Contracting the 4-stress with the volume element and the inverse metric we obtain:
+The common contra-contra-variant form of the stress, \enquote{$T^{\mu\nu}$}, is obtained by contracting the four-stress with the inverse volume element and the inverse metric:
 \begin{equation}
   \label{eq:contr_metric_T}
   \begin{split}
-    \vi \cdot \yT \cdot \yg^{-1} &=
-    \frac{g^{tt}}{c\,\dg}\,\epsilon\, \se{t}\otimes\se{t}
-    +\frac{g^{tt}}{c\,\dg}\,q^{i}\, \se{i}\otimes\se{t} \\
-    &\qquad{}+\sum_{j}\frac{g^{jj}}{c\,\dg}\,p_{j}\, \se{t}\otimes\se{j}
-    +\sum_{j}\frac{g^{jj}}{c\,\dg}\,\pi^{i}_{j}\, \se{i}\otimes\se{j}
+\text{`\,}T^{\mu\nu}\text{\,'} \corr  \vi \cdot \yT \cdot \yg^{-1} &=
+    -\frac{c\,g^{tt}}{\dg}\,\epsilon\, \se{t}\otimes\se{t}
+    -\frac{c\,g^{tt}}{\dg}\,q^{i}\, \se{i}\otimes\se{t} \\
+    &\qquad{}+\sum_{j}\frac{c\,g^{jj}}{\dg}\,p_{j}\, \se{t}\otimes\se{j}
+    +\sum_{j}\frac{c\,g^{jj}}{\dg}\,\pi^{i}_{j}\, \se{i}\otimes\se{j}
+    \ .
   \end{split}
 \end{equation}
+
+\medskip
+
+The \emph{total} four-stress satisfies the balance equation
+\begin{gather}
+  \label{eq:4stress_balance}
+    \Di\yT = 0
+    \\
+    \shortintertext{which is equivalent to the four balance equations}
+  \label{eq:4stress_balance_comps}
+    \begin{aligned}
+  \de_{t}e + \de_{i}q^{i} &=
+  e\,\varGamma^{t}_{tt}
+  +q^{i}\, \varGamma^{t}_{it}
+  -p_{j}\, \varGamma^{j}_{tt}
+  -\pi^{i}_{k}\, \varGamma^{k}_{it}
+  \\
+  \de_{t}p_{j} +  \de_{i}\pi^{i}_{j} &=
+  -e\,\varGamma^{t}_{tj}
+  -q^{i}\,\varGamma^{t}_{ij}
+  +p_{k}\,\varGamma^{k}_{tj}
+  +\pi^{i}_{k}\,\varGamma^{k}_{ij}
+\end{aligned}
+\end{gather}
+In general relativity the \emph{total} four-stress also satisfies
+\begin{equation}
+  \label{eq:4stress_symm}
+  \bigl(\vi\cdot\yT\cdot\yg^{-1}\bigr)\T - \vi\cdot\yT\cdot\yg^{-1} = 0 \ .
+\end{equation}
+
+
+The four-stress determines an association between any 1-vector $\yV$ field and an outer-oriented 3-covector field, interpreted as a current:
+\begin{equation}
+  \label{eq:1vec_to_current_T}
+  \yV \mapsto
+  \yT \cdot \yV \ .
+\end{equation}
+This current satisfies the balance equation
+\begin{equation}
+  \label{eq:balance_VT_current}
+  \di(\yT\cdot\yV) = -\yT \dand \nabla\yV
+\end{equation}
+which is a conservation law if $\yV$ is a Killing vector
 
 
 %%%% examples use empheq
@@ -1448,7 +1557,7 @@ Then -- note that the order on the right side is important:
   \end{align}
 
 \end{itemize}
-\section{Checks about optimal representation of 4-stress}
+\section{Checks about optimal representation of four-stress}
 \label{sec:checks_4stress}
 
 First a lemma about the exterior derivative of some outer-oriented 3-covectors:

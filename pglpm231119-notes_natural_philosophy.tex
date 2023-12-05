@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2023-12-03T12:48:13+0100
+%% Last-Updated: 2023-12-04T09:24:40+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -903,14 +903,18 @@ Western Norway University of Applied Sciences%
 \newcommand*{\vi}{\bm{\gamma}^{-1}}
 %
 \newcommand*{\yN}{\bm{N}}
-\newcommand*{\yT}{\mathte{T}}
+\newcommand*{\yP}{\bm{P}}
 \newcommand*{\yQ}{\bm{Q}}
+\newcommand*{\yS}{\mathte{S}}
+\newcommand*{\yT}{\mathte{T}}
 \newcommand*{\yU}{\bm{U}}
+\newcommand*{\yUd}{\bar{\bm{U}}}
 \newcommand*{\yV}{\bm{V}}
 \newcommand*{\yu}{\bm{u}}
 \newcommand*{\yv}{\bm{v}}
 \newcommand*{\yo}{\bm{\omega}}
 \newcommand*{\yphi}{\bm{\phi}}
+\newcommand*{\ypsi}{\bm{\psi}}
 \newcommand*{\yJ}{\bm{J}}
 
 
@@ -1006,7 +1010,17 @@ Western Norway University of Applied Sciences%
 
 Take an ordered coordinate system $(t,x,y,z)$, which also defines an orientation. We shall usually assume that $t$ has dimensions of time and $x,y,z$ of length, and usually that they are orthogonal if a metric is defined.
 
-The associated bases for inner-oriented multicovector fields are
+There are 18 basic types of geometric objects, which represent physical quantities of different types. We have inner-oriented scalars, inner-oriented 1-vectors up to 4-vectors, inner-oriented 1-covectors up to 4-covectors, and all their outer-oriented counterparts.
+
+The exterior product \enquote*{$\land$} of vectors and covectors is usually represented just by juxtaposition, and a shortened notation is used for exterior products of several exterior derivatives \enquote*{$\di$}. For instance
+\begin{equation}
+  \label{eq:notation_dwedge}
+  \di^{2}xy \defd \di x \land \di y
+  \qquad
+  \de^{2}_{xy} \defd \de_{x} \land \de_{y} \ .
+\end{equation}
+
+The associated bases for inner-oriented covector fields are
 \begin{gather}
   \label{eq:basis_1vec}
   \si{t}\quad
@@ -1031,9 +1045,11 @@ The associated bases for inner-oriented multicovector fields are
   \label{eq:basis_4vec}
   \ssssi{txyz}
 \end{gather}
-and analogously for inner-oriented multivector fields. The particular choice of ordering and sign is such that these bases are related by volume duality, see below.
+and analogously for inner-oriented vector fields. The particular choice of ordering and sign is such that these bases are related by volume duality, see below.
 
-The outer-oriented unit scalar is $\tw{1}$, with outer orientation $txyz$; note that it's only defined on a coordinate patch. A twisted or outer 3-covector such as $\sssi{\tw{x}yz}$ has an associated outer direction, in this case positive $t$. We adopt this shorter notation for the outer-oriented versions of the bases above:
+The outer-oriented unit scalar is $\tw{1}$, with outer orientation $txyz$; note that it's only defined on a coordinate patch. It is idempotent: $\tw{1}\tw{1} =1$.
+
+A twisted or outer-oriented 3-covector such as $\sssi{\tw{x}yz}$ has an associated outer direction, in this case positive $t$. We adopt this shorter notation for the outer-oriented versions of the bases above:
 \begin{gather}
   \label{eq:basis_1vec_twshort}
   -\ti{xyz}\quad
@@ -1058,9 +1074,7 @@ The outer-oriented unit scalar is $\tw{1}$, with outer orientation $txyz$; note 
   \label{eq:basis_4vec_twshort}
   \tttti{}
 \end{gather}
-so that $-\ti{xyz} \defd \si{\tw{t}}$ and so on. Similar notation is used for outer-oriented multivector fields; for instance $-\te{xyz} \defd \se{\tw{t}}$.
-
-Here is an example of an outer-oriented 3-covector written in terms of the bases and notation above. Note the position of the super- and sub-scripts:
+so that $-\ti{xyz} \defd \si{\tw{t}}$ and so on. Similar notation is used for outer-oriented multivector fields; for instance $-\te{xyz} \defd \se{\tw{t}}$. Here is an example of an outer-oriented 3-covector written in terms of the bases and notation above. Note the position of the super- and sub-scripts:
 \begin{equation}
   \label{eq:examples_expansion}
   \begin{split}
@@ -1081,6 +1095,39 @@ Here is an example of an outer-oriented 3-covector written in terms of the bases
     \text{ and so on}.
   \end{split}
 \end{equation}
+
+\medskip
+
+Contraction or dot-product of vectors and covectors is denoted by \enquote*{$\cdot$}, and always contracts the maximal possible amount of contiguous elements. For instance
+\begin{equation}
+  \label{eq:contraction_ex}
+  \sssi{xyz} \cdot \sse{yz} = \si{x}
+  \qquad
+  -\ssse{txy} \cdot \si{x} = \sse{ty} \ .
+\end{equation}
+
+\medskip
+
+We often consider vector- or covector-valued covectors, written as sums of tensor products. They can be outer- or inner-oriented. For instance
+\begin{equation}
+  \label{eq:cov-valued_cov}
+  \ttti{t} \otimes \si{x} \equiv \sssi{\tw{x}yz} \otimes \si{x} \ ,
+  \qquad
+  \ttti{x} \otimes \se{y} \ .
+\end{equation}
+The dot-product of a vector-valued covector and a covector-valued covector represents the contraction of their vector- and covector-valued parts and the exterior product of their covector parts. For instance, if $\yphi$ and $\ypsi$ are covectors, $\yo$ is a covector, and $\yu$ is a vector, then
+\begin{equation}
+  \label{eq:dot_cov_valued}
+  (\yphi \otimes \yo) \cdot (\ypsi \otimes \yu) \defd
+  (\yphi \land \ypsi) \otimes (\yo \cdot \yu)
+\end{equation}
+It is usually clear from the context which parts go into the exterior product and which parts need to be contracted. As a concrete example,
+\begin{equation}
+  \label{eq:ex_dand}
+  (\ttti{t} \otimes \si{x}) \cdot (\ti{t} \otimes \se{x}) = (\ttti{t} \land \ti{t})\, (\si{x} \cdot \se{x}) = -\tttti{} \ .
+\end{equation}
+
+
 
 \section{Linear transformations of multivector bases}
 \label{sec:lintransf_multiv}
@@ -1291,9 +1338,12 @@ If a metric is present, a four-velocity $\yU$ can be associated with the matter 
   \yU \cdot \yN = 0 \qquad \nor{\yU}^{2} = -c^{2}
   \\
   \label{eq:def_UN}
-  \yU = \frac{1}{\abs{\nor{\yN}}}\, \vi\cdot\yN \ .
+  \yU = \frac{1}{\abs{\nor{\yN}}}\, \vi\cdot\yN
+  \\
+  \shortintertext{which also implies (for normal matter)}
+  \yN = \nor{\yN}\, \yU\cdot\ve
 \end{gather}
-For normal matter (as opposed to antimatter), $\nor{\yN}^{2} \ge 0$.
+For normal matter (as opposed to antimatter) $\nor{\yN}^{2} \ge 0$.
 
 
 
@@ -1380,8 +1430,83 @@ This current satisfies the balance equation
   \label{eq:balance_VT_current}
   \di(\yT\cdot\yV) = -\yT \dand \nabla\yV
 \end{equation}
-which is a conservation law if $\yV$ is a Killing vector
+which is a conservation law if $\yV$ is a Killing vector.
 
+\medskip
+
+Consider a region where there is a non-vanishing matter current $\yN$ with associated four-velocity $\yU$, and define
+\begin{gather}
+  \label{eq:U_dual}
+  \yUd = -\frac{1}{c}\,\yg \cdot \yU
+  \\
+  \shortintertext{which statisfies}
+  \yUd \cdot \yU = 1 \ ,
+  \qquad
+  \nabla\yU \cdot \yUd = 0 \ .
+\end{gather}
+The last equality can be proved from $\nabla\yg=0$ and 
+\begin{equation}
+  \label{eq:proof_UU_nabla}
+  0=-\nabla(c^{2}) = \nabla(\yU \cdot \yg \cdot \yU) = 2\,(\nabla\yU) \cdot \yg \cdot \yU \ .
+\end{equation}
+
+\medskip
+
+
+We can associate with the matter a four-stress $\yT$ which can be decomposed as follows:
+\begin{equation}
+  \label{eq:4stress_matter}
+  \begin{gathered}
+    \yT =
+    -\epsilon\,\yN \otimes \yUd
+    + \yN \otimes \yP
+    -(\yUd\land \yQ)\otimes\yUd
+    +\yUd \land \yS
+    \\
+    \text{with}\quad
+    \yP \cdot\yU = 0
+    \quad
+    \yQ \cdot \yU = 0
+    \quad
+    \yU\cdot\yS = 0
+    \quad
+    \yS \cdot \yU= 0
+  \end{gathered}
+\end{equation}
+where
+\begin{itemize}
+\item $\epsilon$ is a scalar, the molar energy density.
+\item $\yP$ is a 1-covector, the molar momentum density.
+\item $\yQ$ is a 2-covector, the areic energy-flux density.
+\item $\yS$ is a 1-covector-valued 2-covector, the three-stress related to the Cauchy stress.
+\end{itemize}
+
+Using the four-velocity $\yU$ associated with the matter current we obtain what could be called the \enquote{internal-energy current}:
+\begin{equation}
+  \label{eq:inten_current}
+  \yT\cdot\yU \equiv -\epsilon\,\yN - \yUd\, \yQ
+\end{equation}
+which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:cons_matter}, satisfies the balance law
+\begin{gather}
+  \di\bigl(\yT\cdot\yU\bigr) = - \yT \cdot \nabla\yU
+  \\
+  \shortintertext{or}
+  \label{eq:balance_TU_matter}
+  \begin{multlined}[0.9\linewidth]
+    \di\bigl(-\epsilon\,\yN - \yUd\, \yQ\bigr) =
+\bigl(\epsilon\,\yN \otimes \yUd\bigr) \cdot\nabla\yU
+- \bigl(\yN \otimes \yP\bigr) \cdot\nabla\yU \\
+{}
+    +\bigl(\yUd \,\yQ\otimes\yUd\bigr) \cdot\nabla\yU
+    -\yUd \,\yS \cdot\nabla\yU
+  \end{multlined}
+  \\[\jot]
+  \shortintertext{or simply}
+  \yN\di\epsilon + \yUd\di\yQ - \yQ\,\di\yUd =
+  -\yN\,\nabla\yU \cdot \yP
+  -(\yUd\,\yS)\cdot\nabla\yU \ .
+\end{gather}
+The last balance equation corresponds to \eqn~(28) in \textcites{eckart1940c}, except for the fact that here we are keeping the momentum $\yP$ and heat flux $\yQ$ distinct.
 
 %%%% examples use empheq
 %   \begin{empheq}[left={\mathllap{\begin{aligned}    \de\yF_{\yc}/\de\yp&=0\text{:} \\

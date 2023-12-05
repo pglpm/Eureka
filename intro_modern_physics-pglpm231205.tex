@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2023-12-05T16:13:45+0100
+%% Last-Updated: 2023-12-05T16:28:42+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -21,9 +21,9 @@ british%
 \newcommand*{\updated}{\ifarxiv***\else\today\fi}
 \newcommand*{\propertitle}{Introduction to 21st-century physics}
 \newcommand*{\pdftitle}{\propertitle}
-\newcommand*{\headtitle}{21st-century physics}
+\newcommand*{\headtitle}{21st-century physics (ING175)}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
-\newcommand*{\headauthor}{Luca (ING175)}
+\newcommand*{\headauthor}{Luca}
 \newcommand*{\reporthead}{\iftrue\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -937,29 +937,16 @@ While moving from the older to the newer notions often requires re-learning effo
 
 It is therefore high time that introductory Bachelor physics courses be based on modern physical notions. Students should not be required to waste time and mental effort to learn something that they must unlearn and re-learn, only because of academia's and teachers' inertia.
 
-Some teachers say \enquote{it would be too difficult for students to understand modern ideas, because they are too familiar with the old ones. This is why we need to teach the old and slightly incorrect ideas first, and correct them later}. I think that this kind of reasoning is scientifically unacceptable and leads to a vicious circle. Students are unfamiliar with new notions only because they were raised by a generation who was taught the old. New notions become familiar after a couple of generations learn them early. This is obvious if you consider that notions such as \enquote{energy} and \enquote{electromagnetic field} are very familiar today, but were absolutely \emph{un}familiar a couple centuries ago. If we had always taught what's familiar, then we would still be teaching today about \emph{air, earth, water, fire} as elements, and that the Sun revolves around the Earth. Arguments for teaching the old notions are just pretexts for laziness.
+Some teachers say \enquote{it would be too difficult for students to understand modern ideas, because they are too familiar with the old ones. This is why we need to teach the old and slightly incorrect ideas first, and correct them later}. I think that this kind of reasoning is scientifically unacceptable and leads to a vicious circle. Students are unfamiliar with new notions only because they were raised by a generation who was taught the old. New notions become familiar after a couple of generations learn them early. This is obvious if you consider that notions such as \enquote{energy}, \enquote{electromagnetic field}, \enquote{vector} are very familiar today, but were absolutely \emph{un}familiar a couple centuries ago. If we had always taught what's familiar, then we would still be teaching about the elements \emph{air, earth, water, fire}, and that the Sun revolves around the Earth. Arguments in favour of teaching old notions are just pretexts for laziness.
 
+\medskip
 
+The present lecture notes are an experiment and attempt to introduce classical mechanics and thermodynamics from modern physical notions. The core equations remain the same, but the students should have a broader conception of their meaning and of the symbols that appear in them.
 
+\newpage
 
-
-\iffalse
-  The theory of relativity -- by which we mean _general_ relativity in these notes -- is now more than 100 years old. And yet, its equations are today necessary for many common technologies, like nuclear reactors and the [Global Positioning System](https://www.gps.gov); and some of the phenomena it predicts, like [black holes](https://spaceplace.nasa.gov/black-holes) and [gravitational waves](https://spaceplace.nasa.gov/gravitational-waves), have been experimentally detected only more than 100 years after its birth.
-
-Relativity theory is based on ideas and notions that are in some respects different from classical Newtonian physics. Some of these ideas are common knowledge today; for example the fact that mass is a form of energy, and that gravitational force comes from the curvature of spacetime.
-
-Seeing the practical importance of relativity in today's technology, its presence in common knowledge, and its age, it is surprising that 1st-year undergraduate physics courses still teach old and not-quite-correct ideas and notions.
-
-Some teachers say "it would be too difficult for students to understand relativity ideas, because they are too familiar with the old ones. This is why we need to teach the old and slightly incorrect ideas first, and correct them later". I think that this kind of reasoning is scientifically unacceptable and leads to a vicious circle. Students are unfamiliar with the new scientific ideas only because they were raised by a generation who was taught the old ideas. New ideas become familiar if we have a couple of generations that learn them early. This is quite obvious if you think that ideas such as energy and electromagnetic fields are very familiar today, but were absolutely _un_familiar centuries ago. If we were always to teach what's familiar, then we would still be teaching about the "elements" _air_, _earth_, _water_, _fire_, and that the Sun revolves around the Earth.
-
-It is moreover not fully true that the new ideas are unfamiliar to students; quite the opposite. Students know, for example, about the equivalence between mass and energy. When the students see how these notions are presented as very distinct things in 1st-year physics, they get slightly confused. Indeed many students end up asking very intelligent questions, such as "should the mass of the body be included in its internal energy?".
-
-I therefore think that it is due time to replace the old ideas and notions still taught in 1st-year undergraduate physics with the new ones. Maybe one or two generations of students will face some discomfort in this transition, but the subsequent generations will enjoy the benefits. Instead of wasting time learning partly incorrect ideas and correcting them later (as if our lifespans were infinite), students should learn correct ideas at the very start, in order to directly use or deepen them later.
-
-But the discomfort of this transition is not so great, after all. Many important notions from relativistic physics can be introduced in classical physics in a simple and natural way. Most maths and symbols remain practically the same, but we can attach to them more correct meanings.
-
-These lecture notes are an attempt at making such a transition.
-\fi
+\section{The Seven Wonders of the world}
+\label{sec:seven_wonders}
 
 
 
@@ -1016,7 +1003,6 @@ These lecture notes are an attempt at making such a transition.
 %%% Appendices
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %\clearpage
-\bigskip
 % %\renewcommand*{\appendixpagename}{Appendix}
 % %\renewcommand*{\appendixname}{Appendix}
 % %\appendixpage
@@ -1025,6 +1011,7 @@ These lecture notes are an attempt at making such a transition.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\newpage
 \renewcommand*{\finalnamedelim}{\addcomma\space}
 \defbibnote{prenote}{{\footnotesize (\enquote{de $X$} is listed under D,
     \enquote{van $X$} under V, and so on, regardless of national
@@ -1040,6 +1027,22 @@ These lecture notes are an attempt at making such a transition.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Cut text (won't be compiled)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+The theory of relativity -- by which we mean _general_ relativity in these notes -- is now more than 100 years old. And yet, its equations are today necessary for many common technologies, like nuclear reactors and the [Global Positioning System](https://www.gps.gov); and some of the phenomena it predicts, like [black holes](https://spaceplace.nasa.gov/black-holes) and [gravitational waves](https://spaceplace.nasa.gov/gravitational-waves), have been experimentally detected only more than 100 years after its birth.
+
+Relativity theory is based on ideas and notions that are in some respects different from classical Newtonian physics. Some of these ideas are common knowledge today; for example the fact that mass is a form of energy, and that gravitational force comes from the curvature of spacetime.
+
+Seeing the practical importance of relativity in today's technology, its presence in common knowledge, and its age, it is surprising that 1st-year undergraduate physics courses still teach old and not-quite-correct ideas and notions.
+
+Some teachers say "it would be too difficult for students to understand relativity ideas, because they are too familiar with the old ones. This is why we need to teach the old and slightly incorrect ideas first, and correct them later". I think that this kind of reasoning is scientifically unacceptable and leads to a vicious circle. Students are unfamiliar with the new scientific ideas only because they were raised by a generation who was taught the old ideas. New ideas become familiar if we have a couple of generations that learn them early. This is quite obvious if you think that ideas such as energy and electromagnetic fields are very familiar today, but were absolutely _un_familiar centuries ago. If we were always to teach what's familiar, then we would still be teaching about the "elements" _air_, _earth_, _water_, _fire_, and that the Sun revolves around the Earth.
+
+It is moreover not fully true that the new ideas are unfamiliar to students; quite the opposite. Students know, for example, about the equivalence between mass and energy. When the students see how these notions are presented as very distinct things in 1st-year physics, they get slightly confused. Indeed many students end up asking very intelligent questions, such as "should the mass of the body be included in its internal energy?".
+
+I therefore think that it is due time to replace the old ideas and notions still taught in 1st-year undergraduate physics with the new ones. Maybe one or two generations of students will face some discomfort in this transition, but the subsequent generations will enjoy the benefits. Instead of wasting time learning partly incorrect ideas and correcting them later (as if our lifespans were infinite), students should learn correct ideas at the very start, in order to directly use or deepen them later.
+
+But the discomfort of this transition is not so great, after all. Many important notions from relativistic physics can be introduced in classical physics in a simple and natural way. Most maths and symbols remain practically the same, but we can attach to them more correct meanings.
+
+These lecture notes are an attempt at making such a transition.
 
 
 %%% Local Variables: 

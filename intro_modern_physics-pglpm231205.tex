@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2023-12-05T16:28:42+0100
+%% Last-Updated: 2023-12-11T15:53:19+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -465,7 +465,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 
 \usepackage{graphicx}
 
-%\usepackage{wrapfig}
+\usepackage{wrapfig}
 
 %\usepackage{tikz-cd}
 
@@ -859,6 +859,8 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \newcommand*{\dobs}{degrees of belief}
 %%% Custom macros end @@@
 
+\usepackage{multimedia}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Beginning of document
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -921,17 +923,30 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \setlength{\epigraphrule}{0pt}
 % %\setlength{\beforeepigraphskip}{0pt}
 % %\setlength{\afterepigraphskip}{0pt}
-\epigraph{\emph{The loss implied in such an acquisition can be estimated only by those who have been compelled to unlearn a science that they might at length begin to learn it.}}{J. C. Maxwell \parencites*{maxwell1878}}
-
+\epigraph{\emph{The loss implied in such an acquisition can be estimated only by those who have been compelled to unlearn a science that they might at length begin to learn it.}}{J. C. Maxwell \cites*{maxwell1878}}
 
 
 
 Until some decades ago, the 18th-century physical notions typically taught in introductory Bachelor physics courses were enough to prepare an engineer for future specializations and jobs. Students who wanted to venture into modern theories, such as Relativity, were required to \textbf{re-learn} some of the most important physical notions -- \emph{Energy}, mass, time, entropy above all -- which in these theories are quite different from the 18th-century ones. But at that time the modern theories  still mostly had only theoretical, not practical, importance. So the re-learning efforts of the curious students could perhaps be justified.
 
-That situation has changed today. Modern theories are an essential part of many everyday technologies, like nuclear reactors and the Global Positioning System \autocites[\url{https://www.gps.gov}; see][]{fliegeletal1996,ashby2002,muelleretal2008}; and they are required for developing new technological possibilities, from quantum computers\footnote{\url{https://www.ibm.com/topics/quantum-computing}.} to solar sails\footnote{see for instance \url{https://www.planetary.org/sci-tech/lightsail}, \url{https://www.cubesail.us}.}. An engineering student (including communication and data engineering) may likely end up in a job that requires an understanding of modern physical notions. The diffusion of large language models\footnote{\url{https://www.ibm.com/topics/large-language-models}.} will moreover require future engineers who actually \textbf{understand} those physical notions, not little monkeys who have been trained to manipulate some equations and to throw some technobabble around. Automated large language models are faster, cheaper, and more precise in doing the latter kind of monkey activities. So why should one hire a human to do the same?
+\smallskip
 
-While moving from the older to the newer notions often requires re-learning efforts and conceptual re-orientations, the move in the opposite direction is less demanding. The modern physical notions are more encompassing than their 18th-century parents. Their understanding leads to an understanding of their older counterparts as approximate and special cases. Students, moreover, have often been hearing quite early from mass media about the new notions; for instance about the equivalence of mass and energy. Owing to this early exposure, students sometimes ask very intelligent questions -- \enquote{should the mass of the body be included in its internal energy?} -- when exposed to the old notions.
 
+\setlength{\intextsep}{0ex}% with wrapfigure
+\setlength{\columnsep}{2em}% with wrapfigure
+\begin{wrapfigure}{r}{0.3\linewidth}\scriptsize% with wrapfigure
+{\color{green}\enquote{\emph{The achieved performances of atomic clocks and time
+transfer techniques imply that the definition of time scales
+and the clock comparison procedures must be considered
+within the framework of general relativity}} -- \cites{petitetal2005}}
+\end{wrapfigure}
+That situation has changed today. Modern theories are an essential part of many everyday technologies, like nuclear reactors and the Global Positioning System \autocites[\url{https://www.gps.gov}; see the entertaining discussion in][Project~A]{tayloretal2000}[and also][]{petitetal2005,fliegeletal1996,ashby2002,muelleretal2008}; and they are required for developing new technological possibilities, from quantum computers\footnote{\url{https://www.ibm.com/topics/quantum-computing}.} to solar sails\footnote{see for instance \url{https://www.planetary.org/sci-tech/lightsail}, \url{https://www.cubesail.us}.}. An engineering student (including communication and data engineering) may likely end up in a job that requires an understanding of modern physical notions. The diffusion of large language models\footnote{\url{https://www.ibm.com/topics/large-language-models}.} will moreover require future engineers who actually \textbf{understand} those physical notions, not little monkeys who have been trained to manipulate some equations and to throw some technobabble around. Automated large language models are faster, cheaper, and more precise in doing the latter kind of monkey activities. So why should one hire a human to do the same?
+
+While moving from the older to the newer notions often requires re-learning efforts and conceptual re-orientations, the move in the opposite direction is less demanding. The modern physical notions are more encompassing than their 18th-century parents. Their understanding leads to an understanding of their older counterparts as approximate and special cases. Students, moreover, have often been hearing quite early from mass media about the new notions; for instance about the equivalence of mass and energy. Owing to this early exposure, students sometimes ask very intelligent questions -- \enquote{\emph{should the mass of the body be included in its internal energy?}} -- when exposed to the old notions.
+
+
+
+%\movie[width=0.5\textwidth,height=10em,poster,autostart,loop]{saitama}{fish.mp4}
 
 \medskip
 
@@ -949,6 +964,125 @@ The present lecture notes are an experiment and attempt to introduce classical m
 \label{sec:seven_wonders}
 
 
+% https://education.nationalgeographic.org/resource/seven-wonders-ancient-worl
+
+\newpage
+
+\section{Thermodynamics}
+\label{sec:thermodynamics}
+
+\subsection{Notes on \enquote{quasi-static} processes}
+\label{sec:quasistatic}
+
+In general, none of the statements "reversible${}\Rightarrow{}$quasi-static" or "quasi-static${}\Rightarrow{}$reversible"
+is true.
+
+A counterexample to the second implication are systems with internal state variables, which cannot be made non-dissipative, no matter how slowed-down they are. See the discussion and mathematical analysis in Astarita \sect~2.5.
+
+
+A counterexample to the first implication is a system of spins in a crystal lattice. It is possible to \emph{reversibly} bring the system form an equilibrium state to another with opposite temperature by reversing the external magnetic field \emph{as fast as possible} – and therefore \emph{not} through a quasi-static process. In fact it is key here that the process be \emph{not}-quasi-static, but as fast as possible, because a slow change of the external magnetic field would lead to an irreversible process with dissipation. For more details see the discussion in Buchdahl, Lecture~20.
+
+The point is that for some systems a \emph{fast} change can actually prevent the onset of dissipative phenomena, and so the process needs to be fast if we want it to be reversible. Adiabatic processes often also need to be fast (as a curious historical fact, Truesdell \amp\ Bharatha, Preface p.~xii, remark that \enquote{In introducing what we today call an `adiabatic process', Laplace called it `a sudden compression', in which he was followed by Carnot}).
+
+In fact, clearly non-quasi-static phenomena such as \emph{explosions} can in some circumstances be described by \emph{reversible} processes! This is possible if the explosion involves many shock waves, as explained by Oppenheim, chap.~1 p.~63:
+\begin{quote}
+  If there is more than one shock, the losses in available energy are diminished, so that in the limit, with an infinite number of shocks, they become negligible, and the process acquires the character of a thermodynamically optimal, i.e., reversible, change of state. The study of explosion processes reveals that, indeed, they are associated not with one but with a multitude of shocks.
+\end{quote}
+For explosions see also the mathematical analysis by Dunwoody: \emph{Explosion and implosion in a mixture of chemically reacting ideal gases}, where again reversible-process equations are used.
+
+A caveat about reversible and quasi-static associations is given by Ericksen (\sect~1.2):
+\begin{quote}
+  Some tend to associate nearly reversible processes with those taking place very slowly – the "quasi-static" processes. This probably stems, at least in part, from experience with classical theories of heat conduction, viscosity, and so on. However, a ball made of silly putty behaves almost reversibly when bounced rapidly and various other high polymers have similar predilections. So, it seems prudent to be open-minded in considering what may be reversible processes for particular systems.
+\end{quote}
+He later discusses (\sect~3.1) the case of bars subjected to dead loads, for which we can have reversible processes under sudden jumps in elongation. He concludes (p.~46) that \enquote{the sudden jump provides an example of a process that is reversible but not reasonably considered to be quasi-static}.
+
+\medskip
+
+But there's an important question that underlies our discussion: what do we actually mean by \enquote{quasi-static}? We need to specify a time scale, otherwise the term is undefined. For example, a geological process (say, tectonic motion) can be considered as quasi-static – or even completely static – on time scales of minutes or days; but it is not quasi-static on time scales of millions of years.
+
+Whether a process is reversible or not, within any tolerance needed, is an experimental question. We can measure any relevant quantities, say pressure $p$ and exchanged heat $q$, under the process, and compare them with those, $p^*$ and $q^*$, determined by the equations for a reversible process. We may find for example that at all times
+$$\biggl\lvert\frac{p - p^*}{p^*}\biggr\rvert < 0.001 \ ,
+\quad
+\biggl\lvert\frac{q - q^*}{q^*}\biggr\rvert < 0.001
+$$
+and conclude that the process is reversible, if relative discrepancies of $0.1\%$ or less are negligible in our concrete application.
+
+But suppose that someone tells us \enquote{if you want the process to be reversible, you must make sure that it is quasi-static}. Alright, but how much is \enquote{quasi-static}? is it OK if the piston moves with a speed of 1~cm/s? or is that too much? How about 1~mm/s? – In fact we may find that for some kind of fluid 1~cm/s is absolutely acceptable for the process to be reversible, whereas for another kind of fluid that speed would lead (at the same temperature) to an irreversible process.
+
+You see how this imprecise situation can lead to circular definitions: "if the process is irreversible, then it means it isn't quasi-static" – but then we are actually \emph{defining} "quasi-static" in terms of "reversible"! Any statement of the kind "reversible${}\Rightarrow{}$quasi-static" or "quasi-static${}\Rightarrow{}$reversible" then becomes not a matter of experimental verification, but of pure \emph{semantics}. At this point we can simply get rid of "quasi-static" terminology since it doesn't bring any new physics to the table. This circularity is admitted for example by Callen in discussing irreversible gas expansion (Problem 4.2-3 p.~99):
+
+\begin{quote}
+  The fact that $dS > 0$ whereas $dQ = 0$ is inconsistent with the presumptive applicability of the relation $dQ = T\,dS$ to all quasi-static processes. We define (by somewhat circular logic!) the continuous free expansion process as being "essentially irreversible" and \emph{non-quasi-static}.
+\end{quote}
+
+A similar criticism can be read in Astarita, \sect~2.9, p. 62, where he also provides a mathematical quantification of quasi-static, similar to the one given above for reversibility:
+
+\begin{quote}
+  Often this point is circumvented by bringing in another difficult concept,
+  that of a quasi-static transformation, which proceeds "through a sequence of
+  equilibrium states." Quasi-static is an impressive word, but the only meaning
+  which can be attached to it is the less impressive word "slow" – and how can
+  one speak of slowness without implying the concept of time? How slow is slow
+  enough? If one chooses to develop a thermodynamic theory (rather than a
+  thermostatic one), the answer is easy. For instance, in the case of a system where
+  the state is $V, T, \dot{V}$ [the latter is the rate of change of $V$], one needs to assume that [the non-equilibrium pressure] $p(V,T,\dot{V})$ is a Taylor-series expandable
+  at $\dot{V} = 0$ to obtain [that
+  $$
+  p = p^* + \frac{\partial p}{\partial \dot{V}}\biggl\lvert_{\dot{V}=0}\dot{V} + \mathrm{O}(\dot{V}^2) \ ,
+  $$
+  where $p^* = p(V,T,0)$ is the pressure at equilibrium]. One then reaches the conclusion that if the
+  condition
+  $$\dot{V} \ll \frac{p^*}{\partial p/\partial \dot{V}\lvert_{\dot{V}=0}}
+  $$
+  is satisfied, then indeed the difference between $p$ and $p^*$ is negligibly small as compared to $p^*$, and thus the process can be regarded as a quasi-static one.
+\end{quote}
+
+Criticisms against the fuzzy notion of "quasi-static" have appeared in many other works. Truesdell \amp\ Bharatha (Preface p.~xii), make the historical remark that "the 'quasi-static process' was barely mentioned for the first time in 1853 and was altogether foreign to the early work [in thermodynamics]". See also the mathematical analysis by Serrin: \emph{On the elementary thermodynamics of quasi-static systems and other remarks}.
+
+\medskip
+
+I also want to point out that "quasi-static" in some works has specific meanings somewhat unrelated to the discussion above. For example that the rate of increase of the total kinetic energy $K$ of the system is negligible, so that the law of energy balance, which in its full generality is
+$$ \frac{\mathrm{d}(U+K)}{\mathrm{d}t}  = Q + W$$
+(that is, the rate of increase of internal energy $U$ and kinetic energy is equal to the heat rate $Q$ and work rate $W$ provided to the system) can be approximated by
+$$ \frac{\mathrm{d}U}{\mathrm{d}t}  = Q + W \ .$$
+Or that similar inertial terms in the motion of the system are negligible. See for example the book by Day, chap.~2.
+
+But note that such definitions of "quasi-static" have, again, \emph{no} a-priori relation with reversibility.
+
+\medskip
+
+Finally, the equation $\mathrm{d}S = Q/T$ is only valid for a process that is:
+\begin{itemize}
+\item reversible (by definition),
+\item closed (no exchange of mass),
+\item with a homogeneous surface temperature,
+\item without bulk heating (such as instead happens in a microwave oven).
+\end{itemize}
+Under the last three conditions we have in general that $\mathrm{d}S \ge Q/T$; when the equality sign is satisfied, then the process is \emph{defined} as reversible. See Astarita, \sect~1.5, or Müller \amp\ Müller, for the different forms of the second law under different circumstances. This equation may be valid in quasi-static and non-quasi-static processes, as explained above.
+
+% ### References ###
+
+% I recommend you do your own reading and eventually reach your own conclusions about your question.
+
+% * Astarita: [*Thermodynamics: An Advanced Textbook for Chemical Engineers*](https://doi.org/10.1007/978-1-4899-0771-4).
+
+% * Buchdahl: [*Twenty Lectures on Thermodynamics*](https://doi.org/10.1016/C2013-0-02649-7).
+
+% * Callen: [*Thermodynamics: an introduction to the physical theories of equilibrium thermostatics and irreversible thermodynamics*](https://books.google.com/books/about/Thermodynamics_an_Introduction_to_the_Ph.html?id=V_1LzQEACAAJ) (Wiley 1960).
+
+% * Day: [*Heat Conduction Within Linear Thermoelasticity*](https://doi.org/10.1007/978-1-4613-9555-3).
+
+% * Dunwoody: [*Explosion and implosion in a mixture of chemically reacting ideal gases*](https://doi.org/10.1007/BF02133864).
+
+% * Ericksen: [*Introduction to the Thermodynamics of Solids*](http://d-nb.info/95351451X/04) (Springer 1998).
+
+% * Müller, Müller: [*Fundamentals of Thermodynamics and Applications: With Historical Annotations and Many Citations from Avogadro to Zermelo*](https://doi.org/10.1007/978-3-540-74648-5). This is book with a large amount of concrete applications (from jet engines to pneumatic compressors) of thermodynamics and thermostatics.
+
+% * Oppenheim: [*Introduction to Gasdynamics of Explosions*](https://doi.org/10.1007/978-3-7091-4364-3).
+
+% * Serrin: *On the elementary thermodynamics of quasi-static systems and other remarks*, in Brock (ed.): [*Thermoelastic Problems and the Thermodynamics of Continua*](https://books.google.com/books/about/Thermoelastic_Problems_and_the_Thermodyn.html?id=I_1QAAAAMAAJ) (American Society of Mechanical Engineers, 1995).
+
+% * Truesdell, Bharatha: [*The Concepts and Logic of Classical Thermodynamics as a Theory of Heat Engines*](https://doi.org/10.1007/978-3-642-81077-0).
 
 
 

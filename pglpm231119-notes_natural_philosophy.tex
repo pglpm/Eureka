@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2023-12-04T09:24:40+0100
+%% Last-Updated: 2023-12-13T15:58:15+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -849,6 +849,39 @@ Western Norway University of Applied Sciences%
 
 \newcommand*{\widebar}[1]{{\mkern1.5mu\skew{2}\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}}
 
+\newcommand*{\iT}{^{-\transp}}%transpose
+\newcommand*{\id}{\mathbf{id}}%id matrix
+
+\renewcommand*{\i}{\indices}
+%%
+% from https://tex.stackexchange.com/a/424252/97039
+\makeatletter
+\newcommand*{\q}{}% Check if undefined
+\DeclareRobustCommand*{\q}{%
+  \mathord{\mathpalette\bigcdot@{}}% changed mathbin to mathord
+}
+\newcommand*{\bigcdot@scalefactor}{0.7}
+\newcommand*{\bigcdot@widthfactor}{1.5}
+\newcommand*{\bigcdot@}[2]{%
+  % #1: math style
+  % #2: unused
+  \sbox0{$#1\vcenter{}$}% math axis
+  \sbox2{$#1\cdot\m@th$}%
+  \hbox to \bigcdot@widthfactor\wd2{%
+    \hfil
+    \raise\ht0\hbox{%
+      \scalebox{\bigcdot@scalefactor}{%
+        \lower\ht0\hbox{$#1\bullet\m@th$}%
+      }%
+    }%
+    \hfil
+  }%
+}
+\makeatother
+%%
+\newcommand*{\rul}{{\mkern2mu\rule[-0.1ex]{0.75pt}{1.1ex}\mkern2mu}}
+\DeclarePairedDelimiter\mul{\rul}{\rul}%{{\bm{\shortmid}}}
+
 % wedge with superimposed dot
 \newcommand*{\dand}{\mathbin{\mathclap{\mkern12.5mu\bm{\cdot}}\wedge}}
 
@@ -917,39 +950,10 @@ Western Norway University of Applied Sciences%
 \newcommand*{\ypsi}{\bm{\psi}}
 \newcommand*{\yJ}{\bm{J}}
 
+\newcommand*{\yF}{\mathte{F}}
+\newcommand*{\yE}{\bm{E}}
+\newcommand*{\yB}{\mathte{B}}
 
-\newcommand*{\iT}{^{-\transp}}%transpose
-\newcommand*{\id}{\mathbf{id}}%id matrix
-
-\renewcommand*{\i}{\indices}
-%%
-% from https://tex.stackexchange.com/a/424252/97039
-\makeatletter
-\newcommand*{\q}{}% Check if undefined
-\DeclareRobustCommand*{\q}{%
-  \mathord{\mathpalette\bigcdot@{}}% changed mathbin to mathord
-}
-\newcommand*{\bigcdot@scalefactor}{0.7}
-\newcommand*{\bigcdot@widthfactor}{1.5}
-\newcommand*{\bigcdot@}[2]{%
-  % #1: math style
-  % #2: unused
-  \sbox0{$#1\vcenter{}$}% math axis
-  \sbox2{$#1\cdot\m@th$}%
-  \hbox to \bigcdot@widthfactor\wd2{%
-    \hfil
-    \raise\ht0\hbox{%
-      \scalebox{\bigcdot@scalefactor}{%
-        \lower\ht0\hbox{$#1\bullet\m@th$}%
-      }%
-    }%
-    \hfil
-  }%
-}
-\makeatother
-%%
-\newcommand*{\rul}{{\mkern2mu\rule[-0.1ex]{0.75pt}{1.1ex}\mkern2mu}}
-\DeclarePairedDelimiter\mul{\rul}{\rul}%{{\bm{\shortmid}}}
 
 
 %%% Custom macros end @@@
@@ -1488,7 +1492,7 @@ Using the four-velocity $\yU$ associated with the matter current we obtain what 
 \end{equation}
 which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:cons_matter}, satisfies the balance law
 \begin{gather}
-  \di\bigl(\yT\cdot\yU\bigr) = - \yT \cdot \nabla\yU
+  \di\bigl(\yT\cdot\yU\bigr) = - \yT \dand \nabla\yU
   \\
   \shortintertext{or}
   \label{eq:balance_TU_matter}
@@ -1507,6 +1511,47 @@ which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:co
   -(\yUd\,\yS)\cdot\nabla\yU \ .
 \end{gather}
 The last balance equation corresponds to \eqn~(28) in \textcites{eckart1940c}, except for the fact that here we are keeping the momentum $\yP$ and heat flux $\yQ$ distinct.
+
+
+\section{Electromagnetic field}
+\label{sec:EM_field}
+
+The electromagnetic field, represented by the Faraday 2-covector, is typically decomposed as \autocites[\chap~9]{frankel1979}
+\begin{equation}
+  \label{eq:F_decomp_EB}
+  \begin{split}
+    \yF &= \yE\,\si{t} + \yB
+    \\&\equiv
+    E_{x}\, \ssi{xt}
+    +  E_{y}\, \ssi{yt}
+    + E_{z}\, \ssi{zt}
+    + B^{x}\,\ssi{yz}
+    + B^{y}\,\ssi{zx}
+    + B^{z}\,\ssi{xy}
+  \end{split}
+\end{equation}
+
+The conservation of magnetic flux is expressed by
+\begin{gather}
+  \label{eq:dFzero}
+  \di\yF = 0
+  \\
+  \shortintertext{or equivalently}
+  \begin{aligned}
+    &\de_{i} B^{i} = 0
+    &&\qquad\text{($\sssi{xyz}$ component)}
+    \\[\jot]
+    &\de_{t}B^{x} + \de_{y}E_{z} - \de_{z} E_{y} = 0
+    &&\qquad\text{($\sssi{tyz}$)}
+    \\
+    &\de_{t}B^{y} + \de_{z}E_{x} - \de_{x} E_{z} = 0
+    &&\qquad\text{($\sssi{tzx}$)}
+    \\
+    &\de_{t}B^{z} + \de_{x}E_{y} - \de_{y} E_{x} = 0
+    &&\qquad\text{($\sssi{txy}$)}
+  \end{aligned}
+\end{gather}
+
 
 %%%% examples use empheq
 %   \begin{empheq}[left={\mathllap{\begin{aligned}    \de\yF_{\yc}/\de\yp&=0\text{:} \\

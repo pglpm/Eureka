@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2023-12-11T15:53:19+0100
+%% Last-Updated: 2024-01-15T21:00:21+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -465,7 +465,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 
 \usepackage{graphicx}
 
-\usepackage{wrapfig}
+\usepackage{wrapfig2}
 
 %\usepackage{tikz-cd}
 
@@ -932,8 +932,8 @@ Until some decades ago, the 18th-century physical notions typically taught in in
 \smallskip
 
 
-\setlength{\intextsep}{0ex}% with wrapfigure
-\setlength{\columnsep}{2em}% with wrapfigure
+% \setlength{\intextsep}{0ex}% with wrapfigure
+% \setlength{\columnsep}{2em}% with wrapfigure
 \begin{wrapfigure}{r}{0.3\linewidth}\scriptsize% with wrapfigure
 {\color{green}\enquote{\emph{The achieved performances of atomic clocks and time
 transfer techniques imply that the definition of time scales
@@ -959,6 +959,136 @@ Some teachers say \enquote{it would be too difficult for students to understand 
 The present lecture notes are an experiment and attempt to introduce classical mechanics and thermodynamics from modern physical notions. The core equations remain the same, but the students should have a broader conception of their meaning and of the symbols that appear in them.
 
 \newpage
+
+\section{Physics?}
+\label{sec:physics_general}
+
+If you think about it, many things we ordinarily do every day are just some sort of magic. Think of how you can instantaneously see and speak with a person living on another continent, in real time, using just a small widget in the palm of your hand. Think of how you can instantaneously see where you are on the Earth, using the same widget. Think of how fast you can go to another country, by flying in a huge metal thing. Think of how you can command and interact with a purely fictitious animated world when you play on your computer. The list can go on forever. Other things are luckily less ordinary, but still inspire a lot of awe: think of the devastating power unleashed by something roughly as small as a tennis ball, in an atomic bomb.
+
+We can do these astonishing things thanks to our understanding of how the world works. That's Physics.
+
+
+% ** 6
+% *** Importance of physics, necessity of maths: numbers (precision) and formulae (compact relations)
+% *** Different languages (show examples) and points of view. What's chosen here
+% *** Arena for physics (one point of view): space, time, "stuff"
+% 
+
+\section{Physics?}
+\label{sec:physics}
+
+\subsection{Several possible languages}
+\label{sec:languages}
+
+Many things can be said and have been said about science and physics. Rather than repeating what's been already written in many excellent books, I invite you to take a break here and go read their introductions. Choose as you please; don't limit yourself to popular books; compare what they say.
+
+\begin{center}
+  \textellipsis
+  \textellipsis
+  \textellipsis
+\end{center}
+
+% \setlength{\intextsep}{0ex}% with wrapfigure
+% \setlength{\columnsep}{2em}% with wrapfigure
+\begin{wrapfigure}{r}{0.3\linewidth}\scriptsize% with wrapfigure
+\includegraphics[width=\linewidth]{eg_languages.png}
+\\[\jot]{\color{green}%
+Example of two different languages expressing the same physical phenomenon%
+}
+\end{wrapfigure}
+Welcome back! The only thing about physics that I need to say here is that physics can be expressed and written from wildly different points of view, using wildly different principles. Let's call these \enquote{different physics languages} (don't take this expression too literally, or as one in common use; I'm just using it for the present discussion). One may approach a physics phenomenon or problem in terms of \emph{Lagrangeans}, or \emph{Hamiltonians}, or \emph{fibre bundles}, or \emph{categories}, or \emph{action principles}, or many other points of view. These languages are not completely separated; we know how to translate among them. In \enquote{doing} physics, one may jump among languages, because some ideas may be easier to express, or some results easier to find, in one language than another. No matter which physics language you choose, the results and the concrete applications are still the same. The choice is to a great extent subjective, based on your aesthetic tastes. You see that in \enquote{doing} physics you can express your personality and put your own artistic touch; this is why it's such a cool subject (and other subjects are like this too).
+
+In these notes I'm choosing one particular language: the one that for me is the most easily \emph{visualizable}; because I believe that visualization can be beneficial in learning new things. Or maybe I'm choosing it just because I like it best. I encourage you to explore how the physics you've learned is expressed in other physics languages; maybe you'll like another physics language better.
+
+The language we'll be using might be called \enquote{field theory}. Roughly speaking it takes as starting point the ideas of space and time, or better spacetime, in which there are different kinds of \enquote{stuff}. It expresses the regularity and patterns that we observe in physical phenomena as \enquote{budgets} about the different kinds of stuff, and of relations between these kinds. Please don't take the description just given too literally; it's just meant to give you a very vague idea of the field-theoretical viewpoint.
+
+\medskip
+
+It goes without saying that all these \enquote{physics languages} are to a great extent mathematical.
+
+\subsection{Primitive and derived notions}
+\label{sec:primitives}
+
+
+
+
+% ** 7
+% *** Experimental characteristics of time measurement:
+% **** time is not universal; for many purposes we must use a time _coordinate_ (maybe a simple spacetime diagram)
+% **** GPS?
+% **** luckily for many phenomena on Earth the difference is small
+% *** Coordinate systems; vectors
+% *** Experimental characteristic of quantities:
+% **** quantities are "primitives"
+% **** dependence on coordinate system
+
+\newpage
+
+\section{Time, space, \enquote{stuff}}
+\label{sec:time_space_stuff}
+
+
+
+
+
+
+% 
+% ** 8
+% *** Structure of physical laws:
+% **** fundamental
+% **** constitutive
+% **** boundary & initial conditions
+% *** Conservation and balance laws
+% *** Seven wonders of the world: geometric meaning; maths translation
+% *** Why different phenomena and how to make predictions: Constitutive equations
+% *** Conservation of amount of matter
+% **** examples
+% 
+% ** 9
+% *** Energy: characteristics
+% **** coordinate-dependent
+% **** mass is energy, energy is mass
+% **** matter: necessity of separation between "bulk" (mass) and small changes (energies); examples
+% *** Balance of energy
+% **** energy is only balanced; cosmology
+% 
+% ** 10
+% *** Momentum: characteristics
+% **** coordinate-dependent
+% **** momentum is energy flow, and vice versa
+% **** matter: necessity of separation between "bulk" (momentum) and small changes (heat); examples
+% *** Balance of momentum
+% *** Force is momentum current; examples (diSessa)
+% 
+% ** 11
+% *** Rotational momentum
+% *** Balance of rotational momentum
+% *** Interlude: Conservation of charge and of magnetic flux
+% *** Balance of entropy; "second law"
+% 
+% ** 12
+% *** _Special constitutive equations of Newtonian mechanics:_
+% *** Momentum ∝ matter flux; difference in relativity
+% *** Forms of energy beside the "bulk"
+% **** kinetic
+% **** potential gravitational
+% **** internal; several types (including chemical, elastic, etc)
+% *** TODO Check work and heat
+% 
+% ** 13
+% *** _Example systems and problems_
+% 
+% ** 14
+% *** Temperature
+% *** Entropy flux is (energy flux)/(temperature)
+% 
+% ** 15
+% *** Constitutive equations for internal energy: ideal gas (with dV/dt term)
+% *** _Example systems and problems_
+% 
+% ** 16
+% *** Other examples: GPS?
+
 
 \section{The Seven Wonders of the world}
 \label{sec:seven_wonders}

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2023-12-13T15:58:15+0100
+%% Last-Updated: 2024-01-10T12:09:33+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -928,7 +928,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\ttti}[1]{\di^{3}_{#1}}
 \newcommand*{\tttti}[1]{\di^{4}_{#1}}
 %
-\newcommand*{\yg}{\bm{g}}
+\newcommand*{\yg}{\mathte{g}}
 \newcommand*{\ygg}[1][]{\overset{#1}{\bm{g}}{}}
 \newcommand*{\dg}{\sqrt{g}}
 \DeclarePairedDelimiter\nor{\lVert}{\rVert}
@@ -940,6 +940,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yQ}{\bm{Q}}
 \newcommand*{\yS}{\mathte{S}}
 \newcommand*{\yT}{\mathte{T}}
+\newcommand*{\yt}{\bm{\tau}}
 \newcommand*{\yU}{\bm{U}}
 \newcommand*{\yUd}{\bar{\bm{U}}}
 \newcommand*{\yV}{\bm{V}}
@@ -1110,6 +1111,13 @@ Contraction or dot-product of vectors and covectors is denoted by \enquote*{$\cd
   -\ssse{txy} \cdot \si{x} = \sse{ty} \ .
 \end{equation}
 
+If $\ve$ is a non-zero 4-covector and $\vi$ the inverse 4-vector, that is, $\ve\cdot\vi=\vi\cdot\ve=1$, and if $\yN$ is a 3-covector and $\yphi$ a 1-covector, we have the useful identity
+\begin{equation}
+  \label{eq:wedge_to_dot}
+  \yN \land \yphi = (\yN\cdot\vi\cdot\yphi)\, \ve \ ,
+\end{equation}
+which also holds as long as the degrees of $\yN$ and $\yphi$ sum up to 4.
+
 \medskip
 
 We often consider vector- or covector-valued covectors, written as sums of tensor products. They can be outer- or inner-oriented. For instance
@@ -1119,16 +1127,18 @@ We often consider vector- or covector-valued covectors, written as sums of tenso
   \qquad
   \ttti{x} \otimes \se{y} \ .
 \end{equation}
-The dot-product of a vector-valued covector and a covector-valued covector represents the contraction of their vector- and covector-valued parts and the exterior product of their covector parts. For instance, if $\yphi$ and $\ypsi$ are covectors, $\yo$ is a covector, and $\yu$ is a vector, then
+
+The operation $\dand$ between a vector-valued covector and a covector-valued covector is the contraction of their vector- and covector-valued parts and the exterior product of their covector parts. For instance, if $\yphi$ and $\ypsi$ are covectors, $\yo$ is a covector, and $\yu$ is a vector, then
 \begin{equation}
   \label{eq:dot_cov_valued}
-  (\yphi \otimes \yo) \cdot (\ypsi \otimes \yu) \defd
+  (\yphi \otimes \yo) \dand (\ypsi \otimes \yu) \defd
   (\yphi \land \ypsi) \otimes (\yo \cdot \yu)
 \end{equation}
-It is usually clear from the context which parts go into the exterior product and which parts need to be contracted. As a concrete example,
+% It is usually clear from the context which parts go into the exterior product and which parts need to be contracted. 
+As another example,
 \begin{equation}
   \label{eq:ex_dand}
-  (\ttti{t} \otimes \si{x}) \cdot (\ti{t} \otimes \se{x}) = (\ttti{t} \land \ti{t})\, (\si{x} \cdot \se{x}) = -\tttti{} \ .
+  (\ttti{t} \otimes \si{x}) \dand (\ti{t} \otimes \se{x}) = (\ttti{t} \land \ti{t})\, (\si{x} \cdot \se{x}) = -\tttti{} \ .
 \end{equation}
 
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-01-16T12:02:45+0100
+%% Last-Updated: 2024-01-16T22:05:35+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1029,15 +1029,85 @@ But the most important reason is that mathematics allows us to describe and foll
 
 I invite you again to read what many good texts say about the relationship between physics and mathematics. No point repeating here what has been said better elsewhere.
 
-\subsection{Primitive and derived notions}
+\subsection{Quantities, primitive and derived}
 \label{sec:primitives}
 
 One topic, however, must be briefly discussed because it's important in understanding the notes that follow. It's the distinction between \emph{primitive} and \emph{derived} quantities.
 
+I shall assume that you already know what a \emph{physical quantity} is. Examples are: position, duration, velocity, pressure, energy, temperature.
+
+A \emph{derived quantity} is one that is defined in terms of other quantities. For example, velocity $\bm{v}$ (more precisely: average velocity) is defined as the ratio between a distance $\bm{d}$ (a vector) and a time duration $\bm{t}$:
+\begin{equation*}
+  \bm{v} \defd \frac{\bm{d}}{t}
+\end{equation*}
+where the symbol \enquote{$\defd$} means \enquote{is defined as} or \enquote{is defined by}. This means that in principle we could avoid using the word \enquote{velocity} and the symbol \enquote{$\bm{v}$} altogether, and instead always speak about distance and duration, using their symbols. It would be extremely inconvenient, but it could be done. The definition of a derived quantity often tells us how that quantity can be measured.
+
+A derived quantity is defined in terms of other quantities, and these may in turn be derived quantities, that is, defined in terms of still other quantities, and so on. But at some point this chain of definitions must come to an end, otherwise we would go around in circles.
+
+A \emph{primitive quantity} is one that we do not define in terms of other quantities. Primitive quantities are the building blocks from which we define all others. That they are not defined in terms of others doesn't mean that we cannot try to explain them. But such explanations must be taken as informal and heuristic. Primitive quantities are often explained through metaphors and by appealing to intuition. You must always be wary of such explanations, because they may fail you spectacularly in some situations.
+
+Often we have a choice about which quantities should be primitive and which should be derived. For instance, \emph{energy} can be defined, in a somewhat complicated way, in terms of quantities like \emph{work} and \emph{heat}, which would then need to be taken as primitive. Or we can take \emph{energy} as primitive, and define \emph{work} and \emph{heat} in terms of it; this second choice turns out to be more convenient to develop the physical theory. It often happens that a quantity is very convenient to build a theory if used as primitive, but difficult to understand intuitively; and vice versa that a quantity is very intuitive, but leads to a complicated theory.
+
+Among quantities which we'll take as primitive are \emph{time}, \emph{space}, \emph{energy}, \emph{matter}, \emph{momentum}, and several others.
+
+\subsection{Time}
+\label{sec:time}
 
 
 
-In Bergen, a distance of 10\,m corresponds to a difference of 0.000\,1\,° in latitude or longitude
+\begin{wrapfigure}{r}{0.3\linewidth}\scriptsize% with wrapfigure
+  {\color{green}\enquote{\emph{%
+        In 1976, the International Astronomical Union introduced relativistic concepts of time and the transformations between various time scales and reference systems. \textelp{} Now \textelp{} it is necessary to base all astrometry, reference systems, ephemerides, and observational reduction procedures on consistent relativistic grounds. This means that relativity must be accepted in its entirety, and that concepts, as well as practical problems, must be approached from a relativistic point of view.}} -- \cites{kovalevskyetal2004}}
+\end{wrapfigure}
+\emph{Time} is a primitive quantity. We understand the notion of time intuitively, even if it's difficult to explain (that's why it's taken as primitive). In 1905, with the theory of relativity, part of our everyday intuition about this notion was seriously shaken. For many years afterwards our old intuition could still be used in practice and in applications. But the new, correct intuition is becoming more and more important in everyday life and technologies. For example, GPS navigation, which we use everyday from leisure activities such as hiking or sightseeing to more critical ones such as aeroplane landing, critically depend on the correct notion and intuition of time. Let's see how our traditional intuition goes astray with a concrete experiment.
+
+Here's Alice, Bob, and Charlie. They have extremely precise clocks built in exactly the same way. They stay very close to one another and synchronize their clocks. Still keeping close, they go around, maybe on an aeroplane or space ship, and all the time they check their clocks. They notice that their clocks stay perfectly synchronized all the time, no matter where they go and what they do.
+
+At some point they separate, each one going around independently. One of them might stay in place, another might take a helicopter, and another might go for a trip on Mars and back.
+
+Alice and Bob at some point meet again, and compare their clocks. They see that their clocks aren't synchronized anymore; the difference could be as small as microseconds, or as large as years. In fact, if this time discrepancy is large, they would notice that they themselves have aged differently; so time discrepancy doesn't affect the clocks only. Let's say for concreteness that Alice's clock is ahead of Bob's, or equivalently that Bob's is behind Alice's. Note the following aspects:
+
+First, neither Alice or Bob can say \enquote{my clock was wrong}: neither has noticed anything strange about the \enquote{passage of time}.
+
+Second, they might wonder what's the time on Charlie's clock. But Charlie is at some distance away. They could decide to contact Charlie via radio, say, and ask \enquote{what shows your clock right \emph{now}?}. But they would notice that there's a delay, even if extremely small, in the radio transmission; so it's unclear to what time would Charlie's answer apply. If we say \enquote{let's account for the radio-signal speed}, we see that there's a logical problem: speed is distance divided by time, and here we have a problem in exactly determining what's the \enquote{correct} time! So we would be reasoning in circles. Besides, even neglecting these difficulties, Charlie's answer could reveal a time that completely different from Alice's and from Bob's -- it could be years ahead or behind both of theirs!
+
+Third, if they now stay together, they will see that their clocks remain exactly synchronized, besides the discrepancy they noticed when they met. This discrepancy doesn't increase or decrease. They may even retrace together Alice's and Bob's previous trips; their clocks still remain synchronized.
+
+The experience just described will occur again any time two or more of them meet. There could be a hundred observers like Alice, Bob, Charlie, initially at the same place and synchronized. Whenever two or more of them meet after having been separated, they will notice discrepancies in their clocks. But their clocks will have exactly the same time lapses as long as they stay together.
+
+Consider for a moment an imaginary world in which these experiments had given a different kind of result. According to Newtonian mechanics, whenever two or more initially synchronized observers like Alice, Bob, Charlie had met, their clocks would have always shown exactly the same time. If one year, 23 days, 8 hours, 9 minutes, and num{3.04539928324099266302} seconds have passed for you since you last met Alice, you'd see that exactly the same amount of time has passed for her when you too meet again. If you think about it, in this case it would have beeen somewhat natural to think \enquote{right now, the clocks of far-away Alice, Bob, Charlie must show the same time as mine} (even though you have no real experimental way of confirming that).
+
+But that's an imaginary world. In our world is the more complicated situation described initially that holds. Only one conclusion can be drawn from these experimental results: \textbf{Time is not some sort of universal quantity. It is, so to speak, \enquote{local} to a person or clock, or to a group of persons or clocks that stick together.}
+
+This also means that \emph{it doesn't make sense} to ask questions like \enquote{what can be the time for far-away Charlie, right now?}. \emph{now} only applies to you, or to anything that is in your immediate vicinity.
+
+\smallskip
+
+Luckily we know more about how the times of separated observers can differ when they meet again. It turns out -- according to our current understanding -- that the time differences depend, roughly speaking, on how fast the observers are moving with respect to matter around the universe, and on how much energy is contained in the regions they travel. The general theory of relativity gives us the equations determining any such time differences.
+
+\begin{wrapfigure}{r}{0.3\linewidth}\scriptsize% with wrapfigure
+{\color{green}\enquote{\emph{%
+The plot for Cesium \textelp{} characterizes the best orbiting clocks in the GPS system. What this means is that after initializing a Cesium clock, and leaving it alone for a day, it should be correct to within \textelp{} \num{4}~nanoseconds. Relativistic effects are huge compared to this.}} -- \cites{ashby2003}}
+\end{wrapfigure}
+The situation depicted in the experiments above is real. It can be measured, for example, comparing initially synchronized clocks that have been put in aeroplanes flying in different directions. Most importantly, it affects everyday relevant technologies such as the Global Positioning System. Formulae from general relativity appear in your phone's GPS software; see for instance \sect~20.3.3.3.3 of the Interface Control Document \texttt{IS-GPS-200} at \url{https://www.gps.gov/technical/icwg/}.
+%\autocites[]{icwg1983_r2022}
+
+
+
+
+\iffalse
+\begin{wrapfigure}{r}{0.3\linewidth}\scriptsize% with wrapfigure
+{\color{green}\enquote{\emph{%
+}} -- \cites{}}
+\end{wrapfigure}
+\fi
+
+
+
+
+
+
+% In Bergen, a distance of 10\,m corresponds to a difference of 0.000\,1\,° in latitude or longitude
 
 
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-01-15T21:00:21+0100
+%% Last-Updated: 2024-01-16T12:02:45+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -842,7 +842,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 %\newcommand*{\qem}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
 %\quad\hbox{\QEM}}
 %% from TUGboat 18 (1997) 1:
-\providecommand*{\unit}[1]{\ensuremath{\mathrm{\,#1}}}
+%\providecommand*{\unit}[1]{\ensuremath{\mathrm{\,#1}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Custom macros for this file @@@
@@ -859,6 +859,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \newcommand*{\dobs}{degrees of belief}
 %%% Custom macros end @@@
 
+\usepackage{siunitx}
 \usepackage{multimedia}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -958,27 +959,27 @@ Some teachers say \enquote{it would be too difficult for students to understand 
 
 The present lecture notes are an experiment and attempt to introduce classical mechanics and thermodynamics from modern physical notions. The core equations remain the same, but the students should have a broader conception of their meaning and of the symbols that appear in them.
 
-\newpage
-
-\section{Physics?}
-\label{sec:physics_general}
-
-If you think about it, many things we ordinarily do every day are just some sort of magic. Think of how you can instantaneously see and speak with a person living on another continent, in real time, using just a small widget in the palm of your hand. Think of how you can instantaneously see where you are on the Earth, using the same widget. Think of how fast you can go to another country, by flying in a huge metal thing. Think of how you can command and interact with a purely fictitious animated world when you play on your computer. The list can go on forever. Other things are luckily less ordinary, but still inspire a lot of awe: think of the devastating power unleashed by something roughly as small as a tennis ball, in an atomic bomb.
-
-We can do these astonishing things thanks to our understanding of how the world works. That's Physics.
 
 
 % ** 6
 % *** Importance of physics, necessity of maths: numbers (precision) and formulae (compact relations)
 % *** Different languages (show examples) and points of view. What's chosen here
 % *** Arena for physics (one point of view): space, time, "stuff"
-% 
+%
+
+\newpage
 
 \section{Physics?}
-\label{sec:physics}
+\label{sec:physics_general}
 
-\subsection{Several possible languages}
-\label{sec:languages}
+% \subsection{Magic}
+% \label{sec:magic}
+
+If you think about it, many things we ordinarily do every day are just some sort of magic. Think of how you can instantaneously see and speak with a person living on another continent, in real time, using just a small widget in the palm of your hand. Think of how you can instantaneously see where you are on the Earth, using the same widget. Think of how fast you can go to another country, by flying in a huge metal thing. Think of how you can command and interact with a purely fictitious animated world when you play on your computer. The list can go on forever. Other things are luckily less ordinary, but still inspire a lot of awe: think of the devastating power unleashed by something roughly as small as a tennis ball, in an atomic bomb.
+
+We can do these astonishing things thanks to our understanding of how the world works. That's Physics.
+
+\medskip
 
 Many things can be said and have been said about science and physics. Rather than repeating what's been already written in many excellent books, I invite you to take a break here and go read their introductions. Choose as you please; don't limit yourself to popular books; compare what they say.
 
@@ -987,6 +988,10 @@ Many things can be said and have been said about science and physics. Rather tha
   \textellipsis
   \textellipsis
 \end{center}
+
+
+\subsection{Several possible languages}
+\label{sec:languages}
 
 % \setlength{\intextsep}{0ex}% with wrapfigure
 % \setlength{\columnsep}{2em}% with wrapfigure
@@ -1004,11 +1009,35 @@ The language we'll be using might be called \enquote{field theory}. Roughly spea
 
 \medskip
 
+\begin{wrapfigure}{r}{0.3\linewidth}\scriptsize% with wrapfigure
+{\color{green}\enquote{\emph{this grand book, the universe, which stands continually open to our gaze. But the book cannot be understood unless one first learns to comprehend the language and read the
+letters in which it is composed. It is written in the language of
+mathematics}} -- \cites{galilei1623}}
+\end{wrapfigure}
 It goes without saying that all these \enquote{physics languages} are to a great extent mathematical.
+
+One reason is that numbers allow us to convey information in a concise and precise way. Imagine you have to tell someone, who doesn't know Bergen, where in Bergen you are right now, to within 10\,m. You can do that with a description, \enquote{\textellipsis\ and there's a building called so-and-so which looks like so-and-so\textellipsis}, which would be lengthy and tricky. Or you can just give two numbers: latitude and longitude:
+\begin{equation*}
+  \num{60.36940},\ \num{5.3518} \ .
+\end{equation*}
+And in these two numbers all digits are important; for instance, the latitude is not \ensuremath{60.369\,4\bm{7}}.
+
+\begin{wrapfigure}{r}{0.3\linewidth}\scriptsize% with wrapfigure
+{\color{green}\enquote{\emph{There is nothing that can be said by mathematical symbols and relations which cannot also be said by words. The converse, however, is false. Much that can be and is said by words cannot successfully be put into equations, because it is nonsense.}} -- \cites{truesdell1966}}
+\end{wrapfigure}
+But the most important reason is that mathematics allows us to describe and follow the patters and variety of physical phenomena in a greatly concise and precise way. And to develop their relationships in a rigorous way. All our present technology would have been impossible to discover, and would be impossible to realize, without the mathematical language of physics.
+
+I invite you again to read what many good texts say about the relationship between physics and mathematics. No point repeating here what has been said better elsewhere.
 
 \subsection{Primitive and derived notions}
 \label{sec:primitives}
 
+One topic, however, must be briefly discussed because it's important in understanding the notes that follow. It's the distinction between \emph{primitive} and \emph{derived} quantities.
+
+
+
+
+In Bergen, a distance of 10\,m corresponds to a difference of 0.000\,1\,° in latitude or longitude
 
 
 

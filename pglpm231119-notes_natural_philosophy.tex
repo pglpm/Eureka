@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-01-10T12:09:33+0100
+%% Last-Updated: 2024-01-28T00:42:46+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -377,7 +377,7 @@ british%
 \usepackage{microtype}
 
 \usepackage[backend=biber,mcite,%subentry,
-citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false,autocite=footnote]{biblatex}
+citestyle=authoryear-comp,bibstyle=pglpm_latex/pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false,autocite=footnote]{biblatex}
 \DeclareSortingTemplate{ny}{\sort{\field{sortname}\field{author}\field{editor}}\sort{\field{year}}}
 \DeclareFieldFormat{postnote}{#1}
 \iffalse\makeatletter%%% replace parenthesis with brackets
@@ -600,7 +600,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \bfseries}
 \posttitle{\bigskip\end{center}}
 
-\makeatletter\newcommand*{\atf}{\includegraphics[totalheight=\heightof{@}]{atblack.png}}\makeatother
+\makeatletter\newcommand*{\atf}{\includegraphics[totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 \providecommand{\affiliation}[1]{\textsl{\textsf{\footnotesize #1}}}
 \providecommand{\epost}[1]{\texttt{\footnotesize\textless#1\textgreater}}
 \providecommand{\email}[2]{\href{mailto:#1ZZ@#2 ((remove ZZ))}{#1\protect\atf#2}}
@@ -665,7 +665,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 % \footnotesize\epost{\email{***}{***}}}%
 % \hspace*{\stretch{1}}%
 \parbox{1\linewidth}%\makebox[0pt][c]%
-{\protect\centering P.G.L.  Porta Mana  \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}\\\footnotesize
+{\protect\centering P.G.L.  Porta Mana  \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{pglpm_latex/orcid_32x32.png}}\\\footnotesize
 Western Norway University of Applied Sciences%
 \quad\epost{\email{pgl}{portamana.org}}}%
 % Mohn Medical Imaging and Visualization Centre, Dept of Computer science, Electrical Engineering and Mathematical Sciences, Western Norway University of Applied Sciences, Bergen, Norway
@@ -736,7 +736,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
 \newcommand*{\nab}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
-%\DeclareMathOperator{\tr}{tr}%trace
+\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
 %% From TUGboat 18 (1997) 1
 % \renewoperator{\Re}{\mathrm{Re}}{\nolimits}
@@ -1442,7 +1442,7 @@ The four-stress determines an association between any 1-vector $\yV$ field and a
 This current satisfies the balance equation
 \begin{equation}
   \label{eq:balance_VT_current}
-  \di(\yT\cdot\yV) = -\yT \dand \nabla\yV
+  \di(\yT\cdot\yV) = -\yT \dand \nabla\yV = \tr(\yT\T\cdot\vi\cdot\nabla\yV)\,\ve
 \end{equation}
 which is a conservation law if $\yV$ is a Killing vector.
 

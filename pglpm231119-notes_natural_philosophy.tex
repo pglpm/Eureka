@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-01-28T00:42:46+0100
+%% Last-Updated: 2024-01-29T10:44:59+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1054,7 +1054,7 @@ and analogously for inner-oriented vector fields. The particular choice of order
 
 The outer-oriented unit scalar is $\tw{1}$, with outer orientation $txyz$; note that it's only defined on a coordinate patch. It is idempotent: $\tw{1}\tw{1} =1$.
 
-A twisted or outer-oriented 3-covector such as $\sssi{\tw{x}yz}$ has an associated outer direction, in this case positive $t$. We adopt this shorter notation for the outer-oriented versions of the bases above:
+A twisted or outer-oriented 3-covector such as $\sssi{\tw{x}yz}$ has an associated outer direction, in this case positive $t$. We adopt this shorter notation for the outer-oriented versions of the bases above (analogous to the notation in  \cites{gotayetal1992} \sect\,2 p.~371):
 \begin{gather}
   \label{eq:basis_1vec_twshort}
   -\ti{xyz}\quad
@@ -1367,11 +1367,14 @@ For normal matter (as opposed to antimatter) $\nor{\yN}^{2} \ge 0$.
 The stress-energy-momentum tensor, or simply four-stress, is a covector-valued 3-covector field, the 3-covector being outer-oriented. It has the dimensions of an action, and can be decomposed as
 \begin{equation}
   \label{eq:def_T}
-  \yT =
-  -\epsilon\, \ttti{t}\otimes\si{t} 
-  -q^{i}\, \ttti{i}\otimes\si{t} 
-  +p_{j}\, \ttti{t}\otimes\si{x^{j}} 
-  +\pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
+  \begin{split}
+    \yT &= T\i{^{\mu}_{\nu}}\,\ttti{\mu}\otimes\si{x^{\nu}}
+    \\&=
+    -\epsilon\, \ttti{t}\otimes\si{t} 
+    -q^{i}\, \ttti{i}\otimes\si{t} 
+    +p_{j}\, \ttti{t}\otimes\si{x^{j}} 
+    +\pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
+  \end{split}
 \end{equation}
 the indices $i,j$ running over $x,y,z$, and where:
 \begin{itemize}
@@ -1445,6 +1448,14 @@ This current satisfies the balance equation
   \di(\yT\cdot\yV) = -\yT \dand \nabla\yV = \tr(\yT\T\cdot\vi\cdot\nabla\yV)\,\ve
 \end{equation}
 which is a conservation law if $\yV$ is a Killing vector.
+
+For the special case $\yV=\se{\alpha}$ the formula above becomes
+\begin{equation}
+  \label{eq:balance_VT_current_coord}
+  \di(T\i{^{\mu}_{\alpha}}\,\ttti{\mu}) = T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}\,\tttti{}
+  \qquad\Longleftrightarrow\qquad
+  \de_{\mu}T\i{^{\mu}_{\alpha}} = T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
+\end{equation}
 
 \medskip
 

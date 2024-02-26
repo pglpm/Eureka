@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-02-10T20:38:14+0100
+%% Last-Updated: 2024-02-26T19:59:36+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1055,30 +1055,32 @@ and analogously for inner-oriented vector fields. The particular choice of order
 The outer-oriented unit scalar is $\tw{1}$, with outer orientation $txyz$; note that it's only defined on a coordinate patch. It is idempotent: $\tw{1}\tw{1} =1$.
 
 A twisted or outer-oriented 3-covector such as $\sssi{\tw{x}yz}$ has an associated outer direction, in this case positive $t$. We adopt this shorter notation for the outer-oriented versions of the bases above (analogous to the notation in  \cites{gotayetal1992} \sect\,2 p.~371):
-\begin{gather}
-  \label{eq:basis_1vec_twshort}
-  -\ti{xyz}\quad
-  \ti{tyz}\quad
-  \ti{tzx}\quad
-  \ti{txy}
-  \\[\jot]
-  \label{eq:basis_2vec_twshort}
-  \tti{yz}\quad
-  \tti{zx}\quad
-  \tti{xy}\quad
-  \tti{tx}\quad
-  \tti{ty}\quad
-  \tti{tz}
-  \\
-  \label{eq:basis_3vec_twshort}
-  \ttti{t}\quad
-  \ttti{x}\quad
-  \ttti{y}\quad
-  \ttti{z}
-  \\
-  \label{eq:basis_4vec_twshort}
-  \tttti{}
-\end{gather}
+\begin{subequations}\label{eq:basis_twshort}
+  \begin{gather}
+    \label{eq:basis_1vec_twshort}
+    -\ti{xyz}\quad
+    \ti{tyz}\quad
+    \ti{tzx}\quad
+    \ti{txy}
+    \\[\jot]
+    \label{eq:basis_2vec_twshort}
+    \tti{yz}\quad
+    \tti{zx}\quad
+    \tti{xy}\quad
+    \tti{tx}\quad
+    \tti{ty}\quad
+    \tti{tz}
+    \\
+    \label{eq:basis_3vec_twshort}
+    \ttti{t}\quad
+    \ttti{x}\quad
+    \ttti{y}\quad
+    \ttti{z}
+    \\
+    \label{eq:basis_4vec_twshort}
+    \tttti{}
+  \end{gather}
+\end{subequations}
 so that $-\ti{xyz} \defd \si{\tw{t}}$ and so on. Similar notation is used for outer-oriented multivector fields; for instance $-\te{xyz} \defd \se{\tw{t}}$. Here is an example of an outer-oriented 3-covector written in terms of the bases and notation above. Note the position of the super- and sub-scripts:
 \begin{equation}
   \label{eq:examples_expansion}
@@ -1110,6 +1112,74 @@ Contraction or dot-product of vectors and covectors is denoted by \enquote*{$\cd
   \qquad
   -\ssse{txy} \cdot \si{x} = \sse{ty} \ .
 \end{equation}
+
+\medskip
+
+Contractions with the 4-vector $\tttte{}$ and 4-covector $\tttti{}$ establish a duality between outer $n$-covectors and inner $(4-n)$-vectors:
+\begin{equation}
+  \label{eq:coord_volume_duality}
+  \left.
+    \begin{gathered}
+      \sssse{}
+      \\
+  \ssse{xyz}\enspace
+  \ssse{tyz}\enspace
+  \ssse{tzx}\enspace
+  \ssse{txy}
+  \\[\jot]
+  \sse{tx}\enspace
+  \sse{ty}\enspace
+  \sse{tz}\enspace
+  \sse{yz}\enspace
+  \sse{zx}\enspace
+  \sse{xy}
+  \\
+  \se{t}\enspace
+  \se{x}\enspace
+  \se{y}\enspace
+  \se{z}
+  \\
+  1
+\end{gathered}
+\right)\quad
+\begin{gathered}
+  \xleftarrow{\qquad\mathclap{\textstyle\tttte{}\cdot{}}\qquad}
+  \\
+  \xrightarrow{\qquad\mathclap{\textstyle{}\cdot\tttti{}}\qquad}
+\end{gathered}
+\quad%\tfrac{c}{\dg}
+\left(
+  \begin{gathered}
+    \tw{1}
+    \\
+  \ti{xyz}\enspace
+  \ti{tyz}\enspace
+  \ti{tzx}\enspace
+  \ti{txy}
+  \\[\jot]
+  \tti{yz}\enspace
+  \tti{zx}\enspace
+  \tti{xy}\enspace
+  \tti{tx}\enspace
+  \tti{ty}\enspace
+  \tti{tz}
+  \\
+  \ttti{t}\enspace
+  \ttti{x}\enspace
+  \ttti{y}\enspace
+  \ttti{z}
+  \\
+  \tttti{}
+\end{gathered}
+\right.
+\end{equation}
+
+These duals have special properties. For instance, for any 3-covector $\yN$, we have
+\begin{equation}
+  \label{eq:dual_kernel}
+  \yN\cdot (\tttte{}\cdot\yN) \cdot \yN = 0
+\end{equation}
+that is, the dual of $\yN$ is a vector belonging in the kernel of $\yN$.
 
 If $\ve$ is a non-zero 4-covector and $\vi$ the inverse 4-vector, that is, $\ve\cdot\vi=\vi\cdot\ve=1$, and if $\yN$ is a 3-covector and $\yphi$ a 1-covector, we have the useful identity
 \begin{equation}
@@ -1231,7 +1301,9 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
 \begin{equation}
   \label{eq:volume_duality}
   \left.
-\begin{gathered}
+    \begin{gathered}
+      \sssse{}
+      \\
   \ssse{xyz}\enspace
   \ssse{tyz}\enspace
   \ssse{tzx}\enspace
@@ -1249,7 +1321,7 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
   \se{y}\enspace
   \se{z}
   \\
-  \sssse{txyz}
+  1
 \end{gathered}
 \right)\quad
 \begin{gathered}
@@ -1259,7 +1331,9 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
 \end{gathered}
 \quad%\tfrac{c}{\dg}
 \left(
-\begin{gathered}
+  \begin{gathered}
+    \tw{1}
+    \\
   \ti{xyz}\enspace
   \ti{tyz}\enspace
   \ti{tzx}\enspace
@@ -1408,7 +1482,7 @@ The common contra-contra-variant form of the stress, \enquote{$T^{\mu\nu}$}, is 
 
 \medskip
 
-One important detail in finding the Newtonian approximation of \enquote{energy density} is that \emph{one takes different zeros of energy density in different coordinate systems}: the zero is taken as the molar mass times the molar density \emph{in the current coordinate system}.
+One important detail in finding the Newtonian approximation of \enquote{energy density} is that \emph{one takes different zeros of energy density in different coordinate systems}: the zero is taken as the molar mass times the molar density \emph{in the current coordinate system}. By \enquote*{zero} I mean the arbitrary separation between \enquote{mass} and \enquote{energy}.
 
 
 The \emph{total} four-stress satisfies the balance equation

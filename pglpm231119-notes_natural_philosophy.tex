@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-02-26T19:59:36+0100
+%% Last-Updated: 2024-09-10T15:01:21+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1610,6 +1610,17 @@ which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:co
 \end{gather}
 The last balance equation corresponds to \eqn~(28) in \textcites{eckart1940c}, except for the fact that here we are keeping the momentum $\yP$ and heat flux $\yQ$ distinct.
 
+When $\yP$, $\yS$, $\yQ$ are zero, one speaks of the four-stress of \enquote{dust}. It is noteworthy that in this case the four-stress is essentially proportional to the matter 3-covector, multiplied by a vector collinear with the matter four-velocity:
+\begin{equation}
+  \label{eq:4stress_dust}
+  \yT = -\yN \otimes (\epsilon\,\yUd) \ .
+\end{equation}
+If we take the four-velocity itself as reference, given that $\yUd\yU = -c^{2}$, the energy 3-covector we obtain is proportional to the matter 3-covector:
+\begin{equation}
+  \label{eq:energy_dust}
+  -c^{2}\epsilon\,\yN
+\end{equation}
+For this reason $\epsilon$ is called the \enquote{proper internal energy}. If we take other vector fields as reference, then this energy will pick up further multiplicative terms consisting in the projection of the matter four-velocity $\yU$ onto the reference vector field. In particular taking $\de_{t}$ or $\de_{i}$ as reference we'll have the projections of the four-velocity onto the coordinate covectors as multiplicative factors.
 
 \section{Electromagnetic field}
 \label{sec:EM_field}

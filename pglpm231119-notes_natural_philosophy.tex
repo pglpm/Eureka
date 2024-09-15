@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-09-10T15:01:21+0200
+%% Last-Updated: 2024-09-15T21:55:06+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -471,6 +471,10 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 
 \PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false,pdfencoding=unicode,psdextra]{hyperref}
 
+\usepackage{pdfrender}
+% \newcommand*{\textxbf}[1]{\textpdfrender{TextRenderingMode=2,LineWidth=0.3pt}{\textbf{#1}}}
+\renewcommand*{\bm}[1]{\textpdfrender{TextRenderingMode=2,LineWidth=0.1pt}{\boldsymbol{#1}}}
+
 \usepackage[depth=4]{bookmark}
 \hypersetup{colorlinks=true,bookmarksnumbered,pdfborder={0 0 0.25},citebordercolor={0.2667 0.4667 0.6667},citecolor=bluepurple,linkbordercolor={0.6667 0.2 0.4667},linkcolor=redpurple,urlbordercolor={0.1333 0.5333 0.2},urlcolor=green,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
 % \usepackage[vertfit=local]{breakurl}% only for arXiv
@@ -897,6 +901,8 @@ Western Norway University of Applied Sciences%
 % % \newcommand*{\ti}[1][\scriptstyle\sim]{\tw[#1]{\di}}
 % % \newcommand*{\te}[1][\scriptstyle\sim]{\tw[#1]{\de}}
 % \newcommand*{\da}{^{\dagger}}
+\newcommand*{\ddi}{\bm{\di}}
+
 \newcommand*{\se}[1]{\de_{#1}}
 \newcommand*{\sse}[1]{\de^{2}_{#1}}
 \newcommand*{\ssse}[1]{\de^{3}_{#1}}
@@ -1637,8 +1643,11 @@ The electromagnetic field, represented by the Faraday 2-covector, is typically d
     + B^{x}\,\ssi{yz}
     + B^{y}\,\ssi{zx}
     + B^{z}\,\ssi{xy}
+    \ .
   \end{split}
 \end{equation}
+Given a system of coordinates, this decomposition is unique: the 2-covector $\yB$ does not have $\si{t}$ components, that is, it has $\se{t}$ in its kernel; and so does the 1-covector $\yE$.
+
 
 The conservation of magnetic flux is expressed by
 \begin{gather}
@@ -1661,6 +1670,12 @@ The conservation of magnetic flux is expressed by
   \end{aligned}
 \end{gather}
 
+It should be noted that all components of $\di\yE$ containing $\si{t}$ also disappear, because of the exterior product $\yE\,\si{t}$. The differential $\di$ therefore operates on $\yE$ as if this 1-covector belonged to a three-dimensional manifolds with coordinates $(x,y,z)$. Let's denote this operation by $\ddi$; it is connected with the \enquote{curl} operator. Then the equations above can be written
+\begin{equation}
+\ddi\yB = 0 \qquad
+\de_{t}\yB + \ddi\yE = 0
+\ .
+\end{equation}
 
 %%%% examples use empheq
 %   \begin{empheq}[left={\mathllap{\begin{aligned}    \de\yF_{\yc}/\de\yp&=0\text{:} \\

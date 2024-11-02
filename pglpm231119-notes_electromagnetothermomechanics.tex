@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-02T15:12:53+0100
+%% Last-Updated: 2024-11-02T15:20:08+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1907,17 +1907,21 @@ Let's also consider the contraction with a 1-vector $\yu$:
 \begin{gather}
   \label{eq:ext_cov_contracted_vector}
   \begin{split}
-    \Di(\yphi \otimes \yo \cdot \yu) &=
-    \Di(\yphi \otimes \yo) \cdot \yu
-    -(\yphi \otimes \yo) \dand \nabla\yu
-\\
-    &\equiv
-    \Di(\yphi \otimes \yo) \cdot \yu
-    -\yphi \land \nabla\yu \cdot \yo
+    \Di(\yphi \otimes \yo \cdot \yu) &\equiv
+    \di[\yphi \, (\yo \cdot \yu)]
+    \\
+    &= (\di\yphi)\, (\yo \cdot \yu) - \yphi \land \di(\yo \cdot \yu)
     \\
     &= \di\yphi \otimes \yo \cdot \yu
     -\yphi \land \nabla\yo \cdot \yu
     -\yphi \land \nabla\yu \cdot \yo
+    \\
+&\equiv (\di\yphi \otimes \yo 
+    -\yphi \land \nabla\yo) \cdot \yu
+    -\yphi \land \nabla\yu \cdot \yo
+    \\
+    &\equiv  \Di(\yphi \otimes \yo) \cdot \yu
+    -(\yphi \otimes \yo) \dand \nabla\yu
     \ .
   \end{split}
   \\

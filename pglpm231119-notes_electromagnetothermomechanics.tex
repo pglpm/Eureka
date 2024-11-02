@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-02T15:20:08+0100
+%% Last-Updated: 2024-11-02T17:51:03+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1468,20 +1468,20 @@ Suppose the coordinates $txyz$ are orthogonal and the metric at a point has diag
 \begin{equation}
   \label{eq:metric_orthonormal}
   \begin{bmatrix}
-    g_{tt}&0&0&0\\0&g_{xx}&0&0\\0&0&g_{yy}&0\\0&0&0&g_{zz}
+    -\abs{g_{tt}}&0&0&0\\0&g_{xx}&0&0\\0&0&g_{yy}&0\\0&0&0&g_{zz}
   \end{bmatrix} \ .
 \end{equation}
-The diagonal elements $g_{tt}, \dotsc$ include a dimensions or unit transformation factor. For instance, if $x$ has dimensions of angle, then $g_{xx}$ has dimensions of area per squared angle.
+The diagonal elements $g_{tt}, \dotsc$ include a transformation factor for dimensions or units. For instance, if $x$ has dimensions of angle, then $g_{xx}$ has dimensions of area per squared angle.
 
 The common contra-contra-variant form of the stress, \enquote{$T^{\mu\nu}$}, is obtained by contracting the four-stress with the inverse volume element and the inverse metric:
 \begin{equation}
   \label{eq:contr_metric_T}
   \begin{split}
-\text{`\,}T^{\mu\nu}\text{\,'} \corr  \vi \cdot \yT \cdot \yg^{-1} &=
-    -\frac{c\,g^{tt}}{\dg}\,\epsilon\, \se{t}\otimes\se{t}
-    -\frac{c\,g^{tt}}{\dg}\,q^{i}\, \se{i}\otimes\se{t} \\
-    &\qquad{}+\sum_{j}\frac{c\,g^{jj}}{\dg}\,p_{j}\, \se{t}\otimes\se{j}
-    +\sum_{j}\frac{c\,g^{jj}}{\dg}\,\pi^{i}_{j}\, \se{i}\otimes\se{j}
+\text{`\,}T^{\mu\nu}\text{\,'} \equiv \vi \cdot \yT \cdot \yg^{-1} &=
+    \frac{c\,\abs{g^{tt}}}{\dg}\,\epsilon\, \se{t}\otimes\se{t}
+    +\frac{c\,\abs{g^{tt}}}{\dg}\,q^{i}\, \se{i}\otimes\se{t} \\
+    &\qquad{}+\frac{c\,g^{ij}}{\dg}\,p_{i}\, \se{t}\otimes\se{j}
+    +\frac{c\,g^{kj}}{\dg}\,\pi^{i}_{k}\, \se{i}\otimes\se{j}
     \ .
   \end{split}
 \end{equation}
@@ -1499,14 +1499,14 @@ The \emph{total} four-stress satisfies the balance equation
     \shortintertext{which is equivalent to the four balance equations}
   \label{eq:4stress_balance_comps}
     \begin{aligned}
-  \de_{t}e + \de_{i}q^{i} &=
-  e\,\varGamma^{t}_{tt}
+  \de_{t}\epsilon + \de_{i}q^{i} &=
+  \epsilon\,\varGamma^{t}_{tt}
   +q^{i}\, \varGamma^{t}_{it}
   -p_{j}\, \varGamma^{j}_{tt}
   -\pi^{i}_{k}\, \varGamma^{k}_{it}
   \\
   \de_{t}p_{j} +  \de_{i}\pi^{i}_{j} &=
-  -e\,\varGamma^{t}_{tj}
+  -\epsilon\,\varGamma^{t}_{tj}
   -q^{i}\,\varGamma^{t}_{ij}
   +p_{k}\,\varGamma^{k}_{tj}
   +\pi^{i}_{k}\,\varGamma^{k}_{ij}
@@ -1525,20 +1525,27 @@ The four-stress determines an association between any 1-vector $\yV$ field and a
   \yV \mapsto
   \yT \cdot \yV \ .
 \end{equation}
-This current satisfies the balance equation
+
+The equation $\Di\yT = 0$ is equivalent to the condition
 \begin{equation}
   \label{eq:balance_VT_current}
   \di(\yT\cdot\yV) = -\yT \dand \nabla\yV = \tr(\yT\T\cdot\vi\cdot\nabla\yV)\,\ve
+  \qquad\text{for any $\yV$}
 \end{equation}
-which is a conservation law if $\yV$ is a Killing vector.
-
-For the special case $\yV=\se{\alpha}$ the formula above becomes
+which is a conservation law if $\yV$ is a Killing vector. We only need to require this for four independent vector fields, which we can choose to be $\set{\se{\alpha}}$. For the special case $\yV=\se{\alpha}$ the formula above becomes, thanks to equations~\eqref{eq:d_3cov} and~\eqref{eq:d_3ext1cov},
 \begin{equation}
   \label{eq:balance_VT_current_coord}
-  \di(T\i{^{\mu}_{\alpha}}\,\ttti{\mu}) = T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}\,\tttti{}
-  \qquad\Longleftrightarrow\qquad
-  \de_{\mu}T\i{^{\mu}_{\alpha}} = T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
+  \begin{aligned}
+    \di(\yT\cdot\se{\alpha}) &= -\yT \dand \nabla\se{\alpha}
+    &&\Longleftrightarrow
+    \\
+    \di(T\i{^{\mu}_{\alpha}}\,\ttti{\mu}) &= T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}\,\tttti{}
+    &&\Longleftrightarrow
+    \\
+    \de_{\mu}T\i{^{\mu}_{\alpha}} &= T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
+  \end{aligned}
 \end{equation}
+which is the common expression of $\Di\yT=0$, where $\yT$ is a tensor density.
 
 \medskip
 
@@ -1627,6 +1634,23 @@ If we take the four-velocity itself as reference, given that $\yUd\yU = -c^{2}$,
   -c^{2}\epsilon\,\yN
 \end{equation}
 For this reason $\epsilon$ is called the \enquote{proper internal energy}. If we take other vector fields as reference, then this energy will pick up further multiplicative terms consisting in the projection of the matter four-velocity $\yU$ onto the reference vector field. In particular taking $\de_{t}$ or $\de_{i}$ as reference we'll have the projections of the four-velocity onto the coordinate covectors as multiplicative factors.
+
+\section{Balance laws}
+\label{sec:balancelaws}
+
+Given a coordinate system $(t, x^{i})$, we can use formula \eqref{eq:balance_VT_current} with a special set of ten vector fields, obtaining a set of ten balance laws \autocites[\sect~3.2]{hawkingetal1973_r1994}. The vector fields are, separated into four groups of one, three, three, and three,
+\begin{gather}
+  \label{eq:kil_energy}
+  \se{t}
+\\  \label{eq:kil_momentum}
+  \se{x^{i}}
+\\  \label{eq:kil_boost}
+  \yg^{-1} \cdot (t\,\si{x^{i}} - x^{i}\,\si{t})
+\\  \label{eq:kil_angmomentum}
+  \yg^{-1} \cdot (x^{i}\,\si{x^{j}} - x^{j}\,\si{x^{i}}) \ .
+\end{gather}
+Note that the last two groups of fields are dimensionally consistent no matter what the dimensions of the coordinates are. Also note that when the metric has its standard diagonal form, the third set has a plus sign instead of a minus when written explicitly in vector form.
+
 
 \section{Electromagnetic field}
 \label{sec:EM_field}
@@ -1854,7 +1878,7 @@ Then -- note that the order on the right side is important:
 \section{Checks about optimal representation of four-stress}
 \label{sec:checks_4stress}
 
-First a lemma about the exterior derivative of some outer-oriented 3-covectors:
+A lemma about the exterior derivative of some outer-oriented 3-covectors:
 \begin{equation}
   \label{eq:d_3cov}
   \begin{gathered}
@@ -1868,10 +1892,25 @@ First a lemma about the exterior derivative of some outer-oriented 3-covectors:
     -\se{x}f \di x \land \tw{\sssi{tyz}} + 0
     = \se{x}f\ \tw{\ssssi{txyz}}
     \\
-    \di\bigl(f\,\ttti{i}\bigr) =
-    \se{i}f\ \tw{\ssssi{txyz}}
+    \di\bigl(f\,\ttti{\alpha}\bigr) =
+    \se{\alpha}f\ \tw{\ssssi{txyz}}
   \end{gathered}
 \end{equation}
+
+Another lemma about the exterior product of 3- and 1-covectors:
+\begin{equation}
+  \label{eq:d_3ext1cov}
+  \begin{gathered}
+    \ttti{t} \land \si{t} = - \tttti{}
+    \qquad
+    \ttti{x} \land \si{x} = - \tttti{}
+    \qquad
+    \dotso
+    \\
+    \ttti{\alpha} \land \si{x^{\beta}} = - \delta_{\alpha}^{\beta}\tttti{}
+  \end{gathered}
+\end{equation}
+
 And a lemma about the covariant derivative of some inner-oriented 1-covectors:
 \begin{equation}
   \label{eq:nab_1cov}
@@ -2167,23 +2206,21 @@ Also,
 \label{sec:works}
 
 \begin{itemize}
-\item Eq.~(21) in \autocites{maugin1974b}: fluid with heat conduction.
-\item Factor $1/2$ in kinetic energy: \sect~6.3.3 in \autocites{gourgoulhon2007_r2012}
+\item Eq.~(21) in \cites{maugin1974b}: fluid with heat conduction.
+\item Factor $1/2$ in kinetic energy: \sect~6.3.3 in \cites{gourgoulhon2007_r2012}
 \end{itemize}
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 
-For transformation or raising:  \autocites[\sect~I.4 \eqn~(33)]{gantmacher1959_r2000}.
+For transformation or raising:  \cites[\sect~I.4 \eqn~(33)]{gantmacher1959_r2000}.
 
 \begin{equation}
   \gamma\cdot (B\land A) = (-1)^{\deg{A}\deg{B}} \gamma\cdot(A \land B)
 \end{equation}
 with $\deg(B) = n-\deg(A)$
-\autocites[prop.~4.1]{barnabeietal1985}
+\cites[prop.~4.1]{barnabeietal1985}
 
 
-
-
-Compound matrices:  \autocites[\sect~IV.A.1 p.~199, Problem~1 p.~270]{choquetbruhatetal1977_r1996}
+Compound matrices:  \cites[\sect~IV.A.1 p.~199, Problem~1 p.~270]{choquetbruhatetal1977_r1996}
 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-02T17:51:03+0100
+%% Last-Updated: 2024-11-03T12:43:45+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1441,7 +1441,7 @@ For normal matter (as opposed to antimatter) $\nor{\yN}^{2} \ge 0$.
 
 
 
-\section{Four-stress}
+\section{Four-stress and its equations}
 \label{sec:tensor_energy}
 
 The stress-energy-momentum tensor, or simply four-stress, is a covector-valued 3-covector field, the 3-covector being outer-oriented. It has the dimensions of an action, and can be decomposed as
@@ -1519,7 +1519,7 @@ In general relativity the \emph{total} four-stress also satisfies
 \end{equation}
 
 
-The four-stress determines an association between any 1-vector $\yV$ field and an outer-oriented 3-covector field, interpreted as a current:
+The four-stress determines an association between any 1-vector $\yV$ field and an outer-oriented 3-covector field, interpreted as a current:\autocites[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[\sect~3.2 p.~62]{hawkingetal1973_r1994}{gotayetal1992}
 \begin{equation}
   \label{eq:1vec_to_current_T}
   \yV \mapsto
@@ -1532,22 +1532,70 @@ The equation $\Di\yT = 0$ is equivalent to the condition
   \di(\yT\cdot\yV) = -\yT \dand \nabla\yV = \tr(\yT\T\cdot\vi\cdot\nabla\yV)\,\ve
   \qquad\text{for any $\yV$}
 \end{equation}
-which is a conservation law if $\yV$ is a Killing vector. We only need to require this for four independent vector fields, which we can choose to be $\set{\se{\alpha}}$. For the special case $\yV=\se{\alpha}$ the formula above becomes, thanks to equations~\eqref{eq:d_3cov} and~\eqref{eq:d_3ext1cov},
+which is a conservation law if $\yV$ is a Killing vector. Let's see some special cases for $\yV$:
+
+For $\yV=\se{\alpha}$ the formula above becomes, thanks to equations~\eqref{eq:d_3cov} and~\eqref{eq:d_3ext1cov},
 \begin{equation}
   \label{eq:balance_VT_current_coord}
-  \begin{aligned}
-    \di(\yT\cdot\se{\alpha}) &= -\yT \dand \nabla\se{\alpha}
-    &&\Longleftrightarrow
+  \begin{gathered}
+    \di(\yT\cdot\se{\alpha}) = -\yT \dand \nabla\se{\alpha}
+    \quad\Longleftrightarrow\quad
+    \di(T\i{^{\mu}_{\alpha}}\,\ttti{\mu}) = T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}\,\tttti{}
+    \quad\Longleftrightarrow
     \\
-    \di(T\i{^{\mu}_{\alpha}}\,\ttti{\mu}) &= T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}\,\tttti{}
-    &&\Longleftrightarrow
-    \\
-    \de_{\mu}T\i{^{\mu}_{\alpha}} &= T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
-  \end{aligned}
+    \de_{\mu}T\i{^{\mu}_{\alpha}} = T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
+  \end{gathered}
 \end{equation}
 which is the common expression of $\Di\yT=0$, where $\yT$ is a tensor density.
 
-\medskip
+For $\yV=\yg^{-1}\cdot\si{x^{\alpha}} = g^{\mu\alpha}\se{\mu}$ we have 
+\begin{equation}
+  \label{eq:balance_VT_current_co-coord}
+  \begin{gathered}
+    \di(\yT\cdot\yg^{-1}\cdot\si{x^{\alpha}}) =
+    -\yT \dand \nabla(\yg^{-1}\cdot\si{x^{\alpha}})
+    \quad\Longleftrightarrow
+    \\
+    \di(\yT\cdot\yg^{-1}\cdot\si{x^{\alpha}}) =
+    -\yT \dand (\yg^{-1}\cdot\nabla\si{x^{\alpha}})
+    \quad\Longleftrightarrow
+    \\
+    \di(T\i{^{\mu\alpha}}\,\ttti{\mu}) =
+    -T\i{^{\mu\nu}}\,\varGamma^{\alpha}_{\mu\nu}\,\tttti{}
+    \quad\Longleftrightarrow
+    \\
+    \de_{\mu}T\i{^{\mu\alpha}} = -T\i{^{\mu\nu}}\,\varGamma^{\alpha}_{\mu\nu} \ ,
+  \end{gathered}
+\end{equation}
+another common expression.
+
+To ensure $\Di\yT = 0$ we only need to require \eqref{eq:balance_VT_current} for four independent vector fields, which we can choose to be $\set{\se{\alpha}}$ or $\set{\yg^{-1}\cdot\si{x^{\alpha}}}$. 
+
+
+
+\section{Balance laws}
+\label{sec:balancelaws}
+
+Given a coordinate system $(t, x^{i})$, we can use formula \eqref{eq:balance_VT_current} with a special set of ten vector fields, obtaining a set of ten balance laws \autocites[\sect~3.2]{hawkingetal1973_r1994}[see also][]{gotayetal1992}. The vector fields are, separated into four groups of one, three, three, and three,
+\begin{gather}
+  \label{eq:kil_energy}
+  \se{t}
+\\  \label{eq:kil_momentum}
+  \se{x^{i}}
+\\  \label{eq:kil_boost}
+  \yg^{-1} \cdot (t\,\si{x^{i}} - x^{i}\,\si{t})
+\\  \label{eq:kil_angmomentum}
+  \yg^{-1} \cdot (x^{i}\,\si{x^{j}} - x^{j}\,\si{x^{i}}) \ .
+\end{gather}
+Note that the last two groups of fields are dimensionally consistent no matter what the dimensions of the coordinates are. Also note that when the metric has its standard diagonal form, the third set has a plus sign instead of a minus when written explicitly in vector form.
+
+Applying \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:balance_VT_current_coord}, \eqref{eq:balance_VT_current_co-coord} with \eqref{eq:kil_boost}
+\mynotew{To be continued}
+
+
+
+\section{Four-stress for matter}
+\label{sec:fourstress_matter}
 
 Consider a region where there is a non-vanishing matter current $\yN$ with associated four-velocity $\yU$, and define
 \begin{gather}
@@ -1596,7 +1644,7 @@ where
 \item $\yS$ is a 1-covector-valued 2-covector, the three-stress related to the Cauchy stress.
 \end{itemize}
 
-Using the four-velocity $\yU$ associated with the matter current we obtain what could be called the \enquote{internal-energy current}:
+Using the four-velocity $\yU$ associated with the matter current we obtain what could be called the \enquote{internal-energy current}:\autocites[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[see also][]{gotayetal1992}
 \begin{equation}
   \label{eq:inten_current}
   \yT\cdot\yU \equiv -\epsilon\,\yN - \yUd\, \yQ
@@ -1635,21 +1683,6 @@ If we take the four-velocity itself as reference, given that $\yUd\yU = -c^{2}$,
 \end{equation}
 For this reason $\epsilon$ is called the \enquote{proper internal energy}. If we take other vector fields as reference, then this energy will pick up further multiplicative terms consisting in the projection of the matter four-velocity $\yU$ onto the reference vector field. In particular taking $\de_{t}$ or $\de_{i}$ as reference we'll have the projections of the four-velocity onto the coordinate covectors as multiplicative factors.
 
-\section{Balance laws}
-\label{sec:balancelaws}
-
-Given a coordinate system $(t, x^{i})$, we can use formula \eqref{eq:balance_VT_current} with a special set of ten vector fields, obtaining a set of ten balance laws \autocites[\sect~3.2]{hawkingetal1973_r1994}. The vector fields are, separated into four groups of one, three, three, and three,
-\begin{gather}
-  \label{eq:kil_energy}
-  \se{t}
-\\  \label{eq:kil_momentum}
-  \se{x^{i}}
-\\  \label{eq:kil_boost}
-  \yg^{-1} \cdot (t\,\si{x^{i}} - x^{i}\,\si{t})
-\\  \label{eq:kil_angmomentum}
-  \yg^{-1} \cdot (x^{i}\,\si{x^{j}} - x^{j}\,\si{x^{i}}) \ .
-\end{gather}
-Note that the last two groups of fields are dimensionally consistent no matter what the dimensions of the coordinates are. Also note that when the metric has its standard diagonal form, the third set has a plus sign instead of a minus when written explicitly in vector form.
 
 
 \section{Electromagnetic field}
@@ -1700,6 +1733,8 @@ It should be noted that all components of $\di\yE$ containing $\si{t}$ also disa
 \de_{t}\yB + \ddi\yE = 0
 \ .
 \end{equation}
+
+
 
 %%%% examples use empheq
 %   \begin{empheq}[left={\mathllap{\begin{aligned}    \de\yF_{\yc}/\de\yp&=0\text{:} \\

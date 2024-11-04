@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-03T12:43:45+0100
+%% Last-Updated: 2024-11-03T18:59:34+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1362,6 +1362,18 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
 \right.
 \end{equation}
 This is the reason why in older literature an outer-oriented $n$-covector is treated as a $(4-n)$-\enquote{vector density}, that is, a vector divided by the square root of the volume element.
+
+The transpose of the map $\vi\cdot{}$ depends on what this map is acting upon:
+\begin{equation}
+  \label{eq:transpose_inv_vol_element}
+  \bigl(\vi\cdot{}\bigr)\T =
+  \begin{dcases*}
+    -\vi\cdot{}& if it operates on 1- or 3-covectors,
+    \\
+    \vi\cdot{}& if it operates on 0-, 2-, 4-covectors.
+  \end{dcases*}
+\end{equation}
+
 
 \medskip
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-03T18:59:34+0100
+%% Last-Updated: 2024-11-09T13:20:18+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -80,12 +80,12 @@ british%
 %\addtolength{\jot}{\jot} % increase spacing in multiline formulae
 \setlength{\multlinegap}{0pt}
 
-%\usepackage{empheq}% automatically calls amsmath and mathtools
-%\newcommand*{\widefbox}[1]{\fbox{\hspace{1em}#1\hspace{1em}}}
+% \usepackage{empheq}% automatically calls amsmath and mathtools
+% \newcommand*{\widefbox}[1]{\fbox{\hspace{1em}#1\hspace{1em}}}
 
 %%%% empheq above seems more versatile than these:
-%\usepackage{fancybox}
-%\usepackage{framed}
+\usepackage{fancybox}
+% \usepackage{framed}
 
 % \usepackage[misc]{ifsym} % for dice
 % \newcommand*{\diceone}{{\scriptsize\Cube{1}}}
@@ -1456,7 +1456,11 @@ For normal matter (as opposed to antimatter) $\nor{\yN}^{2} \ge 0$.
 \section{Four-stress and its equations}
 \label{sec:tensor_energy}
 
-The stress-energy-momentum tensor, or simply four-stress, is a covector-valued 3-covector field, the 3-covector being outer-oriented. It has the dimensions of an action, and can be decomposed as
+\subsection{Expressions}
+\label{sec:expressions_4stress}
+
+
+The energy-momentum tensor, or simply four-stress, is a covector-valued 3-covector field, the 3-covector being outer-oriented. It has the dimensions of an action, and can be decomposed as
 \begin{equation}
   \label{eq:def_T}
   \begin{split}
@@ -1483,7 +1487,7 @@ Suppose the coordinates $txyz$ are orthogonal and the metric at a point has diag
     -\abs{g_{tt}}&0&0&0\\0&g_{xx}&0&0\\0&0&g_{yy}&0\\0&0&0&g_{zz}
   \end{bmatrix} \ .
 \end{equation}
-The diagonal elements $g_{tt}, \dotsc$ include a transformation factor for dimensions or units. For instance, if $x$ has dimensions of angle, then $g_{xx}$ has dimensions of area per squared angle.
+Note that if, for instance, $x$ has dimensions of angle, then $g_{xx}$ has dimensions of area per squared angle, and similarly for the other metric components.
 
 The common contra-contra-variant form of the stress, \enquote{$T^{\mu\nu}$}, is obtained by contracting the four-stress with the inverse volume element and the inverse metric:
 \begin{equation}
@@ -1498,18 +1502,42 @@ The common contra-contra-variant form of the stress, \enquote{$T^{\mu\nu}$}, is 
   \end{split}
 \end{equation}
 
+
+% % mynotew{move this}
+% One important detail in finding the Newtonian approximation of \enquote{energy density} is that \emph{one takes different zeros of energy density in different coordinate systems}: the zero is taken as the molar mass times the molar density \emph{in the current coordinate system}. By \enquote*{zero} I mean the arbitrary separation between \enquote{mass} and \enquote{energy}.
+
+\subsection{Equations for the four-stress}
+\label{sec:equations4stress_eqns}
+
+If $\yphi$ is a covector, $\yo$ a vector or covector, the \emph{exterior covariant derivative} $\Di$ is defined as
+\begin{equation}
+  \label{eq:ext_cov_der_def}
+  \Di(\yphi \otimes \yo) \defd
+  (\di\yphi)\otimes\yo + (-1)^{\deg\yphi}\, \yphi\land\nabla\yo
+\end{equation}
+and is extended by linearity (with respect to constant coefficients).
+
 \medskip
 
-One important detail in finding the Newtonian approximation of \enquote{energy density} is that \emph{one takes different zeros of energy density in different coordinate systems}: the zero is taken as the molar mass times the molar density \emph{in the current coordinate system}. By \enquote*{zero} I mean the arbitrary separation between \enquote{mass} and \enquote{energy}.
+As a consequence of the Einstein equations, the \emph{total} four-stress satisfies two equations:
 
-
-The \emph{total} four-stress satisfies the balance equation
+The differential equation
 \begin{gather}
   \label{eq:4stress_balance}
-    \Di\yT = 0
+  \ovalbox{
+    $\Di\yT
+    % \equiv
+    % \di( T\i{^{\mu}_{\nu}}\,\ttti{\mu}) \otimes \si{x^{\nu}}
+    = 0$
+}
     \\
-    \shortintertext{which is equivalent to the four balance equations}
-  \label{eq:4stress_balance_comps}
+    \shortintertext{which is equivalent to the component equations}
+    \label{eq:4stress_balance_comps}
+    \de_{\mu}T\i{^{\mu}_{\alpha}} =
+    T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
+    \\
+    \shortintertext{or}
+    \label{eq:4stress_balance_explicitcomps}
     \begin{aligned}
   \de_{t}\epsilon + \de_{i}q^{i} &=
   \epsilon\,\varGamma^{t}_{tt}
@@ -1521,21 +1549,35 @@ The \emph{total} four-stress satisfies the balance equation
   -\epsilon\,\varGamma^{t}_{tj}
   -q^{i}\,\varGamma^{t}_{ij}
   +p_{k}\,\varGamma^{k}_{tj}
-  +\pi^{i}_{k}\,\varGamma^{k}_{ij}
+  +\pi^{i}_{k}\,\varGamma^{k}_{ij} \ .
 \end{aligned}
 \end{gather}
-In general relativity the \emph{total} four-stress also satisfies
-\begin{equation}
+
+And the tensor equation
+\begin{gather}
   \label{eq:4stress_symm}
-  \bigl(\vi\cdot\yT\cdot\yg^{-1}\bigr)\T - \vi\cdot\yT\cdot\yg^{-1} = 0 \ .
-\end{equation}
+  \ovalbox{$
+    \bigl(\vi\cdot\yT\cdot\yg^{-1}\bigr)\T = \vi\cdot\yT\cdot\yg^{-1}
+    $}
+    \\
+    \shortintertext{which is equivalent to the component equations}
+    \label{eq:4stress_symm_comps}
+    T\i{^{\nu}_{\alpha}}\, g\i{^{\alpha\mu}} =
+    T\i{^{\mu}_{\alpha}}\, g\i{^{\alpha\nu}} \ .
+\end{gather}
 
+These two equations can be re-expressed in several ways, which we now discuss.
 
-The four-stress determines an association between any 1-vector $\yV$ field and an outer-oriented 3-covector field, interpreted as a current:\autocites[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[\sect~3.2 p.~62]{hawkingetal1973_r1994}{gotayetal1992}
+\section{Balance laws from the four-stress}
+\label{sec:balancelaws}
+
+The four-stress determines an association between any 1-vector field $\yV$ and an outer-oriented 3-covector field, which can then be interpreted as a current:\autocites[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[\sect~3.2 p.~62]{hawkingetal1973_r1994}{gotayetal1992}
 \begin{equation}
   \label{eq:1vec_to_current_T}
   \yV \mapsto
-  \yT \cdot \yV \ .
+  \yT \cdot \yV
+  \equiv
+  (T\i{^{\mu}_{\nu}}\, V^{\nu})\,\ttti{\mu}
 \end{equation}
 
 The equation $\Di\yT = 0$ is equivalent to the condition
@@ -1584,9 +1626,6 @@ another common expression.
 To ensure $\Di\yT = 0$ we only need to require \eqref{eq:balance_VT_current} for four independent vector fields, which we can choose to be $\set{\se{\alpha}}$ or $\set{\yg^{-1}\cdot\si{x^{\alpha}}}$. 
 
 
-
-\section{Balance laws}
-\label{sec:balancelaws}
 
 Given a coordinate system $(t, x^{i})$, we can use formula \eqref{eq:balance_VT_current} with a special set of ten vector fields, obtaining a set of ten balance laws \autocites[\sect~3.2]{hawkingetal1973_r1994}[see also][]{gotayetal1992}. The vector fields are, separated into four groups of one, three, three, and three,
 \begin{gather}

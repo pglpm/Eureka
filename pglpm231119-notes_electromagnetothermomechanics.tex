@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-09T13:20:18+0100
+%% Last-Updated: 2024-11-09T16:14:12+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1579,16 +1579,35 @@ The four-stress determines an association between any 1-vector field $\yV$ and a
   \equiv
   (T\i{^{\mu}_{\nu}}\, V^{\nu})\,\ttti{\mu}
 \end{equation}
+Taking the differential of the current $\yT\cdot\yV$ we have the following \emph{identity}:
+\begin{equation}
+  \label{eq:identity_Tcurrent}
+  \di(\yT\cdot\yV) =
+(\Di\yT) \cdot \yV
+-\yT \dand \nabla\yV
+\end{equation}
 
-The equation $\Di\yT = 0$ is equivalent to the condition
+The identity above, combined with the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm}, leads to a non-trivial balance law for the current $\yT\cdot\yV$ associated to any $\yV$:
 \begin{equation}
   \label{eq:balance_VT_current}
-  \di(\yT\cdot\yV) = -\yT \dand \nabla\yV = \tr(\yT\T\cdot\vi\cdot\nabla\yV)\,\ve
-  \qquad\text{for any $\yV$}
+  \begin{aligned}
+    \di(\yT\cdot\yV) &= -\yT \dand
+    \tfrac12 \bigl(\nabla\yV + \yg\cdot\nabla\yV\T \cdot \yg^{-1}\bigr)
+\\
+&= \tr\bigl[\yT\T\cdot\vi\cdot
+\tfrac12 \bigl(\nabla\yV + \yg\cdot\nabla\yV\T \cdot \yg^{-1}\bigr)
+\bigr]\,\ve \ .
+\end{aligned}
 \end{equation}
-which is a conservation law if $\yV$ is a Killing vector. Let's see some special cases for $\yV$:
+This is a \emph{conservation} law if $\yV$ is a Killing vector, that is, if it satisfies
+\begin{equation}
+  \label{eq:Killing}
+\nabla\yV + \yg\cdot\nabla\yV\T \cdot \yg^{-1} = 0 \ .
+\end{equation}
 
-For $\yV=\se{\alpha}$ the formula above becomes, thanks to equations~\eqref{eq:d_3cov} and~\eqref{eq:d_3ext1cov},
+\medskip
+
+Some examples. For $\yV=\se{\alpha}$ the formula above becomes, thanks to equations~\eqref{eq:d_3cov} and~\eqref{eq:d_3ext1cov},
 \begin{equation}
   \label{eq:balance_VT_current_coord}
   \begin{gathered}
@@ -1600,7 +1619,7 @@ For $\yV=\se{\alpha}$ the formula above becomes, thanks to equations~\eqref{eq:d
     \de_{\mu}T\i{^{\mu}_{\alpha}} = T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
   \end{gathered}
 \end{equation}
-which is the common expression of $\Di\yT=0$, where $\yT$ is a tensor density.
+which is the common expression of $\Di\yT=0$ in books where $\yT$ is interpreted as a tensor density.
 
 For $\yV=\yg^{-1}\cdot\si{x^{\alpha}} = g^{\mu\alpha}\se{\mu}$ we have 
 \begin{equation}
@@ -1623,11 +1642,11 @@ For $\yV=\yg^{-1}\cdot\si{x^{\alpha}} = g^{\mu\alpha}\se{\mu}$ we have
 \end{equation}
 another common expression.
 
-To ensure $\Di\yT = 0$ we only need to require \eqref{eq:balance_VT_current} for four independent vector fields, which we can choose to be $\set{\se{\alpha}}$ or $\set{\yg^{-1}\cdot\si{x^{\alpha}}}$. 
+\medskip
 
+Equation~\eqref{eq:balance_VT_current} gives rise to an infinity of currents and related balance laws. Such balance laws are not independent; only ten of them are. The four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} can be re-expressed as a set of balance laws associated to ten different vector fields. \autocites[\sect~3.2]{hawkingetal1973_r1994}[see also][]{gotayetal1992}.
 
-
-Given a coordinate system $(t, x^{i})$, we can use formula \eqref{eq:balance_VT_current} with a special set of ten vector fields, obtaining a set of ten balance laws \autocites[\sect~3.2]{hawkingetal1973_r1994}[see also][]{gotayetal1992}. The vector fields are, separated into four groups of one, three, three, and three,
+Such vector fields can be chosen as follows, separated into four groups of one, three, three, and three,
 \begin{gather}
   \label{eq:kil_energy}
   \se{t}

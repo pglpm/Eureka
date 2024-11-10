@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-10T16:56:07+0100
+%% Last-Updated: 2024-11-10T22:57:51+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -946,7 +946,8 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yP}{\bm{P}}
 \newcommand*{\yQ}{\bm{Q}}
 \newcommand*{\yS}{\mathte{S}}
-\newcommand*{\yT}{\bm{\mathcal{T}}}
+\newcommand*{\yTT}{\bm{\mathcal{T}}}
+\newcommand*{\yT}{\mathcal{T}}
 \newcommand*{\yt}{\bm{\tau}}
 \newcommand*{\yU}{\bm{U}}
 \newcommand*{\yUd}{\bar{\bm{U}}}
@@ -1503,7 +1504,7 @@ The energy-momentum tensor, or simply four-stress, is a covector-valued 3-covect
 \begin{equation}
   \label{eq:def_T}
   \begin{split}
-    \yT &= T\i{^{\mu}_{\nu}}\,\ttti{\mu}\otimes\si{x^{\nu}}
+    \yTT &= \yT\i{^{\mu}_{\nu}}\,\ttti{\mu}\otimes\si{x^{\nu}}
     \\&=
     -\epsilon\, \ttti{t}\otimes\si{t} 
     -q^{i}\, \ttti{i}\otimes\si{t} 
@@ -1532,7 +1533,7 @@ The common contra-contra-variant form of the stress, \enquote{$T^{\mu\nu}$}, is 
 \begin{equation}
   \label{eq:contr_metric_T}
   \begin{split}
-\text{`\,}T^{\mu\nu}\text{\,'} \equiv \vi \cdot \yT \cdot \yg^{-1} &=
+\text{`\,}T^{\mu\nu}\text{\,'} \equiv \vi \cdot \yTT \cdot \yg^{-1} &=
     \frac{c\,\abs{g^{tt}}}{\dg}\,\epsilon\, \se{t}\otimes\se{t}
     +\frac{c\,\abs{g^{tt}}}{\dg}\,q^{i}\, \se{i}\otimes\se{t} \\
     &\qquad{}+\frac{c\,g^{ij}}{\dg}\,p_{i}\, \se{t}\otimes\se{j}
@@ -1564,16 +1565,16 @@ The differential equation
 \begin{gather}
   \label{eq:4stress_balance}
   \ovalbox{
-    $\Di\yT
+    $\Di\yTT
     % \equiv
-    % \di( T\i{^{\mu}_{\nu}}\,\ttti{\mu}) \otimes \si{x^{\nu}}
+    % \di( \yT\i{^{\mu}_{\nu}}\,\ttti{\mu}) \otimes \si{x^{\nu}}
     = 0$
 }
     \\
     \shortintertext{which is equivalent to the component equations}
     \label{eq:4stress_balance_comps}
-    \de_{\mu}T\i{^{\mu}_{\alpha}} =
-    T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
+    \de_{\mu}\yT\i{^{\mu}_{\alpha}} =
+    \yT\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
     \\
     \shortintertext{or}
     \label{eq:4stress_balance_explicitcomps}
@@ -1596,13 +1597,13 @@ And the tensor equation
 \begin{gather}
   \label{eq:4stress_symm}
   \ovalbox{$
-    \bigl(\vi\cdot\yT\cdot\yg^{-1}\bigr)\T = \vi\cdot\yT\cdot\yg^{-1}
+    \bigl(\vi\cdot\yTT\cdot\yg^{-1}\bigr)\T = \vi\cdot\yTT\cdot\yg^{-1}
     $}
     \\
     \shortintertext{which is equivalent to the component equations}
     \label{eq:4stress_symm_comps}
-    T\i{^{\nu}_{\alpha}}\, g\i{^{\alpha\mu}} =
-    T\i{^{\mu}_{\alpha}}\, g\i{^{\alpha\nu}} \ .
+    \yT\i{^{\nu}_{\alpha}}\, g\i{^{\alpha\mu}} =
+    \yT\i{^{\mu}_{\alpha}}\, g\i{^{\alpha\nu}} \ .
 \end{gather}
 
 These two equations can be re-expressed in several ways, which we now discuss.
@@ -1614,26 +1615,26 @@ The four-stress determines an association between any 1-vector field $\yV$ and a
 \begin{equation}
   \label{eq:1vec_to_current_T}
   \yV \mapsto
-  \yT \cdot \yV
+  \yTT \cdot \yV
   \equiv
-  (T\i{^{\mu}_{\nu}}\, V^{\nu})\,\ttti{\mu}
+  (\yT\i{^{\mu}_{\nu}}\, V^{\nu})\,\ttti{\mu}
 \end{equation}
-Taking the differential of the current $\yT\cdot\yV$ we have the following \emph{identity}:
+Taking the differential of the current $\yTT\cdot\yV$ we have the following \emph{identity}:
 \begin{equation}
   \label{eq:identity_Tcurrent}
-  \di(\yT\cdot\yV) =
-(\Di\yT) \cdot \yV
--\yT \dand \nabla\yV
+  \di(\yTT\cdot\yV) =
+(\Di\yTT) \cdot \yV
+-\yTT \dand \nabla\yV
 \end{equation}
 
-The identity above, combined with the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm}, leads to a non-trivial balance law for the current $\yT\cdot\yV$ associated to any $\yV$:
+The identity above, combined with the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm}, leads to a non-trivial balance law for the current $\yTT\cdot\yV$ associated to any $\yV$:
 \begin{equation}
   \label{eq:balance_VT_current}
   \begin{aligned}
-    \di(\yT\cdot\yV) &= -\yT \dand
+    \di(\yTT\cdot\yV) &= -\yTT \dand
     \tfrac12 \bigl(\nabla\yV + \yg\cdot\nabla\yV\T \cdot \yg^{-1}\bigr)
 \\
-&= \tr\bigl[\yT\T\cdot\vi\cdot
+&= \tr\bigl[\yTT\T\cdot\vi\cdot
 \tfrac12 \bigl(\nabla\yV + \yg\cdot\nabla\yV\T \cdot \yg^{-1}\bigr)
 \bigr]\,\ve \ .
 \end{aligned}
@@ -1650,33 +1651,33 @@ Some examples. For $\yV=\se{\alpha}$ the formula above becomes, thanks to equati
 \begin{equation}
   \label{eq:balance_VT_current_coord}
   \begin{gathered}
-    \di(\yT\cdot\se{\alpha}) = -\yT \dand \nabla\se{\alpha}
+    \di(\yTT\cdot\se{\alpha}) = -\yTT \dand \nabla\se{\alpha}
     \quad\Longleftrightarrow\quad
-    \di(T\i{^{\mu}_{\alpha}}\,\ttti{\mu}) = T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}\,\tttti{}
+    \di(\yT\i{^{\mu}_{\alpha}}\,\ttti{\mu}) = \yT\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}\,\tttti{}
     \quad\Longleftrightarrow
     \\
-    \de_{\mu}T\i{^{\mu}_{\alpha}} = T\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
+    \de_{\mu}\yT\i{^{\mu}_{\alpha}} = \yT\i{^{\mu}_{\nu}}\,\varGamma^{\nu}_{\mu\alpha}
   \end{gathered}
 \end{equation}
-which is the common expression of $\Di\yT=0$ in books where $\yT$ is interpreted as a tensor density.
+which is the common expression of $\Di\yTT=0$ in books where $\yTT$ is interpreted as a tensor density.
 
 For $\yV=\yg^{-1}\cdot\si{x^{\alpha}} = g^{\mu\alpha}\se{\mu}$ we have 
 \begin{equation}
   \label{eq:balance_VT_current_co-coord}
   \begin{gathered}
-    \di(\yT\cdot\yg^{-1}\cdot\si{x^{\alpha}}) =
-    -\yT \dand \nabla(\yg^{-1}\cdot\si{x^{\alpha}})
+    \di(\yTT\cdot\yg^{-1}\cdot\si{x^{\alpha}}) =
+    -\yTT \dand \nabla(\yg^{-1}\cdot\si{x^{\alpha}})
     \quad\Longleftrightarrow
     \\
-    \di(\yT\cdot\yg^{-1}\cdot\si{x^{\alpha}}) =
-    -\yT \dand (\yg^{-1}\cdot\nabla\si{x^{\alpha}})
+    \di(\yTT\cdot\yg^{-1}\cdot\si{x^{\alpha}}) =
+    -\yTT \dand (\yg^{-1}\cdot\nabla\si{x^{\alpha}})
     \quad\Longleftrightarrow
     \\
-    \di(T\i{^{\mu\alpha}}\,\ttti{\mu}) =
-    -T\i{^{\mu\nu}}\,\varGamma^{\alpha}_{\mu\nu}\,\tttti{}
+    \di(\yT\i{^{\mu\alpha}}\,\ttti{\mu}) =
+    -\yT\i{^{\mu\nu}}\,\varGamma^{\alpha}_{\mu\nu}\,\tttti{}
     \quad\Longleftrightarrow
     \\
-    \de_{\mu}T\i{^{\mu\alpha}} = -T\i{^{\mu\nu}}\,\varGamma^{\alpha}_{\mu\nu} \ ,
+    \de_{\mu}\yT\i{^{\mu\alpha}} = -\yT\i{^{\mu\nu}}\,\varGamma^{\alpha}_{\mu\nu} \ ,
   \end{gathered}
 \end{equation}
 another common expression.
@@ -1701,15 +1702,15 @@ Note that the last two groups of fields are dimensionally consistent no matter w
 With these vector fields it is possible to replace the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} with the following set of four plus six:
 \begin{gather}
   \label{eq:fourstress_balance_1}
-  \di(\yT\cdot\se{\mu}) = -\yT \dand \nabla\se{\mu}
+  \di(\yTT\cdot\se{\mu}) = -\yTT \dand \nabla\se{\mu}
   \\[2\jot]
   \label{eq:fourstress_balance_2}
   \begin{multlined}[0.9\linewidth]
-    \di[\yT\cdot
+    \di[\yTT\cdot
     (x^{\mu}\,\yg^{-1}\cdot\si{x^{\nu}}
     - x^{\nu}\,\yg^{-1}\cdot\si{x^{\mu}} )] ={}\\
-    - x^{\mu}\,\yT \dand \yg^{-1}\cdot\nabla\si{x^{\nu}}
-    + x^{\nu}\,\yT \dand \yg^{-1}\cdot\nabla\si{x^{\mu}}
+    - x^{\mu}\,\yTT \dand \yg^{-1}\cdot\nabla\si{x^{\nu}}
+    + x^{\nu}\,\yTT \dand \yg^{-1}\cdot\nabla\si{x^{\mu}}
   \end{multlined}
 \end{gather}
 
@@ -1737,11 +1738,11 @@ The last equality can be proved from $\nabla\yg=0$ and
 \medskip
 
 
-We can associate with the matter a four-stress $\yT$ which can be decomposed as follows:
+We can associate with the matter a four-stress $\yTT$ which can be decomposed as follows:
 \begin{equation}
   \label{eq:4stress_matter}
   \begin{gathered}
-    \yT =
+    \yTT =
     -\epsilon\,\yN \otimes \yUd
     + \yN \otimes \yP
     -(\yUd\land \yQ)\otimes\yUd
@@ -1768,11 +1769,11 @@ where
 Using the four-velocity $\yU$ associated with the matter current we obtain what could be called the \enquote{internal-energy current}:\autocites[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[see also][]{gotayetal1992}
 \begin{equation}
   \label{eq:inten_current}
-  \yT\cdot\yU \equiv -\epsilon\,\yN - \yUd\, \yQ
+  \yTT\cdot\yU \equiv -\epsilon\,\yN - \yUd\, \yQ
 \end{equation}
 which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:cons_matter}, satisfies the balance law
 \begin{gather}
-  \di\bigl(\yT\cdot\yU\bigr) = - \yT \dand \nabla\yU
+  \di\bigl(\yTT\cdot\yU\bigr) = - \yTT \dand \nabla\yU
   \\
   \shortintertext{or}
   \label{eq:balance_TU_matter}
@@ -1795,7 +1796,7 @@ The last balance equation corresponds to \eqn~(28) in \textcites{eckart1940c}, e
 When $\yP$, $\yS$, $\yQ$ are zero, one speaks of the four-stress of \enquote{dust}. It is noteworthy that in this case the four-stress is essentially proportional to the matter 3-covector, multiplied by a vector collinear with the matter four-velocity:
 \begin{equation}
   \label{eq:4stress_dust}
-  \yT = -\yN \otimes (\epsilon\,\yUd) \ .
+  \yTT = -\yN \otimes (\epsilon\,\yUd) \ .
 \end{equation}
 If we take the four-velocity itself as reference, given that $\yUd\yU = -c^{2}$, the energy 3-covector we obtain is proportional to the matter 3-covector:
 \begin{equation}
@@ -2054,9 +2055,9 @@ Here are the matrix representations of several operations. Consider these object
 
 \item $\yQ\i{_{\mul{\q\q\q}}}$ is a 3-covector, represented by the column-matrix $\yQ$.
 
-\item $\yT\i{_{\mul{\q\q\q}\q}}$ is a covector-valued 3-covector, represented by the matrix $\yT$. The rows represent the 3-covector components; the columns, the covector components.
-\item $\ve\i{_{\mul{\q\q\q\q}}}$ is a 4-covector, represented by the number $\ve$.
-\item ${\vi}\i{^{\mul{\q\q\q\q}}}$ is a 4-vector, represented by the number $\vi$
+\item $\yTT\i{_{\mul{\q\q\q}\q}}$ is a covector-valued 3-covector, represented by the matrix $\yTT$. The rows represent the 3-covector components; the columns, the covector components.
+\item $\ve\i{_{\mul{\q\q\q\q}}}$ is a 4-covector, represented by the number $\dg/c$.
+\item ${\vi}\i{^{\mul{\q\q\q\q}}}$ is a 4-vector, represented by the number $c/\dg$
 \item The Jacobian matrix $\frac{\de x'}{\de x}$ from \enquote{old} coordinates $x$ to \enquote{new} coordinates $x'$ is represented by the matrix $\yJ$. The rows correspond to the new coordinates $x'$; the columns, to the old $x$.
 
 \item The inverse-Jacobian matrix $\frac{\de x}{\de x'}$ from new coordinates $x'$ to old coordinates $x'$ is represented by the matrix $\yJ^{-1}$. The rows correspond to the old coordinates $x$; the columns, to the new $x'$.
@@ -2089,16 +2090,16 @@ Then -- note that the order on the right side is important:
     &&\vi\yQ
     \quad\text{(column-matrix)}
     \\
-    &\vi\cdot\yT
-    &&\vi\yT
+    &\vi\cdot\yTT
+    &&\vi\yTT
     \quad\text{(column-matrix)}
     \\
-    &\yT\cdot\yu
-    &&\yT\yu
+    &\yTT\cdot\yu
+    &&\yTT\yu
     \quad\text{(column-matrix)}
     \\
-    &\yg\cdot(\vi\cdot\yT)\cdot\yu
-    &&\vi\ \yg\yT\yu
+    &\yg\cdot(\vi\cdot\yTT)\cdot\yu
+    &&\vi\ \yg\yTT\yu
     \quad\text{(matrix)}
   \end{align}
 
@@ -2118,7 +2119,7 @@ Then -- note that the order on the right side is important:
     \\
     \vi &\quad\mapsto\quad \det\yJ\ \vi
     \\
-    \yT &\quad\mapsto\quad \frac{1}{\det\yJ}\ \yJ\yT\yJ^{-1}
+    \yTT &\quad\mapsto\quad \frac{1}{\det\yJ}\ \yJ\yTT\yJ^{-1}
   \end{align}
 
 \end{itemize}
@@ -2220,15 +2221,15 @@ Let's also consider the contraction with a 1-vector $\yu$:
 A balance equation with the exterior covariant derivative then becomes
 \begin{equation}
   \label{eq:balance_contracted}
-\Di\yT = 0 \qquad\implies\qquad
-  \di(\yT \cdot \yu) = -\yT \dand \nabla\yu
+\Di\yTT = 0 \qquad\implies\qquad
+  \di(\yTT \cdot \yu) = -\yTT \dand \nabla\yu
 \end{equation}
 
 Then
 \begin{equation}
   \label{eq:div_T31}
   \begin{aligned}
-    &0=\Di\yT
+    &0=\Di\yTT
     \\
     &\quad{}= \Di\bigl(
     -e\, \ttti{t}\otimes\si{t}
@@ -2311,14 +2312,14 @@ The equation above corresponds to the four balance equations
 
 \medskip
 
-For $\yT\cdot\yu$ we find first
+For $\yTT\cdot\yu$ we find first
 \begin{align}
-    \yT\cdot\yu &=
+    \yTT\cdot\yu &=
     (-e\,u^{t} + p_{j}\,u^{j})\,\ttti{t} +
     (-q^{i}\,u^{t} + \pi^{i}_{j}\,u^{j})\,\ttti{i}
     \\
     \begin{split}
-      \yT \dand \nabla\yu &=
+      \yTT \dand \nabla\yu &=
       (-e\,\de_{t} u^{t} + p_{j}\,\de_{t}u^{j})\,\ttti{t}\land\di t
       +(-q^{i}\,\de_{i}u^{t} + \pi^{i}_{j}\,\de_{i}u^{j})\,\ttti{i}\land\di x^{i}
       \\

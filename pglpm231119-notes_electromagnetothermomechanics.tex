@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-10T14:20:33+0100
+%% Last-Updated: 2024-11-10T16:38:11+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -827,7 +827,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\nbd}{\nobreakdash}%
 %\newcommand*{\bd}{\hspace{0pt}}%
 %\def\hy{-\penalty0\hskip0pt\relax}
-%\newcommand*{\labelbis}[1]{\tag*{(\ref{#1})$_\text{r}$}}
+\newcommand*{\labelbis}[1]{\tag*{(\ref{#1})$_\text{r}$}}
 %\newcommand*{\mathbox}[2][.8]{\parbox[t]{#1\columnwidth}{#2}}
 \newcommand*{\zerob}[1]{\makebox[0pt][l]{#1}}
 \newcommand*{\tprod}{\mathop{\textstyle\prod}\nolimits}
@@ -1220,7 +1220,42 @@ As another example,
   (\ttti{t} \otimes \si{x}) \dand (\ti{t} \otimes \se{x}) = (\ttti{t} \land \ti{t})\, (\si{x} \cdot \se{x}) = -\tttti{} \ .
 \end{equation}
 
+\subsection{Moving area elements in spacetime}
+\label{sec:moving_area_elements}
 
+In 3D space we can consider a small area with a crossing orientation; for instance a small area parallel to the $y, z$ coordinates, with a positive-$x$ crossing orientation. From a spacetime viewpoint we must also consider also a temporal direction for this \enquote{crossing} orientation. In a manner of speaking we have two choices: cross the surface in the positive-$x$ direction, then \enquote{move forward} in time, that is in the positive-$t$ direction; or move forward in time, then cross the surface. The first represents an $xt$ orientation; the second a $tx$ orientation.
+
+If the area element in the example above has area $a_{x}$, expressed in units of the coordinates $y$ and $z$, then the area element with the $xt$ orientation is
+\begin{equation*}
+  a_{x}\, \te{xt} \equiv a_{x}\, \se{-\tw{y}z} \equiv - a_{x}\, \se{\tw{y}z} \ ,
+\end{equation*}
+whereas the one with the $tx$ orientation is
+\begin{equation*}
+  a_{x}\, \te{tx} \equiv a_{x}\, \se{\tw{y}z} \ .
+\end{equation*}
+
+An area element which persists for a short time lapse, and which therefore has a motion with respect to the coordinate system (including rest as a special case), is a timelike 3D-volume from a spacetime viewpoint. For it we can for example choose a positive-$x$ crossing direction; the temporal direction is irrelevant in this case. We can consider this timelike volume as produced by the area element, displaced by a timelike vector.
+
+Take the generic area element
+\begin{equation}
+  \label{eq:area_element}
+  \bm{A} \defd a_{i}\, \tte{x^{i}t}
+  \equiv a_{x}\,\tte{xt} + a_{y}\,\tte{yt} + a_{z}\,\tte{zt}
+\end{equation}
+an displace it by the timelike vector
+\begin{equation}
+  \label{eq:timelike_displacement}
+  \bm{V} \defd \delta_{t}\, (\se{t} + v^{i}\, \se{x^{i}})
+  \equiv \delta_{t}\, \se{t}
+  + \delta_{t}\,v^{x}\,\se{x} + \delta_{t}\,v^{y}\,\se{y} + \delta_{t}\,v^{z}\,\se{z}
+\end{equation}
+which represent a motion with coordinate velocity $v^{i}$ for a time lapse $\delta_{t}$.
+The resulting timelike volume is
+\begin{equation}
+  \label{eq:timelike_volume}
+  \bm{A}\land\bm{V} =
+  \delta_{t}\,(-a_{i}\,v^{i}\,\ttte{t} + a_{i}\,\ttte{x^{i}}) \ .
+\end{equation}
 
 \section{Linear transformations of multivector bases}
 \label{sec:lintransf_multiv}
@@ -1413,7 +1448,7 @@ and the volume element is simply $\tttti{}$.
 The amount-of-matter current $\yN$ is an outer-oriented 3-covector
 \begin{equation}
   \label{eq:matter_current}
-  \yN = N\,\ttti{t} + J^{i}\,\ttti{i}
+  \yN = N\,\ttti{t} + J^{i}\,\ttti{x^{i}}
 \end{equation}
 of dimensions \enquote{amount of matter}, typically measured in moles, where
 \begin{itemize}
@@ -1823,6 +1858,9 @@ It should be noted that all components of $\di\yE$ containing $\si{t}$ also disa
 \section{Explicit formulae for a GCRS-like coordinate system}
 \label{sec:equations_on_earth}
 
+\subsection{Metric}
+\label{sec:GCRS_metric}
+
 Consider a coordinate system $(x^{\mu}) \equiv (t,x,y,z)$ like the Geocentric Celestial Reference System or the Barycentric Celestial Reference System \autocites{soffeletal2003,petitetal2005}[\sect\,8.1.1]{poissonetal2014}[see also][\sect\,2.3.1.1]{moyer2000}.
 
 Neglecting the timelike off-diagonal terms, the metric $\yg$ has components
@@ -1886,6 +1924,22 @@ The volume element $\ve$ and its inverse are
   \vi = \biggl[1 - \frac{2}{c^{2}} \yW + \Oc{4}\biggr]\,\tttte{} \ .
 \end{equation}
 
+\subsection{Matter current}
+\label{sec:GCRS_matter}
+
+Suppose the matter current in the geocentric coordinate system is given by
+\begin{equation}
+  \labelbis{eq:matter_current}
+  \yN = N\,\ttti{t} + J^{i}\,\ttti{x^{i}} \ .
+\end{equation}
+
+The net flow of matter through a moving area element, that is, through a timelike volume, as the one discussed in \sect~\ref{sec:moving_area_elements}, is
+\begin{equation}
+  \label{eq:matter_flow_GCRS}
+  \yN \cdot (\bm{A}\land\bm{V}) =
+  \delta_{t}\, (  - N\,a_{i}\,v^{i} + J^{i} \,a_{i} ) \ .
+\end{equation}
+Note that this flow is zero if the area element is moving with velocity $v^{i} = J^{i}/N$; this is what defines a \enquote{velocity of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
 
 
 %%%% examples use empheq

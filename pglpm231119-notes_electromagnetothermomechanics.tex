@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-09T16:14:12+0100
+%% Last-Updated: 2024-11-10T09:19:25+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1644,7 +1644,7 @@ another common expression.
 
 \medskip
 
-Equation~\eqref{eq:balance_VT_current} gives rise to an infinity of currents and related balance laws. Such balance laws are not independent; only ten of them are. The four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} can be re-expressed as a set of balance laws associated to ten different vector fields. \autocites[\sect~3.2]{hawkingetal1973_r1994}[see also][]{gotayetal1992}.
+Equation~\eqref{eq:balance_VT_current} gives rise to an infinity of currents and related balance laws. Such balance laws are not independent; only ten of them are. The four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} can be re-expressed as a set of balance laws associated to ten different vector fields \autocites[\sect~3.2]{hawkingetal1973_r1994}[see also][]{gotayetal1992}.
 
 Such vector fields can be chosen as follows, separated into four groups of one, three, three, and three,
 \begin{gather}
@@ -1653,14 +1653,26 @@ Such vector fields can be chosen as follows, separated into four groups of one, 
 \\  \label{eq:kil_momentum}
   \se{x^{i}}
 \\  \label{eq:kil_boost}
-  \yg^{-1} \cdot (t\,\si{x^{i}} - x^{i}\,\si{t})
+  t\,\yg^{-1} \cdot \si{x^{i}} - x^{i}\,\yg^{-1} \cdot \si{t}
 \\  \label{eq:kil_angmomentum}
-  \yg^{-1} \cdot (x^{i}\,\si{x^{j}} - x^{j}\,\si{x^{i}}) \ .
+  x^{i}\,\yg^{-1} \cdot \si{x^{j}} - x^{j}\,\yg^{-1} \cdot \si{x^{i}} \ .
 \end{gather}
 Note that the last two groups of fields are dimensionally consistent no matter what the dimensions of the coordinates are. Also note that when the metric has its standard diagonal form, the third set has a plus sign instead of a minus when written explicitly in vector form.
 
-Applying \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:balance_VT_current_coord}, \eqref{eq:balance_VT_current_co-coord} with \eqref{eq:kil_boost}
-\mynotew{To be continued}
+With these vector fields it is possible to replace the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} with the following set of four plus six:
+\begin{gather}
+  \label{eq:fourstress_balance_1}
+  \di(\yT\cdot\se{\mu}) = -\yT \dand \nabla\se{\mu}
+  \\[2\jot]
+  \label{eq:fourstress_balance_2}
+  \begin{multlined}[0.9\linewidth]
+    \di[\yT\cdot
+    (x^{\mu}\,\yg^{-1}\cdot\si{x^{\nu}}
+    - x^{\nu}\,\yg^{-1}\cdot\si{x^{\mu}} )] ={}\\
+    - x^{\mu}\,\yT \dand \yg^{-1}\cdot\nabla\si{x^{\nu}}
+    + x^{\nu}\,\yT \dand \yg^{-1}\cdot\nabla\si{x^{\mu}}
+  \end{multlined}
+\end{gather}
 
 
 

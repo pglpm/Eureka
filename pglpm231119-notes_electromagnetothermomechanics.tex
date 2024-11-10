@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-10T09:19:25+0100
+%% Last-Updated: 2024-11-10T14:20:33+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -749,7 +749,7 @@ Western Norway University of Applied Sciences%
 \DeclareMathOperator{\re}{Re}%re part
 %\DeclareMathOperator{\sgn}{sgn}%signum
 %\DeclareMathOperator{\ent}{ent}%integer less or equal to
-%\DeclareMathOperator{\Ord}{O}%same order as
+\DeclareMathOperator{\Ord}{O}%same order as
 %\DeclareMathOperator{\ord}{o}%lower order than
 %\newcommand*{\incr}{\triangle}%finite increment
 \newcommand*{\defd}{\coloneqq}
@@ -939,7 +939,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\dg}{\sqrt{g}}
 \DeclarePairedDelimiter\nor{\lVert}{\rVert}
 \newcommand*{\ve}{\bm{\gamma}}
-\newcommand*{\vi}{\bm{\gamma}^{-1}}
+\newcommand*{\vi}{\bar{\bm{\gamma}}}
 %
 \newcommand*{\yN}{\bm{N}}
 \newcommand*{\yP}{\bm{P}}
@@ -957,10 +957,13 @@ Western Norway University of Applied Sciences%
 \newcommand*{\ypsi}{\bm{\psi}}
 \newcommand*{\yJ}{\bm{J}}
 
+\newcommand*{\yW}{W}
+
 \newcommand*{\yF}{\mathte{F}}
 \newcommand*{\yE}{\bm{E}}
 \newcommand*{\yB}{\mathte{B}}
 
+\newcommand*{\Oc}[1]{\Ord\bigl(\tfrac{1}{c^{#1}}\bigr)}
 
 
 %%% Custom macros end @@@
@@ -1814,6 +1817,73 @@ It should be noted that all components of $\di\yE$ containing $\si{t}$ also disa
 \ddi\yB = 0 \qquad
 \de_{t}\yB + \ddi\yE = 0
 \ .
+\end{equation}
+
+
+\section{Explicit formulae for a GCRS-like coordinate system}
+\label{sec:equations_on_earth}
+
+Consider a coordinate system $(x^{\mu}) \equiv (t,x,y,z)$ like the Geocentric Celestial Reference System or the Barycentric Celestial Reference System \autocites{soffeletal2003,petitetal2005}[\sect\,8.1.1]{poissonetal2014}[see also][\sect\,2.3.1.1]{moyer2000}.
+
+Neglecting the timelike off-diagonal terms, the metric $\yg$ has components
+\begin{multline}
+  \label{eq:metric_GCRS}
+  (g_{\mu\nu}) ={}\\
+  \begin{bmatrix}
+    -c^{2} + 2 \yW + \Ord\bigl(\frac{1}{c^{2}}\bigr) &
+    \Ord\bigl(\frac{1}{c^{3}}\bigr) &
+    \Ord\bigl(\frac{1}{c^{3}}\bigr) &
+    \Ord\bigl(\frac{1}{c^{3}}\bigr)
+    \\
+    \Ord\bigl(\frac{1}{c^{3}}\bigr) &
+    1 + \frac{2}{c^{2}} \yW + \Ord\bigl(\frac{1}{c^{4}}\bigr) &
+    0 &
+    0
+    \\
+    \Ord\bigl(\frac{1}{c^{3}}\bigr) &
+    0 &
+    1 + \frac{2}{c^{2}} \yW + \Ord\bigl(\frac{1}{c^{4}}\bigr) &
+    0
+    \\
+    \Ord\bigl(\frac{1}{c^{3}}\bigr) &
+    0 &
+    0 &
+    1 + \frac{2}{c^{2}} \yW + \Ord\bigl(\frac{1}{c^{4}}\bigr)
+  \end{bmatrix}
+\end{multline}
+and its inverse $\yg^{-1}$ has components
+\begin{multline}
+  \label{eq:inv_metric_GCRS}
+  (g^{\mu\nu}) ={}\\
+  \begin{bmatrix}
+    -\frac{1}{c^{2}} - \frac{2}{c^{4}} \yW + \Oc{6} &
+    \Oc{3} &
+    \Oc{3} &
+    \Oc{3}
+    \\
+    \Oc{3} &
+    1 - \frac{2}{c^{2}} \yW + \Oc{4} &
+    0 &
+    0
+    \\
+    \Oc{3} &
+    0 &
+    1 - \frac{2}{c^{2}} \yW + \Oc{4} &
+    0
+    \\
+    \Oc{3} &
+    0 &
+    0 &
+    1 - \frac{2}{c^{2}} \yW + \Oc{4}
+  \end{bmatrix}
+\end{multline}
+where the gravitational potential $\yW$ generally depends on all coordinates.
+The volume element $\ve$ and its inverse are
+\begin{equation}
+  \label{eq:vol_element_GCRS}
+  \ve = \biggl[1 + \frac{2}{c^{2}} \yW + \Oc{4}\biggr]\,\tttti{} \ ,
+  \qquad
+  \vi = \biggl[1 - \frac{2}{c^{2}} \yW + \Oc{4}\biggr]\,\tttte{} \ .
 \end{equation}
 
 

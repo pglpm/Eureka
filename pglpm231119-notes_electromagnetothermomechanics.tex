@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-10T16:38:11+0100
+%% Last-Updated: 2024-11-10T16:56:07+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -938,14 +938,15 @@ Western Norway University of Applied Sciences%
 \newcommand*{\ygg}[1][]{\overset{#1}{\bm{g}}{}}
 \newcommand*{\dg}{\sqrt{g}}
 \DeclarePairedDelimiter\nor{\lVert}{\rVert}
-\newcommand*{\ve}{\bm{\gamma}}
-\newcommand*{\vi}{\bar{\bm{\gamma}}}
+\newcommand*{\ve}{\tfrac{\bm{\sqrt{g}}}{c}}
+\newcommand*{\vi}{\tfrac{c}{\bm{\sqrt{g}}}}
+% \newcommand*{\vi}{\bar{\mathcal{G}}}
 %
-\newcommand*{\yN}{\bm{N}}
+\newcommand*{\yN}{\bm{\mathcal{N}}}
 \newcommand*{\yP}{\bm{P}}
 \newcommand*{\yQ}{\bm{Q}}
 \newcommand*{\yS}{\mathte{S}}
-\newcommand*{\yT}{\mathte{T}}
+\newcommand*{\yT}{\bm{\mathcal{T}}}
 \newcommand*{\yt}{\bm{\tau}}
 \newcommand*{\yU}{\bm{U}}
 \newcommand*{\yUd}{\bar{\bm{U}}}
@@ -1939,7 +1940,12 @@ The net flow of matter through a moving area element, that is, through a timelik
   \yN \cdot (\bm{A}\land\bm{V}) =
   \delta_{t}\, (  - N\,a_{i}\,v^{i} + J^{i} \,a_{i} ) \ .
 \end{equation}
-Note that this flow is zero if the area element is moving with velocity $v^{i} = J^{i}/N$; this is what defines a \enquote{velocity of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
+This flow is zero if the area element is moving with velocity $v^{i} = J^{i}/N$; this is what defines a \enquote{velocity of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
+
+Note that the equations above are exact in full general relativity as well as in the Newtonian approximation. This happens because we're working with tensor densities.
+
+\subsection{Energy and momentum}
+\label{sec:GCRS_energy_momentum}
 
 
 %%%% examples use empheq

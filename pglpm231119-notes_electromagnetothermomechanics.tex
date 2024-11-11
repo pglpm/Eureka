@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-10T22:57:51+0100
+%% Last-Updated: 2024-11-11T09:33:45+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -856,7 +856,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\iT}{^{-\transp}}%transpose
 \newcommand*{\id}{\mathbf{id}}%id matrix
 
-\renewcommand*{\i}{\indices}
+\renewcommand*{\i}{{}\indices}
 %%
 % from https://tex.stackexchange.com/a/424252/97039
 \makeatletter
@@ -948,6 +948,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yS}{\mathte{S}}
 \newcommand*{\yTT}{\bm{\mathcal{T}}}
 \newcommand*{\yT}{\mathcal{T}}
+\newcommand*{\ye}{e}
 \newcommand*{\yt}{\bm{\tau}}
 \newcommand*{\yU}{\bm{U}}
 \newcommand*{\yUd}{\bar{\bm{U}}}
@@ -1502,22 +1503,22 @@ For normal matter (as opposed to antimatter) $\nor{\yN}^{2} \ge 0$.
 
 The energy-momentum tensor, or simply four-stress, is a covector-valued 3-covector field, the 3-covector being outer-oriented. It has the dimensions of an action, and can be decomposed as
 \begin{equation}
-  \label{eq:def_T}
+  \label{eq:decomp_T}
   \begin{split}
     \yTT &= \yT\i{^{\mu}_{\nu}}\,\ttti{\mu}\otimes\si{x^{\nu}}
     \\&=
-    -\epsilon\, \ttti{t}\otimes\si{t} 
+    -\ye\, \ttti{t}\otimes\si{t} 
     -q^{i}\, \ttti{i}\otimes\si{t} 
     +p_{j}\, \ttti{t}\otimes\si{x^{j}} 
-    +\pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
+    +\pi\i{^{i}_{j}}\, \ttti{i}\otimes\si{x^{j}}
   \end{split}
 \end{equation}
 the indices $i,j$ running over $x,y,z$, and where:
 \begin{itemize}
-\item The energy $\epsilon$ is a density per unit \emph{coordinate} volume $xyz$, and possibly includes a conversion factor for the time unit. If the point at which the four-stress is considered has a matter-current, then this energy comprises \enquote{rest} energy, kinetic energy, potential gravitational energy, and centrifugal potential energy.
+\item The energy $\ye$ is a density per unit \emph{coordinate} volume $xyz$, and possibly includes a conversion factor for the time unit. If the point at which the four-stress is considered has a matter-current, then this energy comprises \enquote{rest} energy, kinetic energy, potential gravitational energy, and centrifugal potential energy.
 \item The energy flux $q^{j}$ is an energy per coordinate area and coordinate time, and possibly includes a conversion factor for the time unit. If the point at which the four-stress is considered has a matter-current, then this flux term includes transport of the energy term above and also heat flux.
 \item The momentum $p_{i}$ is a momentum density per unit coordinate volume, and includes a conversion factor for the length $x^{i}$.
-\item The compressive three-stress $\pi^{i}_{j}$ are forces per unit coordinate area, possibly including conversion factors for the time unit and the length $x^{j}$.  If the point at which the four-stress is considered has a matter-current, then this stress comprises momentum transport and internal stresses.
+\item The compressive three-stress $\pi\i{^{i}_{j}}$ are forces per unit coordinate area, possibly including conversion factors for the time unit and the length $x^{j}$.  If the point at which the four-stress is considered has a matter-current, then this stress comprises momentum transport and internal stresses.
 \end{itemize}
 
 Suppose the coordinates $txyz$ are orthogonal and the metric at a point has diagonal components
@@ -1534,10 +1535,10 @@ The common contra-contra-variant form of the stress, \enquote{$T^{\mu\nu}$}, is 
   \label{eq:contr_metric_T}
   \begin{split}
 \text{`\,}T^{\mu\nu}\text{\,'} \equiv \vi \cdot \yTT \cdot \yg^{-1} &=
-    \frac{c\,\abs{g^{tt}}}{\dg}\,\epsilon\, \se{t}\otimes\se{t}
+    \frac{c\,\abs{g^{tt}}}{\dg}\,\ye\, \se{t}\otimes\se{t}
     +\frac{c\,\abs{g^{tt}}}{\dg}\,q^{i}\, \se{i}\otimes\se{t} \\
     &\qquad{}+\frac{c\,g^{ij}}{\dg}\,p_{i}\, \se{t}\otimes\se{j}
-    +\frac{c\,g^{kj}}{\dg}\,\pi^{i}_{k}\, \se{i}\otimes\se{j}
+    +\frac{c\,g^{kj}}{\dg}\,\pi\i{^{i}_{k}}\, \se{i}\otimes\se{j}
     \ .
   \end{split}
 \end{equation}
@@ -1579,17 +1580,17 @@ The differential equation
     \shortintertext{or}
     \label{eq:4stress_balance_explicitcomps}
     \begin{aligned}
-  \de_{t}\epsilon + \de_{i}q^{i} &=
-  \epsilon\,\varGamma^{t}_{tt}
+  \de_{t}\ye + \de_{i}q^{i} &=
+  \ye\,\varGamma^{t}_{tt}
   +q^{i}\, \varGamma^{t}_{it}
   -p_{j}\, \varGamma^{j}_{tt}
-  -\pi^{i}_{k}\, \varGamma^{k}_{it}
+  -\pi\i{^{i}_{k}}\, \varGamma^{k}_{it}
   \\
-  \de_{t}p_{j} +  \de_{i}\pi^{i}_{j} &=
-  -\epsilon\,\varGamma^{t}_{tj}
+  \de_{t}p_{j} +  \de_{i}\pi\i{^{i}_{j}} &=
+  -\ye\,\varGamma^{t}_{tj}
   -q^{i}\,\varGamma^{t}_{ij}
   +p_{k}\,\varGamma^{k}_{tj}
-  +\pi^{i}_{k}\,\varGamma^{k}_{ij} \ .
+  +\pi\i{^{i}_{k}}\,\varGamma^{k}_{ij} \ .
 \end{aligned}
 \end{gather}
 
@@ -1743,7 +1744,7 @@ We can associate with the matter a four-stress $\yTT$ which can be decomposed as
   \label{eq:4stress_matter}
   \begin{gathered}
     \yTT =
-    -\epsilon\,\yN \otimes \yUd
+    -\ye\,\yN \otimes \yUd
     + \yN \otimes \yP
     -(\yUd\land \yQ)\otimes\yUd
     +\yUd \land \yS
@@ -1760,7 +1761,7 @@ We can associate with the matter a four-stress $\yTT$ which can be decomposed as
 \end{equation}
 where
 \begin{itemize}
-\item $\epsilon$ is a scalar, the molar energy density.
+\item $\ye$ is a scalar, the molar energy density.
 \item $\yP$ is a 1-covector, the molar momentum density.
 \item $\yQ$ is a 2-covector, the areic energy-flux density.
 \item $\yS$ is a 1-covector-valued 2-covector, the three-stress related to the Cauchy stress.
@@ -1769,7 +1770,7 @@ where
 Using the four-velocity $\yU$ associated with the matter current we obtain what could be called the \enquote{internal-energy current}:\autocites[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[see also][]{gotayetal1992}
 \begin{equation}
   \label{eq:inten_current}
-  \yTT\cdot\yU \equiv -\epsilon\,\yN - \yUd\, \yQ
+  \yTT\cdot\yU \equiv -\ye\,\yN - \yUd\, \yQ
 \end{equation}
 which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:cons_matter}, satisfies the balance law
 \begin{gather}
@@ -1778,8 +1779,8 @@ which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:co
   \shortintertext{or}
   \label{eq:balance_TU_matter}
   \begin{multlined}[0.9\linewidth]
-    \di\bigl(-\epsilon\,\yN - \yUd\, \yQ\bigr) =
-\bigl(\epsilon\,\yN \otimes \yUd\bigr) \cdot\nabla\yU
+    \di\bigl(-\ye\,\yN - \yUd\, \yQ\bigr) =
+\bigl(\ye\,\yN \otimes \yUd\bigr) \cdot\nabla\yU
 - \bigl(\yN \otimes \yP\bigr) \cdot\nabla\yU \\
 {}
     +\bigl(\yUd \,\yQ\otimes\yUd\bigr) \cdot\nabla\yU
@@ -1787,7 +1788,7 @@ which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:co
   \end{multlined}
   \\[\jot]
   \shortintertext{or simply}
-  \yN\di\epsilon + \yUd\di\yQ - \yQ\,\di\yUd =
+  \yN\di\ye + \yUd\di\yQ - \yQ\,\di\yUd =
   -\yN\,\nabla\yU \cdot \yP
   -(\yUd\,\yS)\cdot\nabla\yU \ .
 \end{gather}
@@ -1796,14 +1797,14 @@ The last balance equation corresponds to \eqn~(28) in \textcites{eckart1940c}, e
 When $\yP$, $\yS$, $\yQ$ are zero, one speaks of the four-stress of \enquote{dust}. It is noteworthy that in this case the four-stress is essentially proportional to the matter 3-covector, multiplied by a vector collinear with the matter four-velocity:
 \begin{equation}
   \label{eq:4stress_dust}
-  \yTT = -\yN \otimes (\epsilon\,\yUd) \ .
+  \yTT = -\yN \otimes (\ye\,\yUd) \ .
 \end{equation}
 If we take the four-velocity itself as reference, given that $\yUd\yU = -c^{2}$, the energy 3-covector we obtain is proportional to the matter 3-covector:
 \begin{equation}
   \label{eq:energy_dust}
-  -c^{2}\epsilon\,\yN
+  -c^{2}\ye\,\yN
 \end{equation}
-For this reason $\epsilon$ is called the \enquote{proper internal energy}. If we take other vector fields as reference, then this energy will pick up further multiplicative terms consisting in the projection of the matter four-velocity $\yU$ onto the reference vector field. In particular taking $\de_{t}$ or $\de_{i}$ as reference we'll have the projections of the four-velocity onto the coordinate covectors as multiplicative factors.
+For this reason $\ye$ is called the \enquote{proper internal energy}. If we take other vector fields as reference, then this energy will pick up further multiplicative terms consisting in the projection of the matter four-velocity $\yU$ onto the reference vector field. In particular taking $\de_{t}$ or $\de_{i}$ as reference we'll have the projections of the four-velocity onto the coordinate covectors as multiplicative factors.
 
 
 
@@ -1918,6 +1919,14 @@ and its inverse $\yg^{-1}$ has components
   \end{bmatrix}
 \end{multline}
 where the gravitational potential $\yW$ generally depends on all coordinates.
+
+Near Earth we have
+\begin{equation}
+  \label{eq:grav_potential_GCRS}
+  \yW = \frac{G M}{r}
+\end{equation}
+where $M$ is Earth's mass and $r=\sqrt{x^{2}+y^{2}+z^{2}}$ the distance from its centre. Close to the surface, choosing a coordinate system in which $z$ is vertical and pointing upward, we have $\yW\approx g\,(z_{0}-z)$.
+
 The volume element $\ve$ and its inverse are
 \begin{equation}
   \label{eq:vol_element_GCRS}
@@ -1941,12 +1950,138 @@ The net flow of matter through a moving area element, that is, through a timelik
   \yN \cdot (\bm{A}\land\bm{V}) =
   \delta_{t}\, (  - N\,a_{i}\,v^{i} + J^{i} \,a_{i} ) \ .
 \end{equation}
-This flow is zero if the area element is moving with velocity $v^{i} = J^{i}/N$; this is what defines a \enquote{velocity of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
+This flow is zero if the area element is moving with velocity $v^{i} = U^{i}\defd J^{i}/N$; this is what defines a \enquote{velocity of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
 
 Note that the equations above are exact in full general relativity as well as in the Newtonian approximation. This happens because we're working with tensor densities.
 
-\subsection{Energy and momentum}
+The representation of matter current as a 1-vector is
+\begin{equation}
+  \label{eq:matter_1vector}
+  \begin{bmatrix}
+    N - \frac{2}{c^{2}}N\,\yW + \Oc{4}\ , &
+    J^{i} - \frac{2}{c^{2}}J^{i}\,\yW + \Oc{4}
+  \end{bmatrix} \ .
+\end{equation}
+The four-velocity of matter normalized to $-c^{2}$ is given by
+\begin{equation}
+  \label{eq:4velocity_matter_normalized}
+  \yU =
+  \begin{bmatrix}
+    1 + \frac{1}{c^{2}}\bigl(\tfrac12 U^{2} + \yW\bigr) + \Oc{4} \ , &
+    U^{i} + \frac{1}{c^{2}}U^{i}\,\bigl(\tfrac12 U^{2} + \yW\bigr) + \Oc{4}
+  \end{bmatrix} \ .
+\end{equation}
+
+\subsection{Four-stress for matter}
+\label{sec:GCRS_fourstress}
+
+Using the decompositions~\eqref{eq:decomp_T} and~\eqref{eq:4stress_matter}, and defining $U_{i}\defd U^{i}$, the energy-momentum tensor for matter is
+\begin{equation}
+  \label{eq:fourstress_matter_GCRS}
+  \begin{aligned}
+    \yT\i{^{t}_{t}} &=
+    - N\rho c^{2} -N\,(\epsilon + \tfrac12 \rho U^{2} - \rho\yW) + \Oc{2}
+    \\
+    \yT\i{^{i}_{t}} &=
+    -  N\rho U^{i}\, c^{2} -
+    [N\,(\epsilon + \tfrac12\rho U^{2} -\rho\yW)\,U^{i} +
+    q^{i} + \pi\i{^{i}_{k}}\,U^{k}] + \Oc{2}
+    \\[\jot]
+    \yT\i{^{t}_{j}} &=
+    N\rho U^{j} + \frac{1}{c^{2}} [
+    N\,(\epsilon + \tfrac12 \rho U^{2} + 3\rho\yW)\,U_{j} +
+    p_{j} + U_{k}\,\pi\i{^{k}_{j}} ] + \Oc{4}
+    \\
+    \yT\i{^{i}_{j}} &=
+    \!\begin{multlined}[t][0.8\linewidth]
+      \pi\i{^{i}_{j}} + N\rho \,U^{i}\,U_{j} + {}\\
+      \frac{1}{c^{2}} [
+      N\,(\epsilon + \tfrac12 \rho U^{2} + 3\rho\yW)\,U^{i}\,U_{j} +
+      U^{i}\,p_{j} + q^{i}\,U_{j}] + \Oc{4}
+    \end{multlined}
+  \end{aligned}
+\end{equation}
+with $p_{i}=q^{i}$ and $\pi\i{^{i}_{j}}=\pi\i{^{j}_{i}}$ when the symmetry equation~\eqref{eq:4stress_symm} is enforced.
+
+
+\subsection{Energy, momentum, balance laws}
 \label{sec:GCRS_energy_momentum}
+
+Define the energy current with respect to the vector $-\se{t}$, as discussed in \sect~\ref{sec:balancelaws}. Then the volumic energy content, the areic energy flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic energy supply are
+\begin{equation}
+  \label{eq:energy_matter_GCRS}
+  \begin{aligned}
+    \ye &=
+    N\rho c^{2} + N\,(\epsilon + \tfrac12 \rho U^{2} - \rho\yW) + \Oc{2}
+    \\
+    \phi &=
+    \!\begin{multlined}[t][0.8\linewidth]
+      a_{i}\,(U^{i}-v^{i})\,N\rho c^{2} +{}\\
+      a_{i}\,(U^{i}-v^{i})\,N\,(\epsilon + \tfrac12 \rho U^{2} - \rho\yW) +
+      a_{i}\,q^{i} + a_{i}\,\pi\i{^{i}_{j}}\,U^{j} +
+      \Oc{2}
+    \end{multlined}
+    \\
+    r &= - N\rho\,\de_{t}\yW + \Oc{2} \ .
+  \end{aligned}
+\end{equation}
+
+Define the $x^{i}$-momentum current with respect to the vector $\se{x^{i}}$. Then the volumic $x^{i}$-momentum content, the areic flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic supply are
+\begin{equation}
+  \label{eq:momentum_matter_GCRS}
+  \begin{aligned}
+    p_{i} &=
+    N\rho U_{i} + \frac{1}{c^{2}} [
+    q^{i} + \pi\i{^{i}_{j}}\,U^{j} +
+    N\,(\epsilon + \tfrac12 \rho U^{2} + 3\rho\yW)\, U^{i}
+    ] + \Oc{4}
+    \\
+    f_{i} &=
+    \!\begin{multlined}[t][0.8\linewidth]
+      a_{j}\,(U^{j}-v^{j})\,U_{i}\,N\rho + a_{j}\,\pi\i{^{j}_{i}} +
+      \Oc{2}
+    \end{multlined}
+    \\
+    G_{i} &= N\rho\,\de_{i}\yW + \Oc{2} \ .
+  \end{aligned}
+\end{equation}
+
+Define the $x^{i}x^{j}$-angular momentum current as in \sect~\ref{sec:balancelaws}. Then the volumic $x^{i}x^{j}$-angular momentum content, the areic flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic supply are
+\begin{equation}
+  \label{eq:ang_momentum_matter_GCRS}
+  \begin{aligned}
+    l_{ij} &=
+    N\rho\, (x^{i}\,U^{j} - x^{j}\,U^{i}) + \Oc{2}
+    \\
+    \tau_{ij} &=
+    \!\begin{multlined}[t][0.8\linewidth]
+      a_{j}\,(U^{j}-v^{j}) \, (x^{i}\,U_{j} - x^{j}\,U_{i})\,N\rho +
+      x^{i}\,a_{k}\,\pi\i{^{k}_{j}} - x^{j}\,a_{k}\,\pi\i{^{k}_{i}} +
+      \Oc{2}
+    \end{multlined}
+    \\
+    B_{ij} &= N\rho\,(x^{i}\,\de_{j}\yW - x^{j}\,\de_{i}\yW)+ \Oc{2} \ .
+  \end{aligned}
+\end{equation}
+
+Finally define the $x^{i}$-boost momentum current as in \sect~\ref{sec:balancelaws}. Then the volumic $x^{i}$-boost momentum content, the areic flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic supply are
+\begin{equation}
+  \label{eq:ang_momentum_matter_GCRS}
+  \begin{aligned}
+    &=
+    N\rho\, (t\,U^{i} - x^{i}) + \Oc{2}
+    \\
+    &=
+    \!\begin{multlined}[t][0.8\linewidth]
+      a_{j}\,(U^{j}-v^{j}) \, (t\,U^{i} - x^{i}) \,N\rho +
+      t\,a_{k}\,\pi\i{^{k}_{i}}  + \Oc{2}
+    \end{multlined}
+    \\
+    &= N\rho\,t\,\de_{i}\yW+ \Oc{2} \ .
+  \end{aligned}
+\end{equation}
+
+
 
 
 %%%% examples use empheq
@@ -2235,14 +2370,14 @@ Then
     -e\, \ttti{t}\otimes\si{t}
     -q^{i}\, \ttti{i}\otimes\si{t}
     +p_{j}\, \ttti{t}\otimes\si{x^{j}}
-    +\pi^{i}_{j}\, \ttti{i}\otimes\si{x^{j}}
+    +\pi\i{^{i}_{j}}\, \ttti{i}\otimes\si{x^{j}}
     \bigr)
     \\
     &\quad{}=
     -\de_{t}e\ \tttti{}\otimes\si{t}
     -\de_{i}q^{i}\, \tttti{}\otimes\si{t}
     +\de_{t}p_{j}\, \tttti{}\otimes\si{x^{j}}
-    +\de_{i}\pi^{i}_{j}\, \tttti{}\otimes\si{x^{j}}
+    +\de_{i}\pi\i{^{i}_{j}}\, \tttti{}\otimes\si{x^{j}}
     -{}
     \\
     &\qquad
@@ -2262,8 +2397,8 @@ Then
     + 0
     \\
     &\qquad
-    {}-\pi^{i}_{k}\, \varGamma^{k}_{it}\, \ttti{i}\land\si{x^{i}} \otimes \si{t}
-    -\pi^{i}_{k}\,\varGamma^{k}_{ij}\, \ttti{i}\land\si{x^{i}} \otimes \si{x^{j}}
+    {}-\pi\i{^{i}_{k}}\, \varGamma^{k}_{it}\, \ttti{i}\land\si{x^{i}} \otimes \si{t}
+    -\pi\i{^{i}_{k}}\,\varGamma^{k}_{ij}\, \ttti{i}\land\si{x^{i}} \otimes \si{x^{j}}
     \Bigr]
     \\
     &\quad{}=
@@ -2285,9 +2420,9 @@ Then
     -p_{k}\,\varGamma^{k}_{tj}\,  \si{x^{j}}
     \\
     &\qquad
-    {}+\de_{i}\pi^{i}_{j}\, \si{x^{j}} 
-    -\pi^{i}_{k}\, \varGamma^{k}_{it}\, \si{t}
-    -\pi^{i}_{k}\,\varGamma^{k}_{ij}\, \si{x^{j}}
+    {}+\de_{i}\pi\i{^{i}_{j}}\, \si{x^{j}} 
+    -\pi\i{^{i}_{k}}\, \varGamma^{k}_{it}\, \si{t}
+    -\pi\i{^{i}_{k}}\,\varGamma^{k}_{ij}\, \si{x^{j}}
     \\
     &\qquad{}\bigr]
   \end{aligned}
@@ -2300,14 +2435,14 @@ The equation above corresponds to the four balance equations
   e\,\varGamma^{t}_{tt}
   +q^{i}\, \varGamma^{t}_{it}
   -p_{j}\, \varGamma^{j}_{tt}
-  -\pi^{i}_{k}\, \varGamma^{k}_{it}
+  -\pi\i{^{i}_{k}}\, \varGamma^{k}_{it}
   \\
   \label{eq:div_p}
-  \de_{t}p_{j} +  \de_{i}\pi^{i}_{j} &=
+  \de_{t}p_{j} +  \de_{i}\pi\i{^{i}_{j}} &=
   -e\,\varGamma^{t}_{tj}
   -q^{i}\,\varGamma^{t}_{ij}
   +p_{k}\,\varGamma^{k}_{tj}
-  +\pi^{i}_{k}\,\varGamma^{k}_{ij}
+  +\pi\i{^{i}_{k}}\,\varGamma^{k}_{ij}
 \end{align}
 
 \medskip
@@ -2316,12 +2451,12 @@ For $\yTT\cdot\yu$ we find first
 \begin{align}
     \yTT\cdot\yu &=
     (-e\,u^{t} + p_{j}\,u^{j})\,\ttti{t} +
-    (-q^{i}\,u^{t} + \pi^{i}_{j}\,u^{j})\,\ttti{i}
+    (-q^{i}\,u^{t} + \pi\i{^{i}_{j}}\,u^{j})\,\ttti{i}
     \\
     \begin{split}
       \yTT \dand \nabla\yu &=
       (-e\,\de_{t} u^{t} + p_{j}\,\de_{t}u^{j})\,\ttti{t}\land\di t
-      +(-q^{i}\,\de_{i}u^{t} + \pi^{i}_{j}\,\de_{i}u^{j})\,\ttti{i}\land\di x^{i}
+      +(-q^{i}\,\de_{i}u^{t} + \pi\i{^{i}_{j}}\,\de_{i}u^{j})\,\ttti{i}\land\di x^{i}
       \\
       &\qquad{}+\text{$\varGamma$ terms}
     \end{split}
@@ -2330,24 +2465,24 @@ and therefore
 \begin{multline}
   \label{eq:DT_contracted_u}
   \de_{t}(-e\,u^{t} + p_{j}\,u^{j})
-  +\de_{i}(-q^{i}\,u^{t} + \pi^{i}_{j}\,u^{j})
+  +\de_{i}(-q^{i}\,u^{t} + \pi\i{^{i}_{j}}\,u^{j})
   ={}\\
   \shoveright{
     -e\,\de_{t} u^{t} + p_{j}\,\de_{t}u^{j}
-  -q^{i}\,\de_{i}u^{t} + \pi^{i}_{j}\,\de_{i}u^{j}
+  -q^{i}\,\de_{i}u^{t} + \pi\i{^{i}_{j}}\,\de_{i}u^{j}
 }
   \\
   \shoveright{
   {}-(e\,\varGamma^{t}_{tt}
   +q^{i}\, \varGamma^{t}_{it}
   -p_{j}\, \varGamma^{j}_{tt}
-  -\pi^{i}_{k}\, \varGamma^{k}_{it})\,u^{t}
+  -\pi\i{^{i}_{k}}\, \varGamma^{k}_{it})\,u^{t}
 }
   \\
   {}-(e\,\varGamma^{t}_{tj}
   +q^{i}\,\varGamma^{t}_{ij}
   -p_{k}\,\varGamma^{k}_{tj}
-  -\pi^{i}_{k}\,\varGamma^{k}_{ij})\,u^{j}
+  -\pi\i{^{i}_{k}}\,\varGamma^{k}_{ij})\,u^{j}
 \end{multline}
 
 
@@ -2361,14 +2496,14 @@ and therefore
   e\,\varGamma^{t}_{tt}
   +q^{r}\, \varGamma^{t}_{rt}
   +p_{r}\, \varGamma^{r}_{tt}
-  +\pi^{r}_{r}\, \varGamma^{r}_{rt}
+  +\pi\i{^{r}_{r}}\, \varGamma^{r}_{rt}
   \\
   \label{eq:div_p_r}
-  \de_{t}p_{r} +  \de_{r}\pi^{r}_{r} &=
+  \de_{t}p_{r} +  \de_{r}\pi\i{^{r}_{r}} &=
   e\,\varGamma^{t}_{tr}
   +q^{r}\,\varGamma^{t}_{rr}
   +p_{r}\,\varGamma^{r}_{tr}
-  +\pi^{r}_{r}\,\varGamma^{r}_{rr}
+  +\pi\i{^{r}_{r}}\,\varGamma^{r}_{rr}
 \end{align}
 
 \begin{align}
@@ -2377,14 +2512,14 @@ and therefore
  % e\,\varGamma^{t}_{tt}
   q^{r}\, \frac{g}{c^{2}}
   +p_{r}\, g
-  %+\pi^{r}_{r}\, \varGamma^{r}_{rt}
+  %+\pi\i{^{r}_{r}}\, \varGamma^{r}_{rt}
   \\
   \label{eq:div_p_r_S}
-  \de_{t}p_{r} +  \de_{r}\pi^{r}_{r} &=
+  \de_{t}p_{r} +  \de_{r}\pi\i{^{r}_{r}} &=
   e\, \frac{g}{c^{2}}
   %+q^{r}\,\varGamma^{t}_{rr}
   %+p_{r}\,\varGamma^{r}_{tr}
-  %+\pi^{r}_{r}\,\varGamma^{r}_{rr}
+  %+\pi\i{^{r}_{r}}\,\varGamma^{r}_{rr}
 \end{align}
 
 
@@ -2410,7 +2545,7 @@ The balances above become
   +p_{z}\, g
   \\
   \label{eq:div_p_appr}
-  \de_{t}p_{z} +  \de_{i}\pi^{i}_{z} &=
+  \de_{t}p_{z} +  \de_{i}\pi\i{^{i}_{z}} &=
   e\,\frac{g}{c^{2}}
 \end{align}
 
@@ -2439,14 +2574,14 @@ Also,
   -e\,2\frac{g}{c^{2}} v(t)
   +q^{z}\, \frac{g}{c^{2}}
   +p_{j}\, \Bigl(g - 2\frac{g}{c^{2}}\,v(t)^{2} - \dot{v}(t)\Bigr)
-  +\pi^{z}_{z}\, \frac{g}{c^{2}} v(t)
+  +\pi\i{^{z}_{z}}\, \frac{g}{c^{2}} v(t)
   \\
   \label{eq:div_p}
-  \de_{t}p_{z} +  \de_{i}\pi^{i}_{z} &=
+  \de_{t}p_{z} +  \de_{i}\pi\i{^{i}_{z}} &=
   e\, \frac{g}{c^{2}}
   % +q^{i}\,\varGamma^{t}_{ij}
   +p_{z}\,\frac{g}{c^{2}} v(t)
-%  +\pi^{i}_{k}\,\varGamma^{k}_{ij}
+%  +\pi\i{^{i}_{k}}\,\varGamma^{k}_{ij}
 \end{align}
 
 

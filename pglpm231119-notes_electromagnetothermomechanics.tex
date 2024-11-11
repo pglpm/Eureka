@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-11T12:23:23+0100
+%% Last-Updated: 2024-11-11T18:54:44+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -2016,9 +2016,9 @@ Define the energy current with respect to the vector $-\se{t}$, as discussed in 
     \\
     \phi &=
     \!\begin{multlined}[t][0.8\linewidth]
-      a_{i}\,(U^{i}-v^{i})\,N\rho c^{2} +{}\\
-      a_{i}\,(U^{i}-v^{i})\,N\,(\epsilon + \tfrac12 \rho U^{2} - \rho\yW) +
-      a_{i}\,q^{i} + a_{i}\,\pi\i{^{i}_{j}}\,U^{j} +
+      a_{k}\,(U^{k}-v^{k})\,N\rho c^{2} +{}\\
+      a_{k}\,(U^{k}-v^{k})\,N\,(\epsilon + \tfrac12 \rho U^{2} - \rho\yW) +
+      a_{k}\,q^{k} + a_{k}\,\pi\i{^{k}_{j}}\,U^{j} +
       \Oc{2}
     \end{multlined}
     \\
@@ -2026,61 +2026,82 @@ Define the energy current with respect to the vector $-\se{t}$, as discussed in 
   \end{aligned}
 \end{equation}
 
-Define the $x^{i}$-momentum current with respect to the vector $\se{x^{i}}$. Then the volumic $x^{i}$-momentum content, the areic flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic supply are
+Define the $x^{a}$-momentum current with respect to the vector $\se{x^{a}}$. Then the volumic $x^{a}$-momentum content, the areic flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic supply are
 \begin{equation}
   \label{eq:momentum_matter_GCRS}
   \begin{aligned}
-    p_{i} &=
-    N\rho U_{i} + \frac{1}{c^{2}} [
-    q^{i} + \pi\i{^{i}_{j}}\,U^{j} +
-    N\,(\epsilon + \tfrac12 \rho U^{2} + 3\rho\yW)\, U^{i}
+    p_{a} &=
+    N\rho U^{a} + \frac{1}{c^{2}} [
+    q^{a} + \pi\i{^{a}_{j}}\,U^{j} +
+    N\,(\epsilon + \tfrac12 \rho U^{2} + 3\rho\yW)\, U^{a}
     ] + \Oc{4}
     \\
-    f_{i} &=
+    f_{a} &=
     \!\begin{multlined}[t][0.8\linewidth]
-      a_{j}\,(U^{j}-v^{j})\,U_{i}\,N\rho + a_{j}\,\pi\i{^{j}_{i}} +
+      a_{k}\,(U^{k}-v^{k})\,U_{a}\,N\rho + a_{j}\,\pi\i{^{j}_{a}} +
       \Oc{2}
     \end{multlined}
     \\
-    G_{i} &= N\rho\,\de_{i}\yW + \Oc{2} \ .
+    g_{a} &= N\rho\,\de_{a}\yW + \Oc{2} \ .
   \end{aligned}
 \end{equation}
 
-Define the $x^{i}x^{j}$-angular momentum current as in \sect~\ref{sec:balancelaws}. Then the volumic $x^{i}x^{j}$-angular momentum content, the areic flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic supply are
+Define the $x^{a}x^{b}$-angular momentum current as in \sect~\ref{sec:balancelaws}. Then the volumic $x^{a}x^{b}$-angular momentum content, the areic flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic supply are
 \begin{equation}
   \label{eq:ang_momentum_matter_GCRS}
   \begin{aligned}
-    l_{ij} &=
-    N\rho\, (x^{i}\,U^{j} - x^{j}\,U^{i}) + \Oc{2}
+    l^{ab} &=
+    N\rho\, (x^{a}\,U^{b} - x^{b}\,U^{a}) + \Oc{2}
     \\
-    \tau_{ij} &=
+    &\equiv x^{a}\,p_{b} - x^{b}\,p_{a} + \Oc{2}
+    \\[\jot]
+    \tau^{ab} &=
     \!\begin{multlined}[t][0.8\linewidth]
-      a_{j}\,(U^{j}-v^{j}) \, (x^{i}\,U_{j} - x^{j}\,U_{i})\,N\rho +
-      x^{i}\,a_{k}\,\pi\i{^{k}_{j}} - x^{j}\,a_{k}\,\pi\i{^{k}_{i}} +
+      a_{k}\,(U^{k}-v^{k}) \, (x^{a}\,U^{b} - x^{b}\,U^{a})\,N\rho +
+      x^{a}\,a_{k}\,\pi\i{^{k}_{b}} - x^{b}\,a_{k}\,\pi\i{^{k}_{a}} +
       \Oc{2}
     \end{multlined}
     \\
-    B_{ij} &= N\rho\,(x^{i}\,\de_{j}\yW - x^{j}\,\de_{i}\yW)+ \Oc{2} \ .
+    &\equiv x^{a}\,f_{b} - x^{b}\,f_{a} + \Oc{2}
+    \\[\jot]
+    m^{ab} &= N\rho\,(x^{a}\,\de_{b}\yW - x^{b}\,\de_{a}\yW)+ \Oc{2} \ .
+    \\
+    &\equiv x^{a}\,g_{b} - x^{b}\,g_{a} + \Oc{2}
   \end{aligned}
 \end{equation}
 
-Finally define the $x^{i}$-boost momentum current as in \sect~\ref{sec:balancelaws}. Then the volumic $x^{i}$-boost momentum content, the areic flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic supply are
+Finally define the $x^{a}$-boost momentum current as in \sect~\ref{sec:balancelaws}. Then the volumic $x^{a}$-boost momentum content, the areic flux across the moving area element $\bm{A}\land\bm{V}$, and the volumic supply are
 \begin{equation}
-  \label{eq:ang_momentum_matter_GCRS}
+  \label{eq:boost_momentum_matter_GCRS}
   \begin{aligned}
-    &=
-    N\rho\, (t\,U^{i} - x^{i}) + \Oc{2}
+    \text{\small content}&= N\rho\, (t\,U^{a} - x^{a}) + \Oc{2}
     \\
-    &=
+    &\equiv t\,p_{a} - x^{a}\,e/c^{2} + \Oc{2}
+    \\[\jot]
+    \text{\small flux}&=
     \!\begin{multlined}[t][0.8\linewidth]
-      a_{j}\,(U^{j}-v^{j}) \, (t\,U^{i} - x^{i}) \,N\rho +
-      t\,a_{k}\,\pi\i{^{k}_{i}}  + \Oc{2}
+      a_{k}\,(U^{k}-v^{k}) \, (t\,U^{a} - x^{a}) \,N\rho +
+      t\,a_{k}\,\pi\i{^{k}_{a}}  + \Oc{2}
     \end{multlined}
     \\
-    &= N\rho\,t\,\de_{i}\yW+ \Oc{2} \ .
+    &\equiv t\,f_{a} - x^{a}\,\phi/c^{2} + \Oc{2}
+    \\[\jot]
+    \text{\small supply}&= N\rho\,t\,\de_{a}\yW+ \Oc{2} \ .
+    \\
+    &\equiv t\,g_{a} + \Oc{2}
   \end{aligned}
 \end{equation}
 
+Combining \eqns~\eqref{eq:momentum_matter_GCRS} and \eqref{eq:ang_momentum_matter_GCRS} we obtain
+\begin{equation}
+  \label{eq:stress_sym_GCRS}
+  \pi\i{^{a}_{b}} = \pi\i{^{b}_{a}} \ .
+\end{equation}
+Combining \eqns~\eqref{eq:energy_matter_GCRS}, \eqref{eq:momentum_matter_GCRS}, \eqref{eq:boost_momentum_matter_GCRS} we obtain
+\begin{equation}
+  \label{eq:equiv_mom_enflux_GCRS}
+  p_{a} = \phi^{a}/c^{2} \ .
+\end{equation}
 
 
 

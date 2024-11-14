@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-12T17:46:09+0100
+%% Last-Updated: 2024-11-14T11:04:14+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1628,7 +1628,7 @@ Taking the differential of the current $\yTT\cdot\yV$ we have the following \emp
 -\yTT \dand \nabla\yV
 \end{equation}
 
-The identity above, combined with the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm}, leads to a non-trivial balance law for the current $\yTT\cdot\yV$ associated to any $\yV$: \autocites[\sect~3.2 p.~62]{hawkingetal1973_r1994}[\sect~3.9.5.2 esp. \eqn~(3.424) and \sect~3.9.6.1 esp. \eqn~(3.458)]{kopeikinetal2011}
+The identity above, combined with the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm}, leads to a non-trivial balance law for the current $\yTT\cdot\yV$ associated with any $\yV$: \autocites[\sect~3.2 p.~62]{hawkingetal1973_r1994}[\sect~3.9.5.2 esp. \eqn~(3.424) and \sect~3.9.6.1 esp. \eqn~(3.458)]{kopeikinetal2011}
 \begin{equation}
   \label{eq:balance_VT_current}
   \begin{aligned}
@@ -1685,25 +1685,45 @@ another common expression.
 
 \medskip
 
-Equation~\eqref{eq:balance_VT_current} gives rise to an infinity of currents and related balance laws. Such balance laws are not independent; only ten of them are. The four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} can be re-expressed as a set of balance laws associated to ten different vector fields \autocites[\sect~3.2]{hawkingetal1973_r1994}[see also][]{gotayetal1992}.
+Equation~\eqref{eq:balance_VT_current} gives rise to an infinity of currents and related balance laws. Such balance laws are not independent; only ten of them are. The four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} can be re-expressed as a set of balance laws associated with ten different vector fields \autocites[\sect~3.2]{hawkingetal1973_r1994}[see also][]{gotayetal1992}. These balance laws are usually divided into a set of four for four-momentum, and a set of six for angular momentum, including \enquote{boost momentum}.
 
-Such vector fields can be chosen as follows, separated into four groups of one, three, three, and three,
-\begin{gather}
-  \label{eq:kil_energy}
-  \se{t}
-\\  \label{eq:kil_momentum}
-  \se{x^{i}}
-\\  \label{eq:kil_boost}
-  t\,\yg^{-1} \cdot \si{x^{i}} - x^{i}\,\yg^{-1} \cdot \si{t}
-\\  \label{eq:kil_angmomentum}
-  x^{i}\,\yg^{-1} \cdot \si{x^{j}} - x^{j}\,\yg^{-1} \cdot \si{x^{i}} \ .
-\end{gather}
-Note that the last two groups of fields are dimensionally consistent no matter what the dimensions of the coordinates are. Also note that when the metric has its standard diagonal form, the third set has a plus sign instead of a minus when written explicitly in vector form.
+In the literature we find several inequivalent choices for these ten vector fields, leading to definitions of four-momentum and angular momentum that are different, even if they usually agree in a Newtonian approximation.
+
+For the four-momentum, that is, energy and three-momentum, sometimes the vector fields
+\begin{equation}
+  \label{eq:four-momentum_up}
+  \yg^{-1}\cdot\si{t} \ ,\quad \yg^{-1}\cdot\si{x^{i}}
+\end{equation}
+are used \autocites[for instance in][\sect~5.3, \chap~20]{misneretal1970_r2017}[\sect~6.1.3]{poissonetal2014}. Authors who make this choice can be recognized from their writing \enquote{$T\i{^{\mu\nu}_{;\mu}}$}, or similar, for the covariant divergence of the energy-momentum tensor, with the non-contracted index up.
+
+Sometimes the vector fields
+\begin{equation}
+  \label{eq:four-momentum_down}
+  \se{t} \ ,\quad \se{x^{i}}
+\end{equation}
+are used instead \autocites[for instance in][\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994}. This choice is recognized by expressions such as \enquote{$T\i{^{\mu}_{\nu;\mu}}$}, with the non-contracted index down.
+
+For the angular-boost-momentum, one choice of vector fields, corresponding to~\eqref{eq:four-momentum_up} is
+\begin{equation}
+  \label{eq:ang-momentum_up}
+  \yg^{-1}\cdot(t\,\si{x^{i}} - x^{i}\,\si{t})
+\ ,\quad
+  \yg^{-1}\cdot(x^{i}\,\si{x^{j}} - x^{j}\,\si{x^{i}}) \ .
+\end{equation}
+Another choice \autocites[\sect~3.9.6.3 before \eqn~(3.475)]{kopeikinetal2011} is
+\begin{equation}
+  \label{eq:ang-momentum_down}
+  g_{t\mu}\,x^{\mu}\,\se{x^{i}} - g_{i\mu}\,x^{\mu}\,\se{t}
+\ ,\quad
+  g_{i\mu}\,x^{\mu}\,\se{x^{j}} - g_{j\mu}\,x^{\mu}\,\se{i} \ .
+\end{equation}
+Some texts \autocites[\sects~III.21, IX.62 p.~385]{burke1985_r1987}[\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994} also make the choice \enquote{$x^{\mu}\,\se{x^{\nu}} - x^{\nu}\,\se{x^{\mu}}$}, but note that this in general may be dimensionally inconsistent.
 
 With these vector fields it is possible to replace the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} with the following set of four plus six:
 \begin{gather}
   \label{eq:fourstress_balance_1}
-  \di(\yTT\cdot\se{\mu}) = -\yTT \dand \nabla\se{\mu}
+  \di(\yTT\cdot\yg^{-1}\cdot\si{x^{\mu}}) =
+  -\yTT \dand \nabla\yg^{-1}\cdot\si{x^{\nu}}
   \\[2\jot]
   \label{eq:fourstress_balance_2}
   \begin{multlined}[0.9\linewidth]

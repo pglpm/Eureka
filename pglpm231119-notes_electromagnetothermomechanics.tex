@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-14T11:04:14+0100
+%% Last-Updated: 2024-11-14T11:58:09+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1719,11 +1719,11 @@ Another choice \autocites[\sect~3.9.6.3 before \eqn~(3.475)]{kopeikinetal2011} i
 \end{equation}
 Some texts \autocites[\sects~III.21, IX.62 p.~385]{burke1985_r1987}[\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994} also make the choice \enquote{$x^{\mu}\,\se{x^{\nu}} - x^{\nu}\,\se{x^{\mu}}$}, but note that this in general may be dimensionally inconsistent.
 
-With these vector fields it is possible to replace the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} with the following set of four plus six:
+With these vector fields it is possible to replace the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} with a set of four plus six. For instance:
 \begin{gather}
   \label{eq:fourstress_balance_1}
-  \di(\yTT\cdot\yg^{-1}\cdot\si{x^{\mu}}) =
-  -\yTT \dand \nabla\yg^{-1}\cdot\si{x^{\nu}}
+  \di(\yTT\cdot\se{x^{\mu}}) =
+  -\yTT \dand \nabla\se{x^{\nu}}
   \\[2\jot]
   \label{eq:fourstress_balance_2}
   \begin{multlined}[0.9\linewidth]
@@ -1734,6 +1734,7 @@ With these vector fields it is possible to replace the four-stress equations~\eq
     + x^{\nu}\,\yTT \dand \yg^{-1}\cdot\nabla\si{x^{\mu}}
   \end{multlined}
 \end{gather}
+If Killing vectors are used, the corresponding supply terms vanish.
 
 
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-14T11:58:09+0100
+%% Last-Updated: 2024-11-16T23:45:26+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -730,7 +730,7 @@ Western Norway University of Applied Sciences%
 % \makeatother
 
 \newcommand*{\Di}{\mathrm{D}}%capital differential
-%\newcommand*{\Li}{\mathrm{L}}%Lie derivative
+\newcommand*{\Li}{\mathrm{L}}%Lie derivative
 %\newcommand*{\planckc}{\hslash}
 %\newcommand*{\avogn}{N_{\textrm{A}}}
 %\newcommand*{\NN}{\bm{\mathrm{N}}}
@@ -1637,13 +1637,18 @@ The identity above, combined with the four-stress equations~\eqref{eq:4stress_ba
 \\
 &= \tr\bigl[\yTT\T\cdot\vi\cdot
 \tfrac12 \bigl(\nabla\yV + \yg\cdot\nabla\yV\T \cdot \yg^{-1}\bigr)
+\bigr]\,\ve
+\\
+&\equiv \tr\bigl[\yTT\T\cdot\vi\cdot
+\tfrac12 (\Li_{\yV}\yg)\cdot\yg^{-1}
 \bigr]\,\ve \ .
 \end{aligned}
 \end{equation}
 This is a \emph{conservation} law if $\yV$ is a Killing vector, that is, if it satisfies
 \begin{equation}
   \label{eq:Killing}
-\nabla\yV + \yg\cdot\nabla\yV\T \cdot \yg^{-1} = 0 \ .
+  \nabla\yV + \yg\cdot\nabla\yV\T \cdot \yg^{-1}
+  \equiv (\Li_{\yV}\yg)\cdot\yg^{-1} = 0 \ .
 \end{equation}
 
 \medskip

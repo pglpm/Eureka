@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2024-01-07T18:53:13+0100
+%% Last-Updated: 2024-11-19T13:00:45+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -843,7 +843,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %%% BEGINNING OF MAIN TEXT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%  TODO:
+% TODO:
+%
+% modify "tr" operator by putting one index up and one down
 % add papapetrou1951
 % add comment about gotayetal1992
 % add discussion on why •|••• is natural from killing-vector viewpoint (burke1985 § 62)
@@ -1737,7 +1739,7 @@ regardless whether the objects have straight or twisted orientations.
 \label{sec:curves}
 
 
-Consider a curve into spacetime $C\colon s \mapsto P(s)$, with the
+Consider a curve into spacetime $C\colon s \mapsto C(s)$, with the
 parameter $s$ having some dimension $\dim(s)=\Ss$.
 
 
@@ -1768,10 +1770,10 @@ $\yv_{C(s)} = \yC_{C(s)}$ in standard differential-geometric notation
 \citep[\sect~III.B.1]{choquetbruhatetal1977_r1996}). From the point of view
 of dimensional analysis this definition is only valid if $\yv$ has
 dimension $\Ss^{-1}$. If $\yv$ and $s^{-1}$ have different dimensions -- a
-case which could happen for physical reasons -- the
+case which could happen in physical applications -- the
 condition~\eqref{eq:integral_curve} must be modified into $\yv = k\yC$,
 where $k$ is a dimensionful constant. This is equivalent to considering an
-affine and dimensional reparameterization of $C$.
+affine \emph{and dimensional} reparameterization of $C$.
 
 Worldlines and their 4-velocities are discussed in \sect~\ref{sec:g_4velocity}.
 
@@ -1918,13 +1920,13 @@ the formula
 %\begin{subequations}\label{eq:dimg_t}\tag{(\ref{eq:dimg_t})}
 \begin{equation}%\addtocounter{equation}{1}\tag{\theequation a}
   \label{eq:proper_time}
-\inct =  \int_a^b
+\inct =  \int_a^b\!
 \sqrt{\abs*{\yg[\yC(s),\yC(s)]}} \  \di s\ .
 \end{equation}
 From the results of \sect~\ref{sec:tensor_ops} this formula implies that
 %\begin{equation}
 %  \label{eq:dim_dt}
- $\Ti \equiv \dim(\inct) = \sqrt{\dim(\yg\i{_{\q\q}})}$,
+ $\sqrt{\dim(\yg\i{_{\q\q}})} = \dim(\inct) \equiv \Ti$,
 %\end{equation}
  independently of the dimension of the parameter $s$, and therefore
 \begin{equation}%\addtocounter{equation}{1}\tag{\theequation a}

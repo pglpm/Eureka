@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-11-17T13:37:32+0100
+%% Last-Updated: 2024-12-01T00:23:10+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -956,6 +956,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yu}{\bm{u}}
 \newcommand*{\yv}{\bm{v}}
 \newcommand*{\yo}{\bm{\omega}}
+\newcommand*{\yh}{\bm{\eta}}
 \newcommand*{\yphi}{\bm{\phi}}
 \newcommand*{\ypsi}{\bm{\psi}}
 \newcommand*{\yJ}{\bm{J}}
@@ -963,6 +964,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yW}{W}
 
 \newcommand*{\yF}{\mathte{F}}
+\newcommand*{\yG}{\mathte{G}}
 \newcommand*{\yE}{\bm{E}}
 \newcommand*{\yB}{\mathte{B}}
 
@@ -1047,7 +1049,7 @@ The associated bases for inner-oriented covector fields are
   \\[\jot]
   \label{eq:basis_2vec}
   \ssi{tx}\quad
-  \ssi{ty}\quad
+  -\ssi{ty}\quad
   \ssi{tz}\quad
   \ssi{yz}\quad
   \ssi{zx}\quad
@@ -1077,7 +1079,7 @@ A twisted or outer-oriented 3-covector such as $\sssi{\tw{x}yz}$ has an associat
     \\[\jot]
     \label{eq:basis_2vec_twshort}
     \tti{yz}\quad
-    \tti{zx}\quad
+    -\tti{zx}\quad
     \tti{xy}\quad
     \tti{tx}\quad
     \tti{ty}\quad
@@ -2233,10 +2235,13 @@ Here are the matrix representations of several operations. Consider these object
 \item $\yu\i{^{\q}}$ is a 1-vector, represented by the column-matrix $\yu$.
 \item Similarly for $\yv\i{^{\q}}$.
 \item $\yo\i{_{\q}}$ is a 1-covector, represented by the row-matrix $\yo$.
+\item Similarly for $\yh\i{_{\q}}$.
+\item $\yF\i{_{\q\q}}$ is a 2-covector, represented by the matrix $\yF$.
+\item $\yG\i{_{\q\q}}$ is a twisted 2-covector, represented by the matrix $\yG$.
 \item $\yg\i{_{\q\q}}$ is a covector-valued covector, represented by the matrix $\yg$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
 \item ${\yg^{-1}}\i{^{\q\q}}$ is a vector-valued vector, inverse of $\yg$, that is: $\yg\cdot\yg^{1} = \id\i{_{\q}^{\q}}$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
 
-\item $\yQ\i{_{\mul{\q\q\q}}}$ is a 3-covector, represented by the column-matrix $\yQ$.
+\item $\yQ\i{_{\mul{\q\q\q}}}$ is an twisted 3-covector, represented by the column-matrix $\yQ$.
 
 \item $\yTT\i{_{\mul{\q\q\q}\q}}$ is a covector-valued 3-covector, represented by the matrix $\yTT$. The rows represent the 3-covector components; the columns, the covector components.
 \item $\ve\i{_{\mul{\q\q\q\q}}}$ is a 4-covector, represented by the number $\dg/c$.
@@ -2248,7 +2253,7 @@ Here are the matrix representations of several operations. Consider these object
 
 Then -- note that the order on the right side is important:
 \begin{itemize}
-\item Contractions, index raising and lowering
+\item Contractions, wedge product, index raising and lowering
   \begin{align}
     &\text{\small(object)}
     &&\text{\small(matrix repr)}
@@ -2265,12 +2270,32 @@ Then -- note that the order on the right side is important:
     &&\yu\T\yg\T
     \quad\text{(row-matrix)}
     \\
+    &\yo\land\yh
+    &&\yo\T\yh - \yh\T\yo
+    \quad\text{(matrix)}
+    \\
+    &\yu\cdot\yF
+    &&\yu\T\yF
+    \quad\text{(row-matrix)}
+    \\
+    &\yF\cdot\yv
+    &&(\yF\yv)\T
+    \quad\text{(row-matrix)}
+    \\
     &\yo\cdot\yg^{-1}
     &&\yg\iT\yo\T
     \quad\text{(column-matrix)}
     \\
     &\vi\cdot\yQ
     &&\vi\yQ
+    \quad\text{(column-matrix)}
+    \\
+    &\yu\cdot\yQ
+    &&\yu\yQ\T - \yQ\yu\T
+    \quad\text{(matrix)}
+    \\
+    &\yo\land\yG
+    &&(\yo\yG)\T
     \quad\text{(column-matrix)}
     \\
     &\vi\cdot\yTT

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-12-01T00:23:10+0100
+%% Last-Updated: 2024-12-01T10:20:09+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -763,7 +763,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\with}{\colon}%with (list of indices)
 %\newcommand*{\mul}{\times}%multiplication
 %\newcommand*{\inn}{\cdot}%inner product
-%\newcommand*{\dotv}{\mathord{\,\cdot\,}}%variable place
+\newcommand*{\dotv}{\blacksquare}%variable place
 %\newcommand*{\comp}{\circ}%composition of functions
 %\newcommand*{\con}{\mathbin{:}}%scal prod of tensors
 %\newcommand*{\equi}{\sim}%equivalent to 
@@ -1340,7 +1340,7 @@ The volume element induced by the metric $\yg$ has dimensions of volume-time and
   \label{eq:vol_element}
   \ve \defd \frac{\dg}{c} \ssssi{\tw{t}xyz} \equiv \frac{\dg}{c}\ \tttti{}
 \end{equation}
-and its corresponding inverse, a twisted 4-vector:
+and its corresponding twisted 4-vector:
 \begin{equation}
   \label{eq:inv_vol_element}
   \vi \defd \frac{c}{\dg}\ \tttte{} \ .
@@ -1409,11 +1409,21 @@ This is the reason why in older literature an outer-oriented $n$-covector is tre
 The transpose of the map $\vi\cdot{}$ depends on what this map is acting upon:
 \begin{equation}
   \label{eq:transpose_inv_vol_element}
-  \bigl(\vi\cdot{}\bigr)\T =
+  \dotv\cdot\vi =
   \begin{dcases*}
-    -\vi\cdot{}& if it operates on 1- or 3-covectors,
+    -\vi\cdot\dotv& on 1- or 3-covectors,
     \\
-    \vi\cdot{}& if it operates on 0-, 2-, 4-covectors.
+    \vi\cdot\dotv& on 0-, 2-, 4-covectors.
+  \end{dcases*}
+\end{equation}
+Therefore we have the following inverse relationships:
+\begin{equation}
+  \label{eq:inverse_vol_element}
+  \ve\cdot\bigl(\vi\cdot \dotv\bigr) =
+  \begin{dcases*}
+    -\dotv& on 1- or 3-covectors,
+    \\
+    \dotv& on 0-, 2-, 4-covectors.
   \end{dcases*}
 \end{equation}
 
@@ -2241,7 +2251,7 @@ Here are the matrix representations of several operations. Consider these object
 \item $\yg\i{_{\q\q}}$ is a covector-valued covector, represented by the matrix $\yg$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
 \item ${\yg^{-1}}\i{^{\q\q}}$ is a vector-valued vector, inverse of $\yg$, that is: $\yg\cdot\yg^{1} = \id\i{_{\q}^{\q}}$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
 
-\item $\yQ\i{_{\mul{\q\q\q}}}$ is an twisted 3-covector, represented by the column-matrix $\yQ$.
+\item $\yN\i{_{\mul{\q\q\q}}}$ is an twisted 3-covector, represented by the column-matrix $\yN$.
 
 \item $\yTT\i{_{\mul{\q\q\q}\q}}$ is a covector-valued 3-covector, represented by the matrix $\yTT$. The rows represent the 3-covector components; the columns, the covector components.
 \item $\ve\i{_{\mul{\q\q\q\q}}}$ is a 4-covector, represented by the number $\dg/c$.
@@ -2286,12 +2296,12 @@ Then -- note that the order on the right side is important:
     &&\yg\iT\yo\T
     \quad\text{(column-matrix)}
     \\
-    &\vi\cdot\yQ
-    &&\vi\yQ
+    &\vi\cdot\yN
+    &&\yN c/\dg
     \quad\text{(column-matrix)}
     \\
-    &\yu\cdot\yQ
-    &&\yu\yQ\T - \yQ\yu\T
+    &\yu\cdot\yN
+    &&\yu\yN\T - \yN\yu\T
     \quad\text{(matrix)}
     \\
     &\yo\land\yG
@@ -2299,15 +2309,15 @@ Then -- note that the order on the right side is important:
     \quad\text{(column-matrix)}
     \\
     &\vi\cdot\yTT
-    &&\vi\yTT
-    \quad\text{(column-matrix)}
+    &&\yTT\ c/\dg
+    \quad\text{(matrix)}
     \\
     &\yTT\cdot\yu
     &&\yTT\yu
     \quad\text{(column-matrix)}
     \\
     &\yg\cdot(\vi\cdot\yTT)\cdot\yu
-    &&\vi\ \yg\yTT\yu
+    &&\yg\yTT\yu c/\dg
     \quad\text{(matrix)}
   \end{align}
 
@@ -2321,11 +2331,11 @@ Then -- note that the order on the right side is important:
     \\
     \yg &\quad\mapsto\quad \yJ\iT\yg\yJ^{-1}
     \\
-    \yQ &\quad\mapsto\quad \frac{1}{\det\yJ}\ \yJ\yQ
+    \yN &\quad\mapsto\quad \frac{1}{\det\yJ}\ \yJ\yN
     \\
-    \ve &\quad\mapsto\quad \frac{1}{\det\yJ}\ \ve
+    \dg/c &\quad\mapsto\quad \frac{1}{\det\yJ}\ \dg/c
     \\
-    \vi &\quad\mapsto\quad \det\yJ\ \vi
+    c/dg &\quad\mapsto\quad \det\yJ\ c/\dg
     \\
     \yTT &\quad\mapsto\quad \frac{1}{\det\yJ}\ \yJ\yTT\yJ^{-1}
   \end{align}

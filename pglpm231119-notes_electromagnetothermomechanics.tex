@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-12-01T10:20:09+0100
+%% Last-Updated: 2024-12-02T10:58:32+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1720,6 +1720,10 @@ Sometimes the vector fields
 \end{equation}
 are used instead \autocites[for instance in][\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994}. This choice is recognized by expressions such as \enquote{$T\i{^{\mu}_{\nu;\mu}}$}, with the non-contracted index down.
 
+In typical coordinate systems (for instance, locally free-falling), the vector $\yg^{-1}\cdot\si{x^{i}}$ is the one that gives the traditional momentum in the Newtonian limit, which is zero in a coordinate system where a matter element is at rest. The vector $\se{x^{i}}$ instead yields additional terms related to the velocity of the frame with respect to another reference frame.
+
+On the other hand, it is the vector $\se{t}/\nor{\se{t}}$ which corresponds to the traditional total, \enquote{internal plus kinetic} energy in the Newtonian limit, where the \enquote{kinetic} part only involves the velocity of the matter element in the particular coordinates used.
+
 For the angular-boost-momentum, one choice of vector fields, corresponding to~\eqref{eq:four-momentum_up} is
 \begin{equation}
   \label{eq:ang-momentum_up}
@@ -1735,6 +1739,9 @@ Another choice \autocites[\sect~3.9.6.3 before \eqn~(3.475)]{kopeikinetal2011} i
   g_{i\mu}\,x^{\mu}\,\se{x^{j}} - g_{j\mu}\,x^{\mu}\,\se{i} \ .
 \end{equation}
 Some texts \autocites[\sects~III.21, IX.62 p.~385]{burke1985_r1987}[\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994} also make the choice \enquote{$x^{\mu}\,\se{x^{\nu}} - x^{\nu}\,\se{x^{\mu}}$}, but note that this in general may be dimensionally inconsistent.
+
+Typically it is the first choice of vector that leads to the traditional angular momentum, is a similar way as discussed above for mmomentum.
+
 
 With these vector fields it is possible to replace the four-stress equations~\eqref{eq:4stress_balance} and~\eqref{eq:4stress_symm} with a set of four plus six. For instance:
 \begin{gather}
@@ -2674,10 +2681,11 @@ Also,
 \begin{itemize}
 \item Eq.~(21) in \cites{maugin1974b}: fluid with heat conduction.
 \item Factor $1/2$ in kinetic energy: \sect~6.3.3 in \cites{gourgoulhon2007_r2012}
-\end{itemize}
 % \[ \color{bluepurple}\bm{a} \color{redpurple}\mathbin{\bm{\land}}\color{bluepurple} \bm{b} \]
 
-For transformation or raising:  \cites[\sect~I.4 \eqn~(33)]{gantmacher1959_r2000}.
+\item Tensor-density expression of divergence law:  \cites{castrillonlopezetal2008} also  \cites{kopeikinetal2011,soffeletal2019}.
+
+\item For transformation or raising:  \cites[\sect~I.4 \eqn~(33)]{gantmacher1959_r2000}.
 
 \begin{equation}
   \gamma\cdot (B\land A) = (-1)^{\deg{A}\deg{B}} \gamma\cdot(A \land B)
@@ -2686,10 +2694,10 @@ with $\deg(B) = n-\deg(A)$
 \cites[prop.~4.1]{barnabeietal1985}
 
 
-Compound matrices:  \cites[\sect~IV.A.1 p.~199, Problem~1 p.~270]{choquetbruhatetal1977_r1996}
+\item Compound matrices:  \cites[\sect~IV.A.1 p.~199, Problem~1 p.~270]{choquetbruhatetal1977_r1996}
+\end{itemize}
 
- 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%% Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand*{\finalnamedelim}{\addcomma\space}

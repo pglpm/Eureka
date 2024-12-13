@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-12-05T07:32:35+0100
+%% Last-Updated: 2024-12-13T06:56:27+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -377,7 +377,7 @@ british%
 \usepackage{microtype}
 
 \usepackage[backend=biber,mcite,%subentry,
-citestyle=authoryear-comp,bibstyle=pglpm_latex/pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false,autocite=footnote]{biblatex}
+citestyle=authoryear-comp,bibstyle=pglpm_latex/pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false,autocite=footnote,dashed=false]{biblatex}
 \DeclareSortingTemplate{ny}{\sort{\field{sortname}\field{author}\field{editor}}\sort{\field{year}}}
 \DeclareFieldFormat{postnote}{#1}
 \iffalse\makeatletter%%% replace parenthesis with brackets
@@ -1450,7 +1450,7 @@ With these we can define squared norms $\nor{\mathord{\centerdot}}^{2}$ on all t
 
 If the coordinates are orthonormal at some point, then the metric at that point has components
 \begin{equation}
-  \label{eq:metric_orthonormal}
+  \label{eq:metric_freefall}
   \begin{bmatrix}
     -c^{2}&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1
   \end{bmatrix} \ ,
@@ -1738,7 +1738,7 @@ Another choice \autocites[\sect~3.9.6.3 before \eqn~(3.475)]{kopeikinetal2011} i
 \ ,\quad
   g_{i\mu}\,x^{\mu}\,\se{x^{j}} - g_{j\mu}\,x^{\mu}\,\se{i} \ .
 \end{equation}
-Some texts \autocites[\sects~III.21, IX.62 p.~385]{burke1985_r1987}[\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994} also make the choice \enquote{$x^{\mu}\,\se{x^{\nu}} - x^{\nu}\,\se{x^{\mu}}$}, but note that this in general may be dimensionally inconsistent.
+See the brief remark in \cites[\sect~2.1.3 p.~160]{dixon1979b} for this particular, antisymmetrized, choice. Some texts \autocites[\sects~III.21, IX.62 p.~385]{burke1985_r1987}[\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994} also make the choice \enquote{$x^{\mu}\,\se{x^{\nu}} - x^{\nu}\,\se{x^{\mu}}$}, but note that this in general may be dimensionally inconsistent.
 
 Typically it is the first choice of vector that leads to the traditional angular momentum, is a similar way as discussed above for mmomentum.
 
@@ -2659,14 +2659,14 @@ Also,
 \end{equation}
 
 \begin{align}
-  \label{eq:div_e}
+  \label{eq:div_e_Newt}
   \de_{t}e + \de_{i}q^{i} &=
   -e\,2\frac{g}{c^{2}} v(t)
   +q^{z}\, \frac{g}{c^{2}}
   +p_{j}\, \Bigl(g - 2\frac{g}{c^{2}}\,v(t)^{2} - \dot{v}(t)\Bigr)
   +\pi\i{^{z}_{z}}\, \frac{g}{c^{2}} v(t)
   \\
-  \label{eq:div_p}
+  \label{eq:div_p_Newt}
   \de_{t}p_{z} +  \de_{i}\pi\i{^{i}_{z}} &=
   e\, \frac{g}{c^{2}}
   % +q^{i}\,\varGamma^{t}_{ij}

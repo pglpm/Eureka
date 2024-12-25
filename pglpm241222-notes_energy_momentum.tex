@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-25T22:59:55+0100
+%% Last-Updated: 2024-12-25T23:11:07+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -919,10 +919,10 @@ Western Norway University of Applied Sciences%
 \newcommand*{\ttte}[1]{\bm{e}^{3}{#1}}
 \newcommand*{\tttte}[1]{\bm{e}^{4}{#1}}
 %
-\newcommand*{\ti}[1]{\di\varOmega_{#1}}
-\newcommand*{\tti}[1]{\di^{2}\varOmega_{#1}}
-\newcommand*{\ttti}[1]{\di^{3}\varOmega_{#1}}
-\newcommand*{\tttti}[1]{\di^{4}\varOmega_{#1}}
+\newcommand*{\ti}[1]{\di X_{#1}}
+\newcommand*{\tti}[1]{\di^{2}X_{#1}}
+\newcommand*{\ttti}[1]{\di^{3}X_{#1}}
+\newcommand*{\tttti}[1]{\di^{4}X_{#1}}
 %
 \newcommand*{\yg}{\mathte{g}}
 \newcommand*{\ygg}[1][]{\overset{#1}{\bm{g}}{}}
@@ -1086,7 +1086,7 @@ where $g$ is the determinant of the metric $\yg$.
 The component $\yT\i{^{\mu}_{\nu}}$ expresses, roughly speaking, the flow of $x^{\nu}$-momentum \emph{per unit coordinates}, across a volume (hypersurface in spacetime) of constant $x^{\mu}$. Again the \enquote{roughly speaking} will be made precise soon.
 
 
-In the expressions above, $\vi{x^{\mu}}$ are the differentials of the coordinates $x^{mu}$ and form a basis for covector fields, and $\ve{\mu}$ are the dual vectors and form a basis for vector fields. The $\ttti{\mu}$ are volume forms defined as follows:
+In the expressions above, $\vi{x^{\mu}}$ are the differentials of the coordinates $x^{mu}$ and form a basis for covector fields, and $\ve{\mu}$ are the dual vectors and form a basis for vector fields. The $\ttti{\mu}$ are volume forms defined as follows:\autocites[notation similar to][\sect~2 p.~371]{gotayetal1992}
 \begin{equation}
   \label{eq:vol_elements}
   \begin{gathered}
@@ -1180,9 +1180,9 @@ Another natural choice are the vectors above, but appropriately normalized:
   \frac{c}{\sqrt{\abs{g_{tt}}}}\ve{t} \qquad
   \frac{1}{\sqrt{\abs{g_{xx}}}}\ve{x} \qquad
   \frac{1}{\sqrt{\abs{g_{yy}}}}\ve{y} \qquad
-  \frac{1}{\sqrt{\abs{g_{zz}}}}\ve{z} \ .
+  \frac{1}{\sqrt{\abs{g_{zz}}}}\ve{z} \ ,
 \end{equation}
-Normalizing them makes sense in that the displacements represented by these vectors are in terms of unit physical time and unit physical length.
+because $\ve{t} \cdot \yg \cdot \ve{t} = g_{tt}$ and so on. Normalizing them makes sense in that the displacements represented by these vectors are in terms of unit physical time and unit physical length.
 
 Two other natural choices are the vectors obtained from the basis covectors:
 \begin{equation}

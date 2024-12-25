@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-25T22:42:02+0100
+%% Last-Updated: 2024-12-25T22:56:49+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1202,7 +1202,8 @@ In low-curvature regions typical of the Newtonian approximation, and with approx
   \yTT \cdot \ve{x} \approx
  \tfrac{1}{\sqrt{\abs{g_{xx}}}} \, \yTT \cdot \ve{x} \approx
  \yTT \cdot \yg^{-1} \cdot\vi{x}
- \defs \yP_{x} \ ,
+\approx \yT\i{^{\mu}_{x}} \, \ttti{\mu}
+ \defs \yP_{x}
 \end{equation}
 and similarly for $y$ and $z$.
 
@@ -1213,7 +1214,7 @@ The different choices of \emph{timelike} reference field, however, lead to sligh
     \label{eq:internal_energy_current}
     \yEi \defd \yTT \cdot \yUm
   \end{equation}
-  associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy}. Note that this reference field is unrelated to the coordinates. This is why internal energy is an invariant in the Newtonian approximation and even in the exact case.
+  associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy-mass}. Note that this reference field is unrelated to the coordinates. This is why internal energy is an invariant in the Newtonian approximation and even in the exact case.
 
 \item The energy four-current
   \begin{equation}
@@ -1232,6 +1233,7 @@ The different choices of \emph{timelike} reference field, however, lead to sligh
   \begin{equation}
     \label{eq:internalkineticpotential_energy_current}
     \yEi + \yEk + \yEp \defd  \yTT \cdot \ve{t}
+    \equiv \yT\i{^{\mu}_{t}} \, \ttti{\mu} \ .
   \end{equation}
   associated with the  basis field $\ve{t}$ is represented as the sum of internal, kinetic, and \emph{gravitational potential} energy. Potential gravitational energy is therefore associated with the difference between two reference fields:
   \begin{equation}
@@ -1241,7 +1243,7 @@ The different choices of \emph{timelike} reference field, however, lead to sligh
   \end{equation}
 \end{itemize}
 
-In Schwarzschild isotropic coordinates typical of the barycentric or geocentric celestial reference systems (BCRS, GCRS) \autocites{kaplan2005,soffeletal2003,petitetal2005,soffeletal2013}, the vector field $\ve{t}$ is a Killing vector field; therefore the associated energy $\yEi + \yEk + \yEp$ is conserved, not just balanced; that is, the right side of \eqn~\eqref{eq:balance_V} is zero.
+In Schwarzschild isotropic coordinates typical of the barycentric or geocentric celestial reference systems (BCRS, GCRS) used in astronomy \autocites{kaplan2005,soffeletal2003,petitetal2005,soffeletal2013}, the vector field $\ve{t}$ is a Killing vector field; therefore the associated energy $\yEi + \yEk + \yEp$ is conserved, not just balanced; that is, the right side of \eqn~\eqref{eq:balance_V} is zero.
 
 Thus we see where the arbitrariness in the definition of total energy in Newtonian mechanics comes from: it corresponds to the arbitrariness in choosing a timelike reference field for defining energy.
 

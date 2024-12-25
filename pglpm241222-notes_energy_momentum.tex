@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-25T16:15:54+0100
+%% Last-Updated: 2024-12-25T22:42:02+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -933,7 +933,6 @@ Western Norway University of Applied Sciences%
 % \newcommand*{\vi}{\bar{\mathcal{G}}}
 %
 \newcommand*{\yN}{\bm{\mathcal{N}}}
-\newcommand*{\yP}{\bm{P}}
 \newcommand*{\yQ}{\bm{Q}}
 \newcommand*{\yS}{\mathte{S}}
 \newcommand*{\yTTe}{\mathte{T}}
@@ -942,9 +941,14 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yT}{\mathcal{T}}
 \newcommand*{\yJJ}{\bm{\mathcal{J}}}
 \newcommand*{\yJ}{\mathcal{J}}
+\newcommand*{\yP}{\bm{\mathcal{P}}}
+\newcommand*{\yEi}{\bm{\mathcal{E}}_{\textrm{i}}}
+\newcommand*{\yEk}{\bm{\mathcal{E}}_{\textrm{k}}}
+\newcommand*{\yEp}{\bm{\mathcal{E}}_{\textrm{p}}}
 \newcommand*{\ye}{e}
 \newcommand*{\yt}{\bm{\tau}}
 \newcommand*{\yU}{\bm{U}}
+\newcommand*{\yUm}{\yU_{\textrm{m}}}
 \newcommand*{\yUd}{\bar{\bm{U}}}
 \newcommand*{\yV}{\bm{V}}
 \newcommand*{\yu}{\bm{u}}
@@ -1118,12 +1122,14 @@ where $\Di$ is the covariant exterior derivative. The second is, directly in com
 
 The first equation is often presented as saying that \enquote{the divergence of the energy-momentum tensor is zero}. But we must keep in mind that this \enquote{divergence} does \emph{not} satisfy a Stokes theorem. The fundamental problem underlying this is that \emph{the energy-momentum tensor cannot be integrated over a spacetime region}, be it four- or three-dimensional. So it doesn't make sense to speak of the \enquote{total} energy-momentum in a region. The same is true for the divergence of the energy-momentum tensor. This is a basic point in differential geometry: tensors at different points cannot be compared, added, and so on, in any standard way; there are different inequivalent ways to realize such comparisons and sums.
 
-By means of the energy-momentum tensor, however, we can define energy and momenta that satisfy particular balance laws, thanks to equation~\eqref{eq:div_EMt}. What's important to keep in mind is that in general \emph{there is no unique, canonical definition} of such energy and momentum. The energy and momentum used in Newtonian mechanics are just particular choices, related to the approximations involved in Newtonian mechanics.
+Then how come that we usually speak of the total energy or momentum in a region, and of their fluxes through surfaces?
+
+We shall now see how the energy-momentum tensor can be used to define energy and momenta that satisfy particular balance laws, thanks to equations~\eqref{eq:div_EMt}--\eqref{eq:sym_EMt}. The definition, however, depends on extra fields; so it's important to keep in mind is that \emph{in general there is no unique, canonical definition} of such energy and momentum. The energy and momentum used in Newtonian mechanics are just particular choices, related to the approximations involved in Newtonian mechanics.
 
 \subsection{Definitions of energy and momentum}
 \label{sec:def_energy_momentum}
 
-In general we can choose a non-zero vector field $\yV$ over a four-dimensional spacetime region, and construct the associated 4-current
+We can choose a non-zero vector field $\yV$ over a four-dimensional spacetime region, which we shall call \emph{reference field}, and construct an associated 4-current
 \begin{equation}
   \label{eq:current_V}
 \yJJ \defd    \yTT \cdot \yV
@@ -1131,44 +1137,44 @@ In general we can choose a non-zero vector field $\yV$ over a four-dimensional s
   \yJ\i{^{\mu}} \, \ttti{\mu} =
   (\yT\i{^{\mu}_{\alpha}} V^{\alpha}) \, \ttti{\mu} \ .
 \end{equation}
-This current is a 3-covector, and as such it can be integrated over any three-dimensional region of spacetime. What's more, thanks to \eqns~\eqref{eq:div_EMt} and~\eqref{eq:sym_EMt} this current satisfies the following balance law:
+This current is a 3-covector, so it can be integrated over any three-dimensional region of spacetime. What's more, thanks to \eqns~\eqref{eq:div_EMt} and~\eqref{eq:sym_EMt} this current satisfies the following balance law:
 \begin{equation}
   \label{eq:balance_V}
   \di\yJJ =
   \tfrac12 \tr\bigl(\yTTe \cdot \Li_{\yV}\yg \bigr)
   \,\tfrac{\dg}{c} \tttti{} \ .
 \end{equation}
-Stokes's theorem holds for this current. For any four-dimensional region $R$ where $\yV$ is defined,
+Stokes's theorem holds for this current: for any four-dimensional region $R$ where $\yV$ is defined,
 \begin{equation}
   \label{eq:Stokes_V}
   \begin{aligned}
     \int_{\de R} \yJJ &= \int_{R} \di\yJJ
     \\
     &=  \int_{R}\tfrac12 \tr\bigl(\yTTe \cdot \Li_{\yV}\yg \bigr)
-  \,\tfrac{\dg}{c} \tttti{}
+  \,\tfrac{\dg}{c} \tttti{} \ .
   \end{aligned}
 \end{equation}
-If $\yV$ is a Killing vector in the spacetime region, so that $\Li_{\yV}\yg = 0$ there, then the current $\yJJ$ is conserved there.
+If the reference field $\yV$ is a Killing vector in the spacetime region, so that $\Li_{\yV}\yg = 0$ there, then the current $\yJJ$ is conserved there.
 
-The ten equations~\eqref{eq:div_EMt}--\eqref{eq:sym_EMt} satisfied by the energy-momentum tensor can be alternatively formulated as balance laws satisfied by ten currents associated to ten independent vector fields like $\yV$ above. This is how the balance of energy, of the three components of  momentum, of three components of angular momentum, and of three components of boost-momentum come about.
+The ten equations~\eqref{eq:div_EMt}--\eqref{eq:sym_EMt} satisfied by the energy-momentum tensor can be alternatively formulated as balance laws satisfied by ten currents associated to ten independent reference fields. This is how the balance of energy, of the three components of  momentum, of three components of angular momentum, and of three components of boost-momentum come about.
 
-We speak of energy for the 4-current associated with a timelike vector field. We speak of three components of momentum for the 4-currents associated with three spacelike vector fields. This view of energy and momentum as defined with respect to \enquote{reference vector fields} encompasses other common points of view, especially about energy. An example is the virtual-work point of view: the vector $\yV$ in this case represents a field of virtual displacements. Another clear example is the point of view connected with symmetries and Noether's theorem.
+We speak of energy for the 4-current associated with a timelike reference field. We speak of three components of momentum for the 4-currents associated with three spacelike reference fields. This view of energy and momentum as defined with respect to \enquote{reference vector fields} encompasses other common points of view, especially about energy. An example is the virtual-work point of view: the vector $\yV$ in this case represents a field of virtual displacements. Another clear example is the point of view connected with symmetries and Noether's theorem.
 
 
-Clearly we have infinite choices of vector fields to associate energy and momentum with. We could also define currents that are somehow hybrids of energy and momentum, or \enquote{momentum} whose components don't really form a vector. How to choose such vector fields?
+Clearly we have infinite choices of vector fields to associate energy and momentum with. We could also define currents that are somehow hybrids of energy and momentum, or \enquote{momentum} whose components don't really form a vector. How to choose such reference fields?
 
 \medskip
 
-Suppose we have a coordinate system $(t,x,y,z)$, with timelike $t$ and spacelike $x,y,z$. Then there are several natural choices of vector fields with which we can associate 4-currents in the manner above.
+Suppose we have a coordinate system $(t,x,y,z)$, with timelike $t$ and spacelike $x,y,z$. Then there are several natural choices of reference fields with which we can associate 4-currents in the manner above.
 
-One choice is the basis vectors
+One choice are the basis vector fields
 \begin{equation}
   \label{eq:choice_bvectors}
-  \ve{t} \quad \ve{x} \qquad \ve{y} \qquad \ve{z} \ ,
+  \ve{t} \qquad \ve{x} \qquad \ve{y} \qquad \ve{z} \ ,
 \end{equation}
-energy being associated with the first, and momentum with the last three. For spacelike coordinates that have angular dimension, the associated momentum has the character of an angular momentum.
+energy being associated with the first, and momentum with the last three. For spacelike coordinates that have angular dimension, the associated momentum has the character of an angular momentum. Note that these vector fields may not be orthonormal.
 
-Another natural choice consists of the vectors above, but appropriately normalized:
+Another natural choice are the vectors above, but appropriately normalized:
 \begin{equation}
   \label{eq:choice_norm_bvectors}
   \frac{c}{\sqrt{\abs{g_{tt}}}}\ve{t} \qquad
@@ -1178,14 +1184,66 @@ Another natural choice consists of the vectors above, but appropriately normaliz
 \end{equation}
 Normalizing them makes sense in that the displacements represented by these vectors are in terms of unit physical time and unit physical length.
 
-Another natural choice are the vectors obtained from the basis covectors:
+Two other natural choices are the vectors obtained from the basis covectors:
 \begin{equation}
   \label{eq:choice_bcovectors}
   c\, \yg^{-1} \cdot \vi{t} \qquad
   \yg^{-1} \cdot \vi{x} \qquad
   \yg^{-1} \cdot \vi{y} \qquad
-  \yg^{-1} \cdot \vi{z} \ .
+  \yg^{-1} \cdot \vi{z} \ ,
 \end{equation}
+as well as their normalized counterparts analogous to~\eqref{eq:choice_norm_bvectors}.
+
+Further natural choices of reference fields are possible, unrelated to the coordinate system. One may choose, for instance, Killing vector fields. Or one may choose vectors fields which are orthonormal to one another, a so-called tetrad field. In the presence of matter there is a four-velocity field $\yUm$, and we can choose this timelike field as the reference one to associate an energy with.
+
+In low-curvature regions typical of the Newtonian approximation, and with approximately inertial coordinates, it turns out that all choices above for the \emph{spacelike} reference fields lead to approximately the same three currents. This is why there seems to be a unique definition of momentum, and why we can consider the $x$-, $y$-, $z$-momenta as components of a vector:
+\begin{equation}
+  \label{eq:xmomentum_current}
+  \yTT \cdot \ve{x} \approx
+ \tfrac{1}{\sqrt{\abs{g_{xx}}}} \, \yTT \cdot \ve{x} \approx
+ \yTT \cdot \yg^{-1} \cdot\vi{x}
+ \defs \yP_{x} \ ,
+\end{equation}
+and similarly for $y$ and $z$.
+
+The different choices of \emph{timelike} reference field, however, lead to slightly different associated currents. This is why there seems to be some freedom in the definition of energy. In particular:
+\begin{itemize}
+\item The energy four-current
+  \begin{equation}
+    \label{eq:internal_energy_current}
+    \yEi \defd \yTT \cdot \yUm
+  \end{equation}
+  associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy}. Note that this reference field is unrelated to the coordinates. This is why internal energy is an invariant in the Newtonian approximation and even in the exact case.
+
+\item The energy four-current
+  \begin{equation}
+    \label{eq:internalkinetic_energy_current}
+    \yEi + \yEk \defd \tfrac{c}{\sqrt{\abs{g_{tt}}}} \, \yTT \cdot \ve{t}
+  \end{equation}
+  associated with the normalized basis field $\frac{c}{\sqrt{\abs{g_{tt}}}}\ve{t}$ is represented as the sum of internal energy above and of \emph{kinetic energy}. Kinetic energy is therefore associated with the difference between the two reference fields above:
+  \begin{equation}
+    \label{eq:kinetic_energy_current}
+    \yEk \defd \yTT \cdot
+    \Bigl(\tfrac{c}{\sqrt{\abs{g_{tt}}}} \ve{t} - \yUm\Bigr) \ .
+  \end{equation}
+  Note that this difference is a spacelike vector field, therefore kinetic energy has something akin to momentum, so to speak.
+
+\item The energy four-current
+  \begin{equation}
+    \label{eq:internalkineticpotential_energy_current}
+    \yEi + \yEk + \yEp \defd  \yTT \cdot \ve{t}
+  \end{equation}
+  associated with the  basis field $\ve{t}$ is represented as the sum of internal, kinetic, and \emph{gravitational potential} energy. Potential gravitational energy is therefore associated with the difference between two reference fields:
+  \begin{equation}
+    \label{eq:gravit_energy_current}
+    \yEp \defd \yTT \cdot
+    \Bigl(1-\tfrac{c}{\sqrt{\abs{g_{tt}}}}\Bigr) \, \ve{t} \ .
+  \end{equation}
+\end{itemize}
+
+In Schwarzschild isotropic coordinates typical of the barycentric or geocentric celestial reference systems (BCRS, GCRS) \autocites{kaplan2005,soffeletal2003,petitetal2005,soffeletal2013}, the vector field $\ve{t}$ is a Killing vector field; therefore the associated energy $\yEi + \yEk + \yEp$ is conserved, not just balanced; that is, the right side of \eqn~\eqref{eq:balance_V} is zero.
+
+Thus we see where the arbitrariness in the definition of total energy in Newtonian mechanics comes from: it corresponds to the arbitrariness in choosing a timelike reference field for defining energy.
 
 
 

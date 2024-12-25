@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-25T14:38:13+0100
+%% Last-Updated: 2024-12-25T16:15:54+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -741,7 +741,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
 %\newcommand*{\nabl}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
-%\DeclareMathOperator{\tr}{tr}%trace
+\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
 %% From TUGboat 18 (1997) 1
 % \renewoperator{\Re}{\mathrm{Re}}{\nolimits}
@@ -936,8 +936,12 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yP}{\bm{P}}
 \newcommand*{\yQ}{\bm{Q}}
 \newcommand*{\yS}{\mathte{S}}
+\newcommand*{\yTTe}{\mathte{T}}
+\newcommand*{\yTe}{T}
 \newcommand*{\yTT}{\bm{\mathcal{T}}}
 \newcommand*{\yT}{\mathcal{T}}
+\newcommand*{\yJJ}{\bm{\mathcal{J}}}
+\newcommand*{\yJ}{\mathcal{J}}
 \newcommand*{\ye}{e}
 \newcommand*{\yt}{\bm{\tau}}
 \newcommand*{\yU}{\bm{U}}
@@ -949,7 +953,6 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yh}{\bm{\eta}}
 \newcommand*{\yphi}{\bm{\phi}}
 \newcommand*{\ypsi}{\bm{\psi}}
-\newcommand*{\yJ}{\bm{J}}
 
 \newcommand*{\yW}{W}
 
@@ -1059,20 +1062,20 @@ The fact that energy, momentum, and their fluxes are components of a simple obje
 
 \medskip
 
-The energy-momentum tensor can be represented in several equivalent ways, differing in their contravariant or covariant character. Here we discuss two: one that is common in textbook, and one that has a more immediate physical meaning and is more often used for numerical computations. The first is by a contra-co-variant tensor
+The energy-momentum tensor can be represented in several equivalent ways, differing in their contravariant or covariant character. Here we discuss two: one that is common in textbook, and one that has a more immediate physical meaning and is more often used for numerical computations. The first is by a contra-contra-variant tensor
 \begin{equation}
   \label{eq:energy-momentum-contraco}
-  T\i{^{\mu}_{\nu}}\,\ve{\mu}\otimes\vi{x^{\nu}}
+  \yTTe = T\i{^{\mu\nu}}\,\ve{\mu}\otimes\ve{\nu}
 \end{equation}
 and the second by a tensor density
 \begin{equation}
   \label{eq:energy-momentum-tdens}
-  \yT\i{^{\mu}_{\nu}}\,\ttti{\mu}\otimes\vi{x^{\nu}}
+  \yTT = \yT\i{^{\mu}_{\nu}}\,\ttti{\mu}\otimes\vi{x^{\nu}}
 \end{equation}
 The components of the two representations are related by
 \begin{equation}
   \label{eq:relation_components_EMt}
-  \yT\i{^{\mu}_{\nu}} = \frac{\dg}{c} \, T\i{^{\mu}_{\nu}}
+  \yT\i{^{\mu}_{\nu}} = \tfrac{\dg}{c} \, T\i{^{\mu\alpha}} \, g_{\alpha\nu}
 \end{equation}
 where $g$ is the determinant of the metric $\yg$.
 
@@ -1115,17 +1118,73 @@ where $\Di$ is the covariant exterior derivative. The second is, directly in com
 
 The first equation is often presented as saying that \enquote{the divergence of the energy-momentum tensor is zero}. But we must keep in mind that this \enquote{divergence} does \emph{not} satisfy a Stokes theorem. The fundamental problem underlying this is that \emph{the energy-momentum tensor cannot be integrated over a spacetime region}, be it four- or three-dimensional. So it doesn't make sense to speak of the \enquote{total} energy-momentum in a region. The same is true for the divergence of the energy-momentum tensor. This is a basic point in differential geometry: tensors at different points cannot be compared, added, and so on, in any standard way; there are different inequivalent ways to realize such comparisons and sums.
 
-By means of the energy-momentum tensor, however, we can define energy and momenta that satisfy particular balance laws, thanks to equation~\eqref{eq:div_EMt}. What's important to keep in mind is that in general \emph{there is no unique, canonical definition} of such energy and momentum. The energy and momentum used in Newtonian mechanics are particular choices that can be made only in special situations.
+By means of the energy-momentum tensor, however, we can define energy and momenta that satisfy particular balance laws, thanks to equation~\eqref{eq:div_EMt}. What's important to keep in mind is that in general \emph{there is no unique, canonical definition} of such energy and momentum. The energy and momentum used in Newtonian mechanics are just particular choices, related to the approximations involved in Newtonian mechanics.
 
 \subsection{Definitions of energy and momentum}
 \label{sec:def_energy_momentum}
 
-In general we can choose a non-zero vector field $\yV$ over a four-dimensional spacetime region, and construct the current
+In general we can choose a non-zero vector field $\yV$ over a four-dimensional spacetime region, and construct the associated 4-current
 \begin{equation}
   \label{eq:current_V}
-    \yTT \cdot \yV
-  \qquad\text{\footnotesize or in components}\quad
-  (\yT\i{^{\mu}_{\alpha}} V^{\alpha}) \, \ttti{\mu}
+\yJJ \defd    \yTT \cdot \yV
+  \qquad\text{\footnotesize in components}\quad
+  \yJ\i{^{\mu}} \, \ttti{\mu} =
+  (\yT\i{^{\mu}_{\alpha}} V^{\alpha}) \, \ttti{\mu} \ .
+\end{equation}
+This current is a 3-covector, and as such it can be integrated over any three-dimensional region of spacetime. What's more, thanks to \eqns~\eqref{eq:div_EMt} and~\eqref{eq:sym_EMt} this current satisfies the following balance law:
+\begin{equation}
+  \label{eq:balance_V}
+  \di\yJJ =
+  \tfrac12 \tr\bigl(\yTTe \cdot \Li_{\yV}\yg \bigr)
+  \,\tfrac{\dg}{c} \tttti{} \ .
+\end{equation}
+Stokes's theorem holds for this current. For any four-dimensional region $R$ where $\yV$ is defined,
+\begin{equation}
+  \label{eq:Stokes_V}
+  \begin{aligned}
+    \int_{\de R} \yJJ &= \int_{R} \di\yJJ
+    \\
+    &=  \int_{R}\tfrac12 \tr\bigl(\yTTe \cdot \Li_{\yV}\yg \bigr)
+  \,\tfrac{\dg}{c} \tttti{}
+  \end{aligned}
+\end{equation}
+If $\yV$ is a Killing vector in the spacetime region, so that $\Li_{\yV}\yg = 0$ there, then the current $\yJJ$ is conserved there.
+
+The ten equations~\eqref{eq:div_EMt}--\eqref{eq:sym_EMt} satisfied by the energy-momentum tensor can be alternatively formulated as balance laws satisfied by ten currents associated to ten independent vector fields like $\yV$ above. This is how the balance of energy, of the three components of  momentum, of three components of angular momentum, and of three components of boost-momentum come about.
+
+We speak of energy for the 4-current associated with a timelike vector field. We speak of three components of momentum for the 4-currents associated with three spacelike vector fields. This view of energy and momentum as defined with respect to \enquote{reference vector fields} encompasses other common points of view, especially about energy. An example is the virtual-work point of view: the vector $\yV$ in this case represents a field of virtual displacements. Another clear example is the point of view connected with symmetries and Noether's theorem.
+
+
+Clearly we have infinite choices of vector fields to associate energy and momentum with. We could also define currents that are somehow hybrids of energy and momentum, or \enquote{momentum} whose components don't really form a vector. How to choose such vector fields?
+
+\medskip
+
+Suppose we have a coordinate system $(t,x,y,z)$, with timelike $t$ and spacelike $x,y,z$. Then there are several natural choices of vector fields with which we can associate 4-currents in the manner above.
+
+One choice is the basis vectors
+\begin{equation}
+  \label{eq:choice_bvectors}
+  \ve{t} \quad \ve{x} \qquad \ve{y} \qquad \ve{z} \ ,
+\end{equation}
+energy being associated with the first, and momentum with the last three. For spacelike coordinates that have angular dimension, the associated momentum has the character of an angular momentum.
+
+Another natural choice consists of the vectors above, but appropriately normalized:
+\begin{equation}
+  \label{eq:choice_norm_bvectors}
+  \frac{c}{\sqrt{\abs{g_{tt}}}}\ve{t} \qquad
+  \frac{1}{\sqrt{\abs{g_{xx}}}}\ve{x} \qquad
+  \frac{1}{\sqrt{\abs{g_{yy}}}}\ve{y} \qquad
+  \frac{1}{\sqrt{\abs{g_{zz}}}}\ve{z} \ .
+\end{equation}
+Normalizing them makes sense in that the displacements represented by these vectors are in terms of unit physical time and unit physical length.
+
+Another natural choice are the vectors obtained from the basis covectors:
+\begin{equation}
+  \label{eq:choice_bcovectors}
+  c\, \yg^{-1} \cdot \vi{t} \qquad
+  \yg^{-1} \cdot \vi{x} \qquad
+  \yg^{-1} \cdot \vi{y} \qquad
+  \yg^{-1} \cdot \vi{z} \ .
 \end{equation}
 
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-22T14:59:53+0100
+%% Last-Updated: 2024-12-25T14:38:13+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -341,7 +341,7 @@ british%
 \renewcommand\sfdefault{uop}
 \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
 \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
-%\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
+\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
 % Upright sans-serif math alphabet
 % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
 % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
@@ -730,8 +730,8 @@ Western Norway University of Applied Sciences%
 % \fi\fi\fi\DiffSpace}
 % \makeatother
 
-% \newcommand*{\Di}{\mathrm{D}}%capital differential
-%\newcommand*{\Li}{\mathrm{L}}%Lie derivative
+\newcommand*{\Di}{\mathrm{D}}%capital differential
+\newcommand*{\Li}{\mathrm{L}}%Lie derivative
 %\newcommand*{\planckc}{\hslash}
 %\newcommand*{\avogn}{N_{\textrm{A}}}
 %\newcommand*{\NN}{\bm{\mathrm{N}}}
@@ -855,37 +855,53 @@ Western Norway University of Applied Sciences%
 
 \newcommand*{\widebar}[1]{{\mkern1.5mu\skew{2}\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}}
 
-% \newcommand{\explanation}[4][t]{%\setlength{\tabcolsep}{-1ex}
-% %\smash{
-% \begin{tabular}[#1]{c}#2\\[0.5\jot]\rule{1pt}{#3}\\#4\end{tabular}}%}
-% \newcommand*{\ptext}[1]{\text{\small #1}}% for propositions
-%\DeclareMathOperator*{\argsup}{arg\,sup}
+\newcommand*{\iT}{^{-\transp}}%transpose
+\newcommand*{\id}{\mathbf{id}}%id matrix
+
+\renewcommand*{\i}{{}\indices}
+%%
+% from https://tex.stackexchange.com/a/424252/97039
+\makeatletter
+\newcommand*{\q}{}% Check if undefined
+\DeclareRobustCommand*{\q}{%
+  \mathord{\mathpalette\bigcdot@{}}% changed mathbin to mathord
+}
+\newcommand*{\bigcdot@scalefactor}{0.7}
+\newcommand*{\bigcdot@widthfactor}{1.5}
+\newcommand*{\bigcdot@}[2]{%
+  % #1: math style
+  % #2: unused
+  \sbox0{$#1\vcenter{}$}% math axis
+  \sbox2{$#1\cdot\m@th$}%
+  \hbox to \bigcdot@widthfactor\wd2{%
+    \hfil
+    \raise\ht0\hbox{%
+      \scalebox{\bigcdot@scalefactor}{%
+        \lower\ht0\hbox{$#1\bullet\m@th$}%
+      }%
+    }%
+    \hfil
+  }%
+}
+\makeatother
+%%
+\newcommand*{\rul}{{\mkern2mu\rule[-0.1ex]{0.75pt}{1.1ex}\mkern2mu}}
+\DeclarePairedDelimiter\mul{\rul}{\rul}%{{\bm{\shortmid}}}
+
 % wedge with superimposed dot
 \newcommand*{\dand}{\mathbin{\mathclap{\mkern12.5mu\bm{\cdot}}\wedge}}
 
-% \newcommand{\explanation}[4][t]{%\setlength{\tabcolsep}{-1ex}
-% %\smash{
-% \begin{tabular}[#1]{c}#2\\[0.5\jot]\rule{1pt}{#3}\\#4\end{tabular}}%}
-% \newcommand*{\ptext}[1]{\text{\small #1}}% for propositions
-%\DeclareMathOperator*{\argsup}{arg\,sup}
-% % \newcommand*{\tw}[2]{\underbracket[0pt][0pt]{#1}_{\scriptscriptstyle #2}}
-% % \newcommand*{\ti}{\tw{\di}}
-% % \newcommand*{\te}{\tw{\de}}
-% % \newcommand*{\tw}[2][\scriptstyle\sim]{\smash[b]{\underset{\mathclap{{}^{#1}}}{#2}}}
-% % \newcommand*{\ti}[1][\scriptstyle\sim]{\tw[#1]{\di}}
-% % \newcommand*{\te}[1][\scriptstyle\sim]{\tw[#1]{\de}}
-% \newcommand*{\da}{^{\dagger}}
 \newcommand*{\ddi}{\bm{\di}}
 
-\newcommand*{\se}[1]{e_{#1}}
-\newcommand*{\sse}[1]{e^{2}_{#1}}
-\newcommand*{\ssse}[1]{e^{3}_{#1}}
-\newcommand*{\sssse}[1]{e^{4}_{#1}}
+\newcommand*{\ve}[1]{\bm{e}_{#1}}
+\newcommand*{\vve}[1]{\bm{e}^{2}_{#1}}
+\newcommand*{\vvve}[1]{\bm{e}^{3}_{#1}}
+\newcommand*{\vvvve}[1]{\bm{e}^{4}_{#1}}
 %
-\newcommand*{\si}[1]{\di{#1}}
-\newcommand*{\ssi}[1]{\di^{2}{#1}}
-\newcommand*{\sssi}[1]{\di^{3}{#1}}
-\newcommand*{\ssssi}[1]{\di^{4}{#1}}
+\newcommand*{\vi}[1]{\di{#1}}
+\newcommand*{\vvi}[1]{\di^{2}{#1}}
+\newcommand*{\vvvi}[1]{\di^{3}{#1}}
+\newcommand*{\vvvvi}[1]{\di^{4}{#1}}
 % %
 % \newcommand*{\te}[1]{\underset{\raisebox{1ex}{$\sim$}}{e}{#1}}
 % \newcommand*{\tte}[1]{\underset{\raisebox{1ex}{$\sim$}}{e}^{2}{#1}}
@@ -898,22 +914,22 @@ Western Norway University of Applied Sciences%
 % \newcommand*{\tttti}[1]{\smash[b]{\underset{\raisebox{1ex}{$\sim$}}{\di}}^{4}_{#1}}
 %
 \newcommand*{\tw}[1]{\tilde{#1}}
-\newcommand*{\te}[1]{e{#1}}
-\newcommand*{\tte}[1]{e^{2}{#1}}
-\newcommand*{\ttte}[1]{e^{3}{#1}}
-\newcommand*{\tttte}[1]{e^{4}{#1}}
+\newcommand*{\te}[1]{\bm{e}{#1}}
+\newcommand*{\tte}[1]{\bm{e}^{2}{#1}}
+\newcommand*{\ttte}[1]{\bm{e}^{3}{#1}}
+\newcommand*{\tttte}[1]{\bm{e}^{4}{#1}}
 %
-\newcommand*{\ti}[1]{\di_{#1}}
-\newcommand*{\tti}[1]{\di^{2}\Sigma_{#1}}
-\newcommand*{\ttti}[1]{\di^{3}\Sigma_{#1}}
-\newcommand*{\tttti}[1]{\di^{4}\Sigma_{#1}}
+\newcommand*{\ti}[1]{\di\varOmega_{#1}}
+\newcommand*{\tti}[1]{\di^{2}\varOmega_{#1}}
+\newcommand*{\ttti}[1]{\di^{3}\varOmega_{#1}}
+\newcommand*{\tttti}[1]{\di^{4}\varOmega_{#1}}
 %
 \newcommand*{\yg}{\mathte{g}}
 \newcommand*{\ygg}[1][]{\overset{#1}{\bm{g}}{}}
-\newcommand*{\dg}{\sqrt{g}}
+\newcommand*{\dg}{\sqrt{\abs{g}}}
 \DeclarePairedDelimiter\nor{\lVert}{\rVert}
-\newcommand*{\ve}{\tfrac{\bm{\sqrt{g}}}{c}}
-\newcommand*{\vi}{\tfrac{c}{\bm{\sqrt{g}}}}
+\newcommand*{\vol}{\tfrac{\bm{\sqrt{g}}}{c}}
+\newcommand*{\ivol}{\tfrac{c}{\bm{\sqrt{g}}}}
 % \newcommand*{\vi}{\bar{\mathcal{G}}}
 %
 \newcommand*{\yN}{\bm{\mathcal{N}}}
@@ -1024,7 +1040,10 @@ Here we show how these questions receive answers from the point of view of gener
 \section{Energy-momentum tensor}
 \label{sec:energy_momentum_tensor}
 
-Energy, momentum, flux of energy, and force, or more generally flux of momentum, are all components of a single object, the \emph{energy-momentum tensor}, also called \enquote*{energy-momentum-stress tensor}, with permutations, or \enquote*{four-stress}. It can be represented by a 4-by-4 matrix. Roughly speaking they can be identified as the following entries in the matrix:
+\subsection{Representation}
+\label{sec:EMt_representation}
+
+Energy, momentum, flux of energy, and force, or more generally flux of momentum, are all components of a single object, the \emph{energy-momentum tensor}, also called \enquote*{energy-momentum-stress tensor}, with permutations, or \enquote*{stress-energy tensor}, or \enquote*{four-stress}, or also \enquote*{mass tensor}. It can be represented by a 4-by-4 matrix. Roughly speaking, the entries in the matrix can be related as follows with energy and momentum:
 \begin{equation}
   \label{eq:energy_momentum_entries}
   \begin{bmatrix}
@@ -1034,14 +1053,84 @@ Energy, momentum, flux of energy, and force, or more generally flux of momentum,
     \rotatebox[origin=c]{45}{\parbox{8em}{\centering\footnotesize force\\ (momentum flux)}}
   \end{bmatrix} \ .
 \end{equation}
-The \enquote{roughly speaking} will be made more precise later.
+The \enquote{roughly speaking} will be made precise soon.
 
-The fact that energy, momentum, and their fluxes are components of a simple object, already gives a partial answer to question~\ref{item:force_energyflux}. We know already in the simpler examples of vectors that their components get mixed in a change of frame. This makes it plausible that forces, for instance, should appear in the energy flux upon a change of frame. Also question~\ref{item:mom_transf} starts to receive an answer. Generally all components of an object are needed to find the new ones in another frame. The three components of momentum are not really a vector by themselves, but are partial components of something larger; this is why they are not enough, by themselves, for finding the momentum components in a new frame. This also hints at the fact that \emph{mass} or something related to it should be one of the additional components.
+The fact that energy, momentum, and their fluxes are components of a simple object, already gives a partial answer to question~\ref{item:force_energyflux}. We know in the simpler examples of vectors that their components get mixed in a change of frame. This makes it plausible that forces, for instance, should appear in the energy flux upon a change of frame. Also question~\ref{item:mom_transf} starts to receive an answer. Generally all components of an object are needed to find the new ones in another frame. The three components of momentum are not really a vector by themselves, but are partial components of something larger; this is why they are not enough, by themselves, for finding the momentum components in a new frame. This also hints at the fact that \emph{mass} or something related to it should be one of the additional components.
 
 \medskip
 
-There are several ways to represent the energy-momentum tensor, with different contravariant and covariant properties.
+The energy-momentum tensor can be represented in several equivalent ways, differing in their contravariant or covariant character. Here we discuss two: one that is common in textbook, and one that has a more immediate physical meaning and is more often used for numerical computations. The first is by a contra-co-variant tensor
+\begin{equation}
+  \label{eq:energy-momentum-contraco}
+  T\i{^{\mu}_{\nu}}\,\ve{\mu}\otimes\vi{x^{\nu}}
+\end{equation}
+and the second by a tensor density
+\begin{equation}
+  \label{eq:energy-momentum-tdens}
+  \yT\i{^{\mu}_{\nu}}\,\ttti{\mu}\otimes\vi{x^{\nu}}
+\end{equation}
+The components of the two representations are related by
+\begin{equation}
+  \label{eq:relation_components_EMt}
+  \yT\i{^{\mu}_{\nu}} = \frac{\dg}{c} \, T\i{^{\mu}_{\nu}}
+\end{equation}
+where $g$ is the determinant of the metric $\yg$.
 
+The component $\yT\i{^{\mu}_{\nu}}$ expresses, roughly speaking, the flow of $x^{\nu}$-momentum \emph{per unit coordinates}, across a volume (hypersurface in spacetime) of constant $x^{\mu}$. Again the \enquote{roughly speaking} will be made precise soon.
+
+
+In the expressions above, $\vi{x^{\mu}}$ are the differentials of the coordinates $x^{mu}$ and form a basis for covector fields, and $\ve{\mu}$ are the dual vectors and form a basis for vector fields. The $\ttti{\mu}$ are volume forms defined as follows:
+\begin{equation}
+  \label{eq:vol_elements}
+  \begin{gathered}
+    \ttti{0} \defd \vi{\tw{x}^{1}} \vi{x^{2}} \vi{x^{3}}
+    \defd \vi{\tw{x}^{1}} \land \vi{x^{2}} \land \vi{x^{3}}
+    \\[2\jot]
+    \ttti{1} \defd -\vi{\tw{x}^{0}} \vi{x^{2}} \vi{x^{3}}
+    \qquad
+    \ttti{2} \defd -\vi{\tw{x}^{0}} \vi{x^{3}} \vi{x^{1}}
+    \qquad
+    \ttti{3} \defd -\vi{\tw{x}^{0}} \vi{x^{1}} \vi{x^{2}}
+  \end{gathered}
+\end{equation}
+that is, they are a basis for 3-covector fields. They can be integrated over three-dimensional regions of spacetime and therefore are the main building block for the definition of the total amount of any quantity in a spatial region, and of the flow of any quantity through a surface during a time lapse. The tilde $\tw{\phantom{1}}$, called an outer-oriented scalar, indicates that an outer orientation is chosen for these 3-covectors, instead of an inner orientation. For instance, the 3-covector $\vi{\tw{x}^{1}} \vi{x^{2}} \vi{x^{3}}$ does not have a screw-sense $x^{1}x^{2}x^{3}$, but an orientation along the complementary direction $x^{0}$, towards positive $x^{0}$. This complementary orientation is indicated by the subscript on \enquote{$\ttti{}$}. Compare with the similar notation in   \cites[\chap~2 Box~5.4]{misneretal1970_r2017}, who however define the volume forms slightly differently; or in \cites[\sect~4.11]{weinberg1972}.
+
+\subsection{Equations for the energy-momentum tensor}
+\label{sec:EMt_equations}
+
+The energy-momentum tensor satisfies two fundamental equations or constraints, as a consequence of the Einstein equations. The first is
+\begin{equation}
+  \label{eq:div_EMt}
+  \Di\yTT = 0
+  \qquad\text{\footnotesize or in components}\quad
+  \de_{\mu}\yT\i{^{\mu}_{\alpha}}
+  - \yT\i{^{\mu}_{\nu}} \, \varGamma^{\nu}_{\mu\alpha}
+  = 0
+\end{equation}
+where $\Di$ is the covariant exterior derivative. The second is, directly in compoents,
+\begin{equation}
+  \label{eq:sym_EMt}
+  \yT\i{^{\mu}_{\alpha}} \, g^{\alpha\nu} = \yT\i{^{\nu}_{\alpha}} \, g^{\alpha\mu} \ .
+\end{equation}
+
+The first equation is often presented as saying that \enquote{the divergence of the energy-momentum tensor is zero}. But we must keep in mind that this \enquote{divergence} does \emph{not} satisfy a Stokes theorem. The fundamental problem underlying this is that \emph{the energy-momentum tensor cannot be integrated over a spacetime region}, be it four- or three-dimensional. So it doesn't make sense to speak of the \enquote{total} energy-momentum in a region. The same is true for the divergence of the energy-momentum tensor. This is a basic point in differential geometry: tensors at different points cannot be compared, added, and so on, in any standard way; there are different inequivalent ways to realize such comparisons and sums.
+
+By means of the energy-momentum tensor, however, we can define energy and momenta that satisfy particular balance laws, thanks to equation~\eqref{eq:div_EMt}. What's important to keep in mind is that in general \emph{there is no unique, canonical definition} of such energy and momentum. The energy and momentum used in Newtonian mechanics are particular choices that can be made only in special situations.
+
+\subsection{Definitions of energy and momentum}
+\label{sec:def_energy_momentum}
+
+In general we can choose a non-zero vector field $\yV$ over a four-dimensional spacetime region, and construct the current
+\begin{equation}
+  \label{eq:current_V}
+    \yTT \cdot \yV
+  \qquad\text{\footnotesize or in components}\quad
+  (\yT\i{^{\mu}_{\alpha}} V^{\alpha}) \, \ttti{\mu}
+\end{equation}
+
+
+
+% ***ref to MTW p.222
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

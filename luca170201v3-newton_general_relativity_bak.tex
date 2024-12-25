@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-22T22:20:46+0100
+%% Last-Updated: 2020-12-06T21:50:54+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -18,14 +18,14 @@ british%
 ]{memoir}
 \newcommand*{\updated}{\today}
 \newcommand*{\firstdraft}{16 October 2016}
-\newcommand*{\firstpublished}{***}
-\newcommand*{\propertitle}{Force, inertia, metric\\ in Newtonian relativity and in general relativity%\\{\large ***}%
+\newcommand*{\firstpublished}{16 October 2016}
+\newcommand*{\propertitle}{Kinematics and dynamics\\ in Newtonian relativity and in general relativity%\\{\large ***}%
 }
 \newcommand*{\pdftitle}{\propertitle}
-\newcommand*{\headtitle}{Force, inertia, metric in Newtonian and general relativity}
+\newcommand*{\headtitle}{Kinematics and dynamics in Newtonian and general relativity}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
-\newcommand*{\reporthead}{}% Report number
+\newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/rvcxs}{\textsc{doi}:10.31219/osf.io/rvcxs}\fi}% Report number
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Calls to packages (uncomment as needed)
@@ -78,14 +78,14 @@ british%
 \usepackage{amsmath}
 
 \usepackage{mathtools}
-\addtolength{\jot}{\jot} % increase spacing in multiline formulae
+%\addtolength{\jot}{\jot} % increase spacing in multiline formulae
 \setlength{\multlinegap}{0pt}
 
 %\usepackage{empheq}% automatically calls amsmath and mathtools
-\newcommand*{\widefbox}[1]{\fbox{\hspace{1em}#1\hspace{1em}}}
+%\newcommand*{\widefbox}[1]{\fbox{\hspace{1em}#1\hspace{1em}}}
 
+%%%% empheq above seems more versatile than these:
 %\usepackage{fancybox}
-
 %\usepackage{framed}
 
 % \usepackage[misc]{ifsym} % for dice
@@ -95,18 +95,31 @@ british%
 
 \usepackage{amsxtra}
 
-\usepackage[main=british,french,italian,german,swedish,latin,esperanto]{babel}\selectlanguage{british}
-\newcommand*{\langfrench}{\foreignlanguage{french}}
-\newcommand*{\langgerman}{\foreignlanguage{german}}
-\newcommand*{\langitalian}{\foreignlanguage{italian}}
-\newcommand*{\langswedish}{\foreignlanguage{swedish}}
-\newcommand*{\langlatin}{\foreignlanguage{latin}}
-\newcommand*{\langnohyph}{\foreignlanguage{nohyphenation}}
+\usepackage[main=british]{babel}\selectlanguage{british}
+%\newcommand*{\langnohyph}{\foreignlanguage{nohyphenation}}
+\newcommand{\langnohyph}[1]{\begin{hyphenrules}{nohyphenation}#1\end{hyphenrules}}
 
 \usepackage[autostyle=false,autopunct=false,english=british]{csquotes}
-\setquotestyle{british}
+\setquotestyle{american}
+\newcommand*{\defquote}[1]{`\,#1\,'}
+
+% \makeatletter
+% \renewenvironment{quotation}%
+%                {\list{}{\listparindent 1.5em%
+%                         \itemindent    \listparindent
+%                         \rightmargin=1em   \leftmargin=1em
+%                         \parsep        \z@ \@plus\p@}%
+%                 \item[]\footnotesize}%
+%                 {\endlist}
+% \makeatother                
+
 
 \usepackage{amsthm}
+%% from https://tex.stackexchange.com/a/404680/97039
+\makeatletter
+\def\@endtheorem{\endtrivlist}
+\makeatother
+
 \newcommand*{\QED}{\textsc{q.e.d.}}
 \renewcommand*{\qedsymbol}{\QED}
 \theoremstyle{remark}
@@ -120,6 +133,7 @@ british%
 \SetEnumitemKey{para}{itemindent=\parindent,leftmargin=0pt,listparindent=\parindent,parsep=0pt,itemsep=\topsep}
 % \begin{asparaenum} = \begin{enumerate}[para]
 % \begin{inparaenum} = \begin{enumerate*}
+\setlist{itemsep=0pt,topsep=\parsep}
 \setlist[enumerate,2]{label=\alph*.}
 \setlist[enumerate]{label=\arabic*.,leftmargin=1.5\parindent}
 \setlist[itemize]{leftmargin=1.5\parindent}
@@ -134,7 +148,10 @@ british%
 
 \usepackage[bigdelims,nosymbolsc%,smallerops % probably arXiv doesn't have it
 ]{newpxmath}
-\linespread{1.083}%\useosf
+%\useosf
+%\linespread{1.083}%
+%\linespread{1.05}% widely used
+\linespread{1.1}% best for text with maths
 %% smaller operators for old version of newpxmath
 \makeatletter
 \def\re@DeclareMathSymbol#1#2#3#4{%
@@ -188,125 +205,7 @@ british%
 \def\prod{\DOTSI\prodop\slimits@}
 \def\coprod{\DOTSI\coprodop\slimits@}
 \makeatother
-% Greek letters not usually given in LaTeX.
-\DeclareMathSymbol{\varpartial}{\mathalpha}{egreeki}{"40}
-\DeclareMathSymbol{\partialup}{\mathalpha}{egreekr}{"40}
-\DeclareMathSymbol{\alpha}{\mathalpha}{egreeki}{"0B}
-\DeclareMathSymbol{\beta}{\mathalpha}{egreeki}{"0C}
-\DeclareMathSymbol{\gamma}{\mathalpha}{egreeki}{"0D}
-\DeclareMathSymbol{\delta}{\mathalpha}{egreeki}{"0E}
-\DeclareMathSymbol{\epsilon}{\mathalpha}{egreeki}{"0F}
-\DeclareMathSymbol{\zeta}{\mathalpha}{egreeki}{"10}
-\DeclareMathSymbol{\eta}{\mathalpha}{egreeki}{"11}
-\DeclareMathSymbol{\theta}{\mathalpha}{egreeki}{"12}
-\DeclareMathSymbol{\iota}{\mathalpha}{egreeki}{"13}
-\DeclareMathSymbol{\kappa}{\mathalpha}{egreeki}{"14}
-\DeclareMathSymbol{\lambda}{\mathalpha}{egreeki}{"15}
-\DeclareMathSymbol{\mu}{\mathalpha}{egreeki}{"16}
-\DeclareMathSymbol{\nu}{\mathalpha}{egreeki}{"17}
-\DeclareMathSymbol{\xi}{\mathalpha}{egreeki}{"18}
-\DeclareMathSymbol{\omicron}{\mathalpha}{egreeki}{"6F}
-\DeclareMathSymbol{\pi}{\mathalpha}{egreeki}{"19}
-\DeclareMathSymbol{\rho}{\mathalpha}{egreeki}{"1A}
-\DeclareMathSymbol{\sigma}{\mathalpha}{egreeki}{"1B}
- \DeclareMathSymbol{\tau}{\mathalpha}{egreeki}{"1C}
-\DeclareMathSymbol{\upsilon}{\mathalpha}{egreeki}{"1D}
-\DeclareMathSymbol{\phi}{\mathalpha}{egreeki}{"1E}
-\DeclareMathSymbol{\chi}{\mathalpha}{egreeki}{"1F}
-\DeclareMathSymbol{\psi}{\mathalpha}{egreeki}{"20}
-\DeclareMathSymbol{\omega}{\mathalpha}{egreeki}{"21}
-\DeclareMathSymbol{\varepsilon}{\mathalpha}{egreeki}{"22}
-\DeclareMathSymbol{\vartheta}{\mathalpha}{egreeki}{"23}
-\DeclareMathSymbol{\varpi}{\mathalpha}{egreeki}{"24}
-\let\varrho\rho 
-\let\varsigma\sigma
- \let\varkappa\kappa
-\DeclareMathSymbol{\varphi}{\mathalpha}{egreeki}{"27}
-%
-\DeclareMathSymbol{\varAlpha}{\mathalpha}{egreeki}{"41}
-\DeclareMathSymbol{\varBeta}{\mathalpha}{egreeki}{"42}
-\DeclareMathSymbol{\varGamma}{\mathalpha}{egreeki}{"00}
-\DeclareMathSymbol{\varDelta}{\mathalpha}{egreeki}{"01}
-\DeclareMathSymbol{\varEpsilon}{\mathalpha}{egreeki}{"45}
-\DeclareMathSymbol{\varZeta}{\mathalpha}{egreeki}{"5A}
-\DeclareMathSymbol{\varEta}{\mathalpha}{egreeki}{"48}
-\DeclareMathSymbol{\varTheta}{\mathalpha}{egreeki}{"02}
- \DeclareMathSymbol{\varIota}{\mathalpha}{egreeki}{"49}
-\DeclareMathSymbol{\varKappa}{\mathalpha}{egreeki}{"4B}
-\DeclareMathSymbol{\varLambda}{\mathalpha}{egreeki}{"03}
-\DeclareMathSymbol{\varMu}{\mathalpha}{egreeki}{"4D}
-\DeclareMathSymbol{\varNu}{\mathalpha}{egreeki}{"4E}
-\DeclareMathSymbol{\varXi}{\mathalpha}{egreeki}{"04}
-\DeclareMathSymbol{\varOmicron}{\mathalpha}{egreeki}{"4F}
-\DeclareMathSymbol{\varPi}{\mathalpha}{egreeki}{"05}
-\DeclareMathSymbol{\varRho}{\mathalpha}{egreeki}{"50}
-\DeclareMathSymbol{\varSigma}{\mathalpha}{egreeki}{"06}
-\DeclareMathSymbol{\varTau}{\mathalpha}{egreeki}{"54}
-\DeclareMathSymbol{\varUpsilon}{\mathalpha}{egreeki}{"07}
-\DeclareMathSymbol{\varPhi}{\mathalpha}{egreeki}{"08}
-\DeclareMathSymbol{\varChi}{\mathalpha}{egreeki}{"58}
-\DeclareMathSymbol{\varPsi}{\mathalpha}{egreeki}{"09}
-\DeclareMathSymbol{\varOmega}{\mathalpha}{egreeki}{"0A} 
-%
-\DeclareMathSymbol{\Alpha}{\mathalpha}{egreekr}{"41}
-\DeclareMathSymbol{\Beta}{\mathalpha}{egreekr}{"42}
-\DeclareMathSymbol{\Gamma}{\mathalpha}{egreekr}{"00}
-\DeclareMathSymbol{\Delta}{\mathalpha}{egreekr}{"01}
-\DeclareMathSymbol{\Epsilon}{\mathalpha}{egreekr}{"45}
-\DeclareMathSymbol{\Zeta}{\mathalpha}{egreekr}{"5A}
-\DeclareMathSymbol{\Eta}{\mathalpha}{egreekr}{"48}
-\DeclareMathSymbol{\Theta}{\mathalpha}{egreekr}{"02}
-\DeclareMathSymbol{\Iota}{\mathalpha}{egreekr}{"49}
-\DeclareMathSymbol{\Kappa}{\mathalpha}{egreekr}{"4B}
-\DeclareMathSymbol{\Lambda}{\mathalpha}{egreekr}{"03}
-\DeclareMathSymbol{\Mu}{\mathalpha}{egreekr}{"4D}
-\DeclareMathSymbol{\Nu}{\mathalpha}{egreekr}{"4E}
-\DeclareMathSymbol{\Xi}{\mathalpha}{egreekr}{"04}
-\DeclareMathSymbol{\Omicron}{\mathalpha}{egreekr}{"4F}
-\DeclareMathSymbol{\Pi}{\mathalpha}{egreekr}{"05}
-\DeclareMathSymbol{\Rho}{\mathalpha}{egreekr}{"50}
-\DeclareMathSymbol{\Sigma}{\mathalpha}{egreekr}{"06}
-\DeclareMathSymbol{\Tau}{\mathalpha}{egreekr}{"54}
-\DeclareMathSymbol{\Upsilon}{\mathalpha}{egreekr}{"07}
-\DeclareMathSymbol{\Phi}{\mathalpha}{egreekr}{"08}
-\DeclareMathSymbol{\Chi}{\mathalpha}{egreekr}{"58}
-\DeclareMathSymbol{\Psi}{\mathalpha}{egreekr}{"09}
-\DeclareMathSymbol{\Omega}{\mathalpha}{egreekr}{"0A}
-%
-\DeclareMathSymbol{\alphaup}{\mathalpha}{egreekr}{"0B}
-\DeclareMathSymbol{\betaup}{\mathalpha}{egreekr}{"0C}
-\DeclareMathSymbol{\gammaup}{\mathalpha}{egreekr}{"0D}
- \DeclareMathSymbol{\deltaup}{\mathalpha}{egreekr}{"0E}
-\DeclareMathSymbol{\epsilonup}{\mathalpha}{egreekr}{"0F}
-\DeclareMathSymbol{\zetaup}{\mathalpha}{egreekr}{"10}
-\DeclareMathSymbol{\etaup}{\mathalpha}{egreekr}{"11}
-\DeclareMathSymbol{\thetaup}{\mathalpha}{egreekr}{"12}
-\DeclareMathSymbol{\iotaup}{\mathalpha}{egreekr}{"13}
-\DeclareMathSymbol{\kappaup}{\mathalpha}{egreekr}{"14}
-\DeclareMathSymbol{\lambdaup}{\mathalpha}{egreekr}{"15}
-\DeclareMathSymbol{\muup}{\mathalpha}{egreekr}{"16}
-\DeclareMathSymbol{\nuup}{\mathalpha}{egreekr}{"17}
-\DeclareMathSymbol{\xiup}{\mathalpha}{egreekr}{"18}
-\DeclareMathSymbol{\omicronup}{\mathalpha}{egreekr}{"6F}
-  \DeclareMathSymbol{\piup}{\mathalpha}{egreekr}{"19}
-\DeclareMathSymbol{\rhoup}{\mathalpha}{egreekr}{"1A}
-\DeclareMathSymbol{\sigmaup}{\mathalpha}{egreekr}{"1B}
-\DeclareMathSymbol{\tauup}{\mathalpha}{egreekr}{"1C}
-\DeclareMathSymbol{\upsilonup}{\mathalpha}{egreekr}{"1D}
-\DeclareMathSymbol{\phiup}{\mathalpha}{egreekr}{"1E}
-\DeclareMathSymbol{\chiup}{\mathalpha}{egreekr}{"1F}
-\DeclareMathSymbol{\psiup}{\mathalpha}{egreekr}{"20}
-\DeclareMathSymbol{\omegaup}{\mathalpha}{egreekr}{"21}
-\DeclareMathSymbol{\varepsilonup}{\mathalpha}{egreekr}{"22}
-\DeclareMathSymbol{\varthetaup}{\mathalpha}{egreekr}{"23}
-\DeclareMathSymbol{\varpiup}{\mathalpha}{egreekr}{"24}
-\let\varrhoup\rhoup 
-\let\varsigmaup\sigmaup
-\let\varkappaup\kappaup
-\DeclareMathSymbol{\varphiup}{\mathalpha}{egreekr}{"27}
-
-
-
+\input{definegreek.tex}% Greek letters not usually given in LaTeX.
 
 %\usepackage%[scaled=0.9]%
 %{classico}%  Optima as sans-serif font
@@ -352,8 +251,8 @@ british%
 \usepackage{microtype}
 
 \usepackage[backend=biber,mcite,%subentry,
-citestyle=authoryear-comp,bibstyle=pglpm_latex/pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=1,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false]{biblatex}
-\DeclareSortingScheme{ny}{\sort{\field{sortname}\field{author}\field{editor}}\sort{\field{year}}}
+citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false]{biblatex}
+\DeclareSortingTemplate{ny}{\sort{\field{sortname}\field{author}\field{editor}}\sort{\field{year}}}
 \iffalse\makeatletter%%% replace parenthesis with brackets
 \newrobustcmd*{\parentexttrack}[1]{%
   \begingroup
@@ -367,22 +266,24 @@ citestyle=authoryear-comp,bibstyle=pglpm_latex/pglpm-authoryear,autopunct=false,
   \let\bibcloseparen=\bibclosebracket}
 \makeatother\fi
 \DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}}
-\renewcommand*{\finalnamedelim}{\addcomma\space}
+\renewcommand*{\finalnamedelim}{\addspace\amp\space}
+%\renewcommand*{\finalnamedelim}{\addcomma\space}
 \setcounter{biburlnumpenalty}{1}
 \setcounter{biburlucpenalty}{0}
 \setcounter{biburllcpenalty}{1}
-\DeclareDelimFormat{multicitedelim}{\addsemicolon\space}
-\DeclareDelimFormat{compcitedelim}{\addsemicolon\space}
-\DeclareDelimFormat{postnotedelim}{\space}
+\DeclareDelimFormat{multicitedelim}{\addsemicolon\addspace\space}
+\DeclareDelimFormat{compcitedelim}{\addsemicolon\addspace\space}
+\DeclareDelimFormat{postnotedelim}{\addspace}
 \ifarxiv\else\addbibresource{portamanabib.bib}\fi
 \renewcommand{\bibfont}{\footnotesize}
 %\appto{\citesetup}{\footnotesize}% smaller font for citations
 \defbibheading{bibliography}[\bibname]{\section*{#1}\addcontentsline{toc}{section}{#1}%\markboth{#1}{#1}
 }
-\newcommand*{\citep}{\footcites}%{\parencites}
+\newcommand*{\citep}{\footcites}
 \newcommand*{\citey}{\footcites}%{\parencites*}
+\newcommand*{\ibid}{\unspace\addtocounter{footnote}{-1}\footnotemark{}}
 %\renewcommand*{\cite}{\parencite}
-\renewcommand*{\cites}{\parencites}
+%\renewcommand*{\cites}{\parencites}
 \providecommand{\href}[2]{#2}
 \providecommand{\eprint}[2]{\texttt{\href{#1}{#2}}}
 \newcommand*{\amp}{\&}
@@ -395,37 +296,26 @@ citestyle=authoryear-comp,bibstyle=pglpm_latex/pglpm-authoryear,autopunct=false,
 \newcommand*{\subtitleproc}[1]{}
 \newcommand*{\chapb}{ch.}
 %
-% \def\arxivp{}
-% \def\mparcp{}
-% \def\philscip{}
-% \def\biorxivp{}
-% \newcommand*{\arxivsi}{\texttt{arXiv} eprints available at \url{http://arxiv.org/}.\\}
-% \newcommand*{\mparcsi}{\texttt{mp\_arc} eprints available at \url{http://www.ma.utexas.edu/mp_arc/}.\\}
-% \newcommand*{\philscisi}{\texttt{philsci} eprints available at \url{http://philsci-archive.pitt.edu/}.\\}
-% \newcommand*{\biorxivsi}{\texttt{bioRxiv} eprints available at \url{http://biorxiv.org/}.\\}
 \newcommand*{\arxiveprint}[1]{%
-arXiv \doi{10.48550/arXiv.#1}%
+\texttt{arXiv:\urlalt{https://arxiv.org/abs/#1}{#1}}%
 }
 \newcommand*{\mparceprint}[1]{%
-\href{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{mp_arc:\allowbreak\nolinkurl{#1}}%
+\texttt{mp\_arc:\urlalt{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{#1}}%
 }
 \newcommand*{\haleprint}[1]{%
-\href{https://hal.archives-ouvertes.fr/#1}{\textsc{hal}:\allowbreak\nolinkurl{#1}}%
+\texttt{HAL:\urlalt{https://hal.archives-ouvertes.fr/#1}{#1}}%
 }
 \newcommand*{\philscieprint}[1]{%
-\href{http://philsci-archive.pitt.edu/archive/#1}{PhilSci:\allowbreak\nolinkurl{#1}}%
+\texttt{PhilSci:\urlalt{http://philsci-archive.pitt.edu/archive/#1}{#1}}%
 }
 \newcommand*{\doi}[1]{%
-\href{https://doi.org/#1}{\textsc{doi}:\allowbreak\nolinkurl{#1}}%
+\href{https://doi.org/#1}{\textsc{doi}:\texttt{#1}}%
 }
 \newcommand*{\biorxiveprint}[1]{%
 bioRxiv \doi{10.1101/#1}%
 }
 \newcommand*{\osfeprint}[1]{%
 Open Science Framework \doi{10.31219/osf.io/#1}%
-}
-\newcommand*{\osfproj}[1]{%
-Open Science Framework \doi{10.17605/osf.io/#1}%
 }
 
 \usepackage{graphicx}
@@ -434,7 +324,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 
 %\usepackage{tikz-cd}
 
-\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false,pdfencoding=unicode,psdextra]{hyperref}
 
 \usepackage[depth=4]{bookmark}
 \hypersetup{colorlinks=true,bookmarksnumbered,pdfborder={0 0 0.25},citebordercolor={0.2667 0.4667 0.6667},citecolor=mypurpleblue,linkbordercolor={0.6667 0.2 0.4667},linkcolor=myredpurple,urlbordercolor={0.1333 0.5333 0.2},urlcolor=mygreen,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
@@ -480,10 +370,10 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \setheaderspaces{*}{2\onelineskip}{*}
 \setmarginnotes{2ex}{10mm}{0pt}
 \checkandfixthelayout[nearest]
-\fixpdflayout
 %%% End layout
 %% this fixes missing white spaces
-\pdfmapline{+dummy-space <dummy-space.pfb}\pdfinterwordspaceon%
+%\pdfmapline{+dummy-space <dummy-space.pfb}
+\pdfinterwordspaceon%
 
 %%% Sectioning
 \newcommand*{\asudedication}[1]{%
@@ -545,7 +435,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \else
 \makeoddfoot{plain}{}{\makebox[0pt]{\thepage}}{}
 \fi%typodisclaimtrue
-\makeoddhead{plain}{}{}{\footnotesize\reporthead}
+\makeoddhead{plain}{\scriptsize\reporthead}{}{}
 % \copypagestyle{manainitial}{plain}
 % \makeheadrule{manainitial}{\headwidth}{0.5\normalrulethickness}
 % \makeoddhead{manainitial}{%
@@ -557,15 +447,15 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \pagestyle{manaart}
 
 \setlength{\droptitle}{-3.9\onelineskip}
-\pretitle{\begin{center}\Large\sffamily%
+\pretitle{\begin{center}\LARGE\sffamily%
 \bfseries}
 \posttitle{\bigskip\end{center}}
 
-\makeatletter\newcommand*{\atf}{\includegraphics[%trim=1pt 1pt 0pt 0pt,
-totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
+\makeatletter\newcommand*{\atf}{\includegraphics[totalheight=\heightof{@}]{atblack.png}}\makeatother
 \providecommand{\affiliation}[1]{\textsl{\textsf{\footnotesize #1}}}
 \providecommand{\epost}[1]{\texttt{\footnotesize\textless#1\textgreater}}
 \providecommand{\email}[2]{\href{mailto:#1ZZ@#2 ((remove ZZ))}{#1\protect\atf#2}}
+%\providecommand{\email}[2]{\href{mailto:#1@#2}{#1@#2}}
 
 \preauthor{\vspace{-0.5\baselineskip}\begin{center}
 \normalsize\sffamily%
@@ -594,7 +484,8 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 \displaywidowpenalty=1602
 \raggedbottom
 
-\paragraphfootnotes\setlength{\footmarkwidth}{0em}
+\paragraphfootnotes
+\setlength{\footmarkwidth}{2ex}
 % \threecolumnfootnotes
 %\setlength{\footmarksep}{0em}
 \footmarkstyle{\textsuperscript{%\color{myred}
@@ -615,15 +506,19 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 % {\protect\centering ***\\%
 % \footnotesize\epost{\email{***}{***}}}%
 % \hspace*{\stretch{1}}%
-\parbox{0.5\linewidth}%\makebox[0pt][c]%
-{\protect\centering P.G.L.  Porta Mana\\%
-\footnotesize\epost{\email{piero.mana}{ntnu.no}}}%
+\parbox{1\linewidth}%\makebox[0pt][c]%
+{\protect\centering P.G.L.  Porta Mana  \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}\\%
+\footnotesize Western Norway University of Applied Sciences\quad\epost{\email{pgl}{portamana.org}}}%
+%% uncomment if additional authors present
+% \hspace*{\stretch{1}}%
+% \parbox{0.5\linewidth}%\makebox[0pt][c]%
+% {\protect\centering ***\\%
+% \footnotesize\epost{\email{***}{***}}}%
 \hspace*{\stretch{1}}%
-%\quad\href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}\textsc{orcid}:0000-0002-6070-0784}%
 }
 
 %\date{Draft of \today\ (first drafted \firstdraft)}
-\date{Draft of \firstdraft; updated \updated}
+\date{\firstpublished; updated \updated}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Macros @@@
@@ -695,12 +590,19 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 \newcommand*{\pf}{\mathrm{p}}%probability
 \newcommand*{\p}{\mathrm{P}}%probability
 %\newcommand*{\E}{\mathrm{E}}
-\renewcommand*{\|}{\nonscript\,\vert\nonscript\;\mathopen{}}
+%\renewcommand*{\|}{\nonscript\,\vert\nonscript\;\mathopen{}}
+\renewcommand*{\|}[1][]{\nonscript\,#1\vert\nonscript\;\mathopen{}}
 %\DeclarePairedDelimiterX{\cond}[2]{(}{)}{#1\nonscript\,\delimsize\vert\nonscript\;\mathopen{}#2}
 %\DeclarePairedDelimiterX{\condt}[2]{[}{]}{#1\nonscript\,\delimsize\vert\nonscript\;\mathopen{}#2}
 %\DeclarePairedDelimiterX{\conds}[2]{\{}{\}}{#1\nonscript\,\delimsize\vert\nonscript\;\mathopen{}#2}
 %\newcommand*{\+}{\lor}
 %\renewcommand{\*}{\land}
+%% symbol = for equality statements within probabilities
+%% from https://tex.stackexchange.com/a/484142/97039
+%\newcommand*{\eq}{\mathrel{\!=\!}}
+%\let\texteq\=
+%\renewcommand*{\=}{\TextOrMath\texteq\eq}
+%%
 \newcommand*{\sect}{\S}% Sect.~
 \newcommand*{\sects}{\S\S}% Sect.~
 \newcommand*{\chap}{ch.}%
@@ -713,10 +615,10 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 \newcommand*{\fig}{fig.}%
 \newcommand*{\figs}{figs}%
 \newcommand*{\vs}{{vs}}
+\newcommand*{\eg}{{e.g.}}
 \newcommand*{\etc}{{etc.}}
 \newcommand*{\ie}{{i.e.}}
 %\newcommand*{\ca}{{c.}}
-\newcommand*{\eg}{{e.g.}}
 \newcommand*{\foll}{{ff.}}
 %\newcommand*{\viz}{{viz}}
 \newcommand*{\cf}{{cf.}}
@@ -743,7 +645,7 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 %\newcommand*{\sint}{\begingroup\textstyle\int\endgroup}
 %\newcommand*{\sland}{\mathop{\textstyle\bigwedge}}
 %\newcommand*{\slor}{\mathop{\textstyle\bigvee}}
-\newcommand*{\T}{^\intercal}%transpose
+\newcommand*{\T}{^\transp}%transpose
 %%\newcommand*{\QEM}%{\textnormal{$\Box$}}%{\ding{167}}
 %\newcommand*{\qem}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
 %\quad\hbox{\QEM}}
@@ -753,10 +655,13 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \definecolor{notecolour}{RGB}{68,170,153}
 \newcommand*{\puzzle}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{225}}}
+%\newcommand*{\cogs}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{51}}}
+\newcommand*{\wrench}{{\fontencoding{U}\fontfamily{fontawesomethree}\selectfont\symbol{114}}}
 %\newcommand*{\puzzle}{\maltese}
-\newcommand{\mynote}[1]{ {\color{notecolour}\puzzle\ #1}}
+\newcommand{\mynote}[1]{ {\color{notecolour}\wrench\ #1}}
 \newcommand*{\widebar}[1]{{\mkern1.5mu\skew{2}\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}}
-
+\newcommand*{\psect}{{\footnotesize\puzzle}}% Sect.~
+\newcommand*{\psects}{\puzzle}% Sect.~
 % \newcommand{\explanation}[4][t]{%\setlength{\tabcolsep}{-1ex}
 % %\smash{
 % \begin{tabular}[#1]{c}#2\\[0.5\jot]\rule{1pt}{#3}\\#4\end{tabular}}%}
@@ -836,7 +741,7 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 \newcommand*{\yK}{\mathte{\yKK}}
 \newcommand*{\yRR}{R}
 \newcommand*{\yR}{\mathte{\yRR}}
-\newcommand*{\ypp}{q}
+\newcommand*{\ypp}{p}
 \newcommand*{\yp}{\bm{\ypp}}
 \newcommand*{\yeen}{e}
 \renewcommand*{\yen}{\bm{\yeen}}
@@ -844,7 +749,8 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 \newcommand*{\yte}{\theta}
 \newcommand*{\ynab}{\nabla}
 \newcommand*{\ynaf}{\Bar{\nabla}}
-\newcommand*{\yDi}{\bm{\nabla}}
+%\newcommand*{\yDi}{{\fontencoding{U}\fontfamily{bbold}\selectfont{A}}}
+\newcommand*{\yDi}{\pmb{\bm{\nabla}}}
 \newcommand*{\yto}{t}
 \newcommand*{\yI}{\textsf{\textbf{I}}}
 %\newcommand*{\yI}{1}
@@ -855,13 +761,15 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 \newcommand*{\yvh}{\Hat{v}}
 \newcommand*{\yvw}{\widebar{v}}
 \newcommand*{\yvo}{V}
-
+\newcommand*{\la}{N}
+\newcommand*{\shi}{\bm{v}}
+\newcommand*{\tpro}{\varPi}
 %%% Custom macros end @@@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Beginning of document
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\firmlists
+%\firmlists
 \begin{document}
 \captiondelim{\quad}\captionnamefont{\footnotesize}\captiontitlefont{\footnotesize}
 \selectlanguage{british}\frenchspacing
@@ -877,12 +785,22 @@ totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 \setlength{\absrightindent}{0pt}
 \setlength{\abstitleskip}{-\absparindent}
 \begin{abstract}\labelsep 0pt%
-  \noindent  This note is an exploration of some notions around kinematics,
+  \noindent This note is an exploration of some notions around kinematics,
   dynamics, matter, inertia, and force in Newtonian- and
   general-relativistic continuum mechanics. The conceptual pivot of this
-  exploration is this: \emph{Neither in Newtonian relativity or in general
-  relativity should there be any distinction between inertial and
-  non-inertial motion, or between forced and unforced motion}.
+  exploration is this: Neither in Newtonian relativity or in general
+  relativity should there be any distinction between forced and unforced
+  motion.
+  \\
+  \emph{Note: Unfortunately I find less and less time for developing the
+  ideas presented in this investigation, or even only for combining them
+  organically. So I decided to make this draft publicly available. Maybe
+  some of its points of view, or even just its references, will be useful
+  for other researchers.}
+
+
+
+
 %\\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer, this manuscript is being peer-reviewed by you. Thank you.}
 % \par%\\[\jot]
 % \noindent
@@ -920,8 +838,108 @@ mccauley2000_r2001
 % IMPORTANT: the question is if the G in G=T can be considered as a
 % 4-stress, similarly to F=ma
 
+\setcounter{section}{-1}
 \section{An exploration}
 \label{sec:soup}
+
+The present notes are an exploration of the roles and construction of
+kinematics and dynamics in Newtonian mechanics and general relativity.
+
+The purpose is to try to understand and simplify kinematics and dynamics in
+these two theories, find as many common points as possible. This effort is
+also pedagogically important. In most university courses in Newtonian
+mechanics today, students get the impression that Newtonian mechanics lacks
+some kind of logical properties that a physical theory should have, and
+which general relativity instead does have. Moreover, students that
+eventually approach Lorentzian and general relativity often find that they
+must throw away many notions used in Newtonian mechanics, starting building
+anew from new notions. But both these difficulties could actually be
+avoided.
+
+We know today that Newtonian mechanics is a perfectly self-consistent
+theory that satisfies all sensible and logical requirements that general
+relativity also satisfies. For example, it can be formulated in a fully
+covariant, coordinate-independent way, and satisfies precise relativity
+principles. The difference between Newtonian mechanics and general
+relativity is not in the levels of their logical quality, but simply in the
+fact that Newtonian mechanics makes predictions that are incorrect within
+particular experimental ranges, whereas general relativity yields correct
+predictions.
+
+Yet, in my opinion the logical structure of Newtonian mechanics is more
+clearly defined and refined than that of general relativity -- no surprise,
+since the former theory is a couple centuries older than the latter. It is
+sad that in university courses Newtonian mechancis often presented as
+little more than a bunch or recipes; its deep logical beauty is
+lost.
+
+I believe it should be possible to reformulate the kinematics and dynamics
+of Newtonian mechanics and general relativity in such a way that they
+become extremely similar. This would bring even more to light the beautiful
+logical structure of Newtonian mechanics, it would bring order in the
+logical structure of general relative, and offer students a smoother
+transition from one theory to the other.
+
+
+\bigskip
+
+3+1 balances of energy and force in general relativity, full form:
+\begin{gather}
+  \label{eq:balance_energy_full_gr}
+  (\de_t -\Li_{\shi}-\la \tr\yK)\ye + \ynab\cdot(\la\yq) - \la\tr(\yK\yT) +\yp\yg^{-1}\ynab\la =0
+  \\
+  \label{eq:dt_momentum}
+  (\de_t -\Li_{\shi}-\la \tr\yK+\la\yK)\yp
+  + \ynab\cdot(\la\yT\T)
+  - \la\yq\yK
+  +\ye\ynab\la =0 \ .
+\end{gather}
+To be stressed: these equations describe the evolution, along an arbitrary
+vector field, of the components \emph{seen by an Eulerian observer} -- not
+seen by the observer of the evolution vector field.
+
+Something opposite happens with the evolution equations in Newtonian
+mechanics: they describe the evolution, along the vector field of an
+Eulerian observer, of the components \emph{seen by an observer comoving
+  with the continuum}. This is clear from the fact that the energy flux or
+the stress tensor, for example, don't contain convective components. This
+is also the reason why these quantities are frame-indifferent: all
+observers relate them to the motion of the continuum.
+
+\section{Decomposition of the stress-energy-momentum tensor}
+\label{sec:decomp_stress-energy-momentum}
+
+Introduce a slicing $\di t$ and a frame $\yF$ as in
+\sect~\ref{sec:slicing_frames}. For a $k$-form $\alpha$, the horizontal
+component is the $(k-1)$-form $\yF \cdot \alpha$; the vertical component is
+the $k$-form $\tpro\cdot\alpha \defd \alpha - \di t \land (\yF \cdot \alpha)$.
+
+Consider the stress-energy-momentum tensor $\yTf$ represented as a
+covector-valued 3-covector. We have the decomposition
+\begin{equation}
+  \label{eq:decomp_T_cov_3cov}
+  \begin{aligned}
+    \ye &\defd \yF \cdot \yTf \cdot\tpro &\qquad&\text{3-covector}\\
+    \yq &\defd \yF \cdot \yTf \cdot \yF &&\text{2-covector}\\
+    \yp &\defd \tpro \cdot\yTf \cdot \tpro &&\text{covector-valued 3-covector}\\
+    \yT &\defd \tpro \cdot\yTf \cdot \yF &&
+                                            \text{covector-valued
+                                            2-covector}\ .
+  \end{aligned}
+\end{equation}
+The covector properties of the resulting quantities correspond to those in
+Newtonian mechanics: energy density is supposed to be integrated in a
+volume, energy flux on a surface; and momentum density in a volume, and
+stress on a surface, both yielding a covector.
+
+In Newtonian relativity the momentum density vanishes in the rest frame of
+a volume element. This frame $\yn$ is determined by the matter 3-form $\yr$
+through \eqns~\eqref{eq:eulerian_frame_conditions}: $\yn \cdot \yr = 0$,
+$\yn \cdot \di t = 1$. In this frame we thus have
+$\yp &\defd \tpro \cdot\yTf \cdot \tpro = 0$.
+
+
+
 
 % Tangled bundles are fun and stressful to untangle. The most tangled
 % ones I know of are: the bundle of quantum theory and its physical meaning,
@@ -988,56 +1006,152 @@ mccauley2000_r2001
 %   \citep[\sect~158, pp.~534--535]{page1928_r1958}{ericksen2007}.
 % \end{itemize}
 
-This note is an exploration of some notions around kinematics, dynamics,
-matter, inertia, and force in Newtonian- and general-relativistic continuum
-mechanics. In part, I would like to understand in which possible ways the
-geometrical objects of each theory belong to the kinematics, and which to
-the dynamics. The conceptual pivot of this exploration is this:
-\begin{quote}
-  \emph{Neither in Newtonian relativity or in general relativity should
-    there be any distinction between inertial and non-inertial motion, or
-    between forced and unforced motion.}
-\end{quote}
+\mynote{Old snippet:} This note explores some notions around kinematics,
+dynamics, matter, inertia, and force in Newtonian- and general-relativistic
+continuum mechanics. This exploration comes out of two desires. The first
+is to understand the boundary between kinematics and dynamics in general
+relativity, and whether a single boundary common to Newtonian and general
+relativity can be drawn. The second is a dissatisfaction with the division
+between forced and unforced (geodesic) motion common to both theories as
+usually presented. Let me explain these two points in more detail.
 
-Other related points driving this exploration are, in no particular order:
-\begin{itemize}
-\item The desire to bring to light the concept of \emph{force} hidden in
-  general relativity. This would be pedagogically useful to understand the
-  Newtonian limit. The balance of forces has advantages over the
-  conservation of momentum in Newtonian mechanics, since the latter is
-  frame-dependent.
-\item To consider inertia as a force, in Newtonian and in general
-  relativity.
-\item Newtonian thermomechanics can be restated as a theory of
-  \emph{statics} in some reference frame, provided inertia is included
-  among the forces \citep{noll1963}[\sect~I.13]{truesdell1977_r1991}. This
-  static point of view is even more natural in general relativity, from a
-  four-dimensional point of view.
-\item In general relativity, the notion of geodesic is overestimated.
-  Almost no objects of our everyday experience follow geodesics. 
-\item The desire to keep the differential-geometrical, metric-free nature
-  of many electro-thermo-mechanical notions well in sight, without mixing
-  the metric in them. In Newtonian relativity, for example, the notion of
-  mass density \amp\ flux does not require metric structures of any kind.
-  In general relativity this is also true of energy density \amp\ flux.
-\item The question: can forces exist where there is no mass? Force and
-  momentum in Newtonian mechanics were traditionally associated with
-  bodies. In general relativity momentum is unhinged from mass, and so
-  probably should force. This goes together with the idea that an
-  electromagnetic field can also sustain a force \cites[\sect~158,
-  pp.~534--535]{page1928_r1958}{ericksen2007}.
-\end{itemize}
+\paragraph{Kinematics and dynamics}
 
-I believe that to appreciate the points above is also useful to compare the
-particular and precise aims of Newtonian relativity with those, somewhat
-vaguer, of general relativity. 
+Kinematics is the science of the description of motion. Dynamics is the
+science of the determination of which motion actually occurs. This division
+is fundamental in our way of doing physics. No matter how we express the
+laws of dynamics, whether as balance equations or the extremization of some
+Lagrangian, these laws select one motion out of a space of possible ones.
+The latter space is provided by kinematics, which has thus an exquisite
+counterfactual character. There is no clear division line between these two
+sciences, of course. One might imagine depleting the space of possible
+motions more and more, until there is no motion left but that which
+actually occurs, making dynamics superfluous. To be honest I cannot depict
+this extreme case or understand what it would mean.
 
-Being an exploration, so far I've been unable to present this note as a
-linear logical development. So I plead with you to follow me in my ruffled
-sequence of observations, questions, and possible answers.
+Both sciences use primitive notions, objects, operations. In Newtonian
+mechanics, kinematics usually includes the notions of spacetime, position,
+time derivative, velocity, mass, charge, and so on. It also includes
+\emph{metric} notions and objects. The primary notions in dynamics are
+force and stress. In general relativity there is a similar division, but
+the metric becomes a dynamical object; we can in fact conceive several
+possible metric tensor fields, and the Einstein equations (with suitable
+initial and boundary conditions) then determine which of these metric
+fields actually occurs.
+
+I think it would be appealing to build a kinematics common to Newtonian
+mechanics and general relativity, so that their difference lie solely in
+the dynamics. Such a construction would also be pedagogically useful.
+Several authors (\cf\ \psect~\ref{sec:metric-free}) seem to find this point
+of view appealing.
+
+This construction requires that we reformulate Newtonian kinematics without
+metric notions, and that we redefine its quantities and operations in a
+metric-free way. Some questions ensue in this process. Should momentum be
+considered as a kinematic or as a dynamic quantity? and mass? Even if
+stress and metric are both dynamic quantities, is it possible to keep them
+separate?
+
+There are old and recent studies that show that this construction is
+possible, even if some seem apparently unrelated with it. In both Newtonian
+and general relativity, for example, the notion of matter density \amp\
+flux and charge density \amp\ flux do not require metric structures of any
+kind. %In general relativity this is also true of energy density \amp\ flux.
+Two studies will be especially important for our exploration. The first is
+a reinterpretation of the familiar \enquote{\,$\tsum\bm{F} = m\bm{a}$\,};
+the second is a metric-free reformulation of electromagnetism. These
+studies may be unfamiliar to some readers and are summarized in \psects***.
+
+
+\paragraph{Forced and unforced motion}
+
+Both Newtonian and general relativity traditionally draw a distinction
+between unforced or inertial or geodesic motion versus forced motion.
+Loosely speaking, force is conceived as something that alters a preferred
+motion. I find this distinction artificial and unappealing. Its lack of
+appeal is, I believe, generally felt in general relativity, especially by
+students. You probably remember how fascinating the idea was that a
+point-like body, even if subject to gravitational forces, is actually
+following a \enquote{straight} line in a more complicated geometry.
+Unfortunately other forces intrude to ruin this \enquote{straight} motion.
+The natural question that came to mind was whether all these annoying
+forces could not be included in the geometric structure, so as to make
+geodesic motion a universal rule (compare with Kaluza-Klein theories
+\citep{kaluza1921,goenner2004,goenner2012,verbinetal2005}). Another reason
+why I find this distinction unappealing is that geodesic motion becomes
+almost completely unimportant in the mechanics of continua. And general
+relativity is clearly a continuum theory.
+
+The distinction between forced and unforced motion can possibly be
+eliminated by taking a point of view opposite to geometrization: instead of
+trying to reduce force to geometry, we try to reduce geometry to force.
+This point of view is suggested by Newtonian mechanics; it is the
+reinterpretation of \enquote{\,$\tsum\bm{F} = m\bm{a}$\,} mentioned above.
+It is possible to reformulate Newtonian dynamics as the requirement that
+the sum of all forces on a body be always zero, just like in the science of
+statics: $\tsum \bm{F} = 0$. Among these forces, however, we must include
+the \emph{inertial} force:
+\[\tsum \bm{F} = \bm{F}_{\text{inertia}} + \bm{F}_{\text{gravity}}
+  + \bm{F}_{\dotso} + \dotsb = 0\;.\] The inertial force, in an inertial
+frame, is given by $\bm{F}_{\text{inertia}} \defd -m \bm{a}$\,; note the
+minus sign. The familiar Newton equations are thus recovered. The inertial
+force, moreover, can be defined in a way independent of any choice of frame
+(see \eqn~\eqref{eq:inertial_force}). So the distinctions between inertial
+and non-inertial frames and between unforced and forced motions disappear.
+This reinterpretation is discussed in \psect***.
+
+Can we carry this point of view over to general relativity? One possibility
+would be to reformulate its dynamics as the requirement that the sum of
+some tensors, representing forces of various kinds, be zero. Among these
+tensors there would be one related to \enquote{metric forces}, that is,
+inertia and gravitation. On a second look, the Einstein equations
+$\yG = 8\pu\kappa\yTf$ -- imagine them rewritten as
+$\frac{1}{8\pu\kappa}\yG - \yTf=0$ -- could seem to represent exactly such
+a requirement. This reading would be reinforced by the fact that the
+derived equation $\ynab\cdot\yT = 0$ is the four-dimensional analogue of
+the equilibrium equation in statics. But there are difficulties with this
+interpretation. The main difficulty is that the definition of the
+stress-energy-momentum tensor $\yT$ (more precisely its constitutive
+equations) often requires metric notions; the effects of the metric are
+therefore not confined to the tensor $\yG$.
+
+\bigskip
+
+\mynote{Something about the question: can forces exist where there is no
+  mass? Force and momentum in Newtonian mechanics were traditionally
+  associated with bodies. In general relativity momentum is unhinged from
+  mass, and so probably should force. This goes together with the idea that
+  an electromagnetic field can also sustain a force: \textcites[\sect~158,
+  pp.~534--535]{page1928_r1958}{ericksen2007}.}
+
+\bigskip
+
+The explorations to follow will revolve around the two themes above. I
+believe that to understand them it is also useful to compare the particular
+and precise aims of Newtonian relativity with those, somewhat vaguer, of
+general relativity. This is done in \psect~\ref{sec:aims_general_rel}.
 
 
 
+I apologize for not having yet been able to arrange the ideas of this
+exploration in a logical or sequential order. I must ask you to take them
+as pieces of a puzzle. I hope that you will at least find the bibliographic
+references useful.
+
+% \enquote{We must warn the reader however, that it is unjustified to assume
+%   that the sequences of deformations standing behind the limit processes
+%   used in the following purely kinematical statements are compatible with
+%   any particular theory of continuous bodies. For example, we sometimes
+%   consider extension and rotation as independently variable, but in any
+%   particular theory of bodies a sequence of deformations is produced by a
+%   sequence of loads, and whether it is possible to choose the latter in
+%   such a way as to leave the local rotation fixed but vary the extensions
+%   is dubious.}  \citep[\sect~54 p.~303]{truesdelletal1960}
+
+\setsechook{\setsecnumformat{\puzzle\ \upshape\csname the##1\endcsname\quad}}
+
+%\renewcommand*{\thesection}{\puzzle\,\arabic{section}}
+%\renewcommand*{\thesubsection}{\arabic{section}.\arabic{subsection}}
 
 \section{Prerequisites}
 \label{sec:prereqs}
@@ -1050,12 +1164,150 @@ outer-oriented forms (also called \enquote{straight} and
 \textcite[\chap~A]{hehletal2003}, and going back to Schouten \amp\ van
 Dantzig \citey{schoutenetal1940} at the latest.
 
-I will assume some familiarity with the \enquote{3~+~1} decomposition of
-Einstein's equations \citep{smarretal1978,york1979,smarretal1980} and with
-the basic principles of Newtonian continuum thermomechanics
+Later on I will assume some familiarity with the \enquote{3~+~1}
+decomposition of Einstein's equations
+\citep{smarretal1978,york1979,smarretal1980} and with the basic principles
+of Newtonian continuum thermomechanics
 \citep{truesdell1977_r1991,samohyletal1987_r2014,truesdelletal1960}.
 
-\section{Slicings and frames}
+\subsection{Comparison of the notion of frame in Newtonian and general relativity}
+\label{sec:frames_relativity}
+
+In Newtonian relativity a frame of reference is determined by the
+specification of four non-coplanar points having mutual distances constant
+in time. The notion of frame here rests on a special slicing of spacetime
+-- the universal time -- and on a Euclidean metric on each slice. The
+slicing and 3-metric belong to the kinematics.
+
+A frame is equivalent to the specification of a vector field transversal to
+the slices. This vector field associates points between different slices;
+it expresses our choice that \enquote{this place today is the same as that
+  place yesterday}. In choosing such a vector field we require that its Lie
+transport of the 3-metric of the slices vanishes. This means that the
+statements \enquote{these two bodies are mutually at rest} and \enquote{the
+  distance between these two bodies is changing} are contradictory.
+
+Observers using different, arbitrary frames always agrees on the 3-forces
+and on any objective scalars, such as energy density, defined on a slice.
+
+Dynamics (putting aside thermodynamics for the moment) is given by the law
+that the total 3-force on any matter element is zero. The total force comes
+from the sum of several kinds of forces, and these are frame-independent.
+
+Gravitation and inertia appear as forces like any other kind of force. The
+inertial force has an interesting expression, because it depends on the
+worldlines of all matter in the universe (via their axes of inertia, which
+can be calculated in a frame-independent way) as well as the worldline of
+the matter element it acts upon.
+
+The constitutive equations for most forces and stresses depend on the
+3-metric of the slices; and since the 3-metric is a kinematic object, these
+constitutive equations depend only on kinematic objects.
+
+\bigskip
+
+In general relativity the situation becomes more complex in several
+respects.
+
+First, there's no canonical choice of slicing. We are thus free to choose
+an arbitrary slicing, giving a \enquote{coordinated time} in a spacetime
+region.
+
+Second, the metric is changing and is generally curved, and there may be no
+unique distance (in a geodesic sense) between two spacelike-separated
+events. So there's no point in imposing rigidity requirements when we
+associate points between slices. The notion of \enquote{relative rest}
+becomes completely arbitrary. We can say \enquote{these two bodies are
+  mutually at rest} and \enquote{the distance between these two bodies is
+  changing} without contradiction, because rest is decided by decree, and
+the second statement simply means that the 3-metric field is changing from
+slice to slice.
+
+So the slicing belongs to the kinematic, having a sort of scaffolding role.
+But the 4-metric or 3-metric belongs to the dynamics.
+
+Third, observers with different motions don't agree on 3-forces and several
+other quantities such as energy density.
+
+Fourth, the constitutive equations of the 3-forces depend on the metric,
+which is itself a dynamical object whose evolution is determined by the
+3-forces.
+
+
+\subsection{The frame-invariant formulation of Newton's equations}
+\label{sec:noll_inertia}
+
+\mynote{Summary of \cites{noll1963}[\sect~I.13]{truesdell1977_r1991}}
+
+\subsection{The metric-free representation of matter and charge}
+\label{sec:metric-free}
+
+\mynote{Summary of the studies by
+  \textcites{burke1995}[\chap~IV]{burke1985_r1987}{burke1983},
+  \textcites[\chaps~2, 3]{bossavit1991}{bossavit1998b},
+  \textcite[\chap~A]{hehletal2003},
+  \textcite{vandantzig1934,vandantzig1934b,vandantzig1934c,vandantzig1934d,vandantzig1934e,vandantzig1936,vandantzig1937,vandantzig1954},
+  going back to \textcite{schoutenetal1940}.}
+
+% In part, I would like to understand in which possible ways the
+% geometrical objects of each theory belong to the kinematics, and which to
+% the dynamics. The conceptual pivot of this exploration is this:
+% \begin{quote}
+%   \emph{Neither in Newtonian relativity or in general relativity should
+%     there be any distinction between forced and unforced motion.}
+% \end{quote}
+
+% Other related points driving this exploration are, in no particular order:
+% \begin{itemize}
+% \item The desire to bring to light the concept of \emph{force} hidden in
+%   general relativity. This would be pedagogically useful to understand the
+%   Newtonian limit. The balance of forces has advantages over the
+%   conservation of momentum in Newtonian mechanics, since the latter is
+%   frame-dependent.
+% \item To consider inertia as a force, in Newtonian and in general
+%   relativity.
+% \item Newtonian thermomechanics can be restated as a theory of
+%   \emph{statics} in some reference frame, provided inertia is included
+%   among the forces \citep{noll1963}[\sect~I.13]{truesdell1977_r1991}. This
+%   static point of view is even more natural in general relativity, from a
+%   four-dimensional point of view.
+% \item In general relativity, the notion of geodesic is overestimated.
+%   Almost no objects of our everyday experience follow geodesics. 
+% \item The desire to keep the differential-geometrical, metric-free nature
+%   of many electro-thermo-mechanical notions well in sight, without mixing
+%   the metric in them. In Newtonian relativity, for example, the notion of
+%   mass density \amp\ flux does not require metric structures of any kind.
+%   In general relativity this is also true of energy density \amp\ flux.
+% \item The question: can forces exist where there is no mass? Force and
+%   momentum in Newtonian mechanics were traditionally associated with
+%   bodies. In general relativity momentum is unhinged from mass, and so
+%   probably should force. This goes together with the idea that an
+%   electromagnetic field can also sustain a force \cites[\sect~158,
+%   pp.~534--535]{page1928_r1958}{ericksen2007}.
+% \end{itemize}
+
+\setsecnumformat{\puzzle\ \upshape\csname the#1\endcsname\quad}
+
+\section{A kinematics common to Newtonian and general relativity}
+\label{sec:common_kinematics}
+
+A kinematics common to Newtonian and general relativity must of course be
+metric-free. More precisely it must be free of three-dimensional metric
+notions and of chronometric notions. What is left is thus a
+\enquote{rubbery} topological structure. (Here and elsewhere I (mis)use
+\defquote{topological} in the sense of \defquote{differential-geometrical}
+with some degree of smoothness.) We thus report the placement of a specific
+event in space-time not by means of distances and time lapses, but by
+introducing another set of reference events filling space-time and then
+reporting with which reference event our specific event overlaps. In a way
+this procedure is not so different from the way we report positions in a
+rigid frame: there we must first specify a reference body (or four
+point-like bodies) which is rigid by definition.
+
+Most of the ideas that follow in this section come from the literature here
+cited.
+
+\subsection{Slicings and frames}
 \label{sec:slicing_frames}
 
 We consider the four-dimensional manifold formed by all physical events --
@@ -1084,8 +1336,9 @@ by the metric $\yfg$ is used instead.
 
 The notion of motion also implies a convention about the correspondence of
 places on slices at different times, so that we can say \enquote{this place
-  today is the same as that place yesterday}. Such a correspondence can be
-made with a vector field $\yF$ such that
+  today is the same as that place yesterday}.\citep[See the discussion
+in][\sect~5]{portamana2011_r2019} Such a correspondence can be made with a
+vector field $\yF$ such that
 \begin{equation}
   \label{eq:observer_field_unit-time}
   %\yr \cdot \yc = 0, \qquad
@@ -1137,7 +1390,21 @@ is different from zero, depending on the relative orders of the form
 $\alpha$ and of the vector $v$. If they have the same order, the full
 term vanishes.
 
-\section{Matter}
+\medskip
+
+In Newtonian mechanics we can choose frames that preserve the Euclidean
+metric of the slices: $\Li_{\yF}\yg = 0$, called rigid frames. In general
+relativity it is generally impossible to choose a vector field this way,
+but we can choose one normal to the slices with respect to a spacetime
+4-metric; this is called a \emph{Eulerian} frame
+\citep{smarretal1978,smarretal1980}. A Eulerian frame can also be chosen in
+such a way that $\Li_{\yF}\ygv=0$, a condition called \enquote{maximal
+  slicing} \citep[\sect~III.B]{smarretal1978} \mynote{ref also to
+  Lichnerowicz (1944)}.
+
+
+
+\subsection{Matter}
 \label{sec:matter}
 
 
@@ -1156,56 +1423,39 @@ differently coloured silly putty getting mixed together.
 
 In Newtonian continuum mechanics, mass is a property of a body, represented
 as a measure on the respective manifold, satisfying a conservation
-principle. Conservation of mass, however, can be restated as conservation
-of \enquote{amount of matter}, or more precisely of \enquote{amount of
+principle. It is a kinematical notion.
+
+But mass is tightly connected to gravito-inertial forces, in both Newtonian
+and general-relativistic mechanics. In general-relativistic continuum
+mechanics, moreover, we have to speak of conservation of amount of matter,
+not of mass, because mass is no longer a constant property of it; not even
+rest mass, when particles of different types transform into one another.
+
+If we aim to establish a kinematics common to Newtonian and general
+relativity, we must then relinquish mass and adopt a more general measure
+of \defquote{amount of matter}, or more precisely of \defquote{amount of
   substance} (one of the base quantities of the International System of
-Units \citep{iso2009,jcgm1997_r2012}). In Newtonian mechanics the two are
-equivalent, mass being proportional to amount of matter, the
-proportionality being a constant, different from substance to substance.
-Conservation of amount of matter is sometimes used instead of mass in the
-thermomechanics of reacting mixtures \citep[\eg][(see especially \eqn~(7),
-where $m$ can be dropped)]{eckart1940b}[Lect.~6 (in \eqn~(6.1) $\rho$ can
-be dropped)]{truesdell1969_r1984}[and refs therein]{samohyletal1987_r2014}
-for stoichiometric reasons. Conservation of amount of matter is a
-manifestation of the conservation of baryonic number
-\citep[\cf][\sect~22.2]{misneretal1970_r1973}.
-
-In general-relativistic continuum mechanics we have to speak of
-conservation of amount of matter, because mass is no longer a constant
-property of it; not even rest mass, when particles of different types
-transform into one another.
-
-It makes thus sense to speak directly of conservation of amount of matter,
-valid in Newtonian relativity and general relativity.
-
-
-In both Newtonian
-\citep[\sects~I.4]{truesdell1977_r1991}{noll1959,noll1973} and relativistic
-\citep{grotetal1966}[\chap~3]{rezzollaetal2013} continuum mechanics mass is
-typically introduced intertwined with the metric \citep[being an
-exception]{carteretal1972}.
-
-Mass can be considered as a property of matter in relation to
-gravito-inertial forces, in both Newtonian and general-relativistic
-mechanics. If we aim to establish a kinematic of matter independently of
-any kind of forces and metric, we must then relinquish mass and adopt a
-more general measure of \enquote{amount of matter}, or more precisely of
-\enquote{amount of substance} (one of the base quantities of the
-International System of Units \citep{iso2009,iso2009d,jcgm1997_r2012}).
-Conservation of mass is sometimes indeed replaced by conservation of amount
-of matter in the Newtonian continuum mechanics of reacting mixtures
-\citep[\eg][(see especially \eqn~(7), where $m$ can be
-dropped)]{eckart1940b}[Lect.~6 (in \eqn~(6.1) $\rho$ can be
-dropped)]{truesdell1969_r1984}[\sects~4.1--4.2 and refs
-therein]{samohyletal1987_r2014} %[see also][]{samohyl1975b}
+Units \citep{iso2009,iso2009d,jcgm1997_r2012}). Conservation of mass is
+sometimes indeed replaced by conservation of amount of matter in the
+Newtonian continuum mechanics of reacting mixtures \citep[\eg][(see
+especially \eqn~(7), where $m$ can be dropped)]{eckart1940b}[Lect.~6 (in
+\eqn~(6.1) $\rho$ can be dropped)]{truesdell1969_r1984}[\sects~4.1--4.2 and
+refs therein]{samohyletal1987_r2014} %[see also][]{samohyl1975b}
 owing to stoichiometry. We are considering this replacement independently
 of particle theories, where conservation of amount of matter is a
 manifestation of the conservation of baryon number
-\citep[\cf][\sect~22.2]{misneretal1970_r1973}. In the following I'll simply
-say \enquote{conservation of matter} rather than of \enquote{amount of
-  matter}.
+\citep[\cf][\sect~22.2]{misneretal1970_r1973}. In the following I shall
+often simply say \defquote{matter} rather than \defquote{amount of matter}.
 
-It turns out that the notions of body and amount of matter can be
+\medskip
+
+In both Newtonian
+\citep[\sects~I.4]{truesdell1977_r1991}{noll1959,noll1973} and relativistic
+\citep{grotetal1966}[\chap~3]{rezzollaetal2013} continuum mechanics mass or
+matter and their conservation are typically intertwined with the metric
+\citep[being an exception]{carteretal1972}.
+
+It turns out, however, that the notions of body and amount of matter can be
 introduced at one stroke \citep[\cf][]{carteretal1972}, as two aspects of
 the same entity, and without a metric. The idea is analogous to that of
 charge
@@ -1218,7 +1468,13 @@ the \emph{matter 3-form}, satisfying
   \di\yr=0.
 \end{equation}
 This object has a simple and beautiful geometrical meaning: it can be
-visualized in spacetime as a set of uninterrupted tubes possessing a
+visualized in spacetime as a set of uninterrupted tubes possessing a %
+\setlength{\intextsep}{0.0ex}%
+\begin{wrapfigure}{r}{0.5\linewidth}
+  \includegraphics[width=\linewidth]{mass_tubes2.png}\\
+  \centering\footnotesize Two-dimensional representation of tubes of a
+  closed outer-oriented 3-form $\yr$
+\end{wrapfigure}
 definite orientation along them. The tubes are chosen by us: if we select a
 closed two-dimensional surface on a spacetime slice, where $\yr \ne 0$, the
 matter 3-form selects a unique tube with 3-dimensional section containing
@@ -1227,12 +1483,6 @@ body of matter -- say, by drawing a \enquote{$\mathord{\bigcirc}$} sign on
 an body, or throwing some %
 leaves in flowing water -- and then to follow it
 as it moves and deforms %
-%\setlength{\intextsep}{0.0ex}%
-\begin{wrapfigure}{r}{0.5\linewidth}
-  \includegraphics[width=\linewidth]{mass_tubes2.png}\\
-  \centering\footnotesize Two-dimensional representation of tubes of a
-  closed outer-oriented 3-form $\yr$
-\end{wrapfigure}
 in space as time passes, with respect to some
 slicing and frame. A closed %
 outer-oriented 3-form is the perfect
@@ -1272,11 +1522,9 @@ $\yr$ is a 3-form).
 
 
 A matter 3-form cannot be used to define time lapse or distance, owing to
-its purely differential-geometric nature.
-
-The matter 3-form of a body can also be used to define a volume element on
-each slice, by decreeing that each unit amount of matter of that body
-occupies a unit volume.
+its purely differential-geometric nature. But it can be used to define a
+\enquote{volume} element on each slice, by decreeing that each unit amount
+of matter of that body occupies a unit volume.
 
 Once we have a slicing $t$ and a frame $\yF$, we can project the matter
 3-form:
@@ -1301,17 +1549,13 @@ at time $t$: it's the vector $\yvt$, tangent to the slice, satisfying
     \quad\text{or}\quad
     \yvt \cdot \yd = \yj,
     \\
-    \shortintertext{or equivalently, in terms of the Eulerian frame~\eqref{eq:eulerian_frame_conditions},}
+    \shortintertext{or equivalently, in terms of the material frame~\eqref{eq:eulerian_frame_conditions},}
     \yvt \defd \yn-\yF;
   \end{gather}
 \end{subequations}
-\ie\ it's the difference between the frame $\yF$ and the Eulerian frame
+\ie\ it's the difference between the frame $\yF$ and the material frame
 $\yn$. This is a velocity in the sense of our convention of slicing \amp\
-frame, not in the metric sense.
-
-
-
-For the latter, we would have to replace
+frame, not in a metric sense. For the latter, we would have to replace
 the left \eqn~\eqref{eq:eulerian_frame_conditions} with a normalization
 condition.
 
@@ -1341,32 +1585,32 @@ or several metric volume elements when matter flow is expressed by a
 p.~361]{rezzollaetal2013}[\eqn~(6.47), \sect~6.3.2,
 p.~110]{gourgoulhon2007_r2012}.
 
-By specifying a slicing, a frame, and a matter 3-form, we are specifying a
-differential-geometric kinematics. We're only short of a time lapse and a
-distance for a kinematics in the traditional sense. The major aim of
-Newtonian relativity is to specify the causes that lead to a particular
-kinematic.
-
 \medskip
 
-We have here pulled the following piece of thread: mathematically defining
-matter as a three-form, with its
-conservation~\eqref{eq:mass_density_closed_three_form} or
-\eqref{eq:mass_balance_traditional}. This seems to be most natural and
-convenient: metric-free and valid in both Newtonian and general relativity.
-The tangled bundle loosens here.
+By specifying a slicing, a frame, and a matter 3-form, we have specified a
+differential-geometric kinematics common to Newtonian and general
+relativity. % We're only short of a time lapse and a distance for a
+% kinematics in the traditional sense. The major aim of Newtonian relativity
+% is to specify the causes that lead to a particular kinematic.
 
-But alas, it gets more tangled elsewhere. The projection $\yj$ of the
-matter 3-form on the frame,
-\eqn~\eqref{eq:project_matter_form}\textsubscript{left}, is a 2-form, and
-traditionally it would be considered as \enquote{momentum}. As momentum it
-would be part of the energy-momentum-stress tensor $\yTf$, which has order
-2. This only works if we represent it as a \emph{1}-form or a vector.
-Should we change our representation of the energy-momentum-stress tensor
-$\yTf$ then, to something of a different order? We'll see in \sect** that
-there are other reasons to do so indeed. But in Einstein's equations
-$\yG = 8\pu\yTf$ this tensor is equated to the Einstein tensor $\yG$; thus
-we would need to find a different representation of the latter, too.
+% We have here pulled the following piece of thread: mathematically defining
+% matter as a three-form, with its
+% conservation~\eqref{eq:mass_density_closed_three_form} or
+% \eqref{eq:mass_balance_traditional}. This seems to be most natural and
+% convenient: metric-free and valid in both Newtonian and general relativity.
+% The tangled bundle loosens here.
+
+% But alas, it gets more tangled elsewhere. The projection $\yj$ of the
+% matter 3-form on the frame,
+% \eqn~\eqref{eq:project_matter_form}\textsubscript{left}, is a 2-form, and
+% traditionally it would be considered as \enquote{momentum}. As momentum it
+% would be part of the energy-momentum-stress tensor $\yTf$, which has order
+% 2. This only works if we represent it as a 1-form or a vector. Should we
+% change our representation of the energy-momentum-stress tensor $\yTf$ then,
+% to something of a different order? We'll see in \psect*** that there are
+% other reasons to do so indeed. But in Einstein's equations $\yG = 8\pu\yTf$
+% this tensor is equated to the Einstein tensor $\yG$; thus we would need to
+% find a different representation of the latter, too.
 
 
 \iffalse Question: would the notions and objects just introduced suffice for a
@@ -1388,115 +1632,7 @@ description of motion, distance doesn't seem to be necessary.
 \fi
 
 
-
-\section{Force in Newtonian relativity}
-\label{sec:force}
-
-
-
-
-The second piece of thread we're going to pull is \emph{force}. This is
-actually a smaller bundle in itself, and we'll examine it from several angles.
-
-***why no need to speak of conservation
-
-***dynamics comes from stating that the total force and total torque vanish
-
-***affine structure needed, related to Newton's 3rd law. But if we assume
-only contact forces, it can be expressed locally without parallel
-transport. Exception: add spacelike surfaces from a 4D point of view
-
-***that would suffice. But 1st law of thermodynamics, needed for
-thermomechanics, mixes force in energy equation as work.
-
-
-***when the constitutive equation for a force \enquote{visibly} depends on
-space or time variables, as is the case for elastic or inertial forces, the
-amount of work done by the force can be \enquote{read} in a change of that
-variable. This change is usually called \enquote{energy}. Typical examples
-are elastic force $-kx$ and elastic energy, the integral of $-kx\Dot{x}$
-being equal to $-\frac{1}{2}kx^2$ no matter how $x$ depends on time; and
-inertial force $-m\ddot{x}$ and kinetic energy, the integral of
-$-m\ddot{x}\Dot{x}$ being equal to $-\frac{1}{2}m\Dot{x}^2$ no matter how
-$x$ depends on time. For viscous forces like $-\eta\Dot{x}$ we usually
-don't speak of \enquote{viscous energy} probably because the integral of
-$-\eta\Dot{x}^2$ does not have a closed form. This fact is obviously
-related to the difference between conservative and non-conservative forces
-and to the existence of potentials.
-
-\subsection{Constitutive equations}
-\label{sec:constit_eq}
-
-\mynote{to be written. See \sect~\ref{sec:constitutive equations}}
-
-
-\subsection{Geometric representation}
-\label{sec:geometry_force}
-
-In most presentations of the Newtonian mechanics of point masses, force is
-represented as a vector bound to a point mass. If we take the line integral
-of this vector along the trajectory of the point mass, we obtain the work
-made by the force on the mass. In continuum mechanics this picture becomes
-more complex. We deal with extended bodies, and the total force on a body
-or on part thereof is obtained by integrating two kinds of forces:
-\emph{bulk forces}, also called body forces, which act on a volume element
-and must be integrated over a three-dimensional region, and \emph{surface
-  forces}, also called contact forces, which act on an area element of the
-body's surface and must be integrated over a two-dimensional region.
-
-Let's see what kind of geometric representation these operations suggest.
-
-The fact that a force is to be integrated over a line to obtain work
-suggests that it's better viewed as a \emph{covector-valued} object, ready
-to be integrated over a line without the need of a scalar product
-\citep[\sect~12]{burke1995}[\sect~VII.2]{schouten1951}[\sect~2]{vandantzig1954}[\chaps~VI--VII]{burke1985_r1987}[\chap~7]{bambergetal1988_r1990}.
-
-If a bulk force is to be integrated over a volume, then it should be a
-covector-valued, outer-oriented 3-form. If we think of it as operating on a
-matter element (outer-oriented 3-form) instead, then it should be a
-covector-valued, outer-oriented 3-vector. Here we see the core of one of
-the questions of \sect~\ref{sec:soup}: are we to interpret forces as
-\enquote{acting} on matter? or as entities that can exist where there's no
-matter? General relativity suggests the latter interpretation. But we'll
-see that we can bypass the question of this representation in general
-relativity, because the notion of bulk force disappears there, leaving only
-that of surface force.
-
-Surface forces, being integrated over a surface, should be covector-valued,
-outer-oriented 2-forms.
-
-The integration of bulk or surface forces, which are covector-valued
-object, is possible in Newtonian mechanics thanks to the affine structure of
-its three-dimensional space. This kind of integration is impossible or
-at best ambiguous with the path-dependent parallel transport of general
-relativity; this impossibility is related to the absence of a
-\enquote{conservation law} for 4-momentum \citep[\sect~21]{pauli1921_t1958}[\sect~59]{eddington1923_r1930}[\sect~96]{landauetal1939_t1996}[also][]{aldermanetal1970}.
-
-
-**1-form also suggested by principle of virtual work
-
-\subsection{Frame indifference}
-\label{sec:frame_indifference}
-
-
-\subsection{Work and frames}
-\label{sec:work_frames}
-
-
-\subsection{Inertia as force and affine structure}
-\label{sec:inertia_is_force}
-
-*** only affine structure is necessary to transport and sum forces
-
-*** static formulation  \citep[\cf][part~III \sect~6 p.~652]{vandantzig1934b}
-
-\subsection{Bulk and surface forces}
-\label{sec:surface_forces}
-
-\subsection{Four-dimensional generalizations}
-\label{sec:4D_generalize}
-
-*** 4th component, spacelike 3-surface
+\section{Some remarks on Newtonian and general relativity}
 
 
 \subsection{Newtonian relativity}
@@ -1505,12 +1641,14 @@ relativity; this impossibility is related to the absence of a
 The main aim of continuum mechanics is to describe how bodies move and
 deform in spacetime in response to forces. 
 
-In the history of science we see two main kinds of scientific theory.
+In the history of science there seems to be two main kinds of scientific
+theory.
 
 One kind of theory is based on the \enquote{stuff} that is believed to be
 ultimate and fundamental at the time of conception, although usually proven
 not to be ultimate some decades later. Examples are vortex theories from
-the Baroque and contemporary high-energy particle theories.
+the Baroque and contemporary high-energy particle theories\footnote{I say
+  this with half a tongue in cheek. Only half though}.
 
 The other kind of theory, humbler and more grandiose at the same time,
 tries to make allowance for any new phenomena that may be discovered.
@@ -1578,290 +1716,683 @@ equations.
 
 
 
-\section{Newtonian-relativistic continuum mechanics: kinematics}
-\label{sec:newton_kinematics}
+\subsection{General relativity}
+\label{sec:aims_general_rel}
 
+General relativity gives us the equation $\yG= 8\pu\kappa\yTf$; for some time
+after its proposal it was not clear which were independent, dependent, and
+boundary-condition quantities; a distinction that is necessary to set up a
+well-posed boundary-value problem. Misner \etal\
+\citey[\chap~21]{misneretal1970_r1973} discuss this question at length.
 
-\section{Newtonian-relativistic continuum mechanics: dynamics}
-\label{sec:newton_dynamics}
+The Einstein equations are clearly suited for a continuum description of
+matter, not a particulate one: because they involve the notion of stress,
+which is an exquisitely continuum notion. And since stress is the staple of
+constitutive equations in Newtonian mechanics, and does not commit to
+specific forms of matter or forces, then the Einstein equations do not
+commit to specific forms of matter or forces either, unlike
+particle-physics theories. From this point of view the Einstein equations
+appear as a harmonization of a part of the Newtonian balance laws and of
+geometry. They -- especially the stress appearing in them -- still need
+constitutive equations.
 
-\subsection{Dynamics with absolute time}
-\label{sec:newton_dynamics_absolute_time}
+The Einstein equations don't include the balances of amount of matter (see
+\psect~\ref{sec:matter}) and entropy
+\citep{eckart1940c}[\chap~22]{misneretal1970_r1973}. This fact is very
+clear in numerical relativity
+\citep[p.~1918]{disconzi2014}[\sect~2.2]{wilsonetal2003_r2007}[\sect~6.3.2]{gourgoulhon2007_r2012}[\chap~5]{baumgarteetal2010}[\sect~2.3]{rezzollaetal2013}.
 
-Traditional presentations of Newtonian-relativistic dynamics and of
-Newton-Cartan theory starts with the notion of \emph{absolute time} $\ytn$,
-which is a unique slicing of spacetime. We'll presently see that this
-notion, together with a geometry and a connection on the slices, is
-mathematically necessary when the notion of force is represented by objects
-living on 3-surfaces. But later we'll consider the possibility of avoiding
-absolute time. In fact, the notion of simultaneity in
-Newtonian-relativistic mechanics is inspired by what we simultaneously
-\emph{see}, together with the assumption that the velocity of light is
-practically infinite. But we could also define simultaneity in terms of
-what we simultaneously \emph{hear}, for example. How could Newtonian
-mechanics be formulated in that case? We'll give a possible answer later.
+\section{Searching for common dynamical notions and objects}
+\label{sec:search_common_dyn}
 
-A force on a body at time $\ytn$ in Newtonian mechanics has two important
-characteristics:
-\begin{enumerate*}[label=(\arabic*)]
-\item it is meant to be integrated along the trajectory of every small
-  region of the body, to yield the work done on that region;
-\item it is meant to be obtained from the sum of infinitesimal body forces
-  acting over each part of the region, or surface forces over its boundary.
-\end{enumerate*}
+\subsection{Force and momentum}
+\label{sec:force_momentum}
 
-Owing to the first characteristic, many geometers
-\citep{vandantzig1954,burke1980b,burke1985_r1987,burke1995,bossavit1991,bossavit1998b,hehletal1999,hehletal2003}
-have advocated the representation of force as a covector. Their arguments
-are geometrically beautiful. Further consideration of geometry, however,
-leads to a still different representation. The reason is that velocity is a
-frame-dependent object. If we represent forces as covectors, we're then
-supposing that a frame-independent object should be applied to a
-frame-dependent one, which feels geometrically unsatisfying. There is a way
-out. Instead of the velocity of matter we can consider its flow,
-represented by the matter 3-form $\yr$. On a 3-surface its current is
-represented by the flux 2-form $\yj$. We can let a force operate on this
-flux, rather than on the velocity. Then a force has to be represented by a
-2-vector rather than a 1-covector. The 2-form flux still depends on a
-choice of frame, but this point of view can be generalized to four
-dimensions in a frame-independent way.
+Force is the queen notion in Newtonian dynamics. Momentum seems the
+protagonist of general-relativistic dynamics instead, at least looking at
+relativity texts that focus on the motion of point-like bodies. If we are
+to build a dynamics that has as many common notions and objects as possible
+in common to Newtonian- and general-relativistic dynamics, which of these
+two notions should we choose?
 
-The second characteristic says that a body force must be a 2-vector-valued
-outer-oriented 3-form, while a surface force a 2-vector-valued
-outer-oriented 2-form.
-
-The total force on a body is the integral of the body forces over its
-volume and of the surface forces over its boundary. Since forces are
-vector-valued objects, this integration is only possible if the slices
-have an \emph{affine} structure, that is, a parallel transport with
-vanishing curvature. From this point of view, the affine structure is
-demanded by the dynamics, rather than by the kinematics.
-
-Some forces between bodies, like the gravitational force or a purely
-elastic stress, are moreover defined to depend on a metric, which must
-therefore be introduced besides the affine structure. It would be
-interesting to explore whether metric and affine structure could be
-introduced in terms of these forces instead.
-
-So in the present section let's assume that we have a unique slicing
-$t\equiv\ytn$, representing absolute time, and whose slices have a
-Euclidean structure: metric $\yg_t$ and flat parallel transport $\ynab_t$;
-the index $t$ will be omitted, but it is important to note that there is no
-specific relation between metrics and parallel transport on different
-slices. We are not assuming the existence of a Newton-Cartan connection. A
-frame $\yF$ that satisfies $\Li_{\yF}\yg = 0$ is called a \emph{rigid
-  frame}.
-
-Indicating the sum of all body forces acting on a body by $\yb$, and that
-of the surface forces by $\yT$, the \emph{balance of forces} states that
-\begin{equation}
-  \label{eq:force_balance_integral}
-  \int_{\yvo} \yb + \oint_{\de\yvo} \yT = 0 \qquad\forall \yvo
-\end{equation}
-for each outer-oriented closed 3-volume $\yvo$ within a slice. Note that the
-result of the integration is a 2-vector, not a scalar. The local version of
-the balance is
-\begin{equation}
-  \label{eq:force_balance_ecd_local}
-  \yb + \yDi \yT = 0, 
-\end{equation}
-where $\yDi$ is the \emph{exterior covariant derivative}
-\citep[\sect~Vbis.A.4]{choquetbruhatetal1977_r1996}[\sect~14.5]{misneretal1970_r1973}[\sect~9.3]{frankel1997_r2012}[see
-also][]{segev2000,segev2000b,segevetal2000,segev2002,segevetal2012,kansoetal2007}.
-
-The fact that we have to use the \emph{exterior} covariant derivative, rather than
-the covariant derivative, may have important consequences later.
-
-\subsection{Interlude: forces and motion -- is there a balance of
-  momentum?}
-\label{sec:really_balance_momentum}
-
-How does the balance of forces relate to motion?
-
-The vast majority of literature and textbook do not speak of balance of
-forces; they follow a different path that sounds more or less as follows:
-
-There is a law of \enquote{conservation of momentum}, which states that the
-rate of change of momentum of a body region is proportional to the forces
-exerted on it:
-\begin{subequations}\label{eq:conservation_momentum_traditional}
-  \begin{gather}
-    \label{eq:conservation_momentum_traditional_integral}
-    \text{\textquotedblleft}\ 
-    \di_t\int_{\yvo}\rho\yvt = \int_{\yvo} \yb + \oint_{\de\yvo} \yT
-    \ \text{\textquotedblright},
-    \\\shortintertext{or}
-    \label{eq:conservation_momentum_traditional_differential}
-    \text{\textquotedblleft}\ 
-    \de_t(\rho\yvt) + \div(\rho\yvt\otimes\yvt) = \div\yT +\yb
-    \ \text{\textquotedblright}.
-  \end{gather}
-\end{subequations}
-This equation directly connects forces and motion, and looks like a
-conservation equation with fluxes and sources. This conservation law is
-only valid in an inertial frame. We can make it valid in every rigid frame
-provided we add some \enquote{fictitious forces} looking like
-\begin{equation}
-  \label{eq:fictitious_forces}
-    \text{\textquotedblleft}\ 
-  \rho\, [-{\de_t}^2\yxto%(\yxt-\yxto)
-  + 2\yom\cdot\de_t(\yxt-\yxto) + (\de_t\yom-{\yom}^2)\cdot(\yxt-\yxto)]
-    \ \text{\textquotedblright},
-\end{equation}
-in that non-inertial rigid frame.
-
-\bigskip
-
-The presentation above is geometrically unsatisfying, however.
-
-The right-hand side of \eqn~\eqref{eq:conservation_momentum_traditional} is
-frame-indifferent; that is, the definition and measurement of $\yT$ and
-$\yb$ do not depend on a choice of frame, inertial or otherwise. For
-example, the force exerted on a pointlike object attached to a Hookean
-spring with constant $k$ and elongation $l$ has intensity $kl$ and
+In Newtonian dynamics force is more natural than momentum for several
+reasons. The main one is that force is frame-indifferent, whereas momentum
+is not. For example, the force exerted on a pointlike object attached to a
+Hookean spring with constant $k$ and elongation $l$ has intensity $kl$ and
 direction along the elongation. This is a complete description of the
 force, and the notion of frame is completely irrelevant to it. Similarly
 for the gravitational force: it is given by $\rho\otimes\yfg$, where $\yfg$
 is a frame-indifferent covector field. This field is in turn determined by
 the amount of matter and mass distribution via $\di\yfg = - 4\pu G \rho$,
-again a frame-indifferent definition.
+again a frame-indifferent definition. The momentum of a body, on the other
+hand, can be zero in one frame and non-zero in another. Another reason is
+psychological: we have an immediate intuition of force from our physical
+experience.
 
-The momentum density $\rho\yvt$ on left-hand side of
-\eqn~\eqref{eq:conservation_momentum_traditional} and the
-\enquote{fictitious forces}~\eqref{eq:fictitious_forces} require the
-specification of a frame instead.
+In general-relativistic dynamic, on the other hand, force does appear, in
+the form of stress, as soon as we consider extended bodies.
 
-Therefore \eqn~\eqref{eq:conservation_momentum_traditional}, with or
-without fictitious forces, mixes up frame-indifferent and frame-dependent
-quantities. This doesn't make sense geometrically.
+The notion in common to the dynamics of the two theories seems to lie in
+between. In fact, properly speaking it is not momentum, but momentum/volume
+that enters the Einstein equations; and it is mainly force/area that enters
+the Newtonian equations for continua.
 
-We find a geometrically more satisfying formulation by using some ideas
-that can possibly be found in a work by Jacob Bernoulli
-\citep{bernoulli1703}[see][p.~104]{truesdell1968}{noll1963}[\sect~I.13]{truesdell1977_r1991}. Consider a small
-enough body region, so that deformation and torques can be neglected. In a
-problem of \emph{statics} in an inertial frame, the balance of
-forces~\eqref{eq:force_balance_integral} holds. Now consider a fact and two
-assumptions:
-\begin{itemize}
-\item a small body region can always be considered at rest in a suitably
-  chosen frame;
-\item the laws of statics should hold in any frame in which the body region
-  is at rest;
-\item an inertial frame is a rigid frame at rest on average with respect to
-  the total distribution of matter in the universe, which is mostly
-  associated with the fixed stars.
-\end{itemize}
-The consequence of these statements is that \emph{the balance of
-  forces~\eqref{eq:force_balance_integral} is valid in any frame; among
-  these forces we must account for one related to the relative motion of
-  the body region with respect to the total distribution of matter in the
-  universe, approximately identified with the \enquote{fixed stars}}.
+Newtonian dynamics is contained in three fundamental balances: of force
+(momentum), of energy, and of torque (rotational momentum). The first two
+can be written in an inertial frame as
+\begin{gather}
+  \label{eq:energy_balance_newtonian}
+  \de_t \ye = \ynab\cdot\yq + \yQ,
+  \\
+  \de_t\yp = \ynab\cdot\yTT + \ybf,
+\end{gather}
+where the time derivative can be interpreted as $\de_t = \Li_{\yF}$, see
+\psect~\ref{sec:slicing_frames}, for a specially chosen $\yF$. In the first
+balance $\ye$ is the energy density, $\yq$ is the energy flux and the $\yQ$
+the bulk energy source, both of which include heat and work contributions.
+In the second balance $\yp$ is the momentum density, $\yTT$ the (3-)stress,
+and $\ybf$ the bulk force density. These equations can be combined as
+\begin{equation}
+  \label{eq:energy_balance_newtonian_combo}
+  \begin{pmatrix}
+    \de_{t} & \ynab
+  \end{pmatrix} \cdot
+    \begin{pmatrix}
+      \ye & \yq \\
+      \yp & \yT
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+      \yQ \\ \ybf
+    \end{pmatrix}
+    \;.
+\end{equation}
+Let us drop the bulk terms, assuming that we consider only \enquote{contact
+  effects}. Then we obtain
+\begin{subequations}
+  \begin{gather}
+    \label{eq:div4stress}
+    \yDi\cdot\yTf=0
+    \\
+    \shortintertext{with}
+    \label{eq:def4stress_newton}
+    \yTf \defd
+    \begin{pmatrix}
+      \ye & \yq \\
+      \yp & \yT
+    \end{pmatrix}
+    \qquad
+    \yDi \defd   \begin{pmatrix}
+    \de_{t} & \ynab
+  \end{pmatrix} 
+  \end{gather}
+\end{subequations}
+which are also part of the dynamical equations of general relativity. Here
+$\yDi$ is the exterior covariant derivative
+\citep[\sect~Vbis.A.4]{choquetbruhatetal1977_r1996}[\sect~14.5]{misneretal1970_r1973}[\sect~9.3]{frankel1997_r2012}[see
+also][]{segev2000,segev2000b,segevetal2000,segev2002,segevetal2012,kansoetal2007}.
 
-This force is the inertial force. Let's see how it is expressed in an
-arbitrary rigid frame $\yF$; remember that what we call \enquote{time
-  derivative} is the Lie derivative $\Li_{\yF} \defs \de_t$. In this frame
-let the position of the body region be $\yxt(t)$, and let the total
-distribution of matter in the universe have centre of mass at $\yxto(t)$
-and average instantaneous rotation given by the 2-form $\yom(t)$; in
-\sect~\ref{sec:inertial_force} I explain how they are determined by the
-mass distribution through a sort of Mach's principle. Then the inertial
-force is the covector-valued 3-form
+
+The heat flux $\yq$ and the momentum $\yq$ are separate entities in
+Newtonian mechanics. In general relativity, the symmetry of the stress
+tensor, which represents the balance of torque in specific situations, is
+extended to the whole 4-stress $\yTf$. An additional law is thus present:
+energy flux carries momentum density, and momentum density carries energy
+flux. This is the famous \enquote{inertia of energy}, which appears in
+general relativity as an extension of the balance of rotational momentum.
+See the brilliant discussion by \textcite[pp.~920--921, 923]{eckart1940c}.
+
+Such equality could also be imposed in Newtonian mechanics, with important
+consequences discussed in \psect~\ref{sec:constitutive equations}.
+
+\medskip
+
+The stress-energy-momentum tensor or \defquote{4-stress} $\yTf$ thus seems
+to be the object in common to Newtonian- and general-relativistic dynamics.
+The dynamical equation~\eqref{eq:div4stress} appears as a four-dimensional
+analogue of the fundamental equation of statics. But there still remain
+several unclear points.
+
+One point is that the Newtonian stress is a vectorial object eminently
+meant to be \emph{integrated}: its integral over a surface enclosing a body
+yields the total surface force acting on that body. The integration of a
+vectorial object, however, is possible in Newtonian mechanics thanks to the
+affine structure of its three-dimensional space. This kind of integration
+is impossible or at best ambiguous with the path-dependent parallel
+transport of general relativity. Some authors relate this impossibility to
+the supposed absence of a \enquote{conservation law} for 4-momentum
+\citep[\sect~21]{pauli1921_t1958}[\sect~59]{eddington1923_r1930}[\sect~96]{landauetal1939_t1996}[also][]{aldermanetal1970}.
+Misner \etal\ \citep[see their \chap~15, especially
+\sect~15.3]{misneretal1970_r1973} instead consider integration over very
+small three-dimensional regions of spacetime.
+
+The point above is connected with the mystery regarding the most
+appropriate geometric nature of the 4-stress. In most texts it is
+represented by a tensor of order 2. There are indications that it could be
+more properly represented by a covector-valued 3-form, or by a
+3-vector-valued 3-form (equivalent to a tensor antisymmetric in the first
+three and last three slots), for reasons connected with integration. See
+for example the discussion about \enquote{$^{\displaystyle *}\mathte{T}$}
+by Misner \etal~\citep[\chap~15]{misneretal1970_r1973}, the works by
+Segev~\citep{segev2002,segev1986,segevetal1999,segev2000,segev2000b}, the
+discussion by Burke~\citep[\sect~41]{burke1985_r1987}.
+
+I separately consider other unclear points about the 4-stress in the
+sections below.
+
+
+\subsection{Constitutive equations}
+\label{sec:constitutive equations}
+
+In Newtonian mechanics the balances of matter, force, energy give a system
+of 1+3+1 real-valued equations; see
+\psect~\ref{sec:newtonian_mechanics_aim}. They involve at least 4+3+6+4+1
+real-valued quantities: matter density and flux (four), body force (three),
+stress (six), energy density and flux (four), and body supply of energy
+(one). The independent variables in these equations are usually assumed to
+be the four components of the matter 3-form -- that is, density and flux of
+matter (velocity) -- and the temperature or another thermodynamic quantity,
+such as the energy density. More quantities and equations are needed for
+more complex kinds of continua such as continua with spin.
+
+The balance laws alone are therefore not sufficient to determine the
+evolution of all fields. Moreover, although the balances are assumed to
+hold for all forms of matter, different kinds of matter behave in different
+ways.
+
+\emph{Constitutive equations} are equations that give the dependent fields
+as functions or functionals of the independent ones. They express the
+different behaviour of different kinds of matter, and together with the
+balance laws yield a closed system of differential or integro-differential
+equations.
+
+The most important constitutive equations in our discussion are those that
+enter the 4-stress. All components of the 3-stress $\yT$ are in the
+simplest cases \emph{functionals} of the matter 3-form $\yr$ -- that is,
+matter density and matter flux -- and of the internal energy $\ye$ or
+temperature $\yte$. But the 3-metric $\yg$ also enters these equations,
+even if in a passive role, in the guise of gradients, divergences, and
+other metric-dependent operators:
+\begin{subequations}\label{eq:constitutive_4stress}
+  \begin{gather}
+    \label{eq:constit_T_with_mass_geometry}
+    \yTf=\yTf[\yr(\dotv),\yte(\dotv),\yg(\dotv)],
+    \\
+    \shortintertext{or, in a given slicing and frame,}
+    \label{eq:4stress_components}
+    \yTf =
+    \begin{pmatrix}
+      \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] & \yq[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] \\
+      \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] & \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)]
+    \end{pmatrix}
+  \end{gather}
+\end{subequations}
+these functionals indirectly also include a possible dependence on the
+extrinsic curvature $\yK$, which is the \enquote{time derivative} of the
+3-metric; see \psect~\ref{sec:3-1_formulation}.
+
+The dependence on the metric can be quite complicated: for example, the
+stress at a point can depend on the difference between the 3-metric there
+and the metric from previous 3-surfaces, transported by the velocity $\yc$
+associated with the matter flux \citep{grotetal1966,carteretal1972}. The
+difference can be non-vanishing even if the 3-metric is Euclidean on all
+3-surfaces. The only difference between Newtonian and general relativistic
+mechanics is that all 3-metrics are flat in the former but not in the
+latter.
+
+\medskip
+
+The constitutive equation for the momentum density $\yp$ is extremely
+interesting.
+
+In Newtonian mechanics we do not speak of a \enquote{constitutive equation}
+relating momentum and matter (there are some exceptions when
+electromagnetism is involved). Momentum coincides with mass flow, and mass
+is taken almost as synonymous with matter. In \psect~\ref{sec:matter} we
+separated mass and matter to build a common kinematics. Flow of matter
+$\yj$ and momentum $\yp$ are thus not synonymous. In an inertial frame
+there is a linear, constant relation between the two flows: in such a frame
+we can write $\yp = m\yj$, where $m$ is molar mass. This is a kind of
+constitutive relation.
+
+In Lorentzian and general relativity the relation between matter flux and
+momentum is not linear or so simple. Energy flux, such as heat, contributes
+momentum to a body of matter, even in the latter's rest frame
+\citep[p.~923]{eckart1940c}. In Newtonian mechanics such a contribution is
+negligible, but we must formally take it into account if we want to impose
+the equivalence of momentum density and energy flux, as mentioned in
+\psect~\ref{sec:force_momentum} after \eqn~\eqref{eq:def4stress_newton}.
+This is why I wrote an explicit dependence on temperature in the
+constitutive equation for the momentum $\yp$ of
+\eqn~\eqref{eq:4stress_components}.
+
+\medskip
+
+There are many studies of specific constitutive equations in general
+relativity, from perfect fluids to materials with elasticity dependent on
+electromagnetism, temperature, and heat conduction. There are also studies
+on general symmetry principles for the formulation of constitutive
+equations. Unfortunately many of these works don't know of one another's
+existence. See especially the extensive studies and results by Maugin
+\etal\
+\citep{maugin1971,maugin1971b,mauginetal1972,mauginetal1972b,maugin1973,maugin1974,maugin1974b,maugin1978,maugin1978b,maugin1978c,maugin1978d,maugin1978e},
+Carter \etal\ \citep{carteretal1972,carter1973,carteretal2006}, the early
+and very insightful study by Eckart \citep{eckart1940c}, and others
+articles and books
+\citep{bressan1964b,lianis1973,bertottietal1984,hiscocketal1985,anileetal1989,gerochetal1991,herrmannetal2000,bossavit2001b,geroch2001,gourgoulhon2007_r2012,alcubierre2008,choquetbruhat2009,baumgarteetal2010,rezzollaetal2013,disconzi2014,pimenteletal2016,disconzietal2017}.
+
+\mynote{Some words needed on work and force}
+
+\section{$3+1$ formulation and constitutive equations\\ in general relativity}
+\label{sec:3-1_formulation}
+
+Suppose we have introduced a slicing and a frame in spacetime as described
+in \psect~\ref{sec:slicing_frames}.
+
+The Einstein equations can be decomposed by projection along the slices $t$
+and the frame $\yn$, giving rise to a part parallel to the surfaces with
+3\;\texttimes\;3 real components, a part parallel to the vector field with
+1 component, and a mixed part with 3 components. Our freedom in choosing
+the slicing $t$ and the frame $\yn$ appears in the decomposed equations as
+the presence of and undetermined \defquote{lapse} function and an
+undetermined \defquote{shift} vector field. When a metric is present we can
+choose the frame $\yn$ to be the unit normal to the 3-surfaces. This choice
+corresponds to a constant unit lapse function and a vanishing shift vector
+\citep{smarretal1978,smarretal1980}, and represents a free-falling
+reference system. Other choices of lapse and shift are more convenient for
+initial-value problems, for example because they can correspond to a
+slicing that covers most of spacetime while avoiding singularities
+\citep{smarretal1978}. But our present discussion is mainly conceptual; we
+therefore use the simplest lapse and shift.
+
+The decomposed Einstein equations can be found compactly written in a
+number of texts
+\citep[\sect~1.3]{wilsonetal2003_r2007}[\sect~4.3.2]{gourgoulhon2007_r2012}[\chap~2]{alcubierre2008}[\sect~7.2.2]{rezzollaetal2013}.
+The decomposition of the Einstein tensor $\yG$ yields the 3-metric
+$\yg=(\ygg_{ab})$ of the 3-surfaces, having inverse $\yg^{-1}=(\ygg^{ab})$,
+with its compatible connection $\ynab$ having Ricci curvature
+$\yR=({\yRR_a}^b)$, and the extrinsic curvature $\yK=({\yKK_a}^b)$ of the
+3-surfaces. The decomposition of the energy-momentum-stress tensor $\yTf$ yields the
+internal energy $\ye$, energy flux $\yp$, and spatial stress
+$\yT=({\yTT_a}^b)$:
+\begin{equation}
+  \label{eq:decomp_4stress}
+  \yTf = \ye \di t \otimes\yn + \yp\otimes\yn + \di t
+  \otimes(\yp\cdot\yg^{-1}) + \yT.
+\end{equation}
+
+The Einstein equations $\yG = 8\pu\yTf$ are decomposed into the evolution
+equations \mynote{some $\pu$ factors may be missing}
+\begin{subequations}\label{eq:evolution_eqns}
+  \begin{align}
+    \label{eq:dt_metric}
+    \de_t \yg &= -2\yK\cdot\yg,
+    \\
+    \label{eq:dt_curvat}
+    \de_t \yK &=  \yK\tr\yK -2 \yK\cdot\yK +\yR + 4\pu\,(\tr\yT-\ye) - 8\pu\yT
+  \end{align}
+\end{subequations}
+or
+\begin{subequations}\label{eq:evolution_eqns2}
+  \begin{align}
+    \label{eq:dt_metric2}
+    \de_t \yg &= -2\yK\cdot\yg
+    \\
+    \label{eq:dt_curvat2}
+    \de_t \yK &=  \yK\tr\yK-\tfrac{1}{4}(\tr\yK)^2
+                -2 \yK\cdot\yK + \tfrac{1}{4}\yK\con\yK
+                +\yR -\tfrac{1}{4}\tr\yR
+                -\yT+ \tfrac{1}{2}\tr\yT
+  \end{align}
+\end{subequations}
+and the constraint equations
+\begin{subequations}\label{eq:constraint_eqns}
+  \begin{align}
+    \label{eq:energy_constraint}
+    16\pu\ye &=(\tr\yK)^2 - \yK\con\yK + \tr\yR,
+    \\
+    \label{eq:momentum_constraint}
+    8\pu\yp &= \ynab\cdot(\yK\T - \yI\tr\yK).
+  \end{align}
+\end{subequations}
+where \defquote{$\ynab$} is the 3D covariant derivative compatible with the
+3-metric $\yg$ tangent to each slice. Note that
+\begin{equation}
+  \label{eq:curvature_stretching}
+  \yK\cdot\yg = -\frac{1}{2}\de_t\yg \equiv
+  -\frac{1}{2}  \Li_{\yn}\yg \equiv
+  -\frac{1}{\sqrt{\yg}}\Li_{\yn}\sqrt{\yg} \equiv -\ynab\cdot \textelp{}
+\end{equation}
+
+(It is interesting that the \enquote{3-momentum} in relativity appears as
+the divergence of a 3-tensor -- just like a force from a stress.)
+
+To these equations we must add the balance of amount of
+matter~\eqref{eq:mass_balance_traditional}:
+\begin{equation}
+  \label{eq:mass_balance_gen-rel}
+  \de_t\yd = - \di\yj
+  \qquad\text{or}\qquad
+  \de_t\yd -\tr\yK\yd = -\ynab\cdot\yj,
+\end{equation}
+where in the second equation $\yd$ and $\yj$ are interpreted as a scalar
+and a vector. In these expressions $\de_t \equiv \Li_{\yn}$. (Conservation
+of matter is not enforced by the Einstein equations
+\citep[\eg][]{eckart1940c}[\sect~6.3.2]{gourgoulhon2007_r2012}[\sect~5.2]{baumgarteetal2010}[\sect~7.3]{rezzollaetal2013}[\sect~22.2]{misneretal1970_r1973}.
+Curiously there was at first some misunderstanding about the independence
+of this equation: see for example von Laue's \citep[p.~503]{vonlaue1949}
+statement.)
+
+This gives us a total of 6 + 6 + 1 + 3 + 1 (real-valued) equations for a
+total of 6 + 6 + 6 + 1 + 3 + 1 + 3 + 1 components of the fields $\yg$,
+$\yK$, $\yT$, $\ye$, $\yp$, $\yd$, $\yj$, and temperature $\yte$. Then we
+need 6 + 1 + 3 equations, which turn out to be, as in the Newtonian case,
+the constitutive functional equations~\eqref{eq:4stress_components} for
+the energy-momentum-stress:
+\begin{subequations}\label{eq:constitutive_4stress_gen-rel}
+  \begin{align}
+    \label{eq:constit_energy_gen-rel}
+    \ye &= \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)]
+    \\
+    \label{eq:constit_energy-flux_gen-rel}
+    \yp &= \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)]
+    \\
+    \label{eq:constit_3stress_gen-rel}
+    \yT &= \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)]
+  \end{align}
+\end{subequations}
+The dependence on $\yK(\dotv)$ is redundant, since it is a functional of
+$\yg(\dotv)$, and these equations are already functionals of $\yg(\dotv)$;
+but I leave the explicit dependence for clarity.
+
+% The 4-velocity is determined by the matter flux $\yj$ and the 4-metric by
+% \eqn~\eqref{eq:4velocity_explicit}.
+
+
+\subsection{A remark on the role of
+  \,$\nabla\cdot\textsf{\textit{T}} = 0$\, in general relativity}
+% on the divergence of the energy-momentum-stress
+\label{sec:divergence_4stress}
+
+A subtle point appears in most general-relativity texts I have read,
+especially for numerical relativity. They remark that the balance equations
+$\yDi\cdot\yTf = 0$ are a consequence of the Einstein equations
+$\yG = 8\pu \kappa \yTf$, and therefore solving the latter automatically
+yields the former. But to find the numerical solutions they actually use
+the former!
+
+The balance $\yDi\cdot\yTf = 0$ is indeed contained in
+\eqns~\eqref{eq:evolution_eqns}--\eqref{eq:constraint_eqns}. Its spatial
+part, for example, -- the balance of momentum -- can be obtained combining
+the time derivative of the constraint
+equation~\eqref{eq:momentum_constraint} and the 3-divergence of the
+evolution equation~\eqref{eq:dt_curvat}. A quick check of the combination
+of \eqref{eq:momentum_constraint} and \eqref{eq:dt_curvat} shows in fact
+the appearance of the time-derivative of $\yp$ and the divergence of the
+3-stress. A similar combination yields the balance of energy. These
+balances are
+\begin{subequations}\label{eq:evolution_energy_momentum}
+  \begin{gather}
+    \label{eq:dt_energy}
+    \de_t \ye - \ye\tr\yK + \ynab\cdot\yp - \yK\con\yT =0
+    \\
+    \label{eq:dt_momentum}
+    \de_t \yp -  \yp\tr\yK + \ynab\cdot\yT\T =0.
+  \end{gather}
+\end{subequations}
+In these equations the matter-convection terms, usually kept separate in the
+Newtonian case, are included in $\yp$ and $\yT\T$. The terms proportional
+to $\tr\yK$ are absent in the Newtonian case.
+
+The reason for using the divergence equation $\yDi\cdot\yTf = 0$ is clearly
+explained by Frittelli \citey{frittelli1997}. The constraint
+equations~\eqref{eq:constraint_eqns} should be enforced on \emph{every}
+3-surface, \ie\ for all times $t$, while the metric and extrinsic curvature
+are evolved by \eqns~\eqref{eq:evolution_eqns}. If we did so there would be
+no need to use $\yDi\cdot\yTf = 0$ in the solution.
+
+But it would be more convenient if the
+constraints~\eqref{eq:constraint_eqns} could be enforced on one 3-surface
+only, for example the initial one, and be automatically satisfied on all
+other 3-surfaces, \ie\ at all subsequent times. It turns out that the
+divergence equation $\yDi\cdot\yTf = 0$ does exactly this: it makes the
+constraints automatically satisfied at all times if they are satisfied at
+the initial time.
+
+Loosely speaking, the system
+\begin{align*}
+  &\left\{\begin{aligned}
+  &\text{evolution equations~\eqref{eq:evolution_eqns}} \\
+  &\text{constraint equations~\eqref{eq:constraint_eqns} for all $t$}
+  \end{aligned}\right.
+  \\
+  \shortintertext{is equivalent to the system}
+  &\left\{\begin{aligned}
+  &\text{evolution equations~\eqref{eq:evolution_eqns}} \\
+  &\text{divergence equation $\yDi\cdot\yTf = 0$} \\
+  &\text{constraint equations~\eqref{eq:constraint_eqns} for initial $t$ only}
+  \end{aligned}\right.
+\end{align*}
+and the latter is more convenient to solve.
+
+
+\subsection{How to solve the decomposed equations}
+\label{sec:how_to_solve_3-1}
+
+Let us consider how
+equations~\eqref{eq:evolution_eqns}--\eqref{eq:constitutive_4stress_gen-rel}
+could be solved.
+
+% Only the evolution equations~\eqref{eq:evolution_eqns} and
+% mass-balance~\eqref{eq:mass_balance_gen-rel} contain temporal derivatives:
+% they give us 6 + 6 + 1 real-components of the $\yg$, $\yK$, $\yd$ fields on
+% the 3-surface at time $t+\incr t$ given all fields on the 3-surface at time $t$.
+% The constraint equations \eqref{eq:constraint_eqns} and constitutive
+% equations~\eqref{eq:constitutive_4stress_gen-rel} fix definite relations
+% between metric, extrinsic curvature, energy and energy flux, on each
+% 3-surface. The question is which field should be considered independent and
+% which dependent.
+
+% In continuum mechanics the stress $\yT$ is in the simplest case a
+% functional of mass density, momentum or velocity, and internal energy. For
+% the moment let's assume a constitutive equation
 % \begin{equation}
-%   \label{eq:inertial_force}
-%   \ybi \defd  -\yd\, [{\de_t}^2(\yxt-\yxto)
-%   - 2\yom\cdot\de_t(\yxt-\yxto) - (\de_t\yom-{\yom}^2)\cdot(\yxt-\yxto)].
+%   \yT=\yT(\ye,\yp,\yg,\yK),
+%   \label{eq:constit_T_with_energy}
 % \end{equation}
+% omitting mass density. Then,
+
+Imagining a rough numerical timestepping scheme, in which for example
+\eqn~\eqref{eq:dt_metric} becomes
 \begin{equation}
-  \label{eq:inertial_force}
-  \ybi \defd  -\rho \otimes
-  \bigl(\yom\cdot\yg^{-1}\cdot\yom  - \de_t\yom - 2\yom\de_t  + \yg{\de_t}^2\bigr)
-  \cdot(\yxt-\yxto).
+  \label{eq:approx_timestepping_dt_metric}
+  \yg(t + \incr t) \approx \yg(t) -2\yK(t)\cdot\yg(t)\,\incr t,
 \end{equation}
-The definition of this force requires a metric on each slice. The definition
-of its source, see \sect~\ref{sec:inertial_force}, also requires a parallel
-transport on each slice. But it does not require a 4-dimensional connection
-on the whole spacetime. If we choose a rigid frame in which the total
-matter of the universe does not rotate on average, $\yom=0$, and moves with
-uniform velocity, $\de_t\yxto=\text{const}$, then we recover the familiar
-expression $\ybi = -\rho \yg\cdot{\de_t}^2\yxt$ -- the $\yg$ is necessary to
-transform a vector into a covector. This kind of rigid frame is called
-inertial. The use of a \emph{rigid} frame is not necessary; a
-frame-independent expression of the inertial force is given below.
+it seems that the
+equations~\eqref{eq:evolution_eqns}--\eqref{eq:constitutive_4stress_gen-rel}
+can be solved this way:
+\begin{enumerate}[leftmargin=1.5\parindent]
+\item Choose all fields such as to satisfy the
+  constraints~\eqref{eq:constraint_eqns} and constitutive
+  equations~\eqref{eq:constitutive_4stress_gen-rel} on an initial 3-surface
+  at time $\yto$.
+\item\label{item:increase_step}Calculate metric $\yg$, extrinsic curvature
+  $\yK$, density of amount of matter $\yd$ at time $\yto + \incr t$ from
+  the evolution \eqns~\eqref{eq:evolution_eqns} and balance
+  \eqref{eq:mass_balance_gen-rel}:
+  \begin{align*}
+    \de_t \yg &= -2\yK\cdot\yg,
+    \\
+    \de_t \yK &=  \yK\tr\yK + \yR\cdot\yg^{-1} + 4\pu\,(\tr\yT-\ye) - 8\pu\yT,
+    \\
+    \de_t\yd &= - \di\yj.
+  \end{align*}
+  Note that these evolution equations require, in particular, the flux of
+  amount of matter $\yj$, energy $\ye$, stress $\yT$ at time $\yto$.
+\item\label{item:increase_step_energy}Calculate the  flux of amount of matter $\yj$,
+  temperature $\yte$, energy $\ye$, energy flux $\yp$, stress $\yT$ at time
+  $\yto + \incr t$ from the system of
+  constraints~\eqref{eq:constraint_eqns} and constitutive
+  \eqns~\eqref{eq:constitutive_4stress_gen-rel}, given the newly found
+  $\yg$, $\yK$, $\yd$:
+  \begin{gather*}
+    \begin{aligned}
+    16\pu\ye &= (\tr\yK)^2 - \yK\con\yK + \yR\con\yg^{-1},
+    &\quad
+      8\pu\yp &= \ynab\cdot(\yK\T - \yI\tr\yK),
+    \end{aligned}\\
+    \ye = \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
+    \\
+      \yp = \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
+      \\
+      \yT = \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)].
+  \end{gather*}
+  Note that this system \emph{implicitly} yields, in particular, the flux
+  of amount of matter $\yj$, energy $\ye$, stress $\yT$ needed in the next
+  timestep; see step above.
 
-Including the inertial force in the sum of all other body forces $\yb$, the
-balance of forces~\eqref{eq:force_balance_integral} includes the familiar
-Newtonian equations of motion. It is the inertial force that in most
-physical situations links kinematics and dynamics, specifically by linking
-forces upon a body to its motion with respect to the rest of matter in the
-universe. But there are also situations in which inertia is inessential.
-For example, consider a small body of negligible mass attached to a Hookean
-spring inside a fluid, the other end of the spring being at rest with
-respect to the fluid. The forces acting on the body are the Hookean and the
-viscous ones. In a suitable frame of reference the balance of forces is
-$-k\yxt - \eta\de_t\yxt = 0$, leading to a specific motion
-$\yxt(t) = \e^{-kt/\eta}\yxt(o)$ with respect to the fluid. In this example
-the inertial force plays no role and it is not important whether the frame
-is inertial or not.
+  Now we have all fields at time $\yto + \incr t$.
 
-As regards \enquote{conservation of momentum}, we see that the
-time-derivative of momentum in Newtonian mechanics is not a quantity with a
-general geometric meaning: it is the simplified form assumed by a
-particular force in a particular frame. From this point of view
-conservation of momentum is not a general geometric notion in
-Newtonian-relativistic mechanics.
+\item Set $\yto + \incr t \to \yto$, go to step~\ref{item:increase_step}.
+\end{enumerate}
+
+It is important to remark that the motion of matter, expressed by the matter
+flux $\yj$ in this particular reference frame and slicing, is determined in
+an implicit way in the scheme above. It would be worth investigating how
+geodesic equations \citep{gerochetal1975,weatherall2011} peep out from the
+present scheme.
+
+Such a scheme may not work for more complex temporal dependences in the
+constitutive equations, such as dependence on derivatives, memory, \etc.
+
+\subsection{A possible reduction and reinterpretation: \enquote{hot metric}}
+\label{sec:reinterpretation_metric_temp}
+
+An interesting aspect of the equations above is that energy density and
+energy flux seem to have an intermediate role. We could think of solving
+the constraint and constitutive equations of
+step~\ref{item:increase_step_energy} for matter density $\yd$ and matter
+flux $\yj$ in terms of the 4-metric $(\yg, \yK)$ and the temperature
+$\yte$; this dependence could involve integro-differential operators. The
+balance of amount of matter $\de_t\yd = -\di\yj$ would then become an
+evolution equation for the temperature. The constitutive equation for the
+stress would also be reduced.
+
+We would be left with the system
+\begin{subequations}\label{eq:evolution_eqns_new}
+  \begin{gather}
+    \label{eq:dt_metric_new}
+    \yK \defd -\tfrac{1}{2}\de_t \yg \cdot \yg^{-1},
+    \\
+    \label{eq:dt_curvat_new}
+    \de_t \yK =  \yK\tr\yK
+                - \tfrac{1}{4} (\tr\yK)^2
+                +\tfrac{1}{4}\yK\con\yK
+                + \tfrac{3}{4}\yR\cdot\yg^{-1} 
+                + 4\pu\tr\yT - 8\pu\yT,
+    \\
+    \label{eq:constit_mass_new}
+    \de_t \yd[\yg(\dotv),\yK(\dotv),\yte(\dotv)] = -\di\yj[\yg(\dotv),\yK(\dotv),\yte(\dotv)],
+    \\
+    \label{eq:constit_T_new}
+    \yT = \yT[\yg(\dotv),\yK(\dotv),\yte(\dotv)],
+  \end{gather}
+\end{subequations}
+a set of integro-differential equations for the 3-metric $\yg$,
+extrinsic curvature $\yK$, and the temperature $\yte$; or integro-differential for
+the 3-metric $\yg$ and the temperature $\yte$. This system seems to say
+that
+\begin{itemize}
+\item density of amount of matter $\yd$, flux of amount of matter $\yj$,
+  energy density $\ye$, and energy flux $\yp$ are
+  \emph{temperature-dependent} manifestations of the 4-metric;
+\item the 4-metric can interact with itself in different ways, expressed by
+  particular \emph{temperature-dependent} constitutive functional equations
+  for $\yd$, $\yj$, $\yT$.
+\end{itemize}
+Would this satisfy Einstein? How to interpret the \enquote{temperature of
+  the metric}?
+
+
+
+\section{What kind of geometric object is \defquote{force}?}
+\label{sec:geometry_force}
+
+In most presentations of the Newtonian mechanics of point masses, force is
+represented as a vector bound to a point mass. If we take the line integral
+of this vector along the trajectory of the point mass, we obtain the work
+made by the force on the mass. In continuum mechanics this picture becomes
+more complex. We deal with extended bodies, and the total force on a body
+or on part thereof is obtained by integrating two kinds of forces:
+\emph{bulk forces}, also called body forces, which act on a volume element
+and must be integrated over a three-dimensional region, and \emph{surface
+  forces}, also called contact forces, which act on an area element of the
+body's surface and must be integrated over a two-dimensional region.
+
+Let's see what kind of geometric representation these operations suggest.
+
+The fact that a force is to be integrated over a line to obtain work
+suggests that it's better viewed as a \emph{covector-valued} object, ready
+to be integrated over a line without the need of a scalar product
+\citep[\sect~12]{burke1995}[\sect~VII.2]{schouten1951}[\sect~2]{vandantzig1954}[\chaps~VI--VII]{burke1985_r1987}[\chap~7]{bambergetal1988_r1990}.
+
+If a bulk force is to be integrated over a volume, then it should be a
+covector-valued, outer-oriented 3-form. If we think of it as operating on a
+matter element (outer-oriented 3-form) instead, then it should be a
+covector-valued, outer-oriented 3-vector. Here we see the core of one of
+the questions of \psect~\ref{sec:soup}: are we to interpret forces as
+\enquote{acting} on matter? or as entities that can exist where there's no
+matter? General relativity suggests the latter interpretation. But we'll
+see that we can bypass the question of this representation in general
+relativity, because the notion of bulk force disappears there, leaving only
+that of surface force.
+
+Surface forces, being integrated over a surface, should be covector-valued,
+outer-oriented 2-forms.
+
+The integration of bulk or surface forces, which are covector-valued
+object, is possible in Newtonian mechanics thanks to the affine structure of
+its three-dimensional space. This kind of integration is impossible or
+at best ambiguous with the path-dependent parallel transport of general
+relativity; this impossibility is related to the absence of a
+\enquote{conservation law} for 4-momentum \citep[\sect~21]{pauli1921_t1958}[\sect~59]{eddington1923_r1930}[\sect~96]{landauetal1939_t1996}[also][]{aldermanetal1970}.
+
+\mynote{Remark that 1-form is also suggested by principle of virtual work.}
+
+\section{Force in Newtonian relativity}
+\label{sec:force}
 
 
 
 
-The inertial force on the mass $\yr$ can be written in a frame-free way as
-$-\yg^{-1}\cdot \Li_{\yFi}(\yFi\cdot\yr)$, where $\yFi$ is a vector field
-transverse to the slices, defined in \sect~\ref{sec:inertial_force}. Some
-forces, like inertial, viscous, and electromagnetic ones, require objects
-transverse to the slicing for their definition, whereas others, like
-elastic or gravitational ones, don't. This suggests that the presentation
-in terms of an absolute-time slicing can be geometrically improved upon.
+The second piece of thread we're going to pull is \emph{force}. This is
+actually a smaller bundle in itself, and we'll examine it from several angles.
+
+***why no need to speak of conservation
+
+***dynamics comes from stating that the total force and total torque vanish
+
+***affine structure needed, related to Newton's 3rd law. But if we assume
+only contact forces, it can be expressed locally without parallel
+transport. Exception: add spacelike surfaces from a 4D point of view
+
+***that would suffice. But 1st law of thermodynamics, needed for
+thermomechanics, mixes force in energy equation as work.
 
 
-\subsection{Balance of energy}
-\label{sec:energy_balance}
-
-To each matter element on each slice is also associated an internal energy
-density $\ye$, represented by an outer-oriented 3-form proportional to
-the mass 3-form $\yd$. The balance of energy states that the change in the
-total energy in a 3-volume $\yvo$ on a slice must come from the energy
-transported thither or thence, from the work done by the forces, and from
-body and surface heating, represented by outer-oriented 3-form and 2-form:
-\begin{equation}
-  \label{eq:balance_energy_traditional}
-%   \de_t \int_{\yvo}\ye =
-%   \int_{\yvo} \yvt\cdot\yb + \oint_{\de\yvo} \yvt\cdot\yT
-% +  \int_{\yvo} \yQ + \oint_{\de\yvo} \yq
-%   \qquad\forall \yvo
-%  \\
-%  \shortintertext{or}
-  \de_t\ye + \di(\yvt \cdot \ye) =
-  \yvt\cdot\yb + \di(\yvt\cdot \yT)
-  +\yQ + \di\yq,
-\end{equation}
-with $\de_t\ye \equiv \Li_{\yF}\ye$. The rate of change of
-kinetic energy is simply the work done by the inertial force, and is
-therefore included in the term $\yvt \cdot \yb$. The traditional expression
-with \enquote{$\de_t + \yvt\cdot\ynab$} appears if we write the 3-form
-$\ye\yd$ as a multiple of the volume element $\ygv$ -- one more example of
-a unnecessary use of metric.
-
-If we assume that body forces and body heating vanish, then we can rewrite
-this equation as
-\begin{equation}
-  \label{eq:balance_energy_suggests_3form}
-  \de_t\ye + \di(\yvt \cdot \ye -\yvt\cdot\yT - \yq) = 0,
-\end{equation}
-which suggests that energy can also be considered like an outer-oriented
-closed 3-form, with a flux 2-form
-\begin{equation}
-  \label{eq:energy_4velocity}
-  \yp \equiv -\yvt \cdot\ye + \yvt\cdot\yT +\yq.
-\end{equation}
+***when the constitutive equation for a force \enquote{visibly} depends on
+space or time variables, as is the case for elastic or inertial forces, the
+amount of work done by the force can be \enquote{read} in a change of that
+variable. This change is usually called \enquote{energy}. Typical examples
+are elastic force $-kx$ and elastic energy, the integral of $-kx\Dot{x}$
+being equal to $-\frac{1}{2}kx^2$ no matter how $x$ depends on time; and
+inertial force $-m\ddot{x}$ and kinetic energy, the integral of
+$-m\ddot{x}\Dot{x}$ being equal to $-\frac{1}{2}m\Dot{x}^2$ no matter how
+$x$ depends on time. For viscous forces like $-\eta\Dot{x}$ we usually
+don't speak of \enquote{viscous energy} probably because the integral of
+$-\eta\Dot{x}^2$ does not have a closed form. This fact is obviously
+related to the difference between conservative and non-conservative forces
+and to the existence of potentials.
 
 
 
@@ -1870,7 +2401,7 @@ closed 3-form, with a flux 2-form
 \label{sec:newton_dynamics_without_absolute_time}
 
 The formulation of dynamics of
-\sect~\ref{sec:newton_dynamics_absolute_time} has the advantage of being
+\psect~\ref{sec:newton_dynamics_absolute_time} has the advantage of being
 frame-indifferent: inertial frames don't have a special status, and inertia
 is just one force among many others. But that formulation still has several
 interrelated unpleasant features:
@@ -1988,458 +2519,262 @@ partial differential equations has gained little.  \citep[p.~594]{truesdelletal1
 
 \mynote{To be added: refs to Finzi, Beltrami}
 
-\mynote{To be added: discussion about pp.~18--19 of \citep{weatherall2019}:
+\mynote{To be added: discussion about pp.~18--19 of \citep{weatherall2017}:
   use differential forms for Gauss-Green theorem, instead of covariant
   derivative}
 
 
 
-\section{General relativity}
-\label{sec:general_relativity}
-
-\subsection{Aims}
-\label{sec:aims_general_rel}
-
-General relativity gives us the equation $\yG=\kappa\yTf$; for some time
-after its proposal it was not clear which were independent, dependent, and
-boundary-condition quantities; a distinction that is necessary to set up a
-well-posed boundary-value problem. Misner \etal\
-\citey[\chap~21]{misneretal1970_r1973} discuss this question at length.
-
-The Einstein equations are clearly suited for a continuum description of
-matter, not a particulate one: because they involve the notion of stress,
-which is an exquisitely continuum notion. And since stress is the staple of
-constitutive equations in Newtonian mechanics, and does not commit to
-specific forms of matter or forces, then the Einstein equations do not
-commit to specific forms of matter or forces either, unlike
-particle-physics theories. From this point of view the Einstein equations
-appear as a harmonization of a part of the Newtonian balance laws and of
-geometry. They -- especially the stress appearing in them -- still need
-constitutive equations.
-
-The Einstein equations don't include the balances of amount of matter (see
-\sect~\ref{sec:matter}) and entropy
-\citep{eckart1940c}[\chap~22]{misneretal1970_r1973}. This fact is very
-clear in numerical relativity
-\citep[p.~1918]{disconzi2014}[\sect~2.2]{wilsonetal2003_r2007}[\sect~6.3.2]{gourgoulhon2007_r2012}[\chap~5]{baumgarteetal2010}[\sect~2.3]{rezzollaetal2013}.
-
+% \section{General relativity}
+% \label{sec:general_relativity}
 
 
  
-\subsection{3~+ 1 formulation}
-\label{sec:3-1_formulation}
-
-Spacetime can be sliced and a frame introduced just like in the Newtonian
-case of \sect~\ref{sec:slicing_frames}.
-
-The Einstein equations can be decomposed by projection along the slices $t$
-and the frame $\yn$, giving rise to a part parallel to the surfaces with
-3\;\texttimes\;3 real components, a part parallel to the vector field with
-1 component, and a mixed part with 3 components. Our freedom in choosing
-the slicing $t$ and the frame $\yn$ appears in the decomposed equations
-as the presence of and undetermined \enquote{lapse} function and an
-undetermined \enquote{shift} vector field. When a metric is present we can
-choose the frame $\yn$ to be the unit normal to the 3-surfaces. This choice
-corresponds to a constant unit lapse function and a vanishing shift vector
-\citep{smarretal1978,smarretal1980}. Other choices of lapse and shift are
-more convenient for the initial-value problem, for example because they can
-correspond to a slicing that covers most of spacetime while avoiding
-singularities \citep{smarretal1978}. But our present discussion is mainly
-conceptual; we therefore use the simplest lapse and shift.
-
-The decomposed Einstein equations can be found compactly written in a
-number of texts
-\citep[\sect~1.3]{wilsonetal2003_r2007}[\sect~4.3.2]{gourgoulhon2007_r2012}[\chap~2]{alcubierre2008}[\sect~7.2.2]{rezzollaetal2013}.
-The decomposition of the Einstein tensor $\yG$ yields the 3-metric
-$\yg=(\ygg_{ab})$ of the 3-surfaces, having inverse $\yg^{-1}=(\ygg^{ab})$,
-with its compatible connection $\ynab$ having Ricci curvature
-$\yR=({\yRR_a}^b)$, and the extrinsic curvature $\yK=({\yKK_a}^b)$ of the
-3-surfaces. The decomposition of the energy-momentum-stress tensor $\yTf$ yields the
-internal energy $\ye$, energy flux $\yp$, and spatial stress
-$\yT=({\yTT_a}^b)$:
-\begin{equation}
-  \label{eq:decomp_4stress}
-  \yTf = \ye \di t \otimes\yn + \yp\otimes\yn + \di t
-  \otimes(\yp\cdot\yg^{-1}) + \yT.
-\end{equation}
-
-The Einstein equations $\yG = 8\pi\yTf$ are decomposed into the evolution
-equations \mynote{some $\pi$ factors may be missing!}
-\begin{subequations}\label{eq:evolution_eqns}
-  \begin{align}
-    \label{eq:dt_metric}
-    \de_t \yg &= -2\yK\cdot\yg,
-    \\
-    \label{eq:dt_curvat}
-    \de_t \yK &=  \yK\tr\yK -2 \yK\cdot\yK +\yR + 4\pi\,(\tr\yT-\ye) - 8\pi\yT
-  \end{align}
-\end{subequations}
-or
-\begin{subequations}\label{eq:evolution_eqns2}
-  \begin{align}
-    \label{eq:dt_metric2}
-    \de_t \yg &= -2\yK\cdot\yg
-    \\
-    \label{eq:dt_curvat2}
-    \de_t \yK &=  \yK\tr\yK-\tfrac{1}{4}(\tr\yK)^2
-                -2 \yK\cdot\yK + \tfrac{1}{4}\yK\con\yK
-                +\yR -\tfrac{1}{4}\tr\yR
-                -\yT+ \tfrac{1}{2}\tr\yT
-  \end{align}
-\end{subequations}
-and the constraint equations
-\begin{subequations}\label{eq:constraint_eqns}
-  \begin{align}
-    \label{eq:energy_constraint}
-    16\pi\ye &=(\tr\yK)^2 - \yK\con\yK + \tr\yR,
-    \\
-    \label{eq:momentum_constraint}
-    8\pi\yp &= \ynab\cdot(\yK\T - \yI\tr\yK).
-  \end{align}
-\end{subequations}
-Note that
-\begin{equation}
-  \label{eq:curvature_stretching}
-  \yK\cdot\yg = -\frac{1}{2}\de_t\yg \equiv
-  -\frac{1}{2}  \Li_{\yn}\yg \equiv
-  -\frac{1}{\sqrt{\yg}}\Li_{\yn}\sqrt{\yg} \equiv -\ynab\cdot ***
-\end{equation}
-
-It's interesting that the \enquote{3-momentum} in relativity appears as the
-divergence of a 3-tensor -- just like the force from a stress.
-
-To these equations we must add the balance of amount of
-matter~\eqref{eq:mass_balance_traditional}:
-\begin{equation}
-  \label{eq:mass_balance_gen-rel}
-  \de_t\yd = - \di\yj
-  \qquad\text{or}\qquad
-  \de_t\yd -\tr\yK\yd = -\ynab\cdot\yj,
-\end{equation}
-where in the second equation $\yd$ and $\yj$ are interpreted as a scalar
-and a vector. In these expressions $\de_t \equiv \Li_{\yn}$. (Conservation
-of matter is not enforced by the Einstein equations
-\citep[\eg][]{eckart1940c}[\sect~6.3.2]{gourgoulhon2007_r2012}[\sect~5.2]{baumgarteetal2010}[\sect~7.3]{rezzollaetal2013}[\sect~22.2]{misneretal1970_r1973}.
-Curiously there was at first some misunderstanding about the independence
-of this equation: see for example von Laue's \citep[p.~503]{vonlaue1949}
-statement.)
-
-This gives us a total of 6 + 6 + 1 + 3 + 1 real-component equations for a
-total of 6 + 6 + 6 + 1 + 3 + 1 + 3 + 1 real components of the fields $\yg$,
-$\yK$, $\yT$, $\ye$, $\yp$, $\yd$, $\yj$, and temperature $\yte$. Then we
-need 6 + 1 + 3 equations, which turn out to be, as in the Newtonian case,
-the constitutive functional equations~\eqref{eq:constitutive_4stress} for
-the energy-momentum-stress:
-\begin{subequations}\label{eq:constitutive_4stress_gen-rel}
-  \begin{align}
-    \label{eq:constit_energy_gen-rel}
-    \ye &= \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
-    \\
-    \label{eq:constit_energy-flux_gen-rel}
-    \yp &= \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
-    \\
-    \label{eq:constit_3stress_gen-rel}
-    \yT &= \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)]
-  \end{align}
-\end{subequations}
-(the dependence on $\yK(\dotv)$ is redundant, since it's a functional of
-$\yg(\dotv)$, and these equations are already functionals of $\yg(\dotv)$;
-but I leave the explicit dependence for clarity).
-
-(The 4-velocity is determined by the matter flux $\yj$ and the 4-metric by
-\eqn~\eqref{eq:4velocity_explicit}.)
-
-\subsection{Constitutive equations}
-\label{sec:constitutive equations}
-
-\mynote{This section is a little disconnected from the rest. Must be better
-integrated}
-
-The balances of amount of matter, force, energy give a system of 1+3+1
-real-valued equations. They involve at least 4+3+6+5 real-valued
-components: matter density and flux, body force and stress, energy density
-and flux, and body supply of energy. The independent variables in these
-equations are usually assumed to be the four components of the matter
-3-form -- that is, density of amount of matter and flux of amount of matter
-(velocity) -- and the temperature. Sometimes the energy density is
-exchanged with the temperature in the role of independent variable.
-
-The balance laws alone are therefore not sufficient to determine the
-evolution of all fields. Moreover, although the balances are assumed to
-hold for all forms of matter, different kinds of matter behave in different
-ways.
-
-\emph{Constitutive equations} are equations that give the dependent fields
-as functions or functionals of the independent ones. They express the
-different behaviours of different kinds of matter, and together with the
-balance laws yield a closed system of differential or integro-differential
-equations.
-
-The most important constitutive equation in our discussion is that for the
-4-stress. All 4-components of the stress $\yT$ are in the simplest cases
-\emph{functionals} of the matter 3-form $\yr$, the internal energy $\ye$ or
-temperature $\yte$, and the 3-metric $\yg$:
-\begin{subequations}\label{eq:constitutive_4stress}
-  \begin{gather}
-    \label{eq:constit_T_with_mass_geometry}
-    \yTf=\yTf[\yr(\dotv),\yte(\dotv),\yg(\dotv)],
-    \\
-    \shortintertext{or, in a given slicing and frame,}
-    \label{eq:4stress_components}
-    \yTf =
-    \begin{pmatrix}
-      \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] & \yq[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] \\
-      \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)] & \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv)]
-    \end{pmatrix}
-  \end{gather}
-\end{subequations}
-(these functionals indirectly include a possible dependence on the
-extrinsic curvature $\yK$, because it's the \enquote{time derivative} of
-the 3-metric; see previous section).
-
-The dependence on the metric can be complicated: for example, the stress at
-a point can depend on the difference between the 3-metric there and the
-metric from previous 3-surfaces, transported by the velocity $\yc$
-associated with the matter flux \citep{grotetal1966,carteretal1972}. The
-difference can be non-vanishing even if the 3-metric is Euclidean on all
-3-surfaces. The only difference between Newtonian and general relativistic
-mechanics is that all 3-metrics are flat in the former but not in the
-latter.
-
-There are many studies of specific constitutive equations in general
-relativity, from perfect fluids to materials with elasticity dependent on
-electromagnetism, temperature, and heat conduction. There are also studies
-on general symmetry principles for the formulation of constitutive
-equations. Unfortunately many of these works don't know of one another's
-existence. See especially the extensive studies and results by Maugin
-\etal\
-\citep{maugin1971,maugin1971b,mauginetal1972,mauginetal1972b,maugin1973,maugin1974,maugin1974b,maugin1978,maugin1978b,maugin1978c,maugin1978d,maugin1978e},
-Carter \etal\ \citep{carteretal1972,carter1973,carteretal2006}, the early
-and very insightful study by Eckart \citep{eckart1940c}, and others
-articles and books
-\citep{bressan1964b,lianis1973,bertottietal1984,hiscocketal1985,anileetal1989,gerochetal1991,herrmannetal2000,bossavit2001b,geroch2001,gourgoulhon2007_r2012,alcubierre2008,choquetbruhat2009,baumgarteetal2010,rezzollaetal2013,disconzi2014,pimenteletal2016,disconzietal2017}.
-
-
-
-\subsection{Parentetical remark: divergence of energy-momentum-stress}
-\label{sec:divergence_4stress}
-
-A strange point appears in most general-relativity texts I've seen,
-especially for numerical relativity. They remark that the balance equations
-$\ynaf\cdot\yTf = 0$ are a consequence of the Einstein equations
-$\yG = 8\pu \yTf$, and therefore solving the latter automatically yields
-the former. But to find the numerical solutions they actually use the
-former!
-
-The balance $\ynaf\cdot\yTf = 0$ is indeed contained in
-\eqns~\eqref{eq:evolution_eqns}--\eqref{eq:constraint_eqns}. For example,
-combining the time derivative of the constraint
-equation~\eqref{eq:momentum_constraint} and the 3-divergence of the
-evolution equation~\eqref{eq:dt_curvat} we obtain the spatial part of
-$\ynaf\cdot\yTf = 0$: the balance of momentum. A quick check of such
-combination of \eqref{eq:momentum_constraint} and \eqref{eq:dt_curvat}
-shows in fact the appearance of the time-derivative of $\yp$ and the
-divergence of the 3-stress. A similar combination yields the balance of
-energy:
-\begin{subequations}\label{eq:evolution_energy_momentum}
-  \begin{gather}
-    \label{eq:dt_energy}
-    \de_t \ye - \ye\tr\yK + \ynab\cdot\yp - \yK\con\yT =0
-    \\
-    \label{eq:dt_momentum}
-    \de_t \yp -  \yp\tr\yK + \ynab\cdot\yT\T =0.
-  \end{gather}
-\end{subequations}
-In these equations the convection terms, usually kept separate in the
-Newtonian case, are included in $\yp$ and $\yT\T$. The terms proportional
-to $\tr\yK$ are absent in the Newtonian case.
-
-The reason for using the divergence equation $\ynaf\cdot\yTf = 0$ is
-clearly explained by Frittelli \citey{frittelli1997} (the only work I've
-found that explains this). The constraint
-equations~\eqref{eq:constraint_eqns} should be enforced on \emph{every}
-3-surface, \ie\ for all times $t$, while the metric and extrinsic curvature
-are evolved by \eqns~\eqref{eq:evolution_eqns}. If we did so there would be
-no need to use $\ynaf\cdot\yTf = 0$ in the solution.
-
-But it would be more convenient if the
-constraints~\eqref{eq:constraint_eqns} could be enforced on one 3-surface
-only, for example the initial one, and be automatically satisfied on all
-other 3-surfaces, \ie\ at all subsequent times. It turns out that the
-divergence equation $\ynaf\cdot\yTf = 0$ does exactly this: it makes the
-constraints automatically satisfied at all times if they are satisfied at
-the initial time.
-
-Loosely speaking, the system
-\begin{equation*}
-  \left\{\begin{aligned}
-  &\text{evolution equations~\eqref{eq:evolution_eqns}} \\
-  &\text{constraint equations~\eqref{eq:constraint_eqns} for all $t$}
-  \end{aligned}\right.
-\end{equation*}
-is equivalent to the system
-\begin{equation*}
-  \left\{\begin{aligned}
-  &\text{evolution equations~\eqref{eq:evolution_eqns}} \\
-  &\text{divergence equation $\ynaf\cdot\yTf = 0$} \\
-  &\text{constraint equations~\eqref{eq:constraint_eqns} for initial $t$ only}
-  \end{aligned}\right.
-\end{equation*}
-and the latter is more convenient to solve.
-
-
-\subsection{How to solve the decomposed equations}
-\label{sec:how_to_solve_3-1}
-
-Let us consider how
-equations~\eqref{eq:evolution_eqns}--\eqref{eq:constitutive_4stress_gen-rel}
-could be solved.
-
-% Only the evolution equations~\eqref{eq:evolution_eqns} and
-% mass-balance~\eqref{eq:mass_balance_gen-rel} contain temporal derivatives:
-% they give us 6 + 6 + 1 real-components of the $\yg$, $\yK$, $\yd$ fields on
-% the 3-surface at time $t+\incr t$ given all fields on the 3-surface at time $t$.
-% The constraint equations \eqref{eq:constraint_eqns} and constitutive
-% equations~\eqref{eq:constitutive_4stress_gen-rel} fix definite relations
-% between metric, extrinsic curvature, energy and energy flux, on each
-% 3-surface. The question is which field should be considered independent and
-% which dependent.
-
-% In continuum mechanics the stress $\yT$ is in the simplest case a
-% functional of mass density, momentum or velocity, and internal energy. For
-% the moment let's assume a constitutive equation
-% \begin{equation}
-%   \yT=\yT(\ye,\yp,\yg,\yK),
-%   \label{eq:constit_T_with_energy}
-% \end{equation}
-% omitting mass density. Then,
-
-Imagining a rough numerical timestepping scheme, in which for example
-\eqn~\eqref{eq:dt_metric} becomes
-\begin{equation}
-  \label{eq:approx_timestepping_dt_metric}
-  \yg(t + \incr t) \approx \yg(t) -2\yK(t)\cdot\yg(t)\,\incr t,
-\end{equation}
-it seems that the
-equations~\eqref{eq:evolution_eqns}--\eqref{eq:constitutive_4stress_gen-rel}
-can be solved this way:
-\begin{enumerate}[leftmargin=1.5\parindent]
-\item Choose all fields such as to satisfy the
-  constraints~\eqref{eq:constraint_eqns} and constitutive
-  equations~\eqref{eq:constitutive_4stress_gen-rel} on an initial 3-surface
-  at time $\yto$.
-\item\label{item:increase_step}Calculate metric $\yg$, extrinsic curvature
-  $\yK$, density of amount of matter $\yd$ at time $\yto + \incr t$ from
-  the evolution \eqns~\eqref{eq:evolution_eqns} and balance
-  \eqref{eq:mass_balance_gen-rel}:
-  \begin{align*}
-    \de_t \yg &= -2\yK\cdot\yg,
-    \\
-    \de_t \yK &=  \yK\tr\yK + \yR\cdot\yg^{-1} + 4\pu\,(\tr\yT-\ye) - 8\pu\yT,
-    \\
-    \de_t\yd &= - \di\yj.
-  \end{align*}
-  Note that these evolution equations require, in particular, the flux of
-  amount of matter $\yj$, energy $\ye$, stress $\yT$ at time $\yto$.
-\item\label{item:increase_step_energy}Calculate the  flux of amount of matter $\yj$,
-  temperature $\yte$, energy $\ye$, energy flux $\yp$, stress $\yT$ at time
-  $\yto + \incr t$ from the system of
-  constraints~\eqref{eq:constraint_eqns} and constitutive
-  \eqns~\eqref{eq:constitutive_4stress_gen-rel}, given the newly found
-  $\yg$, $\yK$, $\yd$:
-  \begin{gather*}
-    \begin{aligned}
-    16\pu\ye &= (\tr\yK)^2 - \yK\con\yK + \yR\con\yg^{-1},
-    &\quad
-      8\pu\yp &= \ynab\cdot(\yK\T - \yI\tr\yK),
-    \end{aligned}\\
-    \ye = \ye[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
-    \\
-      \yp = \yp[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)],
-      \\
-      \yT = \yT[\yd(\dotv),\yj(\dotv),\yte(\dotv),\yg(\dotv), \yK(\dotv)].
-  \end{gather*}
-  Note that this system \emph{implicitly} yields, in particular, the flux
-  of amount of matter $\yj$, energy $\ye$, stress $\yT$ needed in the next
-  timestep; see step above.
-
-  Now we have all fields at time $\yto + \incr t$.
-
-\item Set $\yto + \incr t \to \yto$, go to step~\ref{item:increase_step}.
-\end{enumerate}
-
-It's important to remark that the motion of matter, expressed by the 
-matter flux $\yj$ in this particular reference frame and slicing, is determined
-in an \emph{implicit} way in the scheme above. It would be worth
-investigating how geodesic equations \citep{gerochetal1975,weatherall2011}
-peep out from the present scheme.
-
-This scheme can be generalized to more complex temporal dependences in the
-constitutive equations, like dependence on derivatives, memory, \etc.
-
-\subsection{A possible reduction and reinterpretation: \enquote{hot metric}}
-\label{sec:reinterpretation_metric_temp}
-
-An interesting aspect of the equations above is that energy density and
-energy flux seem to have an intermediate role. We could think of solving
-the constraint and constitutive equations of
-step~\ref{item:increase_step_energy} for matter density $\yd$ and matter
-flux $\yj$ in terms of the 4-metric $(\yg, \yK)$ and the temperature
-$\yte$; this dependence could involve integro-differential operators. The
-balance of amount of matter $\de_t\yd = -\di\yj$ would then become an
-evolution equation for the temperature. The constitutive equation for the
-stress would also be reduced.
-
-We would be left with the system
-\begin{subequations}\label{eq:evolution_eqns_new}
-  \begin{gather}
-    \label{eq:dt_metric_new}
-    \yK \defd -\tfrac{1}{2}\de_t \yg \cdot \yg^{-1},
-    \\
-    \label{eq:dt_curvat_new}
-    \de_t \yK =  \yK\tr\yK
-                - \tfrac{1}{4} (\tr\yK)^2
-                +\tfrac{1}{4}\yK\con\yK
-                + \tfrac{3}{4}\yR\cdot\yg^{-1} 
-                + 4\pu\tr\yT - 8\pu\yT,
-    \\
-    \label{eq:constit_mass_new}
-    \de_t \yd[\yg(\dotv),\yK(\dotv),\yte(\dotv)] = -\di\yj[\yg(\dotv),\yK(\dotv),\yte(\dotv)],
-    \\
-    \label{eq:constit_T_new}
-    \yT = \yT[\yg(\dotv),\yK(\dotv),\yte(\dotv)],
-  \end{gather}
-\end{subequations}
-a set of integro-differential equations for the 3-metric $\yg$,
-extrinsic curvature $\yK$, and the temperature $\yte$; or integro-differential for
-the 3-metric $\yg$ and the temperature $\yte$. This system seems to say
-that
-\begin{itemize}
-\item density of amount of matter $\yd$, flux of amount of matter $\yj$,
-  energy density $\ye$, and energy flux $\yp$ are
-  \emph{temperature-dependent} manifestations of the 4-metric;
-\item the 4-metric can interact with itself in different ways, expressed by
-  particular \emph{temperature-dependent} constitutive functional equations
-  for $\yd$, $\yj$, $\yT$.
-\end{itemize}
-Would this satisfy Einstein? How to interpret the \enquote{temperature of
-  the metric}?
-
 
 \appendix
 
+\section{Alternative points of view in Newtonian mechanics}
+\label{sec:altern_newton}
+
+\subsection{What kind of geometric object represents Newtonian force?}
+\label{sec:newton_dynamics_absolute_time}
+
+Traditional presentations of Newtonian-relativistic dynamics and of
+Newton-Cartan theory starts with the notion of \emph{absolute time} $\ytn$,
+which is a unique slicing of spacetime. We'll presently see that this
+notion, together with a geometry and a connection on the slices, is
+mathematically necessary when the notion of force is represented by objects
+living on 3-surfaces. But later we'll consider the possibility of avoiding
+absolute time. In fact, the notion of simultaneity in
+Newtonian-relativistic mechanics is inspired by what we simultaneously
+\emph{see}, together with the assumption that the velocity of light is
+practically infinite. But we could also define simultaneity in terms of
+what we simultaneously \emph{hear}, for example. How could Newtonian
+mechanics be formulated in that case? We'll give a possible answer later.
+
+A force on a body at time $\ytn$ in Newtonian mechanics has two important
+characteristics:
+\begin{enumerate*}[label=(\arabic*)]
+\item it is meant to be integrated along the trajectory of every small
+  region of the body, to yield the work done on that region;
+\item it is meant to be obtained from the sum of infinitesimal body forces
+  acting over each part of the region, or surface forces over its boundary.
+\end{enumerate*}
+
+Owing to the first characteristic, many geometers
+\citep{vandantzig1954,burke1980b,burke1985_r1987,burke1995,bossavit1991,bossavit1998b,hehletal1999,hehletal2003}
+have advocated the representation of force as a covector. Their arguments
+are geometrically beautiful. Further consideration of geometry, however,
+leads to a still different representation. The reason is that velocity is a
+frame-dependent object. If we represent forces as covectors, we're then
+supposing that a frame-independent object should be applied to a
+frame-dependent one, which feels geometrically unsatisfying. There is a way
+out. Instead of the velocity of matter we can consider its flow,
+represented by the matter 3-form $\yr$. On a 3-surface its current is
+represented by the flux 2-form $\yj$. We can let a force operate on this
+flux, rather than on the velocity. Then a force has to be represented by a
+2-vector rather than a 1-covector. The 2-form flux still depends on a
+choice of frame, but this point of view can be generalized to four
+dimensions in a frame-independent way.
+
+The second characteristic says that a body force must be a 2-vector-valued
+outer-oriented 3-form, while a surface force a 2-vector-valued
+outer-oriented 2-form.
+
+The total force on a body is the integral of the body forces over its
+volume and of the surface forces over its boundary. Since forces are
+vector-valued objects, this integration is only possible if the slices
+have an \emph{affine} structure, that is, a parallel transport with
+vanishing curvature. From this point of view, the affine structure is
+demanded by the dynamics, rather than by the kinematics.
+
+Some forces between bodies, like the gravitational force or a purely
+elastic stress, are moreover defined to depend on a metric, which must
+therefore be introduced besides the affine structure. It would be
+interesting to explore whether metric and affine structure could be
+introduced in terms of these forces instead.
+
+So in the present section let's assume that we have a unique slicing
+$t\equiv\ytn$, representing absolute time, and whose slices have a
+Euclidean structure: metric $\yg_t$ and flat parallel transport $\ynab_t$;
+the index $t$ will be omitted, but it is important to note that there is no
+specific relation between metrics and parallel transport on different
+slices. We are not assuming the existence of a Newton-Cartan connection. A
+frame $\yF$ that satisfies $\Li_{\yF}\yg = 0$ is called a \emph{rigid
+  frame}.
+
+Indicating the sum of all body forces acting on a body by $\yb$, and that
+of the surface forces by $\yT$, the \emph{balance of forces} states that
+\begin{equation}
+  \label{eq:force_balance_integral}
+  \int_{\yvo} \yb + \oint_{\de\yvo} \yT = 0 \qquad\forall \yvo
+\end{equation}
+for each outer-oriented closed 3-volume $\yvo$ within a slice. Note that the
+result of the integration is a 2-vector, not a scalar. The local version of
+the balance is
+\begin{equation}
+  \label{eq:force_balance_ecd_local}
+  \yb + \yDi \yT = 0, 
+\end{equation}
+
+\subsection{From forces to motion (is there a balance of
+  momentum?)}
+\label{sec:really_balance_momentum}
+
+How does the balance of forces relate to motion?
+
+The vast majority of literature and textbook do not speak of balance of
+forces; they follow a different path that sounds more or less as follows:
+
+There is a law of \enquote{conservation of momentum}, which states that the
+rate of change of momentum of a body region is proportional to the forces
+exerted on it:
+\begin{subequations}\label{eq:conservation_momentum_traditional}
+  \begin{gather}
+    \label{eq:conservation_momentum_traditional_integral}
+    \text{\textquotedblleft}\ 
+    \di_t\int_{\yvo}\rho\yvt = \int_{\yvo} \yb + \oint_{\de\yvo} \yT
+    \ \text{\textquotedblright},
+    \\\shortintertext{or}
+    \label{eq:conservation_momentum_traditional_differential}
+    \text{\textquotedblleft}\ 
+    \de_t(\rho\yvt) + \div(\rho\yvt\otimes\yvt) = \div\yT +\yb
+    \ \text{\textquotedblright}.
+  \end{gather}
+\end{subequations}
+This equation directly connects forces and motion, and looks like a
+conservation equation with fluxes and sources. This conservation law is
+only valid in an inertial frame. We can make it valid in every rigid frame
+provided we add some \enquote{fictitious forces} looking like
+\begin{equation}
+  \label{eq:fictitious_forces}
+    \text{\textquotedblleft}\ 
+  \rho\, [-{\de_t}^2\yxto%(\yxt-\yxto)
+  + 2\yom\cdot\de_t(\yxt-\yxto) + (\de_t\yom-{\yom}^2)\cdot(\yxt-\yxto)]
+    \ \text{\textquotedblright},
+\end{equation}
+in that non-inertial rigid frame.
+
+\bigskip
+
+The presentation above is geometrically unsatisfying, however.
+
+The right-hand side of \eqn~\eqref{eq:conservation_momentum_traditional} is
+frame-indifferent; that is, the definition and measurement of $\yT$ and
+$\yb$ do not depend on a choice of frame, inertial or otherwise. For
+example, the force exerted on a pointlike object attached to a Hookean
+spring with constant $k$ and elongation $l$ has intensity $kl$ and
+direction along the elongation. This is a complete description of the
+force, and the notion of frame is completely irrelevant to it. Similarly
+for the gravitational force: it is given by $\rho\otimes\yfg$, where $\yfg$
+is a frame-indifferent covector field. This field is in turn determined by
+the amount of matter and mass distribution via $\di\yfg = - 4\pu G \rho$,
+again a frame-indifferent definition.
+
+The momentum density $\rho\yvt$ on left-hand side of
+\eqn~\eqref{eq:conservation_momentum_traditional} and the
+\enquote{fictitious forces}~\eqref{eq:fictitious_forces} require the
+specification of a frame instead.
+
+Therefore \eqn~\eqref{eq:conservation_momentum_traditional}, with or
+without fictitious forces, mixes up frame-indifferent and frame-dependent
+quantities. This doesn't make sense geometrically.
+
+We find a geometrically more satisfying formulation by using some ideas
+that can possibly be found in a work by Jacob Bernoulli
+\citep{bernoulli1703}[see][p.~104]{truesdell1968}{noll1963}[\sect~I.13]{truesdell1977_r1991}. Consider a small
+enough body region, so that deformation and torques can be neglected. In a
+problem of \emph{statics} in an inertial frame, the balance of
+forces~\eqref{eq:force_balance_integral} holds. Now consider a fact and two
+assumptions:
+\begin{itemize}
+\item a small body region can always be considered at rest in a suitably
+  chosen frame;
+\item the laws of statics should hold in any frame in which the body region
+  is at rest;
+\item an inertial frame is a rigid frame at rest on average with respect to
+  the total distribution of matter in the universe, which is mostly
+  associated with the fixed stars.
+\end{itemize}
+The consequence of these statements is that \emph{the balance of
+  forces~\eqref{eq:force_balance_integral} is valid in any frame; among
+  these forces we must account for one related to the relative motion of
+  the body region with respect to the total distribution of matter in the
+  universe, approximately identified with the \enquote{fixed stars}}.
+
+This force is the inertial force. Let's see how it is expressed in an
+arbitrary rigid frame $\yF$; remember that what we call \enquote{time
+  derivative} is the Lie derivative $\Li_{\yF} \defs \de_t$. In this frame
+let the position of the body region be $\yxt(t)$, and let the total
+distribution of matter in the universe have centre of mass at $\yxto(t)$
+and average instantaneous rotation given by the 2-form $\yom(t)$; in
+\psect~\ref{sec:inertial_force} I explain how they are determined by the
+mass distribution through a sort of Mach's principle. Then the inertial
+force is the covector-valued 3-form
+% \begin{equation}
+%   \label{eq:inertial_force}
+%   \ybi \defd  -\yd\, [{\de_t}^2(\yxt-\yxto)
+%   - 2\yom\cdot\de_t(\yxt-\yxto) - (\de_t\yom-{\yom}^2)\cdot(\yxt-\yxto)].
+% \end{equation}
+\begin{equation}
+  \label{eq:inertial_force}
+  \ybi \defd  -\rho \otimes
+  \bigl(\yom\cdot\yg^{-1}\cdot\yom  - \de_t\yom - 2\yom\de_t  + \yg{\de_t}^2\bigr)
+  \cdot(\yxt-\yxto).
+\end{equation}
+The definition of this force requires a metric on each slice. The definition
+of its source, see \psect~\ref{sec:inertial_force}, also requires a parallel
+transport on each slice. But it does not require a 4-dimensional connection
+on the whole spacetime. If we choose a rigid frame in which the total
+matter of the universe does not rotate on average, $\yom=0$, and moves with
+uniform velocity, $\de_t\yxto=\text{const}$, then we recover the familiar
+expression $\ybi = -\rho \yg\cdot{\de_t}^2\yxt$ -- the $\yg$ is necessary to
+transform a vector into a covector. This kind of rigid frame is called
+inertial. The use of a \emph{rigid} frame is not necessary; a
+frame-independent expression of the inertial force is given below.
+
+Including the inertial force in the sum of all other body forces $\yb$, the
+balance of forces~\eqref{eq:force_balance_integral} includes the familiar
+Newtonian equations of motion. It is the inertial force that in most
+physical situations links kinematics and dynamics, specifically by linking
+forces upon a body to its motion with respect to the rest of matter in the
+universe. But there are also situations in which inertia is inessential.
+For example, consider a small body of negligible mass attached to a Hookean
+spring inside a fluid, the other end of the spring being at rest with
+respect to the fluid. The forces acting on the body are the Hookean and the
+viscous ones. In a suitable frame of reference the balance of forces is
+$-k\yxt - \eta\de_t\yxt = 0$, leading to a specific motion
+$\yxt(t) = \e^{-kt/\eta}\yxt(o)$ with respect to the fluid. In this example
+the inertial force plays no role and it is not important whether the frame
+is inertial or not.
+
+As regards \enquote{conservation of momentum}, we see that the
+time-derivative of momentum in Newtonian mechanics is not a quantity with a
+general geometric meaning: it is the simplified form assumed by a
+particular force in a particular frame. From this point of view
+conservation of momentum is not a general geometric notion in
+Newtonian-relativistic mechanics.
 
 
-\section{Addendum: inertial force from mass}
+
+
+The inertial force on the mass $\yr$ can be written in a frame-free way as
+$-\yg^{-1}\cdot \Li_{\yFi}(\yFi\cdot\yr)$, where $\yFi$ is a vector field
+transverse to the slices, defined in \psect~\ref{sec:inertial_force}. Some
+forces, like inertial, viscous, and electromagnetic ones, require objects
+transverse to the slicing for their definition, whereas others, like
+elastic or gravitational ones, don't. This suggests that the presentation
+in terms of an absolute-time slicing can be geometrically improved upon.
+
+\subsection{Inertial force from the matter density of the universe}
 \label{sec:inertial_force}
 
-\mynote{Refer to Weatherall \citey{weatherall2019}.}
-
-Inertial force is presented here as the force exerted from the total matter
-in the universe. It is proportional to the change, per unit time, in the
-momentum seen from a frame representing a sort of average position of the
-total matter: the frame of a rigid body with the same mass centre and
-second moment, expressed by the Euler tensor.
+Inertial force can be conceived and presented as the force exerted by the
+total matter in the universe \citep[\cf][]{sciama1953}. It is proportional
+to the change, per unit time, in the momentum seen from a frame
+representing a sort of average position of the total matter: the frame of a
+rigid body with the same mass centre and second moment, expressed by the
+Euler tensor.
 
 
 Suppose that the  3-form $\yrfs$ representing the total matter density in the
@@ -2490,6 +2825,55 @@ opposite of the change in momentum as seen from the fixed-star frame:
   -\yg^{-1} \cdot \Li_{\yFi}(\yr\cdot\yFi) \equiv
   -\yg^{-1} \cdot \bigl(\Li_{\yFi}\yr\bigr)\cdot\yFi.
 \end{equation}
+
+\mynote{Some words on \textcite{weatherall2017}.}
+
+
+
+\subsection{Balance of energy}
+\label{sec:energy_balance}
+
+To each matter element on each slice is also associated an internal energy
+density $\ye$, represented by an outer-oriented 3-form proportional to
+the mass 3-form $\yd$. The balance of energy states that the change in the
+total energy in a 3-volume $\yvo$ on a slice must come from the energy
+transported thither or thence, from the work done by the forces, and from
+body and surface heating, represented by outer-oriented 3-form and 2-form:
+\begin{equation}
+  \label{eq:balance_energy_traditional}
+%   \de_t \int_{\yvo}\ye =
+%   \int_{\yvo} \yvt\cdot\yb + \oint_{\de\yvo} \yvt\cdot\yT
+% +  \int_{\yvo} \yQ + \oint_{\de\yvo} \yq
+%   \qquad\forall \yvo
+%  \\
+%  \shortintertext{or}
+  \de_t\ye + \di(\yvt \cdot \ye) =
+  \yvt\cdot\yb + \di(\yvt\cdot \yT)
+  +\yQ + \di\yq,
+\end{equation}
+with $\de_t\ye \equiv \Li_{\yF}\ye$. The rate of change of
+kinetic energy is simply the work done by the inertial force, and is
+therefore included in the term $\yvt \cdot \yb$. The traditional expression
+with \enquote{$\de_t + \yvt\cdot\ynab$} appears if we write the 3-form
+$\ye\yd$ as a multiple of the volume element $\ygv$ -- one more example of
+a unnecessary use of metric.
+
+If we assume that body forces and body heating vanish, then we can rewrite
+this equation as
+\begin{equation}
+  \label{eq:balance_energy_suggests_3form}
+  \de_t\ye + \di(\yvt \cdot \ye -\yvt\cdot\yT - \yq) = 0,
+\end{equation}
+which suggests that energy can also be considered like an outer-oriented
+closed 3-form, with a flux 2-form
+\begin{equation}
+  \label{eq:energy_4velocity}
+  \yp \equiv -\yvt \cdot\ye + \yvt\cdot\yT +\yq.
+\end{equation}
+
+
+
+
 
 \section{Bits and pieces}
 \label{sec:bits}
@@ -2572,7 +2956,7 @@ are expressed in the stress. This idea appears when we try to combine
 Newtonian continuum thermomechanics and general relativity.
 
 To explore this idea I first give in
-\sect~\ref{sec:newtonian_continuum_thermomechanics} a summary of the aim of
+\psect~\ref{sec:newtonian_continuum_thermomechanics} a summary of the aim of
 Newtonian continuum thermomechanics and of its basic equations, stressing
 the importance of constitutive equations. It is necessary to discuss the
 \enquote{aim} because, independently of the different invariance groups and
@@ -2583,12 +2967,12 @@ crystal conceptual and methodological clarity, thanks to its 300 years of
 history. Some of its concepts and methods may be brought into general
 relativity and offer new interpretations of the latter.
 
-I apologize for \sect~\ref{sec:newtonian_continuum_thermomechanics}, which
+I apologize for \psect~\ref{sec:newtonian_continuum_thermomechanics}, which
 is actually very confusing, because I tried to keep it short and to give
 the broadest possible view at the same time. To correct this I give a
 summary of its key points at the end of it.
 
-Then in \sect~\ref{sec:general_relativity} I give a summary of the
+Then in \psect~\ref{sec:3-1_formulation} I give a summary of the
 \enquote{3~+ 1} (or \enquote{Arnowitt-Deser-Misner}, or
 \enquote{initial-value}) formulation of the Einstein equations, showing in
 particular how the energy-momentum-stress balance equations arise from
@@ -2673,7 +3057,7 @@ so as to make the gravito-inertial force assume the simplest possible form.
 
 There is still much discussion in general relativity on how to define
 gravitational energy-momentum. This discussion is related to the fact that
-the divergence equation $\ynaf\cdot\yTf=0$ does not express a conservation
+the divergence equation $\yDi\cdot\yTf=0$ does not express a conservation
 law \citep[\sect~96]{landauetal1939_t1996}{arminjon2016}.
 
 But is there really a law of \enquote{conservation of momentum} in
@@ -2723,7 +3107,7 @@ latter determined mostly by the fixed stars. As in the case of the
 gravitational force, this can be written by introducing an inertial field
 $\yFi$ transversal to the slicing; the inertial force is then given by
 $-\yFi \cdot \Li_{\yFi}\yr \cdot \yg^{-1}$. In
-\sect~\ref{sec:inertial_force} I explain how the inertial field is
+\psect~\ref{sec:inertial_force} I explain how the inertial field is
 determined by the mass distribution; it is a form of Mach's principle.
 Albeit operationally difficult because it involves the distribution of all
 mass in the universe, this description does not involve any frame.
@@ -2807,7 +3191,7 @@ $\yFi\cdot\yr$. The gravitational force $\yfg$ is in turn determined
 locally by the mass 3-form $\yr$ via $\di\yfg = - 4\pu G \yd$ -- no metric
 or connection required. The fixed-stars frame $\yFi$ can also be thought as
 determined, non-locally, by the mass form $\yr$ and the 3-metric $\yg$, or
-possibly just the 3-connection. I discuss this in \sect**; it is a form of
+possibly just the 3-connection. I discuss this in \psect**; it is a form of
 Mach's principle.
 
 The difference between Newtonian and general-relativistic mechanics is only
@@ -2962,10 +3346,10 @@ of the relationships between geometry, matter, and gravitation:
     their balance equations} can actually be fully expressed in
   differential-geometrical, non-metric terms. This was shown, for example,
   by Kottler \citey{kottler1922,kottler1922b} and van Dantzig
-  \citey{vandantzig1934,vandantzig1934b,vandantzig1936,vandantzig1937,schoutenetal1940,vandantzig1954}.
+  \citey{vandantzig1934,vandantzig1934b,vandantzig1934c,vandantzig1934d,vandantzig1934e,vandantzig1937,schoutenetal1940,vandantzig1954}.
 
   Mass density, mass flux, and the balance of mass are one example, as we
-  saw in \sect~\ref{sec:matter}. Most literature instead
+  saw in \psect~\ref{sec:matter}. Most literature instead
   \citep[\eg,][p.~171]{smarretal1980} writes the balance of mass introducing
   a metric volume element $\sqrt{\abs{g}}$ \citep[\cf][\sect~V.B.4,
   pp.~317--318]{choquetbruhatetal1977_r1996}, but the metric should play no
@@ -3000,10 +3384,11 @@ of the relationships between geometry, matter, and gravitation:
   \ldots to Mari \amp\ Miri for continuous encouragement and affection, and
   to Buster Keaton and Saitama for filling life with awe and inspiration.
   To the developers and maintainers of \LaTeX, Emacs, AUC\TeX, Open Science
-  Framework, Python, Inkscape, Sci-Hub for making a free and unfiltered
+  Framework, R, Python, Inkscape, Sci-Hub for making a free and impartial
   scientific exchange possible.
 %\rotatebox{15}{P}\rotatebox{5}{I}\rotatebox{-10}{P}\rotatebox{10}{\reflectbox{P}}\rotatebox{-5}{O}.
-\sourceatright{\autanet}
+%\sourceatright{\autanet}
+\mbox{}\hfill\autanet
 \end{acknowledgements}
 \fi
 
@@ -3020,6 +3405,7 @@ of the relationships between geometry, matter, and gravitation:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\renewcommand*{\finalnamedelim}{\addcomma\space}
 \defbibnote{prenote}{{\footnotesize (\enquote{de $X$} is listed under D,
     \enquote{van $X$} under V, and so on, regardless of national
     conventions.)\par}}

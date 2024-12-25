@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-12-22T10:26:44+0100
+%% Last-Updated: 2024-12-25T13:29:46+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -929,10 +929,10 @@ Western Norway University of Applied Sciences%
 \newcommand*{\ttte}[1]{\de^{3}{#1}}
 \newcommand*{\tttte}[1]{\de^{4}{#1}}
 %
-\newcommand*{\ti}[1]{\di_{#1}}
-\newcommand*{\tti}[1]{\di^{2}_{#1}}
-\newcommand*{\ttti}[1]{\di^{3}_{#1}}
-\newcommand*{\tttti}[1]{\di^{4}_{#1}}
+\newcommand*{\ti}[1]{\di L_{#1}}
+\newcommand*{\tti}[1]{\di^{2}S_{#1}}
+\newcommand*{\ttti}[1]{\di^{3}V_{#1}}
+\newcommand*{\tttti}[1]{\di^{4}\varOmega_{#1}}
 %
 \newcommand*{\yg}{\mathte{g}}
 \newcommand*{\ygg}[1][]{\overset{#1}{\bm{g}}{}}
@@ -1278,7 +1278,7 @@ leading to an object in a vector space of the same dimension. The two most impor
   \end{equation*}
 \item raising or lowering of indices with the metric, for example
   \begin{equation*}
-  \di \alpha \mapsto  g^{\alpha\beta}\, \de_{\beta} \ .
+  \di x^{\alpha} \mapsto  g^{\alpha\beta}\, \de_{\beta} \ .
   \end{equation*}
 \end{itemize}
 
@@ -1293,7 +1293,7 @@ The corresponding operations for multivectors involve {compound matrices} of the
     \ 
     \frac{\de \alpha}{\de \alpha'}
     \ 
-    \ttti{\alpha}
+    \ttti{x^{\alpha}}
     \\[\jot]
     \ttte{\alpha'} =
     \det\bigl(
@@ -1311,7 +1311,7 @@ In an analogous way
 \begin{equation}
   \label{eq:raise3_simple}
   \begin{gathered}
-    \ttti{\alpha}
+    \ttti{x^{\alpha}}
     \mapsto
 \frac{1}{\abs{g}}\ g_{\alpha\beta}\
     \ttte{\beta}
@@ -1352,7 +1352,7 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
   \left.
     \begin{gathered}
       \sssse{}
-      \\
+      \\[\jot]
   \ssse{xyz}\enspace
   \ssse{tyz}\enspace
   \ssse{tzx}\enspace
@@ -1360,16 +1360,16 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
   \\[\jot]
   \sse{tx}\enspace
   \sse{ty}\enspace
-  \sse{tz}\enspace
+  \sse{tz}\\
   \sse{yz}\enspace
   \sse{zx}\enspace
   \sse{xy}
-  \\
+  \\[\jot]
   \se{t}\enspace
   \se{x}\enspace
   \se{y}\enspace
   \se{z}
-  \\
+  \\[\jot]
   1
 \end{gathered}
 \right)\quad
@@ -1382,7 +1382,7 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
 \left(
   \begin{gathered}
     \tw{1}
-    \\
+    \\[\jot]
   \ti{xyz}\enspace
   \ti{tyz}\enspace
   \ti{tzx}\enspace
@@ -1390,16 +1390,16 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
   \\[\jot]
   \tti{yz}\enspace
   \tti{zx}\enspace
-  \tti{xy}\enspace
+  \tti{xy}\\
   \tti{tx}\enspace
   \tti{ty}\enspace
   \tti{tz}
-  \\
+  \\[\jot]
   \ttti{t}\enspace
   \ttti{x}\enspace
   \ttti{y}\enspace
   \ttti{z}
-  \\
+  \\[\jot]
   \tttti{}
 \end{gathered}
 \right.
@@ -1433,15 +1433,16 @@ Therefore we have the following inverse relationships:
 The metric on the space of 1-vectors also induces metrics on the spaces of 1-covectors, 2-vectors and 2-covectors, and so on. In particular, the metrics $\ygg[3]^{-1}$ on the space of 3-covectors and $\ygg[3]$ on the space of 3-vectors can be written in coordinates as
 \begin{gather}
   \label{eq:3-covvect_metrics}
-  \ygg[3]^{-1} = \frac{g_{\mu\nu}}{g}\,\ttte{\mu}\otimes\ttte{\nu}
+  \ygg[3]^{-1} = \frac{g_{\mu\nu}}{g}\,\ttte{x^{\mu}}\otimes\ttte{x^{\nu}}
   \qquad\text{with dimensions length${}^{-6}$}
   \\
   \label{eq:3-vect_metrics}
   \ygg[3] = g\,g^{\mu\nu}\,\ttti{\mu}\otimes\ttti{\nu}
   \qquad\text{with dimensions length${}^{6}$} \ .
 \end{gather}
+With these we can define squared norms $\nor{\mathord{\centerdot}}^{2}$ on all those spaces. In the case of 3-vectors, this norm represents the physical metric volume spanned by the 3-vector.
 
-With these we can define squared norms $\nor{\mathord{\centerdot}}^{2}$ on all those spaces. Note in particular the following identity:
+Note the following identity:
 \begin{equation}
   \label{eq:norm_3cov_identity}
   \nor{\vi\cdot\yN}^{2} = -c^{2}\,\nor{\yN}

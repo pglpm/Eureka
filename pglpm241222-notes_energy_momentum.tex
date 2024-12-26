@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-26T09:16:57+0100
+%% Last-Updated: 2024-12-26T16:53:51+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -944,7 +944,10 @@ Western Norway University of Applied Sciences%
 \newcommand*{\yT}{\mathcal{T}}
 \newcommand*{\yJJ}{\bm{\mathcal{J}}}
 \newcommand*{\yJ}{\mathcal{J}}
-\newcommand*{\yP}{\bm{\mathcal{P}}}
+\newcommand*{\yPP}{\bm{\mathcal{P}}}
+\newcommand*{\yP}{\mathcal{P}}
+\newcommand*{\yEE}{\bm{\mathcal{E}}}
+\newcommand*{\yEc}{\mathcal{E}}
 \newcommand*{\yEi}{\bm{\mathcal{E}}_{\textrm{i}}}
 \newcommand*{\yEk}{\bm{\mathcal{E}}_{\textrm{k}}}
 \newcommand*{\yEp}{\bm{\mathcal{E}}_{\textrm{p}}}
@@ -1117,10 +1120,17 @@ The energy-momentum tensor satisfies two fundamental equations or constraints, a
   - \yT\i{^{\mu}_{\nu}} \, \varGamma^{\nu}_{\mu\alpha}
   = 0
 \end{equation}
-where $\Di$ is the covariant exterior derivative. The second is, directly in compoents,
+where $\Di$ is the covariant exterior derivative. The second is, in components,
 \begin{equation}
   \label{eq:sym_EMt}
-  \yT\i{^{\mu}_{\alpha}} \, g^{\alpha\nu} = \yT\i{^{\nu}_{\alpha}} \, g^{\alpha\mu} \ .
+  \tfrac{c}{\dg}\,
+  \yT\i{^{\mu}_{\alpha}} \, g^{\alpha\nu} \,
+\ve{\mu} \otimes \ve{\nu}
+  =
+  \tfrac{c}{\dg}\,
+  \yT\i{^{\nu}_{\alpha}} \, g^{\alpha\mu} \,
+\ve{\mu} \otimes \ve{\nu}
+  \ .
 \end{equation}
 
 The first equation is often presented as saying that \enquote{the divergence of the energy-momentum tensor is zero}. But we must keep in mind that this \enquote{divergence} does \emph{not} satisfy a Stokes theorem. The fundamental problem underlying this is that \emph{the energy-momentum tensor cannot be integrated over a spacetime region}, be it four- or three-dimensional. So it doesn't make sense to speak of the \enquote{total} energy-momentum in a region. The same is true for the divergence of the energy-momentum tensor. This is a basic point in differential geometry: tensors at different points cannot be compared, added, and so on, in any standard way; there are different inequivalent ways to realize such comparisons and sums.
@@ -1205,6 +1215,9 @@ as well as their normalized counterparts analogous to~\eqref{eq:choice_norm_bvec
 
 Further natural choices of reference fields are possible, unrelated to the coordinate system. One may choose, for instance, Killing vector fields. Or one may choose vectors fields which are orthonormal to one another, a so-called tetrad of fields. In the presence of matter there is a four-velocity field $\yUm$, and we can choose this timelike field as the reference one to associate an energy with.
 
+\subsubsection{Momentum}
+\label{sec:momentum}
+
 In low-curvature regions typical of the Newtonian approximation, and with approximately inertial coordinates, it turns out that all choices above for the \emph{spacelike} reference fields lead to approximately the same three currents. This is why there seems to be a unique definition of momentum, and why we can consider the $x$-, $y$-, $z$-momenta as components of a vector:
 \begin{equation}
   \label{eq:xmomentum_current}
@@ -1212,9 +1225,20 @@ In low-curvature regions typical of the Newtonian approximation, and with approx
  \tfrac{1}{\sqrt{\abs{g_{xx}}}} \, \yTT \cdot \ve{x} \approx
  \yTT \cdot \yg^{-1} \cdot\vi{x}
 \approx \yT\i{^{\mu}_{x}} \, \ttti{\mu}
- \defs \yP_{x}
+ \defs \yPP_{x}
 \end{equation}
 and similarly for $y$ and $z$.
+
+The $x$-momentum thus defined, being a 3-covector, can be integrated over a spacelike three-dimensional region $R$:
+\begin{equation}
+  \label{eq:integral_Px}
+  \int_{R} \yPP_{x} \equiv \int_{R} \yP^{\mu}\, \ttti{\mu}
+\end{equation}
+which is the total, net amount of $x$-momentum in that region. Note that this is a coordinate-independent result -- although of course it depends on the region $R$ and on the reference field used to define the $x$-momentum. Analogously we can integrate over a timelike three-dimensional region, which can be seen as the time evolution of a spacelike two-dimensional one. The result is the total, net amount of $x$-momentum flowing through that evolving surface -- that is, the $x$-force from one side of the surface to the other. Analogous discussion holds for $y$ and $z$.
+
+
+\subsubsection{Energies}
+\label{sec:energies}
 
 The different choices of \emph{timelike} reference field, however, lead to slightly different associated currents. This is why there seems to be some freedom in the definition of energy. In particular:
 \begin{itemize}
@@ -1223,7 +1247,7 @@ The different choices of \emph{timelike} reference field, however, lead to sligh
     \label{eq:internal_energy_current}
     \yEi \defd \yTT \cdot \yUm
   \end{equation}
-  associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy-mass}. Its flux includes heat flux and transport terms. Note that the reference field $\yUm$ is unrelated to the coordinates; this is why internal energy and heat flux are invariants in the Newtonian approximation and in the exact case.
+  associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy-mass}. Its flux includes heat flux and transport terms. Note that the reference field $\yUm$ is unrelated to the coordinates; this is why internal energy and heat flux are invariants in the Newtonian approximation and in the exact case. This energy cannot be defined where there is no matter, as the four-velocity field is undefined there.
 
 \item The energy four-current
   \begin{equation}
@@ -1268,7 +1292,74 @@ The different choices of \emph{timelike} reference field, however, lead to sligh
 
 In Schwarzschild isotropic coordinates typical of the barycentric or geocentric celestial reference systems (BCRS, GCRS) used in astronomy \autocites{kaplan2005,soffeletal2003,petitetal2005,soffeletal2013}, the vector field $\ve{t}$ is a Killing vector field; therefore the associated energy $\yEi + \yEk + \yEp$ is conserved, not just balanced; that is, the right side of \eqn~\eqref{eq:balance_V} is zero.
 
-Thus we see where the arbitrariness in the definition of total energy in Newtonian mechanics comes from: it corresponds to the arbitrariness in choosing a timelike reference field for defining energy.
+It must be emphasized that any one of the three energies $\yEi$ (wherever $\yUm$ is defined), $\yEk$, $\yEp$, and any sum of the three, could be used as \enquote{the} energy, and its balance~\eqref{eq:balance_V}--\eqref{eq:Stokes_V} used as \enquote{the} energy balance. These balances are all equivalent: any terms missing on one side of the equality appears on the other side in different mathematical guise.
+
+
+Each of the energies defined above, being a 3-covector, can be integrated over a spacelike three-dimensional region $R$:
+\begin{equation}
+  \label{eq:integral_E}
+  \int_{R} \yEE_{x} \equiv \int_{R} \yEc^{\mu}\, \ttti{\mu}
+\end{equation}
+which is the total, net amount of energy in that region. Also this is a coordinate-independent result, depending only on the region $R$ and on the reference field used to define the energy. Analogously we can integrate over a timelike three-dimensional region; the result is the total, net amount of energy flowing through that evolving surface.
+
+\medskip
+
+Thus we now see where the arbitrariness in the definition of total energy in Newtonian mechanics comes from: it corresponds to the arbitrariness in choosing a timelike reference field for defining energy.
+
+
+\subsection{Definition of angular momentum and boost momentum}
+\label{sec:def_angular_momentum}
+
+The balances for any one of the energies above and for the three components of momentum are together mathematically equivalent to the divergence equation~\eqref{eq:div_EMt} of the energy-momentum tensor,
+\begin{equation*}
+    \Di\yTT = 0
+  \qquad\text{\footnotesize or }\qquad
+  \de_{\mu}\yT\i{^{\mu}_{\alpha}}
+  = \yT\i{^{\mu}_{\nu}} \, \varGamma^{\nu}_{\mu\alpha} \ .
+\end{equation*}
+In fact the four balances can be viewed as sorts of projections of that equation along four different spacetime directions.
+
+The symmetry equation~\eqref{eq:sym_EMt} for the energy-momentum tensor,
+\begin{equation*}
+  \tfrac{c}{\dg}\,
+  \yT\i{^{\mu}_{\alpha}} \, g^{\alpha\nu} \,
+\ve{\mu} \otimes \ve{\nu}
+  =
+  \tfrac{c}{\dg}\,
+  \yT\i{^{\nu}_{\alpha}} \, g^{\alpha\mu} \,
+\ve{\mu} \otimes \ve{\nu}
+  \ ,
+\end{equation*}
+has a point-wise nature: it does not involve any kind of derivative. It could be re-expressed as a collection of six point-wise relationship between components of energy- and momentum-currents defined above.
+
+Alternatively it can be re-expressed as a set of six balance laws for the currents associated with six additional reference fields. These additional reference fields must be independent, in a field sense, from the ones considered in the previous section. They cannot therefore be simple linear combinations, with constant coefficients, of the reference fields above. But they can be combinations with functional coefficients.
+
+We can consider for instance the six reference fields\autocites[cf.][\sect~3.2 p.~62]{hawkingetal1973_r1994}
+\begin{equation}
+  \label{eq:ref_angmomentum}
+  \begin{gathered}
+    \yg^{-1} \cdot (y\,\vi{z} - z\,\vi{y}) \qquad
+    \yg^{-1} \cdot (z\,\vi{x} - x\,\vi{z}) \qquad
+    \yg^{-1} \cdot (x\,\vi{y} - y\,\vi{x}) \ ,
+    \\
+    \yg^{-1} \cdot (t\,\vi{x} - x\,\vi{t}) \qquad
+    \yg^{-1} \cdot (t\,\vi{y} - y\,\vi{t}) \qquad
+    \yg^{-1} \cdot (t\,\vi{z} - z\,\vi{t}) \ ,
+  \end{gathered}
+\end{equation}
+possibly normalized. The currents associated with the first three are the $x$-, $y$-, $z$-components of angular momentum. In fact from \eqns~\eqref{eq:xmomentum_current} we see that in the Newtonian approximation these currents are
+\begin{equation}
+  \label{eq:angmomentum_current}
+   y\,\yPP_{z} - z\,\yPP_{y} \qquad
+   z\,\yPP_{x} - x\,\yPP_{z} \qquad
+   x\,\yPP_{y} - y\,\yPP_{x} \ .
+\end{equation}
+The currents associated with the last three reference fields are the analogous components of boost momentum; they depend on the specific choice of reference field for energy.
+
+\medskip
+
+Thus we see the reason why there is a special connection between angular momentum and momentum, even though their balances are independent. Angular momentum must be defined with respect to reference fields different from the ones for momentum and energy. Yet, since spacetime is four dimensional, \emph{at each spacetime point} the reference fields for angular momentum must be equivalent to linear combinations of the ones for momentum and energy; the coefficients of these linear combinations will differ from point to point, though. This is exactly what happens in \eqns~\eqref{eq:angmomentum_current}.
+
 
 
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-25T23:24:21+0100
+%% Last-Updated: 2024-12-26T09:16:57+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1089,7 +1089,7 @@ where $g$ is the determinant of the metric $\yg$.
 The component $\yT\i{^{\mu}_{\nu}}$ expresses, roughly speaking, the flow of $x^{\nu}$-momentum \emph{per unit coordinates}, across a volume (hypersurface in spacetime) of constant $x^{\mu}$. Again the \enquote{roughly speaking} will be made precise soon.
 
 
-In the expressions above, $\vi{x^{\mu}}$ are the differentials of the coordinates $x^{mu}$ and form a basis for covector fields, and $\ve{\mu}$ are the dual vectors and form a basis for vector fields. The $\ttti{\mu}$ are volume forms defined as follows:\autocites[notation similar to][\sect~2 p.~371]{gotayetal1992}
+In the expressions above, $\vi{x^{\mu}}$ are the differentials of the coordinates $x^{mu}$ and form a basis for covector fields, and $\ve{\mu}$ are their dual vectors -- generally not orthonormal -- and form a basis for vector fields. The $\ttti{\mu}$ are volume forms defined as follows:\autocites[notation similar to][\sect~2 p.~371]{gotayetal1992}
 \begin{equation}
   \label{eq:vol_elements}
   \begin{gathered}
@@ -1103,7 +1103,7 @@ In the expressions above, $\vi{x^{\mu}}$ are the differentials of the coordinate
     \ttti{3} \defd -\vi{\tw{x}^{0}} \vi{x^{1}} \vi{x^{2}}
   \end{gathered}
 \end{equation}
-that is, they are a basis for 3-covector fields. They can be integrated over three-dimensional regions of spacetime and therefore are the main building block for the definition of the total amount of any quantity in a spatial region, and of the flow of any quantity through a surface during a time lapse. The tilde $\tw{\phantom{1}}$, called an outer-oriented scalar, indicates that an outer orientation is chosen for these 3-covectors, instead of an inner orientation. For instance, the 3-covector $\vi{\tw{x}^{1}} \vi{x^{2}} \vi{x^{3}}$ does not have a screw-sense $x^{1}x^{2}x^{3}$, but an orientation along the complementary direction $x^{0}$, towards positive $x^{0}$. This complementary orientation is indicated by the subscript on \enquote{$\ttti{}$}. Compare with the similar notation in   \cites[\chap~2 Box~5.4]{misneretal1970_r2017}, who however define the volume forms slightly differently; or in \cites[\sect~4.11]{weinberg1972}.
+that is, they are a basis for 3-covector fields. They can be integrated over three-dimensional regions of spacetime and therefore are the main building block for the definition of the total amount of any quantity in a spatial region, and of the flow of any quantity through a surface during a time lapse. The tilde $\tw{\phantom{-}}$, called an outer-oriented scalar, indicates that an outer orientation is chosen for these 3-covectors, instead of an inner orientation. For instance, the 3-covector $\vi{\tw{x}^{1}} \vi{x^{2}} \vi{x^{3}}$ does not have a screw-sense $x^{1}x^{2}x^{3}$, but an orientation along the complementary direction $x^{0}$, towards positive $x^{0}$. This complementary orientation is indicated by the subscript on \enquote{$\ttti{}$}. Compare with the similar notation in   \cites[\chap~2 Box~5.4]{misneretal1970_r2017}, who however define the volume forms slightly differently; or in \cites[\sect~4.11]{weinberg1972}.
 
 \subsection{Equations for the energy-momentum tensor}
 \label{sec:EMt_equations}
@@ -1140,7 +1140,9 @@ We can choose a non-zero vector field $\yV$ over a four-dimensional spacetime re
   \yJ\i{^{\mu}} \, \ttti{\mu} =
   (\yT\i{^{\mu}_{\alpha}} V^{\alpha}) \, \ttti{\mu} \ .
 \end{equation}
-This current is a 3-covector, so it can be integrated over any three-dimensional region of spacetime. What's more, thanks to \eqns~\eqref{eq:div_EMt} and~\eqref{eq:sym_EMt} this current satisfies the following balance law:
+This current is a 3-covector, so it can be integrated over any three-dimensional region of spacetime. Integration over a three-dimensional volume at some constant time coordinate is usually interpreted as the total, net amount in that volume; integration over the three-dimensional span of a two-dimensional surface is usually interpreted as the total, net flow through the surface during a time lapse.
+
+What's more, thanks to \eqns~\eqref{eq:div_EMt} and~\eqref{eq:sym_EMt} this current satisfies the following balance law: \autocites[\sect~III.7.III \eqns~(5), (6)]{choquetbruhatetal1989_r2000}
 \begin{equation}
   \label{eq:balance_V}
   \di\yJJ =
@@ -1159,12 +1161,16 @@ Stokes's theorem holds for this current: for any four-dimensional region $R$ whe
 \end{equation}
 If the reference field $\yV$ is a Killing vector in the spacetime region, so that $\Li_{\yV}\yg = 0$ there, then the current $\yJJ$ is conserved there.
 
-The ten equations~\eqref{eq:div_EMt}--\eqref{eq:sym_EMt} satisfied by the energy-momentum tensor can be alternatively formulated as balance laws satisfied by ten currents associated to ten independent reference fields. This is how the balance of energy, of the three components of  momentum, of three components of angular momentum, and of three components of boost-momentum come about.
+The ten equations~\eqref{eq:div_EMt}--\eqref{eq:sym_EMt} satisfied by the energy-momentum tensor can be alternatively formulated as balance laws satisfied by ten currents associated to ten independent reference fields. This is how the balances of energy, of the three components of  momentum, of three components of angular momentum, and of three components of boost-momentum, come about.
 
-We speak of energy for the 4-current associated with a timelike reference field. We speak of three components of momentum for the 4-currents associated with three spacelike reference fields. This view of energy and momentum as defined with respect to \enquote{reference vector fields} encompasses other common points of view, especially about energy. An example is the virtual-work point of view: the vector $\yV$ in this case represents a field of virtual displacements. Another clear example is the point of view connected with symmetries and Noether's theorem.
+When the reference field is timelike and has intrinsic dimension of inverse time, then the associated current is called an \emph{energy} current, whose components typically are an energy density and  energy fluxes in three spatial directions.
+
+When the reference field is spacelike and has intrinsic dimension of inverse length, then the associated current is called a \emph{momentum} current, whose components typically are a momentum density and momentum fluxes -- stresses -- in three spatial directions.
+
+This view of energy and momentum as defined with respect to reference vector fields encompasses all other main points of view for presenting energy and momentum. For example in special relativity, when inertial coordinates are used, the reference fields are the coordinate vectors themselves; see below. Another example is the virtual-work point of view: the vector $\yV$ in this case represents a field of virtual displacements. The connection with the point of view of symmetries and Noether's theorem is also evident.
 
 
-Clearly we have infinite choices of vector fields to associate energy and momentum with. We could also define currents that are somehow hybrids of energy and momentum, or \enquote{momentum} whose components don't really form a vector. How to choose such reference fields?
+We have infinite choices of vector fields to associate energy and momentum with. We could also define currents that are somehow hybrids of energy and momentum, or \enquote{momentum} whose components don't really form a vector. How to choose such reference fields?
 
 \medskip
 
@@ -1197,7 +1203,7 @@ Two other natural choices are the vectors obtained from the basis covectors:
 \end{equation}
 as well as their normalized counterparts analogous to~\eqref{eq:choice_norm_bvectors}.
 
-Further natural choices of reference fields are possible, unrelated to the coordinate system. One may choose, for instance, Killing vector fields. Or one may choose vectors fields which are orthonormal to one another, a so-called tetrad field. In the presence of matter there is a four-velocity field $\yUm$, and we can choose this timelike field as the reference one to associate an energy with.
+Further natural choices of reference fields are possible, unrelated to the coordinate system. One may choose, for instance, Killing vector fields. Or one may choose vectors fields which are orthonormal to one another, a so-called tetrad of fields. In the presence of matter there is a four-velocity field $\yUm$, and we can choose this timelike field as the reference one to associate an energy with.
 
 In low-curvature regions typical of the Newtonian approximation, and with approximately inertial coordinates, it turns out that all choices above for the \emph{spacelike} reference fields lead to approximately the same three currents. This is why there seems to be a unique definition of momentum, and why we can consider the $x$-, $y$-, $z$-momenta as components of a vector:
 \begin{equation}
@@ -1217,7 +1223,7 @@ The different choices of \emph{timelike} reference field, however, lead to sligh
     \label{eq:internal_energy_current}
     \yEi \defd \yTT \cdot \yUm
   \end{equation}
-  associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy-mass}. Note that this reference field is unrelated to the coordinates. This is why internal energy is an invariant in the Newtonian approximation and even in the exact case.
+  associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy-mass}. Its flux includes heat flux and transport terms. Note that the reference field $\yUm$ is unrelated to the coordinates; this is why internal energy and heat flux are invariants in the Newtonian approximation and in the exact case.
 
 \item The energy four-current
   \begin{equation}
@@ -1230,7 +1236,7 @@ The different choices of \emph{timelike} reference field, however, lead to sligh
     \yEk \defd \yTT \cdot
     \Bigl(\tfrac{c}{\sqrt{\abs{g_{tt}}}} \ve{t} - \yUm\Bigr) \ .
   \end{equation}
-  Note that this difference is a spacelike vector field, therefore kinetic energy has something akin to momentum, so to speak.
+  Its flux includes the \emph{mechanical power} done by the stresses. Note that the difference above is a spacelike vector field, therefore kinetic energy has something akin to momentum, so to speak.
 
 \item The energy four-current
   \begin{equation}

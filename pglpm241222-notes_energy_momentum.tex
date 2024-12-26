@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-26T16:53:51+0100
+%% Last-Updated: 2024-12-26T21:52:05+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1189,14 +1189,14 @@ Suppose we have a coordinate system $(t,x,y,z)$, with timelike $t$ and spacelike
 One choice are the basis vector fields
 \begin{equation}
   \label{eq:choice_bvectors}
-  \ve{t} \qquad \ve{x} \qquad \ve{y} \qquad \ve{z} \ ,
+  -\ve{t} \qquad \ve{x} \qquad \ve{y} \qquad \ve{z} \ ,
 \end{equation}
-energy being associated with the first, and momentum with the last three. For spacelike coordinates that have angular dimension, the associated momentum has the character of an angular momentum. Note that these vector fields may not be orthonormal.
+energy being associated with the first, and momentum with the last three. The minus sign is related to the hyperbolic character of the metric. For spacelike coordinates that have angular dimension, the associated momentum has the character of an angular momentum. Note that these vector fields may not be orthonormal.
 
 Another natural choice are the vectors above, but appropriately normalized:
 \begin{equation}
   \label{eq:choice_norm_bvectors}
-  \frac{c}{\sqrt{\abs{g_{tt}}}}\ve{t} \qquad
+- \frac{c}{\sqrt{\abs{g_{tt}}}}\ve{t} \qquad
   \frac{1}{\sqrt{\abs{g_{xx}}}}\ve{x} \qquad
   \frac{1}{\sqrt{\abs{g_{yy}}}}\ve{y} \qquad
   \frac{1}{\sqrt{\abs{g_{zz}}}}\ve{z} \ ,
@@ -1206,14 +1206,14 @@ because $\ve{t} \cdot \yg \cdot \ve{t} = g_{tt}$ and so on. Normalizing them mak
 Two other natural choices are the vectors obtained from the basis covectors:
 \begin{equation}
   \label{eq:choice_bcovectors}
-  c\, \yg^{-1} \cdot \vi{t} \qquad
+ - c\, \yg^{-1} \cdot \vi{t} \qquad
   \yg^{-1} \cdot \vi{x} \qquad
   \yg^{-1} \cdot \vi{y} \qquad
   \yg^{-1} \cdot \vi{z} \ ,
 \end{equation}
 as well as their normalized counterparts analogous to~\eqref{eq:choice_norm_bvectors}.
 
-Further natural choices of reference fields are possible, unrelated to the coordinate system. One may choose, for instance, Killing vector fields. Or one may choose vectors fields which are orthonormal to one another, a so-called tetrad of fields. In the presence of matter there is a four-velocity field $\yUm$, and we can choose this timelike field as the reference one to associate an energy with.
+Further natural choices of reference fields are possible, unrelated to the coordinate system. One may choose, for instance, Killing vector fields. Or one may choose vectors fields which are orthonormal to one another, a so-called tetrad of fields. In the presence of matter there is a four-velocity field $-\yUm$, and we can choose this timelike field as the reference one to associate an energy with.
 
 \subsubsection{Momentum}
 \label{sec:momentum}
@@ -1221,11 +1221,11 @@ Further natural choices of reference fields are possible, unrelated to the coord
 In low-curvature regions typical of the Newtonian approximation, and with approximately inertial coordinates, it turns out that all choices above for the \emph{spacelike} reference fields lead to approximately the same three currents. This is why there seems to be a unique definition of momentum, and why we can consider the $x$-, $y$-, $z$-momenta as components of a vector:
 \begin{equation}
   \label{eq:xmomentum_current}
+ \yPP_{x} \defd
+ \yT\i{^{\mu}_{x}} \, \ttti{\mu} \equiv
   \yTT \cdot \ve{x} \approx
  \tfrac{1}{\sqrt{\abs{g_{xx}}}} \, \yTT \cdot \ve{x} \approx
  \yTT \cdot \yg^{-1} \cdot\vi{x}
-\approx \yT\i{^{\mu}_{x}} \, \ttti{\mu}
- \defs \yPP_{x}
 \end{equation}
 and similarly for $y$ and $z$.
 
@@ -1245,22 +1245,42 @@ The different choices of \emph{timelike} reference field, however, lead to sligh
 \item The energy four-current
   \begin{equation}
     \label{eq:internal_energy_current}
-    \yEi \defd \yTT \cdot \yUm
+    \yEi \defd -\yTT \cdot \yUm
   \end{equation}
   associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy-mass}. Its flux includes heat flux and transport terms. Note that the reference field $\yUm$ is unrelated to the coordinates; this is why internal energy and heat flux are invariants in the Newtonian approximation and in the exact case. This energy cannot be defined where there is no matter, as the four-velocity field is undefined there.
 
 \item The energy four-current
   \begin{equation}
     \label{eq:internalkinetic_energy_current}
-    \yEi + \yEk \defd \tfrac{c}{\sqrt{\abs{g_{tt}}}} \, \yTT \cdot \ve{t}
+    \yEi + \yEk \defd -\tfrac{c}{\sqrt{\abs{g_{tt}}}} \, \yTT \cdot \ve{t}
   \end{equation}
   associated with the normalized basis field $\frac{c}{\sqrt{\abs{g_{tt}}}}\ve{t}$ is represented as the sum of internal energy above and of \emph{kinetic energy}. Kinetic energy is therefore associated with the difference between the two reference fields above:
   \begin{equation}
     \label{eq:kinetic_energy_current}
-    \yEk \defd \yTT \cdot
+    \yEk \defd -\yTT \cdot
     \Bigl(\tfrac{c}{\sqrt{\abs{g_{tt}}}} \ve{t} - \yUm\Bigr) \ .
   \end{equation}
-  Its flux includes the \emph{mechanical power} done by the stresses. Note that the difference above is a spacelike vector field, therefore kinetic energy has something akin to momentum, so to speak.
+  Its flux includes the \emph{mechanical power} done by the stresses.
+%
+  % In Newtonian-approximation conditions we can write the matter four-velocity as
+  % \begin{equation}
+  %   \label{eq:Umatter_approx}
+  %   \yUm \approx
+  %   \frac{c}{\sqrt{\abs{g_{tt}}}}
+  %   \biggl(1-
+  %   \frac12 \frac{ {g_{t j}u^{j} + u^{i}g_{ij} u^{j}} }{ \abs{g_{tt} }}
+  %   \biggr)
+  %   \, (\ve{t} + u^{i}\ve{i})
+  % \end{equation}
+  % from which we see, by \eqn~\eqref{eq:kinetic_energy_current}, that
+  % \begin{equation}
+  %   \label{eq:kinetic_energy_newton}
+  %   \yEk \approx -\yTT \cdot (u^{i}\ve{i}) =
+  %   u^{i}\, \yPP_{i}
+  %   - \frac12 \frac{ {g_{t j}u^{j} + u^{i}g_{ij} u^{j}} }{ \abs{g_{tt} }}
+  % \end{equation}
+%
+  The difference above is a spacelike vector field, therefore kinetic energy has something akin to momentum, so to speak.
 
 \item The energy four-current
   \begin{equation}
@@ -1304,8 +1324,23 @@ which is the total, net amount of energy in that region. Also this is a coordina
 
 \medskip
 
-Thus we now see where the arbitrariness in the definition of total energy in Newtonian mechanics comes from: it corresponds to the arbitrariness in choosing a timelike reference field for defining energy.
+We now see where the arbitrariness in the definition of total energy in Newtonian mechanics comes from: it corresponds to the arbitrariness in choosing a timelike reference field for defining energy.
 
+\medskip
+
+We can also give a more precise definition of the component $\yT\i{^{\mu}_{\nu}}$ of the energy-momentum tensor, at a given spacetime point:
+\begin{equation}
+  \label{eq:def_Tmunu}
+  \yT\i{^{\mu}_{\nu}} =
+  \left\{
+    \parbox[c]{0.67\linewidth}{\footnotesize
+      flux of generalized energy associated with reference field $\ve{\nu}$
+      \\
+      across 3D volume element of constant $x^{\mu}$,
+      per unit coordinates
+    }
+  \right.
+\end{equation}
 
 \subsection{Definition of angular momentum and boost momentum}
 \label{sec:def_angular_momentum}
@@ -1354,11 +1389,34 @@ possibly normalized. The currents associated with the first three are the $x$-, 
    z\,\yPP_{x} - x\,\yPP_{z} \qquad
    x\,\yPP_{y} - y\,\yPP_{x} \ .
 \end{equation}
-The currents associated with the last three reference fields are the analogous components of boost momentum; they depend on the specific choice of reference field for energy.
+The currents associated with the last three reference fields are the analogous components of boost momentum; they depend on the specific choice of reference field for energy. In some important situations the reference fields~\eqref{eq:ref_angmomentum} are Killing  fields, and therefore the associated currents~\eqref{eq:angmomentum_current} satisfy conservation laws.
 
 \medskip
 
 Thus we see the reason why there is a special connection between angular momentum and momentum, even though their balances are independent. Angular momentum must be defined with respect to reference fields different from the ones for momentum and energy. Yet, since spacetime is four dimensional, \emph{at each spacetime point} the reference fields for angular momentum must be equivalent to linear combinations of the ones for momentum and energy; the coefficients of these linear combinations will differ from point to point, though. This is exactly what happens in \eqns~\eqref{eq:angmomentum_current}.
+
+\medskip
+
+But it must be remarked that nothing forces us to use the reference fields~\eqref{eq:ref_angmomentum}. We could use different independent fields, for instance replacing the first three with
+\begin{equation}
+  \label{eq:alt_ref_fields}
+  x\,\ve{x} \qquad
+  y\,\ve{y} \qquad
+  z\,\ve{z} \ ,
+\end{equation}
+associated with the three currents
+\begin{equation}
+  \label{eq:alt_angmomentum}
+  x\,\yPP_{x} \qquad
+  y\,\yPP_{y} \qquad
+  z\,\yPP_{z}
+\end{equation}
+which would satisfy appropriate balance laws. These three alternative \enquote{angular momenta} and their balances could be used instead of the traditional angular momentum to frame and solve physics problems.
+
+
+\section{Answers to the initial questions}
+\label{sec:answers}
+
 
 
 

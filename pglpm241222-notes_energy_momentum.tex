@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-28T13:00:37+0100
+%% Last-Updated: 2024-12-28T14:26:04+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -753,7 +753,7 @@ Western Norway University of Applied Sciences%
 \DeclareMathOperator{\re}{Re}%re part
 %\DeclareMathOperator{\sgn}{sgn}%signum
 %\DeclareMathOperator{\ent}{ent}%integer less or equal to
-%\DeclareMathOperator{\Ord}{O}%same order as
+\DeclareMathOperator{\Ord}{O}%same order as
 %\DeclareMathOperator{\ord}{o}%lower order than
 % \newcommand*{\incr}{\triangle}%finite increment
 \newcommand*{\incr}{\Delta}%finite increment
@@ -1438,12 +1438,107 @@ In this approximation, the sets of Killing vector fields~\eqref{eq:choice_bvecto
     c t\,\ve{z} + \frac{1}{c} z\,\ve{t} \ ,
   \end{gathered}
 \end{equation}
-are chosen as reference fields, and energy and momentum are defined accordingly. As already mentioned in \sect~\ref{sec:energies}, there still remains the possibility of defining energy in slightly different ways. The use of the reference field $\yUm$ is typical in continuum mechanics. In continuum and point mechanics one sees the choices $\ve{t}$ and $\tfrac{c}{\sqrt{\abs{g_{tt}}}}\ve{t}$ used equally often.
+are chosen as reference fields, and energy and momentum are defined accordingly.
+
+The components $\yT\i{^{\mu}_{\nu}}$ of the energy-momentum tensor then have the meaning sketched in \eqn~\eqref{eq:energy_momentum_entries}:
+\begin{equation}
+  \label{eq:energy_momentum_entries_correct}
+  \begin{bmatrix}
+    \text{\footnotesize $-$energy density} &
+    \text{\footnotesize momentum density} \\[2\jot]
+    \rotatebox[origin=c]{90}{\text{\footnotesize $-$energy flux density}} &
+    \rotatebox[origin=c]{45}{\parbox{9em}{\centering\footnotesize stress\\ (momentum flux density)}}
+  \end{bmatrix}
+  \equiv
+    \begin{bmatrix}
+    -m c^{2} & p_{x} & p_{y} & p_{z}
+    \\
+    -c^{2} q_{x} & \sigma_{xx} & \sigma_{xy} & \sigma_{xz}
+    \\
+    -c^{2} q_{y} & \sigma_{yx} & \sigma_{yy} & \sigma_{yz}
+    \\
+    -c^{2} q_{z} & \sigma_{zx} & \sigma_{zy} & \sigma_{zz}
+  \end{bmatrix}
+\ ,
+\end{equation}
+with the following clarifications:
+\begin{itemize}[noitemsep]
+\item Energy and momentum are those associated with the reference fields $\ve{\nu}$.
+\item The densities or fluxes are across three-dimensional spacetime regions of constant $x^{\mu}$.
+\item The densities are measured per unit coordinates.
+\end{itemize}
+
+
+As already mentioned in \sect~\ref{sec:energies}, there still remains the possibility of defining energy in slightly different ways. The use of the reference field $\yUm$ is typical in continuum mechanics. In continuum and point mechanics one sees the choices $\ve{t}$ and $\tfrac{c}{\sqrt{\abs{g_{tt}}}}\ve{t}$ used equally often.
+
+\medskip
+
+In a new coordinate system obtained by a Lorentz transformation
+\begin{equation}
+  \label{eq:lorentz_transf}
+  \begin{gathered}
+    t \mapsto \tfrac{1}{\sqrt{1-v^{2}/c^{2}}}\, (t - v x/c^{2})
+    \\
+    x \mapsto \tfrac{1}{\sqrt{1-v^{2}/c^{2}}}\, (x - v t)
+    \qquad y \mapsto y \qquad z \mapsto z \ ,
+  \end{gathered}
+\end{equation}
+the energy-momentum tensor~\eqref{eq:energy_momentum_entries_correct} has the following components up to $\Ord(c^{-1})$ terms:
+\begin{equation}
+  \label{eq:energy_momentum_boost}
+    \left[\begin{smallmatrix}
+        -m c^{2} - m v^{2} + v p_{x} + v q_{x}
+        & p_{x} - m v & p_{y} & p_{z}
+    \\
+    -c^{2} q_{x} + m v c^{2} + m v^{3}- v^{2} p_{x} - v^{2} q_{x} + v \sigma_{xx}&
+    \sigma_{xx} + m v^{2} - v p_{x} - v q_{x}
+    & \sigma_{xy} - v p_{y}
+    & \sigma_{xz} - v p_{z}
+    \\
+    -c q_{y} - \frac12 v^{2} q_{y} + v \sigma_{yx}
+    & \sigma_{yx} - v q_{y}
+    & \sigma_{yy} & \sigma_{yz}
+    \\
+    -c q_{z} - \frac12 v^{2} q_{z} + v \sigma_{zx}
+    & \sigma_{zx} - v q_{z}
+    & \sigma_{zy} & \sigma_{zz}
+  \end{smallmatrix}\right]
++ \Ord(c^{-1})
+\end{equation}
+which shows several peculiarities:
+\begin{itemize}[noitemsep]
+\item To order $\Ord(c^{2})$, the mass-energy is the same.
+\item To order $\Ord(c^{0})$, the mass-energy acquires terms proportional to the squared velocity.
+\item The momentum acquires terms proportional to the mass-energy and the velocity.
+\item To order $\Ord(c^{0})$, the mass-energy flux acquires terms proportional to the mechanical power of the stresses.
+\item To order $\Ord(c^{0})$, the momentum flux acquires terms proportional to the energy flux.
+\item Energy and momentum \enquote*{transport} terms appear in the energy and momentum fluxes, as expected from Newtonian continuum mechanics.
+\end{itemize}
 
 
 \section{Answers to the initial questions}
 \label{sec:answers}
 
+\begin{enumerate}[itemsep=1ex]
+\item \emph{How should \emph{total energy} be defined? Is it just the sum of internal and kinetic energies? or should it also include gravitational potential energy?}
+
+  Answer: The definition depends on the choice of a reference vector field; all such choices are acceptable. If we choose the vector field related to the coordinate $t$, then the associated total energy includes a gravitational potential energy, and is moreover conserved.
+
+
+\item \emph{Why is \emph{internal energy} the same in two reference frames, whereas \emph{kinetic energy} differs?}
+
+Answer: Because internal energy is the energy associated to the vector field $\yUm$, which is  the same in all coordinate systems.
+
+
+\item \emph{Why does force, which is related to change of momentum, appear in the laws for the change of energy (in the formula for \enquote{work})? Why doesn't change of energy appear, vice versa, in the law for change of momentum?}
+
+  Answer: Because energy, momentum, flux of energy, and force (flux of momentum) are just components of one geometric object, and they mix together under coordinate transformations. The peculiarity of Lorentz transformations make it so that, in a first approximation, the flux of momentum in the previous coordinates enters the flux of energy in the new ones. But in higher-order approximations also the flux of energy enters the flux of momentum.
+
+
+\item \emph{What is the \emph{law of transformation for momentum} between reference frames? For instance, if we know that the components of momentum in an inertial frame are $[0,1,2]\:\unit{N\,s}$, then what are the components in another inertial frame with constant velocity $\bm{v}$ with respect to the first?}
+
+Answer: Momentum is not a vector in itself, but a set of components of a more complex geometric objects. Their transformation therefore depends on the values of the other components of that object.
+\end{enumerate}
 
 
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-28T14:31:59+0100
+%% Last-Updated: 2024-12-28T14:34:17+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1484,27 +1484,28 @@ In a new coordinate system obtained by a Lorentz transformation
   \end{gathered}
 \end{equation}
 the energy-momentum tensor~\eqref{eq:energy_momentum_entries_correct} has the following components up to $\Ord(c^{-1})$ terms:
-\begin{equation}
+\begin{multline}
   \label{eq:energy_momentum_boost}
     \left[\begin{smallmatrix}
         -m c^{2} - m v^{2} + v p_{x} + v q_{x}
         & p_{x} - m v & p_{y} & p_{z}
     \\
-    -c^{2} q_{x} + m v c^{2} + m v^{3}- v^{2} p_{x} - v^{2} q_{x} + v \sigma_{xx}&
+    -c^{2} q_{x} + m v c^{2} + m v^{3}- v^{2} p_{x} - v^{2} q_{x} + v \sigma_{xx}
+    &\quad
     \sigma_{xx} + m v^{2} - v p_{x} - v q_{x}
-    & \sigma_{xy} - v p_{y}
-    & \sigma_{xz} - v p_{z}
-    \\
+    &\quad \sigma_{xy} - v p_{y}
+    &\quad \sigma_{xz} - v p_{z}
+    \\[\jot]
     -c q_{y} - \frac12 v^{2} q_{y} + v \sigma_{yx}
     & \sigma_{yx} - v q_{y}
     & \sigma_{yy} & \sigma_{yz}
-    \\
+    \\[\jot]
     -c q_{z} - \frac12 v^{2} q_{z} + v \sigma_{zx}
     & \sigma_{zx} - v q_{z}
     & \sigma_{zy} & \sigma_{zz}
   \end{smallmatrix}\right]
-+ \Ord(c^{-1})
-\end{equation}
++{}\\[2\jot] \Ord(c^{-1})
+\end{multline}
 which shows several peculiarities:
 \begin{itemize}[noitemsep]
 \item To order $\Ord(c^{2})$, the mass-energy is the same.

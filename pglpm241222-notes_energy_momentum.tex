@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2024-12-28T15:31:03+0100
+%% Last-Updated: 2024-12-28T20:48:59+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1142,7 +1142,11 @@ We shall now see how the energy-momentum tensor can be used to define energy and
 \subsection{Definitions of energy and momentum}
 \label{sec:def_energy_momentum}
 
-We can choose a non-zero vector field $\yV$ over a four-dimensional spacetime region, which we shall call \emph{reference field}, and construct an associated 4-current\autocites{gotayetal1992}[\sect~3.2 p.~62]{hawkingetal1973_r1994}[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[cf also][\sect~2.5]{malament2012}[and the discussion in][part~4 \sect~1]{vandantzig1934b}
+Given an energy-momentum tensor $\yTT$ we can construct an associated four-current as follows.\autocites{gotayetal1992}[\sect~3.2 p.~62]{hawkingetal1973_r1994}[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[cf also][\sect~2.5]{malament2012}[and the discussion in][part~4 \sect~1]{vandantzig1934b}
+
+Choose an arbitrary non-zero vector field $\yV$ over a four-dimensional spacetime region. We call it a \emph{reference vector field}. Keep in mind that this reference field doesn't need to be related in any way with the system of coordinates under use.
+
+From the energy momentum tensor $\yTT$ and the reference field $\yV$ we can construct a four-current
 \begin{equation}
   \label{eq:current_V}
 \yJJ \defd    \yTT \cdot \yV
@@ -1150,7 +1154,7 @@ We can choose a non-zero vector field $\yV$ over a four-dimensional spacetime re
   \yJ\i{^{\mu}} \, \ttti{\mu} =
   (\yT\i{^{\mu}_{\alpha}} V^{\alpha}) \, \ttti{\mu} \ .
 \end{equation}
-This current is a 3-covector, so it can be integrated over any three-dimensional region of spacetime. Integration over a three-dimensional volume at some constant time coordinate is usually interpreted as the total, net amount in that volume; integration over the three-dimensional span of a two-dimensional surface is usually interpreted as the total, net flow through the surface during a time lapse.
+This current is a 3-covector, so it can be integrated over any three-dimensional region of spacetime. Integration over a three-dimensional volume at some constant time coordinate is usually interpreted as the total, net amount in that volume. Integration over the three-dimensional span of a two-dimensional surface is usually interpreted as the total, net flow through the surface during a time lapse.
 
 What's more, thanks to \eqns~\eqref{eq:div_EMt} and~\eqref{eq:sym_EMt} this current satisfies the following balance law: \autocites[\sect~III.7.III \eqns~(5), (6)]{choquetbruhatetal1989_r2000}
 \begin{equation}
@@ -1159,15 +1163,12 @@ What's more, thanks to \eqns~\eqref{eq:div_EMt} and~\eqref{eq:sym_EMt} this curr
   \tfrac12 \tr\bigl(\yTTe \cdot \Li_{\yV}\yg \bigr)
   \,\tfrac{\dg}{c} \tttti{} \ .
 \end{equation}
-Stokes's theorem holds for this current: for any four-dimensional region $R$ where $\yV$ is defined,
+Stokes's theorem holds for this current: for any four-dimensional region $R$ where $\yV$ is defined,\ibid
 \begin{equation}
   \label{eq:Stokes_V}
-  \begin{aligned}
-    \int_{\de R} \yJJ &= \int_{R} \di\yJJ
-    \\
-    &=  \int_{R}\tfrac12 \tr\bigl(\yTTe \cdot \Li_{\yV}\yg \bigr)
+    \int_{\de R} \yJJ = \int_{R} \di\yJJ
+    =  \int_{R}\tfrac12 \tr\bigl(\yTTe \cdot \Li_{\yV}\yg \bigr)
   \,\tfrac{\dg}{c} \tttti{} \ .
-  \end{aligned}
 \end{equation}
 If the reference field $\yV$ is a Killing vector in the spacetime region, so that $\Li_{\yV}\yg = 0$ there, then the current $\yJJ$ is conserved there.
 
@@ -1419,6 +1420,12 @@ associated with the three currents
 \end{equation}
 which would satisfy appropriate balance laws. These three alternative \enquote{angular momenta} and their balances could be used instead of the traditional angular momentum to frame and solve physics problems.
 
+\subsection{Consequences and caveats for coordinate transformations}
+\label{sec:caveats_transf}
+
+Energy and momentum depend on the specification of a reference field; and the reference field may or may not be chosen to be related to the coordinate system. These facts make the rules for transformation of energy and momentum a little tricky.
+
+For instance, suppose that we have defined energy with respect to the reference field $\ve{t}$ of the coordinate system under use. If we change coordinate system and have a new time coordinate $t'$, then the energy defined analogously in the new coordinates is associated with the reference field $\ve{t'}$ -- so \emph{it is actually a differently defined energy}, not the same energy as before but in a different coordinate system. This peculiarity does not need to be a problem, as long as we're aware of it.
 
 \section{Newtonian approximation}
 \label{sec:newton_approx}

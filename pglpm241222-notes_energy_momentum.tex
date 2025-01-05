@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2025-01-05T12:25:25+0100
+%% Last-Updated: 2025-01-05T12:29:42+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1144,9 +1144,9 @@ We shall now see how the energy-momentum tensor can be used to define energy and
 
 Given an energy-momentum tensor $\yTT$ we can construct an associated four-current as follows.\autocites{gotayetal1992}[\sect~3.2 p.~62]{hawkingetal1973_r1994}[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[cf also][\sect~2.5]{malament2012}[and the discussion in][part~4 \sect~1]{vandantzig1934b}
 
-Choose an arbitrary non-zero vector field $\yV = V^{\nu}\ve{\nu}$ over a four-dimensional spacetime region. We call it a \emph{reference vector field}. Keep in mind that this reference field doesn't need to be related in any way with the system of coordinates under use.
+Choose an arbitrary non-zero vector field $\yV = V^{\nu}\ve{\nu}$ over a four-dimensional spacetime region. We call it a \emph{fiducial vector field}. Keep in mind that this fiducial field doesn't need to be related in any way with the system of coordinates under use.
 
-From the energy momentum tensor $\yTT$ and the reference field $\yV$ we can construct a four-current
+From the energy momentum tensor $\yTT$ and the fiducial field $\yV$ we can construct a four-current
 \begin{equation}
   \label{eq:current_V}
 \yJJ \defd    \yTT \cdot \yV
@@ -1170,22 +1170,22 @@ Stokes's theorem holds for this current: for any four-dimensional region $R$ whe
     =  \int_{R}\tfrac12 \tr\bigl(\yTTe \cdot \Li_{\yV}\yg \bigr)
   \,\tfrac{\dg}{c} \tttti{} \ .
 \end{equation}
-If the reference field $\yV$ is a Killing vector in the spacetime region, so that $\Li_{\yV}\yg = 0$ there, then the current $\yJJ$ is conserved there.
+If the fiducial field $\yV$ is a Killing vector in the spacetime region, so that $\Li_{\yV}\yg = 0$ there, then the current $\yJJ$ is conserved there.
 
-The ten equations~\eqref{eq:div_EMt}--\eqref{eq:sym_EMt} satisfied by the energy-momentum tensor can be alternatively formulated as balance laws satisfied by ten currents associated to ten independent reference fields. This is how the balances of energy, of the three components of  momentum, of three components of angular momentum, and of three components of boost-momentum, come about.
+The ten equations~\eqref{eq:div_EMt}--\eqref{eq:sym_EMt} satisfied by the energy-momentum tensor can be alternatively formulated as balance laws satisfied by ten currents associated to ten independent fiducial fields. This is how the balances of energy, of the three components of  momentum, of three components of angular momentum, and of three components of boost-momentum, come about.
 
-When the reference field is timelike and has intrinsic dimension of inverse time, then the associated current is called an \emph{energy} current, whose components typically are an energy density and  energy fluxes in three spatial directions.
+When the fiducial field is timelike and has intrinsic dimension of inverse time, then the associated current is called an \emph{energy} current, whose components typically are an energy density and  energy fluxes in three spatial directions.
 
-When the reference field is spacelike and has intrinsic dimension of inverse length, then the associated current is called a \emph{momentum} current, whose components typically are a momentum density and momentum fluxes -- stresses -- in three spatial directions.
+When the fiducial field is spacelike and has intrinsic dimension of inverse length, then the associated current is called a \emph{momentum} current, whose components typically are a momentum density and momentum fluxes -- stresses -- in three spatial directions.
 
-This view of energy and momentum as defined with respect to reference vector fields encompasses all other main points of view for presenting energy and momentum. For example in special relativity, when inertial coordinates are used, the reference fields are the coordinate vectors themselves; see below. Another example is the virtual-work point of view: the vector $\yV$ in this case represents a field of virtual displacements. The connection with the point of view of symmetries and Noether's theorem is also evident.
+This view of energy and momentum as defined with respect to fiducial vector fields encompasses all other main points of view for presenting energy and momentum. For example in special relativity, when inertial coordinates are used, the fiducial fields are the coordinate vectors themselves; see below. Another example is the virtual-work point of view: the vector $\yV$ in this case represents a field of virtual displacements. The connection with the point of view of symmetries and Noether's theorem is also evident.
 
 
-We have infinite choices of vector fields to associate energy and momentum with. We could also define currents that are somehow hybrids of energy and momentum, or \enquote{momentum} whose components don't really form a vector. How to choose such reference fields?
+We have infinite choices of vector fields to associate energy and momentum with. We could also define currents that are somehow hybrids of energy and momentum, or \enquote{momentum} whose components don't really form a vector. How to choose such fiducial fields?
 
 \medskip
 
-Suppose we have a coordinate system $(t,x,y,z)$, with timelike $t$ and spacelike $x,y,z$. Then there are several natural choices of reference fields with which we can associate 4-currents in the manner above.
+Suppose we have a coordinate system $(t,x,y,z)$, with timelike $t$ and spacelike $x,y,z$. Then there are several natural choices of fiducial fields with which we can associate 4-currents in the manner above.
 
 One choice are the basis vector fields
 \begin{equation}
@@ -1214,12 +1214,14 @@ Two other natural choices are the vectors obtained from the basis covectors:
 \end{equation}
 as well as their normalized counterparts analogous to~\eqref{eq:choice_norm_bvectors}.
 
-Further natural choices of reference fields are possible, unrelated to the coordinate system. One may choose, for instance, Killing vector fields. Or one may choose vectors fields which are orthonormal to one another, a so-called tetrad of fields. In the presence of matter there is a four-velocity field $-\yUm$, and we can choose this timelike field as the reference one to associate an energy with.
+Finally, in the presence of matter there is a four-velocity field $-\yUm$, and we can choose this timelike field as the fiducial one to associate an energy with.
+
+Further natural choices of fiducial fields are possible, unrelated to the coordinate system. One may choose, for instance, Killing vector fields. Or one may choose vectors fields which are orthonormal to one another, a so-called tetrad of fields.
 
 \subsubsection{Momentum}
 \label{sec:momentum}
 
-In low-curvature regions typical of the Newtonian approximation, and with approximately inertial coordinates, it turns out that all choices above for the \emph{spacelike} reference fields lead to approximately the same three currents. This is why there seems to be a unique definition of momentum, and why we can consider the $x$-, $y$-, $z$-momenta as components of a vector:
+In low-curvature regions typical of the Newtonian approximation, and with approximately inertial coordinates, it turns out that all choices above for the \emph{spacelike} fiducial fields lead to approximately the same three currents. This is why there seems to be a unique definition of momentum, and why we can consider the $x$-, $y$-, $z$-momenta as components of a vector:
 \begin{equation}
   \label{eq:xmomentum_current}
  \yPP_{x} \defd
@@ -1235,27 +1237,27 @@ The $x$-momentum thus defined, being a 3-covector, can be integrated over a spac
   \label{eq:integral_Px}
   \int_{R} \yPP_{x} \equiv \int_{R} \yP^{\mu}\, \ttti{\mu}
 \end{equation}
-which is the total, net amount of $x$-momentum in that region. Note that this is a coordinate-independent result -- although of course it depends on the region $R$ and on the reference field used to define the $x$-momentum. Analogously we can integrate over a timelike three-dimensional region, which can be seen as the time evolution of a spacelike two-dimensional one. The result is the total, net amount of $x$-momentum flowing through that evolving surface -- that is, the $x$-force from one side of the surface to the other. Analogous discussion holds for $y$ and $z$.
+which is the total, net amount of $x$-momentum in that region. Note that this is a coordinate-independent result -- although of course it depends on the region $R$ and on the fiducial field used to define the $x$-momentum. Analogously we can integrate over a timelike three-dimensional region, which can be seen as the time evolution of a spacelike two-dimensional one. The result is the total, net amount of $x$-momentum flowing through that evolving surface -- that is, the $x$-force from one side of the surface to the other. Analogous discussion holds for $y$ and $z$.
 
 
 \subsubsection{Energies}
 \label{sec:energies}
 
-The different choices of \emph{timelike} reference field, however, lead to slightly different associated currents. This is why there seems to be some freedom in the definition of energy. In particular:
+The different choices of \emph{timelike} fiducial field, however, lead to slightly different associated currents. This is why there seems to be some freedom in the definition of energy. In particular:
 \begin{itemize}
 \item The energy four-current
   \begin{equation}
     \label{eq:internal_energy_current}
     \yEi \defd -\yTT \cdot \yUm
   \end{equation}
-  associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy-mass}. Its flux includes heat flux and transport terms. Note that the reference field $\yUm$ is unrelated to the coordinates; this is why internal energy and heat flux are invariants in the Newtonian approximation and in the exact case. This energy cannot be defined where there is no matter, as the four-velocity field is undefined there.
+  associated with the matter four-velocity $\yUm$ is what we call \emph{internal energy-mass}. Its flux includes heat flux and transport terms. Note that the fiducial field $\yUm$ is unrelated to the coordinates; this is why internal energy and heat flux are invariants in the Newtonian approximation and in the exact case. This energy cannot be defined where there is no matter, as the four-velocity field is undefined there.
 
 \item The energy four-current
   \begin{equation}
     \label{eq:internalkinetic_energy_current}
     \yEi + \yEk \defd -\tfrac{c}{\sqrt{\abs{g_{tt}}}} \, \yTT \cdot \ve{t}
   \end{equation}
-  associated with the normalized basis field $\frac{c}{\sqrt{\abs{g_{tt}}}}\ve{t}$ is represented as the sum of internal energy above and of \emph{kinetic energy}. Kinetic energy is therefore associated with the difference between the two reference fields above:
+  associated with the normalized basis field $\frac{c}{\sqrt{\abs{g_{tt}}}}\ve{t}$ is represented as the sum of internal energy above and of \emph{kinetic energy}. Kinetic energy is therefore associated with the difference between the two fiducial fields above:
   \begin{equation}
     \label{eq:kinetic_energy_current}
     \yEk \defd -\yTT \cdot
@@ -1289,7 +1291,7 @@ The different choices of \emph{timelike} reference field, however, lead to sligh
     \yEi + \yEk + \yEp \defd  -\yTT \cdot \ve{t}
     \equiv -\yT\i{^{\mu}_{t}} \, \ttti{\mu} \ .
   \end{equation}
-  associated with the  basis field $\ve{t}$ is represented as the sum of internal, kinetic, and \emph{gravitational potential} energy. Potential gravitational energy is therefore associated with the difference between two reference fields:
+  associated with the  basis field $\ve{t}$ is represented as the sum of internal, kinetic, and \emph{gravitational potential} energy. Potential gravitational energy is therefore associated with the difference between two fiducial fields:
   \begin{equation}
     \label{eq:gravit_energy_current}
     \yEp \defd -\yTT \cdot
@@ -1321,11 +1323,11 @@ Each of the energies defined above, being a 3-covector, can be integrated over a
   \label{eq:integral_E}
   \int_{R} \yEE\equiv \int_{R} \yEc^{\mu}\, \ttti{\mu}
 \end{equation}
-which is the total, net amount of energy in that region. Also this is a coordinate-independent result, depending only on the region $R$ and on the reference field used to define the energy. Analogously we can integrate over a timelike three-dimensional region; the result is the total, net amount of energy flowing through that evolving surface.
+which is the total, net amount of energy in that region. Also this is a coordinate-independent result, depending only on the region $R$ and on the fiducial field used to define the energy. Analogously we can integrate over a timelike three-dimensional region; the result is the total, net amount of energy flowing through that evolving surface.
 
 \medskip
 
-We now see where the arbitrariness in the definition of total energy in Newtonian mechanics comes from: it corresponds to the arbitrariness in choosing a timelike reference field for defining energy.
+We now see where the arbitrariness in the definition of total energy in Newtonian mechanics comes from: it corresponds to the arbitrariness in choosing a timelike fiducial field for defining energy.
 
 \medskip
 
@@ -1335,7 +1337,7 @@ We can also give a more precise definition of the component $\yT\i{^{\mu}_{\nu}}
   \yT\i{^{\mu}_{\nu}} =
   \left\{
     \parbox[c]{0.67\linewidth}{\footnotesize
-      flux of generalized energy associated with reference field $\ve{\nu}$
+      flux of generalized energy associated with fiducial field $\ve{\nu}$
       \\
       across 3D volume element of constant $x^{\mu}$,
       per unit coordinates
@@ -1368,9 +1370,9 @@ The symmetry equation~\eqref{eq:sym_EMt} for the energy-momentum tensor,
 \end{equation*}
 has a point-wise nature: it does not involve any kind of derivative. It could be re-expressed as a collection of six point-wise relationship between components of energy- and momentum-currents defined above.
 
-Alternatively it can be re-expressed as a set of six balance laws for the currents associated with six additional reference fields. These additional reference fields must be independent, in a field sense, from the ones considered in the previous section. They cannot therefore be simple linear combinations, with constant coefficients, of the reference fields above. But they can be combinations with functional coefficients.
+Alternatively it can be re-expressed as a set of six balance laws for the currents associated with six additional fiducial fields. These additional fiducial fields must be independent, in a field sense, from the ones considered in the previous section. They cannot therefore be simple linear combinations, with constant coefficients, of the fiducial fields above. But they can be combinations with functional coefficients.
 
-We can consider for instance the six reference fields\autocites[cf.][\sect~3.2 p.~62]{hawkingetal1973_r1994}
+We can consider for instance the six fiducial fields\autocites[cf.][\sect~3.2 p.~62]{hawkingetal1973_r1994}
 \begin{equation}
   \label{eq:ref_angmomentum}
   \begin{gathered}
@@ -1396,15 +1398,15 @@ t\,\yPP_{y}  - y\,\yEE \qquad
 t\,\yPP_{z}  - z\,\yEE \ ,
   \end{gathered}
 \end{equation}
-where $\yEE$ is the energy associated with the reference field $\ygg^{-1} \cdot \vi{t}$. The currents associated with the last three reference fields are the analogous components of boost momentum;\autocites[cf.][\chap~2 \sect~14]{landauetal1939_t1996} they depend on the specific choice of reference field for energy. In some important situations the reference fields~\eqref{eq:ref_angmomentum} are Killing fields, and therefore the associated currents~\eqref{eq:angmomentum_current} satisfy conservation laws; in the case of boost momentum the law is a form of the theorem of the centre of energy, also called centre of inertia\ibid.
+where $\yEE$ is the energy associated with the fiducial field $\ygg^{-1} \cdot \vi{t}$. The currents associated with the last three fiducial fields are the analogous components of boost momentum;\autocites[cf.][\chap~2 \sect~14]{landauetal1939_t1996} they depend on the specific choice of fiducial field for energy. In some important situations the fiducial fields~\eqref{eq:ref_angmomentum} are Killing fields, and therefore the associated currents~\eqref{eq:angmomentum_current} satisfy conservation laws; in the case of boost momentum the law is a form of the theorem of the centre of energy, also called centre of inertia\ibid.
 
 \medskip
 
-Thus we see the reason why there is a special connection between angular momentum and momentum, even though their balances are independent. Angular momentum must be defined with respect to reference fields different from the ones for momentum and energy. Yet, since spacetime is four dimensional, \emph{at each spacetime point} the reference fields for angular momentum must be equivalent to linear combinations of the ones for momentum and energy; the coefficients of these linear combinations will differ from point to point, though. This is exactly what happens in \eqns~\eqref{eq:angmomentum_current}.
+Thus we see the reason why there is a special connection between angular momentum and momentum, even though their balances are independent. Angular momentum must be defined with respect to fiducial fields different from the ones for momentum and energy. Yet, since spacetime is four dimensional, \emph{at each spacetime point} the fiducial fields for angular momentum must be equivalent to linear combinations of the ones for momentum and energy; the coefficients of these linear combinations will differ from point to point, though. This is exactly what happens in \eqns~\eqref{eq:angmomentum_current}.
 
 \medskip
 
-But it must be remarked that nothing forces us to use the reference fields~\eqref{eq:ref_angmomentum}. We could use different independent fields, for instance replacing the first three with
+But it must be remarked that nothing forces us to use the fiducial fields~\eqref{eq:ref_angmomentum}. We could use different independent fields, for instance replacing the first three with
 \begin{equation}
   \label{eq:alt_ref_fields}
   x\,\ve{x} \qquad
@@ -1423,9 +1425,9 @@ which would satisfy appropriate balance laws. These three alternative \enquote{a
 \subsection{Consequences and caveats for coordinate transformations}
 \label{sec:caveats_transf}
 
-Energy and momentum depend on the specification of a reference field; and the reference field may or may not be chosen to be related to the coordinate system. These facts make the rules for transformation of energy and momentum a little tricky.
+Energy and momentum depend on the specification of a fiducial field; and the fiducial field may or may not be chosen to be related to the coordinate system. These facts make the rules for transformation of energy and momentum a little tricky.
 
-For instance, suppose that we have defined energy with respect to the reference field $\ve{t}$ of the coordinate system under use. If we change coordinate system and have a new time coordinate $t'$, then the energy defined analogously in the new coordinates is associated with the reference field $\ve{t'}$ -- so \emph{it is actually a differently defined energy}, not the same energy as before but in a different coordinate system. This peculiarity does not need to be a problem, as long as we're aware of it.
+For instance, suppose that we have defined energy with respect to the fiducial field $\ve{t}$ of the coordinate system under use. If we change coordinate system and have a new time coordinate $t'$, then the energy defined analogously in the new coordinates is associated with the fiducial field $\ve{t'}$ -- so \emph{it is actually a differently defined energy}, not the same energy as before but in a different coordinate system. This peculiarity does not need to be a problem, as long as we're aware of it.
 
 \section{Newtonian approximation}
 \label{sec:newton_approx}
@@ -1445,7 +1447,7 @@ In this approximation, the sets of Killing vector fields~\eqref{eq:choice_bvecto
     c t\,\ve{z} + \frac{1}{c} z\,\ve{t} \ ,
   \end{gathered}
 \end{equation}
-are chosen as reference fields, and energy and momentum are defined accordingly.
+are chosen as fiducial fields, and energy and momentum are defined accordingly.
 
 The components $\yT\i{^{\mu}_{\nu}}$ of the energy-momentum tensor then have the meaning sketched in \eqn~\eqref{eq:energy_momentum_entries}:
 \begin{equation}
@@ -1470,13 +1472,13 @@ The components $\yT\i{^{\mu}_{\nu}}$ of the energy-momentum tensor then have the
 \end{equation}
 with the following clarifications:
 \begin{itemize}[noitemsep]
-\item Energy and momentum are those associated with the reference fields $\ve{\nu}$.
+\item Energy and momentum are those associated with the fiducial fields $\ve{\nu}$.
 \item The densities or fluxes are across three-dimensional spacetime regions of constant $x^{\mu}$.
 \item The densities are measured per unit coordinates.
 \end{itemize}
 
 
-As already mentioned in \sect~\ref{sec:energies}, there still remains the possibility of defining energy in slightly different ways. The use of the reference field $\yUm$ is typical in continuum mechanics. In continuum and point mechanics one sees the choices $\ve{t}$ and $\tfrac{c}{\sqrt{\abs{g_{tt}}}}\ve{t}$ used equally often.
+As already mentioned in \sect~\ref{sec:energies}, there still remains the possibility of defining energy in slightly different ways. The use of the fiducial field $\yUm$ is typical in continuum mechanics. In continuum and point mechanics one sees the choices $\ve{t}$ and $\tfrac{c}{\sqrt{\abs{g_{tt}}}}\ve{t}$ used equally often.
 
 \medskip
 
@@ -1530,12 +1532,12 @@ which shows several peculiarities:
 \begin{enumerate}[itemsep=1ex]
 \item \emph{How should \emph{total energy} be defined? Is it just the sum of internal and kinetic energies? or should it also include gravitational potential energy?}
 
-  Answer: The definition depends on the choice of a reference vector field; all such choices are acceptable. If we choose the vector field related to the coordinate $t$, then the associated total energy includes a gravitational potential energy, and is moreover conserved.
+  Answer: The definition depends on the choice of a fiducial vector field; all such choices are acceptable. If we choose the vector field related to the coordinate $t$, then the associated total energy includes a gravitational potential energy, and is moreover conserved.
 
 
 \item \emph{Why is \emph{internal energy} the same in two reference frames, whereas \emph{kinetic energy} differs?}
 
-Answer: Because internal energy is the energy associated to the reference field $\yUm$, which is  the same in all coordinate systems. In reality also internal energy will change between reference frames in a higher approximation. Kinetic energy is instead associated with a reference field that is connected with the coordinates, and therefore changes under coordinate transformations already in a first approximation.
+Answer: Because internal energy is the energy associated to the fiducial field $\yUm$, which is  the same in all coordinate systems. In reality also internal energy will change between reference frames in a higher approximation. Kinetic energy is instead associated with a fiducial field that is connected with the coordinates, and therefore changes under coordinate transformations already in a first approximation.
 
 
 \item \emph{Why does force, which is related to change of momentum, appear in the laws for the change of energy (in the formula for \enquote{work})? Why doesn't change of energy appear, vice versa, in the law for change of momentum?}

@@ -1,0 +1,30 @@
+#+TITLE: Scheme of reference systems
+#+AUTHOR: PGLPM
+#+DATE: <2025-01-11 Sat>
+#+LAST-UPDATED: 2025-01-11T13:11:12+0100
+
+* Solar-System-centred
+
+*** BCRS Barycentric Celestial Reference System
+
+**** ICRS International Celestial Reference System
+
+
+
+* Earth-centred
+
+** Inertial (non-rotating)
+
+*** GCRS Geocentric Celestial Reference System
+
+
+
+** Fixed (rotating)
+
+*** ITRS International Terrestrial Reference System
+
+**** WGS84
+
+
+
+

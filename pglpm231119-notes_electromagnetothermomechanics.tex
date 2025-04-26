@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2024-12-25T13:29:46+0100
+%% Last-Updated: 2025-04-26T11:58:42+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -693,7 +693,7 @@ Western Norway University of Applied Sciences%
 %\providecommand{\coloneqq}{\mathrel{\mathop:}=}
 %\providecommand{\eqqcolon}{=\mathrel{\mathop:}}
 %\providecommand{\varprod}{\prod}
-\newcommand*{\de}{\uppartial}%partial diff
+\newcommand*{\de}{\mathop{}\!\uppartial}%partial diff
 \newcommand*{\pu}{\piup}%constant pi
 \newcommand*{\delt}{\deltaup}%Kronecker, Dirac
 %\newcommand*{\eps}{\varepsilonup}%Levi-Civita, Heaviside
@@ -705,7 +705,7 @@ Western Norway University of Applied Sciences%
 \newcommand*{\I}{\ensuremath{\mathrm{i}}}
 % \newcommand*{\e}{\mathrm{e}}%Neper
 \newcommand*{\e}{\ensuremath{\mathrm{e}}}
-\newcommand*{\di}{\mathrm{d}}%differential
+\newcommand*{\di}{\mathop{}\!\mathrm{d}}%differential
 % \newcommand*{\dii}{\ensuremath{\mathrm{d}}}
 % %% From TUGboat 18 (1997) 1 - leads to very strange spacing
 % \makeatletter
@@ -729,8 +729,8 @@ Western Norway University of Applied Sciences%
 % \fi\fi\fi\DiffSpace}
 % \makeatother
 
-\newcommand*{\Di}{\mathrm{D}}%capital differential
-\newcommand*{\Li}{\mathrm{L}}%Lie derivative
+\newcommand*{\Di}{\mathop{}\!\mathrm{D}}%capital differential
+\newcommand*{\Li}{\mathop{}\!\mathrm{L}}%Lie derivative
 %\newcommand*{\planckc}{\hslash}
 %\newcommand*{\avogn}{N_{\textrm{A}}}
 %\newcommand*{\NN}{\bm{\mathrm{N}}}
@@ -1068,7 +1068,7 @@ and analogously for inner-oriented vector fields. The particular choice of order
 
 The outer-oriented unit scalar is $\tw{1}$, with outer orientation $txyz$; note that it's only defined on a coordinate patch. It is idempotent: $\tw{1}\tw{1} =1$.
 
-A twisted or outer-oriented 3-covector such as $\sssi{\tw{x}yz}$ has an associated outer direction, in this case positive $t$. We adopt this shorter notation for the outer-oriented versions of the bases above (analogous to the notation in  \cites{gotayetal1992} \sect\,2 p.~371):
+A twisted or outer-oriented 3-covector such as $\sssi{\tw{x}yz}$ has an associated outer direction, in this case positive $t$. We adopt the following shorter notation for the outer-oriented versions of the bases above (analogous to the notation in  \cites{gotayetal1992} \sect\,2 p.~371):
 \begin{subequations}\label{eq:basis_twshort}
   \begin{gather}
     \label{eq:basis_1vec_twshort}
@@ -1143,7 +1143,8 @@ Contractions with the 4-vector $\tttte{}$ and 4-covector $\tttti{}$ establish a 
   \\[\jot]
   \sse{tx}\enspace
   \sse{ty}\enspace
-  \sse{tz}\enspace
+  \sse{tz}
+  \\
   \sse{yz}\enspace
   \sse{zx}\enspace
   \sse{xy}
@@ -1173,7 +1174,8 @@ Contractions with the 4-vector $\tttte{}$ and 4-covector $\tttti{}$ establish a 
   \\[\jot]
   \tti{yz}\enspace
   \tti{zx}\enspace
-  \tti{xy}\enspace
+  \tti{xy}
+  \\
   \tti{tx}\enspace
   \tti{ty}\enspace
   \tti{tz}
@@ -1228,31 +1230,31 @@ As another example,
 \subsection{Moving area elements in spacetime}
 \label{sec:moving_area_elements}
 
-In 3D space we can consider a small area with a crossing orientation; for instance a small area parallel to the $y, z$ coordinates, with a positive-$x$ crossing orientation. From a spacetime viewpoint we must also consider also a temporal direction for this \enquote{crossing} orientation. In a manner of speaking we have two choices: cross the surface in the positive-$x$ direction, then \enquote{move forward} in time, that is in the positive-$t$ direction; or move forward in time, then cross the surface. The first represents an $xt$ orientation; the second a $tx$ orientation.
+In 3D space we can consider a small area \emph{which only exists at a given time $t$}, and with a crossing orientation; for instance a small area parallel to the $y, z$ coordinates, with a positive-$x$ crossing orientation. From a spacetime viewpoint we must also consider a temporal direction for this \enquote{crossing} orientation of the area. In a manner of speaking we have two choices: cross the surface in the positive-$x$ direction, then \enquote{move forward} in time, in the positive-$t$ direction; or move forward in time, then cross the surface. The first represents an $xt$ orientation; the second a $tx$ orientation.
 
 If the area element in the example above has area $a_{x}$, expressed in units of the coordinates $y$ and $z$, then the area element with the $xt$ orientation is
 \begin{equation*}
-  a_{x}\, \te{xt} \equiv a_{x}\, \se{-\tw{y}z} \equiv - a_{x}\, \se{\tw{y}z} \ ,
+  a_{x}\, \tte{xt} \equiv a_{x}\, \sse{-\tw{y}z} \equiv - a_{x}\, \sse{\tw{y}z} \ ,
 \end{equation*}
 whereas the one with the $tx$ orientation is
 \begin{equation*}
-  a_{x}\, \te{tx} \equiv a_{x}\, \se{\tw{y}z} \ .
+  a_{x}\, \tte{tx} \equiv a_{x}\, \sse{\tw{y}z} \ .
 \end{equation*}
 
-An area element which persists for a short time lapse, and which therefore has a motion with respect to the coordinate system (including rest as a special case), is a timelike 3D-volume from a spacetime viewpoint. For it we can for example choose a positive-$x$ crossing direction; the temporal direction is irrelevant in this case. We can consider this timelike volume as produced by the area element, displaced by a timelike vector.
+An area element which \emph{persists for a time lapse}, and which therefore has a motion with respect to the coordinate system (including rest as a special case), is a timelike 3D-volume from a spacetime viewpoint. For it we can for example choose a positive-$x$ crossing direction; the temporal direction is irrelevant in this case. We can consider this timelike volume as produced by the area element displaced by a timelike vector.
 
 Take the generic area element
 \begin{equation}
   \label{eq:area_element}
-  \bm{A} \defd a_{i}\, \tte{x^{i}t}
-  \equiv a_{x}\,\tte{xt} + a_{y}\,\tte{yt} + a_{z}\,\tte{zt}
+    \bm{A} \defd a_{i}\, \tte{x^{i}t}
+    \equiv a_{x}\,\tte{} + a_{y}\,\tte{yt} + a_{z}\,\tte{zt}
 \end{equation}
-an displace it by the timelike vector
+and displace it by the timelike vector
 \begin{equation}
   \label{eq:timelike_displacement}
-  \bm{V} \defd \delta_{t}\, (\se{t} + v^{i}\, \se{x^{i}})
-  \equiv \delta_{t}\, \se{t}
-  + \delta_{t}\,v^{x}\,\se{x} + \delta_{t}\,v^{y}\,\se{y} + \delta_{t}\,v^{z}\,\se{z}
+  \bm{V} \defd \delta_{t}\, (\se{t} + v^{i}\se{x^{i}})
+  \equiv \delta_{t}\se{t}
+  + \delta_{t}\,v^{x}\se{x} + \delta_{t}\,v^{y}\se{y} + \delta_{t}\,v^{z}\se{z}
 \end{equation}
 which represent a motion with coordinate velocity $v^{i}$ for a time lapse $\delta_{t}$.
 The resulting timelike volume is
@@ -1268,17 +1270,17 @@ The resulting timelike volume is
 Often we must consider multiplication of the basis of vectors or covectors by a square matrix, say
 \begin{equation*}
   \label{eq:matrix_mult_bases}
-  M_{\alpha\beta}\,\di u^{\beta} \ ,
+  M_{\alpha\beta}\di u^{\beta} \ ,
 \end{equation*}
 leading to an object in a vector space of the same dimension. The two most important examples for us are:
 \begin{itemize}
 \item coordinate transformations, for example
   \begin{equation*}
-   \di \alpha'= \frac{\de \alpha'}{\de \alpha}\,\di \alpha
+   \di \alpha'= \frac{\de \alpha'}{\de \alpha}\di \alpha
   \end{equation*}
 \item raising or lowering of indices with the metric, for example
   \begin{equation*}
-  \di x^{\alpha} \mapsto  g^{\alpha\beta}\, \de_{\beta} \ .
+  \di x^{\alpha} \mapsto  g^{\alpha\beta}\de_{\beta} \ .
   \end{equation*}
 \end{itemize}
 
@@ -1469,7 +1471,7 @@ The amount-of-matter current $\yN$ is an outer-oriented 3-covector
 of dimensions \enquote{amount of matter}, typically measured in moles, where
 \begin{itemize}
 \item $N$ is the volumic amount of matter, measured per unit coordinate volume.
-\item $J^{i}$ is the aeric flux of amount of matter (equivalent to a molar flux), measured per unit coordinate area and unit coordinate time.
+\item $J^{i}$ is the aeric flux of amount of matter (equivalent to a molar flux) through a small area at rest in the coordinate system $(t, x^{i})$, measured per unit coordinate area and unit coordinate time.
 \end{itemize}
 
 The current for every particular kind of matter satisfies the conservation law
@@ -1487,7 +1489,7 @@ The common contravariant form of the matter current, \enquote{$N^{\mu}$}, is obt
 \begin{equation}
   \label{eq:contrav_matter_current}
   \text{`\,}N^{\mu}\text{\,'} \corr  \vi \cdot \yN =
-  \frac{c}{\dg}\, N\, \se{t} + \frac{c}{\dg}\, J^{i}\, \se{t} \ .
+  \frac{c}{\dg}\, N\se{t} + \frac{c}{\dg}\, J^{i}\se{t} \ .
 \end{equation}
 
 \medskip
@@ -1504,6 +1506,29 @@ If a metric is present, a four-velocity $\yU$ can be associated with the matter 
   \yN = \nor{\yN}\, \yU\cdot\ve
 \end{gather}
 For normal matter (as opposed to antimatter) $\nor{\yN}^{2} \ge 0$.
+
+
+\medskip
+
+The flux of matter through a small area moving with coordinate velocity $v^{i}$, represented by $\bm{A}\land\bm{V}$ (\sect~\ref{sec:moving_area_elements}), is
+\begin{equation}
+  \label{eq:matter_flux_area}
+  \begin{aligned}
+    \yN \cdot (\bm{A}\land\bm{V})
+    &\equiv
+    (N\,\ttti{t} + J^{i}\,\ttti{x^{i}}) \cdot
+    \delta_{t}\,(-a_{i}\,v^{i}\,\ttte{t} + a_{i}\,\ttte{x^{i}})
+    \\ &= (- N a_{i}\,v^{i} + J^{i}\,a_{i}) \,\delta_{t} \,.
+  \end{aligned}
+\end{equation}
+The negative sign in front of the first summand makes sense. Take for instance a $yz$ area with velocity in in the positive-$x$ direction. Then there's matter passing from its positive-$x$ side of to its negative-$x$ side, that is, a negative-$x$ flux of matter.
+
+% \medskip
+% 
+% We can specify the actual values of the matter current in several ways. Being a 3-covector, its specification boils down to stating its flux across four independent three-dimensional hypersurfaces in spacetime. One way is to simply give its four components in the coordinate system under use: $(N, J^{i})$. This corresponds to giving the flux through the hypersurfaces $xyz$, $tyz$, $tzx$, $txy$.
+% 
+% But often the matter density is specified with respect to a hypersurface orthogonal to the four-velocity of matter.
+
 
 
 
@@ -1548,10 +1573,10 @@ The common contra-contra-variant form of the stress, \enquote{$T^{\mu\nu}$}, is 
   \label{eq:contr_metric_T}
   \begin{split}
 \text{`\,}T^{\mu\nu}\text{\,'} \equiv \vi \cdot \yTT \cdot \yg^{-1} &=
-    \frac{c\,\abs{g^{tt}}}{\dg}\,\ye\, \se{t}\otimes\se{t}
-    +\frac{c\,\abs{g^{tt}}}{\dg}\,q^{i}\, \se{i}\otimes\se{t} \\
-    &\qquad{}+\frac{c\,g^{ij}}{\dg}\,p_{i}\, \se{t}\otimes\se{j}
-    +\frac{c\,g^{kj}}{\dg}\,\pi\i{^{i}_{k}}\, \se{i}\otimes\se{j}
+    \frac{c\,\abs{g^{tt}}}{\dg}\,\ye\se{t}\otimes\se{t}
+    +\frac{c\,\abs{g^{tt}}}{\dg}\,q^{i}\se{i}\otimes\se{t} \\
+    &\qquad{}+\frac{c\,g^{ij}}{\dg}\,p_{i}\se{t}\otimes\se{j}
+    +\frac{c\,g^{kj}}{\dg}\,\pi\i{^{i}_{k}}\se{i}\otimes\se{j}
     \ .
   \end{split}
 \end{equation}
@@ -1728,18 +1753,18 @@ On the other hand, it is the vector $-c\se{t}/\abs{\nor{\se{t}}}$ (whose squared
 For the angular-boost-momentum, one choice of vector fields, corresponding to~\eqref{eq:four-momentum_up} is
 \begin{equation}
   \label{eq:ang-momentum_up}
-  \yg^{-1}\cdot(t\,\si{x^{i}} - x^{i}\,\si{t})
+  \yg^{-1}\cdot(t\si{x^{i}} - x^{i}\si{t})
 \ ,\quad
-  \yg^{-1}\cdot(x^{i}\,\si{x^{j}} - x^{j}\,\si{x^{i}}) \ .
+  \yg^{-1}\cdot(x^{i}\si{x^{j}} - x^{j}\si{x^{i}}) \ .
 \end{equation}
 Another choice \autocites[\sect~3.9.6.3 before \eqn~(3.475)]{kopeikinetal2011} is
 \begin{equation}
   \label{eq:ang-momentum_down}
-  g_{t\mu}\,x^{\mu}\,\se{x^{i}} - g_{i\mu}\,x^{\mu}\,\se{t}
+  g_{t\mu}\,x^{\mu}\se{x^{i}} - g_{i\mu}\,x^{\mu}\se{t}
 \ ,\quad
-  g_{i\mu}\,x^{\mu}\,\se{x^{j}} - g_{j\mu}\,x^{\mu}\,\se{i} \ .
+  g_{i\mu}\,x^{\mu}\se{x^{j}} - g_{j\mu}\,x^{\mu}\se{i} \ .
 \end{equation}
-See the brief remark in \cites[\sect~2.1.3 p.~160]{dixon1979b} for this particular, antisymmetrized, choice. Some texts \autocites[\sects~III.21, IX.62 p.~385]{burke1985_r1987}[\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994} also make the choice \enquote{$x^{\mu}\,\se{x^{\nu}} - x^{\nu}\,\se{x^{\mu}}$}, but note that this in general may be dimensionally inconsistent.
+See the brief remark in \cites[\sect~2.1.3 p.~160]{dixon1979b} for this particular, antisymmetrized, choice. Some texts \autocites[\sects~III.21, IX.62 p.~385]{burke1985_r1987}[\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994} also make the choice \enquote{$x^{\mu}\se{x^{\nu}} - x^{\nu}\se{x^{\mu}}$}, but note that this in general may be dimensionally inconsistent.
 
 Typically it is the first choice of vector that leads to the traditional angular momentum, is a similar way as discussed above for mmomentum.
 
@@ -1834,7 +1859,7 @@ which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:co
   \end{multlined}
   \\[\jot]
   \shortintertext{or simply}
-  \yN\di\ye + \yUd\di\yQ - \yQ\,\di\yUd =
+  \yN\di\ye + \yUd\di\yQ - \yQ\di\yUd =
   -\yN\,\nabla\yU \cdot \yP
   -(\yUd\,\yS)\cdot\nabla\yU \ .
 \end{gather}
@@ -1860,7 +1885,7 @@ The electromagnetic field, represented by the Faraday 2-covector, is typically d
 \begin{equation}
   \label{eq:F_decomp_EB}
   \begin{split}
-    \yF &= \yE\,\si{t} + \yB
+    \yF &= \yE\si{t} + \yB
     \\&\equiv
     E_{x}\, \ssi{xt}
     +  E_{y}\, \ssi{yt}
@@ -1895,7 +1920,7 @@ The conservation of magnetic flux is expressed by
   \end{aligned}
 \end{gather}
 
-It should be noted that all components of $\di\yE$ containing $\si{t}$ also disappear, because of the exterior product $\yE\,\si{t}$. The differential $\di$ therefore operates on $\yE$ as if this 1-covector belonged to a three-dimensional manifolds with coordinates $(x,y,z)$. Let's denote this operation by $\ddi$; it is connected with the \enquote{curl} operator. Then the equations above can be written
+It should be noted that all components of $\di\yE$ containing $\si{t}$ also disappear, because of the exterior product $\yE\si{t}$. The differential $\di$ therefore operates on $\yE$ as if this 1-covector belonged to a three-dimensional manifolds with coordinates $(x,y,z)$. Let's denote this operation by $\ddi$; it is connected with the \enquote{curl} operator. Then the equations above can be written
 \begin{equation}
 \ddi\yB = 0 \qquad
 \de_{t}\yB + \ddi\yE = 0
@@ -2067,7 +2092,7 @@ Define the energy current with respect to the vector $-\se{t}$, as discussed in 
       \Oc{2}
     \end{multlined}
     \\
-    r &= - N\rho\,\de_{t}\yW + \Oc{2} \ .
+    r &= - N\rho\de_{t}\yW + \Oc{2} \ .
   \end{aligned}
 \end{equation}
 
@@ -2087,7 +2112,7 @@ Define the $x^{a}$-momentum current with respect to the vector $\se{x^{a}}$. The
       \Oc{2}
     \end{multlined}
     \\
-    g_{a} &= N\rho\,\de_{a}\yW + \Oc{2} \ .
+    g_{a} &= N\rho\de_{a}\yW + \Oc{2} \ .
   \end{aligned}
 \end{equation}
 
@@ -2109,7 +2134,7 @@ Define the $x^{a}x^{b}$-angular momentum current as in \sect~\ref{sec:balancelaw
     \\
     &\equiv x^{a}\,f_{b} - x^{b}\,f_{a} + \Oc{2}
     \\[\jot]
-    m^{ab} &= N\rho\,(x^{a}\,\de_{b}\yW - x^{b}\,\de_{a}\yW)+ \Oc{2} 
+    m^{ab} &= N\rho\,(x^{a}\de_{b}\yW - x^{b}\de_{a}\yW)+ \Oc{2} 
     \\
     &\equiv x^{a}\,g_{b} - x^{b}\,g_{a} + \Oc{2} \ .
   \end{aligned}
@@ -2131,7 +2156,7 @@ Finally define the $x^{a}$-boost momentum current as in \sect~\ref{sec:balancela
     \\
     &\equiv t\,f_{a} - x^{a}\,\phi/c^{2} + \Oc{2}
     \\[\jot]
-    \text{\small supply}&= N\rho\,t\,\de_{a}\yW+ \Oc{2} 
+    \text{\small supply}&= N\rho\,t\de_{a}\yW+ \Oc{2} 
     \\
     &\equiv t\,g_{a} + \Oc{2} \ .
   \end{aligned}
@@ -2389,16 +2414,16 @@ And a lemma about the covariant derivative of some inner-oriented 1-covectors:
   \label{eq:nab_1cov}
   \begin{gathered}
     \nab(\si{t}) =
-    -\varGamma^{t}_{tt}\, \si{t} \otimes \si{t}
-    -\varGamma^{t}_{tj}\, \si{t} \otimes \si{x^{j}}
-    -\varGamma^{t}_{it}\, \si{x^{i}} \otimes \si{t}
-    -\varGamma^{t}_{ij}\, \si{x^{i}} \otimes \si{x^{j}}
+    -\varGamma^{t}_{tt}\si{t} \otimes \si{t}
+    -\varGamma^{t}_{tj}\si{t} \otimes \si{x^{j}}
+    -\varGamma^{t}_{it}\si{x^{i}} \otimes \si{t}
+    -\varGamma^{t}_{ij}\si{x^{i}} \otimes \si{x^{j}}
     \\
     \nab\bigl(\si{x^{k}}\bigr) =
-    -\varGamma^{k}_{tt}\, \si{t} \otimes \si{t}
-    -\varGamma^{k}_{tj}\, \si{t} \otimes \si{x^{j}}
-    -\varGamma^{k}_{it}\, \si{x^{i}} \otimes \si{t}
-    -\varGamma^{k}_{ij}\, \si{x^{i}} \otimes \si{x^{j}}
+    -\varGamma^{k}_{tt}\si{t} \otimes \si{t}
+    -\varGamma^{k}_{tj}\si{t} \otimes \si{x^{j}}
+    -\varGamma^{k}_{it}\si{x^{i}} \otimes \si{t}
+    -\varGamma^{k}_{ij}\si{x^{i}} \otimes \si{x^{j}}
   \end{gathered}
 \end{equation}
 
@@ -2440,7 +2465,7 @@ Let's also consider the contraction with a 1-vector $\yu$:
   \shortintertext{and in particular}
     \label{eq:ext_cov_basis_contracted_vector}
     \Di(\yphi \otimes \di x^{\alpha} \cdot \yu) =
-    \di\yphi\, u^{\alpha}- \yphi \land \di x^{\beta}\, \de_{\beta} u^{\alpha}
+    \di\yphi\, u^{\alpha}- \yphi \land \di x^{\beta}\de_{\beta} u^{\alpha}
 \end{gather}
 
 A balance equation with the exterior covariant derivative then becomes
@@ -2496,23 +2521,23 @@ Then
     \\
     &\qquad
     -\de_{t}e\ \si{t} 
-    + e\,\varGamma^{t}_{tt}\, \si{t}
-    +e\,\varGamma^{t}_{tj}\,  \si{x^{j}}
+    + e\,\varGamma^{t}_{tt}\si{t}
+    +e\,\varGamma^{t}_{tj}\si{x^{j}}
     \\
     &\qquad
-    {}-\de_{i}q^{i}\, \si{t} 
-    +q^{i}\, \varGamma^{t}_{it}\,  \si{t}
-    +q^{i}\,\varGamma^{t}_{ij}\,  \si{x^{j}}
+    {}-\de_{i}q^{i}\si{t} 
+    +q^{i}\, \varGamma^{t}_{it}\si{t}
+    +q^{i}\,\varGamma^{t}_{ij}\si{x^{j}}
     \\
     &\qquad
-    {}+\de_{t}p_{j}\, \si{x^{j}} 
-    -p_{j}\, \varGamma^{j}_{tt}\, \si{t}
-    -p_{k}\,\varGamma^{k}_{tj}\,  \si{x^{j}}
+    {}+\de_{t}p_{j}\si{x^{j}} 
+    -p_{j}\, \varGamma^{j}_{tt}\si{t}
+    -p_{k}\,\varGamma^{k}_{tj}\si{x^{j}}
     \\
     &\qquad
-    {}+\de_{i}\pi\i{^{i}_{j}}\, \si{x^{j}} 
-    -\pi\i{^{i}_{k}}\, \varGamma^{k}_{it}\, \si{t}
-    -\pi\i{^{i}_{k}}\,\varGamma^{k}_{ij}\, \si{x^{j}}
+    {}+\de_{i}\pi\i{^{i}_{j}}\si{x^{j}} 
+    -\pi\i{^{i}_{k}}\, \varGamma^{k}_{it}\si{t}
+    -\pi\i{^{i}_{k}}\,\varGamma^{k}_{ij}\si{x^{j}}
     \\
     &\qquad{}\bigr]
   \end{aligned}
@@ -2545,8 +2570,8 @@ For $\yTT\cdot\yu$ we find first
     \\
     \begin{split}
       \yTT \dand \nabla\yu &=
-      (-e\,\de_{t} u^{t} + p_{j}\,\de_{t}u^{j})\,\ttti{t}\land\di t
-      +(-q^{i}\,\de_{i}u^{t} + \pi\i{^{i}_{j}}\,\de_{i}u^{j})\,\ttti{i}\land\di x^{i}
+      (-e\de_{t} u^{t} + p_{j}\de_{t}u^{j})\,\ttti{t}\land\di t
+      +(-q^{i}\de_{i}u^{t} + \pi\i{^{i}_{j}}\de_{i}u^{j})\,\ttti{i}\land\di x^{i}
       \\
       &\qquad{}+\text{$\varGamma$ terms}
     \end{split}
@@ -2558,8 +2583,8 @@ and therefore
   +\de_{i}(-q^{i}\,u^{t} + \pi\i{^{i}_{j}}\,u^{j})
   ={}\\
   \shoveright{
-    -e\,\de_{t} u^{t} + p_{j}\,\de_{t}u^{j}
-  -q^{i}\,\de_{i}u^{t} + \pi\i{^{i}_{j}}\,\de_{i}u^{j}
+    -e\de_{t} u^{t} + p_{j}\de_{t}u^{j}
+  -q^{i}\de_{i}u^{t} + \pi\i{^{i}_{j}}\de_{i}u^{j}
 }
   \\
   \shoveright{

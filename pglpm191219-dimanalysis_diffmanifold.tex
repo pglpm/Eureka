@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2024-11-19T13:00:45+0100
+%% Last-Updated: 2025-08-23T15:11:44+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -196,9 +196,9 @@ british%
 \makeatother
 \input{definegreek.tex}% Greek letters not usually given in LaTeX.
 
-%\usepackage%[scaled=0.9]%
-%{classico}%  Optima as sans-serif font
-\usepackage{classico} % \renewcommand\sfdefault{URWClassico-TLF}
+\usepackage[scaled=0.841473]%
+{DejaVuSansCondensed}% sans-serif font
+% \renewcommand\sfdefault{URWClassico-TLF}
 \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
 \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
 \newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
@@ -206,8 +206,20 @@ british%
 % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
 % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
 
-% DejaVu Mono as typewriter text
-\usepackage[scaled=0.84]{DejaVuSansMono}
+\usepackage[scaled=0.841473]{DejaVuSansMono}% typewriter text
+
+% % \usepackage%[scaled=0.9]%
+% %{classico}%  Optima as sans-serif font
+% \usepackage{classico} % \renewcommand\sfdefault{URWClassico-TLF}
+% \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
+% \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
+% \newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
+% % Upright sans-serif math alphabet
+% % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
+% % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
+% 
+% % DejaVu Mono as typewriter text
+% \usepackage[scaled=0.84]{DejaVuSansMono}
 
 \usepackage{mathdots}
 

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2025-04-26T11:58:42+0200
+%% Last-Updated: 2025-08-25T15:45:24+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -12,10 +12,17 @@
 \typodisclaimtrue
 \newcommand*{\memfontfamily}{zplr}
 \newcommand*{\memfontpack}{newpx}
-\documentclass[\ifafour a4paper,12pt,\else a5paper,10pt,\fi%extrafontsizes,%
+\ifafour
+  \documentclass[a4paper,12pt,%
 onecolumn,oneside,article,%french,italian,german,swedish,latin,
 british%
 ]{memoir}
+\else
+  \documentclass[a5paper,10pt,%extrafontsizes,%
+onecolumn,oneside,article,%french,italian,german,swedish,latin,
+british%
+]{memoir}
+\fi
 \newcommand*{\firstdraft}{20 July 2022}
 \newcommand*{\firstpublished}{\firstdraft}
 \newcommand*{\updated}{\ifarxiv***\else\today\ [draft]\fi}
@@ -1040,6 +1047,7 @@ The exterior product \enquote*{$\land$} of vectors and covectors is usually repr
 \end{equation}
 
 The associated bases for inner-oriented covector fields are
+\begin{subequations}\label{eq:basis}
 \begin{gather}
   \label{eq:basis_1vec}
   \si{t}\quad
@@ -1049,7 +1057,7 @@ The associated bases for inner-oriented covector fields are
   \\[\jot]
   \label{eq:basis_2vec}
   \ssi{tx}\quad
-  -\ssi{ty}\quad
+  \ssi{ty}\quad
   \ssi{tz}\quad
   \ssi{yz}\quad
   \ssi{zx}\quad
@@ -1064,11 +1072,12 @@ The associated bases for inner-oriented covector fields are
   \label{eq:basis_4vec}
   \ssssi{txyz}
 \end{gather}
+\end{subequations}
 and analogously for inner-oriented vector fields. The particular choice of ordering and sign is such that these bases are related by volume duality, see below.
 
 The outer-oriented unit scalar is $\tw{1}$, with outer orientation $txyz$; note that it's only defined on a coordinate patch. It is idempotent: $\tw{1}\tw{1} =1$.
 
-A twisted or outer-oriented 3-covector such as $\sssi{\tw{x}yz}$ has an associated outer direction, in this case positive $t$. We adopt the following shorter notation for the outer-oriented versions of the bases above (analogous to the notation in  \cites{gotayetal1992} \sect\,2 p.~371):
+A twisted or outer-oriented covector such as $\sssi{\tw{x}yz}$ has an associated \emph{outer} direction, in this case positive $t$. We can adopt the following alternative notation for the outer-oriented versions of the bases above (analogous to the notation in  \cites{gotayetal1992} \sect\,2 p.~371); this notation emphasizes the actual orientation of the twisted covectors:
 \begin{subequations}\label{eq:basis_twshort}
   \begin{gather}
     \label{eq:basis_1vec_twshort}
@@ -1079,7 +1088,7 @@ A twisted or outer-oriented 3-covector such as $\sssi{\tw{x}yz}$ has an associat
     \\[\jot]
     \label{eq:basis_2vec_twshort}
     \tti{yz}\quad
-    -\tti{zx}\quad
+    \tti{zx}\quad
     \tti{xy}\quad
     \tti{tx}\quad
     \tti{ty}\quad

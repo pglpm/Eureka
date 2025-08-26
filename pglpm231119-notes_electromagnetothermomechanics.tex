@@ -1,8 +1,8 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2025-08-25T15:45:24+0200
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Last-Updated: 2025-08-26T08:29:36+0200
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
 %\iftrue\pdfmapfile{+classico.map}\fi
@@ -33,9 +33,9 @@ british%
 \newcommand*{\headauthor}{Porta Mana}
 \newcommand*{\reporthead}{\iftrue\else Open Science Framework \href{https://doi.org/10.31219/osf.io/***}{\textsc{doi}:10.31219/osf.io/***}\fi}% Report number
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Calls to packages (uncomment as needed)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\usepackage{pifont}
 
@@ -499,13 +499,13 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 }
 \DTMsetdatestyle{mydate}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Layout. I do not know on which kind of paper the reader will print the
 %%% paper on (A4? letter? one-sided? double-sided?). So I choose A5, which
 %%% provides a good layout for reading on screen and save paper if printed
 %%% two pages per sheet. Average length line is 66 characters and page
 %%% numbers are centred.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifafour\setstocksize{297mm}{210mm}%{*}% A4
 \else\setstocksize{210mm}{5.5in}%{*}% 210x139.7
 \fi
@@ -664,9 +664,9 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \newcommand{\mynotep}[1]{{\footnotesize\color{notecolour}\pencil\ #1}}
 \newcommand{\mynotez}[1]{{\footnotesize\color{notecolour}\puzzle\ #1}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Paper's details
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{\propertitle}
 \author{%
 \hspace*{\stretch{1}}%
@@ -691,9 +691,9 @@ Western Norway University of Applied Sciences%
 %\date{Draft of \today\ (first drafted \firstdraft)}
 \date{\firstpublished; updated \updated}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Macros @@@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Common ones - uncomment as needed
 %\providecommand{\nequiv}{\not\equiv}
@@ -854,9 +854,9 @@ Western Norway University of Applied Sciences%
 %% from TUGboat 18 (1997) 1:
 \providecommand*{\unit}[1]{\ensuremath{\mathrm{\,#1}}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Custom macros for this file @@@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand*{\widebar}[1]{{\mkern1.5mu\skew{2}\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}}
 
@@ -950,8 +950,9 @@ Western Norway University of Applied Sciences%
 % \newcommand*{\vi}{\bar{\mathcal{G}}}
 %
 \newcommand*{\yN}{\bm{\mathcal{N}}}
+\newcommand*{\yQ}{\bm{\mathcal{Q}}}
 \newcommand*{\yP}{\bm{P}}
-\newcommand*{\yQ}{\bm{Q}}
+\newcommand*{\yH}{\bm{\varPhi}}
 \newcommand*{\yS}{\mathte{S}}
 \newcommand*{\yTT}{\bm{\mathcal{T}}}
 \newcommand*{\yT}{\mathcal{T}}
@@ -980,18 +981,18 @@ Western Norway University of Applied Sciences%
 
 %%% Custom macros end @@@
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Beginning of document
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\firmlists
 \begin{document}
 \captiondelim{\quad}\captionnamefont{\footnotesize}\captiontitlefont{\footnotesize}
 \selectlanguage{british}\frenchspacing
 \maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Abstract
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \abstractrunin
 \abslabeldelim{}
 \renewcommand*{\abstractname}{}
@@ -1010,9 +1011,9 @@ Western Norway University of Applied Sciences%
 \end{abstract}
 \selectlanguage{british}\frenchspacing
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Epigraph
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \asudedication{\small ***}
 % \vspace{\bigskipamount}
 % \setlength{\epigraphwidth}{.7\columnwidth}
@@ -1027,9 +1028,9 @@ Western Norway University of Applied Sciences%
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% BEGINNING OF MAIN TEXT
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Bases of multivector spaces}
 \label{sec:bases_multivectors}
@@ -1176,7 +1177,7 @@ Contractions with the 4-vector $\tttte{}$ and 4-covector $\tttti{}$ establish a 
   \begin{gathered}
     \tw{1}
     \\
-  \ti{xyz}\enspace
+  -\ti{xyz}\enspace
   \ti{tyz}\enspace
   \ti{tzx}\enspace
   \ti{txy}
@@ -1202,20 +1203,22 @@ Contractions with the 4-vector $\tttte{}$ and 4-covector $\tttti{}$ establish a 
 These duals have special properties. For instance, for any 3-covector $\yN$, we have
 \begin{equation}
   \label{eq:dual_kernel}
-  \yN\cdot (\tttte{}\cdot\yN) \cdot \yN = 0
+  \yN\cdot \bigl(\tttte{}\cdot\yN\bigr) =
+  \bigl(\tttte{}\cdot\yN\bigr) \cdot \yN =
+  0
 \end{equation}
 that is, the dual of $\yN$ is a vector belonging in the kernel of $\yN$.
 
 If $\ve$ is a non-zero 4-covector and $\vi$ the inverse 4-vector, that is, $\ve\cdot\vi=\vi\cdot\ve=1$, and if $\yN$ is a 3-covector and $\yphi$ a 1-covector, we have the useful identity
 \begin{equation}
   \label{eq:wedge_to_dot}
-  \yN \land \yphi = (\yN\cdot\vi\cdot\yphi)\, \ve \ ,
+  \yN \land \yphi = \bigl( \yN\cdot\vi\cdot\yphi \bigr)\, \ve
 \end{equation}
 which also holds as long as the degrees of $\yN$ and $\yphi$ sum up to 4.
 
 \medskip
 
-We often consider vector- or covector-valued covectors, written as sums of tensor products. They can be outer- or inner-oriented. For instance
+We often consider vector-valued or covector-valued covectors, written as sums of tensor products. They can be outer- or inner-oriented. For instance
 \begin{equation}
   \label{eq:cov-valued_cov}
   \ttti{t} \otimes \si{x} \equiv \sssi{\tw{x}yz} \otimes \si{x} \ ,
@@ -1480,7 +1483,7 @@ The amount-of-matter current $\yN$ is an outer-oriented 3-covector
 of dimensions \enquote{amount of matter}, typically measured in moles, where
 \begin{itemize}
 \item $N$ is the volumic amount of matter, measured per unit coordinate volume.
-\item $J^{i}$ is the aeric flux of amount of matter (equivalent to a molar flux) through a small area at rest in the coordinate system $(t, x^{i})$, measured per unit coordinate area and unit coordinate time.
+\item $J^{i}$ is the areic flux of amount of matter (equivalent to a molar flux) through a small area at rest in the coordinate system $(t, x^{i})$, measured per unit coordinate area and unit coordinate time.
 \end{itemize}
 
 The current for every particular kind of matter satisfies the conservation law
@@ -1538,7 +1541,30 @@ The negative sign in front of the first summand makes sense. Take for instance a
 % 
 % But often the matter density is specified with respect to a hypersurface orthogonal to the four-velocity of matter.
 
+\section{Charge and magnetic flux}
+\label{sec:charge_magnet}
 
+The electric-charge current $\yQ$ is an outer-oriented 3-covector
+\begin{equation}
+  \label{eq:echarge_current}
+  \yQ = Q\,\ttti{t} + I^{i}\,\ttti{x^{i}}
+\end{equation}
+of dimensions \enquote{charge}, typically measured in coulombs, where
+\begin{itemize}
+\item $Q$ is the volumic charge, measured per unit coordinate volume.
+\item $I^{i}$ is the areic flux of charge through a small area at rest in the coordinate system $(t, x^{i})$, measured per unit coordinate area and unit coordinate time.
+\end{itemize}
+
+The electric-charge current satisfies the conservation law
+\begin{equation}
+  \label{eq:cons_matter}
+  \di\yQ = 0
+  \quad\text{or}\quad
+  \de_{t}Q + \de_{i} I^{i} = 0
+\end{equation}
+independent of any metric.
+
+\medskip
 
 
 \section{Four-stress and its equations}
@@ -1826,13 +1852,13 @@ We can associate with the matter a four-stress $\yTT$ which can be decomposed as
     \yTT =
     -\ye\,\yN \otimes \yUd
     + \yN \otimes \yP
-    -(\yUd\land \yQ)\otimes\yUd
+    -(\yUd\land \yH)\otimes\yUd
     +\yUd \land \yS
     \\
     \text{with}\quad
     \yP \cdot\yU = 0
     \quad
-    \yQ \cdot \yU = 0
+    \yH \cdot \yU = 0
     \quad
     \yU\cdot\yS = 0
     \quad
@@ -1843,14 +1869,14 @@ where
 \begin{itemize}
 \item $\ye$ is a scalar, the molar energy density.
 \item $\yP$ is a 1-covector, the molar momentum density.
-\item $\yQ$ is a 2-covector, the areic energy-flux density.
+\item $\yH$ is a 2-covector, the areic energy-flux density.
 \item $\yS$ is a 1-covector-valued 2-covector, the three-stress related to the Cauchy stress.
 \end{itemize}
 
 Using the four-velocity $\yU$ associated with the matter current we obtain what could be called the \enquote{internal-energy current}:\autocites[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[see also][]{gotayetal1992}
 \begin{equation}
   \label{eq:inten_current}
-  \yTT\cdot\yU \equiv -\ye\,\yN - \yUd\, \yQ
+  \yTT\cdot\yU \equiv -\ye\,\yN - \yUd\, \yH
 \end{equation}
 which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:cons_matter}, satisfies the balance law
 \begin{gather}
@@ -1859,22 +1885,22 @@ which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:co
   \shortintertext{or}
   \label{eq:balance_TU_matter}
   \begin{multlined}[0.9\linewidth]
-    \di\bigl(-\ye\,\yN - \yUd\, \yQ\bigr) =
+    \di\bigl(-\ye\,\yN - \yUd\, \yH\bigr) =
 \bigl(\ye\,\yN \otimes \yUd\bigr) \cdot\nabla\yU
 - \bigl(\yN \otimes \yP\bigr) \cdot\nabla\yU \\
 {}
-    +\bigl(\yUd \,\yQ\otimes\yUd\bigr) \cdot\nabla\yU
+    +\bigl(\yUd \,\yH\otimes\yUd\bigr) \cdot\nabla\yU
     -\yUd \,\yS \cdot\nabla\yU
   \end{multlined}
   \\[\jot]
   \shortintertext{or simply}
-  \yN\di\ye + \yUd\di\yQ - \yQ\di\yUd =
+  \yN\di\ye + \yUd\di\yH - \yH\di\yUd =
   -\yN\,\nabla\yU \cdot \yP
   -(\yUd\,\yS)\cdot\nabla\yU \ .
 \end{gather}
-The last balance equation corresponds to \eqn~(28) in \textcites{eckart1940c}, except for the fact that here we are keeping the momentum $\yP$ and heat flux $\yQ$ distinct.
+The last balance equation corresponds to \eqn~(28) in \textcites{eckart1940c}, except for the fact that here we are keeping the momentum $\yP$ and heat flux $\yH$ distinct.
 
-When $\yP$, $\yS$, $\yQ$ are zero, one speaks of the four-stress of \enquote{dust}. It is noteworthy that in this case the four-stress is essentially proportional to the matter 3-covector, multiplied by a vector collinear with the matter four-velocity:
+When $\yP$, $\yS$, $\yH$ are zero, one speaks of the four-stress of \enquote{dust}. It is noteworthy that in this case the four-stress is essentially proportional to the matter 3-covector, multiplied by a vector collinear with the matter four-velocity:
 \begin{equation}
   \label{eq:4stress_dust}
   \yTT = -\yN \otimes (\ye\,\yUd) \ .
@@ -2241,9 +2267,9 @@ Combining \eqns~\eqref{eq:energy_matter_GCRS}, \eqref{eq:momentum_matter_GCRS}, 
 %\end{figure}% exp_family_maxent.nb
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Acknowledgements
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \iffalse
 \begin{acknowledgements}
   \ldots to Mari \amp\ Miri for continuous encouragement and affection, and
@@ -2258,9 +2284,9 @@ Combining \eqns~\eqref{eq:energy_matter_GCRS}, \eqref{eq:momentum_matter_GCRS}, 
 \end{acknowledgements}
 \fi
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Appendices
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\clearpage
 \bigskip
 % %\renewcommand*{\appendixpagename}{Appendix}
@@ -2731,9 +2757,9 @@ with $\deg(B) = n-\deg(A)$
 \item Compound matrices:  \cites[\sect~IV.A.1 p.~199, Problem~1 p.~270]{choquetbruhatetal1977_r1996}
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand*{\finalnamedelim}{\addcomma\space}
 \defbibnote{prenote}{{\footnotesize (\enquote{de $X$} is listed under D,
     \enquote{van $X$} under V, and so on, regardless of national
@@ -2746,9 +2772,9 @@ with $\deg(B) = n-\deg(A)$
 
 \end{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Cut text (won't be compiled)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%% Local Variables: 

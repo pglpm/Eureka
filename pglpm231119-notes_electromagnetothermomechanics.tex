@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2025-08-26T19:26:05+0200
+%% Last-Updated: 2025-08-27T08:10:02+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1566,6 +1566,97 @@ independent of any metric.
 
 \medskip
 
+Since $\yQ$ is a closed, outer-oriented 3-covector field, it can at least locally be expressed as the exterior differential of an outer-oriented 2-covector field $\yG$:
+\begin{equation}
+  \label{eq:def_G_em}
+  \begin{split}
+    \yG &=
+    H_{x} \, \ssi{\tw{t}x} + H_{y} \, \ssi{\tw{t}y} + H_{z} \, \ssi{\tw{t}z} +
+    D_{x} \, \ssi{\tw{y}z} + D_{y} \, \ssi{\tw{z}x} + D_{z} \, \ssi{\tw{x}y}
+    \\
+    &
+    \begin{multlined}[0.9\linewidth]
+      {}\equiv
+      H^{x} \, \tti{yz} + H^{y} \, \tti{zx} + H^{z} \, \tti{xy} +{}\\
+      D^{x} \, \tti{tx} + D^{y} \, \tti{ty} + D^{z} \, \tti{tz}
+    \end{multlined}
+  \end{split}
+\end{equation}
+so that
+\begin{equation}
+  \label{eq:Q_dG}
+  \di\yG = \yQ
+  \qquad\text{or}\qquad
+  \de_{i} D^{i} = Q \ ,\quad
+  \de_{t} D^{i} - \epsilon^{ijk} \de_{j} H_{k} = -I^{i} \ .
+\end{equation}
+
+\bigskip
+
+The electromagnetic field, represented by the Faraday 2-covector, is typically decomposed as \autocites[\chap~9]{frankel1979}
+\begin{equation}
+  \label{eq:F_decomp_EB}
+  \begin{split}
+    \yF &= \si{t}\yE + \yB \equiv -\yE \si{t} + \yB
+    \\&\equiv
+    -E_{x}\, \ssi{tx}
+    -  E_{y}\, \ssi{ty}
+    - E_{z}\, \ssi{tz}
+    + B^{x}\,\ssi{yz}
+    + B^{y}\,\ssi{zx}
+    + B^{z}\,\ssi{xy}
+    \ .
+  \end{split}
+\end{equation}
+Where $\yE$ is a 1-covector and $\yB$ a 2-covector. Given a system of
+coordinates, this decomposition is unique. Neither the 2-covector $\yB$ or
+the 1-covector $\yE$ have any have $\si{t}$ components, that is, they don't have
+$\se{t}$ in their kernels.
+
+
+The conservation of magnetic flux is expressed by
+\begin{gather}
+  \label{eq:dFzero}
+  \di\yF = 0
+  \\
+  \shortintertext{or equivalently}
+  \begin{aligned}
+    &\de_{i} B^{i} = 0
+    &&\qquad\text{($\sssi{xyz}$ component)}
+    \\[\jot]
+    &\de_{t}B^{i} + \epsilon^{ijk}\de_{j}E_{k} = 0
+    &&\qquad\text{($\sssi{tx^{j}x^{k}}$ components)}
+    % \\
+    % &\de_{t}B^{y} + \de_{z}E_{x} - \de_{x} E_{z} = 0
+    % &&\qquad\text{($\sssi{tzx}$)}
+    % \\
+    % &\de_{t}B^{z} + \de_{x}E_{y} - \de_{y} E_{x} = 0
+    % &&\qquad\text{($\sssi{txy}$)}
+  \end{aligned}
+\end{gather}
+
+It should be noted that all components of $\di\yE$ containing $\si{t}$ also disappear, because of the exterior product $\yE\si{t}$. The differential $\di$ therefore operates on $\yE$ as if this 1-covector belonged to a three-dimensional manifolds with coordinates $(x,y,z)$. Let's denote this operation by $\ddi$; it is connected with the \enquote{curl} operator. Then the equations above can be written
+\begin{equation}
+\ddi\yB = 0 \qquad
+\de_{t}\yB + \ddi\yE = 0
+\ .
+\end{equation}
+
+\bigskip
+
+The aether relations are constitutive relations between $\yG$ and $\yF$; they involve the metric:
+\begin{gather}
+  \label{eq:aether}
+  \yG = \frac{1}{\mu_{0}} \, \ve :
+  \bigl( \yg^{-1} \cdot \yF \cdot \yg^{-1} \bigr)
+  \\
+  \shortintertext{or, at a point in inertial coordinates}
+  D_{i} = \frac{1}{\mu_{0}\,c^{2}} E_{i} \ ,
+  \quad
+  H^{i} = \frac{1}{\mu_{0}} B^{i} \ .
+\end{gather}
+
+
 
 \section{Four-stress and its equations}
 \label{sec:tensor_energy}
@@ -1913,54 +2004,54 @@ If we take the four-velocity itself as reference, given that $\yUd\yU = -c^{2}$,
 For this reason $\ye$ is called the \enquote{proper internal energy}. If we take other vector fields as reference, then this energy will pick up further multiplicative terms consisting in the projection of the matter four-velocity $\yU$ onto the reference vector field. In particular taking $\de_{t}$ or $\de_{i}$ as reference we'll have the projections of the four-velocity onto the coordinate covectors as multiplicative factors.
 
 
-\section{Electromagnetic field}
-\label{sec:EM_field}
-
-The electromagnetic field, represented by the Faraday 2-covector, is typically decomposed as \autocites[\chap~9]{frankel1979}
-\begin{equation}
-  \label{eq:F_decomp_EB}
-  \begin{split}
-    \yF &= \yE\si{t} + \yB
-    \\&\equiv
-    E_{x}\, \ssi{xt}
-    +  E_{y}\, \ssi{yt}
-    + E_{z}\, \ssi{zt}
-    + B^{x}\,\ssi{yz}
-    + B^{y}\,\ssi{zx}
-    + B^{z}\,\ssi{xy}
-    \ .
-  \end{split}
-\end{equation}
-Given a system of coordinates, this decomposition is unique: the 2-covector $\yB$ does not have $\si{t}$ components, that is, it has $\se{t}$ in its kernel; and so does the 1-covector $\yE$.
-
-
-The conservation of magnetic flux is expressed by
-\begin{gather}
-  \label{eq:dFzero}
-  \di\yF = 0
-  \\
-  \shortintertext{or equivalently}
-  \begin{aligned}
-    &\de_{i} B^{i} = 0
-    &&\qquad\text{($\sssi{xyz}$ component)}
-    \\[\jot]
-    &\de_{t}B^{x} + \de_{y}E_{z} - \de_{z} E_{y} = 0
-    &&\qquad\text{($\sssi{tyz}$)}
-    \\
-    &\de_{t}B^{y} + \de_{z}E_{x} - \de_{x} E_{z} = 0
-    &&\qquad\text{($\sssi{tzx}$)}
-    \\
-    &\de_{t}B^{z} + \de_{x}E_{y} - \de_{y} E_{x} = 0
-    &&\qquad\text{($\sssi{txy}$)}
-  \end{aligned}
-\end{gather}
-
-It should be noted that all components of $\di\yE$ containing $\si{t}$ also disappear, because of the exterior product $\yE\si{t}$. The differential $\di$ therefore operates on $\yE$ as if this 1-covector belonged to a three-dimensional manifolds with coordinates $(x,y,z)$. Let's denote this operation by $\ddi$; it is connected with the \enquote{curl} operator. Then the equations above can be written
-\begin{equation}
-\ddi\yB = 0 \qquad
-\de_{t}\yB + \ddi\yE = 0
-\ .
-\end{equation}
+% \section{Electromagnetic field}
+% \label{sec:EM_field}
+% 
+% The electromagnetic field, represented by the Faraday 2-covector, is typically decomposed as \autocites[\chap~9]{frankel1979}
+% \begin{equation}
+%   \label{eq:F_decomp_EB}
+%   \begin{split}
+%     \yF &= \yE\si{t} + \yB
+%     \\&\equiv
+%     E_{x}\, \ssi{xt}
+%     +  E_{y}\, \ssi{yt}
+%     + E_{z}\, \ssi{zt}
+%     + B^{x}\,\ssi{yz}
+%     + B^{y}\,\ssi{zx}
+%     + B^{z}\,\ssi{xy}
+%     \ .
+%   \end{split}
+% \end{equation}
+% Given a system of coordinates, this decomposition is unique: the 2-covector $\yB$ does not have $\si{t}$ components, that is, it has $\se{t}$ in its kernel; and so does the 1-covector $\yE$.
+% 
+% 
+% The conservation of magnetic flux is expressed by
+% \begin{gather}
+%   \label{eq:dFzero}
+%   \di\yF = 0
+%   \\
+%   \shortintertext{or equivalently}
+%   \begin{aligned}
+%     &\de_{i} B^{i} = 0
+%     &&\qquad\text{($\sssi{xyz}$ component)}
+%     \\[\jot]
+%     &\de_{t}B^{x} + \de_{y}E_{z} - \de_{z} E_{y} = 0
+%     &&\qquad\text{($\sssi{tyz}$)}
+%     \\
+%     &\de_{t}B^{y} + \de_{z}E_{x} - \de_{x} E_{z} = 0
+%     &&\qquad\text{($\sssi{tzx}$)}
+%     \\
+%     &\de_{t}B^{z} + \de_{x}E_{y} - \de_{y} E_{x} = 0
+%     &&\qquad\text{($\sssi{txy}$)}
+%   \end{aligned}
+% \end{gather}
+% 
+% It should be noted that all components of $\di\yE$ containing $\si{t}$ also disappear, because of the exterior product $\yE\si{t}$. The differential $\di$ therefore operates on $\yE$ as if this 1-covector belonged to a three-dimensional manifolds with coordinates $(x,y,z)$. Let's denote this operation by $\ddi$; it is connected with the \enquote{curl} operator. Then the equations above can be written
+% \begin{equation}
+% \ddi\yB = 0 \qquad
+% \de_{t}\yB + \ddi\yE = 0
+% \ .
+% \end{equation}
 
 
 \section{Explicit formulae for a GCRS-like coordinate system}

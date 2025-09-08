@@ -1,21 +1,33 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2025-08-23T15:11:44+0200
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Last-Updated: 2025-09-08T13:39:47+0200
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
-\pdfmapfile{+classico.map}
+%\iftrue\pdfmapfile{+classico.map}\fi
 \newif\ifafour
 \afourfalse% true = A4, false = A5
 \newif\iftypodisclaim % typographical disclaim on the side
-\typodisclaimtrue
-\newcommand*{\memfontfamily}{zplx}
-\newcommand*{\memfontpack}{newpxtext}
-\documentclass[\ifafour a4paper,12pt,\else a5paper,10pt,\fi%extrafontsizes,%
+\typodisclaimfalse
+\newcommand*{\memfontfamily}{zpl}
+%\newcommand*{\memfontenc}{T1}
+\newcommand*{\memfontpack}{newpx}
+\ifafour
+\documentclass[a4paper,12pt,%extrafontsizes,%
 onecolumn,oneside,article,%french,italian,german,swedish,latin,
 british%
 ]{memoir}
+\else
+\documentclass[a5paper,10pt,%extrafontsizes,%
+onecolumn,oneside,article,%french,italian,german,swedish,latin,
+british%
+]{memoir}
+\fi
+% \documentclass[\ifafour a4paper,12pt\else a5paper,10pt\fi,%extrafontsizes,%
+% onecolumn,oneside,article,%french,italian,german,swedish,latin,
+% british%
+% ]{memoir}
 \newcommand*{\firstdraft}{13 December 2019}%not used
 \newcommand*{\firstpublished}{13 December 2019}
 \newcommand*{\updated}{\ifarxiv 6 May 2023\else\today\fi}
@@ -27,15 +39,15 @@ british%
 \newcommand*{\headauthor}{Porta Mana}
 \newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/jmqnu}{\textsc{doi}:10.31219/osf.io/jmqnu}\fi}% Report number
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Calls to packages (uncomment as needed)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\usepackage{pifont}
 
 %\usepackage{fontawesome}
-
-\usepackage[T1]{fontenc} 
+\PassOptionsToPackage{obeyspaces}{url}
+\usepackage[T1]{fontenc}
 \input{glyphtounicode} \pdfgentounicode=1
 
 \usepackage[utf8]{inputenx}
@@ -62,7 +74,8 @@ british%
 % \newunicodechar{Ȳ}{\=Y}
 % \newunicodechar{ȳ}{\=y}
 
-\newcommand*{\bmmax}{0} % reduce number of bold fonts, before font packages
+% note: with \newcommand*{\bmmax}{0} commands like \bm{\left(} won't work
+\newcommand*{\bmmax}{3} % reduce number of bold fonts, before font packages
 \newcommand*{\hmmax}{0} % reduce number of heavy fonts, before font packages
 
 \usepackage{textcomp}
@@ -78,7 +91,7 @@ british%
 \usepackage{amsmath}
 
 \usepackage{mathtools}
-\addtolength{\jot}{\jot} % increase spacing in multiline formulae
+%\addtolength{\jot}{\jot} % increase spacing in multiline formulae
 \setlength{\multlinegap}{0pt}
 
 %\usepackage{empheq}% automatically calls amsmath and mathtools
@@ -98,12 +111,23 @@ british%
 \usepackage{tensor}
 
 \usepackage[main=british]{babel}\selectlanguage{british}
-%\newcommand*{\langnohyph}{\foreignlanguage{british}}
+%\newcommand*{\langnohyph}{\foreignlanguage{nohyphenation}}
 \newcommand{\langnohyph}[1]{\begin{hyphenrules}{nohyphenation}#1\end{hyphenrules}}
 
 \usepackage[autostyle=false,autopunct=false,english=british]{csquotes}
 \setquotestyle{american}
-\newcommand*{\defquote}[1]{`#1'}
+\newcommand*{\defquote}[1]{`\,#1\,'}
+
+% \makeatletter
+% \renewenvironment{quotation}%
+%                {\list{}{\listparindent 1.5em%
+%                         \itemindent    \listparindent
+%                         \rightmargin=1em   \leftmargin=1em
+%                         \parsep        \z@ \@plus\p@}%
+%                 \item[]\footnotesize}%
+%                 {\endlist}
+% \makeatother
+
 \newcommand*{\mathquote}[1]{`\,#1\,'}
 
 \usepackage{amsthm}
@@ -112,22 +136,22 @@ british%
 \def\@endtheorem{\endtrivlist}
 \makeatother
 
-\newcommand*{\QED}{\textsc{q.e.d.}}
-\renewcommand*{\qedsymbol}{\QED}
-\theoremstyle{remark}
-\newtheorem{note}{Note}
-\newtheorem*{remark}{Note}
-\newtheoremstyle{innote}{\parsep}{\parsep}{\footnotesize}{}{}{}{0pt}{}
-\theoremstyle{innote}
-\newtheorem*{innote}{}
+% \newcommand*{\QED}{\textsc{q.e.d.}}
+% \renewcommand*{\qedsymbol}{\QED}
+% \theoremstyle{remark}
+% \newtheorem{note}{Note}
+% \newtheorem*{remark}{Note}
+% \newtheoremstyle{innote}{\parsep}{\parsep}{\footnotesize}{}{}{}{0pt}{}
+% \theoremstyle{innote}
+% \newtheorem*{innote}{}
 
 \usepackage[shortlabels,inline]{enumitem}
 \SetEnumitemKey{para}{itemindent=\parindent,leftmargin=0pt,listparindent=\parindent,parsep=0pt,itemsep=\topsep}
 % \begin{asparaenum} = \begin{enumerate}[para]
 % \begin{inparaenum} = \begin{enumerate*}
 \setlist{itemsep=0pt,topsep=\parsep}
-\setlist[enumerate,2]{label=\alph*.}
-\setlist[enumerate]{label=\arabic*.,leftmargin=1.5\parindent}
+\setlist[enumerate,2]{label=(\roman*)}
+\setlist[enumerate]{label=(\alph*),leftmargin=1.5\parindent}
 \setlist[itemize]{leftmargin=1.5\parindent}
 \setlist[description]{leftmargin=1.5\parindent}
 % old alternative:
@@ -136,11 +160,23 @@ british%
 % \setlist[itemize]{leftmargin=\parindent}
 % \setlist[description]{leftmargin=\parindent}
 
-\usepackage[babel,theoremfont,largesc]{newpxtext}
+\usepackage[babel,theoremfont,largesc,smallerops,nosymbolsc]{newpx}
 
-\usepackage[bigdelims,nosymbolsc%,smallerops % probably arXiv doesn't have it
-]{newpxmath}
-\linespread{1.1}%\useosf
+% For Baskerville see https://ctan.org/tex-archive/fonts/baskervillef?lang=en
+% and http://mirrors.ctan.org/fonts/baskervillef/doc/baskervillef-doc.pdf
+% \usepackage[p]{baskervillef}
+% \usepackage[varqu,varl,var0]{inconsolata}
+% \usepackage[scale=.95,type1]{cabin}
+% \usepackage[baskerville,vvarbb]{newtxmath}
+% \usepackage[cal=boondoxo]{mathalfa}
+
+
+% \usepackage[bigdelims,nosymbolsc%,smallerops % probably arXiv doesn't have it
+% ]{newpxmath}
+%\useosf
+%\linespread{1.083}%
+%\linespread{1.05}% widely used
+\linespread{1.1}% best for text with maths
 %% smaller operators for old version of newpxmath
 \makeatletter
 \def\re@DeclareMathSymbol#1#2#3#4{%
@@ -194,57 +230,173 @@ british%
 \def\prod{\DOTSI\prodop\slimits@}
 \def\coprod{\DOTSI\coprodop\slimits@}
 \makeatother
-\input{definegreek.tex}% Greek letters not usually given in LaTeX.
+%%%% Greek letters not usually given in LaTeX
+%%%% best to uncomment only the ones needed
+%% %% \input{definegreek.tex} % originally in a separate file
+\DeclareMathSymbol{\varpartial}{\mathalpha}{egreeki}{"40}
+%\DeclareMathSymbol{\partialup}{\mathalpha}{egreekr}{"40}
+% \DeclareMathSymbol{\alpha}{\mathalpha}{egreeki}{"0B}
+% \DeclareMathSymbol{\beta}{\mathalpha}{egreeki}{"0C}
+% \DeclareMathSymbol{\gamma}{\mathalpha}{egreeki}{"0D}
+% \DeclareMathSymbol{\delta}{\mathalpha}{egreeki}{"0E}
+% \DeclareMathSymbol{\epsilon}{\mathalpha}{egreeki}{"0F}
+% \DeclareMathSymbol{\zeta}{\mathalpha}{egreeki}{"10}
+% \DeclareMathSymbol{\eta}{\mathalpha}{egreeki}{"11}
+% \DeclareMathSymbol{\theta}{\mathalpha}{egreeki}{"12}
+% \DeclareMathSymbol{\iota}{\mathalpha}{egreeki}{"13}
+% \DeclareMathSymbol{\kappa}{\mathalpha}{egreeki}{"14}
+% \DeclareMathSymbol{\lambda}{\mathalpha}{egreeki}{"15}
+% \DeclareMathSymbol{\mu}{\mathalpha}{egreeki}{"16}
+% \DeclareMathSymbol{\nu}{\mathalpha}{egreeki}{"17}
+% \DeclareMathSymbol{\xi}{\mathalpha}{egreeki}{"18}
+% \DeclareMathSymbol{\omicron}{\mathalpha}{egreeki}{"6F}
+% \DeclareMathSymbol{\pi}{\mathalpha}{egreeki}{"19}
+% \DeclareMathSymbol{\rho}{\mathalpha}{egreeki}{"1A}
+% \DeclareMathSymbol{\sigma}{\mathalpha}{egreeki}{"1B}
+% \DeclareMathSymbol{\tau}{\mathalpha}{egreeki}{"1C}
+% \DeclareMathSymbol{\upsilon}{\mathalpha}{egreeki}{"1D}
+% \DeclareMathSymbol{\phi}{\mathalpha}{egreeki}{"1E}
+% \DeclareMathSymbol{\chi}{\mathalpha}{egreeki}{"1F}
+% \DeclareMathSymbol{\psi}{\mathalpha}{egreeki}{"20}
+% \DeclareMathSymbol{\omega}{\mathalpha}{egreeki}{"21}
+% \DeclareMathSymbol{\varepsilon}{\mathalpha}{egreeki}{"22}
+% \DeclareMathSymbol{\vartheta}{\mathalpha}{egreeki}{"23}
+% \DeclareMathSymbol{\varpi}{\mathalpha}{egreeki}{"24}
+% \let\varrho\rho 
+% \let\varsigma\sigma
+% \let\varkappa\kappa
+% \DeclareMathSymbol{\varphi}{\mathalpha}{egreeki}{"27}
+% %
+% \DeclareMathSymbol{\varAlpha}{\mathalpha}{egreeki}{"41}
+% \DeclareMathSymbol{\varBeta}{\mathalpha}{egreeki}{"42}
+% \DeclareMathSymbol{\varGamma}{\mathalpha}{egreeki}{"00}
+% \DeclareMathSymbol{\varDelta}{\mathalpha}{egreeki}{"01}
+% \DeclareMathSymbol{\varEpsilon}{\mathalpha}{egreeki}{"45}
+% \DeclareMathSymbol{\varZeta}{\mathalpha}{egreeki}{"5A}
+% \DeclareMathSymbol{\varEta}{\mathalpha}{egreeki}{"48}
+% \DeclareMathSymbol{\varTheta}{\mathalpha}{egreeki}{"02}
+% \DeclareMathSymbol{\varIota}{\mathalpha}{egreeki}{"49}
+% \DeclareMathSymbol{\varKappa}{\mathalpha}{egreeki}{"4B}
+% \DeclareMathSymbol{\varLambda}{\mathalpha}{egreeki}{"03}
+% \DeclareMathSymbol{\varMu}{\mathalpha}{egreeki}{"4D}
+% \DeclareMathSymbol{\varNu}{\mathalpha}{egreeki}{"4E}
+% \DeclareMathSymbol{\varXi}{\mathalpha}{egreeki}{"04}
+% \DeclareMathSymbol{\varOmicron}{\mathalpha}{egreeki}{"4F}
+% \DeclareMathSymbol{\varPi}{\mathalpha}{egreeki}{"05}
+% \DeclareMathSymbol{\varRho}{\mathalpha}{egreeki}{"50}
+% \DeclareMathSymbol{\varSigma}{\mathalpha}{egreeki}{"06}
+% \DeclareMathSymbol{\varTau}{\mathalpha}{egreeki}{"54}
+% \DeclareMathSymbol{\varUpsilon}{\mathalpha}{egreeki}{"07}
+% \DeclareMathSymbol{\varPhi}{\mathalpha}{egreeki}{"08}
+% \DeclareMathSymbol{\varChi}{\mathalpha}{egreeki}{"58}
+% \DeclareMathSymbol{\varPsi}{\mathalpha}{egreeki}{"09}
+% \DeclareMathSymbol{\varOmega}{\mathalpha}{egreeki}{"0A} 
+% %
+% \DeclareMathSymbol{\Alpha}{\mathalpha}{egreekr}{"41}
+% \DeclareMathSymbol{\Beta}{\mathalpha}{egreekr}{"42}
+% \DeclareMathSymbol{\Gamma}{\mathalpha}{egreekr}{"00}
+% \DeclareMathSymbol{\Delta}{\mathalpha}{egreekr}{"01}
+\DeclareMathSymbol{\Epsilon}{\mathalpha}{egreekr}{"45}
+% \DeclareMathSymbol{\Zeta}{\mathalpha}{egreekr}{"5A}
+% \DeclareMathSymbol{\Eta}{\mathalpha}{egreekr}{"48}
+% \DeclareMathSymbol{\Theta}{\mathalpha}{egreekr}{"02}
+% \DeclareMathSymbol{\Iota}{\mathalpha}{egreekr}{"49}
+% \DeclareMathSymbol{\Kappa}{\mathalpha}{egreekr}{"4B}
+% \DeclareMathSymbol{\Lambda}{\mathalpha}{egreekr}{"03}
+% \DeclareMathSymbol{\Mu}{\mathalpha}{egreekr}{"4D}
+% \DeclareMathSymbol{\Nu}{\mathalpha}{egreekr}{"4E}
+% \DeclareMathSymbol{\Xi}{\mathalpha}{egreekr}{"04}
+% \DeclareMathSymbol{\Omicron}{\mathalpha}{egreekr}{"4F}
+% \DeclareMathSymbol{\Pi}{\mathalpha}{egreekr}{"05}
+% \DeclareMathSymbol{\Rho}{\mathalpha}{egreekr}{"50}
+% \DeclareMathSymbol{\Sigma}{\mathalpha}{egreekr}{"06}
+% \DeclareMathSymbol{\Tau}{\mathalpha}{egreekr}{"54}
+% \DeclareMathSymbol{\Upsilon}{\mathalpha}{egreekr}{"07}
+% \DeclareMathSymbol{\Phi}{\mathalpha}{egreekr}{"08}
+% \DeclareMathSymbol{\Chi}{\mathalpha}{egreekr}{"58}
+% \DeclareMathSymbol{\Psi}{\mathalpha}{egreekr}{"09}
+% \DeclareMathSymbol{\Omega}{\mathalpha}{egreekr}{"0A}
+% %
+% \DeclareMathSymbol{\alphaup}{\mathalpha}{egreekr}{"0B}
+% \DeclareMathSymbol{\betaup}{\mathalpha}{egreekr}{"0C}
+% \DeclareMathSymbol{\gammaup}{\mathalpha}{egreekr}{"0D}
+\DeclareMathSymbol{\deltaup}{\mathalpha}{egreekr}{"0E}
+% \DeclareMathSymbol{\epsilonup}{\mathalpha}{egreekr}{"0F}
+% \DeclareMathSymbol{\zetaup}{\mathalpha}{egreekr}{"10}
+% \DeclareMathSymbol{\etaup}{\mathalpha}{egreekr}{"11}
+% \DeclareMathSymbol{\thetaup}{\mathalpha}{egreekr}{"12}
+% \DeclareMathSymbol{\iotaup}{\mathalpha}{egreekr}{"13}
+% \DeclareMathSymbol{\kappaup}{\mathalpha}{egreekr}{"14}
+% \DeclareMathSymbol{\lambdaup}{\mathalpha}{egreekr}{"15}
+% \DeclareMathSymbol{\muup}{\mathalpha}{egreekr}{"16}
+% \DeclareMathSymbol{\nuup}{\mathalpha}{egreekr}{"17}
+% \DeclareMathSymbol{\xiup}{\mathalpha}{egreekr}{"18}
+% \DeclareMathSymbol{\omicronup}{\mathalpha}{egreekr}{"6F}
+\DeclareMathSymbol{\piup}{\mathalpha}{egreekr}{"19}
+% \DeclareMathSymbol{\rhoup}{\mathalpha}{egreekr}{"1A}
+% \DeclareMathSymbol{\sigmaup}{\mathalpha}{egreekr}{"1B}
+% \DeclareMathSymbol{\tauup}{\mathalpha}{egreekr}{"1C}
+% \DeclareMathSymbol{\upsilonup}{\mathalpha}{egreekr}{"1D}
+% \DeclareMathSymbol{\phiup}{\mathalpha}{egreekr}{"1E}
+% \DeclareMathSymbol{\chiup}{\mathalpha}{egreekr}{"1F}
+% \DeclareMathSymbol{\psiup}{\mathalpha}{egreekr}{"20}
+% \DeclareMathSymbol{\omegaup}{\mathalpha}{egreekr}{"21}
+% \DeclareMathSymbol{\varepsilonup}{\mathalpha}{egreekr}{"22}
+% \DeclareMathSymbol{\varthetaup}{\mathalpha}{egreekr}{"23}
+% \DeclareMathSymbol{\varpiup}{\mathalpha}{egreekr}{"24}
+% \let\varrhoup\rhoup 
+% \let\varsigmaup\sigmaup
+% \let\varkappaup\kappaup
+% \DeclareMathSymbol{\varphiup}{\mathalpha}{egreekr}{"27}
 
-\usepackage[scaled=0.841473]%
-{DejaVuSansCondensed}% sans-serif font
+
+\usepackage[scaled=0.89861]{DejaVuSansMono}% typewriter text
+\usepackage[scaled=0.89861]{DejaVuSansCondensed}% sans-serif font
 % \renewcommand\sfdefault{URWClassico-TLF}
 \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
 \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
-\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
+\newcommand*{\mathte}[1]{\bm{\mathsf{#1}}}
+%\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
 % Upright sans-serif math alphabet
 % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
 % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
 
-\usepackage[scaled=0.841473]{DejaVuSansMono}% typewriter text
 
-% % \usepackage%[scaled=0.9]%
-% %{classico}%  Optima as sans-serif font
-% \usepackage{classico} % \renewcommand\sfdefault{URWClassico-TLF}
-% \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
-% \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
-% \newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
-% % Upright sans-serif math alphabet
-% % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
-% % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
-% 
-% % DejaVu Mono as typewriter text
-% \usepackage[scaled=0.84]{DejaVuSansMono}
+%
+% \newlength{\hxn}
+% \newlength{\hxs}
+% \newlength{\hxt}
+% \setlength{\hxn}{\heightof{x}}
+% \setlength{\hxs}{\heightof{\textsf{x}}}
+% \setlength{\hxt}{\heightof{\texttt{x}}}
+% \typeout{normal is \the\hxn}
+% \typeout{sf is \the\hxs}
+% \typeout{tt is \the\hxt}
+% normal x is 5.616pt
+% sf x is 6.64198pt
+% tt x is 6.70619pt
+%
+% geom. mean scale: 0.841473
+% arith. mean scale: 0.841464
+% ind. scales: 0.845531 0.837435
+
 
 \usepackage{mathdots}
 
 \usepackage[usenames]{xcolor}
 % Tol (2012) colour-blind-, print-, screen-friendly colours, alternative scheme; Munsell terminology
-\definecolor{mypurpleblue}{RGB}{68,119,170}
-\definecolor{myblue}{RGB}{102,204,238}
-\definecolor{mygreen}{RGB}{34,136,51}
-\definecolor{myyellow}{RGB}{204,187,68}
-\definecolor{myred}{RGB}{238,102,119}
-\definecolor{myredpurple}{RGB}{170,51,119}
-\definecolor{mygrey}{RGB}{187,187,187}
-% Tol (2012) colour-blind-, print-, screen-friendly colours; Munsell terminology
-% \definecolor{lbpurple}{RGB}{51,34,136}
-% \definecolor{lblue}{RGB}{136,204,238}
-% \definecolor{lbgreen}{RGB}{68,170,153}
-% \definecolor{lgreen}{RGB}{17,119,51}
-% \definecolor{lgyellow}{RGB}{153,153,51}
-% \definecolor{lyellow}{RGB}{221,204,119}
-% \definecolor{lred}{RGB}{204,102,119}
-% \definecolor{lpred}{RGB}{136,34,85}
-% \definecolor{lrpurple}{RGB}{170,68,153}
-\definecolor{lgrey}{RGB}{221,221,221}
+\definecolor{blue}{HTML}{4477AA}
+\definecolor{cyan}{HTML}{66CCEE}
+\definecolor{green}{HTML}{228833}
+\definecolor{yellow}{HTML}{CCBB44}
+\definecolor{red}{HTML}{EE6677}
+\definecolor{purple}{HTML}{AA3377}
+\definecolor{grey}{HTML}{BBBBBB}
+\definecolor{midgrey}{HTML}{888888}
+\definecolor{darkgrey}{HTML}{555555}
+\definecolor{lgrey}{HTML}{DDDDDD}
 %\newcommand*\mycolourbox[1]{%
-%\colorbox{mygrey}{\hspace{1em}#1\hspace{1em}}}
+%\colorbox{grey}{\hspace{1em}#1\hspace{1em}}}
 \colorlet{shadecolor}{lgrey}
 
 \usepackage{bm}
@@ -252,7 +404,9 @@ british%
 \usepackage{microtype}
 
 \usepackage[backend=biber,mcite,%subentry,
-citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false]{biblatex}
+citestyle=authoryear-comp,bibstyle=pglpm_latex/pglpm-authoryear,dashed=false,%
+%bibstyle=apa,%
+autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false,autocite=footnote]{biblatex}
 \DeclareSortingTemplate{ny}{\sort{\field{sortname}\field{author}\field{editor}}\sort{\field{year}}}
 \DeclareFieldFormat{postnote}{#1}
 \iffalse\makeatletter%%% replace parenthesis with brackets
@@ -269,20 +423,24 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \makeatother\fi
 \DefineBibliographyExtras{british}{\def\finalandcomma{\addcomma}}
 \renewcommand*{\finalnamedelim}{\addspace\amp\space}
+% \renewcommand*{\finalnamedelim}{\addcomma\space}
 \renewcommand*{\textcitedelim}{\addcomma\space}
-% \setcounter{biburlnumpenalty}{1}
-% \setcounter{biburlucpenalty}{0}
-% \setcounter{biburllcpenalty}{1}
+% % Not needed with xurl loaded
+% \setcounter{biburlucpenalty}{1}  %break URL after uppercase character
+% \setcounter{biburlnumpenalty}{1} %break URL after number
+% \setcounter{biburllcpenalty}{1}  %break URL after lowercase character
 \DeclareDelimFormat{multicitedelim}{\addsemicolon\addspace\space}
 \DeclareDelimFormat{compcitedelim}{\addsemicolon\addspace\space}
 \DeclareDelimFormat{postnotedelim}{\addspace}
 \ifarxiv\else\addbibresource{portamanabib.bib}\fi
+\renewcommand{\nameyeardelim}{~}% avoid linebreak between name and year
 \renewcommand{\bibfont}{\footnotesize}
 %\appto{\citesetup}{\footnotesize}% smaller font for citations
 \defbibheading{bibliography}[\bibname]{\section*{#1}\addcontentsline{toc}{section}{#1}%\markboth{#1}{#1}
 }
 \newcommand*{\citep}{\footcites}
-\newcommand*{\citey}{\parencites*}%{\footcites}%
+\newcommand*{\citey}{\footcites}%{\parencites*}
+\newcommand*{\ibid}{\unspace\addtocounter{footnote}{-1}\footnotemark{}}
 %\renewcommand*{\cite}{\parencite}
 %\renewcommand*{\cites}{\parencites}
 \providecommand{\href}[2]{#2}
@@ -290,56 +448,74 @@ citestyle=authoryear-comp,bibstyle=pglpm-authoryear,autopunct=false,sorting=ny,s
 \newcommand*{\amp}{\&}
 % \newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
 % }
-\newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
+\newcommand*{\citein}[2][]{\textnormal{\cite[#1]{#2}}%\addtocategory{extras}{#2}
 }
-\newcommand*{\citebi}[2][]{\textcite[#1]{#2}%\addtocategory{extras}{#2}
+\newcommand*{\citebi}[2][]{\cite[#1]{#2}%\addtocategory{extras}{#2}
 }
 \newcommand*{\subtitleproc}[1]{}
 \newcommand*{\chapb}{ch.}
-%
+
+\usepackage{xurl}
+\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false,pdfencoding=unicode,psdextra]{hyperref}
+% % Not needed with xurl
 %\def\UrlOrds{\do\*\do\-\do\~\do\'\do\"\do\-}%
-\def\myUrlOrds{\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z}%
+% \def\myUrlOrds{\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z}%
 \makeatletter
 %\g@addto@macro\UrlSpecials{\do={\newline}}
-\g@addto@macro{\UrlBreaks}{\myUrlOrds}
+\g@addto@macro{\UrlBreaks}{%
+\do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
+}
+% % The command below add spurious space to urls
+% \g@addto@macro\UrlSpecials{%
+% \do\/{\mbox{\UrlFont/}\hskip 0pt plus 10pt}%
+% }
 \makeatother
-\newcommand*{\arxiveprint}[1]{%
-arXiv \doi{10.48550/arXiv.#1}%
-}
-\newcommand*{\mparceprint}[1]{%
-\href{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{mp\_arc:\allowbreak\nolinkurl{#1}}%
-}
-\newcommand*{\haleprint}[1]{%
-\href{https://hal.archives-ouvertes.fr/#1}{\textsc{hal}:\allowbreak\nolinkurl{#1}}%
-}
-\newcommand*{\philscieprint}[1]{%
-\href{http://philsci-archive.pitt.edu/archive/#1}{PhilSci:\allowbreak\nolinkurl{#1}}%
-}
+
 \newcommand*{\doi}[1]{%
-\href{https://doi.org/#1}{\textsc{doi}:\allowbreak\nolinkurl{#1}}%
+\href{https://doi.org/#1}{doi:\allowbreak\nolinkurl{#1}}%
 }
-\newcommand*{\biorxiveprint}[1]{%
-bioRxiv \doi{10.1101/#1}%
+\newcommand*{\osfdoi}[1]{%
+OSF \doi{#1}% 10.31219/osf.io/
 }
-\newcommand*{\osfeprint}[1]{%
-Open Science Framework \doi{10.31219/osf.io/#1}%
+\newcommand*{\arxivdoi}[1]{%
+arXiv \doi{#1}% 10.48550/arXiv.
+}
+\newcommand*{\biorxivdoi}[1]{%
+bioRxiv \doi{#1}% 10.1101/
+}
+\newcommand*{\halurl}[1]{%
+HAL \url{#1}% https://hal.science/
+}
+\newcommand*{\philsciurl}[1]{%
+PhilSci \url{#1}% https://philsci-archive.pitt.edu/id/eprint/
+}
+\newcommand*{\mparcurl}[1]{%
+mp\_arc \url{#1}% https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=
 }
 \newcommand*{\osfproj}[1]{%
-Open Science Framework \doi{10.17605/osf.io/#1}%
+OSF \doi{10.17605/osf.io/#1}%
 }
 
 \usepackage{graphicx}
-
+%\usepackage{graphbox}% to align includegraphics vertically
 %\usepackage{wrapfig}
 
 %\usepackage{tikz-cd}
 
-\PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false,pdfencoding=unicode,psdextra]{hyperref}
+\usepackage{pdfrender}
+%\newcommand*{\textxbf}[1]{\textpdfrender{TextRenderingMode=2,LineWidth=0.3pt}{\textbf{#1}}}
+\newcommand*{\xbm}[1]{\textpdfrender{TextRenderingMode=2,LineWidth=0.1pt}{\boldsymbol{#1}}}
 
 \usepackage[depth=4]{bookmark}
-\hypersetup{colorlinks=true,bookmarksnumbered,pdfborder={0 0 0.25},citebordercolor={0.2667 0.4667 0.6667},citecolor=mypurpleblue,linkbordercolor={0.6667 0.2 0.4667},linkcolor=myredpurple,urlbordercolor={0.1333 0.5333 0.2},urlcolor=mygreen,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
+\hypersetup{%
+colorlinks=true,
+%pdfborderstyle={/S/U/W 0.5},
+bookmarksnumbered,pdfborder={0 0 0.25},
+citebordercolor=blue,citecolor=blue,linkbordercolor=blue,linkcolor=blue,urlbordercolor=blue,urlcolor=blue,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
 % \usepackage[vertfit=local]{breakurl}% only for arXiv
 \providecommand*{\urlalt}{\href}
+
+\usepackage{tensor}
 
 \usepackage[british]{datetime2}
 \DTMnewdatestyle{mydate}%
@@ -350,22 +526,23 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 }
 \DTMsetdatestyle{mydate}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Layout. I do not know on which kind of paper the reader will print the
 %%% paper on (A4? letter? one-sided? double-sided?). So I choose A5, which
 %%% provides a good layout for reading on screen and save paper if printed
 %%% two pages per sheet. Average length line is 66 characters and page
 %%% numbers are centred.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifafour\setstocksize{297mm}{210mm}%{*}% A4
 \else\setstocksize{210mm}{5.5in}%{*}% 210x139.7
 \fi
 \settrimmedsize{\stockheight}{\stockwidth}{*}
 \setlxvchars[\normalfont] %313.3632pt for a 66-characters line
 \setxlvchars[\normalfont]
-\setlength{\trimtop}{0pt}
-\setlength{\trimedge}{\stockwidth}
-\addtolength{\trimedge}{-\paperwidth}
+% \setlength{\trimtop}{0pt}
+% \setlength{\trimedge}{\stockwidth}
+% \addtolength{\trimedge}{-\paperwidth}
+%\settrims{0pt}{0pt}
 % The length of the normalsize alphabet is 133.05988pt - 10 pt = 26.1408pc
 % The length of the normalsize alphabet is 159.6719pt - 12pt = 30.3586pc
 % Bringhurst gives 32pc as boundary optimal with 69 ch per line
@@ -383,7 +560,7 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 %%% End layout
 %% this fixes missing white spaces
 %\pdfmapline{+dummy-space <dummy-space.pfb}
-\pdfinterwordspaceon%
+%\pdfinterwordspaceon% seems to add a white margin to Sumatrapdf
 
 %%% Sectioning
 \newcommand*{\asudedication}[1]{%
@@ -461,11 +638,11 @@ Open Science Framework \doi{10.17605/osf.io/#1}%
 \bfseries}
 \posttitle{\bigskip\end{center}}
 
-\makeatletter\newcommand*{\atf}{\includegraphics[%trim=1pt 1pt 0pt 0pt,
-totalheight=\heightof{@}]{atblack.png}}\makeatother
+\makeatletter\newcommand*{\atf}{\includegraphics[totalheight=\heightof{@}]{pglpm_latex/atblack.png}}\makeatother
 \providecommand{\affiliation}[1]{\textsl{\textsf{\footnotesize #1}}}
 \providecommand{\epost}[1]{\texttt{\footnotesize\textless#1\textgreater}}
 \providecommand{\email}[2]{\href{mailto:#1ZZ@#2 ((remove ZZ))}{#1\protect\atf#2}}
+%\providecommand{\email}[2]{\href{mailto:#1@#2}{#1@#2}}
 
 \preauthor{\vspace{-0.5\baselineskip}\begin{center}
 \normalsize\sffamily%
@@ -494,23 +671,29 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \displaywidowpenalty=1602
 \raggedbottom
 
-\paragraphfootnotes%
-%\setlength{\footmarkwidth}{1.3em}
+\paragraphfootnotes
+\setlength{\footmarkwidth}{2ex}
 % \threecolumnfootnotes
-%\setlength{\footmarksep}{-\footmarkwidth}
-%\setlength{\footparindent}{10em}
-\footmarkstyle{\textsuperscript{%\color{myred}
-\scriptsize\bfseries%\underline{
-#1%}
-}~}
-%\footmarkstyle{\textsuperscript{\color{myred}\scriptsize\bfseries#1}~}
+%\setlength{\footmarksep}{0em}
+\footmarkstyle{\textsuperscript{%\color{red}
+\scriptsize\bfseries#1}~}
+%\footmarkstyle{\textsuperscript{\color{red}\scriptsize\bfseries#1}~}
 %\footmarkstyle{\textsuperscript{[#1]}~}
 
 \selectlanguage{british}\frenchspacing
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \colorlet{notecolour}{green}
+% %\newcommand*{\puzzle}{\maltese}
+% \newcommand*{\puzzle}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{225}}}
+% \newcommand*{\wrench}{{\fontencoding{U}\fontfamily{fontawesomethree}\selectfont\symbol{114}}}
+% \newcommand*{\pencil}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{210}}}
+% \newcommand{\mynotew}[1]{{\footnotesize\color{notecolour}\wrench\ #1}}
+% \newcommand{\mynotep}[1]{{\footnotesize\color{notecolour}\pencil\ #1}}
+% \newcommand{\mynotez}[1]{{\footnotesize\color{notecolour}\puzzle\ #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Paper's details
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{\propertitle}
 \author{%
 \hspace*{\stretch{1}}%
@@ -520,24 +703,33 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 % \footnotesize\epost{\email{***}{***}}}%
 % \hspace*{\stretch{1}}%
 \parbox{1\linewidth}%\makebox[0pt][c]%
-{\protect\centering P.G.L.  Porta Mana \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{orcid_32x32.png}}\\%
-\footnotesize Western Norway University of Applied Sciences, Bergen\quad\epost{\email{pgl}{portamana.org}}}%
+{\protect\centering P.G.L.  Porta Mana  \href{https://orcid.org/0000-0002-6070-0784}{\protect\includegraphics[scale=0.16]{pglpm_latex/orcid_32x32.png}}%
+\\\footnotesize
+Western Norway University of Applied Sciences%
+\quad\epost{\email{pgl}{portamana.org}}%
+}%
+%% uncomment if additional authors present
+% \hspace*{\stretch{1}}%
+% \parbox{0.5\linewidth}%\makebox[0pt][c]%
+% {\protect\centering ***\\%
+% \footnotesize\epost{\email{***}{***}}}%
 \hspace*{\stretch{1}}%
 }
 
 %\date{Draft of \today\ (first drafted \firstdraft)}
 \date{\firstpublished; updated \updated}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Macros @@@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Common ones - uncomment as needed
 %\providecommand{\nequiv}{\not\equiv}
 %\providecommand{\coloneqq}{\mathrel{\mathop:}=}
 %\providecommand{\eqqcolon}{=\mathrel{\mathop:}}
 %\providecommand{\varprod}{\prod}
-\newcommand*{\de}{\partialup}%partial diff
+% See https://tex.stackexchange.com/a/84308/97039
+\newcommand*{\de}{\mathop{}\!\uppartial}%partial diff
 \newcommand*{\pu}{\piup}%constant pi
 \newcommand*{\delt}{\deltaup}%Kronecker, Dirac
 %\newcommand*{\eps}{\varepsilonup}%Levi-Civita, Heaviside
@@ -545,10 +737,38 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\providecommand{\degree}{\textdegree}% degree
 %\newcommand*{\celsius}{\textcelsius}% degree Celsius
 %\newcommand*{\micro}{\textmu}% degree Celsius
-\newcommand*{\I}{\mathrm{i}}%imaginary unit
-\newcommand*{\e}{\mathrm{e}}%Neper
-\newcommand*{\di}{\mathrm{d}}%differential
-%\newcommand*{\Di}{\mathrm{D}}%capital differential
+% \newcommand*{\I}{\mathrm{i}}%imaginary unit
+\newcommand*{\I}{\ensuremath{\mathrm{i}}}
+% \newcommand*{\e}{\mathrm{e}}%Neper
+\newcommand*{\e}{\ensuremath{\mathrm{e}}}
+% See https://tex.stackexchange.com/a/84308/97039
+\newcommand*{\di}{\mathop{}\!\mathrm{d}}%differential
+% \newcommand*{\dii}{\ensuremath{\mathrm{d}}}
+% %% From TUGboat 18 (1997) 1 - leads to very strange spacing
+% \makeatletter
+% \providecommand*{\di}%
+% {\@ifnextchar^{\DIfF}{\DIfF^{}}}
+% \def\DIfF^#1{%
+% \mathop{\mathrm{\mathstrut d}}%
+% \nolimits^{#1}\gobblespace}
+% \def\gobblespace{%
+% \futurelet\diffarg\opspace}
+% \def\opspace{%
+% \let\DiffSpace\!%
+% \ifx\diffarg(%
+% \let\DiffSpace\relax
+% \else
+% \ifx\diffarg[%
+% \let\DiffSpace\relax
+% \else
+% \ifx\diffarg\{%
+% \let\DiffSpace\relax
+% \fi\fi\fi\DiffSpace}
+% \makeatother
+
+% % See https://tex.stackexchange.com/a/84308/97039
+%\newcommand*{\Di}{\mathop{}\!\mathrm{D}}%capital differential
+%\newcommand*{\Li}{\mathop{}\!\mathrm{L}}%Lie derivative
 %\newcommand*{\planckc}{\hslash}
 %\newcommand*{\avogn}{N_{\textrm{A}}}
 %\newcommand*{\NN}{\bm{\mathrm{N}}}
@@ -560,13 +780,17 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\DeclareMathOperator{\lb}{lb}%base 2 log
 \DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
+%% From TUGboat 18 (1997) 1
+% \renewoperator{\Re}{\mathrm{Re}}{\nolimits}
+% \renewoperator{\Im}{\mathrm{Im}}{\nolimits}
 %\DeclareMathOperator{\im}{Im}%im part
 %\DeclareMathOperator{\re}{Re}%re part
 %\DeclareMathOperator{\sgn}{sgn}%signum
 %\DeclareMathOperator{\ent}{ent}%integer less or equal to
 %\DeclareMathOperator{\Ord}{O}%same order as
 %\DeclareMathOperator{\ord}{o}%lower order than
-\newcommand*{\incr}{\triangle}%finite increment
+% \newcommand*{\incr}{\triangle}%finite increment
+\newcommand*{\incr}{\Delta}%finite increment
 \newcommand*{\defd}{\coloneqq}
 \newcommand*{\defs}{\eqqcolon}
 %\newcommand*{\Land}{\bigwedge}
@@ -585,26 +809,34 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \renewcommand*{\asymp}{\simeq}%equivalent to 
 %\newcommand*{\corr}{\mathrel{\hat{=}}}%corresponds to
 %\providecommand{\varparallel}{\ensuremath{\mathbin{/\mkern-7mu/}}}%parallel (tentative symbol)
-\renewcommand*{\le}{\leqslant}%less or equal
-\renewcommand*{\ge}{\geqslant}%greater or equal
+% \renewcommand*{\le}{\leqslant}%less or equal
+% \renewcommand*{\ge}{\geqslant}%greater or equal
 \DeclarePairedDelimiter\clcl{[}{]}
 %\DeclarePairedDelimiter\clop{[}{[}
 %\DeclarePairedDelimiter\opcl{]}{]}
 %\DeclarePairedDelimiter\opop{]}{[}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 %\DeclarePairedDelimiter\norm{\lVert}{\rVert}
-\DeclarePairedDelimiter\set{\{}{\}}
+\DeclarePairedDelimiter\set{\{}{\}} %}
 %\DeclareMathOperator{\pr}{P}%probability
-\newcommand*{\pf}{\mathrm{p}}%probability
-\newcommand*{\p}{\mathrm{P}}%probability
+%\newcommand*{\p}{\mathrm{p}}%probability
+%\renewcommand*{\P}{\mathrm{P}}%probability
 %\newcommand*{\E}{\mathrm{E}}
-%\renewcommand*{\|}{\nonscript\,\vert\nonscript\;\mathopen{}}
-\renewcommand*{\|}[1][]{\nonscript\,#1\vert\nonscript\;\mathopen{}}
-%\DeclarePairedDelimiterX{\cond}[2]{(}{)}{#1\nonscript\,\delimsize\vert\nonscript\;\mathopen{}#2}
-%\DeclarePairedDelimiterX{\condt}[2]{[}{]}{#1\nonscript\,\delimsize\vert\nonscript\;\mathopen{}#2}
-%\DeclarePairedDelimiterX{\conds}[2]{\{}{\}}{#1\nonscript\,\delimsize\vert\nonscript\;\mathopen{}#2}
+%% The "\:" space is chosen to correctly separate inner binary and external rels
+\renewcommand*{\|}[1][]{\nonscript\:#1\vert\nonscript\:\mathopen{}}
+%\DeclarePairedDelimiterX{\cp}[2]{(}{)}{#1\nonscript\:\delimsize\vert\nonscript\:\mathopen{}#2}
+%\DeclarePairedDelimiterX{\ct}[2]{[}{]}{#1\nonscript\;\delimsize\vert\nonscript\:\mathopen{}#2}
+%\DeclarePairedDelimiterX{\cs}[2]{\{}{\}}{#1\nonscript\:\delimsize\vert\nonscript\:\mathopen{}#2}
 %\newcommand*{\+}{\lor}
 %\renewcommand{\*}{\land}
+%% symbol = for equality statements within probabilities
+%% from https://tex.stackexchange.com/a/484142/97039
+% \newcommand*{\eq}{\mathrel{\!=\!}}
+% \let\texteq\=
+% \renewcommand*{\=}{\TextOrMath\texteq\eq}
+% \newcommand*{\eq}[1][=]{\mathrel{\!#1\!}}
+%\newcommand*{\mo}[1][=]{\mathclose{}\mathord{\nonscript\mkern0.5mu#1\nonscript\mkern0.5mu}\mathopen{}}
+%%
 \newcommand*{\sect}{\S}% Sect.~
 \newcommand*{\sects}{\S\S}% Sect.~
 \newcommand*{\chap}{ch.}%
@@ -617,10 +849,10 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\fig}{fig.}%
 \newcommand*{\figs}{figs}%
 \newcommand*{\vs}{{vs}}
-%\newcommand*{\etc}{{etc.}}
+\newcommand*{\eg}{{e.g.}}
+\newcommand*{\etc}{{etc.}}
 \newcommand*{\ie}{{i.e.}}
 %\newcommand*{\ca}{{c.}}
-\newcommand*{\eg}{{e.g.}}
 \newcommand*{\foll}{{ff.}}
 %\newcommand*{\viz}{{viz}}
 \newcommand*{\cf}{{cf.}}
@@ -630,7 +862,7 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\etsim}{{et sim.}}
 %\newcommand*{\ibid}{{ibid.}}
 %\newcommand*{\sic}{{sic}}
-%\newcommand*{\id}{\mathte{id}}%id matrix
+%\newcommand*{\id}{\mathte{I}}%id matrix
 %\newcommand*{\nbd}{\nobreakdash}%
 %\newcommand*{\bd}{\hspace{0pt}}%
 %\def\hy{-\penalty0\hskip0pt\relax}
@@ -647,27 +879,31 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\sint}{\begingroup\textstyle\int\endgroup}
 %\newcommand*{\sland}{\mathop{\textstyle\bigwedge}}
 %\newcommand*{\slor}{\mathop{\textstyle\bigvee}}
-\newcommand*{\T}{^\intercal}%transpose
+\newcommand*{\T}{^\transp}%transpose
 %%\newcommand*{\QEM}%{\textnormal{$\Box$}}%{\ding{167}}
 %\newcommand*{\qem}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
 %\quad\hbox{\QEM}}
+%% from TUGboat 18 (1997) 1:
+%\providecommand*{\unit}[1]{\ensuremath{\mathrm{\,#1}}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Custom macros for this file @@@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \definecolor{notecolour}{RGB}{68,170,153}
-\newcommand*{\puzzle}{{\fontencoding{U}\fontfamily{fontawesometwo}\selectfont\symbol{225}}}
-%\newcommand*{\puzzle}{\maltese}
-\newcommand{\mynote}[1]{ {\color{notecolour}\puzzle\ #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand*{\widebar}[1]{{\mkern1.5mu\skew{2}\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}}
 
 % \newcommand{\explanation}[4][t]{%\setlength{\tabcolsep}{-1ex}
 % %\smash{
 % \begin{tabular}[#1]{c}#2\\[0.5\jot]\rule{1pt}{#3}\\#4\end{tabular}}%}
-% \newcommand*{\ptext}[1]{\text{\small #1}}
+% \newcommand*{\ptext}[1]{\text{\small #1}}% for propositions
 %\DeclareMathOperator*{\argsup}{arg\,sup}
-% \newcommand*{\dob}{degree of belief}
-% \newcommand*{\dobs}{degrees of belief}
+%\newcommand*{\dob}{degree of belief}
+%\newcommand*{\dobs}{degrees of belief}
+%%% Custom macros end @@@
+
+\usepackage[retain-explicit-plus,quantity-product=\:]{siunitx}
+%\sisetup{input-digits = 0123456789\piup}
+
 
 % from https://tex.stackexchange.com/a/424252/97039
 \makeatletter
@@ -735,12 +971,12 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yR}{\mathte{Rie}}
 \newcommand*{\yRi}{\mathte{Ric}}
 \newcommand*{\ysc}{R}
-\newcommand*{\yTo}{\bm{\tau}}
-\newcommand*{\yom}{\bm{\omega}}
-\newcommand*{\yta}{\bm{\xi}}
-\newcommand*{\yv}{\bm{v}}
-\newcommand*{\yu}{\bm{u}}
-\newcommand*{\yw}{\bm{w}}
+\newcommand*{\yTo}{\xbm{\tau}}
+\newcommand*{\yom}{\xbm{\omega}}
+\newcommand*{\yta}{\xbm{\xi}}
+\newcommand*{\yv}{\xbm{v}}
+\newcommand*{\yu}{\xbm{u}}
+\newcommand*{\yw}{\xbm{w}}
 \renewcommand*{\i}{\indices}
 \newcommand*{\dex}[1][i]{\frac{\de}{\de x^{#1}}}
 \newcommand*{\dix}[1][i]{\di x^{#1}}
@@ -751,9 +987,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \newcommand*{\yC}{\dot{C}}
 \newcommand*{\yU}{\bm{U}}
 \newcommand*{\yUu}{\mkern2mu\underline{\mkern-2mu\yU\mkern-2mu}\mkern2mu}
-\newcommand*{\id}{\mathbf{id}}%id matrix
-\newcommand*{\ye}{\bm{e}}
-\newcommand*{\ygv}{\bm{\gamma}}
+\newcommand*{\id}{\mathte{id}}%id matrix
+\newcommand*{\ye}{\xbm{e}}
+\newcommand*{\ygv}{\xbm{\gamma}}
 \newcommand*{\ygu}{\overline{\ygv}}
 \newcommand*{\yk}{\kappa}
 \newcommand*{\snab}{\Bar{\nabla}}
@@ -789,18 +1025,18 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 %\newcommand*{\tf}{\ell}
 %%% Custom macros end @@@
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Beginning of document
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\firmlists
 \begin{document}
 \captiondelim{\quad}\captionnamefont{\footnotesize}\captiontitlefont{\footnotesize}
 \selectlanguage{british}\frenchspacing
 \maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Abstract
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \abstractrunin
 \abslabeldelim{}
 \renewcommand*{\abstractname}{}
@@ -834,10 +1070,10 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 \end{abstract}
 \selectlanguage{british}\frenchspacing
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Epigraph
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \asudedication{\small per la piccola Emma}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \asudedication{\small ***}
 % \vspace{\bigskipamount}
 % \setlength{\epigraphwidth}{.7\columnwidth}
 % %\epigraphposition{flushright}
@@ -851,9 +1087,9 @@ totalheight=\heightof{@}]{atblack.png}}\makeatother
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% BEGINNING OF MAIN TEXT
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % TODO:
 %
@@ -976,32 +1212,9 @@ introduced under the name \defquote{absolute dimension} by Schouten and Dorgelo 
 
 \medskip
 
-Here is a synopsis of the rest of this note. The intrinsic approach to
-differential geometry is outlined, with references, in the next section,
-together with some notation necessary to our discussion.
-Section~\ref{sec:2d_example} gives a simple example of dimensional analysis
-for a two-dimensional spacetime. This example might be enough for most
-readers to grasp the basic way of reasoning; such readers can work out the
-rest for themselves whenever they need and don't need to read the rest of
-this note. Sections~\ref{sec:coords}--\ref{sec:curves} offer a more
-systematic discussion and a synopsis of dimensional analysis for the main
-tensorial operations. The notion of intrinsic dimension is explained in
-\sect~\ref{sec:tensors}. The intrinsic dimensions of various curvature
-tensors, of the metric tensor, and of the stress-energy-momentum tensor are
-discussed in \sects~\ref{sec:connection}--\ref{sec:stressenergy}. In
-particular, the contravariant and thrice covariant Riemann, twice covariant
-Ricci, and twice covariant Einstein curvature tensors are found to have
-intrinsic dimension $\Un$, that is, to be dimensionless. The operational
-motivation of several standard choices for the dimensions of the metric and
-stress-energy-momentum tensors are also discussed. The possible dimensions
-of the constant in the Einstein equations are finally derived in
-\sect~\ref{sec:einstein_eq}.
+Here is a synopsis of the rest of this note. The intrinsic approach to differential geometry is outlined, with references, in the next section, together with some notation necessary to our discussion. Section~\ref{sec:2d_example} gives a simple example of dimensional analysis for a two-dimensional spacetime. This example might be enough for most readers to grasp the basic way of reasoning; such readers can work out the rest for themselves whenever they need and don't need to read the rest of this note. Sections~\ref{sec:coords}--\ref{sec:curves} offer a more systematic discussion and a synopsis of dimensional analysis for the main tensorial operations. The notion of intrinsic dimension is explained in \sect~\ref{sec:tensors}. The intrinsic dimensions of various curvature tensors, of the metric tensor, and of the stress-energy-momentum tensor are discussed in \sects~\ref{sec:connection}--\ref{sec:stressenergy}. In particular, the contravariant and thrice covariant Riemann, twice covariant Ricci, and twice covariant Einstein curvature tensors are found to have intrinsic dimension $\Un$, that is, to be dimensionless. The operational motivation of several standard choices for the dimensions of the metric and stress-energy-momentum tensors are also discussed. The possible dimensions of the constant in the Einstein equations are finally derived in \sect~\ref{sec:einstein_eq}.
 
-This note obviously assumes familiarity with basic tensor calculus and
-related notions, for example of co- and contra-variance, tensor product,
-contraction. Some passages assume familiarity with the exterior calculus of
-differential forms. The general ideas, however, should be understandable
-even without such familiarity.
+This note obviously assumes familiarity with basic tensor calculus and related notions, for example of co- and contra-variance, tensor product, contraction. Some passages assume familiarity with the exterior calculus of differential forms. The general ideas, however, should be understandable even without such familiarity.
 
 
 % Section~\ref{sec:tensors}--\ref{sec:curves}
@@ -1091,23 +1304,7 @@ Throughout this note $c$ denotes the speed of light, with
 $\dim(c) = \Le\Ti^{-1}$. Its numerical quantity value $\set{c}$ depends on
 the chosen units of length and time.
 
-The number, ordering, and symmetries of a tensor's covariant and
-contravariant \enquote{slots} \citep[\sect~3.2]{misneretal1970_r1973} will
-be important in our discussion. The traditional coordinate-free notation
-\mathquote{$\yA$} omits this information. We thus need a coordinate-free
-notation that makes it explicit when needed. Penrose \amp\ Rindler
-\citep[\sect~2.2]{penroseetal1984_r2003} propose an abstract-index notation
-where \mathquote{$A\i{_{i}^{jk}}$}, for example, denotes a tensor covariant
-in its first slot and contravariant in its second and third slots. Every
-index in this notation is \enquote{a \emph{label} whose sole purpose is to
-  keep track of the type of tensor under
-  discussion}~\citep[p.~75]{penroseetal1984_r2003}. So this notation
-doesn't stand for a \emph{component} of the tensor. For the latter, Penrose
-\amp\ Rindler use \textbf{bold} indices instead:
-\mathquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. But in our discussion the
-difference between a tensor and its set of components is crucial, and
-Penrose \amp\ Rindler's abstract-index notation unfortunately lends itself
-to conceptual and typographic misunderstanding.
+The number, ordering, and symmetries of a tensor's covariant and contravariant \enquote{slots} \citep[\sect~3.2]{misneretal1970_r1973} will be important in our discussion. The traditional coordinate-free notation \mathquote{$\yA$} omits this information. We thus need a coordinate-free notation that makes it explicit when needed. Penrose \amp\ Rindler \citep[\sect~2.2]{penroseetal1984_r2003} propose an abstract-index notation where \mathquote{$A\i{_{i}^{jk}}$}, for example, denotes a tensor covariant in its first slot and contravariant in its second and third slots. Every index in this notation is \enquote{a \emph{label} whose sole purpose is to keep track of the type of tensor under discussion}~\citep[p.~75]{penroseetal1984_r2003}. So this notation doesn't stand for a \emph{component} of the tensor. For the latter, Penrose \amp\ Rindler use \textbf{bold} indices instead: \mathquote{$A\i{_{\pmb{i}}^{\pmb{j}\pmb{k}}}$}. But in our discussion the difference between a tensor and its set of components is crucial, and Penrose \amp\ Rindler's abstract-index notation unfortunately lends itself to conceptual and typographic misunderstanding.
 
 I shall therefore use a notation such as $\yA\i{_{\q}^{\q\q}}$ to indicate
 that $\yA$ is covariant in its first slot and contravariant in its second
@@ -1141,15 +1338,15 @@ following notation:
   \begin{equation}
     \label{eq:def_transp}
     (\yA^{\intercal_{\alpha\beta}})(\dotso,
-    \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{\bm{\zeta}}
+    \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{\xbm{\zeta}}
     ,\dotso,
-    \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\bm{\eta}}
+    \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\xbm{\eta}}
     ,\dotso)
     \defd
     \yA(\dotso,
-    \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{\bm{\eta}}
+    \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{\xbm{\eta}}
     ,\dotso,
-    \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\bm{\zeta}}
+    \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\xbm{\zeta}}
     ,\dotso)
   \end{equation}
   for all $\bm{\zeta},\bm{\eta}$ of appropriate variance type.
@@ -1165,14 +1362,14 @@ following notation:
         ,\dotso)
         \defd
         \sum_{i} \yA(\dotso,
-        \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{\bm{u}_{i}}
+        \overset{\mathclap{\scriptstyle\text{$\alpha$th slot}}}{\xbm{u}_{i}}
         ,\dotso,
-        \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\bm{\omega}^{i}}
+        \underset{\mathclap{\scriptstyle\text{$\beta$th slot}}}{\xbm{\omega}^{i}}
         ,\dotso)
       \\
       \parbox{0.9\columnwidth}{\small for any arbitrary complete and
-        linearly independent sets \;$\set{\bm{u}_{i}}$,
-        $\set{\bm{\omega}^{j}}$\\
+        linearly independent sets \;$\set{\xbm{u}_{i}}$,
+        $\set{\xbm{\omega}^{j}}$\\
         such that \;$\bm{\omega}^{j}(\bm{u}_{i}) = \delt\i{^{j}_{i}}$~.}
         % representation\; $\tsum_{i}
         % \bm{u}_{i}\otimes\bm{\omega}^{i} \equiv \id$\; of\\ the identity
@@ -2278,7 +2475,7 @@ discussions in \sects~\ref{sec:curves}, \ref{sec:g_intr_dim},
 \ref{sec:g_inv_vol} the condition that the curve's parameter should beat
 the proper time leads to two different normalization conditions for the
 \emph{4-velocity tangent vector} $\yU \equiv \yU\i{^{\q}} \defd \yC$,
-depending on the choice of dimension for the metric:
+depending on the choice of dimension for the metric:\citep[\eg][\sect~2 p.~1199]{maugin1978b}
 \begin{equation}
   \label{eq:proper_time_condition}
   \begin{aligned}
@@ -2289,10 +2486,7 @@ depending on the choice of dimension for the metric:
     &&\text{if }\dim(\yg) \defd \Ti^{2} \ ,
   \end{aligned}
 \end{equation}
-where $\pm 1$ is the sign of the time-time component of the metric.
-Either equation is dimensionless under its specific condition.
-Independently of normalization conditions the 4-velocity has intrinsic
-dimension $\dim(\yU\i{^{\q}}) = \Ti^{-1}$.
+where $\pm 1$ is the sign of the time-time component of the metric. Either equation is dimensionless under its specific condition. Independently of the normalization conditions above, the 4-velocity has intrinsic dimension $\dim(\yU\i{^{\q}}) = \Ti^{-1}$.
 
 Either condition leads to the same expression for the 4-velocity in a system of rectangular Cartesian coordinates $(t,x,y,z)$ with $\dim(t,x,y,z) = (\Ti,\Le,\Le,\Le)$, adapted to an inertial observer:
 \begin{equation}
@@ -2300,13 +2494,11 @@ Either condition leads to the same expression for the 4-velocity in a system of 
   \yU  = \yl \de_{t} + \yl V^{r} \de_{x^{r}} \ ,
   \qquad  \yl \defd 1/\sqrt{1- \yV^{2}/c^{2}}
 \end{equation}
-where $\yl$ is the (dimensionless) Lorentz contraction factor and $V^{r}$,
-$r \in \set{1,2,3}$, are the components of the \emph{coordinate} 3-velocity
-$\yV$.
+where $\yl$ is the (dimensionless) Lorentz contraction factor, and $V^{r}$ for $r \in \set{1,2,3}$ are the components of the \emph{coordinate} 3-velocity $\yV$.
 
-Care must be taken with the covariant 4-velocity $\yUu$ usually obtained by lowering the index of $\yU$. Under the choice $\dim(\yg) \defd \Le^{2}$, simply lowering the index would lead to an object with the peculiar dimensions $\Le^{2}\Ti^{-1}$. This suggests that some $c$ factors should be included in its definition. Possibly some $\pm$ sign should also be included, depending on the sign of the time-time component of the metric, if we want $\yU \otimes \yUu$ to act as an \emph{idempotent} projector onto the proper-time axis in $3+1$ formulations of general relativity.
+Care must be taken in defining a 4-velocity $\yUu$ with a covariant slot. One could be obtained by lowering the index of $\yU$; but under the common choice $\dim(\yg) \defd \Le^{2}$, this would lead to an object with the peculiar dimensions $\Le^{2}\Ti^{-1}$. This suggests that some $c$ factors should be included in the definition of $\yUu$. Possibly some $\pm$ sign should also be included depending on the sign of the time-time component of the metric, if we want $\yU \otimes \yUu$ to act as an \emph{idempotent} projector onto the proper-time axis in $3+1$ formulations of general relativity.
 
-I find it convenient to define the covariant 4-velocity as
+I find it convenient to define a 4-velocity of covariant character as
 \begin{equation}
   \label{eq:covariant_4velocity}
   \yUu \defd
@@ -2321,13 +2513,13 @@ I find it convenient to define the covariant 4-velocity as
 %where $\pm 1$ is again the sign of the time-time component of the metric.
 This definition has the following advantages:
 \begin{itemize}
-\item it has dimensions $\dim(\yUu) = \Ti$,
+\item it has dimensions $\dim(\yUu) = \Ti$;
 \item in rectangular Cartesian inertial coordinates it has the expression
 \begin{equation}
   \label{eq:cov_4-velocity_coords}
   \yUu  = \yl \di t - \sum_{r} \tfrac{1}{c^{2}} \yl V^{r} \di x^{r}
 \end{equation}
-independently of the dimensions and signature of the metric,
+independently of the dimensions and signature of the metric;
 \item $\yU \otimes \yUu$ is an idempotent projector onto the time axis,
 independently of the dimensions and signature of the metric, and also independently of whether $\yU$ is normalized.
 \end{itemize}
@@ -2342,7 +2534,7 @@ independently of the dimensions and signature of the metric, and also independen
 
 \medskip
 
-Alternatively we can stipulate \citep[\eg][\eqn~(5) p.~920]{eckart1940c} that when $\dim(\yg) \defd \Le^{2}$ the proper time is actually a \emph{length}: $\dim(\ytp) \defd \Le$. Then  $\dim(\yUu)^{-1} = \dim(\yU) = \Le^{-1}$, the $c^{2}$ factors in formula~\eqref{eq:proper_time_condition} above disappear, and the special coordinate expressions~\eqref{eq:4-velocity_coords} and \eqref{eq:cov_4-velocity_coords} acquire factors $1/c$ and $c$.
+Alternatively we can stipulate \citep[\eg][\eqn~(5) p.~920]{eckart1940c} that when $\dim(\yg) \defd \Le^{2}$ the proper time is actually a \emph{length}: $\dim(\ytp) \defd \Le$. Then $\dim(\yU) = \Le^{-1}$, $\dim(\yUu) = \Le$, the $c^{2}$ factors in formula~\eqref{eq:proper_time_condition} above disappear, and the special-coordinate expressions~\eqref{eq:4-velocity_coords} and \eqref{eq:cov_4-velocity_coords} acquire factors $1/c$ and $c$.
 
 
 
@@ -3548,22 +3740,35 @@ review by de~Boer \citep{deboer1995}, and references therein.
 %\end{figure}% exp_family_maxent.nb
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Acknowledgements
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{acknowledgements}
   \ldots to (chronologically) Mariano Cadoni, Ingemar Bengtsson, Iv\'an
   Davidovich, Claudia Battistin for valuable comments on previous drafts.
   To the staff of the NTNU library for their always prompt support. To
   Mari, Miri, Emma for continuous encouragement and affection, and to
   Buster Keaton and Saitama for filling life with awe and inspiration. To
-  the developers and maintainers of \LaTeX, Emacs, AUC\TeX, Open Science
-  Framework, R, Inkscape, Sci-Hub for making a free and impartial
+  the developers and maintainers of
+  \LaTeX,
+  Emacs,
+  AUC\TeX,
+  Inkscape,
+  Libgen
+  LibreOffice,
+  Octave,
+  Open Science Framework,
+  % Python,
+  R,
+  Sci-Hub,
+  Zenodo
+  for making a free and impartial
   scientific exchange possible. %\mbox{}\hfill\autanet
 
   Note: this paper was rejected by arXiv without any kind of scientific
   justification. %It's sad and alarming that the possibility of pre-print  feedback is curtailed like that.
-  
+
   This work was financially supported initially by the Kavli Foundation and the
   Centre of Excellence scheme of the Research Council of Norway (Roudi
   group), then by the Trond Mohn Research Foundation, grant number BFS2018TMT07.
@@ -3571,18 +3776,19 @@ review by de~Boer \citep{deboer1995}, and references therein.
 %\sourceatright{\autanet}
 \end{acknowledgements}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Appendices
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\clearpage
+\bigskip
 % %\renewcommand*{\appendixpagename}{Appendix}
 % %\renewcommand*{\appendixname}{Appendix}
 % %\appendixpage
 % \appendix
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand*{\finalnamedelim}{\addcomma\space}
 \defbibnote{prenote}{{\footnotesize (\enquote{de $X$} is listed under D,
     \enquote{van $X$} under V, and so on, regardless of national
@@ -3595,9 +3801,10 @@ review by de~Boer \citep{deboer1995}, and references therein.
 
 \end{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Cut text (won't be compiled)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 %%% Local Variables: 

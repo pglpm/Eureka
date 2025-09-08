@@ -1,7 +1,8 @@
 \pdfoutput=1
+\pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2025-09-08T10:35:22+0200
+%% Last-Updated: 2025-09-08T14:19:30+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -340,17 +341,18 @@ british%
 % \DeclareMathSymbol{\varphiup}{\mathalpha}{egreekr}{"27}
 
 
-\usepackage[scaled=0.841473]%
-{DejaVuSansCondensed}% sans-serif font
+% 0.95: capitals same height
+% 0.85: lowercase approx same height
+% geom. mean: 0.89861
+\usepackage[scaled=0.89861]{DejaVuSansMono}% typewriter text
+\usepackage[scaled=0.89861]{DejaVuSansCondensed}% sans-serif font
 % \renewcommand\sfdefault{URWClassico-TLF}
 \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
 \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
-\newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
+\newcommand*{\mathte}[1]{\bm{\mathsf{#1}}}
 % Upright sans-serif math alphabet
 % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
 % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
-
-\usepackage[scaled=0.841473]{DejaVuSansMono}% typewriter text
 
 \usepackage{mathdots}
 
@@ -479,11 +481,15 @@ OSF \doi{10.17605/osf.io/#1}%
 \PassOptionsToPackage{hyphens}{url}\usepackage[hypertexnames=false,pdfencoding=unicode,psdextra]{hyperref}
 
 \usepackage{pdfrender}
-% \newcommand*{\textxbf}[1]{\textpdfrender{TextRenderingMode=2,LineWidth=0.3pt}{\textbf{#1}}}
-\renewcommand*{\bm}[1]{\textpdfrender{TextRenderingMode=2,LineWidth=0.1pt}{\boldsymbol{#1}}}
+%\newcommand*{\textxbf}[1]{\textpdfrender{TextRenderingMode=2,LineWidth=0.3pt}{\textbf{#1}}}
+\newcommand*{\xbm}[1]{\textpdfrender{TextRenderingMode=2,LineWidth=0.1pt}{\boldsymbol{#1}}}
 
 \usepackage[depth=4]{bookmark}
-\hypersetup{colorlinks=true,bookmarksnumbered,pdfborder={0 0 0.25},citebordercolor={0.2667 0.4667 0.6667},citecolor=bluepurple,linkbordercolor={0.6667 0.2 0.4667},linkcolor=redpurple,urlbordercolor={0.1333 0.5333 0.2},urlcolor=green,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
+\hypersetup{%
+colorlinks=true,
+%pdfborderstyle={/S/U/W 0.5},
+bookmarksnumbered,pdfborder={0 0 0.25},
+citebordercolor=blue,citecolor=blue,linkbordercolor=blue,linkcolor=blue,urlbordercolor=blue,urlcolor=blue,breaklinks=true,pdftitle={\pdftitle},pdfauthor={\pdfauthor}}
 % \usepackage[vertfit=local]{breakurl}% only for arXiv
 \providecommand*{\urlalt}{\href}
 
@@ -908,7 +914,7 @@ Western Norway University of Applied Sciences%
 % % \newcommand*{\ti}[1][\scriptstyle\sim]{\tw[#1]{\di}}
 % % \newcommand*{\te}[1][\scriptstyle\sim]{\tw[#1]{\de}}
 % \newcommand*{\da}{^{\dagger}}
-\newcommand*{\ddi}{\bm{\di}}
+\newcommand*{\ddi}{\xbm{\di}}
 
 \newcommand*{\se}[1]{\de_{#1}}
 \newcommand*{\sse}[1]{\de^{2}_{#1}}
@@ -942,31 +948,31 @@ Western Norway University of Applied Sciences%
 \newcommand*{\tttti}[1]{\di^{4}\varOmega_{#1}}
 %
 \newcommand*{\yg}{\mathte{g}}
-\newcommand*{\ygg}[1][]{\overset{#1}{\bm{g}}{}}
+\newcommand*{\ygg}[1][]{\overset{#1}{\xbm{g}}{}}
 \newcommand*{\dg}{\sqrt{g}}
 \DeclarePairedDelimiter\nor{\lVert}{\rVert}
 \newcommand*{\ve}{\tfrac{\bm{\sqrt{g}}}{c}}
 \newcommand*{\vi}{\tfrac{c}{\bm{\sqrt{g}}}}
 % \newcommand*{\vi}{\bar{\mathcal{G}}}
 %
-\newcommand*{\yN}{\bm{\mathcal{N}}}
-\newcommand*{\yQ}{\bm{\mathcal{Q}}}
+\newcommand*{\yN}{\xbm{\mathcal{N}}}
+\newcommand*{\yQ}{\xbm{\mathcal{Q}}}
 \newcommand*{\yP}{\bm{P}}
 \newcommand*{\yH}{\bm{\varPhi}}
 \newcommand*{\yS}{\mathte{S}}
-\newcommand*{\yTT}{\bm{\mathcal{T}}}
+\newcommand*{\yTT}{\xbm{\mathcal{T}}}
 \newcommand*{\yT}{\mathcal{T}}
 \newcommand*{\ye}{e}
-\newcommand*{\yt}{\bm{\tau}}
+\newcommand*{\yt}{\xbm{\tau}}
 \newcommand*{\yU}{\bm{U}}
 \newcommand*{\yUd}{\bar{\bm{U}}}
 \newcommand*{\yV}{\bm{V}}
-\newcommand*{\yu}{\bm{u}}
-\newcommand*{\yv}{\bm{v}}
-\newcommand*{\yo}{\bm{\omega}}
-\newcommand*{\yh}{\bm{\eta}}
-\newcommand*{\yphi}{\bm{\phi}}
-\newcommand*{\ypsi}{\bm{\psi}}
+\newcommand*{\yu}{\xbm{u}}
+\newcommand*{\yv}{\xbm{v}}
+\newcommand*{\yo}{\xbm{\omega}}
+\newcommand*{\yh}{\xbm{\eta}}
+\newcommand*{\yphi}{\xbm{\phi}}
+\newcommand*{\ypsi}{\xbm{\psi}}
 \newcommand*{\yJ}{\bm{J}}
 
 \newcommand*{\yW}{W}

@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2025-08-27T08:10:02+0200
+%% Last-Updated: 2025-09-08T10:35:22+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -340,9 +340,9 @@ british%
 % \DeclareMathSymbol{\varphiup}{\mathalpha}{egreekr}{"27}
 
 
-% \usepackage%[scaled=0.9]%
-% {classico}%  Optima as sans-serif font
-\usepackage{classico} % \renewcommand\sfdefault{URWClassico-TLF}
+\usepackage[scaled=0.841473]%
+{DejaVuSansCondensed}% sans-serif font
+% \renewcommand\sfdefault{URWClassico-TLF}
 \DeclareMathAlphabet{\mathsf}  {T1}{\sfdefault}{m}{sl}
 \SetMathAlphabet{\mathsf}{bold}{T1}{\sfdefault}{b}{sl}
 \newcommand*{\mathte}[1]{\textbf{\textit{\textsf{#1}}}}
@@ -350,8 +350,7 @@ british%
 % \DeclareMathAlphabet{\mathsu}  {T1}{\sfdefault}{m}{n}
 % \SetMathAlphabet{\mathsu}{bold}{T1}{\sfdefault}{b}{n}
 
-% DejaVu Mono as typewriter text
-\usepackage[scaled=0.84]{DejaVuSansMono}
+\usepackage[scaled=0.841473]{DejaVuSansMono}% typewriter text
 
 \usepackage{mathdots}
 
@@ -445,29 +444,30 @@ citestyle=authoryear-comp,bibstyle=pglpm_latex/pglpm-authoryear,autopunct=false,
 \do\/{\mbox{\UrlFont/}\hskip 0pt plus 10pt}%
 }
 \makeatother
-\newcommand*{\arxiveprint}[1]{%
-arXiv \doi{10.48550/arXiv.#1}%
-}
-\newcommand*{\mparceprint}[1]{%
-\href{http://www.ma.utexas.edu/mp_arc-bin/mpa?yn=#1}{mp_arc:\allowbreak\nolinkurl{#1}}%
-}
-\newcommand*{\haleprint}[1]{%
-\href{https://hal.archives-ouvertes.fr/#1}{\textsc{hal}:\allowbreak\nolinkurl{#1}}%
-}
-\newcommand*{\philscieprint}[1]{%
-\href{http://philsci-archive.pitt.edu/archive/#1}{PhilSci:\allowbreak\nolinkurl{#1}}%
-}
+
 \newcommand*{\doi}[1]{%
-\href{https://doi.org/#1}{\textsc{doi}:\allowbreak\nolinkurl{#1}}%
+\href{https://doi.org/#1}{doi:\allowbreak\nolinkurl{#1}}%
 }
-\newcommand*{\biorxiveprint}[1]{%
-bioRxiv \doi{10.1101/#1}%
+\newcommand*{\osfdoi}[1]{%
+OSF \doi{#1}% 10.31219/osf.io/
 }
-\newcommand*{\osfeprint}[1]{%
-Open Science Framework \doi{10.31219/osf.io/#1}%
+\newcommand*{\arxivdoi}[1]{%
+arXiv \doi{#1}% 10.48550/arXiv.
+}
+\newcommand*{\biorxivdoi}[1]{%
+bioRxiv \doi{#1}% 10.1101/
+}
+\newcommand*{\halurl}[1]{%
+HAL \url{#1}% https://hal.science/
+}
+\newcommand*{\philsciurl}[1]{%
+PhilSci \url{#1}% https://philsci-archive.pitt.edu/id/eprint/
+}
+\newcommand*{\mparcurl}[1]{%
+mp\_arc \url{#1}% https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=
 }
 \newcommand*{\osfproj}[1]{%
-Open Science Framework \doi{10.17605/osf.io/#1}%
+OSF \doi{10.17605/osf.io/#1}%
 }
 
 \usepackage{graphicx}

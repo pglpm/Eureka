@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2025-09-08T22:24:19+0200
+%% Last-Updated: 2025-09-09T14:00:30+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -448,9 +448,9 @@ autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnam
 \newcommand*{\amp}{\&}
 % \newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
 % }
-\newcommand*{\citein}[2][]{\textnormal{\protect\cite[#1]{#2}}%\addtocategory{extras}{#2}
+\newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
 }
-\newcommand*{\citebi}[2][]{\cite[#1]{#2}%\addtocategory{extras}{#2}
+\newcommand*{\citebi}[2][]{\textcite[#1]{#2}%\addtocategory{extras}{#2}
 }
 \newcommand*{\subtitleproc}[1]{}
 \newcommand*{\chapb}{ch.}
@@ -473,6 +473,9 @@ autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnam
 
 \newcommand*{\doi}[1]{%
 \href{https://doi.org/#1}{doi:\allowbreak\nolinkurl{#1}}%
+}
+\newcommand*{\zenododoi}[1]{%
+Zenodo \doi{#1}% 10.31219/osf.io/
 }
 \newcommand*{\osfdoi}[1]{%
 OSF \doi{#1}% 10.31219/osf.io/

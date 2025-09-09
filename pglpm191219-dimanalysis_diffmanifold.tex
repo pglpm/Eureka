@@ -1,7 +1,7 @@
 \pdfoutput=1
 %% Author: PGL  Porta Mana
 %% Created: 2019-12-15T00:46:38+0100
-%% Last-Updated: 2025-09-09T14:00:30+0200
+%% Last-Updated: 2025-09-09T22:02:58+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -37,7 +37,7 @@ british%
 \newcommand*{\headtitle}{Dimensional analysis, relativity, manifolds}
 \newcommand*{\pdfauthor}{P.G.L.  Porta Mana}
 \newcommand*{\headauthor}{Porta Mana}
-\newcommand*{\reporthead}{\ifarxiv\else Open Science Framework \href{https://doi.org/10.31219/osf.io/jmqnu}{\textsc{doi}:10.31219/osf.io/jmqnu}\fi}% Report number
+\newcommand*{\reporthead}{\ifarxiv\else\zenododoi{10.5281/zenodo.17085675}\fi}% Report number
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Calls to packages (uncomment as needed)
@@ -406,7 +406,7 @@ british%
 \usepackage[backend=biber,mcite,%subentry,
 citestyle=authoryear-comp,bibstyle=pglpm_latex/pglpm-authoryear,dashed=false,%
 %bibstyle=apa,%
-autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false,autocite=footnote]{biblatex}
+autopunct=false,sorting=ny,sortcites=false,natbib=false,mincitenames=2,maxcitenames=2,maxbibnames=8,minbibnames=8,giveninits=true,uniquename=false,uniquelist=false,maxalphanames=1,block=space,hyperref=true,defernumbers=false,useprefix=true,sortupper=false,language=british,parentracker=false,autocite=footnote]{biblatex}
 \DeclareSortingTemplate{ny}{\sort{\field{sortname}\field{author}\field{editor}}\sort{\field{year}}}
 \DeclareFieldFormat{postnote}{#1}
 \iffalse\makeatletter%%% replace parenthesis with brackets
@@ -448,10 +448,12 @@ autopunct=false,sorting=ny,sortcites=false,natbib=false,maxcitenames=2,maxbibnam
 \newcommand*{\amp}{\&}
 % \newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
 % }
-\newcommand*{\citein}[2][]{\textnormal{\textcite[#1]{#2}}%\addtocategory{extras}{#2}
+\makeatletter
+\newcommand*{\citein}[2][]{\textnormal{\togglefalse{blx@bibliography}\blx@initunit\cite[#1]{#2}}%\addtocategory{extras}{#2}
 }
-\newcommand*{\citebi}[2][]{\textcite[#1]{#2}%\addtocategory{extras}{#2}
+\newcommand*{\citebi}[2][]{\togglefalse{blx@bibliography}\blx@initunit\cite[#1]{#2}%\addtocategory{extras}{#2}
 }
+\makeatother
 \newcommand*{\subtitleproc}[1]{}
 \newcommand*{\chapb}{ch.}
 
@@ -1047,22 +1049,7 @@ Western Norway University of Applied Sciences%
 \setlength{\absrightindent}{0pt}
 \setlength{\abstitleskip}{-\absparindent}
 \begin{abstract}\labelsep 0pt%
-  \noindent This note provides a short guide to dimensional analysis in
-  Lorentzian and general relativity and in differential geometry. It tries
-  to revive Dorgelo and Schouten's notion of \defquote{intrinsic} or
-  \defquote{absolute} dimension of a tensorial quantity. The intrinsic
-  dimension is independent of the dimensions of the coordinates and
-  expresses the physical and operational meaning of a tensor. The
-  dimensional analysis of several important tensors and tensor operations
-  is summarized. In particular it is shown that the components of a tensor
-  need not have all the same dimension, and that the Riemann (once
-  contravariant and thrice covariant), Ricci (twice covariant), and
-  Einstein (twice covariant) curvature tensors are dimensionless. The
-  relation between dimension and operational meaning for the metric and
-  stress-energy-momentum tensors is discussed; and the possible conventions
-  for the dimensions of these two tensors and of Einstein's constant $\yk$,
-  including the curious possibility $\yk = 8\pu G$ without $c$ factors, are
-  reviewed.
+  \noindent This note provides a short guide to dimensional analysis in Lorentzian and general relativity and in differential geometry. It tries to revive Dorgelo and Schouten's notion of \defquote{intrinsic} or \defquote{absolute} dimension of a tensorial quantity. The intrinsic dimension is independent of the dimensions of the coordinates and expresses the physical and operational meaning of a tensor. The dimensional analysis of several important tensors and tensor operations is summarized. In particular it is shown that the components of a tensor need not have all the same dimension, and that the Riemann (once contravariant and thrice covariant), Ricci (twice covariant), and Einstein (twice covariant) curvature tensors are dimensionless. The relation between dimension and operational meaning for the metric and stress-energy-momentum tensors is discussed; and the possible conventions for the dimensions of these two tensors and of Einstein's constant $\yk$, including the curious possibility $\yk = 8\pu G$ without $c$ factors, are reviewed.
   % \\\noindent\emph{\footnotesize Note: Dear Reader \amp\ Peer,
   %   this manuscript is being peer-reviewed by you. Thank you.}
 % \par%\\[\jot]

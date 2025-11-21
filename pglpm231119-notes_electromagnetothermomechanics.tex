@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2025-10-18T11:32:55+0200
+%% Last-Updated: 2025-11-21T22:46:15+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -530,7 +530,7 @@ citebordercolor=blue,citecolor=blue,linkbordercolor=blue,linkcolor=blue,urlborde
 % The length of the normalsize alphabet is 191.60612pt - 14pt = 35.8634pc
 \ifafour\settypeblocksize{*}{32pc}{1.618} % A4
 %\setulmargins{*}{*}{1.667}%gives 5/3 margins % 2 or 1.667
-\else\settypeblocksize{*}{26pc}{1.618}% nearer to a 66-line newpx and preserves GR
+\else\settypeblocksize{*}{26.1408pc}{1.618}% nearer to a 66-line newpx and preserves GR
 \fi
 \setulmargins{*}{*}{1}%gives equal margins
 \setlrmargins{*}{*}{*}
@@ -981,6 +981,7 @@ Western Norway University of Applied Sciences%
 
 \newcommand*{\yF}{\mathte{F}}
 \newcommand*{\yG}{\mathte{G}}
+\newcommand*{\yD}{\bm{\varDelta}}
 \newcommand*{\yE}{\bm{E}}
 \newcommand*{\yB}{\mathte{B}}
 
@@ -1825,7 +1826,16 @@ This is a \emph{conservation} law if $\yV$ is a Killing vector, that is, if it s
 
 \medskip
 
-Some examples. For $\yV=\se{\alpha}$ the formula above becomes, thanks to equations~\eqref{eq:d_3cov} and~\eqref{eq:d_3ext1cov},
+Some examples:
+
+In index notation, with $\yV = V^{\nu}\se{\nu}$, the balance~\eqref{eq:balance_VT_current} becomes
+\begin{equation}
+  \label{eq:balance_VT_current_index}
+    \de_{\mu}\bigl( \yT\i{^{\mu}_{\nu}} V^{\nu} \bigr)
+    = \yT\i{^{\mu}_{\nu}}\, V\i{^{\nu}_{;\mu}} \ .
+\end{equation}
+
+For $\yV=\se{\alpha}$ the formula above becomes, thanks to equations~\eqref{eq:d_3cov} and~\eqref{eq:d_3ext1cov},
 \begin{equation}
   \label{eq:balance_VT_current_coord}
   \begin{gathered}
@@ -2412,12 +2422,12 @@ Here are the matrix representations of several operations. Consider these object
 \item Similarly for $\yv\i{^{\q}}$.
 \item $\yo\i{_{\q}}$ is a 1-covector, represented by the row-matrix $\yo$.
 \item Similarly for $\yh\i{_{\q}}$.
-\item $\yF\i{_{\q\q}}$ is a 2-covector, represented by the matrix $\yF$.
+\item $\yF\i{_{\mul{\q\q}}}$ is a 2-covector, represented by the matrix $\yF$.
 \item $\yG\i{_{\q\q}}$ is a twisted 2-covector, represented by the matrix $\yG$.
 \item $\yg\i{_{\q\q}}$ is a covector-valued covector, represented by the matrix $\yg$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
 \item ${\yg^{-1}}\i{^{\q\q}}$ is a vector-valued vector, inverse of $\yg$, that is: $\yg\cdot\yg^{1} = \id\i{_{\q}^{\q}}$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
 
-\item $\yN\i{_{\mul{\q\q\q}}}$ is an twisted 3-covector, represented by the column-matrix $\yN$.
+\item $\yN\i{_{\mul{\q\q\q}}}$ is a twisted 3-covector, represented by the column-matrix $\yN$.
 
 \item $\yTT\i{_{\mul{\q\q\q}\q}}$ is a covector-valued 3-covector, represented by the matrix $\yTT$. The rows represent the 3-covector components; the columns, the covector components.
 \item $\ve\i{_{\mul{\q\q\q\q}}}$ is a 4-covector, represented by the number $\dg/c$.
@@ -2433,6 +2443,19 @@ Then -- note that the order on the right side is important:
   \begin{align}
     &\text{\small(object)}
     &&\text{\small(matrix repr)}
+    \\[\jot]
+    &\yu\i{^{\q}},\ \yN\i{_{\mul{\q\q\q}}}
+    &&\yu,\ \yN
+    \quad\text{(column-matrix)}
+    \\
+    &\yo\i{_{\q}}
+    &&\yo
+    \quad\text{(row-matrix)}
+    \\
+    &\yg\i{_{\q\q}},\ \yF\i{_{\mul{\q\q}}},\ \yTT\i{_{\mul{\q\q\q}\q}},\
+    \yD\i{_{\q}^{\q}}
+    &&\yg,\ \yF,\ \yTT,\ \yD
+    \quad\text{(matrix)}
     \\[\jot]
     &\yo \cdot \yu
     &&\yo\yu \equiv \yu\T\yo\T
@@ -2466,9 +2489,13 @@ Then -- note that the order on the right side is important:
     &&\yN c/\dg
     \quad\text{(column-matrix)}
     \\
-    &\yu\cdot\yN
+    &\yu\cdot\yN \equiv \yN \cdot \yu
     &&\yu\yN\T - \yN\yu\T
     \quad\text{(matrix)}
+    \\
+    &\yo \land \yN \equiv -\yN \land \yo
+    &&\yo \yN
+    \quad\text{(number)}
     \\
     &\yo\land\yG
     &&(\yo\yG)\T
@@ -2481,6 +2508,10 @@ Then -- note that the order on the right side is important:
     &\yTT\cdot\yu
     &&\yTT\yu
     \quad\text{(column-matrix)}
+    \\
+    &\yTT\dand\yD
+    &&-\tr(\yTT\yD\T) \equiv - \tr(\yTT\T\yD)
+    \quad\text{(number)}
     \\
     &\yg\cdot(\vi\cdot\yTT)\cdot\yu
     &&\yg\yTT\yu c/\dg

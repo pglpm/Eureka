@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2025-11-21T22:46:15+0100
+%% Last-Updated: 2025-11-22T06:29:49+0100
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1771,16 +1771,26 @@ And the tensor equation
 \begin{gather}
   \label{eq:4stress_symm}
   \ovalbox{$
-    \bigl(\vi\cdot\yTT\cdot\yg^{-1}\bigr)\T = \vi\cdot\yTT\cdot\yg^{-1}
+    \Bigl(\vi\cdot\yTT\cdot\yg^{-1}\Bigr)\T = \vi\cdot\yTT\cdot\yg^{-1}
     $}
     \\
     \shortintertext{which is equivalent to the component equations}
     \label{eq:4stress_symm_comps}
     \yT\i{^{\nu}_{\alpha}}\, g\i{^{\alpha\mu}} =
-    \yT\i{^{\mu}_{\alpha}}\, g\i{^{\alpha\nu}} \ .
+    \yT\i{^{\mu}_{\alpha}}\, g\i{^{\alpha\nu}}
+    \\
+    \shortintertext{or}
+    \label{eq:4stress_symm_explicitcomps}
+    \begin{aligned}
+      \ye\, g\i{^{ti}} + p_{k}\, g\i{^{ki}} &=
+      q^{i}\, g\i{^{tt}} + \pi\i{^{i}_{k}}\, g\i{^{kt}}
+      \\
+      q^{i}\, g\i{^{tj}} + \pi\i{^{i}_{k}}\, g\i{^{kj}} &=
+      q^{j}\, g\i{^{ti}} + \pi\i{^{j}_{k}}\, g\i{^{ki}} \ .
+\end{aligned}
 \end{gather}
 
-These two equations can be re-expressed in several ways, which we now discuss.
+The two main equations above can be re-expressed in several ways, which we now discuss.
 
 \section{Balance laws from the four-stress}
 \label{sec:balancelaws}

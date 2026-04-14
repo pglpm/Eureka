@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2026-04-14T20:41:33+0200
+%% Last-Updated: 2026-04-14T22:31:20+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -922,11 +922,13 @@ Western Norway University of Applied Sciences%
 % \newcommand*{\da}{^{\dagger}}
 \newcommand*{\ddi}{\xbm{\di}}
 
+% %% straight vectors
 \newcommand*{\se}[1]{\de_{#1}}
 \newcommand*{\sse}[1]{\de^{2}_{#1}}
 \newcommand*{\ssse}[1]{\de^{3}_{#1}}
 \newcommand*{\sssse}[1]{\de^{4}_{#1}}
 %
+% %% straight covectors
 \newcommand*{\si}[1]{\di{#1}}
 \newcommand*{\ssi}[1]{\di^{2}{#1}}
 \newcommand*{\sssi}[1]{\di^{3}{#1}}
@@ -943,11 +945,17 @@ Western Norway University of Applied Sciences%
 % \newcommand*{\tttti}[1]{\smash[b]{\underset{\raisebox{1ex}{$\sim$}}{\di}}^{4}_{#1}}
 %
 \newcommand*{\tw}[1]{\tilde{#1}}
-\newcommand*{\te}[1]{\de{#1}}
-\newcommand*{\tte}[1]{\de^{2}{#1}}
-\newcommand*{\ttte}[1]{\de^{3}{#1}}
-\newcommand*{\tttte}[1]{\de^{4}{#1}}
+% %% twisted vectors
+\newcommand*{\te}[1]{\de L^{#1}}
+\newcommand*{\tte}[1]{\de^{2}S^{#1}}
+\newcommand*{\ttte}[1]{\de^{3}V^{#1}}
+\newcommand*{\tttte}[1]{\de^{4}\varOmega^{#1}}
+% \newcommand*{\te}[1]{\de{#1}}
+% \newcommand*{\tte}[1]{\de^{2}{#1}}
+% \newcommand*{\ttte}[1]{\de^{3}{#1}}
+% \newcommand*{\tttte}[1]{\de^{4}{#1}}
 %
+% %% twisted covectors
 \newcommand*{\ti}[1]{\di L_{#1}}
 \newcommand*{\tti}[1]{\di^{2}S_{#1}}
 \newcommand*{\ttti}[1]{\di^{3}V_{#1}}
@@ -1259,7 +1267,8 @@ In 3D space we can consider a small area \emph{which only exists at a given time
 
 If the area element in the example above has area $a_{x}$, expressed in units of the coordinates $y$ and $z$, then the area element with the $xt$ orientation is
 \begin{equation*}
-  a_{x}\, \tte{xt} \equiv a_{x}\, \sse{-\tw{y}z} \equiv - a_{x}\, \sse{\tw{y}z} \ ,
+  a_{x}\, \tte{xt} \equiv a_{x}\, \sse{-\tw{y}z}
+  \equiv - a_{x}\, \sse{\tw{y}z} \ ,
 \end{equation*}
 whereas the one with the $tx$ orientation is
 \begin{equation*}
@@ -1320,7 +1329,7 @@ The resulting timelike surface is
   \begin{aligned}
     \bm{L}\land\bm{V} &=
     \tau\,(l^{i}\,\sse{x^{i}t} +
-    \tsum_{i}\epsilon_{ijk}l^{j}\,v^{k}\,\,\sse{x^{j}x^{k}})
+    \tsum_{i}\epsilon_{ijk}\,l^{j}\,v^{k}\,\sse{x^{j}x^{k}})
     \\ &\equiv
     \tau\,\bigl[
     l^{x}\,\sse{xt} + l^{y}\,\sse{yt} + l^{z}\,\sse{zt} +{}

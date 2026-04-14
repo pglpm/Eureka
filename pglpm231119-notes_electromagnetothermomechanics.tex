@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2025-11-23T09:13:14+0100
+%% Last-Updated: 2026-04-14T20:41:33+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1255,7 +1255,7 @@ As another example,
 \subsection{Moving area elements in spacetime}
 \label{sec:moving_area_elements}
 
-In 3D space we can consider a small area \emph{which only exists at a given time $t$}, and with a crossing orientation; for instance a small area parallel to the $y, z$ coordinates, with a positive-$x$ crossing orientation. From a spacetime viewpoint we must also consider a temporal direction for this \enquote{crossing} orientation of the area. In a manner of speaking we have two choices: cross the surface in the positive-$x$ direction, then \enquote{move forward} in time, in the positive-$t$ direction; or move forward in time, then cross the surface. The first represents an $xt$ orientation; the second a $tx$ orientation.
+In 3D space we can consider a small area \emph{which only exists at a given time $t$}, and with a crossing orientation; for instance a small area parallel to the $yz$ coordinates, with a positive-$x$ crossing orientation. From a spacetime viewpoint we must also consider a temporal direction for this \enquote{crossing} orientation of the area. In a manner of speaking we have two choices: either cross the surface in the positive-$x$ direction, then \enquote{move forward} in time in the positive-$t$ direction; or move forward in time, then cross the surface. The first represents an $xt$ orientation; the second a $tx$ orientation.
 
 If the area element in the example above has area $a_{x}$, expressed in units of the coordinates $y$ and $z$, then the area element with the $xt$ orientation is
 \begin{equation*}
@@ -1272,22 +1272,65 @@ Take the generic area element
 \begin{equation}
   \label{eq:area_element}
     \bm{A} \defd a_{i}\, \tte{x^{i}t}
-    \equiv a_{x}\,\tte{} + a_{y}\,\tte{yt} + a_{z}\,\tte{zt}
+    \equiv a_{x}\,\tte{xt} + a_{y}\,\tte{yt} + a_{z}\,\tte{zt}
 \end{equation}
 and displace it by the timelike vector
 \begin{equation}
   \label{eq:timelike_displacement}
-  \bm{V} \defd \delta_{t}\, (\se{t} + v^{i}\se{x^{i}})
-  \equiv \delta_{t}\se{t}
-  + \delta_{t}\,v^{x}\se{x} + \delta_{t}\,v^{y}\se{y} + \delta_{t}\,v^{z}\se{z}
+  \bm{V} \defd \tau\, (\se{t} + v^{i}\se{x^{i}})
+  \equiv \tau\se{t}
+  + \tau\,v^{x}\se{x} + \tau\,v^{y}\se{y} + \tau\,v^{z}\se{z}
 \end{equation}
-which represent a motion with coordinate velocity $v^{i}$ for a time lapse $\delta_{t}$.
-The resulting timelike volume is
+which represents a motion with coordinate velocity $v^{i}$ for a time lapse $\tau$. The resulting timelike volume is
 \begin{equation}
   \label{eq:timelike_volume}
   \bm{A}\land\bm{V} =
-  \delta_{t}\,(-a_{i}\,v^{i}\,\ttte{t} + a_{i}\,\ttte{x^{i}}) \ .
+  \tau\,(-a_{i}\,v^{i}\,\ttte{t} + a_{i}\,\ttte{x^{i}}) \ .
 \end{equation}
+
+
+\subsection{Moving line elements in spacetime}
+\label{sec:moving_line_elements}
+
+In 3D space we can consider a small line \emph{which only exists at a given time $t$}, and with an inner orientation; for instance a small line parallel to the $z$ coordinate, with an positive-$z$ orientation.
+
+If the line element has length $l^{z}$, expressed in units of the coordinate $z$, then it is given by
+\begin{equation*}
+  l^{z}\, \se{z} \ .
+\end{equation*}
+
+A line element which \emph{persists for a time lapse}, and which therefore has a motion with respect to the coordinate system (including rest as a special case), is a timelike 2D-surface from a spacetime viewpoint. For it we can choose two possible orientations: either move along the line in the positive-$z$ direction, then \enquote{move forward} in time in the positive-$t$ direction; or move forward in time, then move forward in the $z$ direction. The first orientation is $zt$, the second $tz$.
+
+Take the generic line element
+\begin{equation}
+  \label{eq:line_element}
+    \bm{L} \defd l^{i}\, \se{x^{i}}
+    \equiv l^{x}\,\se{x} + l^{y}\,\se{y} + l^{z}\,\se{z}
+\end{equation}
+and displace it, as in the previous section, by the timelike vector
+\begin{equation}
+  \labelbis{eq:timelike_displacement}
+  \bm{V} \defd \tau\, (\se{t} + v^{i}\se{x^{i}})
+  \equiv \tau\se{t}
+  + \tau\,v^{x}\se{x} + \tau\,v^{y}\se{y} + \tau\,v^{z}\se{z}
+\end{equation}
+The resulting timelike surface is
+\begin{equation}
+  \label{eq:timelike_surface}
+  \begin{aligned}
+    \bm{L}\land\bm{V} &=
+    \tau\,(l^{i}\,\sse{x^{i}t} +
+    \tsum_{i}\epsilon_{ijk}l^{j}\,v^{k}\,\,\sse{x^{j}x^{k}})
+    \\ &\equiv
+    \tau\,\bigl[
+    l^{x}\,\sse{xt} + l^{y}\,\sse{yt} + l^{z}\,\sse{zt} +{}
+\\&\qquad\qquad    (l^{y}\,v^{z} - l^{z}\,v^{y})\,\sse{yz} + {}
+\\&\qquad\qquad    (l^{z}\,v^{x} - l^{x}\,v^{z})\,\sse{zx} + {}
+\\&\qquad\qquad    (l^{x}\,v^{y} - l^{y}\,v^{x})\,\sse{xy}
+    \bigl] \ .
+  \end{aligned}
+\end{equation}
+
 
 \section{Linear transformations of multivector bases}
 \label{sec:lintransf_multiv}
@@ -1542,8 +1585,8 @@ The flux of matter through a small area moving with coordinate velocity $v^{i}$,
     \yN \cdot (\bm{A}\land\bm{V})
     &\equiv
     (N\,\ttti{t} + J^{i}\,\ttti{x^{i}}) \cdot
-    \delta_{t}\,(-a_{i}\,v^{i}\,\ttte{t} + a_{i}\,\ttte{x^{i}})
-    \\ &= (- N a_{i}\,v^{i} + J^{i}\,a_{i}) \,\delta_{t} \,.
+    \tau\,(-a_{i}\,v^{i}\,\ttte{t} + a_{i}\,\ttte{x^{i}})
+    \\ &= (- N a_{i}\,v^{i} + J^{i}\,a_{i}) \,\tau \,.
   \end{aligned}
 \end{equation}
 The negative sign in front of the first summand makes sense. Take for instance a $yz$ area with velocity in in the positive-$x$ direction. Then there's matter passing from its positive-$x$ side of to its negative-$x$ side, that is, a negative-$x$ flux of matter.
@@ -1623,7 +1666,7 @@ The electromagnetic field, represented by the Faraday 2-covector, is typically d
 \end{equation}
 Where $\yE$ is a 1-covector and $\yB$ a 2-covector. Given a system of
 coordinates, this decomposition is unique. Neither the 2-covector $\yB$ or
-the 1-covector $\yE$ have any have $\si{t}$ components, that is, they don't have
+the 1-covector $\yE$ have any $\si{t}$ components, that is, they have the vector
 $\se{t}$ in their kernels.
 
 
@@ -2021,7 +2064,7 @@ which, from \eqns~\eqref{eq:balance_VT_current}, \eqref{eq:U_dual}, \eqref{eq:co
   -\yN\,\nabla\yU \cdot \yP
   -(\yUd\,\yS)\cdot\nabla\yU \ .
 \end{gather}
-The last balance equation corresponds to \eqn~(28) in \textcites{eckart1940c}, except for the fact that here we are keeping the momentum $\yP$ and heat flux $\yH$ distinct.
+The last balance equation corresponds to \eqn~III.(28) in \textcites{eckart1940}, except for the fact that here we are keeping the momentum $\yP$ and heat flux $\yH$ distinct.
 
 When $\yP$, $\yS$, $\yH$ are zero, one speaks of the four-stress of \enquote{dust}. It is noteworthy that in this case the four-stress is essentially proportional to the matter 3-covector, multiplied by a vector collinear with the matter four-velocity:
 \begin{equation}
@@ -2176,7 +2219,7 @@ The net flow of matter through a moving area element, that is, through a timelik
 \begin{equation}
   \label{eq:matter_flow_GCRS}
   \yN \cdot (\bm{A}\land\bm{V}) =
-  \delta_{t}\, (  - N\,a_{i}\,v^{i} + J^{i} \,a_{i} ) \ .
+  \tau\, (  - N\,a_{i}\,v^{i} + J^{i} \,a_{i} ) \ .
 \end{equation}
 This flow is zero if the area element is moving with velocity $v^{i} = U^{i}\defd J^{i}/N$; this is what defines a \enquote{velocity of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
 

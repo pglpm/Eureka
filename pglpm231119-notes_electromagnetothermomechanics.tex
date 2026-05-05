@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2026-04-15T13:51:39+0200
+%% Last-Updated: 2026-05-06T00:24:06+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -2480,7 +2480,7 @@ Column-vectors, row-vectors, and matrices are useful to encode the components of
 \item[3-vectors] represented by row-matrices
 \item[3-covectors] represented by column-matrices
 \end{description}
-objects such as metrics, covector-valued 3-covectors, tensor products of 1-vector and 1-covector, and similar must be represented by matrices.
+objects such as metrics, 2-vectors, 2-covectors, covector-valued 3-covectors, tensor products of 1-vector and 1-covector, and similar, must be represented by matrices.
 
 Here are the matrix representations of several operations. Consider these objects:
 \begin{itemize}
@@ -2488,10 +2488,10 @@ Here are the matrix representations of several operations. Consider these object
 \item Similarly for $\yv\i{^{\q}}$.
 \item $\yo\i{_{\q}}$ is a 1-covector, represented by the row-matrix $\yo$.
 \item Similarly for $\yh\i{_{\q}}$.
-\item $\yF\i{_{\mul{\q\q}}}$ is a 2-covector, represented by the matrix $\yF$.
-\item $\yG\i{_{\q\q}}$ is a twisted 2-covector, represented by the matrix $\yG$.
+\item $\yF\i{_{\mul{\q\q}}}$ is a 2-covector, represented by the antisymmetric matrix $\yF$.
+\item $\yG\i{_{\mul{\q\q}}}$ is a twisted 2-covector, represented by the antisymmetric matrix $\yG$.
 \item $\yg\i{_{\q\q}}$ is a covector-valued covector, represented by the matrix $\yg$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
-\item ${\yg^{-1}}\i{^{\q\q}}$ is a vector-valued vector, inverse of $\yg$, that is: $\yg\cdot\yg^{1} = \id\i{_{\q}^{\q}}$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
+\item ${\yg^{-1}}\i{^{\q\q}}$ is a vector-valued vector, inverse of $\yg$, that is: $\yg\cdot\yg^{-1} = \id\i{_{\q}^{\q}}$. The rows of the matrix represent the left side of the tensor product; and the columns, the right side.
 
 \item $\yN\i{_{\mul{\q\q\q}}}$ is a twisted 3-covector, represented by the column-matrix $\yN$.
 
@@ -2503,90 +2503,93 @@ Here are the matrix representations of several operations. Consider these object
 \item The inverse-Jacobian matrix $\frac{\de x}{\de x'}$ from new coordinates $x'$ to old coordinates $x'$ is represented by the matrix $\yJ^{-1}$. The rows correspond to the old coordinates $x$; the columns, to the new $x'$.
 \end{itemize}
 
-Then -- note that the order on the right side is important:
+Then we have the following correspondence; note that the order on the right side is important:
 \begin{itemize}
 \item Contractions, wedge product, index raising and lowering
+  \begin{subequations}
   \begin{align}
     &\text{\small(object)}
-    &&\text{\small(matrix repr)}
+    &&\text{\small(matrix repr)}\notag
     \\[\jot]
     &\yu\i{^{\q}},\ \yN\i{_{\mul{\q\q\q}}}
     &&\yu,\ \yN
-    \quad\text{(column-matrix)}
+    \quad\text{\footnotesize(column-matrix)}
     \\
     &\yo\i{_{\q}}
     &&\yo
-    \quad\text{(row-matrix)}
+    \quad\text{\footnotesize(row-matrix)}
     \\
     &\yg\i{_{\q\q}},\ \yF\i{_{\mul{\q\q}}},\ \yTT\i{_{\mul{\q\q\q}\q}},\
     \yD\i{_{\q}^{\q}}
     &&\yg,\ \yF,\ \yTT,\ \yD
-    \quad\text{(matrix)}
+    \quad\text{\footnotesize(matrix)}
     \\[\jot]
     &\yo \cdot \yu
     &&\yo\yu \equiv \yu\T\yo\T
-    \quad\text{(number)}
+    \quad\text{\footnotesize(number)}
     \\
     &\yv\cdot\yg\cdot\yu
     &&\yv\T\yg\yu
-    \quad\text{(number)}
+    \quad\text{\footnotesize(number)}
     \\
     &\yg\cdot\yu
     &&\yu\T\yg\T
-    \quad\text{(row-matrix)}
+    \quad\text{\footnotesize(row-matrix)}
     \\
     &\yo\land\yh
     &&\yo\T\yh - \yh\T\yo
-    \quad\text{(matrix)}
+    \quad\text{\footnotesize(matrix)}
     \\
     &\yu\cdot\yF
     &&\yu\T\yF
-    \quad\text{(row-matrix)}
+    \quad\text{\footnotesize(row-matrix)}
     \\
     &\yF\cdot\yv
     &&(\yF\yv)\T
-    \quad\text{(row-matrix)}
+    \quad\text{\footnotesize(row-matrix)}
     \\
     &\yo\cdot\yg^{-1}
     &&\yg\iT\yo\T
-    \quad\text{(column-matrix)}
+    \quad\text{\footnotesize(column-matrix)}
     \\
     &\vi\cdot\yN
     &&\yN c/\dg
-    \quad\text{(column-matrix)}
+    \quad\text{\footnotesize(column-matrix)}
     \\
     &\yu\cdot\yN \equiv \yN \cdot \yu
     &&\yu\yN\T - \yN\yu\T
-    \quad\text{(matrix)}
+    \quad\text{\footnotesize(matrix)}
     \\
     &\yo \land \yN \equiv -\yN \land \yo
     &&\yo \yN
-    \quad\text{(number)}
+    \quad\text{\footnotesize(number)}
     \\
     &\yo\land\yG
     &&(\yo\yG)\T
-    \quad\text{(column-matrix)}
+    \quad\text{\footnotesize(column-matrix)}
     \\
     &\vi\cdot\yTT
     &&\yTT\ c/\dg
-    \quad\text{(matrix)}
+    \quad\text{\footnotesize(matrix)}
     \\
     &\yTT\cdot\yu
     &&\yTT\yu
-    \quad\text{(column-matrix)}
+    \quad\text{\footnotesize(column-matrix)}
     \\
     &\yTT\dand\yD
     &&-\tr(\yTT\yD\T) \equiv - \tr(\yTT\T\yD)
-    \quad\text{(number)}
+    \quad\text{\footnotesize(number)}
     \\
     &\yg\cdot(\vi\cdot\yTT)\cdot\yu
     &&\yg\yTT\yu c/\dg
-    \quad\text{(matrix)}
+    \quad\text{\footnotesize(matrix)}
   \end{align}
+  \end{subequations}
 
 \item Transformations
+  \begin{subequations}
   \begin{align}
-    \text{\small(old coords)} &\quad\mapsto\quad\text{\small(new coords)}
+    \text{\small(old coords)} &\quad\mapsto\quad\text{\small(new coords)}\notag
     \\[\jot]
     \yu &\quad\mapsto\quad \yJ\yu
     \\
@@ -2602,6 +2605,7 @@ Then -- note that the order on the right side is important:
     \\
     \yTT &\quad\mapsto\quad \frac{1}{\det\yJ}\ \yJ\yTT\yJ^{-1}
   \end{align}
+  \end{subequations}
 
 \end{itemize}
 \section{Checks about optimal representation of four-stress}

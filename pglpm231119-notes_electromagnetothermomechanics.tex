@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2026-05-06T16:28:40+0200
+%% Last-Updated: 2026-05-06T22:16:39+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1265,7 +1265,7 @@ As another example,
 
 In 3D space we can consider a small area \emph{which only exists at a given time $t$}, and with a crossing orientation; for instance a small area parallel to the $yz$ coordinates, with a positive-$x$ crossing orientation. From a spacetime viewpoint we must also consider a temporal direction for this \enquote{crossing} orientation of the area. In a manner of speaking we have two choices: either cross the surface in the positive-$x$ direction, then \enquote{move forward} in time in the positive-$t$ direction; or move forward in time, then cross the surface. The first represents an $xt$ orientation; the second a $tx$ orientation.
 
-If the area element in the example above has area $a_{x}$, expressed in units of the coordinates $y$ and $z$, then the area element with the $xt$ orientation is
+If the area element in the example above has area $a_{x}$, measured in the extents of the coordinates $y$ and $z$, then the area element with the $xt$ orientation is
 \begin{equation*}
   a_{x}\, \tte{xt} \equiv a_{x}\, \sse{-\tw{y}z}
   \equiv - a_{x}\, \sse{\tw{y}z} \ ,
@@ -1303,7 +1303,7 @@ which represents a motion with \emph{coordinate velocity} $v^{i}$ for a duration
 
 In 3D space we can consider a small line \emph{which only exists at a given time $t$}, and with an inner orientation; for instance a small line parallel to the $z$ coordinate, with an positive-$z$ orientation.
 
-If the line element has length $l^{z}$, expressed in units of the coordinate $z$, then it is given by
+If the line element has length $l^{z}$, measured in the extent of the coordinate $z$, then it is given by
 \begin{equation*}
   l^{z}\, \se{z} \ .
 \end{equation*}
@@ -1547,8 +1547,8 @@ The amount-of-matter current $\yN$ is an outer-oriented 3-covector
 \end{equation}
 of dimensions \enquote{amount of matter}, typically measured in moles, where
 \begin{itemize}
-\item $N$ is the volumic amount of matter, measured per unit coordinate volume.
-\item $J^{i}$ is the areic flux of amount of matter (equivalent to a molar flux) through a small area at rest in the coordinate system $(t, x^{i})$, measured per unit coordinate area and unit coordinate time.
+\item $N$ is the volumic amount of matter per coordinate volume.
+\item $J^{i}$ is the areic flux of amount of matter (equivalent to a molar flux) through a small area at rest in the coordinate system $(t, x^{i})$, per coordinate area and per coordinate time.
 \end{itemize}
 
 The current for every particular kind of matter satisfies the conservation law
@@ -1620,8 +1620,8 @@ The electric-charge current $\yQ$ is an outer-oriented 3-covector
 \end{equation}
 of dimensions \enquote{charge}, typically measured in coulombs, where
 \begin{itemize}
-\item $Q$ is the volumic charge, measured per unit coordinate volume.
-\item $I^{i}$ is the areic flux of charge through a small area at rest in the coordinate system $(t, x^{i})$, measured per unit coordinate area and unit coordinate time.
+\item $Q$ is the volumic charge per coordinate volume.
+\item $I^{i}$ is the areic flux of charge through a small area at rest in the coordinate system $(t, x^{i})$, per coordinate area and coordinate time.
 \end{itemize}
 
 The electric-charge current satisfies the conservation law
@@ -1748,10 +1748,10 @@ The energy-momentum tensor, or simply four-stress, is a covector-valued 3-covect
 \end{equation}
 the indices $i,j$ running over $x,y,z$, and where:
 \begin{itemize}
-\item The energy $\ye$ is a density per unit \emph{coordinate} volume $xyz$, and possibly includes a conversion factor for the time unit. If the point at which the four-stress is considered has a matter-current, then this energy comprises \enquote{rest} energy, kinetic energy, potential gravitational energy, and centrifugal potential energy.
+\item The energy $\ye$ is a density per \emph{coordinate} volume $xyz$, and possibly includes a conversion factor for the time unit. If the point at which the four-stress is considered has a matter-current, then this energy comprises \enquote{rest} energy, kinetic energy, potential gravitational energy, and centrifugal potential energy.
 \item The energy flux $q^{j}$ is an energy per coordinate area and coordinate time, and possibly includes a conversion factor for the time unit. If the point at which the four-stress is considered has a matter-current, then this flux term includes transport of the energy term above and also heat flux.
-\item The momentum $p_{i}$ is a momentum density per unit coordinate volume, and includes a conversion factor for the length $x^{i}$.
-\item The compressive three-stress $\pi\i{^{i}_{j}}$ are forces per unit coordinate area, possibly including conversion factors for the time unit and the length $x^{j}$.  If the point at which the four-stress is considered has a matter-current, then this stress comprises momentum transport and internal stresses.
+\item The momentum $p_{i}$ is a momentum density per coordinate volume, and includes a conversion factor for the length $x^{i}$.
+\item The compressive three-stress $\pi\i{^{i}_{j}}$ are forces per coordinate area, possibly including conversion factors for the time unit and the length $x^{j}$.  If the point at which the four-stress is considered has a matter-current, then this stress comprises momentum transport and internal stresses.
 \end{itemize}
 
 Suppose the coordinates $txyz$ are orthogonal and the metric at a point has diagonal components
@@ -2233,7 +2233,7 @@ The net flow of matter through a moving area element, that is, through a timelik
   \yN \cdot (\bm{A}\land\bm{V}) =
   \tau\, (  - N\,a_{i}\,v^{i} + J^{i} \,a_{i} ) \ .
 \end{equation}
-This flow is zero if the area element is moving with coordinate velocity $v^{i} = U^{i}\defd J^{i}/N$; this is what defines a coordinate velocity \enquote{of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
+This flow is zero if the area element is moving with coordinate velocity $v^{i} = u^{i} \defd J^{i}/N$; this is what defines a coordinate velocity \enquote{of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
 
 \emph{Note that the equations above are exact in full general relativity as well as in the Newtonian approximation. This happens because we're working with tensor densities.}
 
@@ -2250,37 +2250,37 @@ The four-velocity of matter normalized to $-c^{2}$ is given by
   \label{eq:4velocity_matter_normalized}
   \yU =
   \begin{bmatrix}
-    1 + \frac{1}{c^{2}}\bigl(\tfrac12 U^{2} + \yW\bigr) + \Oc{4} \ , &
-    U^{i} + \frac{1}{c^{2}}U^{i}\,\bigl(\tfrac12 U^{2} + \yW\bigr) + \Oc{4}
+    1 + \frac{1}{c^{2}}\bigl(\tfrac12 u^{2} + \yW\bigr) + \Oc{4} \ , &
+    u^{i} + \frac{1}{c^{2}}u^{i}\,\bigl(\tfrac12 u^{2} + \yW\bigr) + \Oc{4}
   \end{bmatrix} \ .
 \end{equation}
 
 \subsection{Four-stress for matter}
 \label{sec:GCRS_fourstress}
 
-Using the decompositions~\eqref{eq:decomp_T} and~\eqref{eq:4stress_matter}, and defining $U_{i}\defd U^{i}$, the energy-momentum tensor for matter is \autocites[\cf][\sect\,8.1.2, where it is assumed that there's no heat flux and that the 3-stress is isotropic]{poissonetal2014}
+Using the decompositions~\eqref{eq:decomp_T} and~\eqref{eq:4stress_matter}, and defining $u_{i}\defd u^{i}$, the energy-momentum tensor for matter is \autocites[\cf][\sect\,8.1.2, where it is assumed that there's no heat flux and that the 3-stress is isotropic]{poissonetal2014}
 \begin{equation}
   \label{eq:fourstress_matter_GCRS}
   \begin{aligned}
     \yT\i{^{t}_{t}} &=
-    - N\rho c^{2} -N\,(\epsilon + \tfrac12 \rho U^{2} - \rho\yW) + \Oc{2}
+    - N\rho c^{2} -N\,(\epsilon + \tfrac12 \rho u^{2} - \rho\yW) + \Oc{2}
     \\
     \yT\i{^{i}_{t}} &=
-    -  N\rho U^{i}\, c^{2} -
-    [N\,(\epsilon + \tfrac12\rho U^{2} -\rho\yW)\,U^{i} +
-    q^{i} + \pi\i{^{i}_{k}}\,U^{k}] + \Oc{2}
+    -  N\rho u^{i}\, c^{2} -
+    [N\,(\epsilon + \tfrac12\rho u^{2} -\rho\yW)\,u^{i} +
+    q^{i} + \pi\i{^{i}_{k}}\,u^{k}] + \Oc{2}
     \\[\jot]
     \yT\i{^{t}_{j}} &=
-    N\rho U^{j} + \frac{1}{c^{2}} [
-    N\,(\epsilon + \tfrac12 \rho U^{2} + 3\rho\yW)\,U_{j} +
-    p_{j} + U_{k}\,\pi\i{^{k}_{j}} ] + \Oc{4}
+    N\rho u^{j} + \frac{1}{c^{2}} [
+    N\,(\epsilon + \tfrac12 \rho u^{2} + 3\rho\yW)\,u_{j} +
+    p_{j} + u_{k}\,\pi\i{^{k}_{j}} ] + \Oc{4}
     \\
     \yT\i{^{i}_{j}} &=
     \!\begin{multlined}[t][0.8\linewidth]
-      \pi\i{^{i}_{j}} + N\rho \,U^{i}\,U_{j} + {}\\
+      \pi\i{^{i}_{j}} + N\rho \,u^{i}\,u_{j} + {}\\
       \frac{1}{c^{2}} [
-      N\,(\epsilon + \tfrac12 \rho U^{2} + 3\rho\yW)\,U^{i}\,U_{j} +
-      U^{i}\,p_{j} + q^{i}\,U_{j}] + \Oc{4}
+      N\,(\epsilon + \tfrac12 \rho u^{2} + 3\rho\yW)\,u^{i}\,u_{j} +
+      u^{i}\,p_{j} + q^{i}\,u_{j}] + \Oc{4}
     \end{multlined}
   \end{aligned}
 \end{equation}
@@ -2295,13 +2295,13 @@ Define the energy current with respect to the vector $-\se{t}$, as discussed in 
   \label{eq:energy_matter_GCRS}
   \begin{aligned}
     \ye &=
-    N\rho c^{2} + N\,(\epsilon + \tfrac12 \rho U^{2} - \rho\yW) + \Oc{2}
+    N\rho c^{2} + N\,(\epsilon + \tfrac12 \rho u^{2} - \rho\yW) + \Oc{2}
     \\
     \phi &=
     \!\begin{multlined}[t][0.8\linewidth]
-      a_{k}\,(U^{k}-v^{k})\,N\rho c^{2} +{}\\
-      a_{k}\,(U^{k}-v^{k})\,N\,(\epsilon + \tfrac12 \rho U^{2} - \rho\yW) +
-      a_{k}\,q^{k} + a_{k}\,\pi\i{^{k}_{j}}\,U^{j} +
+      a_{k}\,(u^{k}-v^{k})\,N\rho c^{2} +{}\\
+      a_{k}\,(u^{k}-v^{k})\,N\,(\epsilon + \tfrac12 \rho u^{2} - \rho\yW) +
+      a_{k}\,q^{k} + a_{k}\,\pi\i{^{k}_{j}}\,u^{j} +
       \Oc{2}
     \end{multlined}
     \\
@@ -2314,14 +2314,14 @@ Define the $x^{a}$-momentum current with respect to the vector $\se{x^{a}}$. The
   \label{eq:momentum_matter_GCRS}
   \begin{aligned}
     p_{a} &=
-    N\rho U^{a} + \frac{1}{c^{2}} [
-    q^{a} + \pi\i{^{a}_{j}}\,U^{j} +
-    N\,(\epsilon + \tfrac12 \rho U^{2} + 3\rho\yW)\, U^{a}
+    N\rho u^{a} + \frac{1}{c^{2}} [
+    q^{a} + \pi\i{^{a}_{j}}\,u^{j} +
+    N\,(\epsilon + \tfrac12 \rho u^{2} + 3\rho\yW)\, u^{a}
     ] + \Oc{4}
     \\
     f_{a} &=
     \!\begin{multlined}[t][0.8\linewidth]
-      a_{k}\,(U^{k}-v^{k})\,U_{a}\,N\rho + a_{j}\,\pi\i{^{j}_{a}} +
+      a_{k}\,(u^{k}-v^{k})\,u_{a}\,N\rho + a_{j}\,\pi\i{^{j}_{a}} +
       \Oc{2}
     \end{multlined}
     \\
@@ -2334,13 +2334,13 @@ Define the $x^{a}x^{b}$-angular momentum current as in \sect~\ref{sec:balancelaw
   \label{eq:ang_momentum_matter_GCRS}
   \begin{aligned}
     l^{ab} &=
-    N\rho\, (x^{a}\,U^{b} - x^{b}\,U^{a}) + \Oc{2}
+    N\rho\, (x^{a}\,u^{b} - x^{b}\,u^{a}) + \Oc{2}
     \\
     &\equiv x^{a}\,p_{b} - x^{b}\,p_{a} + \Oc{2}
     \\[\jot]
     \tau^{ab} &=
     \!\begin{multlined}[t][0.8\linewidth]
-      a_{k}\,(U^{k}-v^{k}) \, (x^{a}\,U^{b} - x^{b}\,U^{a})\,N\rho +
+      a_{k}\,(u^{k}-v^{k}) \, (x^{a}\,u^{b} - x^{b}\,u^{a})\,N\rho +
       x^{a}\,a_{k}\,\pi\i{^{k}_{b}} - x^{b}\,a_{k}\,\pi\i{^{k}_{a}} +
       \Oc{2}
     \end{multlined}
@@ -2357,13 +2357,13 @@ Finally define the $x^{a}$-boost momentum current as in \sect~\ref{sec:balancela
 \begin{equation}
   \label{eq:boost_momentum_matter_GCRS}
   \begin{aligned}
-    \text{\small content}&= N\rho\, (t\,U^{a} - x^{a}) + \Oc{2}
+    \text{\small content}&= N\rho\, (t\,u^{a} - x^{a}) + \Oc{2}
     \\
     &\equiv t\,p_{a} - x^{a}\,e/c^{2} + \Oc{2}
     \\[\jot]
     \text{\small flux}&=
     \!\begin{multlined}[t][0.8\linewidth]
-      a_{k}\,(U^{k}-v^{k}) \, (t\,U^{a} - x^{a}) \,N\rho +
+      a_{k}\,(u^{k}-v^{k}) \, (t\,u^{a} - x^{a}) \,N\rho +
       t\,a_{k}\,\pi\i{^{k}_{a}}  + \Oc{2}
     \end{multlined}
     \\

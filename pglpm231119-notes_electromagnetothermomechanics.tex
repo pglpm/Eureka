@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2026-05-06T14:15:17+0200
+%% Last-Updated: 2026-05-06T16:28:40+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1290,7 +1290,7 @@ and displace it by the timelike vector
   \equiv \tau\se{t}
   + \tau\,v^{x}\se{x} + \tau\,v^{y}\se{y} + \tau\,v^{z}\se{z}
 \end{equation}
-which represents a motion with coordinate velocity $v^{i}$ for a time lapse $\tau$. The resulting timelike volume is
+which represents a motion with \emph{coordinate velocity} $v^{i}$ for a duration of \emph{coordinate-time} lapse $\tau$. The resulting timelike volume is
 \begin{equation}
   \label{eq:timelike_volume}
   \bm{A}\land\bm{V} =
@@ -1323,7 +1323,7 @@ and displace it, as in the previous section, by the timelike vector
   \equiv \tau\se{t}
   + \tau\,v^{x}\se{x} + \tau\,v^{y}\se{y} + \tau\,v^{z}\se{z}
 \end{equation}
-The resulting timelike surface is
+representing a motion with coordinate velocity $v^{i}$ and coordinate-time duration $\tau$. The resulting timelike surface is
 \begin{equation}
   \label{eq:timelike_surface}
   \begin{aligned}
@@ -1571,18 +1571,22 @@ The common contravariant form of the matter current, \enquote{$N^{\mu}$}, is obt
 
 \medskip
 
-If a metric is present, a four-velocity $\yU$ can be associated with the matter current $\yN$, defined by the following properties and identity:
+If a metric is present, a four-velocity $\yU$ can be associated with the matter current $\yN$, whose squared norm is
+\begin{equation}
+  \nor{\yN}^{2} \defd \yN \cdot \ygg[3]^{-1} \cdot \yN
+\end{equation}
+and for normal matter (as opposed to antimatter) $\nor{\yN}^{2} \ge 0$.
+The four-velocity is defined by the following properties and identity:
 \begin{gather}
   \label{eq:prop_UN}
-  \yU \cdot \yN = 0 \qquad \nor{\yU}^{2} = -c^{2}
+  \yU \cdot \yN = 0 \qquad \yU\cdot\yg\cdot\yU = -c^{2}
   \\
   \label{eq:def_UN}
-  \yU = \frac{1}{\abs{\nor{\yN}}}\, \vi\cdot\yN
+  \yU = \frac{1}{\abs{\,\nor{\yN}\,}}\, \vi\cdot\yN
   \\
   \shortintertext{which also implies (for normal matter)}
-  \yN = \nor{\yN}\, \yU\cdot\ve
+  \yN = \nor{\yN}\, \yU\cdot\ve \ .
 \end{gather}
-For normal matter (as opposed to antimatter) $\nor{\yN}^{2} \ge 0$.
 
 
 \medskip
@@ -1598,7 +1602,7 @@ The flux of matter through a small area moving with coordinate velocity $v^{i}$,
     \\ &= (- N a_{i}\,v^{i} + J^{i}\,a_{i}) \,\tau \,.
   \end{aligned}
 \end{equation}
-The negative sign in front of the first summand makes sense. Take for instance a $yz$ area with velocity in in the positive-$x$ direction. Then there's matter passing from its positive-$x$ side of to its negative-$x$ side, that is, a negative-$x$ flux of matter.
+The negative sign in front of the first summand makes sense. Take for instance a $yz$ area with coordinate velocity in the positive-$x$ direction. Then there's matter passing from its positive-$x$ side of to its negative-$x$ side, that is, a negative-$x$ flux of matter.
 
 % \medskip
 % 
@@ -1956,9 +1960,9 @@ Sometimes the vector fields
 \end{equation}
 are used instead \autocites[for instance in][\sect~3.2 after \eqn~(3.2)]{hawkingetal1973_r1994}. This choice is recognized by expressions such as \enquote{$T\i{^{\mu}_{\nu;\mu}}$}, with the non-contracted index down.
 
-In typical coordinate systems (for instance, locally free-falling), the vector $\yg^{-1}\cdot\si{x^{i}}$ is the one that gives the traditional momentum in the Newtonian limit, which is zero in a coordinate system where a matter element is at rest. The vector $\se{x^{i}}$ instead yields additional terms related to the velocity of the frame with respect to another reference frame.
+In typical coordinate systems (for instance, locally free-falling), the vector $\yg^{-1}\cdot\si{x^{i}}$ is the one that gives the traditional momentum in the Newtonian limit, which is zero in a coordinate system where a matter element is at rest. The vector $\se{x^{i}}$ instead yields additional terms related to the coordinate velocity of the frame with respect to another reference frame.
 
-On the other hand, it is the vector $-c\se{t}/\abs{\nor{\se{t}}}$ (whose squared-norm is negative) which corresponds to the traditional total, \enquote{internal plus kinetic} energy in the Newtonian limit, where the \enquote{kinetic} part only involves the velocity of the matter element in the particular coordinates used.
+On the other hand, it is the vector $-c\se{t}/\abs{\nor{\se{t}}}$ (whose squared-norm is negative) which corresponds to the traditional total, \enquote{internal plus kinetic} energy in the Newtonian limit, where the \enquote{kinetic} part only involves the coordinate velocity of the matter element in the particular coordinates used.
 
 For the angular-boost-momentum, one choice of vector fields, corresponding to~\eqref{eq:four-momentum_up} is
 \begin{equation}
@@ -2229,9 +2233,9 @@ The net flow of matter through a moving area element, that is, through a timelik
   \yN \cdot (\bm{A}\land\bm{V}) =
   \tau\, (  - N\,a_{i}\,v^{i} + J^{i} \,a_{i} ) \ .
 \end{equation}
-This flow is zero if the area element is moving with velocity $v^{i} = U^{i}\defd J^{i}/N$; this is what defines a \enquote{velocity of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
+This flow is zero if the area element is moving with coordinate velocity $v^{i} = U^{i}\defd J^{i}/N$; this is what defines a coordinate velocity \enquote{of matter}. When represented as a normalized timelike 4-vector, this is the four-velocity $\yU$ discussed in \sect~\ref{sec:matter_current}.
 
-Note that the equations above are exact in full general relativity as well as in the Newtonian approximation. This happens because we're working with tensor densities.
+\emph{Note that the equations above are exact in full general relativity as well as in the Newtonian approximation. This happens because we're working with tensor densities.}
 
 The representation of matter current as a 1-vector is
 \begin{equation}

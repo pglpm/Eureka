@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2026-05-06T00:24:06+0200
+%% Last-Updated: 2026-05-06T14:15:17+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -2144,13 +2144,12 @@ For this reason $\ye$ is called the \enquote{proper internal energy}. If we take
 \subsection{Metric}
 \label{sec:GCRS_metric}
 
-Consider a coordinate system $(x^{\mu}) \equiv (t,x,y,z)$ like the Geocentric Celestial Reference System or the Barycentric Celestial Reference System \autocites{soffeletal2003,petitetal2005}[\sect\,8.1.1]{poissonetal2014}[see also][\sect\,2.3.1.1]{moyer2000}.
-
-Neglecting the timelike off-diagonal terms, the metric $\yg$ has components
-\begin{multline}
+Consider a coordinate system $(x^{\mu}) \equiv (t,x,y,z)$ like the Baricentric Celestial Reference System (BCRS), or the Geocentric Celestial Reference System GCRS), or the International Terrestrial Reference System (ITRS) \autocites{soffeletal2003,petitetal2005}[\sect\,8.1.1]{poissonetal2014}[see also][\sect\,2.3.1.1]{moyer2000}.
+Neglecting the timelike off-diagonal terms, the metric $\yg$ in such a coordinate system has components
+\begin{equation}
   \label{eq:metric_GCRS}
-  (g_{\mu\nu}) ={}\\
-  \begin{bmatrix}
+  (g_{\mu\nu}) =
+  \begin{bsmallmatrix}
     -c^{2} + 2 \yW + \Ord\bigl(\frac{1}{c^{2}}\bigr) &
     \Ord\bigl(\frac{1}{c^{3}}\bigr) &
     \Ord\bigl(\frac{1}{c^{3}}\bigr) &
@@ -2170,13 +2169,13 @@ Neglecting the timelike off-diagonal terms, the metric $\yg$ has components
     0 &
     0 &
     1 + \frac{2}{c^{2}} \yW + \Ord\bigl(\frac{1}{c^{4}}\bigr)
-  \end{bmatrix}
-\end{multline}
+  \end{bsmallmatrix}
+\end{equation}
 and its inverse $\yg^{-1}$ has components
-\begin{multline}
+\begin{equation}
   \label{eq:inv_metric_GCRS}
-  (g^{\mu\nu}) ={}\\
-  \begin{bmatrix}
+  (g^{\mu\nu}) =
+  \begin{bsmallmatrix}
     -\frac{1}{c^{2}} - \frac{2}{c^{4}} \yW + \Oc{6} &
     \Oc{3} &
     \Oc{3} &
@@ -2196,8 +2195,8 @@ and its inverse $\yg^{-1}$ has components
     0 &
     0 &
     1 - \frac{2}{c^{2}} \yW + \Oc{4}
-  \end{bmatrix}
-\end{multline}
+  \end{bsmallmatrix}
+\end{equation}
 where the gravitational potential $\yW$ generally depends on all coordinates.
 
 Near Earth we have
@@ -2205,7 +2204,7 @@ Near Earth we have
   \label{eq:grav_potential_GCRS}
   \yW = \frac{G M}{r}
 \end{equation}
-where $M$ is Earth's mass and $r=\sqrt{x^{2}+y^{2}+z^{2}}$ the distance from its centre. Close to the surface, choosing a coordinate system in which $z$ is vertical and pointing upward, we have $\yW\approx g\,(z_{0}-z)$.
+where $M$ is Earth's mass and $r=\sqrt{x^{2}+y^{2}+z^{2}}$ the distance from its centre. Close to the surface, choosing a coordinate system in which $z$ is vertical and pointing upward, we have $\yW\approx \yW_{0} - g z$.
 
 The volume element $\ve$ and its inverse are
 \begin{equation}
@@ -2439,7 +2438,7 @@ Combining \eqns~\eqref{eq:energy_matter_GCRS}, \eqref{eq:momentum_matter_GCRS}, 
 %\begin{wrapfigure}{r}{0.4\linewidth} % with wrapfigure
 %  \centering\includegraphics[trim={12ex 0 18ex 0},clip,width=\linewidth]{maxent_saddle.png}\\
 %\caption{caption}\label{fig:comparison_a5}
-%\end{figure}% exp_family_maxent.nb
+%\end{figure}%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

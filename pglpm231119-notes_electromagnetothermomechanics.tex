@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2026-05-22T10:42:47+0200
+%% Last-Updated: 2026-05-22T22:33:17+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1087,9 +1087,9 @@ The associated bases for inner-oriented covector fields are
   \\
   \label{eq:basis_3vec}
   \sssi{xyz}\quad
-  -\sssi{tyz}\quad
-  -\sssi{tzx}\quad
-  -\sssi{txy}
+  \sssi{tyz}\quad
+  \sssi{tzx}\quad
+  \sssi{txy}
   \\
   \label{eq:basis_4vec}
   \ssssi{txyz}
@@ -1099,7 +1099,7 @@ and analogously for inner-oriented vector fields. The particular choice of order
 
 The outer-oriented unit scalar is $\tw{1}$, with outer orientation $txyz$; note that it's only defined on a coordinate patch. It is idempotent: $\tw{1}\cdot\tw{1} =1$.
 
-A twisted or outer-oriented covector such as $\sssi{\tw{x}yz}$ has an associated \emph{outer} direction, in this case positive $t$. We can adopt the following alternative notation for the outer-oriented versions of the bases above (analogous to the notation in \cites{gotayetal1992} \sect\,2 p.~371); this notation emphasizes the actual orientation of the twisted covectors:
+A twisted or outer-oriented covector such as $\sssi{\tw{x}yz}$ has an associated \emph{outer} direction, in this case positive $t$. We can adopt the following alternative notation for the outer-oriented versions of the covectors above (analogous to the notation in \cites{gotayetal1992} \sect\,2 p.~371); this notation emphasizes the actual orientation of the twisted covectors:
 \begin{subequations}\label{eq:basis_twshort}
   \begin{gather}
     \label{eq:basis_1vec_twshort}
@@ -1118,22 +1118,22 @@ A twisted or outer-oriented covector such as $\sssi{\tw{x}yz}$ has an associated
     \\
     \label{eq:basis_3vec_twshort}
     \ttti{t}\quad
-    \ttti{x}\quad
-    \ttti{y}\quad
-    \ttti{z}
+    -\ttti{x}\quad
+    -\ttti{y}\quad
+    -\ttti{z}
     \\
     \label{eq:basis_4vec_twshort}
     \tttti{}
   \end{gather}
 \end{subequations}
-so that $-\ti{xyz} \defd \si{\tw{t}}$ and so on. Similar notation is used for outer-oriented multivector fields; for instance $-\te{xyz} \defd \se{\tw{t}}$.
+so that $-\ti{xyz} \defd \si{\tw{t}}$ and so on. Similar notation is used for outer-oriented multivector fields; for instance $-\te{xyz} \defd \se{\tw{t}}$. We can take the twisted covectors above, \emph{without the minus signs}, as bases.
 
 The twisted covectors above have the property
 \begin{equation}
   \label{eq:gives_volform}
   \begin{aligned}
     \tttti{} &=
-    \sssi{xyz} \land (-\ti{xyz}) = \sssi{tyz} \land \ti{tyz} = \dotsb
+    \sssi{xyz} \land \ti{xyz} = \sssi{tyz} \land \ti{tyz} = \dotsb
     \\[\jot]
     \tttti{} &=
     \ssi{yz} \land \tti{yz} = \ssi{zx} \land \tti{zx} = \dotsb
@@ -1148,16 +1148,17 @@ Here is an example of an outer-oriented 3-covector written in terms of the bases
 \begin{equation}
   \label{eq:examples_expansion}
   \begin{split}
-   &\quad n_{xyz}\,\sssi{\tw{x}yz}
-    -n_{tyz}\,\sssi{\tw{t}yz}
-    -n_{tzx}\,\sssi{\tw{t}zx}
-    -n_{txy}\,\sssi{\tw{t}xy}
-    \\[\jot]
-    &\equiv
+    &\quad
     n^{t}\,\ttti{t} +
     n^{x}\,\ttti{x} +
     n^{y}\,\ttti{y} +
     n^{z}\,\ttti{z}
+    \\[\jot]
+    &\equiv
+    n_{xyz}\,\sssi{\tw{x}yz}
+    -n_{tyz}\,\sssi{\tw{t}yz}
+    -n_{tzx}\,\sssi{\tw{t}zx}
+    -n_{txy}\,\sssi{\tw{t}xy}
     \\[2\jot]
     &\qquad\text{with }\ 
     n^{t} \equiv n_{xyz}\ ,\
@@ -1179,31 +1180,32 @@ Contraction or dot-product of vectors and covectors is denoted by \enquote*{\,$\
 \medskip
 
 Contractions with the 4-covector $\tttti{}$ and the 4-vector $\tttte{}$ establish a duality between inner $(4-n)$-vectors and outer $n$-covectors:
+\begin{subequations}
 \begin{equation}
   \label{eq:coord_volume_duality}
   \left.
     \begin{gathered}
-      \sssse{txyz}
+      1
       \\
-  \ssse{xyz}\enspace
-  \ssse{tyz}\enspace
-  \ssse{tzx}\enspace
-  \ssse{txy}
-  \\[\jot]
-  \sse{tx}\enspace
-  \sse{ty}\enspace
-  \sse{tz}
-  \\
-  \sse{yz}\enspace
-  \sse{zx}\enspace
-  \sse{xy}
-  \\
-  \se{t}\enspace
-  \se{x}\enspace
-  \se{y}\enspace
-  \se{z}
-  \\
-  1
+      \se{t}\enspace
+      \se{x}\enspace
+      \se{y}\enspace
+      \se{z}
+      \\[\jot]
+      \sse{tx}\enspace
+      \sse{ty}\enspace
+      \sse{tz}
+      \\
+      \sse{yz}\enspace
+      \sse{zx}\enspace
+      \sse{xy}
+      \\[\jot]
+      \ssse{xyz}\enspace
+      \ssse{tyz}\enspace
+      \ssse{tzx}\enspace
+      \ssse{txy}
+      \\
+      \sssse{txyz}
 \end{gathered}
 \right)\quad
 \begin{gathered}
@@ -1214,30 +1216,90 @@ Contractions with the 4-covector $\tttti{}$ and the 4-vector $\tttte{}$ establis
 \quad%\tfrac{c}{\dg}
 \left(
   \begin{gathered}
-    \tw{1}
+  \tttti{}
     \\
-  -\ti{xyz}\enspace
-  \ti{tyz}\enspace
-  \ti{tzx}\enspace
-  \ti{txy}
-  \\[\jot]
-  \tti{yz}\enspace
-  \tti{zx}\enspace
-  \tti{xy}
-  \\
-  \tti{tx}\enspace
-  \tti{ty}\enspace
-  \tti{tz}
-  \\
   \ttti{t}\enspace
   \ttti{x}\enspace
   \ttti{y}\enspace
   \ttti{z}
+  \\[\jot]
+  \tti{tx}\enspace
+  \tti{ty}\enspace
+  \tti{tz}
   \\
-  \tttti{}
+  \tti{yz}\enspace
+  \tti{zx}\enspace
+  \tti{xy}
+  \\[\jot]
+  \ti{xyz}\enspace
+  \ti{tyz}\enspace
+  \ti{tzx}\enspace
+  \ti{txy}
+  \\
+  \tw{1}
 \end{gathered}
 \right.
 \end{equation}
+\begin{equation}
+  \label{eq:coord_volume_duality}
+  \left.
+    \begin{gathered}
+      1
+      \\
+      \si{t}\enspace
+      \si{x}\enspace
+      \si{y}\enspace
+      \si{z}
+      \\[\jot]
+      \ssi{tx}\enspace
+      \ssi{ty}\enspace
+      \ssi{tz}
+      \\
+      \ssi{yz}\enspace
+      \ssi{zx}\enspace
+      \ssi{xy}
+      \\[\jot]
+      \sssi{xyz}\enspace
+      \sssi{tyz}\enspace
+      \sssi{tzx}\enspace
+      \sssi{txy}
+      \\
+      \ssssi{txyz}
+\end{gathered}
+\right)\quad
+\begin{gathered}
+  \xrightarrow{\qquad\mathclap{\textstyle{}\cdot\tttte{}}\qquad}
+  \\
+  \xleftarrow{\qquad\mathclap{\textstyle\tttti{}\cdot{}}\qquad}
+\end{gathered}
+\quad%\tfrac{c}{\dg}
+\left(
+  \begin{gathered}
+  \tttte{}
+    \\
+  \ttte{t}\enspace
+  \ttte{x}\enspace
+  \ttte{y}\enspace
+  \ttte{z}
+  \\[\jot]
+  \tte{tx}\enspace
+  \tte{ty}\enspace
+  \tte{tz}
+  \\
+  \tte{yz}\enspace
+  \tte{zx}\enspace
+  \tte{xy}
+  \\[\jot]
+  \te{xyz}\enspace
+  \te{tyz}\enspace
+  \te{tzx}\enspace
+  \te{txy}
+  \\
+  \tw{1}
+\end{gathered}
+\right.
+\end{equation}
+\end{subequations}
 
 These duals have special properties. For instance, for any 3-covector $\yN$, we have
 \begin{equation}
@@ -1480,17 +1542,17 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
   \begin{gathered}
     \tw{1}
     \\[\jot]
-  -\ti{xyz}\enspace
+  \ti{xyz}\enspace
   \ti{tyz}\enspace
   \ti{tzx}\enspace
   \ti{txy}
   \\[\jot]
-  \tti{yz}\enspace
-  \tti{zx}\enspace
-  \tti{xy}\\
   \tti{tx}\enspace
   \tti{ty}\enspace
-  \tti{tz}
+  \tti{tz}\\
+  \tti{yz}\enspace
+  \tti{zx}\enspace
+  \tti{xy}
   \\[\jot]
   \ttti{t}\enspace
   \ttti{x}\enspace
@@ -1714,9 +1776,9 @@ The conservation of magnetic flux is expressed by
     \label{eq:dFzero}
     \begin{aligned}
       0 = \di\yF &=  \sssi{xyz} \, (\de_{i}B^{i})  + {}\\
-      &\quad -\sssi{tyz}\, (-\de_{t}B^{x} - \de_{y}E_{z} + \de_{z}E_{y}) + {}\\
-      &\quad -\sssi{tzx}\, (-\de_{t}B^{y} - \de_{z}E_{x} + \de_{x}E_{z}) + {}\\
-      &\quad -\sssi{txy}\, (-\de_{t}B^{z} - \de_{x}E_{y} + \de_{y}E_{x})
+      &\quad \sssi{tyz}\, (\de_{t}B^{x} + \de_{y}E_{z} - \de_{z}E_{y}) + {}\\
+      &\quad \sssi{tzx}\, (\de_{t}B^{y} + \de_{z}E_{x} - \de_{x}E_{z}) + {}\\
+      &\quad \sssi{txy}\, (\de_{t}B^{z} + \de_{x}E_{y} - \de_{y}E_{x})
     \end{aligned}
   \end{equation}
   or equivalently

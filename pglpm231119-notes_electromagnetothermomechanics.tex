@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2026-05-22T08:24:04+0200
+%% Last-Updated: 2026-05-22T10:42:47+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -1448,7 +1448,7 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
   \label{eq:volume_duality}
   \left.
     \begin{gathered}
-      \sssse{}
+      \sssse{txyz}
       \\[\jot]
   \ssse{xyz}\enspace
   \ssse{tyz}\enspace
@@ -1471,16 +1471,16 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
 \end{gathered}
 \right)\quad
 \begin{gathered}
-  \xleftarrow{\qquad\mathclap{\textstyle\frac{\dg}{c}\,\vi\cdot{}}\qquad}
-  \\
   \xrightarrow{\qquad\mathclap{\textstyle{}\cdot\ve\,\frac{c}{\dg}}\qquad}
+  \\
+  \xleftarrow{\qquad\mathclap{\textstyle\frac{\dg}{c}\,\vi\cdot{}}\qquad}
 \end{gathered}
 \quad%\tfrac{c}{\dg}
 \left(
   \begin{gathered}
     \tw{1}
     \\[\jot]
-  \ti{xyz}\enspace
+  -\ti{xyz}\enspace
   \ti{tyz}\enspace
   \ti{tzx}\enspace
   \ti{txy}
@@ -1695,30 +1695,36 @@ The electromagnetic field, represented by the Faraday 2-covector, is typically d
     \ .
   \end{split}
 \end{equation}
-Where $\yE$ is a 1-covector and $\yB$ a 2-covector. Given a system of coordinates $(t,x,y,z)$, this decomposition is unique. Neither the 2-covector $\yB$ or the 1-covector $\yE$ have any $\si{t}$ components, that is, they have the vector $\se{t}$ in their kernels.
+Where $\yE$ is a 1-covector and $\yB$ a 2-covector. Given a system of coordinates $(t,x,y,z)$, this decomposition is unique. Neither the 2-covector $\yB$ or the 1-covector $\yE$ have any $\si{t}$ components, that is, they have the vector $\se{t}$ in their kernels. The matrix representation (App.~\ref{sec:matrix_repr}) is
+\begin{equation}
+  \label{eq:F_matrix}
+  \yF =
+  \begin{bmatrix}
+    0 & -E_{x} & -E_{y} & -E_{z} \\
+    E_{x} & 0 & B^{z} & -B^{y} \\
+    E_{y} & -B^{z} & 0 & B^{x} \\
+    E_{z} & B^{y} & -B^{x} & 0
+  \end{bmatrix} \ .
+\end{equation}
 
 
 The conservation of magnetic flux is expressed by
-\begin{gather}
-  \label{eq:dFzero}
-  \di\yF = 0
-  \\
-  \shortintertext{or equivalently}
-  \begin{aligned}
-    &\de_{i} B^{i} = 0
-    &&\qquad\text{($\sssi{xyz}$ component)}
-    \\[\jot]
-    &\de_{t}B^{i} + \epsilon^{ijk}\de_{j}E_{k} = 0
-    &&\qquad\text{($\sssi{tx^{j}x^{k}}$ components)}
-    % \\
-    % &\de_{t}B^{y} + \de_{z}E_{x} - \de_{x} E_{z} = 0
-    % &&\qquad\text{($\sssi{tzx}$)}
-    % \\
-    % &\de_{t}B^{z} + \de_{x}E_{y} - \de_{y} E_{x} = 0
-    % &&\qquad\text{($\sssi{txy}$)}
-  \end{aligned}
-\end{gather}
-
+\begin{subequations}
+  \begin{equation}
+    \label{eq:dFzero}
+    \begin{aligned}
+      0 = \di\yF &=  \sssi{xyz} \, (\de_{i}B^{i})  + {}\\
+      &\quad -\sssi{tyz}\, (-\de_{t}B^{x} - \de_{y}E_{z} + \de_{z}E_{y}) + {}\\
+      &\quad -\sssi{tzx}\, (-\de_{t}B^{y} - \de_{z}E_{x} + \de_{x}E_{z}) + {}\\
+      &\quad -\sssi{txy}\, (-\de_{t}B^{z} - \de_{x}E_{y} + \de_{y}E_{x})
+    \end{aligned}
+  \end{equation}
+  or equivalently
+  \begin{equation}
+    \de_{i} B^{i} = 0 \ ,
+    \qquad \de_{t}B^{i} + \epsilon^{ijk}\de_{j}E_{k} = 0 \ .
+  \end{equation}
+\end{subequations}
 It should be noted that all components of $\di\yE$ containing $\si{t}$ also disappear, because of the exterior product $\yE\si{t}$. The differential $\di$ therefore operates on $\yE$ as if this 1-covector belonged to a three-dimensional manifolds with coordinates $(x,y,z)$. Let's denote this operation by $\ddi$; it is connected with the \enquote{curl} operator. Then the equations above can be written
 \begin{equation}
 \ddi\yB = 0 \qquad

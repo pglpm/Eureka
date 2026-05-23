@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2026-05-22T22:33:17+0200
+%% Last-Updated: 2026-05-23T09:58:15+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -965,8 +965,8 @@ Western Norway University of Applied Sciences%
 \newcommand*{\ygg}[1][]{\overset{#1}{\xbm{g}}{}}
 \newcommand*{\dg}{\sqrt{g}}
 \DeclarePairedDelimiter\nor{\lVert}{\rVert}
-\newcommand*{\ve}{\tfrac{\bm{\sqrt{g}}}{c}}
-\newcommand*{\vi}{\tfrac{c}{\bm{\sqrt{g}}}}
+\newcommand*{\ve}{\xbm{\gamma}}%{\tfrac{\xbm{\sqrt{g}}}{c}}
+\newcommand*{\vi}{\xbm{\gamma}^{-1}}%{\tfrac{c}{\xbm{\sqrt{g}}}}
 % \newcommand*{\vi}{\bar{\mathcal{G}}}
 %
 \newcommand*{\yN}{\xbm{\mathcal{N}}}
@@ -1181,8 +1181,8 @@ Contraction or dot-product of vectors and covectors is denoted by \enquote*{\,$\
 
 Contractions with the 4-covector $\tttti{}$ and the 4-vector $\tttte{}$ establish a duality between inner $(4-n)$-vectors and outer $n$-covectors:
 \begin{subequations}
-\begin{equation}
   \label{eq:coord_volume_duality}
+\begin{equation}
   \left.
     \begin{gathered}
       1
@@ -1241,7 +1241,6 @@ Contractions with the 4-covector $\tttti{}$ and the 4-vector $\tttte{}$ establis
 \right.
 \end{equation}
 \begin{equation}
-  \label{eq:coord_volume_duality}
   \left.
     \begin{gathered}
       1
@@ -1494,10 +1493,10 @@ We take the metric $\yg$ to have signature $(-,+,+,+)$ and dimensions of area. T
 \dg \defd \sqrt{-\det\yg} \ .
 \end{equation}
 
-The volume element induced by the metric $\yg$ has dimensions of volume-time and is denoted (note the boldface)
+The volume element induced by the metric $\yg$ has dimensions of volume-time and is denoted% (note the boldface)
 \begin{equation}
   \label{eq:vol_element}
-  \ve \defd \frac{\dg}{c} \ssssi{\tw{t}xyz} \equiv \frac{\dg}{c}\ \tttti{}
+  \ve \defd \frac{\dg}{c}\ \tttti{} \equiv \frac{\dg}{c} \ssssi{\tw{t}xyz}
 \end{equation}
 and its corresponding twisted 4-vector:
 \begin{equation}
@@ -1505,31 +1504,33 @@ and its corresponding twisted 4-vector:
   \vi \defd \frac{c}{\dg}\ \tttte{} \ .
 \end{equation}
 
-Contraction with the volume element or its inverse establishes a \enquote{volume duality} between outer $n$-covectors and inner $(4-n)$-vectors:
-\begin{equation}
+Contraction with the volume element or its inverse establishes a \enquote{volume duality} between outer $n$-covectors and inner $(4-n)$-vectors, analogous to the duality~\eqref{eq:coord_volume_duality}:
+\begin{subequations}
   \label{eq:volume_duality}
+\begin{equation}
   \left.
     \begin{gathered}
-      \sssse{txyz}
+      1
+      \\
+      \se{t}\enspace
+      \se{x}\enspace
+      \se{y}\enspace
+      \se{z}
       \\[\jot]
-  \ssse{xyz}\enspace
-  \ssse{tyz}\enspace
-  \ssse{tzx}\enspace
-  \ssse{txy}
-  \\[\jot]
-  \sse{tx}\enspace
-  \sse{ty}\enspace
-  \sse{tz}\\
-  \sse{yz}\enspace
-  \sse{zx}\enspace
-  \sse{xy}
-  \\[\jot]
-  \se{t}\enspace
-  \se{x}\enspace
-  \se{y}\enspace
-  \se{z}
-  \\[\jot]
-  1
+      \sse{tx}\enspace
+      \sse{ty}\enspace
+      \sse{tz}
+      \\
+      \sse{yz}\enspace
+      \sse{zx}\enspace
+      \sse{xy}
+      \\[\jot]
+      \ssse{xyz}\enspace
+      \ssse{tyz}\enspace
+      \ssse{tzx}\enspace
+      \ssse{txy}
+      \\
+      \sssse{txyz}
 \end{gathered}
 \right)\quad
 \begin{gathered}
@@ -1540,50 +1541,117 @@ Contraction with the volume element or its inverse establishes a \enquote{volume
 \quad%\tfrac{c}{\dg}
 \left(
   \begin{gathered}
-    \tw{1}
-    \\[\jot]
-  \ti{xyz}\enspace
-  \ti{tyz}\enspace
-  \ti{tzx}\enspace
-  \ti{txy}
-  \\[\jot]
-  \tti{tx}\enspace
-  \tti{ty}\enspace
-  \tti{tz}\\
-  \tti{yz}\enspace
-  \tti{zx}\enspace
-  \tti{xy}
-  \\[\jot]
+  \tttti{}
+    \\
   \ttti{t}\enspace
   \ttti{x}\enspace
   \ttti{y}\enspace
   \ttti{z}
   \\[\jot]
-  \tttti{}
+  \tti{tx}\enspace
+  \tti{ty}\enspace
+  \tti{tz}
+  \\
+  \tti{yz}\enspace
+  \tti{zx}\enspace
+  \tti{xy}
+  \\[\jot]
+  \ti{xyz}\enspace
+  \ti{tyz}\enspace
+  \ti{tzx}\enspace
+  \ti{txy}
+  \\
+  \tw{1}
 \end{gathered}
 \right.
 \end{equation}
+\begin{equation}
+  \label{eq:coord_volume_duality}
+  \left.
+    \begin{gathered}
+      1
+      \\
+      \si{t}\enspace
+      \si{x}\enspace
+      \si{y}\enspace
+      \si{z}
+      \\[\jot]
+      \ssi{tx}\enspace
+      \ssi{ty}\enspace
+      \ssi{tz}
+      \\
+      \ssi{yz}\enspace
+      \ssi{zx}\enspace
+      \ssi{xy}
+      \\[\jot]
+      \sssi{xyz}\enspace
+      \sssi{tyz}\enspace
+      \sssi{tzx}\enspace
+      \sssi{txy}
+      \\
+      \ssssi{txyz}
+\end{gathered}
+\right)\quad
+\begin{gathered}
+  \xrightarrow{\qquad\mathclap{\textstyle{}\cdot\vi\,\frac{\dg}{c}}\qquad}
+  \\
+  \xleftarrow{\qquad\mathclap{\textstyle\frac{c}{\dg}\,\ve\cdot{}}\qquad}
+\end{gathered}
+\quad%\tfrac{c}{\dg}
+\left(
+  \begin{gathered}
+  \tttte{}
+    \\
+  \ttte{t}\enspace
+  \ttte{x}\enspace
+  \ttte{y}\enspace
+  \ttte{z}
+  \\[\jot]
+  \tte{tx}\enspace
+  \tte{ty}\enspace
+  \tte{tz}
+  \\
+  \tte{yz}\enspace
+  \tte{zx}\enspace
+  \tte{xy}
+  \\[\jot]
+  \te{xyz}\enspace
+  \te{tyz}\enspace
+  \te{tzx}\enspace
+  \te{txy}
+  \\
+  \tw{1}
+\end{gathered}
+\right.
+\end{equation}
+\end{subequations}
+
 This is the reason why in older literature an outer-oriented $n$-covector is treated as a $(4-n)$-\enquote{vector density}, that is, a vector divided by the square root of the volume element.
 
-The transpose of the map $\vi\cdot{}$ depends on what this map is acting upon:
+The transpose of the contraction with $\vi$ depends on what this map is acting upon:
 \begin{equation}
   \label{eq:transpose_inv_vol_element}
-  \dotv\cdot\vi =
-  \begin{dcases*}
-    -\vi\cdot\dotv& on 1- or 3-covectors,
+  \begin{aligned}
+  \dotv\cdot\vi &=
+    -\vi\cdot\dotv &&\text{on 1- or 3-covectors,}
     \\
-    \vi\cdot\dotv& on 0-, 2-, 4-covectors.
-  \end{dcases*}
+  \dotv\cdot\vi &=
+    \vi\cdot\dotv &&\text{on 0-, 2-, 4-covectors.}
+  \end{aligned}
 \end{equation}
 Therefore we have the following inverse relationships:
 \begin{equation}
   \label{eq:inverse_vol_element}
-  \ve\cdot\bigl(\vi\cdot \dotv\bigr) =
-  \begin{dcases*}
-    -\dotv& on 1- or 3-covectors,
-    \\
-    \dotv& on 0-, 2-, 4-covectors.
-  \end{dcases*}
+  \begin{aligned}
+    \bigl(\dotv \cdot \vi\bigr) \cdot \ve &=
+    \begin{dcases*}
+      -\dotv& on 1- or 3-covectors,
+      \\
+      \dotv& on 0-, 2-, 4-covectors.
+    \end{dcases*}
+    \\[2\jot]
+    \ve\cdot\bigl(\dotv \cdot \vi\bigr) &= \dotv \quad\text{always}
+  \end{aligned}
 \end{equation}
 
 
@@ -1630,12 +1698,20 @@ of dimensions \enquote{amount of matter}, typically measured in moles, where
 \item $N$ is the volumic amount of matter per coordinate volume.
 \item $J^{i}$ is the areic flux of amount of matter (equivalent to a molar flux) through a small area at rest in the coordinate system $(t, x^{i})$, per coordinate area and per coordinate time.
 \end{itemize}
+It is represented (App.~\ref{sec:matrix_repr}) by the column-matrix
+\begin{equation}
+  \label{eq:matter_current_matrix}
+  \yN =
+  \begin{bmatrix}
+    N\\J^{x}\\J^{y}\\J^{z}
+  \end{bmatrix} \ .
+\end{equation}
 
 The current for every particular kind of matter satisfies the conservation law
 \begin{equation}
   \label{eq:cons_matter}
-  \di\yN = 0
-  \quad\text{or}\quad
+ 0 = \di\yN = (\de_{t}N + \de_{i} J^{i})\,\tttti{}
+  \qquad\text{or}\qquad
   \de_{t}N + \de_{i} J^{i} = 0
 \end{equation}
 independent of any metric.
@@ -1646,7 +1722,7 @@ The common contravariant form of the matter current, \enquote{$N^{\mu}$}, is obt
 \begin{equation}
   \label{eq:contrav_matter_current}
   \text{`\,}N^{\mu}\text{\,'} \corr  \vi \cdot \yN =
-  \frac{c}{\dg}\, N\se{t} + \frac{c}{\dg}\, J^{i}\se{t} \ .
+  \frac{c}{\dg}\, N\se{t} + \frac{c}{\dg}\, J^{i}\se{i} \ .
 \end{equation}
 
 \medskip
@@ -1656,17 +1732,29 @@ If a metric is present, a four-velocity $\yU$ can be associated with the matter 
   \nor{\yN}^{2} \defd \yN \cdot \ygg[3]^{-1} \cdot \yN
 \end{equation}
 and for normal matter (as opposed to antimatter) $\nor{\yN}^{2} \ge 0$.
-The four-velocity is defined by the following properties and identity:
+The four-velocity is the 4-vector lying in the kernel of $\yN$ and having magnitude $-c^{2}$. So it is defined by the following properties and identity:
 \begin{gather}
   \label{eq:prop_UN}
   \yU \cdot \yN = 0 \qquad \yU\cdot\yg\cdot\yU = -c^{2}
   \\
   \label{eq:def_UN}
-  \yU = \frac{1}{\abs{\,\nor{\yN}\,}}\, \vi\cdot\yN
+  \yU = \frac{1}{\,\abs{\,\nor{\yN}\,}\,}\, \vi\cdot\yN
   \\
   \shortintertext{which also implies (for normal matter)}
   \yN = \nor{\yN}\, \yU\cdot\ve \ .
 \end{gather}
+
+We can also associate a \emph{coordinate velocity} $\yv$ with the matter current. It is the 4-vector lying in the kernel of $\yN$ and having unit time component:
+\begin{equation}
+  \label{eq:prop_vN}
+  \yv \cdot \yN = 0 \qquad \yv\cdot \si{t} = 1
+  \qquad\implies\qquad
+  \yv =
+  \begin{bmatrix}
+    1\\ J^{x}/N \\ J^{y}/N \\ J^{z}/N
+  \end{bmatrix} \ .
+\end{equation}
+The coordinate velocity is undefined (or equal to infinity) in coordinates where $N$ is zero.
 
 
 \medskip
@@ -1675,10 +1763,10 @@ The flux of matter through a small area moving with coordinate velocity $v^{i}$,
 \begin{equation}
   \label{eq:matter_flux_area}
   \begin{aligned}
-    \yN \cdot (\bm{A}\land\bm{V})
+   (\bm{A}\land\bm{V}) \cdot \yN
     &\equiv
-    (N\,\ttti{t} + J^{i}\,\ttti{x^{i}}) \cdot
-    \tau\,(-a_{i}\,v^{i}\,\ttte{t} + a_{i}\,\ttte{x^{i}})
+    \tau\,(-a_{i}\,v^{i}\,\ttte{t} + a_{i}\,\ttte{x^{i}}) \cdot
+    (N\,\ttti{t} + J^{i}\,\ttti{x^{i}})
     \\ &= (- N a_{i}\,v^{i} + J^{i}\,a_{i}) \,\tau \,.
   \end{aligned}
 \end{equation}
@@ -1690,57 +1778,8 @@ The negative sign in front of the first summand makes sense. Take for instance a
 % 
 % But often the matter density is specified with respect to a hypersurface orthogonal to the four-velocity of matter.
 
-\section{Charge and magnetic flux}
-\label{sec:charge_magnet}
-
-The electric-charge current $\yQ$ is an outer-oriented 3-covector
-\begin{equation}
-  \label{eq:echarge_current}
-  \yQ = Q\,\ttti{t} + I^{i}\,\ttti{x^{i}}
-\end{equation}
-of dimensions \enquote{charge}, typically measured in coulombs, where
-\begin{itemize}
-\item $Q$ is the volumic charge per coordinate volume.
-\item $I^{i}$ is the areic flux of charge through a small area at rest in the coordinate system $(t, x^{i})$, per coordinate area and coordinate time.
-\end{itemize}
-
-The electric-charge current satisfies the conservation law
-\begin{equation}
-  \label{eq:cons_matter}
-  \di\yQ = 0
-  \quad\text{or}\quad
-  \de_{t}Q + \de_{i} I^{i} = 0
-\end{equation}
-independent of any metric.
-
-\medskip
-
-Since $\yQ$ is a closed, outer-oriented 3-covector field, it can at least locally be expressed as the exterior differential of an outer-oriented 2-covector field $\yG$:
-\begin{equation}
-  \label{eq:def_G_em}
-  \begin{split}
-    \yG &=
-    H_{x} \, \ssi{\tw{t}x} + H_{y} \, \ssi{\tw{t}y} + H_{z} \, \ssi{\tw{t}z} +
-    D_{x} \, \ssi{\tw{y}z} + D_{y} \, \ssi{\tw{z}x} + D_{z} \, \ssi{\tw{x}y}
-    \\
-    &
-    \begin{multlined}[0.9\linewidth]
-      {}\equiv
-      H^{x} \, \tti{yz} + H^{y} \, \tti{zx} + H^{z} \, \tti{xy} +{}\\
-      D^{x} \, \tti{tx} + D^{y} \, \tti{ty} + D^{z} \, \tti{tz}
-    \end{multlined}
-  \end{split}
-\end{equation}
-so that
-\begin{equation}
-  \label{eq:Q_dG}
-  \di\yG = \yQ
-  \qquad\text{or}\qquad
-  \de_{i} D^{i} = Q \ ,\quad
-  \de_{t} D^{i} - \epsilon^{ijk} \de_{j} H_{k} = -I^{i} \ .
-\end{equation}
-
-\bigskip
+\section{Magnetic flux and charge}
+\label{sec:magneticflux_charge}
 
 The electromagnetic field, represented by the Faraday 2-covector, is typically decomposed as \autocites[\chap~9]{frankel1979}
 \begin{equation}
@@ -1799,8 +1838,8 @@ It should be noted that all components of $\di\yE$ containing $\si{t}$ also disa
 The aether relations are constitutive relations between $\yG$ and $\yF$; they involve the metric:
 \begin{gather}
   \label{eq:aether}
-  \yG = \frac{1}{\mu_{0}} \, \ve :
-  \bigl( \yg^{-1} \cdot \yF \cdot \yg^{-1} \bigr)
+  \yG = \frac{1}{\mu_{0}} \,
+  \bigl( \yg^{-1} \cdot \yF \cdot \yg^{-1} \bigr) \cdot \ve
   \\
   \shortintertext{or, at a point in inertial coordinates}
   D_{i} = \frac{1}{\mu_{0}\,c^{2}} E_{i} \ ,
@@ -1808,7 +1847,54 @@ The aether relations are constitutive relations between $\yG$ and $\yF$; they in
   H^{i} = \frac{1}{\mu_{0}} B^{i} \ .
 \end{gather}
 
+\bigskip
 
+The electric-charge current $\yQ$ is an outer-oriented 3-covector
+\begin{equation}
+  \label{eq:echarge_current}
+  \yQ = Q\,\ttti{t} + I^{i}\,\ttti{x^{i}}
+\end{equation}
+of dimensions \enquote{charge}, typically measured in coulombs, where
+\begin{itemize}
+\item $Q$ is the volumic charge per coordinate volume.
+\item $I^{i}$ is the areic flux of charge through a small area at rest in the coordinate system $(t, x^{i})$, per coordinate area and coordinate time.
+\end{itemize}
+
+The electric-charge current satisfies the conservation law
+\begin{equation}
+  \label{eq:cons_matter}
+  \di\yQ = 0
+  \quad\text{or}\quad
+  \de_{t}Q + \de_{i} I^{i} = 0
+\end{equation}
+independent of any metric.
+
+\medskip
+
+Since $\yQ$ is a closed, outer-oriented 3-covector field, it can at least locally be expressed as the exterior differential of an outer-oriented 2-covector field $\yG$:
+\begin{equation}
+  \label{eq:def_G_em}
+  \begin{split}
+    \yG &=
+    H_{x} \, \ssi{\tw{t}x} + H_{y} \, \ssi{\tw{t}y} + H_{z} \, \ssi{\tw{t}z} +
+    D_{x} \, \ssi{\tw{y}z} + D_{y} \, \ssi{\tw{z}x} + D_{z} \, \ssi{\tw{x}y}
+    \\
+    &
+    \begin{multlined}[0.9\linewidth]
+      {}\equiv
+      H^{x} \, \tti{yz} + H^{y} \, \tti{zx} + H^{z} \, \tti{xy} +{}\\
+      D^{x} \, \tti{tx} + D^{y} \, \tti{ty} + D^{z} \, \tti{tz}
+    \end{multlined}
+  \end{split}
+\end{equation}
+so that
+\begin{equation}
+  \label{eq:Q_dG}
+  \di\yG = \yQ
+  \qquad\text{or}\qquad
+  \de_{i} D^{i} = Q \ ,\quad
+  \de_{t} D^{i} - \epsilon^{ijk} \de_{j} H_{k} = -I^{i} \ .
+\end{equation}
 
 \section{Four-stress and its equations}
 \label{sec:tensor_energy}

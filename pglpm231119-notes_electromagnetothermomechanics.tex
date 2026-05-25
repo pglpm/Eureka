@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2022-07-20T21:21:10+0100
-%% Last-Updated: 2026-05-23T09:58:15+0200
+%% Last-Updated: 2026-05-25T17:07:34+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -2174,10 +2174,12 @@ If Killing vectors are used, the corresponding supply terms vanish.
 \section{Four-stress for matter}
 \label{sec:fourstress_matter}
 
-Consider a region where there is a non-vanishing matter current $\yN$ with associated four-velocity $\yU$, and define
+Consider a region where there is a non-vanishing matter current $\yN$ with associated four-velocity $\yU$, and define (see \sect~\ref{sec:matter_current})
 \begin{gather}
   \label{eq:U_dual}
-  \yUd = -\frac{1}{c}\,\yg \cdot \yU
+  \yUd = -\frac{1}{c}\,\yU \cdot \yg
+  \equiv
+  \frac{1}{\,c\,\abs{\,\nor{\yN}\,}\,}\, \yN \cdot \vi \cdot \yg
   \\
   \shortintertext{which statisfies}
   \yUd \cdot \yU = 1 \ ,
@@ -2554,6 +2556,86 @@ Combining \eqns~\eqref{eq:energy_matter_GCRS}, \eqref{eq:momentum_matter_GCRS}, 
   \label{eq:equiv_mom_enflux_GCRS}
   p_{a} = \phi^{a}/c^{2} \ .
 \end{equation}
+
+
+\section{Explicit formulae for a coordinate system uniformly accelerated with respect to Earth's surface}
+\label{sec:equations_accel}
+
+Consider a \emph{local} coordinate system $(t,x,y,z)$ constructed as follows. Start from the ITRS coordinate system $(t',x',y',z')$, rotating with the Earth. We assume to be in the vicinity of Earth's surface, with vertical $z'$-coordinate, so that the gravitational potential is approximately given by $\yW\approx \yW_{0} - g z'$, with constant $\yW_{0}$ and $g$. Then we consider a new coordinate system $(t,x,y,z)$ in uniform acceleration in the $z'$-direction with respect to the old one. The uniform acceleration is taken to be in a \enquote{Rindler sense}. We have $x=x'$, $y=y'$, whereas the $(t,z)$ and $(t',z')$ coordinates are related by
+\begin{gather}
+  \label{eq:coord_transf_accel}
+  \left\{\begin{aligned}
+    t &= t' + \frac{a t'\,(a {t'}^2 - 3 z')}{3 c^2}
+    + \Ord\Bigl(\tfrac{1}{c^{3}}\Bigr)
+\\
+z &= z' - \frac12 a {t'}^2
++ \frac{a^2 {t'}^2 \,(a {t'}^2 - 4 z')}{8 c^2}
++ \Ord\Bigl(\tfrac{1}{c^{3}}\Bigr)
+\end{aligned}\right.
+  \\
+  \left\{\begin{aligned}
+    t' &= t + \frac{a t\,(a t^2 + 6 z)}{6 c^2}
+    + \Ord\Bigl(\frac{1}{c^{3}}\Bigr)
+\\
+z' &= z + \frac12 a t^2
++ \frac{a^2 t^2 \,(a t^2 + 12 z)}{24 c^2}
++ \Ord\Bigl(\tfrac{1}{c^{3}}\Bigr)
+\end{aligned}\right.
+\end{gather}
+
+\subsection{Metric}
+\label{sec:accel_metric}
+
+In the Earth-accelerated coordinates the metric has components
+\begin{multline}
+  \label{eq:metric_accel}
+  (g_{\mu\nu}) =
+  \left[\begin{smallmatrix}
+    -c^{2} + 2 \yW_0 - 2 z\,(a + g) - a g t^2
+    + \Ord\bigl(\frac{1}{c^{2}}\bigr) &
+    \Ord\bigl(\frac{1}{c^{3}}\bigr)
+    \\
+    \Ord\bigl(\frac{1}{c^{3}}\bigr) &
+    1 + \frac{2}{c^{2}} (\yW_0 - g z) + \Ord\bigl(\frac{1}{c^{4}}\bigr)
+    \\
+    \Ord\bigl(\frac{1}{c^{3}}\bigr) &
+    0
+    \\
+    \Ord\bigl(\frac{1}{c^{3}}\bigr) &
+    0
+  \end{smallmatrix}\right.
+  \\[1ex]
+  \left.\begin{smallmatrix}
+    \Ord\bigl(\frac{1}{c^{3}}\bigr) &
+    \Ord\bigl(\frac{1}{c^{3}}\bigr)
+    \\
+    0 &
+    0
+    \\
+    1 + \frac{2}{c^{2}} (\yW_0 - g z) + \Ord\bigl(\frac{1}{c^{4}}\bigr) &
+    0
+    \\
+    0 &
+    1 + \frac{2}{c^{2}} (\yW_0 - g z) + \Ord\bigl(\frac{1}{c^{4}}\bigr)
+  \end{smallmatrix}\right]
+\end{multline}
+
+The volume element $\ve$ and its inverse are
+\begin{equation}
+  \label{eq:vol_element_accel}
+  \begin{aligned}
+    \ve &= \biggl[1 +
+    \frac{2}{c^{2}} [\yW_0 - g z + \tfrac12 a (z - g t^2)]
+    + \Oc{4} \biggr]\,\tttti{} \ ,
+    \\\
+    \vi &= \biggl[1 -
+    \frac{2}{c^{2}} [\yW_0 - g z + \tfrac12 a (z - g t^2)]
+    + \Oc{4}\biggr]\,\tttte{} \ .
+  \end{aligned}
+\end{equation}
+
+
+
 
 %% Refs to check
 %% brumberg2004

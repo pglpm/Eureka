@@ -2,7 +2,7 @@
 \pdfinclusioncopyfonts=1 % to preserve fonts in figs
 %% Author: PGL  Porta Mana
 %% Created: 2015-05-01T20:53:34+0200
-%% Last-Updated: 2026-06-30T08:44:44+0200
+%% Last-Updated: 2026-06-30T15:02:34+0200
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newif\ifarxiv
 \arxivfalse
@@ -765,7 +765,7 @@ Western Norway University of Applied Sciences%
 %\newcommand*{\QQ}{\bm{\mathrm{Q}}}
 \newcommand*{\RR}{\bm{\mathrm{R}}}
 %\newcommand*{\CC}{\bm{\mathrm{C}}}
-%\newcommand*{\nabl}{\bm{\nabla}}%nabla
+\newcommand*{\nabl}{\bm{\nabla}}%nabla
 %\DeclareMathOperator{\lb}{lb}%base 2 log
 %\DeclareMathOperator{\tr}{tr}%trace
 %\DeclareMathOperator{\card}{card}%cardinality
@@ -888,6 +888,16 @@ Western Norway University of Applied Sciences%
 %\DeclareMathOperator*{\argsup}{arg\,sup}
 \newcommand*{\dob}{degree of belief}
 \newcommand*{\dobs}{degrees of belief}
+\newcommand*{\yv}{\bm{v}}
+\newcommand*{\ym}{m}
+\newcommand*{\yE}{E}
+\newcommand*{\yEp}{E_{\textrm{p}}}
+\newcommand*{\yEk}{E_{\textrm{k}}}
+\newcommand*{\yEt}{E_{\textrm{tot}}}
+\newcommand*{\yG}{F_{\textrm{g}}}
+\newcommand*{\yr}{\bm{r}}
+\newcommand*{\yW}{W}
+\newcommand*{\yQ}{Q}
 %%% Custom macros end @@@
 
 \usepackage[retain-explicit-plus,quantity-product=\:]{siunitx}
@@ -963,12 +973,31 @@ Western Norway University of Applied Sciences%
 % % Check also
 % ~/Eureka/pglpm241222-notes_energy_momentum.tex
 % szabados2004_r2009 % \chap~2
+% segevetal2000 % virtual power
 % penroseetal1965
 % ehlersetal1965
 % waldetal2000
-
+% maugin1980b % virtual power, equivalently take 1-form \sect2.1
+%
+%
 % Given an energy-momentum tensor $\yTT$ we can construct an associated four-current as follows.\autocites{gotayetal1992}[\sect~3.2 p.~62]{hawkingetal1973_r1994}[\sect~II.7.III p.~87]{choquetbruhatetal1989_r2000}[cf also][\sect~2.5]{malament2012}[and the discussion in][part~4 \sect~1]{vandantzig1934b}
 
+% ./bossavit1991-Differential_geometry.pdf:1
+% ./bossavit1991b.djvu:4
+% ./bossavit1992.pdf:12
+% ./bossavit1992b.djvu:2
+% ./bossavit1998_r2004-Computational_electromagnetism.pdf:3
+% ./bossavit1998b_r1998.pdf:9
+% ./bossavit2002.pdf:5
+% ./bossavit2002_r2005-Discretization_of_electromagnetic_problems.pdf:5
+% ./bossavit2004.pdf:1
+% ./bossavit2011.pdf:11
+% ./bossavit2012.pdf:1
+% ./bossavit2014.pdf:5
+% ./bossavit2016.pdf:4
+% ./bossavit2016b.pdf:9
+% ./bossavit2019.pdf:3
+% ./bossavitetal2014.pdf:1
 
 
 % \setcounter{section}{-1} % to start numbering at 0
@@ -989,8 +1018,21 @@ The present note discusses two sets of questions that at first sight might not a
 
 \begin{enumerate}[label=B\arabic*.,ref=B\arabic*]
 \item\label{item:integrate_energy} How can we associate a total energy to a region of spacetime?
+\item\label{item:particle_energy_momentum} If energy-momentum is a tensor, how do we associate a four-momentum \emph{vector} to particles?
 \end{enumerate}
 
+The plan of the present note is to first expand on the two sets of questions, then to show how energy and momentum (more precisely their densities) are constructed in general relativity. This construction reveals the necessity of choosing a \enquote{fiducial} four-vector field in spacetime. Such a choice is always made in any discussion of energy and momentum densities and fluxes, yet it is often downplayed or not even mentioned. Finally, we shall see how the initial questions can be given natural answers by keeping in mind the dependence of the definition of energy and momentum on the choice of a fiducial vector.
+
+
+\section{Baffling aspects of energy}
+\label{sec:questions_energy}
+
+In undergraduate physics, the first kind of energy that we associate with a material body is kinetic energy, and it is often immediately remarked that this energy depends on the reference frame used to describe the motion of the material body. For a body, or portion thereof, having mass $\ym$ and moving with velocity $\yv$, the kinetic energy is $\tfrac12 \ym \yv^2$. Since the velocity depends on the reference frame, the frame-dependence of kinetic energy is immediately obvious.
+
+Then students meet with another form of energy that can be counted in the total energy of a material body: gravitational potential energy, typically expressed as $\ym g z$ for a material body of mass $\ym$ at height $z$ above the ground or some other reference height. With this new form of energy come several subtle points and possible confusions. First, the students learn that this kind of energy \emph{can}, but needs not, be counted towards the total energy of the body; the choice is arbitrary and dictated by convenience. Second, if such a form of energy is counted in the total energy, then when we calculate total-energy differences we \emph{cannot} reckon the work done by gravitational forces in the total work done on the body. Vice versa, if we do not count gravitational potential energy in total-energy differences, then we must reckon the work done by gravitational forces in the total work. This is simply an expression of the fact that $\incr\yEp \equiv -\int\yG\cdot\di\yr$ or $\yG \equiv -\nabl\yEp$, so in the balance $\incr\Et = W + Q$ we can either include $\incr\yEp$ on the left, or $-\int\yG\cdot\di\yr$ on the right; but not both!
+
+
+This is a tricky point; many students do the mistake of double-counting gravitational energy by
 
 
 %% diverse transf. properties
